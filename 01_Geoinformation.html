@@ -404,6 +404,41 @@
 </div>
 </div>
 </section>
+<section id="динамическая" class="slide level2">
+<h2>Динамическая</h2>
+<p>Что может меняться у пространственного объекта?</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<ul>
+<li><p>Геометрия</p></li>
+<li><p>Местоположение</p></li>
+<li><p>Внутренняя структура</p></li>
+</ul>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/image-1809566471.png"></p>
+<p></p><figcaption>Movebank — трекинг перелетов птиц</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="динамическая-1" class="slide level2">
+<h2>Динамическая</h2>
+
+<img data-src="images/image-42071914.png" class="r-stretch quarto-figure-center"><p class="caption">Movebank — трекинг перелетов птиц</p></section>
+<section id="movebank" class="slide level2 white-text" data-background-video="videos/movebank.mp4" data-background-video-muted="true">
+<h2>Movebank</h2>
+<div class="cell">
+<style type="text/css">
+.white-text, 
+.white-text h2 {
+ color: white;
+}
+</style>
+</div>
+</section>
 <section id="музыка" class="slide level2">
 <h2>Музыка</h2>
 
@@ -629,6 +664,48 @@ To the <strong>Blue Ridge Mountains, over near Tennessee</strong></p>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

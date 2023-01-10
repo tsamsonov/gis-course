@@ -2,6 +2,9 @@
 title: "Географическая информация"
 subtitle: "Основы геоинформатики"
 author: "Тимофей Самсонов"
+execute:
+  echo: false
+engine: knitr
 format:
   revealjs: 
     theme: [default, custom.scss]
@@ -109,13 +112,35 @@ format:
 :::
 :::
 
-## Музыка
+## Динамическая
 
-![](images/image-1362256337.png)
+Что может меняться у пространственного объекта?
 
-\[Verse 1\]\
-My brother, where do you intend to go tonight?\
-I heard that you missed your connecting flight\
-To the **Blue Ridge Mountains, over near Tennessee**
+::: columns
+::: {.column width="30%"}
+-   Геометрия
 
-## Литература
+-   Местоположение
+
+-   Внутренняя структура
+:::
+
+::: {.column width="70%"}
+![Movebank --- трекинг перелетов птиц](images/image-1809566471.png)
+:::
+:::
+
+## Динамическая
+
+![Movebank --- трекинг перелетов птиц](images/image-42071914.png)
+
+## Movebank {.white-text background-video="videos/movebank.mp4" background-video-muted="true"}
+
+```{css}
+.white-text, 
+.white-text h2 {
+ color: white;
+}
+```
+
+## 
