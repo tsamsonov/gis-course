@@ -8,6 +8,7 @@ engine: knitr
 format:
   revealjs: 
     theme: [default, custom.scss]
+    slide-number: true
 ---
 
 ## Географическая информация
@@ -189,7 +190,7 @@ format:
 
 ## Волонтёрская
 
-*Volunteeres geographic information (VGI)* --- географическая информация, создаваемая на добровольных началах
+*Volunteered geographic information (VGI)* --- географическая информация, создаваемая на добровольных началах
 
 [![Российская сеть изучения и охраны пернатых хищников](images/image-955729548.png)](http://rrrcn.ru)
 
@@ -198,3 +199,19 @@ format:
 OpenStreetMap (OSM) --- крупнейший проект в области VGI
 
 [![http://www.openstreetmap.org](images/image-1820088456.png)](http://www.openstreetmap.org)
+
+## OpenStreetMap {.white-text background-video="videos/osm-edits.mp4" background-video-muted="true"}
+
+## Синтезируемая
+
+Географическая информация, полученная путем геосимуляций, геовычислений, геомоделирования.
+
+::: columns
+::: {.column width="50%"}
+![](images/image-1127743790.png)
+:::
+
+::: {.column width="50%"}
+![](images/image-2136309151.png)
+:::
+:::
