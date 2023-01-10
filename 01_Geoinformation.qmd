@@ -165,7 +165,7 @@ format:
 
 Потоковые данные визуализируются на устройстве-получателе.
 
-![](images/image-1221494428.png)
+[![](images/image-1221494428.png)](https://www.mapbox.com)
 
 ## Мультимасштабная
 
@@ -185,4 +185,16 @@ format:
 
 Трёхмерная, трёхмерно-динамическая
 
-![](videos/ny-optimized.gif)
+[![](videos/ny-optimized.gif)](https://carto.com)
+
+## Волонтёрская
+
+*Volunteeres geographic information (VGI)* --- географическая информация, создаваемая на добровольных началах
+
+[![Российская сеть изучения и охраны пернатых хищников](images/image-955729548.png)](http://rrrcn.ru)
+
+## OpenStreetMap
+
+OpenStreetMap (OSM) --- крупнейший проект в области VGI
+
+[![http://www.openstreetmap.org](images/image-1820088456.png)](http://www.openstreetmap.org)
