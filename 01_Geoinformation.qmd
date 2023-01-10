@@ -202,6 +202,20 @@ OpenStreetMap (OSM) --- крупнейший проект в области VGI
 
 ## OpenStreetMap {.white-text background-video="videos/osm-edits.mp4" background-video-muted="true"}
 
+## Неопределенная
+
+::: columns
+::: {.column width="60%"}
+Географическая информация, обладающая свойствами *непрецизионности, неточности и нечеткости.*
+
+![](images/image-288784986.png)
+:::
+
+::: {.column width="40%"}
+![](images/image-1877121026.png)
+:::
+:::
+
 ## Синтезируемая
 
 Географическая информация, полученная путем геосимуляций, геовычислений, геомоделирования.
