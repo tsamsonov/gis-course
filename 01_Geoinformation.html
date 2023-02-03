@@ -28,6 +28,25 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="01_Geoinformation_files/libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="01_Geoinformation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -335,8 +354,16 @@
 <div class="column" style="width:40%;">
 <p><img data-src="images/image-1489181017.png"></p>
 </div><div class="column" style="width:60%;">
-<p><strong>Географическая информация</strong> <em>(geographic information)</em> — информация об объектах и явлениях, содержащая в явном или неявном виде указание на их местоположение относительно Земли. <br> <br></p>
-<p><strong>Пространственная привязка</strong> <em>(spatial referencing, georeferencing)</em> — соотнесение [географической] информации с географическим местоположением</p>
+<dl>
+<dt>Географическая информация <span class="citation" data-cites="gost:19105-2003">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р ИСО 19105-2003 2004</a>)</span></dt>
+<dd>
+<p>Информация об объектах и явлениях, содержащая в явном или неявном виде указание на их местоположение относительно Земли</p>
+</dd>
+<dt><strong>Пространственная привязка <span class="citation" data-cites="gost:70316-2022">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 70316-2022 (ИСО 19112:2019) 2022</a>)</span></strong></dt>
+<dd>
+<p>Описание позиции в реальном виде</p>
+</dd>
+</dl>
 </div>
 </div>
 </section>
@@ -509,8 +536,89 @@
 <p><img data-src="images/image-2136309151.png"></p>
 </div>
 </div>
+</section>
+<section id="пространственный-объект" class="slide level2">
+<h2>Пространственный объект</h2>
+<dl>
+<dt>Пространственный объект <span class="citation" data-cites="gost:52438-2005">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 52438-2005 2018</a>)</span></dt>
+<dd>
+<p>Цифровая модель материального или абстрактного объекта реального или виртуального мира с указанием его идентификатора, координатных и атрибутивных данных.</p>
+</dd>
+</dl>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Примечание</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Объектом может быть неподвижный или движущийся простой или сложный объект, явление, событие, процесс и ситуация.</li>
+<li>Моделируемый объект может относиться к территории, акватории, недрам и воздушному пространству Земли, околоземному космическому пространству, другим космическим телам и небесной сфере.</li>
+<li>В широком смысле под пространственным объектом в геоинформатике понимается как сам объект, так и адекватная ему цифровая модель.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="пространственные-данные" class="slide level2">
+<h2>Пространственные данные</h2>
+<dl>
+<dt>Информация <span class="citation" data-cites="gost:7.0-99">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ 7.0-99 СИБИД 1999</a>)</span></dt>
+<dd>
+<p>Сведения, воспринимаемые человеком и (или) специальными устройствами как отражение фактов материального или духовного мира в процессе коммуникации.</p>
+</dd>
+<dt>Данные <span class="citation" data-cites="gost:33707-2016">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ 33707—2016 (ISO/IEC 2382:2015) 2016</a>)</span></dt>
+<dd>
+<p>Представление информации в формальном виде, пригодном для передачи, интерпретации или обработки людьми или компьютерами.</p>
+</dd>
+<dt>Пространственные данные <span class="citation" data-cites="gost:52438-2005">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 52438-2005 2018</a>)</span></dt>
+<dd>
+<p>Данные о пространственных объектах и их наборах.</p>
+</dd>
+</dl>
+</section>
+<section id="геоинформатика" class="slide level2">
+<h2>Геоинформатика</h2>
+<dl>
+<dt>Геоинформатика (наука)</dt>
+<dd>
+<p>Наука о географической информации, методах ее получения, представления, хранения, обработки, анализа и распространения.</p>
+</dd>
+<dt>Геоинформатика (отрасль) <span class="citation" data-cites="gost:52438-2005">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 52438-2005 2018</a>)</span></dt>
+<dd>
+<p>Научно-техническое направление, объединяющее:</p>
+<ul>
+<li>теорию цифрового моделирования предметной области с использованием пространственных данных;</li>
+<li>технологии создания и использования геоинформационных систем;</li>
+<li>производство геоинформационной продукции и оказание геоинформационных услуг.</li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="библиография" class="slide level2 smaller scrollable">
+<h2>Библиография</h2>
 <div class="footer footer-default">
 
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-gost:33707-2016" class="csl-entry" role="doc-biblioentry">
+ГОСТ 33707—2016 (ISO/IEC 2382:2015). 2016. <span>“Информационные технологии. Словарь.”</span> Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200139532">https://docs.cntd.ru/document/1200139532</a>.
+</div>
+<div id="ref-gost:7.0-99" class="csl-entry" role="doc-biblioentry">
+ГОСТ 7.0-99 СИБИД. 1999. <span>“Информационно-Библиотечная Деятельность, Библиография. Термины и Определения.”</span> Москва: ИПК Издательство стандартов.
+</div>
+<div id="ref-gost:52438-2005" class="csl-entry" role="doc-biblioentry">
+ГОСТ Р 52438-2005. 2018. <span>“Географические информационные системы. Термины и определения.”</span> Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200044680">https://docs.cntd.ru/document/1200044680</a>.
+</div>
+<div id="ref-gost:70316-2022" class="csl-entry" role="doc-biblioentry">
+ГОСТ Р 70316-2022 (ИСО 19112:2019). 2022. <span>“Пространственные данные. Пространственная привязка по географическим идентификаторам.”</span> Москва: Российский институт стандартизации. <a href="https://docs.cntd.ru/document/1200193002">https://docs.cntd.ru/document/1200193002</a>.
+</div>
+<div id="ref-gost:19105-2003" class="csl-entry" role="doc-biblioentry">
+ГОСТ Р ИСО 19105-2003. 2004. <span>“Географическая информация. Соответствие и тестирование.”</span> Москва: ИПК Издательство стандартов. <a href="https://docs.cntd.ru/document/1200034855">https://docs.cntd.ru/document/1200034855</a>.
+</div>
 </div>
 </section>
     </div>

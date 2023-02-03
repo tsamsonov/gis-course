@@ -1,0 +1,77 @@
+---
+references:
+- id: gost:52438-2005
+  author:
+  - family: ГОСТ Р 52438-2005
+  issued: 2018
+  key: SG8AA5JA
+  language: ru
+  libraryID: 2
+  providerKey: 2509FBBE-5BB0-44C4-B119-6083A81ED673
+  publisher: Стандартинформ
+  publisher-place: Москва
+  title: Географические информационные системы. Термины и определения
+  type: report
+  URL: "https://docs.cntd.ru/document/1200044680"
+- id: gost:33707-2016
+  author:
+  - family: "ГОСТ 33707---2016 (ISO/IEC 2382:2015)"
+  Citation key: "gost-33707:2016"
+  ISBN: 978-12345-12345
+  issued: 2016
+  key: VIGGFX8S
+  language: ru
+  libraryID: 2
+  note: "Citation key: gost-33707:2016"
+  page: 206
+  providerKey: Zotero
+  publisher: Стандартинформ
+  publisher-place: Москва
+  title: Информационные технологии. Словарь
+  type: report
+  URL: "https://docs.cntd.ru/document/1200139532"
+- id: gost:7.0-99
+  author:
+  - family: ГОСТ 7.0-99 СИБИД
+  issued: 1999
+  key: RSKHCSXM
+  libraryID: 2
+  note: "Citation Key: gost:7.0-99"
+  providerKey: Zotero
+  publisher: ИПК Издательство стандартов
+  publisher-place: Москва
+  title: Информационно-библиотечная деятельность, библиография. Термины
+    и определения
+  type: report
+- id: gost:19105-2003
+  author:
+  - family: ГОСТ Р ИСО 19105-2003
+  issued: 2004
+  key: BS8ST478
+  language: ru
+  libraryID: 2
+  note: "Citation Key: gost:19105-2003"
+  page: 20
+  providerKey: Zotero
+  publisher: ИПК Издательство стандартов
+  publisher-place: Москва
+  title: Географическая информация. Соответствие и тестирование
+  type: report
+  URL: "https://docs.cntd.ru/document/1200034855"
+- id: gost:70316-2022
+  author:
+  - family: "ГОСТ Р 70316-2022 (ИСО 19112:2019)"
+  issued: 2022
+  key: XM3MUXUK
+  language: ru
+  libraryID: 2
+  note: "Citation Key: gost:70316-2022"
+  page: 24
+  providerKey: Zotero
+  publisher: Российский институт стандартизации
+  publisher-place: Москва
+  title: Пространственные данные. Пространственная привязка по
+    географическим идентификаторам.
+  type: report
+  URL: "https://docs.cntd.ru/document/1200193002"
+...
