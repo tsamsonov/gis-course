@@ -42,6 +42,7 @@ references:
   publisher-place: Москва
   title: Информационно-библиотечная деятельность, библиография. Термины
     и определения
+  URL: "https://docs.cntd.ru/document/1200004287"
   type: report
 - id: gost:19105-2003
   author:
@@ -74,4 +75,37 @@ references:
     географическим идентификаторам.
   type: report
   URL: "https://docs.cntd.ru/document/1200193002"
+- id: gost:43.0.3-2009
+  author:
+  - family: ГОСТ Р 43.0.3-2009
+  issued: 2018
+  key: IKV3RNFS
+  libraryID: 2
+  note: "Citation Key: gost:43.0.3-2009"
+  page: 24
+  providerKey: Zotero
+  publisher: Стандартинформ
+  publisher-place: Москва
+  title: Информационное обеспечение техники и операторской деятельности.
+    НООН-технология в технической деятельности. Общие положения
+  type: report
+  URL: "https://docs.cntd.ru/document/1200079260"
+- id: lurie:2016
+  author:
+  - family: Лурье
+    given: И. К.
+  edition: 3
+  ISBN: 978-5-98227-706-0
+  issued: 2016
+  key: ZXYV4DRN
+  language: ru
+  libraryID: 2
+  note: "Citation Key: lurie:2016"
+  number-of-pages: 424
+  providerKey: Zotero
+  publisher: Книжный дом Университет
+  publisher-place: Москва
+  title: Геоинформационное картографирование. Методы геоинформатики и
+    цифровой обработки космических снимков
+  type: book
 ...

@@ -337,6 +337,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="01_Geoinformation_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="01_Geoinformation_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="01_Geoinformation_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -537,6 +540,15 @@
 </div>
 </div>
 </section>
+<section id="геоинформатика" class="slide level2">
+<h2>Геоинформатика</h2>
+<dl>
+<dt>Геоинформатика (наука)</dt>
+<dd>
+<p>Наука о географической информации, методах ее получения, представления, хранения, обработки, анализа и распространения.</p>
+</dd>
+</dl>
+</section>
 <section id="пространственный-объект" class="slide level2">
 <h2>Пространственный объект</h2>
 <dl>
@@ -580,13 +592,69 @@
 </dd>
 </dl>
 </section>
-<section id="геоинформатика" class="slide level2">
+<section id="онтология-понятий" class="slide level2">
+<h2>Онтология понятий</h2>
+<div class="cell" data-reveal="true" data-fig-width="11">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+  A(Информация) --&gt; B(Данные)
+  C(Пространственный объект) --&gt; D(Пространственные данные)
+  A --&gt; E(Географическая информация)
+  B --&gt; D
+  E -.-&gt; D
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Примечание</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Пространственные данные</strong> можно определить также как представление <em>географической</em> информации в формальном виде, пригодном для передачи, интерпретации или обработки людьми или компьютерами.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="географическая-информационная-система-гис" class="slide level2">
+<h2>Географическая информационная система (ГИС)</h2>
+<dl>
+<dt>Информационная система <span class="citation" data-cites="gost:7.0-99">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ 7.0-99 СИБИД 1999</a>)</span></dt>
+<dd>
+<p>Система, предназначенная для хранения, обработки, поиска, распространения, передачи и представления информации</p>
+</dd>
+<dt>Географическая информационная система <span class="citation" data-cites="gost:52438-2005">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 52438-2005 2018</a>)</span></dt>
+<dd>
+<p>Информационная система, оперирующая пространственными данными.</p>
+</dd>
+</dl>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Уточнение</strong></p>
+</div>
+<div class="callout-content">
+<p>ГИС можно определить систему, предназначенная для хранения, обработки, поиска, распространения, передачи и представления <em>географической</em> информации</p>
+</div>
+</div>
+</div>
+</section>
+<section id="геоинформатика-1" class="slide level2">
 <h2>Геоинформатика</h2>
 <dl>
-<dt>Геоинформатика (наука)</dt>
-<dd>
-<p>Наука о географической информации, методах ее получения, представления, хранения, обработки, анализа и распространения.</p>
-</dd>
 <dt>Геоинформатика (отрасль) <span class="citation" data-cites="gost:52438-2005">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 52438-2005 2018</a>)</span></dt>
 <dd>
 <p>Научно-техническое направление, объединяющее:</p>
@@ -597,6 +665,56 @@
 </ul>
 </dd>
 </dl>
+<div class="callout callout-warning callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Будьте осторожны</strong></p>
+</div>
+<div class="callout-content">
+<p>В разных сферах деятельности под аббревиатурой ГИС могут подразумеваться разные понятия. Например, встречаются такие трактовки как <em>геофизическое исследование скважин</em>, <em>государственная информационная система</em> и т.д.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="три-уровня-моделирования" class="slide level2">
+<h2>Три уровня моделирования</h2>
+<div class="columns">
+<div class="column" style="width:10%;">
+<div class="cell" data-reveal="true" data-fig-width="1" data-fig-height="6">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">flowchart TB
+  A((1)) ---&gt; B((2))
+  B ---&gt; C((3))
+</pre>
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:90%;">
+<dl>
+<dt>Концептуальная модель <span class="citation" data-cites="gost:43.0.3-2009">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 43.0.3-2009 2018</a>)</span></dt>
+<dd>
+<p>Абстрактная модель, определяющая структуру исследуемого объекта (составные части и связи), свойства составных частей, причинно-следственные связи</p>
+</dd>
+<dt>Модель пространственных данных <span class="citation" data-cites="lurie:2016">(<a href="#/библиография" role="doc-biblioref" onclick="">Лурье 2016</a>)</span></dt>
+<dd>
+<p>Набор логических правил формализованного цифрового описания объектов реальности как пространственных объектов.</p>
+</dd>
+<dt>Модели пространственных объектов <span class="citation" data-cites="lurie:2016">(пр. от <a href="#/библиография" role="doc-biblioref" onclick="">Лурье 2016</a>)</span></dt>
+<dd>
+<p>Геометрические примитивы, используемые для дискретного цифрового представления объектов реальности или их частей.</p>
+</dd>
+</dl>
+</div>
+</div>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
@@ -608,7 +726,10 @@
 ГОСТ 33707—2016 (ISO/IEC 2382:2015). 2016. <span>“Информационные технологии. Словарь.”</span> Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200139532">https://docs.cntd.ru/document/1200139532</a>.
 </div>
 <div id="ref-gost:7.0-99" class="csl-entry" role="doc-biblioentry">
-ГОСТ 7.0-99 СИБИД. 1999. <span>“Информационно-Библиотечная Деятельность, Библиография. Термины и Определения.”</span> Москва: ИПК Издательство стандартов.
+ГОСТ 7.0-99 СИБИД. 1999. <span>“Информационно-Библиотечная Деятельность, Библиография. Термины и Определения.”</span> Москва: ИПК Издательство стандартов. <a href="https://docs.cntd.ru/document/1200004287">https://docs.cntd.ru/document/1200004287</a>.
+</div>
+<div id="ref-gost:43.0.3-2009" class="csl-entry" role="doc-biblioentry">
+ГОСТ Р 43.0.3-2009. 2018. <span>“Информационное Обеспечение Техники и Операторской Деятельности. НООН-Технология в Технической Деятельности. Общие Положения.”</span> Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200079260">https://docs.cntd.ru/document/1200079260</a>.
 </div>
 <div id="ref-gost:52438-2005" class="csl-entry" role="doc-biblioentry">
 ГОСТ Р 52438-2005. 2018. <span>“Географические информационные системы. Термины и определения.”</span> Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200044680">https://docs.cntd.ru/document/1200044680</a>.
@@ -618,6 +739,9 @@
 </div>
 <div id="ref-gost:19105-2003" class="csl-entry" role="doc-biblioentry">
 ГОСТ Р ИСО 19105-2003. 2004. <span>“Географическая информация. Соответствие и тестирование.”</span> Москва: ИПК Издательство стандартов. <a href="https://docs.cntd.ru/document/1200034855">https://docs.cntd.ru/document/1200034855</a>.
+</div>
+<div id="ref-lurie:2016" class="csl-entry" role="doc-biblioentry">
+Лурье, И. К. 2016. <em>Геоинформационное картографирование. Методы геоинформатики и цифровой обработки космических снимков</em>. 3rd ed. Москва: Книжный дом Университет.
 </div>
 </div>
 </section>
