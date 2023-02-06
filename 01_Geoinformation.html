@@ -856,7 +856,7 @@ class Feature{
 </div>
 <div class="callout-content">
 <p>Данные, состоящие из простых объектов, называются <strong>векторными</strong>, т.к. с каждым объектом ассоциирован единственный <em>вектор</em> значений атрибутов.</p>
-<p><img data-src="images/simple_feature.svg"></p>
+<p><img data-src="images/simple_feature.svg" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -872,7 +872,7 @@ class Feature{
 </div>
 <div class="callout-content">
 <p>В <em>каждой</em> точке, принадлежащей объекту, существует уникальное значение каждого атрибута. Его можно запросить с помощью функции, которая называется <strong>покрытием</strong>.</p>
-<p><img data-src="images/complex_feature.svg"></p>
+<p><img data-src="images/complex_feature.svg" style="width:100.0%"></p>
 </div>
 </div>
 </div>
@@ -895,6 +895,238 @@ class Feature{
 <p>Существует 4 варианта координат: <span class="math inline">\(XY\)</span>, <span class="math inline">\(XYZ\)</span>, <span class="math inline">\(XYM\)</span> и <span class="math inline">\(XYZM\)</span>.</p>
 <p>В географических координатах <span class="math inline">\(X\)</span> — долгота, <span class="math inline">\(Y\)</span> — широта.</p>
 </section>
+<section id="векторная-модель-1" class="slide level2">
+<h2>Векторная модель</h2>
+<p>Стандарт включает в себя <strong>17 моделей пространственных объектов</strong>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Основными являются 7 моделей:</p>
+<ul>
+<li><strong>Линейно связные</strong>: <code>POINT</code>, <code>LINESTRING</code>, <code>POLYGON</code></li>
+<li><strong>Линейно несвязные</strong>: <code>MULTIPOINT</code>, <code>MULTIPOINT</code>, <code>MULTIPOLYGON</code>, <code>GEOMETRYCOLLECTION</code></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Линейная связность</strong></p>
+</div>
+<div class="callout-content">
+<p>Линейно связным называется пространство, в котором любые две точки можно соединить непрерывной кривой.</p>
+<p><img data-src="images/connect.svg" style="width:60.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Оставшиеся виды моделей включают: <code>CIRCULARSTRING</code>, <code>COMPOUNDCURVE</code>, <code>CURVEPOLYGON</code>, <code>MULTICURVE</code>, <code>MULTISURFACE</code>, <code>CURVE</code>, <code>SURFACE</code>, <code>POLYHEDRALSURFACE</code>, <code>TIN</code>, <code>TRIANGLE</code>.</p>
+</section>
+<section id="векторная-модель-2" class="slide level2">
+<h2>Векторная модель</h2>
+
+<img data-src="images/simple_features.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="векторная-модель-3" class="slide level2">
+<h2>Векторная модель</h2>
+<p><strong>Линейно связные</strong> модели пространственных объектов.</p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>POINT</code></td>
+<td>нуль-мерная геометрия, содержащая одну точку</td>
+</tr>
+<tr class="even">
+<td><code>LINESTRING</code></td>
+<td>последовательность точек, соединенных прямыми, несамопересекающимися отрезками; одномерная геометрия</td>
+</tr>
+<tr class="odd">
+<td><code>POLYGON</code></td>
+<td>геометрия с положительной площадью (двумерная); последовательность точек, отрезки между которыми формируют замкнутое кольцо без самопересечений; первое кольцо является внешним, ноль и более остальных колец представляют дырки внутри полигона</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="векторная-модель-4" class="slide level2">
+<h2>Векторная модель</h2>
+<p><strong>Линейно несвязные</strong> модели пространственных объектов.</p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>MULTIPOINT</code></td>
+<td>множество точек; геометрия типа <code>MULTIPOINT</code> называется <em>простой</em> если ни одна пара точек в <code>MULTIPOINT</code> не совпадает</td>
+</tr>
+<tr class="even">
+<td><code>MULTILINESTRING</code></td>
+<td>множество линий</td>
+</tr>
+<tr class="odd">
+<td><code>MULTIPOLYGON</code></td>
+<td>множество полигонов</td>
+</tr>
+<tr class="even">
+<td><code>GEOMETRYCOLLECTION</code></td>
+<td>множество геометрий произвольного типа за исключением <code>GEOMETRYCOLLECTION</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="хранение-координат" class="slide level2">
+<h2>Хранение координат</h2>
+<div class="cell">
+
+</div>
+<p><strong>Well-Known Text (WKT)</strong> — текстовый формат</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>POINT (0.5 0.5)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>LINESTRING (0 1, 0.5 1.5, 1.2 1.2, 2 1.3, 3 2)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>POLYGON ((0.5 0.5, 2 0, 3 2, 1.5 4, 0 3, 0.5 0.5), (1 1, 0.8 2, 2 2.2, 1.4 1.1, 1 1))</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MULTIPOINT ((0.5 0.5), (1 3), (2 1), (0.2 2), (2 3), (1.5 1.5))</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MULTILINESTRING ((0.5 1.5, 1.2 1.2, 2 1.3), (0 1.5, 0.5 2, 1.2 1.7), (2 1.8, 3 2.5))</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>MULTIPOLYGON (((0.5 0.5, 2 0, 3 2, 1.5 4, 0 3, 0.5 0.5), (1 1, 0.8 2, 2 2.2, 1.4 1.1, 1 1)), ((3 3.3, 3.5 3.1, 4 3, 4 3.7, 3.7 3.96, 3.2 4, 3 3.3), (3.2 3.4, 3.8 3.2, 3.8 3.7, 3.3 3.8, 3.2 3.4)), ((3 1.2, 2.5 0.2, 3.5 0.2, 3.5 1.2, 3 1.2)), ((0 1, 0.1 0.8, 0.2 0.5, 0.1 0.3, 0 0.7, 0 1)))</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>GEOMETRYCOLLECTION (POLYGON ((0.5 0.5, 2 0, 3 2, 1.5 4, 0 3, 0.5 0.5), (1 1, 0.8 2, 2 2.2, 1.4 1.1, 1 1)), MULTIPOINT ((3.5 -0.5), (4 2), (5 0), (3.2 1), (5 2), (4.5 0.5)), MULTILINESTRING ((3 3.5, 3.7 3.2, 4.5 3.3), (2.5 3.5, 3 4, 3.7 3.7), (4.5 3.8, 5.5 4.5)))</code></pre>
+</div>
+</div>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Назначение</strong></p>
+</div>
+<div class="callout-content">
+<p>Формат <strong>WKT</strong> используется в текстовых форматах файлов, а также для визуального анализа координат объектов. Он занимает много места в памяти компьютера и медленно читается/записывается программами.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="хранение-координат-1" class="slide level2">
+<h2>Хранение координат</h2>
+<p><strong>Well-Known Binary (WKB)</strong> — бинарный формат</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>POINT: 01 01 00 00 00 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 e0 3f</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>LINESTRING: 01 02 00 00 00 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f0 3f 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 f8 3f 33 33 33 33 33 33 f3 3f 33 33 33 33 33 33 f3 3f 00 00 00 00 00 00 00 40 cd cc cc cc cc cc f4 3f 00 00 00 00 00 00 08 40 00 00 00 00 00 00 00 40</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>POLYGON: 01 03 00 00 00 02 00 00 00 06 00 00 00 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 40 00 00 00 00 00 00 00 40 00 00 00 00 00 00 f8 3f 00 00 00 00 00 00 10 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 40 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 e0 3f 05 00 00 00 00 00 00 00 00 00 f0 3f 00 00 00 00 00 00 f0 3f 9a 99 99 99 99 99 e9 3f 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 40 9a 99 99 99 99 99 01 40 66 66 66 66 66 66 f6 3f 9a 99 99 99 99 99 f1 3f 00 00 00 00 00 00 f0 3f 00 00 00 00 00 00 f0 3f</code></pre>
+</div>
+</div>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Назначение</strong></p>
+</div>
+<div class="callout-content">
+<p>Формат <strong>WKB</strong> используется в бинарных форматах файлов, в том числе а базах данных. Он занимает мало места в памяти компьютера и быстро читается/записывается программами, но не подходит для визуального анализа.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="особенности-векторной-модели" class="slide level2">
+<h2>Особенности векторной модели</h2>
+<ol type="1">
+<li>Используется для реализации объектно-ориентированной концептуальной модели.</li>
+<li>Основана на генерализации. Физическое или абстрактное тело представляется в виде конечного множества координат.</li>
+<li>В зависимости от уровня детализации один и тот же объект может представляться с помощью разной модели.</li>
+<li>Значения атрибутов в пределах границ каждого объекта предполагаются постоянными.</li>
+</ol>
+<div class="callout callout-warning callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ограничение</strong></p>
+</div>
+<div class="callout-content">
+<p>Векторная модель не годится для представления <em>географических полей</em>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="модель-покрытий" class="slide level2">
+<h2>Модель покрытий</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Модель покрытий предполагает, что можно представить поле изменения атрибутов внутри объектов.</p>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Однако есть проблема</strong></p>
+</div>
+<div class="callout-content">
+<div class="columns">
+<div class="column" style="width:20%;">
+<p><img data-src="images/rick_thinking.png"></p>
+</div><div class="column" style="width:80%;">
+<p>Географические поля определены на бесконечном множестве точек, в то время как любые модели данных состоят из конечного числа элементов. Как обойти это ограничение?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/transform_cov.svg" style="width:45.0%"></p>
+</div>
+</div>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Решение</strong></p>
+</div>
+<div class="callout-content">
+<p>Необходимо внутри объекта создать сетку опорных точек и определить функцию, которая сможет интерполировать значения между ними.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 <div class="footer footer-default">
@@ -902,7 +1134,7 @@ class Feature{
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
 <div id="ref-OGC2010" class="csl-entry" role="doc-biblioentry">
-OGC. 2010. <span>“OpenGIS® Implementation Standard for Geographic Information - Simple Feature Access - Part 1: Common Architecture.”</span> Open Geospatial Consortium. <a href="http://portal.opengeospatial.org/files/?artifact{_}id=25355E+Implementation+Standard+for+Geographic+information+-+Simple+feature+access{#}1">http://portal.opengeospatial.org/files/?artifact{_}id=25355E+Implementation+Standard+for+Geographic+information+-+Simple+feature+access{#}1</a>.
+OGC. 2010. <span>“OpenGIS® Implementation Standard for Geographic Information - Simple Feature Access - Part 1: Common Architecture.”</span> Open Geospatial Consortium. <a href="https://www.ogc.org/standards/sfa">https://www.ogc.org/standards/sfa</a>.
 </div>
 <div id="ref-gost:33707-2016" class="csl-entry" role="doc-biblioentry">
 ГОСТ 33707—2016 (ISO/IEC 2382:2015). 2016. <span>“Информационные технологии. Словарь.”</span> Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200139532">https://docs.cntd.ru/document/1200139532</a>.
