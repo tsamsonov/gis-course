@@ -108,4 +108,18 @@ references:
   title: Геоинформационное картографирование. Методы геоинформатики и
     цифровой обработки космических снимков
   type: book
+- id: OGC2010
+  author:
+  - family: OGC
+  issued: 2010
+  key: GCYEC266
+  libraryID: 2
+  note: "Citation Key: OGC2010"
+  page: 93
+  providerKey: 2509FBBE-5BB0-44C4-B119-6083A81ED673
+  publisher: Open Geospatial Consortium
+  title: "OpenGIS® Implementation Standard for Geographic information -
+    Simple feature access - Part 1: Common architecture"
+  type: report
+  URL: "http://portal.opengeospatial.org/files/?artifact{\\_}id=25355E+Implementation+Standard+for+Geographic+information+-+Simple+feature+access{#}1"
 ...

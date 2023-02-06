@@ -558,6 +558,8 @@
 <p>Цифровая модель материального или абстрактного объекта реального или виртуального мира с указанием его идентификатора, координатных и атрибутивных данных.</p>
 </dd>
 </dl>
+<div class="columns">
+<div class="column" style="width:85%;">
 <div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
@@ -572,6 +574,27 @@
 <li>Моделируемый объект может относиться к территории, акватории, недрам и воздушному пространству Земли, околоземному космическому пространству, другим космическим телам и небесной сфере.</li>
 <li>В широком смысле под пространственным объектом в геоинформатике понимается как сам объект, так и адекватная ему цифровая модель.</li>
 </ol>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:15%;">
+<div class="cell" data-reveal="true">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">classDiagram
+class Feature{
+    +int ID
+    +list Attributes
+    +geom Geometry
+}
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -599,14 +622,14 @@
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
   A(Информация) --&gt; B(Данные)
   C(Пространственный объект) --&gt; D(Пространственные данные)
   A --&gt; E(Географическая информация)
   B --&gt; D
   E -.-&gt; D
 </pre>
-<div id="mermaid-tooltip-1" class="mermaidTooltip">
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -688,11 +711,11 @@
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">flowchart TB
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-3">flowchart TB
   A((1)) ---&gt; B((2))
   B ---&gt; C((3))
 </pre>
-<div id="mermaid-tooltip-2" class="mermaidTooltip">
+<div id="mermaid-tooltip-3" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -856,12 +879,31 @@
 </div>
 </div>
 </section>
+<section id="векторная-модель" class="slide level2">
+<h2>Векторная модель</h2>
+<p><strong>Simple Features</strong> — стандарт <span class="citation" data-cites="OGC2010">OGC (<a href="#/библиография" role="doc-biblioref" onclick="">2010</a>)</span>, который определяет общую модель хранения и доступа к простым (векторным) объектам.</p>
+<ul>
+<li>все геометрии состоят из точек;</li>
+<li>все точки в геометрии имеют одинаковую размерность;</li>
+<li>размерность точек может быть 2, 3 или 4.</li>
+</ul>
+<p>В дополнение к обязательным измерениям <span class="math inline">\(X\)</span> и <span class="math inline">\(Y\)</span> <em>возможны</em>:</p>
+<ul>
+<li><span class="math inline">\(Z\)</span>, обозначающее высоту</li>
+<li><span class="math inline">\(M\)</span>, обозначающее некоторую меру — например, время</li>
+</ul>
+<p>Существует 4 варианта координат: <span class="math inline">\(XY\)</span>, <span class="math inline">\(XYZ\)</span>, <span class="math inline">\(XYM\)</span> и <span class="math inline">\(XYZM\)</span>.</p>
+<p>В географических координатах <span class="math inline">\(X\)</span> — долгота, <span class="math inline">\(Y\)</span> — широта.</p>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 <div class="footer footer-default">
 
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-OGC2010" class="csl-entry" role="doc-biblioentry">
+OGC. 2010. <span>“OpenGIS® Implementation Standard for Geographic Information - Simple Feature Access - Part 1: Common Architecture.”</span> Open Geospatial Consortium. <a href="http://portal.opengeospatial.org/files/?artifact{_}id=25355E+Implementation+Standard+for+Geographic+information+-+Simple+feature+access{#}1">http://portal.opengeospatial.org/files/?artifact{_}id=25355E+Implementation+Standard+for+Geographic+information+-+Simple+feature+access{#}1</a>.
+</div>
 <div id="ref-gost:33707-2016" class="csl-entry" role="doc-biblioentry">
 ГОСТ 33707—2016 (ISO/IEC 2382:2015). 2016. <span>“Информационные технологии. Словарь.”</span> Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200139532">https://docs.cntd.ru/document/1200139532</a>.
 </div>
