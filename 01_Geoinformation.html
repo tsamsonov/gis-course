@@ -1145,7 +1145,7 @@ class Feature{
 <img data-src="images/tin_details_3.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="триангуляционное-покрытие-3" class="slide level2">
 <h2>Триангуляционное покрытие</h2>
-<p><strong>Функция покрытия</strong> реализуется путем линейной интерполяция поля внутри треугольников.</p>
+<p><strong>Функция покрытия</strong> реализуется путем <em>интерполяции</em> (линейной, естественной и т.д.) поля внутри треугольников.</p>
 
 <img data-src="images/tin_details_4.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="триангуляционное-покрытие-4" class="slide level2">
@@ -1168,6 +1168,62 @@ class Feature{
 <p>В растровом покрытии множество узлов с данными поля упорядочивается в виде матрицы — <strong>растра</strong>.</p>
 
 <img data-src="images/raster_details_1.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="растровое-покрытие-1" class="slide level2">
+<h2>Растровое покрытие</h2>
+<p>Сетка четырехугольников на узлах с данными обеспечивает сплошное покрытие объекта.</p>
+
+<img data-src="images/raster_details_2.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="растровое-покрытие-2" class="slide level2">
+<h2>Растровое покрытие</h2>
+<p>Функция покрытия реализуется путем <em>интерполяции</em> (билинейной, кубической и т.д.) внутри четырехугольников.</p>
+
+<img data-src="images/raster_details_3.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="растровое-покрытие-3" class="slide level2">
+<h2>Растровое покрытие</h2>
+<p>У каждого узла растра есть ассоциированная с ним зона влияния —&nbsp;<strong>пиксель</strong>.</p>
+
+<img data-src="images/raster_details_4.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="растровое-покрытие-4" class="slide level2">
+<h2>Растровое покрытие</h2>
+<p>Пиксельное представление даёт альтернативную функцию покрытия, в которой поле считается <em>постоянным</em> в пикселе.</p>
+
+<img data-src="images/raster_details_5.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="растровое-покрытие-5" class="slide level2">
+<h2>Растровое покрытие</h2>
+<p>Элементы растровой модели имеют свои названия.</p>
+
+<img data-src="images/raster_details_6.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="сравнение-моделей-покрытий" class="slide level2">
+<h2>Сравнение моделей покрытий</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<p><img data-src="images/raster_tin.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:35%;">
+<p>Модели покрытий имеют схожие элементы, но их названия различны.</p>
+<p>Однако точки данных всегда называются <strong>узлами</strong>.</p>
+</div>
+</div>
+</section>
+<section id="преимущества-моделей" class="slide level2">
+<h2>Преимущества моделей</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Растр</strong></p>
+<ol type="1">
+<li>Регулярная матричная структура, позволяющая унифицировать операторы обработки данных.</li>
+<li>Компактное хранение (достаточно указать местоположение угла растра).</li>
+<li>Соответствие устройству матрицы сканерных снимков.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><strong>TIN</strong></p>
+<ol type="1">
+<li>Иррегулярная структура, позволяющая уплотнять данные в областях высокой изменчивости поля.</li>
+<li>Более точное взаимодействие с векторными данными, в т.ч. совместный анализ.</li>
+<li>Соответствие устройству трёхмерных моделей.</li>
+</ol>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 <div class="footer footer-default">
