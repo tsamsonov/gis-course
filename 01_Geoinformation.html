@@ -1491,6 +1491,59 @@ class Feature{
 <span id="cb16-22"><a href="#cb16-22"></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Полярная стереографическая проекция</em></p>
 </section>
+<section id="epsg-european-petroleum-survey-group" class="slide level2">
+<h2>EPSG (European Petroleum Survey Group)</h2>
+<p><strong>EPSG (European Petroleum Survey Group)</strong> — европейская рабочая группа нефтегазовой области, которая ведет реестр систем координат с уникальными цифровыми кодами вида <code>EPSG:xxxxxx</code>.</p>
+<p>Коды EPSG оказались удобны, поэтому используются повсеместно для быстрой инициализации проекций со стандартными параметрами.</p>
+<p>Например, ранее рассмотренные проекции имеют коды:</p>
+<ul>
+<li><em>WGS84</em>: <code>EPSG:4326</code></li>
+<li><em>Web Mercator</em>: <code>EPSG:3857</code></li>
+<li><em>UTM</em>: <code>EPSG:326..</code> , например для UTM 37N: <code>EPSG:32637</code></li>
+</ul>
+</section>
+<section id="операции-с-системами-координат" class="slide level2">
+<h2>Операции с системами координат</h2>
+<p>При работа с пространственными данными используется 4 основных операции над системами координат:</p>
+<ol type="1">
+<li><p><strong>Создание</strong> — позволяет сопроводить данные информацией о том, в какой системе хранятся координаты объектов.</p></li>
+<li><p><strong>Переопределение</strong> — используется в случае, если СК указана неправильно. Например, данные хранятся в градусах, а в параметрах указано, что это проекция Меркатора.</p></li>
+<li><p><strong>Чтение</strong> — используется программным обеспечением для того чтобы правильно позиционировать объекты относительно референцного тела (Земли).</p></li>
+<li><p><strong>Преобразование</strong> — используется для получения нового набора данных в другой системе координат.</p></li>
+</ol>
+</section>
+<section id="преобразование-координат" class="slide level2">
+<h2>Преобразование координат</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Преобразование координат включает три различных операции:</p>
+<ol type="1">
+<li><p><strong>Трансформирование</strong> — пересчет географических координат с одного датума на другой.</p></li>
+<li><p><strong>Проецирование</strong> — от географических координат к плоским прямоугольным.</p></li>
+<li><p><strong>Обратное проецирование</strong> — от плоских прямоугольных координат к географическим.</p></li>
+</ol>
+</div><div class="column" style="width:45%;">
+<div class="cell" data-reveal="true" data-fig-width="2.8">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-4">flowchart TB
+  A(UTM) -- Обратное проецирование --&gt; B(WGS84)
+  subgraph gcs [&nbsp;]
+  B -- Трансформирование --&gt; C(ГСК-2011)
+  end
+  C -- Проецирование --&gt; В(Гаусса-Крюгера)
+</pre>
+<div id="mermaid-tooltip-4" class="mermaidTooltip">
+
+</div>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 <div class="footer footer-default">
