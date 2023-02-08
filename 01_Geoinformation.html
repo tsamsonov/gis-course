@@ -28,6 +28,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
@@ -365,7 +429,7 @@
 </dd>
 <dt><strong>Пространственная привязка <span class="citation" data-cites="gost:70316-2022">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 70316-2022 (ИСО 19112:2019) 2022</a>)</span></strong></dt>
 <dd>
-<p>Описание позиции в реальном виде</p>
+<p>Описание позиции в реальном мире.</p>
 </dd>
 </dl>
 </div>
@@ -934,8 +998,8 @@ class Feature{
 <p><strong>Линейно связные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 34%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -964,8 +1028,8 @@ class Feature{
 <p><strong>Линейно несвязные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 34%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1223,6 +1287,157 @@ class Feature{
 </ol>
 </div>
 </div>
+</section>
+<section id="геометрия-растра" class="slide level2">
+<h2>Геометрия растра</h2>
+<p><strong>Геометрия растра</strong> определяет, где именно располагаются в пространстве узлы и может быть описана параметрами:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Параметр</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>NCOLS</code></td>
+<td>Количество столбцов</td>
+</tr>
+<tr class="even">
+<td><code>NROWS</code></td>
+<td>Количество строк</td>
+</tr>
+<tr class="odd">
+<td><code>XLLCENTER</code></td>
+<td>Координата <span class="math inline">\(X\)</span> левого нижнего узла</td>
+</tr>
+<tr class="even">
+<td><code>YLLCENTER</code></td>
+<td>Координата <span class="math inline">\(Y\)</span> левого нижнего узла</td>
+</tr>
+<tr class="odd">
+<td><code>CELLSIZE</code></td>
+<td>Размер ячейки (расстояние между узлами)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратите внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Растр может иметь разное расстояние между узлами по осям <span class="math inline">\(X\)</span> и <span class="math inline">\(Y\)</span>. В этом случае вместо <code>CELLSIZE</code> указывается два параметра: <code>CELLSIZEX</code> и <code>CELLSIZEY</code> .</p>
+</div>
+</div>
+</div>
+</section>
+<section id="пространственная-привязка-2" class="slide level2">
+<h2>Пространственная привязка</h2>
+<dl>
+<dt><strong>Пространственная привязка <span class="citation" data-cites="gost:70316-2022">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 70316-2022 (ИСО 19112:2019) 2022</a>)</span></strong></dt>
+<dd>
+<p>Описание позиции в реальном мире.</p>
+</dd>
+</dl>
+<p>Пространственная привязка может быть осуществлена двумя основными способами:</p>
+<ul>
+<li>с использованием координат;</li>
+<li>посредством географических идентификаторов.</li>
+</ul>
+<div class="callout callout-important callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Система координат</strong></p>
+</div>
+<div class="callout-content">
+<p>При использовании привязки по координатам необходимо описание системы координат.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="географические-идентификаторы" class="slide level2">
+<h2>Географические идентификаторы</h2>
+<p>Увязаны с местоположением, идентифицируемым географическими объектами. Взаимосвязь с объектом может быть установлена следующими основными способами:</p>
+<ul>
+<li><p><strong>локализацией</strong>, когда конкретная позиция находится внутри географического объекта, например в стране;</p></li>
+<li><p><strong>локальными измерениями</strong>, когда позиция определена относительно фиксированных точек географических объектов, например вдоль улицы на заданном расстоянии от пересечения с другой улицей. Этот аспект известен как <em>линейная привязка</em>;</p></li>
+<li><p><strong>слабо связанным способом</strong>, когда позиция имеет нечеткую взаимосвязь с географическими объектами, например рядом со зданием или между двумя зданиями.</p></li>
+</ul>
+</section>
+<section id="система-координат-1" class="slide level2">
+<h2>Система координат</h2>
+<p>При описании системы координат последовательно указываются:</p>
+<ol type="1">
+<li><strong>Эллипсоид вращения</strong> — тело, по отношению к которому вычисляются геодезические координаты точек (широта, долгота)</li>
+<li><strong>Исходные геодезические даты (датум)</strong> — параметры положения эллипсоида в теле Земли</li>
+<li><strong>Географическая система координат</strong> — включает датум, положение начального меридиана и единицы измерения широт и долгот</li>
+<li><strong>Проекция</strong> — математический способ перехода от географических координат на эллипсоиде к плоским прямоугольным координатам.</li>
+<li><strong>Плоская прямоугольная система координат</strong> — включает проекцию, ее параметры и единицы измерения координат.</li>
+</ol>
+</section>
+<section id="форматы-описания-ск" class="slide level2">
+<h2>Форматы описания СК</h2>
+<p>Распространены 2 формата описания систмы координат (СК):</p>
+<ul>
+<li><p><strong>WKT (Well-Known Text)</strong> — представление в виде иерархического списка. Это <em>наиболее полный</em> формат описания пространственной привязки, который рекомендуется к использованию для избежания неоднозначностей.</p></li>
+<li><p><strong>PROJ.4 String</strong> — представление в виде строки.</p></li>
+<li><p><strong>EPSG (European Petroleum Survey Group)</strong> — представление в виде числового кода.</p></li>
+</ul>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Где найти описания СК?</strong></p>
+</div>
+<div class="callout-content">
+<p>Для поиска проекций в перечисленных форматах представления удобно воспользоваться порталом <strong>spatialreference.org</strong>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="wkt-well-known-text" class="slide level2">
+<h2>WKT (Well-Known Text)</h2>
+<div class="cell">
+<style type="text/css">
+.code-block {
+ max-height: 510px;
+ scrollable: false
+}
+</style>
+</div>
+<p><strong>WKT</strong> хранит описания СК в виде иерархического списка:</p>
+<div class="sourceCode" id="cb11" style="font-size: 0.9em;"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>PROJCS["WGS 84 / EPSG Russia Polar Stereographic",</span>
+<span id="cb11-2"><a href="#cb11-2"></a>    GEOGCS["WGS 84",</span>
+<span id="cb11-3"><a href="#cb11-3"></a>        DATUM["WGS_1984",</span>
+<span id="cb11-4"><a href="#cb11-4"></a>            SPHEROID["WGS 84",6378137,298.257223563,</span>
+<span id="cb11-5"><a href="#cb11-5"></a>                AUTHORITY["EPSG","7030"]],</span>
+<span id="cb11-6"><a href="#cb11-6"></a>            AUTHORITY["EPSG","6326"]],</span>
+<span id="cb11-7"><a href="#cb11-7"></a>        PRIMEM["Greenwich",0,</span>
+<span id="cb11-8"><a href="#cb11-8"></a>            AUTHORITY["EPSG","8901"]],</span>
+<span id="cb11-9"><a href="#cb11-9"></a>        UNIT["degree",0.0174532925199433,</span>
+<span id="cb11-10"><a href="#cb11-10"></a>            AUTHORITY["EPSG","9122"]],</span>
+<span id="cb11-11"><a href="#cb11-11"></a>        AUTHORITY["EPSG","4326"]],</span>
+<span id="cb11-12"><a href="#cb11-12"></a>    PROJECTION["Polar_Stereographic"],</span>
+<span id="cb11-13"><a href="#cb11-13"></a>    PARAMETER["latitude_of_origin",90],</span>
+<span id="cb11-14"><a href="#cb11-14"></a>    PARAMETER["central_meridian",105],</span>
+<span id="cb11-15"><a href="#cb11-15"></a>    PARAMETER["scale_factor",0.994],</span>
+<span id="cb11-16"><a href="#cb11-16"></a>    PARAMETER["false_easting",2000000],</span>
+<span id="cb11-17"><a href="#cb11-17"></a>    PARAMETER["false_northing",2000000],</span>
+<span id="cb11-18"><a href="#cb11-18"></a>    UNIT["metre",1,</span>
+<span id="cb11-19"><a href="#cb11-19"></a>        AUTHORITY["EPSG","9001"]],</span>
+<span id="cb11-20"><a href="#cb11-20"></a>    AXIS["X",EAST],</span>
+<span id="cb11-21"><a href="#cb11-21"></a>    AXIS["Y",NORTH],</span>
+<span id="cb11-22"><a href="#cb11-22"></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Полярная стереографическая проекция</em></p>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
