@@ -915,7 +915,7 @@ PROJCS["WGS 84 / EPSG Russia Polar Stereographic",
 
 *Полярная стереографическая проекция*
 
-## EPSG (European Petroleum Survey Group)
+## EPSG
 
 **EPSG (European Petroleum Survey Group)** --- европейская рабочая группа нефтегазовой области, которая ведет реестр систем координат с уникальными цифровыми кодами вида `EPSG:xxxxxx`.
 
@@ -926,6 +926,20 @@ PROJCS["WGS 84 / EPSG Russia Polar Stereographic",
 -   *WGS84*: `EPSG:4326`
 -   *Web Mercator*: `EPSG:3857`
 -   *UTM*: `EPSG:326..` , например для UTM 37N: `EPSG:32637`
+
+## spatialreference.org
+
+Удобный ресурс для поиска описаний систем координат
+
+![](images/image-1882413297.png)
+
+## proj.org
+
+Сайт библиотеки PROJ имеет описания проекций
+
+![](images/image-69855955.png)
+
+`Coordinate operations —> Projections`
 
 ## Операции с системами координат
 
@@ -964,5 +978,11 @@ flowchart TB
 ```
 :::
 :::
+
+## projectionwizard.org
+
+Веб-приложение для выбора оптимальной проекции
+
+![](images/image-634598051.png)
 
 ## Библиография
