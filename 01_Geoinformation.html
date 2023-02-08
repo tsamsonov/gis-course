@@ -1384,10 +1384,10 @@ class Feature{
 </section>
 <section id="форматы-описания-ск" class="slide level2">
 <h2>Форматы описания СК</h2>
-<p>Распространены 2 формата описания систмы координат (СК):</p>
+<p>Распространены 3 формата описания систмы координат (СК):</p>
 <ul>
+<li><p><strong>PROJ.4 String</strong> — представление в виде строки параметров.</p></li>
 <li><p><strong>WKT (Well-Known Text)</strong> — представление в виде иерархического списка. Это <em>наиболее полный</em> формат описания пространственной привязки, который рекомендуется к использованию для избежания неоднозначностей.</p></li>
-<li><p><strong>PROJ.4 String</strong> — представление в виде строки.</p></li>
 <li><p><strong>EPSG (European Petroleum Survey Group)</strong> — представление в виде числового кода.</p></li>
 </ul>
 <div class="callout callout-tip callout-captioned callout-style-default">
@@ -1404,39 +1404,91 @@ class Feature{
 </div>
 </div>
 </section>
-<section id="wkt-well-known-text" class="slide level2">
-<h2>WKT (Well-Known Text)</h2>
+<section id="proj.4-string" class="slide level2">
+<h2>PROJ.4 String</h2>
 <div class="cell">
 <style type="text/css">
 .code-block {
- max-height: 510px;
+ max-height: 600px;
  scrollable: false
 }
 </style>
 </div>
+<p><strong>PROJ.4 String</strong> — строковый формат представления информации о пространственной привязки, введенный в библиотеке <a href="http://proj.org"><strong>PROJ</strong></a>, начиная с версии 4. Основные параметры:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>+datum     Датум</span>
+<span id="cb11-2"><a href="#cb11-2"></a>+ellps     Эллипсоид</span>
+<span id="cb11-3"><a href="#cb11-3"></a>+lat_0     Широта стандартной параллели</span>
+<span id="cb11-4"><a href="#cb11-4"></a>+lat_1     Широта первой стандартной параллели</span>
+<span id="cb11-5"><a href="#cb11-5"></a>+lat_2     Широта второй стандартной параллели</span>
+<span id="cb11-6"><a href="#cb11-6"></a>+lat_ts    Широта нулевых искажений</span>
+<span id="cb11-7"><a href="#cb11-7"></a>+lon_0     Центральный меридиан</span>
+<span id="cb11-8"><a href="#cb11-8"></a>+proj      Проекция</span>
+<span id="cb11-9"><a href="#cb11-9"></a>+units     Единицы измерения координат</span>
+<span id="cb11-10"><a href="#cb11-10"></a>+vunits    Единицы измерения высот</span>
+<span id="cb11-11"><a href="#cb11-11"></a>+x_0       Восточное указание</span>
+<span id="cb11-12"><a href="#cb11-12"></a>+y_0       Северное указание</span>
+<span id="cb11-13"><a href="#cb11-13"></a>+zone      Номер зоны</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="proj.4-string-примеры" class="slide level2">
+<h2>PROJ.4 String — примеры</h2>
+<ul>
+<li>Географические координаты в СК <strong>WGS84</strong> (без проекции):</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>+proj=longlat +datum=WGS84 +no_defs</code></pre>
+</div>
+</div>
+<ul>
+<li>Проекция <strong>Web Mercator</strong> (Google Maps, Яндекс.Карты и т.д.):</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Коническая равнопромежуточная</strong> проекция:</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>+proj=eqdc +lat_0=0 +lon_0=0 +lat_1=60 +lat_2=60 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs</code></pre>
+</div>
+</div>
+<ul>
+<li>Проекция <strong>UTM, зона 37</strong>:</li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>+proj=utm +zone=37 +datum=WGS84 +units=m +no_defs</code></pre>
+</div>
+</div>
+</section>
+<section id="wkt-well-known-text" class="slide level2">
+<h2>WKT (Well-Known Text)</h2>
 <p><strong>WKT</strong> хранит описания СК в виде иерархического списка:</p>
-<div class="sourceCode" id="cb11" style="font-size: 0.9em;"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>PROJCS["WGS 84 / EPSG Russia Polar Stereographic",</span>
-<span id="cb11-2"><a href="#cb11-2"></a>    GEOGCS["WGS 84",</span>
-<span id="cb11-3"><a href="#cb11-3"></a>        DATUM["WGS_1984",</span>
-<span id="cb11-4"><a href="#cb11-4"></a>            SPHEROID["WGS 84",6378137,298.257223563,</span>
-<span id="cb11-5"><a href="#cb11-5"></a>                AUTHORITY["EPSG","7030"]],</span>
-<span id="cb11-6"><a href="#cb11-6"></a>            AUTHORITY["EPSG","6326"]],</span>
-<span id="cb11-7"><a href="#cb11-7"></a>        PRIMEM["Greenwich",0,</span>
-<span id="cb11-8"><a href="#cb11-8"></a>            AUTHORITY["EPSG","8901"]],</span>
-<span id="cb11-9"><a href="#cb11-9"></a>        UNIT["degree",0.0174532925199433,</span>
-<span id="cb11-10"><a href="#cb11-10"></a>            AUTHORITY["EPSG","9122"]],</span>
-<span id="cb11-11"><a href="#cb11-11"></a>        AUTHORITY["EPSG","4326"]],</span>
-<span id="cb11-12"><a href="#cb11-12"></a>    PROJECTION["Polar_Stereographic"],</span>
-<span id="cb11-13"><a href="#cb11-13"></a>    PARAMETER["latitude_of_origin",90],</span>
-<span id="cb11-14"><a href="#cb11-14"></a>    PARAMETER["central_meridian",105],</span>
-<span id="cb11-15"><a href="#cb11-15"></a>    PARAMETER["scale_factor",0.994],</span>
-<span id="cb11-16"><a href="#cb11-16"></a>    PARAMETER["false_easting",2000000],</span>
-<span id="cb11-17"><a href="#cb11-17"></a>    PARAMETER["false_northing",2000000],</span>
-<span id="cb11-18"><a href="#cb11-18"></a>    UNIT["metre",1,</span>
-<span id="cb11-19"><a href="#cb11-19"></a>        AUTHORITY["EPSG","9001"]],</span>
-<span id="cb11-20"><a href="#cb11-20"></a>    AXIS["X",EAST],</span>
-<span id="cb11-21"><a href="#cb11-21"></a>    AXIS["Y",NORTH],</span>
-<span id="cb11-22"><a href="#cb11-22"></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16" style="font-size: 0.62em;"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>PROJCS["WGS 84 / EPSG Russia Polar Stereographic",</span>
+<span id="cb16-2"><a href="#cb16-2"></a>    GEOGCS["WGS 84",</span>
+<span id="cb16-3"><a href="#cb16-3"></a>        DATUM["WGS_1984",</span>
+<span id="cb16-4"><a href="#cb16-4"></a>            SPHEROID["WGS 84",6378137,298.257223563,</span>
+<span id="cb16-5"><a href="#cb16-5"></a>                AUTHORITY["EPSG","7030"]],</span>
+<span id="cb16-6"><a href="#cb16-6"></a>            AUTHORITY["EPSG","6326"]],</span>
+<span id="cb16-7"><a href="#cb16-7"></a>        PRIMEM["Greenwich",0,</span>
+<span id="cb16-8"><a href="#cb16-8"></a>            AUTHORITY["EPSG","8901"]],</span>
+<span id="cb16-9"><a href="#cb16-9"></a>        UNIT["degree",0.0174532925199433,</span>
+<span id="cb16-10"><a href="#cb16-10"></a>            AUTHORITY["EPSG","9122"]],</span>
+<span id="cb16-11"><a href="#cb16-11"></a>        AUTHORITY["EPSG","4326"]],</span>
+<span id="cb16-12"><a href="#cb16-12"></a>    PROJECTION["Polar_Stereographic"],</span>
+<span id="cb16-13"><a href="#cb16-13"></a>    PARAMETER["latitude_of_origin",90],</span>
+<span id="cb16-14"><a href="#cb16-14"></a>    PARAMETER["central_meridian",105],</span>
+<span id="cb16-15"><a href="#cb16-15"></a>    PARAMETER["scale_factor",0.994],</span>
+<span id="cb16-16"><a href="#cb16-16"></a>    PARAMETER["false_easting",2000000],</span>
+<span id="cb16-17"><a href="#cb16-17"></a>    PARAMETER["false_northing",2000000],</span>
+<span id="cb16-18"><a href="#cb16-18"></a>    UNIT["metre",1,</span>
+<span id="cb16-19"><a href="#cb16-19"></a>        AUTHORITY["EPSG","9001"]],</span>
+<span id="cb16-20"><a href="#cb16-20"></a>    AXIS["X",EAST],</span>
+<span id="cb16-21"><a href="#cb16-21"></a>    AXIS["Y",NORTH],</span>
+<span id="cb16-22"><a href="#cb16-22"></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Полярная стереографическая проекция</em></p>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
