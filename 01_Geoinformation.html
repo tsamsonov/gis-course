@@ -588,10 +588,18 @@
 <h2>Неопределенная</h2>
 <p>Географическая информация, обладающая свойствами <em>непрецизионности, неточности и нечеткости.</em></p>
 <div class="columns">
-<div class="column" style="width:60%;">
-<p><img data-src="images/image-288784986.png"></p>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/image-1877121026.png"></p>
+<div class="column" style="width:55%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="images/image-288784986.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/image-1877121026.png" style="width:77.0%"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -611,9 +619,23 @@
 <dl>
 <dt>Геоинформатика (наука)</dt>
 <dd>
-<p>Наука о географической информации, методах ее получения, представления, хранения, обработки, анализа и распространения.</p>
+<p>Наука о географической информации, методах ее получения, представления, обработки, анализа и распространения.</p>
 </dd>
 </dl>
+
+<img data-src="images/image-969426737.png" style="width:120.0%" class="r-stretch quarto-figure-center"><div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Приложения</strong></p>
+</div>
+<div class="callout-content">
+<p>Геоинформатика позволяет изучать природные и социально-экономические геосистемы посредством компьютерного моделирования.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="пространственный-объект" class="slide level2">
 <h2>Пространственный объект</h2>
@@ -623,8 +645,6 @@
 <p>Цифровая модель материального или абстрактного объекта реального или виртуального мира с указанием его идентификатора, координатных и атрибутивных данных.</p>
 </dd>
 </dl>
-<div class="columns">
-<div class="column" style="width:85%;">
 <div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
@@ -639,27 +659,6 @@
 <li>Моделируемый объект может относиться к территории, акватории, недрам и воздушному пространству Земли, околоземному космическому пространству, другим космическим телам и небесной сфере.</li>
 <li>В широком смысле под пространственным объектом в геоинформатике понимается как сам объект, так и адекватная ему цифровая модель.</li>
 </ol>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:15%;">
-<div class="cell" data-reveal="true">
-<div class="cell-output-display">
-<div>
-<p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">classDiagram
-class Feature{
-    +int ID
-    +list Attributes
-    +geom Geometry
-}
-</pre>
-<div id="mermaid-tooltip-1" class="mermaidTooltip">
-
-</div>
-<p></p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -687,14 +686,14 @@ class Feature{
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">flowchart LR
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-1">flowchart LR
   A(Информация) --&gt; B(Данные)
   C(Пространственный объект) --&gt; D(Пространственные данные)
   A --&gt; E(Географическая информация)
   B --&gt; D
   E -.-&gt; D
 </pre>
-<div id="mermaid-tooltip-2" class="mermaidTooltip">
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -776,11 +775,11 @@ class Feature{
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-3">flowchart TB
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-2">flowchart TB
   A((1)) ---&gt; B((2))
   B ---&gt; C((3))
 </pre>
-<div id="mermaid-tooltip-3" class="mermaidTooltip">
+<div id="mermaid-tooltip-2" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -998,8 +997,8 @@ class Feature{
 <p><strong>Линейно связные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1028,8 +1027,8 @@ class Feature{
 <p><strong>Линейно несвязные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1079,12 +1078,6 @@ class Feature{
 <div class="cell-output cell-output-stdout">
 <pre><code>MULTILINESTRING ((0.5 1.5, 1.2 1.2, 2 1.3), (0 1.5, 0.5 2, 1.2 1.7), (2 1.8, 3 2.5))</code></pre>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>MULTIPOLYGON (((0.5 0.5, 2 0, 3 2, 1.5 4, 0 3, 0.5 0.5), (1 1, 0.8 2, 2 2.2, 1.4 1.1, 1 1)), ((3 3.3, 3.5 3.1, 4 3, 4 3.7, 3.7 3.96, 3.2 4, 3 3.3), (3.2 3.4, 3.8 3.2, 3.8 3.7, 3.3 3.8, 3.2 3.4)), ((3 1.2, 2.5 0.2, 3.5 0.2, 3.5 1.2, 3 1.2)), ((0 1, 0.1 0.8, 0.2 0.5, 0.1 0.3, 0 0.7, 0 1)))</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>GEOMETRYCOLLECTION (POLYGON ((0.5 0.5, 2 0, 3 2, 1.5 4, 0 3, 0.5 0.5), (1 1, 0.8 2, 2 2.2, 1.4 1.1, 1 1)), MULTIPOINT ((3.5 -0.5), (4 2), (5 0), (3.2 1), (5 2), (4.5 0.5)), MULTILINESTRING ((3 3.5, 3.7 3.2, 4.5 3.3), (2.5 3.5, 3 4, 3.7 3.7), (4.5 3.8, 5.5 4.5)))</code></pre>
-</div>
 </div>
 <div class="callout callout-note callout-captioned callout-style-default">
 <div class="callout-body">
@@ -1109,9 +1102,6 @@ class Feature{
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>LINESTRING: 01 02 00 00 00 05 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 f0 3f 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 f8 3f 33 33 33 33 33 33 f3 3f 33 33 33 33 33 33 f3 3f 00 00 00 00 00 00 00 40 cd cc cc cc cc cc f4 3f 00 00 00 00 00 00 08 40 00 00 00 00 00 00 00 40</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>POLYGON: 01 03 00 00 00 02 00 00 00 06 00 00 00 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 40 00 00 00 00 00 00 00 40 00 00 00 00 00 00 f8 3f 00 00 00 00 00 00 10 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 08 40 00 00 00 00 00 00 e0 3f 00 00 00 00 00 00 e0 3f 05 00 00 00 00 00 00 00 00 00 f0 3f 00 00 00 00 00 00 f0 3f 9a 99 99 99 99 99 e9 3f 00 00 00 00 00 00 00 40 00 00 00 00 00 00 00 40 9a 99 99 99 99 99 01 40 66 66 66 66 66 66 f6 3f 9a 99 99 99 99 99 f1 3f 00 00 00 00 00 00 f0 3f 00 00 00 00 00 00 f0 3f</code></pre>
 </div>
 </div>
 <div class="callout callout-note callout-captioned callout-style-default">
@@ -1194,20 +1184,27 @@ class Feature{
 </section>
 <section id="топологическое-покрытие" class="slide level2">
 <h2>Топологическое покрытие</h2>
-<p>Построение покрытия начинается с простого объекта.</p>
-</section>
+<p>Построение покрытия начинается с простого объекта, обозначающего границу покрытия.</p>
+
+<img data-src="images/cov_details_1.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="топологическое-покрытие-1" class="slide level2">
 <h2>Топологическое покрытие</h2>
-<p>В <strong>топологическом покрытии</strong> объект разрезается узлами и дугами на области фиксированных значений.</p>
-</section>
+<p>В <strong>топологическом покрытии</strong> объект разрезается узлами и дугами на области фиксированных значений поля.</p>
+
+<img data-src="images/cov_details_3.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="топологическое-покрытие-2" class="slide level2">
 <h2>Топологическое покрытие</h2>
-<p><strong>Функция покрытия</strong> для указанной точки возвращает значение полигона.</p>
-</section>
+<p><strong>Функция покрытия</strong> в каждой точке возвращает значение полигона, который её <em>покрывает</em>. Покрытие является сплошным.</p>
+
+<img data-src="images/cov_details_4.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="топологическое-покрытие-3" class="slide level2">
 <h2>Топологическое покрытие</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
 <p>Элементы топологической модели имеют свои названия.</p>
-<div class="callout callout-important callout-captioned callout-style-default">
+<p><img data-src="images/cov_details_5.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:35%;">
+<div class="callout callout-caution callout-captioned callout-style-default">
 <div class="callout-body">
 <div class="callout-caption">
 <div class="callout-icon-container">
@@ -1217,6 +1214,8 @@ class Feature{
 </div>
 <div class="callout-content">
 <p>Топологическая модель подходит только для представления полей с пространственной структурой в виде областей фиксированных значений.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1444,19 +1443,19 @@ class Feature{
 </style>
 </div>
 <p><strong>PROJ.4 String</strong> — строковый формат представления информации о пространственной привязки, введенный в библиотеке <a href="http://proj.org"><strong>PROJ</strong></a>, начиная с версии 4. Основные параметры:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>+datum     Датум</span>
-<span id="cb11-2"><a href="#cb11-2"></a>+ellps     Эллипсоид</span>
-<span id="cb11-3"><a href="#cb11-3"></a>+lat_0     Широта стандартной параллели</span>
-<span id="cb11-4"><a href="#cb11-4"></a>+lat_1     Широта первой стандартной параллели</span>
-<span id="cb11-5"><a href="#cb11-5"></a>+lat_2     Широта второй стандартной параллели</span>
-<span id="cb11-6"><a href="#cb11-6"></a>+lat_ts    Широта нулевых искажений</span>
-<span id="cb11-7"><a href="#cb11-7"></a>+lon_0     Центральный меридиан</span>
-<span id="cb11-8"><a href="#cb11-8"></a>+proj      Проекция</span>
-<span id="cb11-9"><a href="#cb11-9"></a>+units     Единицы измерения координат</span>
-<span id="cb11-10"><a href="#cb11-10"></a>+vunits    Единицы измерения высот</span>
-<span id="cb11-11"><a href="#cb11-11"></a>+x_0       Восточное указание</span>
-<span id="cb11-12"><a href="#cb11-12"></a>+y_0       Северное указание</span>
-<span id="cb11-13"><a href="#cb11-13"></a>+zone      Номер зоны</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>+datum     Датум</span>
+<span id="cb8-2"><a href="#cb8-2"></a>+ellps     Эллипсоид</span>
+<span id="cb8-3"><a href="#cb8-3"></a>+lat_0     Широта стандартной параллели</span>
+<span id="cb8-4"><a href="#cb8-4"></a>+lat_1     Широта первой стандартной параллели</span>
+<span id="cb8-5"><a href="#cb8-5"></a>+lat_2     Широта второй стандартной параллели</span>
+<span id="cb8-6"><a href="#cb8-6"></a>+lat_ts    Широта нулевых искажений</span>
+<span id="cb8-7"><a href="#cb8-7"></a>+lon_0     Центральный меридиан</span>
+<span id="cb8-8"><a href="#cb8-8"></a>+proj      Проекция</span>
+<span id="cb8-9"><a href="#cb8-9"></a>+units     Единицы измерения координат</span>
+<span id="cb8-10"><a href="#cb8-10"></a>+vunits    Единицы измерения высот</span>
+<span id="cb8-11"><a href="#cb8-11"></a>+x_0       Восточное указание</span>
+<span id="cb8-12"><a href="#cb8-12"></a>+y_0       Северное указание</span>
+<span id="cb8-13"><a href="#cb8-13"></a>+zone      Номер зоны</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="proj.4-string-примеры" class="slide level2">
 <h2>PROJ.4 String — примеры</h2>
@@ -1496,28 +1495,28 @@ class Feature{
 <section id="wkt-well-known-text" class="slide level2">
 <h2>WKT (Well-Known Text)</h2>
 <p><strong>WKT</strong> хранит описания СК в виде иерархического списка:</p>
-<div class="sourceCode" id="cb16" style="font-size: 0.62em;"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>PROJCS["WGS 84 / EPSG Russia Polar Stereographic",</span>
-<span id="cb16-2"><a href="#cb16-2"></a>    GEOGCS["WGS 84",</span>
-<span id="cb16-3"><a href="#cb16-3"></a>        DATUM["WGS_1984",</span>
-<span id="cb16-4"><a href="#cb16-4"></a>            SPHEROID["WGS 84",6378137,298.257223563,</span>
-<span id="cb16-5"><a href="#cb16-5"></a>                AUTHORITY["EPSG","7030"]],</span>
-<span id="cb16-6"><a href="#cb16-6"></a>            AUTHORITY["EPSG","6326"]],</span>
-<span id="cb16-7"><a href="#cb16-7"></a>        PRIMEM["Greenwich",0,</span>
-<span id="cb16-8"><a href="#cb16-8"></a>            AUTHORITY["EPSG","8901"]],</span>
-<span id="cb16-9"><a href="#cb16-9"></a>        UNIT["degree",0.0174532925199433,</span>
-<span id="cb16-10"><a href="#cb16-10"></a>            AUTHORITY["EPSG","9122"]],</span>
-<span id="cb16-11"><a href="#cb16-11"></a>        AUTHORITY["EPSG","4326"]],</span>
-<span id="cb16-12"><a href="#cb16-12"></a>    PROJECTION["Polar_Stereographic"],</span>
-<span id="cb16-13"><a href="#cb16-13"></a>    PARAMETER["latitude_of_origin",90],</span>
-<span id="cb16-14"><a href="#cb16-14"></a>    PARAMETER["central_meridian",105],</span>
-<span id="cb16-15"><a href="#cb16-15"></a>    PARAMETER["scale_factor",0.994],</span>
-<span id="cb16-16"><a href="#cb16-16"></a>    PARAMETER["false_easting",2000000],</span>
-<span id="cb16-17"><a href="#cb16-17"></a>    PARAMETER["false_northing",2000000],</span>
-<span id="cb16-18"><a href="#cb16-18"></a>    UNIT["metre",1,</span>
-<span id="cb16-19"><a href="#cb16-19"></a>        AUTHORITY["EPSG","9001"]],</span>
-<span id="cb16-20"><a href="#cb16-20"></a>    AXIS["X",EAST],</span>
-<span id="cb16-21"><a href="#cb16-21"></a>    AXIS["Y",NORTH],</span>
-<span id="cb16-22"><a href="#cb16-22"></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13" style="font-size: 0.62em;"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href="#cb13-1"></a>PROJCS["WGS 84 / EPSG Russia Polar Stereographic",</span>
+<span id="cb13-2"><a href="#cb13-2"></a>    GEOGCS["WGS 84",</span>
+<span id="cb13-3"><a href="#cb13-3"></a>        DATUM["WGS_1984",</span>
+<span id="cb13-4"><a href="#cb13-4"></a>            SPHEROID["WGS 84",6378137,298.257223563,</span>
+<span id="cb13-5"><a href="#cb13-5"></a>                AUTHORITY["EPSG","7030"]],</span>
+<span id="cb13-6"><a href="#cb13-6"></a>            AUTHORITY["EPSG","6326"]],</span>
+<span id="cb13-7"><a href="#cb13-7"></a>        PRIMEM["Greenwich",0,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>            AUTHORITY["EPSG","8901"]],</span>
+<span id="cb13-9"><a href="#cb13-9"></a>        UNIT["degree",0.0174532925199433,</span>
+<span id="cb13-10"><a href="#cb13-10"></a>            AUTHORITY["EPSG","9122"]],</span>
+<span id="cb13-11"><a href="#cb13-11"></a>        AUTHORITY["EPSG","4326"]],</span>
+<span id="cb13-12"><a href="#cb13-12"></a>    PROJECTION["Polar_Stereographic"],</span>
+<span id="cb13-13"><a href="#cb13-13"></a>    PARAMETER["latitude_of_origin",90],</span>
+<span id="cb13-14"><a href="#cb13-14"></a>    PARAMETER["central_meridian",105],</span>
+<span id="cb13-15"><a href="#cb13-15"></a>    PARAMETER["scale_factor",0.994],</span>
+<span id="cb13-16"><a href="#cb13-16"></a>    PARAMETER["false_easting",2000000],</span>
+<span id="cb13-17"><a href="#cb13-17"></a>    PARAMETER["false_northing",2000000],</span>
+<span id="cb13-18"><a href="#cb13-18"></a>    UNIT["metre",1,</span>
+<span id="cb13-19"><a href="#cb13-19"></a>        AUTHORITY["EPSG","9001"]],</span>
+<span id="cb13-20"><a href="#cb13-20"></a>    AXIS["X",EAST],</span>
+<span id="cb13-21"><a href="#cb13-21"></a>    AXIS["Y",NORTH],</span>
+<span id="cb13-22"><a href="#cb13-22"></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Полярная стереографическая проекция</em></p>
 </section>
 <section id="epsg" class="slide level2">
@@ -1567,14 +1566,14 @@ class Feature{
 <div class="cell-output-display">
 <div>
 <p>
-</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-4">flowchart TB
+</p><pre class="mermaid" data-tooltip-selector="#mermaid-tooltip-3">flowchart TB
   A(UTM) -- Обратное проецирование --&gt; B(WGS84)
   subgraph gcs [&nbsp;]
   B -- Трансформирование --&gt; C(ГСК-2011)
   end
   C -- Проецирование --&gt; В(Гаусса-Крюгера)
 </pre>
-<div id="mermaid-tooltip-4" class="mermaidTooltip">
+<div id="mermaid-tooltip-3" class="mermaidTooltip">
 
 </div>
 <p></p>
@@ -1589,6 +1588,44 @@ class Feature{
 <p>Веб-приложение для выбора оптимальной проекции</p>
 
 <img data-src="images/image-634598051.png" class="r-stretch"></section>
+<section id="регистрация" class="slide level2">
+<h2>Регистрация</h2>
+<dl>
+<dt>Регистрация пространственных данных</dt>
+<dd>
+<p>Преобразование координат, которое привязывает пространст-венные данные к их местоположению в реальном мире.</p>
+</dd>
+</dl>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Когда нужна регистрация?</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Информация о СК отсутствует или ошибочна <em>(например — сканированная карта)</em>.</li>
+<li>Информация о СК имеется, но координаты объектов искажены и требуют корректировки <em>(например, есть систематическая ошибка в измерениях)</em>.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Привязка</strong></p>
+</div>
+<div class="callout-content">
+<p>Процесс регистрации также часто называют просто <strong>привязкой</strong> или <strong>геопривязкой</strong> (если местоположение связано с Землёй).</p>
+</div>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 <div class="footer footer-default">
