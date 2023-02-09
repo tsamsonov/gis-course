@@ -9,7 +9,7 @@
 <link href="01_Geoinformation_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.1.251">
 
-  <meta name="author" content="Тимофей Самсонов">
+  <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -412,7 +412,7 @@
 <section id="title-slide" class="center">
   <h1 class="title">Основы геоинформатики</h1>
   <p class="subtitle">Лекция 1: Основные понятия</p>
-  <p class="author">Тимофей Самсонов</p>
+  <p class="author">Самсонов Тимофей Евгеньевич</p>
   <p class="date">10.02.2023</p>
 </section>
 
@@ -439,7 +439,7 @@
 <h2>Пространственная привязка</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Абсолютная</strong> привязка</p>
+<p><strong>Опорные объекты</strong></p>
 <ol type="1">
 <li><em>Координаты</em> (59.926° с.ш., 30.339° в.д.)</li>
 <li><em>Индекс</em> (191002)</li>
@@ -456,7 +456,7 @@
 <h2>Пространственная привязка</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Относительная</strong> привязка</p>
+<p><strong>Отношения</strong></p>
 <ol type="1">
 <li><p><em>Пространственные</em> отношения</p>
 <ul>
@@ -997,8 +997,8 @@
 <p><strong>Линейно связные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1027,8 +1027,8 @@
 <p><strong>Линейно несвязные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1588,12 +1588,12 @@
 <p>Веб-приложение для выбора оптимальной проекции</p>
 
 <img data-src="images/image-634598051.png" class="r-stretch"></section>
-<section id="регистрация" class="slide level2">
-<h2>Регистрация</h2>
+<section id="координатная-привязка" class="slide level2">
+<h2>Координатная привязка</h2>
 <dl>
-<dt>Регистрация пространственных данных</dt>
+<dt>Координатная привязка</dt>
 <dd>
-<p>Преобразование координат, которое привязывает пространст-венные данные к их местоположению в реальном мире.</p>
+<p>Преобразование координат, которое привязывает пространст-венные объекты к их местоположению в реальном мире.</p>
 </dd>
 </dl>
 <div class="callout callout-tip callout-captioned callout-style-default">
@@ -1602,7 +1602,7 @@
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Когда нужна регистрация?</strong></p>
+<p><strong>Когда нужна координатная привязка?</strong></p>
 </div>
 <div class="callout-content">
 <ol type="1">
@@ -1618,14 +1618,88 @@
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Привязка</strong></p>
+<p><strong>Регистрация</strong></p>
 </div>
 <div class="callout-content">
-<p>Процесс регистрации также часто называют просто <strong>привязкой</strong> или <strong>геопривязкой</strong> (если местоположение связано с Землёй).</p>
+<p>Процесс координатной привязки также называют <strong>регистрацией</strong>.</p>
 </div>
 </div>
 </div>
 </section>
+<section id="контрольные-точки" class="slide level2">
+<h2>Контрольные точки</h2>
+<p>Координатная привязка выполняется по <strong>контрольным точкам</strong>.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="images/control_pts.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:40%;">
+<p>Необходимо указать несколько пар точек.</p>
+<p>Каждая пара создается в следующем порядке:</p>
+<ul>
+<li><p>сначала в текущем положении (<strong>p</strong>)</p></li>
+<li><p>затем в истинном положении (<strong>q</strong>).</p></li>
+</ul>
+</div>
+</div>
+<p>Полученные вектора используются для трансформации координат.</p>
+</section>
+<section id="аффинное-преобразование" class="slide level2">
+<h2>Аффинное преобразование</h2>
+<dl>
+<dt>Аффинное преобразование</dt>
+<dd>
+<p>Отображение плоскости или пространства в себя, при котором параллельные прямые переходят в параллельные прямые, пересекающиеся — в пересекающиеся, скрещивающиеся — в скрещивающиеся</p>
+</dd>
+</dl>
+<p>Позволяет решать простые случаи привязки:</p>
+
+<img data-src="images/affine.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="сложные-преобразования" class="slide level2">
+<h2>Сложные преобразования</h2>
+<p>В тех случаях, когда аффинных преобразований недостаточно, могут быть использованы более сложные:</p>
+
+<img data-src="images/nonaffine.svg" style="width:100.0%" class="r-stretch"><p>Метод резинового листа является наиболее гибким и позволяет делать локализованные трансформации объектов (изображений).</p>
+</section>
+<section id="зачет-по-курсу" class="slide level2">
+<h2>Зачет по курсу</h2>
+<p>В курсе предусмотрено 4 вида контроля:</p>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Вид контроля</th>
+<th>Время</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Практические работы</td>
+<td>Весь семестр</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Самостоятельная работа</td>
+<td>Середина семестра</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Контрольное задание</td>
+<td>Конец семестра</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Теоретический тест</td>
+<td>Зачетная сессия</td>
+</tr>
+</tbody>
+</table>
+<p>Если по всем пунктам имеется зачёт, то вы имеете зачет по курсу.</p>
+</section>
+<section id="всем-удачи" class="slide level2">
+<h2>Всем удачи!</h2>
+
+<img data-src="images/me.jpeg" class="r-stretch"></section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 <div class="footer footer-default">
