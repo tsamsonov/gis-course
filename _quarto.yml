@@ -8,7 +8,10 @@ website:
     left:
       - href: index.qmd
         text: Лекции
-      - exercises.qmd
+      - href: https://aentin.github.io/qgis-course/
+        text: Практикум в QGIS
+      - href: https://tsamsonov.github.io/arcgis-course/
+        text: Практикум в ArcGIS
 
 format:
   html:
