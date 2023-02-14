@@ -4,6 +4,8 @@ project:
 
 website:
   title: "Основы геоинформатики"
+  page-footer: |
+        © 2023, Тимофей Самсонов, Географический факультет МГУ имени М. В. Ломоносова
   navbar:
     left:
       - href: index.qmd
@@ -20,4 +22,6 @@ format:
     toc: true
 
 editor: visual
+
+lang: ru
 
