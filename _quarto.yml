@@ -7,7 +7,7 @@ website:
     left:
       - href: index.qmd
         text: Лекции
-      - about.qmd
+      - exercises.qmd
 
 format:
   html:

@@ -1,9 +1,23 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Лекции",
+    "section": "",
+    "text": "Для просмотра презентации щелкните на ней один раз левой кнопкой мыши и листайте, используя кнопки на клавиатуре."
+  },
+  {
+    "objectID": "index.html#основные-понятия",
+    "href": "index.html#основные-понятия",
+    "title": "Лекции",
+    "section": "1 Основные понятия",
+    "text": "1 Основные понятия"
+  },
+  {
+    "objectID": "exercises.html",
+    "href": "exercises.html",
     "title": "Практикум",
     "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "Практикум"
   }
 ]
