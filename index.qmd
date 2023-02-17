@@ -21,7 +21,7 @@ date: last-modified
 ```
 :::
 
-## Создание пространственных объектов и пространственные отношения
+## Создание объектов и пространственные отношения
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}

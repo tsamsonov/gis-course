@@ -14,6 +14,9 @@ website:
         text: Практикум в QGIS
       - href: https://tsamsonov.github.io/arcgis-course/
         text: Практикум в ArcGIS
+    right: 
+      - href: https://instagram.com/gis_in_pictures?igshid=NDk5N2NlZjQ=
+        icon: instagram
 
 format:
   html:
