@@ -10,13 +10,13 @@ date: last-modified
 ::: callout-tip
 ## Как смотреть на весь экран
 
-Презентацию можно открыть в отдельном окне или вкладке браузера. Для этого щелкните по ней *правой* кнопкой мыши и выберите в контекстном меню соответствующую команду. Чтобы развернуть презентацию на весь экран, нажмите на клавиатуре клавишу <kbd>F</kbd>.
+Чтобы развернуть презентацию на весь экран, нажмите на клавиатуре клавишу <kbd>F</kbd>. Презентация должна быть открыта в отдельной вкладке браузера.
 :::
 
 ::: callout-warning
 ## Если не отображаются диаграммы
 
-Иногда на слайдах могут не отрисовываться диаграммы. В этом случае часть слайда или даже весь слайд будет выглядеть пустым. Чтобы исправить это, обновите страницу (<kbd>CTRL+R</kbd>). Важно чтобы презентация была при этом открыта в отдельной вкладке.
+Иногда на слайдах могут не отрисовываться диаграммы. В этом случае часть слайда или даже весь слайд будет выглядеть пустым. Чтобы исправить это, обновите страницу (<kbd>CTRL+R</kbd>). Презентация должна быть открыта в отдельной вкладке браузера.
 :::
 
 ## Пространственные данные
@@ -27,6 +27,8 @@ date: last-modified
 ```
 :::
 
+[**Открыть**](https://tsamsonov.github.io/gis-course-slides/01_Basics.html){target="_blank"} в отдельной вкладке браузера.
+
 ## Создание объектов и пространственные отношения
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
@@ -34,3 +36,15 @@ date: last-modified
 <iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/02_Relations.html" title="Лекция №1. Основные понятия"></iframe>
 ```
 :::
+
+[**Открыть**](https://tsamsonov.github.io/gis-course-slides/02_Relations.html){target="_blank"} в отдельной вкладке браузера.
+
+## Базы пространственных данных
+
+::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
+```{=html}
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/03_Databases.html" title="Лекция №1. Основные понятия"></iframe>
+```
+:::
+
+[**Открыть**](https://tsamsonov.github.io/gis-course-slides/03_Databases.html){target="_blank"} в отдельной вкладке браузера.
