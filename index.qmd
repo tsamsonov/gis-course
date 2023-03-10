@@ -23,7 +23,7 @@ date: last-modified
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/01_Basics.html" title="Лекция №1. Основные понятия"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/01_Basics.html" title="Лекция №1. Пространственные данные"></iframe>
 ```
 :::
 
@@ -33,7 +33,7 @@ date: last-modified
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/02_Relations.html" title="Лекция №1. Основные понятия"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/02_Relations.html" title="Лекция №2. Создание объектов и пространственные отношения"></iframe>
 ```
 :::
 
@@ -43,8 +43,18 @@ date: last-modified
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/03_Databases.html" title="Лекция №1. Основные понятия"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/03_Databases.html" title="Лекция №3. Базы пространственных данных"></iframe>
 ```
 :::
 
 [**Открыть**](https://tsamsonov.github.io/gis-course-slides/03_Databases.html){target="_blank"} в отдельной вкладке браузера.
+
+## Векторный анализ
+
+::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
+```{=html}
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/04_Vector.html" title="Лекция №4. Векторный анализ"></iframe>
+```
+:::
+
+[**Открыть**](https://tsamsonov.github.io/gis-course-slides/04_Vector.html){target="_blank"} в отдельной вкладке браузера.
