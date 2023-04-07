@@ -79,7 +79,7 @@ date: last-modified
 
 [**Открыть**](https://tsamsonov.github.io/gis-course-slides/06_Dem.html){target="_blank"} в отдельной вкладке браузера.
 
-## Пространственная статистика I. Интерполяция и вариография
+## Пространственная интерполяция и вариография
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
@@ -89,7 +89,7 @@ date: last-modified
 
 [**Открыть**](https://tsamsonov.github.io/gis-course-slides/07_Interpolation.html){target="_blank"} в отдельной вкладке браузера.
 
-## Пространственная статистика II. Зависимость и гетерогенность
+## Пространственная зависимость и гетерогенность
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
