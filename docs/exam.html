@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Тимофей Самсонов">
+
+<title>Основы геоинформатики - Зачет</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Поиск не дал результатов",
+    "search-matching-documents-text": "Результаты поиска",
+    "search-copy-link-title": "Скопировать ссылку",
+    "search-hide-matches-text": "Скрыть дополнительные результаты",
+    "search-more-match-text": "дополнительный результат в этом документе",
+    "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
+    "search-clear-button-title": "Очистить",
+    "search-detached-cancel-button-title": "Отменить",
+    "search-submit-button-title": "Найти"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Основы геоинформатики</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Лекции</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./exam.html" aria-current="page">Зачёт</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://aentin.github.io/qgis-course/">Практикум в QGIS</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://tsamsonov.github.io/arcgis-course/">Практикум в ArcGIS</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/gis_in_pictures?igshid=NDk5N2NlZjQ="><i class="bi bi-instagram" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#условия-получения-зачёта" id="toc-условия-получения-зачёта" class="nav-link active" data-scroll-target="#условия-получения-зачёта">Условия получения зачёта</a></li>
+  <li><a href="#вопросы-для-подготовки-к-теоретическому-зачёту" id="toc-вопросы-для-подготовки-к-теоретическому-зачёту" class="nav-link" data-scroll-target="#вопросы-для-подготовки-к-теоретическому-зачёту">Вопросы для подготовки к теоретическому зачёту</a>
+  <ul class="collapse">
+  <li><a href="#географическая-информация-и-пространственные-данные" id="toc-географическая-информация-и-пространственные-данные" class="nav-link" data-scroll-target="#географическая-информация-и-пространственные-данные">Географическая информация и пространственные данные</a></li>
+  <li><a href="#создание-объектов-и-пространственные-отношения" id="toc-создание-объектов-и-пространственные-отношения" class="nav-link" data-scroll-target="#создание-объектов-и-пространственные-отношения">Создание объектов и пространственные отношения</a></li>
+  <li><a href="#базы-пространственных-данных" id="toc-базы-пространственных-данных" class="nav-link" data-scroll-target="#базы-пространственных-данных">Базы пространственных данных</a></li>
+  <li><a href="#векторный-анализ" id="toc-векторный-анализ" class="nav-link" data-scroll-target="#векторный-анализ">Векторный анализ</a></li>
+  <li><a href="#растровый-анализ" id="toc-растровый-анализ" class="nav-link" data-scroll-target="#растровый-анализ">Растровый анализ</a></li>
+  <li><a href="#цифровое-моделирование-рельефа" id="toc-цифровое-моделирование-рельефа" class="nav-link" data-scroll-target="#цифровое-моделирование-рельефа">Цифровое моделирование рельефа</a></li>
+  <li><a href="#пространственная-интерполяция-и-вариография" id="toc-пространственная-интерполяция-и-вариография" class="nav-link" data-scroll-target="#пространственная-интерполяция-и-вариография">Пространственная интерполяция и вариография</a></li>
+  <li><a href="#пространственная-зависимость-и-гетерогенность" id="toc-пространственная-зависимость-и-гетерогенность" class="nav-link" data-scroll-target="#пространственная-зависимость-и-гетерогенность">Пространственная зависимость и гетерогенность</a></li>
+  <li><a href="#модели-размещения-объектов" id="toc-модели-размещения-объектов" class="nav-link" data-scroll-target="#модели-размещения-объектов">Модели размещения объектов</a></li>
+  <li><a href="#сетевой-анализ" id="toc-сетевой-анализ" class="nav-link" data-scroll-target="#сетевой-анализ">Сетевой анализ</a></li>
+  <li><a href="#геоинформационные-технологии" id="toc-геоинформационные-технологии" class="nav-link" data-scroll-target="#геоинформационные-технологии">Геоинформационные технологии</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Зачет</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Автор</div>
+    <div class="quarto-title-meta-contents">
+             <p>Тимофей Самсонов </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Дата публикации</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">23 апреля 2023 г.</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<section id="условия-получения-зачёта" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="условия-получения-зачёта">Условия получения зачёта</h2>
+<p>Зачёт по курсу складывается из трёх компонент:</p>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 35%">
+<col style="width: 29%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>№</th>
+<th>Компонента зачёта</th>
+<th>Сроки проведения</th>
+<th>Кто оценивает</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Зачёты по практическим работам (включая контрольную работу в середине семестра)</td>
+<td>В течение всего семестра</td>
+<td>Преподаватель группы</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Итоговый практический зачёт</td>
+<td>24—29 апреля 2023 г.</td>
+<td>Преподаватель группы</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Итоговый теоретический зачёт</td>
+<td>2—3 мая 2023 г.</td>
+<td>Лектор и руководитель практикума</td>
+</tr>
+</tbody>
+</table>
+<p>Итоговый теоретический зачёт сдается в форме электронного теста в компьютерном классе. Теоретический зачёт считается сданным, если доля правильных ответов составляет не менее <span class="math inline">\(60\%\)</span>.</p>
+<p>Зачет по курсу проставляется при условии получения зачетов по всем трём компонентам.</p>
+</section>
+<section id="вопросы-для-подготовки-к-теоретическому-зачёту" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="вопросы-для-подготовки-к-теоретическому-зачёту">Вопросы для подготовки к теоретическому зачёту</h2>
+<section id="географическая-информация-и-пространственные-данные" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="географическая-информация-и-пространственные-данные">Географическая информация и пространственные данные</h3>
+<ol type="1">
+<li>Географическая информация</li>
+<li>Виды географической информации</li>
+<li>Пространственная привязка</li>
+<li>Геоинформатика</li>
+<li>Пространственный объект</li>
+<li>Информация</li>
+<li>Данные</li>
+<li>Пространственные данные</li>
+<li>Информационная система</li>
+<li>Географическая информационная система (ГИС)</li>
+<li>Геоинформатика (отрасль)</li>
+<li>Концептуальная модель</li>
+<li>Модель пространственных данных</li>
+<li>Модели пространственных объектов</li>
+<li>Объектно-ориентированная модель</li>
+<li>Сетевая модель</li>
+<li>Модель географических полей</li>
+<li>Простой объект (векторный)</li>
+<li>Сложный объект (покрытие)</li>
+<li>Стандарт Simple Features (SF)</li>
+<li>Линейная связность</li>
+<li>Модели пространственных объектов SF</li>
+<li>Хранение координат (WKT и WKB) в SF</li>
+<li>Векторная модель и ее особенности</li>
+<li>Модель покрытий</li>
+<li>Топологическое покрытие и его элементы</li>
+<li>Триангуляционное покрытие и его элементы</li>
+<li>Растровое покрытие и его элементы</li>
+<li>Диаграмма Вороного</li>
+<li>Триангуляция Делоне</li>
+<li>Сравнение растровой и триангуляционное модели</li>
+<li>Геометрия растра</li>
+<li>Пространственная привязка</li>
+<li>Система координат (СК) и ее описание</li>
+<li>Форматы описания СК (WKT, PROJ.4, EPSG)</li>
+<li>Операции с системами координат</li>
+<li>Преобразование координат</li>
+<li>Координатная привязка (регистрация)</li>
+<li>Опорные точки и принципы их выбора</li>
+<li>Аффинное преобразование</li>
+<li>Проективное преобразование</li>
+<li>Полиномиальное преобразование</li>
+<li>Преобразование методом резинового листа</li>
+</ol>
+</section>
+<section id="создание-объектов-и-пространственные-отношения" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="создание-объектов-и-пространственные-отношения">Создание объектов и пространственные отношения</h3>
+<ol type="1">
+<li>Автоматическое конструирование</li>
+<li>Геокодирование</li>
+<li>Географические идентификаторы</li>
+<li>Географический справочник (газеттир)</li>
+<li>Адресный локатор</li>
+<li>Геокодер</li>
+<li>Векторизация</li>
+<li>Автоматическая векторизация</li>
+<li>Автоматизированная векторизация</li>
+<li>Ручная векторизация</li>
+<li>Цифрование</li>
+<li>Отношение</li>
+<li>Пространственное отношение</li>
+<li>Предикат</li>
+<li>Метрические отношения</li>
+<li>Евклидово расстояние</li>
+<li>Манхэттенское расстояние</li>
+<li>Геодезическое расстояние</li>
+<li>Топологические отношения</li>
+<li>Матрица Эгенхофера 9IM</li>
+<li>Отношение НЕ ПЕРЕСЕКАЕТ (<code>DISJOINT</code>) и его матрица 9IM</li>
+<li>Отношение РАВЕН (<code>EQUALS</code>) и его матрица 9IM</li>
+<li>Отношение ПЕРЕКРЫВАЕТ (<code>OVERLAPS</code>) и его матрица 9IM</li>
+<li>Отношение КАСАЕТСЯ (<code>TOUCHES</code>) и его матрица 9IM</li>
+<li>Отношение ПОКРЫВАЕТ (<code>COVERS</code>) и его матрица 9IM</li>
+<li>Отношение ПОКРЫТ (<code>COVERED</code>) и его матрица 9IM</li>
+<li>Отношение СОДЕРЖИТ (<code>CONTAINS</code>) и его матрица 9IM</li>
+<li>Отношение ВНУТРИ (<code>WITHIN</code>) и его матрица 9IM</li>
+<li>Отношение ПЕРЕСЕКАЕТ и его связь с другими отношениями</li>
+<li>Дирекционные отношения</li>
+<li>Угловая модель</li>
+<li>Прямоугольная модель</li>
+<li>Проективная модель</li>
+</ol>
+</section>
+<section id="базы-пространственных-данных" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="базы-пространственных-данных">Базы пространственных данных</h3>
+<ol type="1">
+<li>База пространственных данных</li>
+<li>Модели баз данных и их сравнение</li>
+<li>Иерархическая модель</li>
+<li>Сетевая модель</li>
+<li>Реляционная модель</li>
+<li>Терминология реляционных БД</li>
+<li>Отношение</li>
+<li>Домен</li>
+<li>Атрибут</li>
+<li>Кортеж</li>
+<li>Ключ отношения и его свойства</li>
+<li>Первичный ключ</li>
+<li>Внешний ключ</li>
+<li>Шкалы измерений</li>
+<li>Номинальная шкала</li>
+<li>Порядковая шкала</li>
+<li>Интервальная шкала</li>
+<li>Относительная шкала</li>
+<li>Геореляционная база данных</li>
+<li>Отношение геометрии и атрибутов</li>
+<li>Опора измерений</li>
+<li>Экстенсивные атрибуты</li>
+<li>Интенсивные атрибуты</li>
+<li>Уровни проектирования БД</li>
+<li>Концептуальный уровень</li>
+<li>Логический уровень</li>
+<li>Физический уровень</li>
+<li>Требования к базе данных</li>
+<li>Система управления базами данных (СУБД)</li>
+<li>Основные функции СУБД</li>
+<li>Транзакции</li>
+<li>Атрибутивные операции</li>
+<li>Вычисление атрибутов</li>
+<li>Интерполяция атрибутов</li>
+<li>Классификация атрибутов</li>
+<li>Агрегирование атрибутов</li>
+<li>Фильтрация реляционных отношений</li>
+<li>Проекция реляционных отношений</li>
+<li>Соединение реляционных отношений</li>
+<li>Язык SQL (Structured Query Language)</li>
+<li>Запрос проекции <code>SELECT</code> на SQL</li>
+<li>Оператор фильтрации <code>WHERE</code> на SQL</li>
+<li>Оператор проверка на вхождение в множество <code>IN</code> на SQL</li>
+<li>Иневртирование условия <code>NOT</code> в SQL</li>
+<li>Проверка на пустоту <code>NOT NULL</code> в SQL</li>
+<li>Вспомогательные операторы <code>LIKE</code>, <code>BETWEEN</code>, <code>GROUP BY</code> и <code>JOIN</code> в SQL</li>
+<li>Пространственные запросы</li>
+<li>Связь пространственных запросов с пространственным отношениями</li>
+</ol>
+</section>
+<section id="векторный-анализ" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="векторный-анализ">Векторный анализ</h3>
+<ol type="1">
+<li>Вычисление длины/перметра</li>
+<li>Вычисление площади</li>
+<li>Определение принадлежности точки полигону</li>
+<li>Ограничивающий прямоугольник</li>
+<li>Выпуклое множество</li>
+<li>Выпуклая оболочка</li>
+<li>Алгоритм Джарвиса для построения выпуклой оболочки</li>
+<li>Центроид фигуры и его вычисление</li>
+<li>Срединная ось фигуры</li>
+<li>Буферная зона</li>
+<li>Особенности буферных зон для точек, линий и полигонов</li>
+<li>Взаимные преобразования моделей пространственных объектов</li>
+<li>Взаимные преобразования обычных и мультиобъектов</li>
+<li>Слияние (объединение по признаку)</li>
+<li>Оверлей</li>
+<li>Объединение</li>
+<li>Пересечение</li>
+<li>Разность</li>
+<li>Симметрическая разность</li>
+<li>Обрезка данных</li>
+<li>Пространственная ассоциация</li>
+<li>Односторонняя ассоциация</li>
+<li>Двусторонняя ассоциация</li>
+<li>Пространственные соотношения</li>
+<li>Интерполяция взвешенная на площадь (ИВП)</li>
+<li>ИВП для экстенсивных атрибутов</li>
+<li>ИВП для интенсивных атрибутов</li>
+</ol>
+</section>
+<section id="растровый-анализ" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="растровый-анализ">Растровый анализ</h3>
+<ol type="1">
+<li>Растровая геометрия</li>
+<li>Регулярная геометрия</li>
+<li>Аффинная геометрия</li>
+<li>Ректилинейная геометрия</li>
+<li>Криволинейная геометрия</li>
+<li>Соотношение геометрии и матрицы данных</li>
+<li>Измерения растра</li>
+<li>Растровые кубы данных</li>
+<li>Изменение проекции растра</li>
+<li>Трансформация растра</li>
+<li>Деформация растра</li>
+<li>Передискретизация растра и ее применение</li>
+<li>Метод ближайшего соседа</li>
+<li>Билинейная интерполяция</li>
+<li>Растровая алгебра</li>
+<li>Локальные операции и их применение</li>
+<li>Фокальные операции и их применение</li>
+<li>Окрестности фокальных операций</li>
+<li>Свёртка</li>
+<li>Сглаживание растра</li>
+<li>Фокальные операции с нефиксированной окрестностью</li>
+<li>Евклидово распределение</li>
+<li>Евклидово расстояние</li>
+<li>Зональные операции и их применение</li>
+<li>Глобальные операции и их применение</li>
+<li>Растровый оверлей</li>
+<li>Взвешенный оверлей</li>
+<li>Извлечение данных растра</li>
+<li>Построение профиля по растру</li>
+</ol>
+</section>
+<section id="цифровое-моделирование-рельефа" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="цифровое-моделирование-рельефа">Цифровое моделирование рельефа</h3>
+<ol type="1">
+<li>Цифровая модель рельефа</li>
+<li>Покрытие</li>
+<li>Геоморфометрия</li>
+<li>Основные задачи геоморфометрии</li>
+<li>Аппроксимация поверхности</li>
+<li>Метод Эванса и его преимущество</li>
+<li>Производные поверхности Эванса</li>
+<li>Уклон и его выражение в производных</li>
+<li>Угол наклона и его связь с уклоном</li>
+<li>Экспозиция склона и ее выражение в производных</li>
+<li>Кривизна кривой</li>
+<li>Плановая кривизна и ее интерпретация</li>
+<li>Профильная кривизна и ее интерпретация</li>
+<li>Интенсивность отражения света от поверхности</li>
+<li>Модель Ламберта и ее математическое определение</li>
+<li>Аналитическая отмывка</li>
+<li>Отмывка при боковом освещении</li>
+<li>Отмывка при отвесном освещении</li>
+<li>Комбинация боковой и отвесной отмывки</li>
+<li>Гидрологический анализ ЦМР</li>
+<li>Основные задачи гидрологического анализа ЦМР</li>
+<li>Предварительная подготовка ЦМР</li>
+<li>Направление стока</li>
+<li>Метод D8 и его формальное определение</li>
+<li>Аккумуляция стока</li>
+<li>Методы выражения аккумуляции стока</li>
+<li>Вычисление аккумуляции в пикселе</li>
+<li>Алгоритм построения растра аккумуляции стока</li>
+<li>Потенциальные водотоки</li>
+<li>Алгоритм выделения потенциальных водотоков</li>
+<li>Управление густотой потенциальных водотоков через пороговое значение аккумуляции стока</li>
+<li>Дренажный граф</li>
+<li>Бассейн</li>
+<li>Построение границы бассейна</li>
+</ol>
+</section>
+<section id="пространственная-интерполяция-и-вариография" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="пространственная-интерполяция-и-вариография">Пространственная интерполяция и вариография</h3>
+<ol type="1">
+<li>Пространственная статистика</li>
+<li>Моделирование пространственных распределений и его этапы</li>
+<li>Роль геостатистических методов</li>
+<li>Интерполяция в общем случае</li>
+<li>Детерминистические методы интерполяции</li>
+<li>Аналитическая функция и ее параметры</li>
+<li>Задача детерминистической интерполяции и ее формальная постановка</li>
+<li>Узлы интерполяции</li>
+<li>Метод ближайшего соседа</li>
+<li>Интерполяция на основе триангуляции</li>
+<li>Вычисление коээфициентов уравнения плоскости на основе триангуляции</li>
+<li>Характерные особенности триангулированной поверхности</li>
+<li>Метод обратно взвешенных расстояний (ОВР)</li>
+<li>Весовая функция ОВР</li>
+<li>Изменение вида поверхности ОВР при увеличении степени <span class="math inline">\(\beta\)</span></li>
+<li>Характерная особенности поверхности, построенной методом ОВР</li>
+<li>Радиальные базисные функции</li>
+<li>Радиальная функция</li>
+<li>Мультиквадрики</li>
+<li>Обратные мультиквадрики</li>
+<li>Мульти-логарифмическая функция</li>
+<li>Сплайны минимальной кривизны</li>
+<li>Влияние параметра <span class="math inline">\(\delta\)</span> на форму РБФ</li>
+<li>Соотношение поверхности РБФ и диапазона исходных значений</li>
+<li>Полиномиальная регрессия при разных степенях</li>
+<li>Функция потери</li>
+<li>Геостатистика</li>
+<li>Вариограмма и ее математическое определение</li>
+<li>Особенности вариограммы</li>
+<li>Вариограммное облако и его интерпретация</li>
+<li>Эмпирическая вариограмма и ее построение</li>
+<li>Пространственный лаг</li>
+<li>Интерпретация эмпирической вариограммы</li>
+<li>Модель вариограммы и ее параметры</li>
+<li>Эффект самородка</li>
+<li>Радиус корреляции</li>
+<li>Плато</li>
+<li>Сферическая модель вариограммы</li>
+<li>Экспоненциальная модель вариограммы</li>
+<li>Гауссова модель вариограммы</li>
+<li>Степенная модель вариограммы</li>
+<li>Кригинг и его математическая постановка</li>
+<li>Система уравнений обычного кригинга</li>
+<li>Сумма весов обычного кригинга</li>
+<li>Оценка кригинга</li>
+<li>Дисперсия кригинга</li>
+</ol>
+</section>
+<section id="пространственная-зависимость-и-гетерогенность" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="пространственная-зависимость-и-гетерогенность">Пространственная зависимость и гетерогенность</h3>
+<ol type="1">
+<li>Пространственная зависимость</li>
+<li>Диаграмма рассеяния</li>
+<li>Линейная регрессия и ее формальная постановка</li>
+<li>Система линейных уравнений (СЛУ) регрессии</li>
+<li>Матричная форма СЛУ регрессии</li>
+<li>Остатки линейной регрессии</li>
+<li>Метод наименьших квадратов (МНК)</li>
+<li>Оптимальное решение СЛУ по МНК</li>
+<li>Модель линейно регрессии</li>
+<li>Анализ карты остатков регрессии</li>
+<li>Пространственная автокорреляция</li>
+<li>Географическое соседство</li>
+<li>Правило ферзя</li>
+<li>Правило ладьи</li>
+<li>Пространственные веса</li>
+<li>Бинарные веса</li>
+<li>Нормированные веса</li>
+<li>Матрица весов W и ее вид для бинарного и нормированного случая</li>
+<li>Коэффициент корреляции Пирсона</li>
+<li>Индекс Морана и его формула</li>
+<li>Интерпретация индекса Морана</li>
+<li>Математическое ожидание индекса Морана</li>
+<li>Автокорреляция остатков регрессии</li>
+<li>Пространственная регрессия</li>
+<li>Авторегрессия и ее коэффициент</li>
+<li>Предикторы пространственной регрессии</li>
+<li>Тренд</li>
+<li>Сигнал</li>
+<li>Шум</li>
+<li>Выражение пространственной регрессии в виде обычной регрессии</li>
+<li>Автокорреляция остатков пространственной регрессии</li>
+<li>Пространственная гетерогенность</li>
+<li>Географически взвешенная регрессия (ГВР)</li>
+<li>Математическое определение ГВР</li>
+<li>Весовая функция</li>
+<li>Полоса пропускания и ее влияние на форму весовой функции</li>
+<li>Фиксированная весовая функция</li>
+<li>Адаптивная весовая функция</li>
+<li>Коэффициенты ГВР</li>
+<li>Карты коэффициентов ГВР и их интерпретация</li>
+</ol>
+</section>
+<section id="модели-размещения-объектов" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="модели-размещения-объектов">Модели размещения объектов</h3>
+<ol type="1">
+<li>Размещение географических объектов</li>
+<li>Точечный процесс</li>
+<li>Точечный паттерн</li>
+<li>Эталонные модели распределений</li>
+<li>Экспериментальный подход к анализу распределений</li>
+<li>Абсолютно случайное распределение (АСР)</li>
+<li>Распределение координат в АСР</li>
+<li>Ожидаемое количество точек в АСР</li>
+<li>Интенсивность точечного процесса</li>
+<li>Распределение Пуассона</li>
+<li>Выражение вероятности нахождения <span class="math inline">\(k\)</span> точек в заданной области</li>
+<li>Однородный пуассоновский процесс</li>
+<li>Симуляция однородного пуассоновскго процесса</li>
+<li>Неоднородный пуассоновский процесс</li>
+<li>Функция интенсивности неоднородного пуассоновского процесса</li>
+<li>Ожидаемое количество точек в заданной области для неоднородного пуассоновского процесса</li>
+<li>Процесс Кокса</li>
+<li>Симуляция неодородного пуассоновского процесса методом Льюиса-Шедлера</li>
+<li>Центробежная конфигурация точек</li>
+<li>Центростремительная конфигурация точек</li>
+<li>Кластерное распределение</li>
+<li>Кластер</li>
+<li>Моделирование кластерных распределений в три этапа</li>
+<li>Кластерная модель Неймана-Скотта</li>
+<li>Процесс Матерна</li>
+<li>Процесс Томаса</li>
+<li>Регулярное распределение</li>
+<li>Расстояние ингибиции</li>
+<li>Последовательная модель генерации регулярного распределения</li>
+<li>Диагностика точечного распределения</li>
+<li>Свойства I порядка</li>
+<li>Свойства II порядка</li>
+<li>Плотность пространственного распределения</li>
+<li>Ядерное сглаживание</li>
+<li>Диагностика плотности пространственного распределения</li>
+<li>G-функция и ее формальное определение</li>
+<li>Алгоритм применения G-функции</li>
+<li>G-функция абсолютно случайного распределения</li>
+<li>G-функция кластерного распределения</li>
+<li>G-функция регулярного распределения</li>
+<li>Анализ и моделирование размещения на примере неоднородного пуассоновского процесса</li>
+</ol>
+</section>
+<section id="сетевой-анализ" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="сетевой-анализ">Сетевой анализ</h3>
+<ol type="1">
+<li>Географические сети</li>
+<li>Граф и его формальное определение</li>
+<li>Элементы графа</li>
+<li>Матрица смежности</li>
+<li>Топологическая эквивалентность</li>
+<li>Направления сетевого анализа</li>
+<li>Подготовка данных для сетевого анализа</li>
+<li>Решение задач на графах</li>
+<li>Кратчайший маршрут</li>
+<li>Особенности построения кратчайших маршрутов</li>
+<li>Задача коммивояжёра и ее применение</li>
+<li>Блажайший пункт обслуживания</li>
+<li>Изохроны</li>
+<li>Алгоритм построения изохрон</li>
+<li>Анализ структуры географической сети</li>
+<li>Центральность</li>
+<li>Центральность по промежуточности</li>
+<li>Центральность по близости</li>
+<li>Центральность по степени</li>
+<li>Центральность по влиятельности</li>
+</ol>
+</section>
+<section id="геоинформационные-технологии" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="геоинформационные-технологии">Геоинформационные технологии</h3>
+<p><em>Вопросы по этому разделу будут опубликованы <strong>28.04.2023</strong>.</em></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Скопировано");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">© 2023, Тимофей Самсонов, Географический факультет МГУ имени М. В. Ломоносова</div>
+  </div>
+</footer>
+
+
+
+</body></html>

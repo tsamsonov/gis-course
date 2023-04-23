@@ -10,6 +10,8 @@ website:
     left:
       - href: index.qmd
         text: Лекции
+      - href: exam.qmd
+        text: Зачёт
       - href: https://aentin.github.io/qgis-course/
         text: Практикум в QGIS
       - href: https://tsamsonov.github.io/arcgis-course/
