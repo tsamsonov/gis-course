@@ -39,8 +39,10 @@ library(purrr)
 
 url = '1mTH6RKbe1dzvgJci4yrwDEg4YqF5eVHHR22Av0yRag0'
 
-render_tab = function(url, sheet) {
-  read_sheet(url, sheet, col_names = c('Вопрос', 'URL')) |> 
+sheets = lapply(1:10, function(x) read_sheet(url, x, col_names = c('Вопрос', 'URL')))
+
+render_sheet = function(sheets, i) {
+  sheets[[i]] |> 
   mutate(`№` = row_number()) |>
   relocate(`№`) |> 
   select(-URL) |> 
@@ -49,65 +51,67 @@ render_tab = function(url, sheet) {
     align = "left"
   ) |> 
   tab_options(table.align = "left",
+              column_labels.font.weight = 'bold',
+              table_body.hlines.color = "grey90",
               table.width = pct(100),
               data_row.padding = px(5))
 }
 
-render_tab(url, 1)
+render_sheet(sheets, 1)
 ```
 
 ### Создание объектов и пространственные отношения {.unnumbered}
 
 ```{r}
-render_tab(url, 2)
+render_sheet(sheets, 2)
 ```
 
 ### Базы пространственных данных {.unnumbered}
 
 ```{r}
-render_tab(url, 3)
+render_sheet(sheets, 3)
 ```
 
 ### Векторный анализ {.unnumbered}
 
 ```{r}
-render_tab(url, 4)
+render_sheet(sheets, 4)
 ```
 
 ### Растровый анализ {.unnumbered}
 
 ```{r}
-render_tab(url, 5)
+render_sheet(sheets, 5)
 ```
 
 ### Цифровое моделирование рельефа {.unnumbered}
 
 ```{r}
-render_tab(url, 6)
+render_sheet(sheets, 6)
 ```
 
 ### Пространственная интерполяция и вариография {.unnumbered}
 
 ```{r}
-render_tab(url, 7)
+render_sheet(sheets, 7)
 ```
 
 ### Пространственная зависимость и гетерогенность {.unnumbered}
 
 ```{r}
-render_tab(url, 8)
+render_sheet(sheets, 8)
 ```
 
 ### Модели размещения объектов {.unnumbered}
 
 ```{r}
-render_tab(url, 9)
+render_sheet(sheets, 9)
 ```
 
 ### Сетевой анализ {.unnumbered}
 
 ```{r}
-render_tab(url, 10)
+render_sheet(sheets, 10)
 ```
 
 ### Геоинформационные технологии {.unnumbered}
