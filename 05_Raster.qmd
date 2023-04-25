@@ -1,7 +1,8 @@
 ---
 title: "Растровый анализ"
 subtitle: "Основы геоинформатики. Лекция 5"
-date: 17.03.2023
+date: 03/17/2023
+date-format: long
 author: "Самсонов Тимофей Евгеньевич"
 execute:
   echo: false

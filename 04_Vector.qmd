@@ -1,7 +1,8 @@
 ---
 title: "Векторный анализ"
 subtitle: "Основы геоинформатики. Лекция 4"
-date: 10.03.2023
+date: 03/10/2023
+date-format: long
 author: "Самсонов Тимофей Евгеньевич"
 execute:
   echo: false

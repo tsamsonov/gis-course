@@ -1,7 +1,8 @@
 ---
 title: "Сетевой анализ"
 subtitle: "Основы геоинформатики: лекция 10"
-date: 21.04.2023
+date: 04/21/2023
+date-format: long
 author: "Самсонов Тимофей Евгеньевич"
 execute:
   echo: false
