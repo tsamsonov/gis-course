@@ -22,6 +22,9 @@ website:
     right: 
       - href: https://instagram.com/gis_in_pictures?igshid=NDk5N2NlZjQ=
         icon: instagram
+      - icon: github
+        href: https://github.com/tsamsonov/gis-course
+        aria-label: GitHub
 format:
   html:
     theme: yeti
