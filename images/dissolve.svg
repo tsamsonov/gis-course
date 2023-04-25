@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 469 217" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,-793,-4738)">
+        <rect id="Vector-analysis" serif:id="Vector analysis" x="0" y="3502" width="2985" height="2387" style="fill:none;"/>
+        <g id="Vector-analysis1" serif:id="Vector analysis">
+            <g id="Voronoy_colored">
+            </g>
+            <g id="Dots">
+            </g>
+            <g id="Outer-dots" serif:id="Outer dots">
+            </g>
+            <g id="dashed">
+            </g>
+            <g id="dots-2" serif:id="dots 2">
+            </g>
+            <g id="dots">
+            </g>
+            <g transform="matrix(0.970443,0,0,1.00943,639.877,3409.51)">
+                <rect x="165" y="1325" width="203" height="197" style="fill:none;stroke:black;stroke-width:4.04px;"/>
+            </g>
+            <g transform="matrix(0.970443,0,0,1.00943,900.681,3409.51)">
+                <rect x="165" y="1325" width="203" height="197" style="fill:none;stroke:black;stroke-width:4.04px;"/>
+            </g>
+            <path d="M800,4891.86L856.58,4920.56L867,4945.86L800,4945.86L800,4891.86Z" style="fill:rgb(250,112,255);stroke:black;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:bevel;"/>
+            <path d="M867,4945.86L855.414,4921.11L910.167,4895.26L997,4918.86L997,4945.86L867,4945.86Z" style="fill:rgb(250,112,255);stroke:black;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:bevel;"/>
+            <g transform="matrix(1,0,0,1,635,3422)">
+                <path d="M165,1325L283,1325L271,1359.71L213.69,1386.09L165,1381L165,1325Z" style="fill:rgb(45,231,231);stroke:black;stroke-width:4px;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,635,3422)">
+                <path d="M165,1381L213.69,1386.09L275.167,1473.26L221.58,1498.56L165,1469.86L165,1381Z" style="fill:rgb(250,112,255);stroke:black;stroke-width:4px;"/>
+            </g>
+            <path d="M1257.8,4918.86L1257.8,4945.86L1060.8,4945.86L1060.8,4803L1109.49,4808.09L1170.97,4895.26L1257.8,4918.86Z" style="fill:rgb(250,112,255);stroke:black;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:bevel;"/>
+            <g transform="matrix(1,0,0,1,635,3422)">
+                <path d="M304,1394.43L271,1359.71L283,1325L362,1325L362,1388.43L304,1394.43Z" style="fill:rgb(45,231,231);stroke:black;stroke-width:4px;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,638,3422)">
+                <g transform="matrix(1,-0,-0,1,155,1316)">
+                    <path d="M236,97.929L257,108.429L236,118.929L236,97.929Z"/>
+                    <path d="M219,108.429L240.2,108.429" style="fill:none;stroke:black;stroke-width:7px;stroke-linecap:square;"/>
+                </g>
+            </g>
+            <path d="M910.167,4895.26L939,4816.43L906,4781.71L848.69,4808.09L910.167,4895.26Z" style="fill:rgb(45,231,231);stroke:black;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:bevel;"/>
+            <path d="M800,4891.86L855.083,4920.4L867,4945.86" style="fill:none;stroke:black;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:bevel;"/>
+            <path d="M867,4945.86L855.414,4921.11L910.167,4895.26L997,4918.86" style="fill:none;stroke:black;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:bevel;"/>
+            <path d="M939,4816.43L997,4810.43L997,4918.86L910.167,4895.26L939,4816.43Z" style="fill:rgb(45,231,231);stroke:black;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:bevel;"/>
+            <path d="M1060.8,4803L1060.8,4747L1257.8,4747L1257.8,4918.86L1170.97,4895.26L1109.49,4808.09L1060.8,4803Z" style="fill:rgb(45,231,231);stroke:black;stroke-width:4px;"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,39 @@
+/*-- scss:defaults --*/
+
+// fonts
+$font-family-sans-serif: "PT Sans" !default;
+$presentation-font-size-root: 35px;
+$code-block-font-size: 0.8em;
+$presentation-h1-font-size: 1.8em;
+
+// colors
+$body-bg: #ffffff !default;
+$body-color: #000 !default;
+$link-color: #51483d !default;
+$selection-bg: #26351c !default;
+
+// headings
+$presentation-heading-font: "PT Sans Caption" !default;
+$presentation-heading-color: #383d3d !default;
+
+/*-- scss:rules --*/
+.reveal a {
+  line-height: 1.3em;
+}
+
+.title {
+  color: brown !important;
+}
+
+.subtitle {
+  font-size: 1.2em;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.date {
+  color: steelblue;
+  font-weight: 200;
+}

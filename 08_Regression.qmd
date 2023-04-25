@@ -1,0 +1,847 @@
+---
+title: "Пространственная статистика II: зависимость и гетерогенность"
+subtitle: "Основы геоинформатики: лекция 8"
+date: 07.04.2023
+author: "Самсонов Тимофей Евгеньевич"
+execute:
+  echo: false
+engine: knitr
+format:
+  revealjs: 
+    theme: [default, custom_small.scss]
+    margin: 0.2
+    slide-number: true
+    footer: "Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ"
+    header-includes: <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pt-sans" type="text/css"/>
+bibliography: references.yaml
+mainfont: PT Sans
+---
+
+## Пространственная статистика
+
+**Пространственная статистика** --- анализ и моделирование пространственных явлений методами математической статистики.
+
+![](images/spatstat1.svg){width="100%"}
+
+## Пространственная статистика
+
+**Пространственная статистика** --- анализ и моделирование пространственных явлений методами математической статистики.
+
+![](images/spatstat2.svg){width="100%"}
+
+## Пространственная зависимость
+
+::: columns
+::: {.column width="65%"}
+**Пространственная зависимость** проявляется в том, что значения величины в соседних единицах измерений оказываются связаны.
+
+Учет этого фактора позволяет значительно усилить качество регрессионных моделей.
+
+::: callout-note
+## Как это работает?
+
+Например, уровень преступности можно прогнозировать не только по доходам населения в районе, но и по уровню преступности *в соседних районах*.
+:::
+:::
+
+::: {.column width="35%"}
+![](images/dependency.svg){width="100%"}
+:::
+:::
+
+## Исходные данные
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+library(sf)
+library(tidyverse)
+library(spdep)
+library(spatialreg)
+
+reg = read_sf(system.file("shapes/columbus.shp", package="spData")[1])
+
+crime_breaks = scales::fullseq(range(reg$CRIME), 10)
+
+ggplot(data = reg) +
+  geom_sf(aes(fill = CRIME), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuRd', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Уровень преступности") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Исходные данные
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+inc_breaks = scales::fullseq(range(reg$INC), 5)
+ggplot(data = reg) +
+  geom_sf(aes(fill = INC), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'Greens', breaks = inc_breaks, direction = 1) + 
+  theme_void() + ggtitle("Доходы") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Исходные данные
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+hoval_breaks = scales::fullseq(range(reg$HOVAL), 10)
+ggplot(data = reg) +
+  geom_sf(aes(fill = HOVAL), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'YlOrBr', breaks = hoval_breaks, direction = 1) + 
+  theme_void() + ggtitle("Стоимость домовладения") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Диаграмма рассеяния
+
+Диаграмма рассеяния показывает соотношение переменных
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg, aes(INC, CRIME)) +
+  geom_point()
+```
+
+## Линейная регрессия
+
+Линейная регрессия дает аппроксимацию зависимости
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg, aes(INC, CRIME)) +
+  geom_point() +
+  geom_smooth(method = 'lm')
+```
+
+Коэффициент корреляции равен $-0.696$.
+
+## Линейная регрессия
+
+Линейная регрессия дает аппроксимацию зависимости
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg, aes(HOVAL, CRIME)) +
+  geom_point() +
+  geom_smooth(method = 'lm')
+```
+
+Коэффициент корреляции равен $-0.574$.
+
+## Линейная регрессия
+
+Линейная регрессия позволяет найти зависимость вида
+
+$$
+y = \sum_{j=0}^k \beta_j x_j
+$$
+
+где $x_0 = 1$, а остальные $x_j$ --- независимые переменные.
+
+Например, для двух переменных:
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2
+$$
+
+В этом уравнении 3 неизвестных коэффициента. Для их нахождения требуется как минимум 3 измерения. Но обычно их больше, поэтому получится аппроксимация зависимости.
+
+## Линейная регрессия
+
+Пусть исследуемый показатель, а также независимые переменные измерены в $n$ географических местоположениях.
+
+Для нахождения $\beta$ составляют систему из $i=1...n$ уравнений вида
+
+$$
+y_i = \sum_{j=0}^k \beta_j x_{ij}
+$$
+
+Например, для четырех измерений:
+
+$$
+y_1 = \beta_0 + \beta_1 x_{11} + \beta_2 x_{12}\\
+y_2 = \beta_0 + \beta_1 x_{21} + \beta_2 x_{22}\\
+y_3 = \beta_0 + \beta_1 x_{31} + \beta_2 x_{32}\\
+y_4 = \beta_0 + \beta_1 x_{41} + \beta_2 x_{42}\\
+$$
+
+## Линейная регрессия
+
+Для решения систему уравнений их записывают в матричном виде:
+
+$$
+\underbrace{\begin{bmatrix}
+y_1 \\
+y_2 \\
+y_3 \\
+y_4 \\
+\end{bmatrix}}_{\textbf y} =
+\underbrace{\begin{bmatrix}
+1 & x_{11} & x_{12} \\
+1 & x_{21} & x_{22} \\
+1 & x_{31} & x_{32} \\
+1 & x_{41} & x_{42} \\
+\end{bmatrix}}_{\textbf X}
+\underbrace{\begin{bmatrix}
+\beta_0 \\
+\beta_1 \\
+\beta_2
+\end{bmatrix}}_{\boldsymbol \beta}
+$$
+
+Или более компактно:
+
+$$
+\mathbf{y} = \mathbf{X} \boldsymbol\beta
+$$
+
+## Линейная регрессия
+
+Если предположить, что система решена и коэффициенты $\beta$ найдены, то в каждом измерении получается ошибка (остаток) :
+
+$$
+\epsilon_i = y_i - \sum_{j=0}^k \beta_j x_{ij}
+$$
+
+**Метод наименьших квадратов** позволяет минимизировать сумму:
+
+$$
+\sum_{i=1}^n \epsilon_i^2 \rightarrow \min
+$$
+
+Гауссом доказано, что минимум достигается решением:
+
+$$
+\boldsymbol \beta = (\mathbf X^T \mathbf X)^{-1} \mathbf X^T \mathbf y
+$$
+
+## Линейная регрессия
+
+Модель линейной регрессии записывается как:
+
+$$\mathbf{y} = \mathbf{X} \boldsymbol\beta + \boldsymbol\epsilon,$$
+
+где:
+
+-   $\mathbf{y} = \{y_1, y_2, ... y_n\}$ --- вектор измерений зависимой переменной по $n$ объектам,
+
+-   $\mathbf{X} = \{x_{ij}\}$ --- матрица размером $n \times (k+1)$, состоящая из значений $k$ независимых переменных для $n$ объектов (плюс константа $1$).
+
+-   $\boldsymbol\beta$ --- вектор коэффициентов регрессии;
+
+-   $\boldsymbol\epsilon$ --- вектор случайных ошибок (остатков).
+
+## Линейная регрессия
+
+Для модели
+
+$$
+\texttt{CRIME} = \beta_0 + \beta_1 \texttt{INC} + \beta_2 \texttt{HOVAL}
+$$
+
+получается следующая диагностика:
+
+```{r}
+model = lm(CRIME ~ INC + HOVAL, data = reg)
+reg = reg |> 
+  mutate(
+    FIT = fitted(model),
+    RES = residuals(model)
+  )
+s = summary(model)
+s$coefficients[,-3]
+```
+
+Т.е. модель принимает следующий вид:
+
+$$
+\texttt{CRIME} = 68.619 -1.597~\texttt{INC} - 0.274~\texttt{HOVAL}
+$$
+
+## Линейная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = CRIME), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuRd', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Уровень преступности (данные)") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Линейная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = FIT), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuRd', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Уровень преступности (модель)") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Линейная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = RES), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'Oranges', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Уровень преступности (остатки)") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Остатки регрессии
+
+::: columns
+::: {.column width="50%"}
+::: callout-important
+## Важно
+
+Если остатки от регрессии образуют пространственный рисунок, это значит, что независимых переменных недостаточно для предсказания исследуемой величины. Необходимо учитывать пространственную зависимость.
+:::
+:::
+
+::: {.column width="50%"}
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = RES), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'Oranges', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Уровень преступности (остатки)") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+:::
+:::
+
+При анализе карт остатков регрессии обращают внимание на то, меняются ли они плавно по пространству, есть ли выраженный пространственный тренд и зависимость значений соседних единиц.
+
+## Пространственная автокорреляция
+
+Пространственная автокорреляция [@hubert:1981]
+
+:   Для множества $S$, состоящего из $n$ географических единиц, пространственная автокорреляция есть соотношение между переменной, наблюдаемой в каждой из $n$ единиц и мерой географической близости, определенной для всех $n(n − 1)$ пар единиц из $S$.
+
+-   Пространственная автокорреляция является количественной мерой пространственной зависимости.
+
+-   Для ее вычисления необходимо формализовать понятие географического соседства: какие объекты будем считать соседними и что будет мерой их близости?
+
+## Географическое соседство
+
+Для площадных территориальных единиц часто используется **соседство по смежности**, которое использует касание границ:
+
+![](images/QueenRook.png){width="100%"}
+
+**Правило ферзя**: хотя бы одна общая точка на границе.\
+**Правило ладьи**: общий участок линии на границе.
+
+## Географическое соседство
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+coords = reg |> 
+  st_centroid() |>  
+  st_coordinates()
+
+nb_queen = poly2nb(reg) # Соседство по правилу ферзя
+nb_queen_sf = as(nb2lines(nb_queen, coords = coords), 'sf')
+nb_queen_sf = st_set_crs(nb_queen_sf, st_crs(reg))
+
+ggplot() +
+  geom_sf(data = reg, linewidth = 0.25, color = 'black') +
+  geom_sf(data = nb_queen_sf, linewidth = 1) +
+  theme_void() + ggtitle("Правило ферзя") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Географическое соседство
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+nb_rook = poly2nb(reg, queen = FALSE) # Соседство по правилу ферзя
+nb_rook_sf = as(nb2lines(nb_rook, coords = coords), 'sf')
+nb_rook_sf = st_set_crs(nb_rook_sf, st_crs(reg))
+
+ggplot() +
+  geom_sf(data = reg, linewidth = 0.25, color = 'black') +
+  geom_sf(data = nb_rook_sf, linewidth = 1) +
+  theme_void() + ggtitle("Правило ладьи") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Пространственные веса
+
+**Пространственные веса** характеризуют силу связи между объектами
+
+-   Если единицы не являются соседними (по выбранному правилу), то пространственный вес их связи будет равен нулю. Во всех остальных случаях веса будут ненулевыми.
+
+-   Бинарные веса: если связь есть, то ее вес равен единице ($1$), если нет --- нулю ($0$).
+
+-   Нормированные веса: вес $j$-й единицы по отношению к $i$-й равен $1/n_i$, где $n_i$ --- количество соседей у $i$.
+
+## Пространственные веса
+
+::: columns
+::: {.column width="50%"}
+**Бинарные веса**
+
+![](images/binary.svg){width="100%"}
+:::
+
+::: {.column width="50%"}
+**Матрица весов** $\mathbf W$
+
+$$
+\begin{bmatrix}
+0 & 0 & \color{green}{\mathbf 1} & 0 & \color{green}{\mathbf 1} & \color{green}{\mathbf 1} & 0 \\
+0 & 0 & \color{blue}{\mathbf 1} & 0 & 0 & 0 & \color{blue}{\mathbf 1} \\
+0 & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} & 0 & 0 & \color{blue}{\mathbf 1} \\
+\color{red}{\mathbf 1} & \color{red}{\mathbf 1} & \color{red}{\mathbf 1} & 0 & \color{red}{\mathbf 1} & 0 & 0 \\
+\color{blue}{\mathbf 1} & 0 & 0 & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} \\
+\color{blue}{\mathbf 1} & 0 & 0 & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} & 0 & 0 \\
+0 & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} & \color{blue}{\mathbf 1} & 0 & 0 & 0 \\
+\end{bmatrix}
+$$
+:::
+:::
+
+## Пространственные веса
+
+::: columns
+::: {.column width="50%"}
+**Нормированные веса**
+
+![](images/weighted.svg){width="100%"}
+:::
+
+::: {.column width="50%"}
+Матрица весов $\mathbf W$
+
+$$
+\small
+\begin{bmatrix}
+0 & 0 & \color{green}{\mathbf{0.33}} & 0 & \color{green}{\mathbf{0.33}} & \color{green}{\mathbf{0.33}} & 0 \\
+0 & 0 & \color{blue}{\mathbf{0.5}} & 0 & 0 & 0 & \color{blue}{\mathbf{0.5}} \\
+0 & \color{blue}{\mathbf{0.25}} & \color{blue}{\mathbf{0.25}} & \color{blue}{\mathbf{0.25}} & 0 & 0 & \color{blue}{\mathbf{0.25}} \\
+\color{red}{\mathbf{0.25}} & \color{red}{\mathbf{0.25}} & \color{red}{\mathbf{0.25}} & 0 & \color{red}{\mathbf{0.25}} & 0 & 0 \\
+\color{blue}{\mathbf{0.2}} & 0 & 0 & \color{blue}{\mathbf{0.2}} & \color{blue}{\mathbf{0.2}} & \color{blue}{\mathbf{0.2}} & \color{blue}{\mathbf{0.2}} \\
+\color{blue}{\mathbf{0.33}} & 0 & 0 & \color{blue}{\mathbf{0.33}} & \color{blue}{\mathbf{0.33}} & 0 & 0 \\
+0 & \color{blue}{\mathbf{0.33}} & \color{blue}{\mathbf{0.33}} & \color{blue}{\mathbf{0.33}} & 0 & 0 & 0 \\
+\end{bmatrix}
+\normalsize
+$$
+:::
+:::
+
+## Пространственные веса
+
+```{r, fig.height=3, fig.width=4, dpi=300}
+Wbin = nb2listw(nb_queen, style = "B")
+M = listw2mat(Wbin)
+
+mdf = data.frame(row = c(row(M)), col = c(col(M)), W = c(M))
+
+ggplot(data = mdf, aes(row, col, fill = W)) +
+  scale_fill_distiller(palette = 'Blues', direction = 1) +
+  geom_raster() +
+  coord_fixed() +
+  theme_bw() + ggtitle("Бинарные веса") +
+  labs(x = 'Объект', y = 'Объект') +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Пространственные веса
+
+```{r, fig.height=3, fig.width=4, dpi=300}
+Wstand = spdep::nb2listw(nb_queen, style = "W")
+M = listw2mat(Wstand)
+
+mdf = data.frame(row = c(row(M)), col = c(col(M)), W = c(M))
+
+ggplot(data = mdf, aes(row, col, fill = W)) +
+  scale_fill_distiller(palette = 'Blues', direction = 1) +
+  geom_raster() +
+  coord_fixed() +
+  theme_bw() + ggtitle("Нормированные веса") +
+  labs(x = 'Объект', y = 'Объект') +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Коэффициент корреляции Пирсона
+
+Коэффициент корреляции Пирсона вычисляется как:
+
+$$r_{xy} = \frac{\sum_{i=1}^{n}(x_i - \bar x)(y_i - \bar y)}{\sqrt{\sum_{i=1}^{n}(x_i - \bar x)^2} \sqrt{\sum_{i=1}^{n}(y_i - \bar y)^2}}$$ где:
+
+-   $X = \{x_i\}$ и $Y = \{y_i\}$ --- две выборки значений;
+
+-   $\bar x$ и $\bar y$ --- средние арифметические.
+
+::: callout-note
+## Линейная зависимость
+
+Коэффициент корреляции Пирсона показывает зависимость только для переменных, имеющих связь линейного характера
+:::
+
+## Индекс Морана
+
+Анализ пространственной автокорреляции осуществляется, как правило, путем вычисления индекса Морана (Moran's I) [@moran1950]:
+
+$$I = \frac{n \sum^n_{i=1} \sum^n_{j=i} w_{ij} (y_i - \bar y)(y_j - \bar y)}{ \Big[\sum^n_{i=1} \sum^n_{j=i} w_{ij}\Big] \Big[\sum^n_{i=1} (y_i - \bar y)^2\Big]}$$
+
+где:
+
+-   $n$ --- количество единиц,
+-   $w_{ij}$ --- вес пространственной связи между $i$-й и $j$-й единицей,
+-   $y_i$ --- значение в $i$-й единице,
+-   $\bar y$ --- выборочное среднее по всем единицам
+
+## Индекс Морана (Moran's I)
+
+Индекс Морана для нормально распределенных данных лежит в диапазоне от $-1$ до $1$:
+
+-   $+1$ означает детерминированную прямую зависимость --- группировку схожих (низких или высоких) значений;
+
+-   $0$ означает абсолютно случайное распределение;
+
+-   $-1$ означает детерминированную обратную зависимость --- идеальное перемешивание низких и высоких значений, напоминающее шахматную доску.
+
+**Математическое ожидание** индекса Морана для случайных данных равно $E[I] = -1/(n-1)$
+
+## Индекс Морана
+
+::: columns
+::: {.column width="50%"}
+```{r, fig.height=2, fig.width=3, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = CRIME), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuRd', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Исходные данные") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+Индекс Морана равен $0.500$
+:::
+
+::: {.column width="50%"}
+```{r, fig.height=2, fig.width=3, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = RES), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'Oranges', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Остатки регрессии") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+Индекс Морана равен $0.222$
+:::
+:::
+
+Поскольку остатки регрессии по-прежнему автокоррелированы, можно сделать вывод о том, что независимые переменные не объясняют полностью величину преступности.
+
+## Пространственная регрессия
+
+Чтобы учесть пространственную автокорреляцию зависимой переменной, в модель линейной регрессии добавляется компонента **авторегрессии** $\rho\mathbf{Wy}$ [@anselin:1988]:
+
+$$\mathbf{y} = \underbrace{\mathbf{X} \mathbf{\beta}}_{тренд} + \underbrace{\color{red}{\rho\mathbf{Wy}}}_{сигнал} +  \underbrace{\mathbf{\epsilon}}_{шум},$$
+
+-   $\rho$ --- коэффициент авторегрессии, отражающий вклад пространственной автокорреляции;
+
+-   $\mathbf{W}$ --- матрица пространственных весов.
+
+Полученная модель называется **пространственной регрессией**.\
+Тренд, сигнал и шум называются **предикторами**.
+
+## Пространственная регрессия
+
+Пространственную регрессию можно представить как обычную регрессию. Выполним преобразования:
+
+$$
+\mathbf{y} = \mathbf{X} \mathbf{\beta} + \rho\mathbf{Wy} +  \mathbf{\epsilon}\\
+\mathbf{y} - \rho\mathbf{Wy} = \mathbf{X} \mathbf{\beta} + \mathbf{\epsilon}\\
+(\mathbf{I} - \rho\mathbf{W})\mathbf{y} = \mathbf{X} \mathbf{\beta} + \mathbf{\epsilon}\\
+\color{red}{\boxed{\color{blue}{\mathbf{y} = (\mathbf{I} - \rho\mathbf{W})^{-1}\mathbf{X}\mathbf{\beta} + (\mathbf{I} - \rho\mathbf{W})^{-1}\mathbf{\epsilon}}}}
+$$ Коэффициенты $\beta$ и $\rho$ находятся по методу наименьших квадратов.
+
+Для нашего случая модель будет иметь вид:
+
+$$
+\texttt{CRIME} = 45.603 -1.049~\texttt{INC} - 0.266~\texttt{HOVAL} + 0.423~W~\texttt{CRIME}
+$$
+
+## Пространственная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+spmodel = lagsarlm(CRIME ~ INC + HOVAL, 
+                   data = reg, 
+                   listw = Wstand)
+
+reg = reg |> 
+  mutate(SPFIT = fitted(spmodel),
+         SPLAG = lag.listw(Wstand, reg$CRIME),
+         SPRES = residuals(spmodel),
+         SPTREND = CRIME - SPLAG - SPRES,
+         FCRIME = CRIME - SPLAG)
+
+ggplot(data = reg) +
+  geom_sf(aes(fill = CRIME), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuRd', breaks = crime_breaks, direction = 1, limits = c(0,60)) + 
+  theme_void() + ggtitle("Исходные данные") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Пространственная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = SPFIT), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuRd', breaks = crime_breaks, direction = 1, limits = c(0,60)) + 
+  theme_void() + ggtitle("Пространственная регрессия") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Пространственная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = SPLAG), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuRd', breaks = crime_breaks, direction = 1, limits = c(0,60)) + 
+  theme_void() + ggtitle("Сигнал (пространственный лаг)") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Пространственная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = SPTREND), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'PuBuGn', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Тренд") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Пространственная регрессия
+
+```{r, fig.height=3, fig.width=5, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = SPRES), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'Oranges', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Остатки пространственной регрессии") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+
+## Остатки пространств. регрессии
+
+**Индекс Морана** для остатков пространств. регрессии равен $0.033$.
+
+::: columns
+::: {.column width="40%"}
+Автокорреляционная составляющая практически полностью учтена в модели пространственной регрессии. Предсказательная сила модели улучшена.
+:::
+
+::: {.column width="60%"}
+```{r, fig.height=2, fig.width=3, dpi=300}
+ggplot(data = reg) +
+  geom_sf(aes(fill = SPRES), linewidth = 0.5, color = 'black') +
+  scale_fill_fermenter(palette = 'Oranges', breaks = crime_breaks, direction = 1) + 
+  theme_void() + ggtitle("Остатки") +
+  theme(plot.title=element_text(hjust=0.5))
+```
+:::
+:::
+
+## Пространственная гетерогенность
+
+::: columns
+::: {.column width="60%"}
+**Пространственная гетерогенность** проявляется в том, что зависимости между переменными меняются по пространству.
+
+Учет этого фактора позволяет значительно усилить качество регрессионных моделей.
+
+::: callout-note
+## Как это работает?
+
+Например, стоимость недвижимости может по-разному реагировать на увеличение жилплощади и количества комнат в разных городских районах.
+:::
+:::
+
+::: {.column width="40%"}
+![](images/heterogeneity.svg){width="100%"}
+:::
+:::
+
+## Исходные данные
+
+```{r, cache = TRUE}
+realest = read_delim(url('https://www.jefftk.com/apartment_prices/apts-1542637382.txt'),
+                 delim = ' ',
+                 col_names = c('price', 'rooms', 'id', 'lon', 'lat')) %>%
+  st_as_sf(coords = c('lon', 'lat'), crs = 4326) %>%
+  st_transform(3395) |> 
+  arrange(price)
+```
+
+```{r, fig.height=3, fig.width=4, dpi=300}
+test = dplyr::sample_n(realest, 1000)
+lims = range(realest$price) 
+brks = classInt::classIntervals(realest$price, 7, style = 'fisher')$brks
+
+ggplot(data = realest) +
+  geom_sf(aes(fill = price, size = rooms), shape = 21, alpha = 0.5) +
+  scale_fill_fermenter(direction = 1, breaks = brks, 
+                       limits = lims, palette = 'RdPu') +
+  scale_size_binned(range = c(0.25,3)) +
+  theme_void() + ggtitle("Бостон")
+```
+
+## Обычная регрессия
+
+```{r, fig.height=2.5, fig.width=6, dpi=300}
+
+model = lm(price ~ rooms, data = realest)
+
+ggplot(data = filter(realest, price < 25000), aes(rooms, price)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = 'lm')
+```
+
+Коэффициент детерминации $R^2 = 0.1483$. Регрессионная модель:
+
+$$
+\texttt{price} = 2319.2 +421.8~\texttt{rooms}
+$$
+
+## Географич. взвешенная регрессия
+
+В стандартной модели линейной регрессии параметры $\beta$ предполагаются постоянными. Для $i$-й локации решение выглядит следующим образом:
+
+$$y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_k x_{ki} + \epsilon_i$$
+
+В географически взвешенной регрессии (ГВР) параметры $\beta$ определяются для каждой локации [@fotheringham:2002]:
+
+$$y_i = \beta_{0i} + \beta_{1i} x_{1i} + \beta_{2i} x_{2i} + ... + \beta_{ki} x_{ki} + \epsilon_i$$
+
+В этом случае область оценки параметров $\mathbf{\beta}$ ограничивается некой окрестностью точки $i$.
+
+## Весовая функция
+
+Далёкие точки должны иметь меньший вес при вычислении коэффициентов. Например, для *гауссовой* весовой функции:
+
+$$
+w_{ij} = \operatorname{exp}\{-\frac{1}{2} (d_{ij}/h)^2\},
+$$
+
+::: columns
+::: {.column width="50%"}
+-   $w_{ij}$ --- вес, который будет иметь $j$-я точка при вычислении коэффициентов регрессии в $i$-й точке;
+
+-   $d_{ij}$ расстояние между ними;
+
+-   $h$ --- полоса пропускания
+:::
+
+::: {.column width="50%"}
+![](images/gwr_weights.svg){width="100%"}
+:::
+:::
+
+## Весовые функции
+
+В случае фиксированной весовой функции окрестность всегда имеет фиксированную полосу пропускания:
+
+![](images/nbfixed.svg){width="100%"}
+
+## Весовые функции
+
+В случае адаптивной весовой функции полоса пропускания определяется $N$ ближайшими точками. Например для $N = 5$:
+
+![](images/nbvariable.svg){width="100%"}
+
+## Модель ГВР
+
+В случае модели ГВР получается множество коэффициентов регрессии. По ним можно узнать статистику
+
+```{r}
+library(GWmodel)
+samples = realest |> as('Spatial')
+gwr_res = gwr.basic(price ~ rooms, data = samples, bw = 1000, kernel = 'gaussian')
+```
+
+```         
+              Min.   1st Qu. Median  3rd Qu. Max.
+   Intercept  198.56 1785.17 2054.43 2361.79 3485.2
+   rooms     -409.97  471.77  524.01  650.52 1299.1
+   
+   Kernel function: gaussian 
+   Fixed bandwidth: 1000 
+   Regression points: the same locations as observations are used.
+   Distance metric: Euclidean distance metric is used
+```
+
+Коэффициент детерминации $R^2 = 0.367$.
+
+## Коэффициенты ГВР
+
+::: columns
+::: {.column width="50%"}
+```{r, fig.height=3, fig.width=3, dpi=300}
+result = st_as_sf(gwr_res$SDF)
+ggplot(data = result) +
+  geom_sf(aes(fill = Intercept), shape = 21, alpha = 0.5) +
+  scale_fill_fermenter(direction = 1,  palette = 'Blues') +
+  theme_void() + ggtitle(expression(paste('price = ', beta[0]+beta[1]~rooms))) +
+  labs(fill = expression(beta[0]))
+```
+:::
+
+::: {.column width="50%"}
+```{r, fig.height=3, fig.width=3, dpi=300}
+result = st_as_sf(gwr_res$SDF)
+ggplot(data = result) +
+  geom_sf(aes(fill = rooms), shape = 21, alpha = 0.5) +
+  scale_fill_fermenter(direction = 1,  palette = 'Reds') +
+  theme_void() + ggtitle(expression(paste('price = ', beta[0]+beta[1]~rooms))) +
+  labs(fill = expression(beta[1]))
+```
+:::
+:::
+
+Пространственная картина распределения коэффициентов регрессии подтверждает гипотезу о гетерогенности.
+
+## Словарик
+
+::: columns
+::: {.column width="50%" style="color: blue; text-align: end;"}
+Линейная регрессия
+
+Метод наименьших квадратов
+
+Диаграмма рассеяния
+
+Остатки регрессии
+
+Простр. автокорреляция
+
+Пространственные соседи
+
+Пространственные веса
+
+Пространственная регрессия
+
+Географически взвешенная регрессия (ГВР)
+
+Полоса пропускания
+:::
+
+::: {.column width="50%" style="color: red"}
+Linear regression
+
+Least squares method
+
+Scatterplot
+
+Regression residuals
+
+Spatial autocorrelation
+
+Spatial neighbours
+
+Spatial weights
+
+Spatial regression
+
+Geographically weighted regression (GWR)
+
+Bandwidth
+:::
+:::
+
+## Библиография
