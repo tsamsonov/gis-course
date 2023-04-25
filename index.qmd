@@ -114,13 +114,13 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course-slides/09_PointPatterns.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/09_PointPatterns.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Сетевой анализ
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course-slides/10_Networks.html" title="Лекция №10. Сетевой анализ"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/10_Networks.html" title="Лекция №10. Сетевой анализ"></iframe>
 ```
 :::
 

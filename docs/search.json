@@ -18,7 +18,7 @@
     "href": "06_Dem.html#растровая-цмр-пример",
     "title": "Цифровое моделирование рельефа",
     "section": "Растровая ЦМР — пример",
-    "text": "Растровая ЦМР — пример"
+    "text": "Растровая ЦМР — пример\n\n\nLinking to GEOS 3.10.2, GDAL 3.4.2, PROJ 8.2.1; sf_use_s2() is TRUE\n\n\nterra 1.7.29\n\n\n\nAttaching package: 'tidyterra'\n\n\nThe following object is masked from 'package:stats':\n\n    filter"
   },
   {
     "objectID": "06_Dem.html#геоморфометрия",
