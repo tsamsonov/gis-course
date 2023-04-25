@@ -1,4 +1,4 @@
-*.scss     linguist-vendored=true
+*.scss    linguist-vendored=true
 *.css     linguist-vendored=true
 *.js      linguist-vendored=true
 *.tex     linguist-vendored=true
