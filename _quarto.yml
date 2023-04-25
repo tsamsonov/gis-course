@@ -19,7 +19,6 @@ website:
     right: 
       - href: https://instagram.com/gis_in_pictures?igshid=NDk5N2NlZjQ=
         icon: instagram
-
 format:
   html:
     theme: yeti
