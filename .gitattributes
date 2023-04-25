@@ -8,4 +8,5 @@
 *.Rmd     linguist-vendored=true
 Makefile  linguist-vendored=true
 docs/* linguist-vendored=false
+_freeze/* linguist-vendored=true
 *.qmd linguist-detectable
