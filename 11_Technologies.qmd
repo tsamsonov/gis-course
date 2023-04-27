@@ -450,6 +450,12 @@ mainfont: PT Sans
 
 ![](images/gis_market.png){width="100%"}
 
+## Развитость гео-технологий
+
+Страны мира можно разделить на 3 группы по развитости геоинформационных технологий [@geospatialworld:2022].
+
+![](images/readiness.png){width="100%"}
+
 ## Словарик
 
 ::: columns
