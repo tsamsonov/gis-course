@@ -1,5 +1,5 @@
 ---
-title: "Геоинформационные технологии"
+title: "Геоинформационные технологии и сервисы"
 subtitle: "Основы геоинформатики: лекция 11"
 date: 04/28/2023
 date-format: long
@@ -19,6 +19,22 @@ format:
 bibliography: references.yaml
 mainfont: PT Sans
 ---
+
+## Геоинформатика
+
+Геоинформатика (отрасль) [@gost:52438-2005]
+
+:   Научно-техническое направление, объединяющее:
+
+    -   теорию цифрового моделирования предметной области с использованием пространственных данных;
+    -   технологии создания и использования геоинформационных систем;
+    -   производство геоинформационной продукции и оказание геоинформационных услуг.
+
+::: callout-warning
+## Будьте осторожны
+
+В других сферах деятельности под аббревиатурой ГИС может подразумеваться *геофизическое исследование скважин*, *государственная информационная система* и т.д.
+:::
 
 ## Градостроительство
 
@@ -48,7 +64,59 @@ mainfont: PT Sans
 
 ![](images/roads.png){width="100%"}
 
-## 
+## Энергетика
+
+![](images/energy.png)
+
+## Природные ресурсы
+
+![](images/natural_resources.png){width="100%"}
+
+## Сельское хозяйство
+
+![](images/agriculture.png){width="100%"}
+
+## Здравоохранение
+
+![](images/health.png){width="100%"}
+
+## Геомаркетинг
+
+![](images/geomarketing_1.png){width="100%"}
+
+## Геомаркетинг
+
+![](images/geomarketing_2.png){width="100%"}
+
+## Геомаркетинг
+
+![](images/geomarketing_3.png){width="100%"}
+
+## Криминалистика
+
+![](images/criminal.png){width="100%"}
+
+## Охрана природы
+
+![](images/nature_reserve.png){width="100%"}
+
+## Социальные исследования {.white-text background-video="videos/habidatum.mp4" background-video-muted="true"}
+
+```{css}
+.white-text, 
+.white-text h2 {
+ color: white;
+ text-shadow: 2px 2px 2px black;
+}
+```
+
+## Навигация
+
+![](images/navigation.png)
+
+## Туризм и рекреация
+
+![](images/tourism.png){width="100%"}
 
 ## Словарик
 
