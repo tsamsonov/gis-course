@@ -1,0 +1,105 @@
+---
+title: "Геоинформационные технологии"
+subtitle: "Основы геоинформатики: лекция 11"
+date: 04/28/2023
+date-format: long
+author: "Самсонов Тимофей Евгеньевич"
+execute:
+  echo: false
+  message: false
+  freeze: true
+engine: knitr
+format:
+  revealjs: 
+    theme: [default, custom_small.scss]
+    margin: 0.2
+    slide-number: true
+    footer: "Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ"
+    header-includes: <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pt-sans" type="text/css"/>
+bibliography: references.yaml
+mainfont: PT Sans
+---
+
+## Градостроительство
+
+![](images/urban_planning.png){width="100%"}
+
+## Недвижимость и кадастр
+
+![](images/real_estate.png){width="100%"}
+
+## Управление ЧС
+
+![](images/hazards.png){width="100%"}
+
+## Транспорт и логистика
+
+![](images/logistics.png){width="100%"}
+
+## Магистраль
+
+![](images/magistral.png){width="100%"}
+
+## Магистраль
+
+![](images/urbica.png){width="100%"}
+
+## Безопасность дорожного движения
+
+![](images/roads.png){width="100%"}
+
+## 
+
+## Словарик
+
+::: columns
+::: {.column width="50%" style="color: blue; text-align: end;"}
+Сеть
+
+Граф
+
+Матрица смежности
+
+Маршрут
+
+Задача коммивояжёра
+
+Ближайший пункт обслуживания
+
+Изохрона
+
+Центральность
+
+Прмежуточность
+
+Близость
+
+Степень
+:::
+
+::: {.column width="50%" style="color: red"}
+Network
+
+Graph
+
+Adjacency matrix
+
+Route
+
+Traveling salesman problem
+
+Closest facility
+
+Isochrone
+
+Centrality
+
+Betweenness
+
+Closeness
+
+Degree
+:::
+:::
+
+## Библиография

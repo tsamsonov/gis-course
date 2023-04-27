@@ -2868,5 +2868,68 @@
     "title": "Векторный анализ",
     "section": "Библиография",
     "text": "Библиография\n\n\nСамсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ\n\n\n\nJarvis, R.A. 1973. «On the Identification of the Convex Hull of a Finite Set of Points in the Plane». Information Processing Letters 2 (1): 18–21. https://doi.org/10.1016/0020-0190(73)90020-3."
+  },
+  {
+    "objectID": "11_Technologies.html#градостроительство-и-терпланирование",
+    "href": "11_Technologies.html#градостроительство-и-терпланирование",
+    "title": "Геоинформационные технологии",
+    "section": "Градостроительство и терпланирование",
+    "text": "Градостроительство и терпланирование"
+  },
+  {
+    "objectID": "11_Technologies.html#словарик",
+    "href": "11_Technologies.html#словарик",
+    "title": "Геоинформационные технологии",
+    "section": "Словарик",
+    "text": "Словарик\n\n\nСеть\nГраф\nМатрица смежности\nМаршрут\nЗадача коммивояжёра\nБлижайший пункт обслуживания\nИзохрона\nЦентральность\nПрмежуточность\nБлизость\nСтепень\n\nNetwork\nGraph\nAdjacency matrix\nRoute\nTraveling salesman problem\nClosest facility\nIsochrone\nCentrality\nBetweenness\nCloseness\nDegree"
+  },
+  {
+    "objectID": "11_Technologies.html#библиография",
+    "href": "11_Technologies.html#библиография",
+    "title": "Геоинформационные технологии",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ"
+  },
+  {
+    "objectID": "11_Technologies.html#градостроительство",
+    "href": "11_Technologies.html#градостроительство",
+    "title": "Геоинформационные технологии",
+    "section": "Градостроительство",
+    "text": "Градостроительство"
+  },
+  {
+    "objectID": "11_Technologies.html#недвижимость-и-кадастр",
+    "href": "11_Technologies.html#недвижимость-и-кадастр",
+    "title": "Геоинформационные технологии",
+    "section": "Недвижимость и кадастр",
+    "text": "Недвижимость и кадастр"
+  },
+  {
+    "objectID": "11_Technologies.html#управление-чс",
+    "href": "11_Technologies.html#управление-чс",
+    "title": "Геоинформационные технологии",
+    "section": "Управление ЧС",
+    "text": "Управление ЧС"
+  },
+  {
+    "objectID": "11_Technologies.html#транспорт-и-логистика",
+    "href": "11_Technologies.html#транспорт-и-логистика",
+    "title": "Геоинформационные технологии",
+    "section": "Транспорт и логистика",
+    "text": "Транспорт и логистика"
+  },
+  {
+    "objectID": "11_Technologies.html#магистраль",
+    "href": "11_Technologies.html#магистраль",
+    "title": "Геоинформационные технологии",
+    "section": "Магистраль",
+    "text": "Магистраль"
+  },
+  {
+    "objectID": "11_Technologies.html#магистраль-1",
+    "href": "11_Technologies.html#магистраль-1",
+    "title": "Геоинформационные технологии",
+    "section": "Магистраль",
+    "text": "Магистраль"
   }
 ]

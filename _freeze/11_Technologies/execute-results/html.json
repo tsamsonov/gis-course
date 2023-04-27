@@ -1,0 +1,18 @@
+{
+  "hash": "cb01e9c8bd266ff70309c3720d26ccec",
+  "result": {
+    "markdown": "---\ntitle: \"Геоинформационные технологии\"\nsubtitle: \"Основы геоинформатики: лекция 11\"\ndate: 04/28/2023\ndate-format: long\nauthor: \"Самсонов Тимофей Евгеньевич\"\nexecute:\n  echo: false\n  message: false\n  freeze: true\nengine: knitr\nformat:\n  revealjs: \n    theme: [default, custom_small.scss]\n    margin: 0.2\n    slide-number: true\n    footer: \"Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ\"\n    header-includes: <link rel=\"stylesheet\" media=\"screen\" href=\"https://fontlibrary.org//face/pt-sans\" type=\"text/css\"/>\nbibliography: references.yaml\nmainfont: PT Sans\n---\n\n\n## Градостроительство\n\n![](images/urban_planning.png){width=\"100%\"}\n\n## Недвижимость и кадастр\n\n![](images/real_estate.png){width=\"100%\"}\n\n## Управление ЧС\n\n![](images/hazards.png){width=\"100%\"}\n\n## Транспорт и логистика\n\n![](images/logistics.png){width=\"100%\"}\n\n## Магистраль\n\n![](images/magistral.png){width=\"100%\"}\n\n## Магистраль\n\n![](images/urbica.png){width=\"100%\"}\n\n## Словарик\n\n::: columns\n::: {.column width=\"50%\" style=\"color: blue; text-align: end;\"}\nСеть\n\nГраф\n\nМатрица смежности\n\nМаршрут\n\nЗадача коммивояжёра\n\nБлижайший пункт обслуживания\n\nИзохрона\n\nЦентральность\n\nПрмежуточность\n\nБлизость\n\nСтепень\n:::\n\n::: {.column width=\"50%\" style=\"color: red\"}\nNetwork\n\nGraph\n\nAdjacency matrix\n\nRoute\n\nTraveling salesman problem\n\nClosest facility\n\nIsochrone\n\nCentrality\n\nBetweenness\n\nCloseness\n\nDegree\n:::\n:::\n\n## Библиография\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

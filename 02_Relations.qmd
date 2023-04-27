@@ -166,7 +166,7 @@ N Name    geometry
 ## Адресное геокодирование
 
 ```{mermaid}
-%%| fig-width: 11
+%%| fig-width: 16
 flowchart LR
   A(Адрес) --> B(Геокодер)
   C(Адресный локатор) --> B
