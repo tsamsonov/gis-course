@@ -455,4 +455,27 @@ references:
   title-short: Spatial Networks
   type: book
   URL: "https://link.springer.com/10.1007/978-3-030-94106-2"
+- id: duckham:2013
+  tex.pmid: 25246403
+  arXiv: "arXiv:1011.1669v3"
+  author:
+  - family: Duckham
+    given: Matt
+  DOI: 10.1007/978-3-642-30853-6
+  ISBN: 978-3-642-30853-6
+  ISSN: 1098-6596
+  issued: 2013
+  key: P2FUASW3
+  libraryID: 2
+  note: "tex.arxivid: arXiv:1011.1669v3 tex.mendeley-groups: Geosensors
+    & LBS tex.pmid: 25246403 Citation Key: Duckham2013 DOI:
+    10.1007/978-3-642-30853-6 ISSN: 1098-6596 arXiv: arXiv:1011.1669v3"
+  number-of-pages: 1-320
+  providerKey: Zotero
+  publisher: Springer
+  tex.arxivid: "arXiv:1011.1669v3"
+  tex.mendeley-groups: Geosensors
+  title: "Decentralized spatial computing: Foundations of geosensor
+    networks"
+  type: book
 ...
