@@ -467,9 +467,6 @@ references:
   issued: 2013
   key: P2FUASW3
   libraryID: 2
-  note: "tex.arxivid: arXiv:1011.1669v3 tex.mendeley-groups: Geosensors
-    & LBS tex.pmid: 25246403 Citation Key: Duckham2013 DOI:
-    10.1007/978-3-642-30853-6 ISSN: 1098-6596 arXiv: arXiv:1011.1669v3"
   number-of-pages: 1-320
   providerKey: Zotero
   publisher: Springer
@@ -478,4 +475,45 @@ references:
   title: "Decentralized spatial computing: Foundations of geosensor
     networks"
   type: book
+- id: dobson:2003
+  author:
+  - family: Dobson
+    given: J.E.
+  - family: Fisher
+    given: P.F.
+  container-title: IEEE Technology and Society Magazine
+  DOI: 10.1109/MTAS.2003.1188276
+  Citation Key: Dobson2003
+  ISSN: 0278-0097
+  issue: 1
+  issued: 2003
+  key: UL6T7VBX
+  libraryID: 2
+  note: "tex.isbn: 0278-0097 tex.mendeley-groups: Geographical
+    Information Science,Geosensors & LBS Citation Key: Dobson2003"
+  page: 47-52
+  providerKey: Zotero
+  tex.isbn: 0278-0097
+  tex.mendeley-groups: Geographical
+  title: Geoslavery
+  type: article-journal
+  URL: "https://msu.edu/{\\~}kg/874/geoslavery.pdf"
+  volume: 22
+- id: geospatialworld:2022
+  author:
+  - family: Geospatial
+    given: World
+  - family: UN
+    given: Statistics Division
+  issued: 2022
+  key: MYSWFEQW
+  language: en
+  libraryID: 2
+  page: 160
+  providerKey: Zotero
+  publisher: Geospatial World & UN Statistics Division
+  title: Geospatial Knowledge Infrastructure Readiness Index and Value
+    Proposition in World Economy, Society, and Environment
+  type: report
+  URL: "https://www.geospatialworld.net/consulting/gki-phase-2/gw-assets/pdf/GKI-Report.pdf"
 ...
