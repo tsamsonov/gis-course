@@ -460,51 +460,51 @@ mainfont: PT Sans
 
 ::: columns
 ::: {.column width="50%" style="color: blue; text-align: end;"}
-Сеть
+Геоинформационная технология
 
-Граф
+Геомаркетинг
 
-Матрица смежности
+Геосенсор
 
-Маршрут
+Геохэш
 
-Задача коммивояжёра
+Геокэшинг
 
-Ближайший пункт обслуживания
+Геотег
 
-Изохрона
+Геотаргетинг
 
-Центральность
+Геофенсинг
 
-Прмежуточность
+Геосообщение
 
-Близость
+Георабство
 
-Степень
+География
 :::
 
 ::: {.column width="50%" style="color: red"}
-Network
+GIS technology
 
-Graph
+Geomarketing
 
-Adjacency matrix
+Geosensor
 
-Route
+Geohash
 
-Traveling salesman problem
+Geocaching
 
-Closest facility
+Geotag
 
-Isochrone
+Geotargeting
 
-Centrality
+Geofencing
 
-Betweenness
+Geomessage
 
-Closeness
+Geoslavery
 
-Degree
+Geography
 :::
 :::
 
