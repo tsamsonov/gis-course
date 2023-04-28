@@ -1,0 +1,31 @@
+---
+title: "Словарь"
+author: "Тимофей Самсонов"
+number-sections: true
+date: last-modified
+execute:
+  echo: false
+  message: false
+  warning: false
+engine: knitr
+---
+
+```{r}
+library(dplyr)
+library(googlesheets4)
+library(gt)
+
+read_sheet('1SqxSLsg7an19kJQUncahMQLP-6vcGF78vlHcQ_44FKE', 1) |> 
+  arrange(Русский) |> 
+  gt() |> 
+  cols_align(align = "left") |> 
+  tab_options(table.align = "left",
+              column_labels.font.weight = 'bold',
+              table_body.hlines.color = "grey90",
+              table.width = pct(100),
+              data_row.padding = px(5),
+              ihtml.active = TRUE,
+              ihtml.use_highlight = TRUE,
+              ihtml.use_page_size_select = FALSE,
+              ihtml.use_pagination = FALSE)
+```

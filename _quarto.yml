@@ -13,6 +13,8 @@ website:
     left:
       - href: index.qmd
         text: Лекции
+      - href: translations.qmd
+        text: Словарь
       - href: exam.qmd
         text: Зачёт
       - href: https://aentin.github.io/qgis-course/
