@@ -6,6 +6,8 @@ date-format: long
 author: "Самсонов Тимофей Евгеньевич"
 execute:
   echo: false
+  message: false
+  warning: false
   freeze: true
 engine: knitr
 format:

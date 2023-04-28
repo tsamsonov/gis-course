@@ -390,25 +390,8 @@
 </section>
 <section id="растровая-цмр-пример" class="slide level2">
 <h2>Растровая ЦМР — пример</h2>
-<div class="cell" data-layout-align="left">
-<div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.10.2, GDAL 3.4.2, PROJ 8.2.1; sf_use_s2() is TRUE</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>terra 1.7.29</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'tidyterra'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:stats':
 
-    filter</code></pre>
-</div>
-
-</div>
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-1-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-1-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="геоморфометрия" class="slide level2">
 <h2>Геоморфометрия</h2>
 <p><strong>Геоморфометрия</strong> — геометрический анализ <em>земной</em> <em>поверхности</em>.</p>
@@ -499,11 +482,11 @@ S = \sqrt{Z_x^2 + Z_y^2}; \ \phi = \arctan(S)
 <section id="морфометрические-величины-1" class="slide level2">
 <h2>Морфометрические величины</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-2-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-2-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="морфометрические-величины-2" class="slide level2">
 <h2>Морфометрические величины</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-3-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-3-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="морфометрические-величины-3" class="slide level2">
 <h2>Морфометрические величины</h2>
 <p><strong>Кривизна кривой</strong> обратно пропорциональна радиусу касательной окружности <span class="math inline">\(r\)</span> — <em>радиусу кривизны</em>.</p>
@@ -561,11 +544,11 @@ K_{c} = \frac{Z_{xx} \color{blue}{Z_y^2 -} 2Z_{xy} Z_x Z_y + Z_{yy} \color{blue}
 <section id="морфометрические-величины-5" class="slide level2">
 <h2>Морфометрические величины</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-4-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-4-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="морфометрические-величины-6" class="slide level2">
 <h2>Морфометрические величины</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-5-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-5-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="интенсивность-отражения-света" class="slide level2">
 <h2>Интенсивность отражения света</h2>
 <p>В <strong>модели</strong> <strong>Ламберта</strong> зависит от угла между вектором <strong>нормали</strong> к поверхности <span class="math inline">\(\textbf N\)</span> и вектором направления на источник света <span class="math inline">\(\textbf L\)</span>:</p>
@@ -587,17 +570,17 @@ I = \cos \alpha = \frac{(\textbf L, \textbf N)}{||\textbf N||}
 <h2>Аналитическая отмывка</h2>
 <p>Визуализация интенсивности отраженного света.</p>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-6-1.png" width="576" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-6-1.png" width="576" class="r-stretch quarto-figure-left"></section>
 <section id="аналитическая-отмывка-1" class="slide level2">
 <h2>Аналитическая отмывка</h2>
 <p><em>Отвесная</em> отмывка подчеркивает линии хребтов.</p>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-7-1.png" width="576" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-7-1.png" width="576" class="r-stretch quarto-figure-left"></section>
 <section id="аналитическая-отмывка-2" class="slide level2">
 <h2>Аналитическая отмывка</h2>
 <p>Наиболее наглядна комбинация боковой и отвесной отмывки.</p>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-8-1.png" width="576" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-8-1.png" width="576" class="r-stretch quarto-figure-left"></section>
 <section id="гидрологический-анализ-цмр" class="slide level2">
 <h2>Гидрологический анализ ЦМР</h2>
 <p><strong>Гидрологический анализ ЦМР</strong> — совокупность методов обработки ЦМР, связанных с анализом и моделированием геометрических условий распределения поверхностного стока.</p>
@@ -662,7 +645,7 @@ I = \cos \alpha = \frac{(\textbf L, \textbf N)}{||\textbf N||}
 <section id="направление-стока-2" class="slide level2">
 <h2>Направление стока</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-10-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-10-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="аккумуляция-стока" class="slide level2">
 <h2>Аккумуляция стока</h2>
 <p><strong>Аккумуляция стока —</strong> количественный показатель, аппроксимирующий площадь бассейна.</p>
@@ -847,7 +830,7 @@ A_j = k + \sum_{i=1}^k A_i,
 <section id="аккумуляция-стока-9" class="slide level2">
 <h2>Аккумуляция стока</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-11-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-11-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="потенциальные-водотоки" class="slide level2">
 <h2>Потенциальные водотоки</h2>
 <p><strong>Потенциальные водотоки —</strong> линии с высокой аккумуляцией стока.</p>
@@ -888,11 +871,11 @@ A_j = k + \sum_{i=1}^k A_i,
 <section id="потенциальные-водотоки-2" class="slide level2">
 <h2>Потенциальные водотоки</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-12-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-12-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="потенциальные-водотоки-3" class="slide level2">
 <h2>Потенциальные водотоки</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-13-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-13-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="дренажный-граф" class="slide level2">
 <h2>Дренажный граф</h2>
 <div class="columns">
@@ -952,7 +935,7 @@ A_j = k + \sum_{i=1}^k A_i,
 <section id="бассейн-1" class="slide level2">
 <h2>Бассейн</h2>
 
-<img data-src="06_Dem_files/figure-html/unnamed-chunk-14-1.png" width="672" class="r-stretch quarto-figure-left"></section>
+<img data-src="06_Dem_files/figure-revealjs/unnamed-chunk-14-1.png" width="672" class="r-stretch quarto-figure-left"></section>
 <section id="словарик" class="slide level2">
 <h2>Словарик</h2>
 <div class="columns">
@@ -1212,6 +1195,44 @@ Open Geospatial Consortium Inc. 2005. <span>«OGC 07-011 (ISO 19123:2005). The O
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
