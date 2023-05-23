@@ -358,6 +358,600 @@
 
   <p class="date">10 марта 2023 г.</p>
 </section>
+<section id="пространственные-отношения" class="slide level2">
+<h2>Пространственные отношения</h2>
+<dl>
+<dt>Отношение</dt>
+<dd>
+<p>Свойство двух или более объектов, выраженное в наличии или отсутствии определенной связи между ними.</p>
+</dd>
+<dt>Пространственное отношение</dt>
+<dd>
+<p>Отношение пространственных объектов, которое зависит от их местоположения.</p>
+</dd>
+</dl>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Предикат</strong></p>
+</div>
+<div class="callout-content">
+<p>Формальным представлением отношения является <strong>предикат</strong> — функция, определенная на множестве объектов и принимающая для их упорядоченного набора значение <strong>1</strong> (<code>ИСТИНА</code>) или <strong>0</strong> (<code>ЛОЖЬ</code>). Предикаты пространственных отношений называются пространственными.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="пространственные-отношения-1" class="slide level2">
+<h2>Пространственные отношения</h2>
+<p>К основным видам пространственных отношений относятся:</p>
+<ol type="1">
+<li><p><strong>Метрические</strong> — определяются расстояниями между объектами.</p></li>
+<li><p><strong>Топологические</strong> — определяются пересечениями объектов.</p></li>
+<li><p><strong>Дирекционные</strong> — определяются направлениями между объектами</p></li>
+</ol>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Пространственные предикаты</strong></p>
+</div>
+<div class="callout-content">
+<p>Функции, которые устанавливают наличие метрических, топологических и дирекционных отношений, являются пространственными предикатами.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="расстояния" class="slide level2">
+<h2>Расстояния</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="евклидово-расстояние">Евклидово расстояние</h4>
+<p>Используется в плоских прямоугольных системах координат</p>
+<p><span class="math display">\[
+d(A,B) = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}
+\]</span></p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ограничения</strong></p>
+</div>
+<div class="callout-content">
+<p>Евклидово расстояние наследует искажения проекции, а также предполагает, что объекты доступны напрямую.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/dist_euc.svg" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="расстояния-1" class="slide level2">
+<h2>Расстояния</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="манхэттенское-расстояние">Манхэттенское расстояние</h4>
+<p>Аппроксимирует реальное расстояние между точками в транспортных сетях с ортогональной планировкой.</p>
+<p><span class="math display">\[
+d(A,B) = |x_A - x_B| + |y_A - y_B|
+\]</span></p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ограничения</strong></p>
+</div>
+<div class="callout-content">
+<p>Даёт преимущества только в том случае когда дорожная сеть ориентирована по направлениям осей <span class="math inline">\(X\)</span> и <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/dist_manh.svg" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="расстояния-2" class="slide level2">
+<h2>Расстояния</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h4 id="геодезические-расстояние">Геодезические расстояние</h4>
+<p>Кратчайшее расстояние между точками на поверхности эллипсоида. Для сферы:</p>
+<p><span class="math display">\[
+d(A,B) = \\ \arccos (
+\sin \phi_A \sin \phi_B + \\
+\cos \phi_A \cos \phi_B \cos(\lambda_A - \lambda_B))
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/dist_geo.svg" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Геодезическая линия и ортодромия</strong></p>
+</div>
+<div class="callout-content">
+<p>Линия кратчайшего расстояния <em>на эллипсоиде</em> — <strong>геодезическая</strong>.<br>
+Линия кратчайшего расстояния <em>на сфере</em> — <strong>ортодромия.</strong></p>
+</div>
+</div>
+</div>
+</section>
+<section id="метрические-отношения" class="slide level2">
+<h2>Метрические отношения</h2>
+<p><strong>Метрические отношения</strong> устанавливают расстояния между объектами с использованием выбранной метрики.</p>
+
+<img data-src="images/dist_all.svg" style="width:100.0%" class="r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Метрики</strong></p>
+</div>
+<div class="callout-content">
+<p>Для оценки расстояний может использоваться множество других метрик. Они не исчерпываются приведенными примерами.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="топологические-отношения" class="slide level2">
+<h2>Топологические отношения</h2>
+<p>Топологические отношения можно описать в терминах пересечения трех областей каждого объекта <span class="citation" data-cites="egenhofer1991">(<a href="#/библиография" role="doc-biblioref" onclick="">Egenhofer 1991</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>Внутренняя область (<span class="math inline">\(A^o\)</span>)</p></li>
+<li><p>Граница (<span class="math inline">\(\partial A\)</span>)</p></li>
+<li><p>Внешняя область (<span class="math inline">\(A^-\)</span>)</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/egenhofer.svg" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Матрица Эгенхофера <strong>9-IM</strong> содержит 0 или 1 в зависимости от наличия или отсутствия пересечения:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+A^o  \cap B^o \ne \emptyset   &amp;   A^o \cap \partial{B} \ne \emptyset &amp; A^o \cap B^- \ne \emptyset \\
+\partial{A} \cap B^o \ne \emptyset   &amp;    \partial{A} \cap \partial{B} \ne \emptyset  &amp;  \partial{A} \cap B^- \ne \emptyset \\
+A^- \cap B^o \ne \emptyset    &amp;    A^- \cap \partial{B} \ne \emptyset   &amp;   A^-  \cap B^- \ne \emptyset
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="топологические-отношения-1" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Не пересекает</dt>
+<dd>
+<p>Внутренняя область и граница <strong>A</strong> не имеют пересечений с внутренней областью и границей <strong>B</strong></p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    0 &amp; 0 &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что объекты никак не соприкасаются в пространстве.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/topo_disjoint.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-2" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Равен</dt>
+<dd>
+<p>Границы, внутренние и внешние области <strong>A</strong> пересекаются с <em>аналогичными</em> элементами <strong>B</strong></p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; 0 &amp; 0 \\
+    0 &amp; \bf{1} &amp; 0 \\
+    0 &amp; 0 &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что объекты совпадают.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/topo_equals.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-3" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Перекрывает</dt>
+<dd>
+<p>Все компоненты <strong>A</strong> пересекаются со всеми компонентами <strong>B</strong></p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что объекты имеют частичное перекрытие.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/topo_overlaps.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-4" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Касается</dt>
+<dd>
+<p>Внутренняя область и граница <strong>A</strong> не пересекатся с внутренней областью <strong>B</strong> и наоборот.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    0 &amp; 0 &amp; \bf{1} \\
+    0 &amp; \bf{1} &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что объекты касаются друг друга снаружи.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/topo_touches.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-5" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Покрывает</dt>
+<dd>
+<p>Внешняя область <strong>A</strong> не пересекается с границей и внутренней областью <strong>B</strong>, а граница <strong>A</strong> не пересекается с внутренней областью <strong>B</strong>.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    0 &amp; \bf{1} &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что один объект содержит внутри себя другой объект, который касается его границы.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img data-src="images/topo_covers.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-6" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Покрыт</dt>
+<dd>
+<p>Внешняя область <strong>B</strong> не пересекается с границей и внутренней областью <strong>A</strong>, а граница <strong>B</strong> не пересекается с внутренней областью <strong>A</strong>.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; 0 &amp; 0 \\
+    \bf{1} &amp; \bf{1} &amp; 0 \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что один объект содержится внутри другого объекта и касается его границы.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img data-src="images/topo_covered.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-7" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Содержит</dt>
+<dd>
+<p>Внешняя область и граница <strong>A</strong> не пересекается с границей и внутренней областью <strong>B</strong>, остальные пересечения присутствуют.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что один объект содержит внутри себя другой объект.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img data-src="images/topo_contains.svg" style="width:80.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-8" class="slide level2">
+<h2>Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Внутри</dt>
+<dd>
+<p>Внешняя область и граница <strong>B</strong> не пересекается с границей и внутренней областью <strong>A</strong>, остальные пересечения присутствуют.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; 0 &amp; 0 \\
+    \bf{1} &amp; 0 &amp; 0 \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используется чтобы установить, что один объект содержится внутри другого объекта.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img data-src="images/topo_within.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-9" class="slide level2">
+<h2>Топологические отношения</h2>
+<dl>
+<dt>Пересекает</dt>
+<dd>
+<p>Внутренняя область или граница <strong>A</strong> пересекается с внутренней областью или границей <strong>B</strong>.</p>
+</dd>
+</dl>
+
+<img data-src="images/topo_all.svg" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="дирекционные-отношения" class="slide level2">
+<h2>Дирекционные отношения</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Угловая модель</strong> базируется на вычислении угла направления с точки <strong>A</strong> в точку <strong>B</strong>.</p>
+<ul>
+<li>Как правило используется дирекционный угол или азимут.</li>
+</ul>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ограничения</strong></p>
+</div>
+<div class="callout-content">
+<p>Применима только для точечных объектов</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/dir_ang.svg" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="дирекционные-отношения-1" class="slide level2">
+<h2>Дирекционные отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Прямоугольная модель</strong> разделяет плоскость на 9 секторов относительно прямоугольника, ограничивающего объект.</p>
+<ul>
+<li>Используется минимальный ограничивающий прямоугольник со сторонами, параллельными осям координат.</li>
+</ul>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ограничения</strong></p>
+</div>
+<div class="callout-content">
+<p>Дает качественную оценку направления по сторонам света</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/dir_mbr.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="дирекционные-отношения-2" class="slide level2">
+<h2>Дирекционные отношения</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Проективная модель</strong> используется для оценки направления на третий объект <strong>C</strong> относительно двух других объектов <strong>A</strong> и <strong>B</strong>.</p>
+<ul>
+<li>Плоскость делится на 4 “конуса”, а также область между объектами.</li>
+</ul>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ограничения</strong></p>
+</div>
+<div class="callout-content">
+<p>Дает качественную оценку направления и применяется для <em>движущихся</em> объектов</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/dir_proj.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="пространственные-запросы" class="slide level2">
+<h2>Пространственные запросы</h2>
+<p>Пространственные запросы аналогичны атрибутивным, но в качестве условия используют пространственные отношения.</p>
+
+<img data-src="images/sp_relations.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="пространственные-запросы-1" class="slide level2">
+<h2>Пространственные запросы</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/dist_bld.svg" style="width:60.0%"></p>
+<figcaption>Дома на расстоянии 100 м от реки</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/within_pts.svg" style="width:60.0%"></p>
+<figcaption>Почвенные разрезы в пределах леса</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/touch_rds.svg" style="width:60.0%"></p>
+<figcaption>Дороги, примыкающие к границе</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="images/dir_meteo.svg" style="width:55.0%"></p>
+<figcaption>Метеостанции к северо-западу от гидропоста</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="длина-периметр" class="slide level2">
 <h2>Длина / периметр</h2>
 <div class="columns">
@@ -832,6 +1426,13 @@ C = \Bigg(\frac{1}{n-1}\sum_{i=0}^{n-2} x_i, \frac{1}{n-1}\sum_{i=0}^{n-2} y_i \
 <h2>Словарик</h2>
 <div class="columns">
 <div class="column" style="color: blue; text-align: end;">
+<p>Пространственное отношение</p>
+<p>Евклидово расстояние</p>
+<p>Геодезическое расстояние</p>
+<p>Метрическое отношение</p>
+<p>Топологическое отношение</p>
+<p>Дирекционное отношение</p>
+<p>Пространственный запрос</p>
 <p>Огранич. прямоугольник</p>
 <p>Выпуклая оболочка</p>
 <p>Диаграмма Вороного</p>
@@ -843,6 +1444,13 @@ C = \Bigg(\frac{1}{n-1}\sum_{i=0}^{n-2} x_i, \frac{1}{n-1}\sum_{i=0}^{n-2} y_i \
 <p>Обрезка</p>
 <p>Интерполяция, взвешенная на площадь</p>
 </div><div class="column" style="color: red">
+<p>Spatial relation</p>
+<p>Euclidean distance</p>
+<p>Geodesic distance</p>
+<p>Metric relation</p>
+<p>Topological relation</p>
+<p>Directional relation</p>
+<p>Spatial query</p>
 <p>Bounding box</p>
 <p>Convex hull</p>
 <p>Voronoy diagram</p>
@@ -863,6 +1471,9 @@ C = \Bigg(\frac{1}{n-1}\sum_{i=0}^{n-2} x_i, \frac{1}{n-1}\sum_{i=0}^{n-2} y_i \
 <p>Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ</p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-egenhofer1991" class="csl-entry" role="listitem">
+Egenhofer, Max J. 1991. <span>«Reasoning about binary topological relations»</span>. В <em>Advances in Spatial Databases</em>, под редакцией Oliver Günther и Hans-Jörg Schek, 141–60. Berlin, Heidelberg: Springer Berlin Heidelberg.
+</div>
 <div id="ref-jarvis1973" class="csl-entry" role="listitem">
 Jarvis, R.A. 1973. <span>«On the Identification of the Convex Hull of a Finite Set of Points in the Plane»</span>. <em>Information Processing Letters</em> 2 (1): 18–21. <a href="https://doi.org/10.1016/0020-0190(73)90020-3">https://doi.org/10.1016/0020-0190(73)90020-3</a>.
 </div>

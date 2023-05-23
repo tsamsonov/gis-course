@@ -1,0 +1,589 @@
+---
+title: "Пространственная интерполяция и вариография"
+subtitle: "Основы геоинформатики: лекция 8"
+date: 03/31/2023
+date-format: long
+author: "Самсонов Тимофей Евгеньевич"
+execute:
+  echo: false
+  freeze: true
+engine: knitr
+format:
+  revealjs: 
+    theme: [default, custom_small.scss]
+    margin: 0.2
+    slide-number: true
+    footer: "Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ"
+    header-includes: <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pt-sans" type="text/css"/>
+bibliography: references.yaml
+mainfont: PT Sans
+---
+
+## Пространственная статистика
+
+**Пространственная статистика** --- анализ и моделирование пространственных явлений методами математической статистики.
+
+![](images/spatstat1.svg){width="100%"}
+
+## Пространственная статистика
+
+**Пространственная статистика** --- анализ и моделирование пространственных явлений методами математической статистики.
+
+![](images/spatstat2.svg){width="100%"}
+
+## Пространственные распределения
+
+::: columns
+::: {.column width="65%"}
+Моделирование пространственных распределений включает такие этапы как
+
+1.  Пространственная интерполяция --- восстановление *поля* распределения по ограниченному набору исходных данных.
+2.  Исследование пространственной изменчивости поля распределения.
+
+В *геостатистическом* анализе исследование изменчивости даёт статистическое обоснование метода интерполяции.
+:::
+
+::: {.column width="35%"}
+![](images/interpolation.svg){width="100%"}
+:::
+:::
+
+## Пространственная интерполяция
+
+**Интерполяция** в общем случае --- это способ нахождения промежуточных значений величины по имеющемуся дискретному набору известных значений
+
+-   Методы которые производят интерполяцию на основе заданной аналитической зависимости, называют **детерминистическими**.
+
+-   Предполагается что анализируемые данные описываются некоторой аналитической функцией $Z(\mathbf p, \lambda)$, где $\mathbf p$ --- точка, а $\lambda$ --- набор внутренних параметров модели.
+
+-   Задача: на основе известных данных $Z_i = Z(\mathbf p_i)$, измеренных в точках $\mathbf p_i$, и другой информации об исследуемом явлении подобрать набор параметров $\lambda$ и построить функцию $Z(\mathbf p, \lambda)$ для всей исследуемой области $S$.
+
+## Узлы интерполяции
+
+-   Как правило, оценка производится в узлах *покрытия*
+-   Наиболее часто используется растровое покрытие
+
+![](images/pts.png)
+
+## Метод ближайшего соседа
+
+Всю область интерполяции можно разбить с помощью диаграммы Вороного на зоны принадлежности к точкам наблюдений
+
+![](images/voron1.png)
+
+## Метод ближайшего соседа
+
+В пределах каждой ячейки значение интерполируемой величины считается постоянным
+
+![](images/voron2.png)
+
+## Метод ближайшего соседа
+
+Каждый узел интерполяции получает значение, равное значению ближайшей к нему точки наблюдений
+
+![](images/voron3.png)
+
+## Метод ближайшего соседа
+
+Результирующая поверхность является кусочно-постоянной
+
+![](images/voron4.png)
+
+## На основе триангуляции
+
+::: columns
+::: {.column width="60%"}
+Для каждого треугольника находят уравнение плоскости:
+
+$$Ax + By + Cz + D = 0$$
+
+$$Z(x, y) = -\frac{1}{C}(Ax+By+D)$$
+
+Искомые коэффициенты $A, B, C, D$ находят решением уравнения: $$\begin{vmatrix}
+x - x_1 & y - y_1 & z - z_1 \\ 
+x_2 - x_1 & y_2 - y_1 & z_2 - z_1 \\ 
+x_3 - x_1 & y_3 - y_1 & z_3 - z_1
+\end{vmatrix} = 0$$
+:::
+
+::: {.column width="40%"}
+![](images/tin_interp.svg){width="100%"}
+:::
+:::
+
+## На основе триангуляции
+
+В пределах каждого треугольника --- наклонный участок плоскости.
+
+![](images/tin_linear.png)
+
+Характерная особенность --- "изломы" изолиний при визуализации.
+
+## Обратно взвешенные расстояния
+
+Значение показателя в произвольной точке получается как средневзвешенная сумма значений в исходных точках.
+
+-   Веса определяются обратно пропорционально расстоянию: чем дальше исходная точка, тем меньший вес она будет иметь:
+
+$$Z(\mathbf{p}) = \begin{cases}
+\dfrac{\sum_{i = 1}^{n}{ w_i(\mathbf{p}) Z_i } }{ \sum_{i = 1}^{n}{ w_i(\mathbf{p}) } }, & \text{если } w_i \neq 0 \text{ для всех } i, \\
+ z_i, & \text{если } w_i = 0 \text{ для одного } i,
+\end{cases}$$
+
+где $w_i(\mathbf{p}) = | \mathbf p - \mathbf p_i | ^{-\beta}$ --- весовая функция, $n$ --- общее количество точек с исходными данными.
+
+## Обратно взвешенные расстояния
+
+$\beta = 2$
+
+![](images/idw2.png)
+
+## Обратно взвешенные расстояния
+
+$\beta = 3$
+
+![](images/idw3.png)
+
+## Обратно взвешенные расстояния
+
+$\beta = 4$
+
+![](images/idw4.png)
+
+## Обратно взвешенные расстояния
+
+$\beta = 5$
+
+![](images/idw5.png)
+
+## Обратно взвешенные расстояния
+
+$\beta \rightarrow \infty$
+
+![](images/idwoo.png)
+
+В предельном случае ОВР вырождается в ближайшего соседа.
+
+## Обратно взвешенные расстояния
+
+Характерной особенностью метода является *эффект "бычьих глаз"*. При визуализации образуется множество замкнутых изолиний.
+
+![](images/idw3.png)
+
+::: callout-important
+## Причина
+
+В каждой точке исходных данных существует локальный минимум или максимум.
+:::
+
+## Радиальные базисные функции
+
+**Радиальной** называется функция, значение которой зависит только от расстояния между $\textbf{p}$ и некой точкой $\textbf{c}$:
+
+$$\phi(\textbf{p}, \textbf{c}) = \phi\big(\lVert \textbf{p} - \textbf{c}\rVert\big)$$ Интерполируемое значение находится как сумма значений функций с коэффициентами $\lambda_i$:
+
+$$Z(\textbf{p}) = \sum_{i=1}^n \lambda_i \phi\big(\lVert \textbf{p} - \textbf{p}_i\rVert\big)$$
+
+$\lambda_i$ находятся путем решения системы уравнений $Z(p_i) = Z_i$;
+
+::: callout-note
+## Особенность
+
+В отличие от метода ОВР весовые коэффициенты не зависят от $\mathbf{p}$.
+:::
+
+## Радиальные базисные функции
+
+Метод **РБФ** является одним из самых гибких благодаря широким возможностям выбора радиальной функции:
+
+-   *Мультиквадрики*: $\phi(r) = \sqrt{r^2 + \delta^2}$
+
+-   *Обратные мультиквадрики*: $\phi(r) = 1 / \sqrt{r^2 + \delta^2}$
+
+-   *Мульти-логарифмическая*: $\phi(r) = \ln(r^2 + \delta^2)$
+
+-   *Сплайны минимальной кривизны*: $\phi(r) = r^2 \ln(r^2 + \delta^2)$
+
+Параметр $\delta$ влияет на форму РБФ вблизи нулевых расстояний.
+
+::: callout-warning
+## Внимание
+
+Поверхность проходит через исходные точки, но может выходить за пределы исходного диапазона значений.
+:::
+
+## Радиальные базисные функции
+
+*Сплайн минимальной кривизны* дает поверхность, обладающую максимально низкой кривизной между исходными точками.
+
+![](images/spline.png)
+
+## Полиномиальная регрессия
+
+Используется для глобальной аппроксимации тренда
+
+$$P_1(x, y) = a + bx + cy$$ $$P_{1.5}(x, y) = a + bx + cy + dxy$$ $$P_{2}(x, y) = a + bx + cy + dxy + ex^2 + fy^2$$ Неизвестные коэффициенты находятся по методу наименьших квадратов решением системы линейных уравнений относительно коэффициентов $a$, $b$ и т.д. Минимизируется функция потери:
+
+$$L = \sum_{i=1}^{n} \Large[Z(x_i, y_i) - P_k(x_i, y_i) \Large]^2$$
+
+## Полиномиальная регрессия
+
+Полином степени 1
+
+![](images/approx1.png)
+
+## Полиномиальная регрессия
+
+Полином степени 2
+
+![](images/approx2.png)
+
+## Полиномиальная регрессия
+
+Полином степени 3
+
+![](images/approx3.png)
+
+## Геостатистика
+
+**Геостатистика** --- раздел пространственной статистики, посвященный исследованию статистических закономерностей пространственных распределений [@matheron1962].
+
+Основная функция геостатистики --- *вариограмма*:
+
+$$
+\mathbb E\big[Z(\mathbf{p}+\mathbf{h})-Z(\mathbf{p})\big]^2 = 2\gamma(\mathbf{h}),
+$$
+
+где $\mathbb E$ --- математическое ожидание, $\mathbf h$ --- вектор.
+
+::: callout-note
+## Особенности
+
+-   Вариограмма показывает насколько данные в точках становятся непохожими при увеличении расстояния между ними.
+
+-   В изотропном случае вектор $\mathbf h$ можно заменить на его длину $|\mathbf h|$.
+:::
+
+## Вариограммное облако
+
+Квадрат разности значений как функция от расстояния
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+library(sf)
+library(stars)
+library(gstat)
+library(tidyverse)
+
+cities = read_sf("../r-geo-course/data/Italy_Cities.gpkg")
+
+rainfall = read_table("../r-geo-course/data/Rainfall.dat") |> 
+  st_as_sf(coords = c('x', 'y'), 
+           crs = st_crs(cities),
+           remove = FALSE)
+
+varcl = variogram(rain_24~1, data=rainfall, cutoff = 150000, cloud=TRUE)
+
+ggplot(varcl) +
+  geom_point(aes(dist, gamma), alpha = 0.5, size = 1, color = 'steelblue') +
+  ylab(expression((z[i]-z[j])^2)) +
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  theme_bw()
+```
+
+Точка на графике соответствует паре точек на местности.
+
+## Эмпирическая вариограмма
+
+**Эмпирическая вариограмма** рассчитывается путем разбения вариограммного облака на интервалы расстояний --- *лаги* --- и подсчета среднего значения в каждом лаге:
+
+```{r, fig.height=2.5, fig.width=6, dpi=300}
+width = 10000
+intervals = width * 0:15
+
+vargr = variogram(rain_24~1, data=rainfall, cutoff = 150000, width = width)
+
+ggplot() +
+  geom_bin2d(varcl, mapping = aes(dist, gamma), binwidth = c(width, 3000)) +
+  geom_point(varcl, mapping = aes(dist, gamma), alpha = 0.5, size = 1, color = 'steelblue') +
+  geom_vline(xintercept = intervals, linewidth = 0.25) +
+  geom_vline(xintercept = 1e4 * 6:7, linewidth = 1, color = 'white') +
+  geom_label(aes(x = 30000, y = 2700, label = "лаг [60 000, 70 000)"), 
+             label.padding = unit(0.35, "lines"),
+             color = 'forestgreen', fill = 'white', size = 4.5, alpha = 0.8) + 
+  geom_line(vargr, mapping = aes(dist, gamma)) +
+  geom_point(vargr, mapping = aes(dist, gamma, size = np)) +
+  scale_fill_continuous(low = 'bisque', high = 'coral3') +
+  scale_size(range = c(1, 3)) +
+  coord_cartesian(ylim = c(0, 3000)) +
+  scale_x_continuous(expand = c(0, 0)) + 
+  scale_y_continuous(expand = c(0, 0)) +
+  ylab(expression((z[i]-z[j])^2)) +
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  theme_bw()
+```
+
+## Эмпирическая вариограмма
+
+$$\widehat{\gamma} = \frac{1}{2N_h} \sum_{|\mathbf{p}_i - \mathbf{p}_j| \approx h} \big(Z_i - Z_j\big)^2$$
+
+```{r, fig.height=2.5, fig.width=6, dpi=300}
+ggplot() +
+  geom_line(vargr, mapping = aes(dist, gamma)) +
+  geom_point(vargr, mapping = aes(dist, gamma, size = np)) +
+  scale_size(range = c(1, 5)) +
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  ylab(expression(widehat(gamma))) +
+  theme_bw()
+```
+
+## Интерпретация вариограммы
+
+1.  Вариограмма --- квадрат разницы значений. Чем она больше, тем сильнее различаются точки по величине показателя.
+2.  Меньшие значения $\gamma$ свидетельствуют о большей похожести точек. Следовательно, вес таких точек при интерполяции должен быть выше.
+3.  Пока вариограмма растет, существует зависимость между значениями в точке. Даже для далеких $\mathbf p_i$ мы можем сказать, насколько они в среднем отличаются от $\mathbf p$. Это значит, что их веса должны быть ненулевыми.
+4.  Если вариограмма вышла на плато, то зависимость утрачена, и данными, расположенными за пределами радиуса корреляции, можно пренебречь, а их веса будут близки к нулю.
+
+## Модель вариограммы
+
+Модель вариограммы управляется тремя параметрами: эффект самородка (*nugget*), радиус корреляции (*range*) и плато (*sill*).
+
+```{r, fig.height=3, fig.width=6, dpi=300}
+nugget = 15
+sill = 215
+lag = 1000
+a = 120000
+cutoff = 150000
+
+h0 = lag * 0:(a/lag)
+h1 = lag * (a/lag + 1):(cutoff/lag) 
+
+tab1 = tibble::tibble(
+  h = c(h0, h1),
+  gamma = c(nugget + (sill - nugget) * (3 * h0 / (2 * a) - 0.5 * (h0 / a)^3), rep(sill, length(h1))),
+  fit = 'manual'
+)
+
+vargr = variogram(rain_24~1, data=rainfall, cutoff = 150000, width = width)
+
+ggplot() +
+  geom_vline(xintercept = a, color = 'orangered') +
+  annotate("text", x = a + 2 * width, y = 0.5 * sill, label = paste("range =", a), color = 'orangered') + 
+  geom_hline(yintercept = sill, color = 'orangered') +
+  annotate("text", x = 0.5 * a, y = sill * 1.05, label = paste("sill =", sill), color = 'orangered') + 
+  geom_line(vargr, mapping = aes(dist, gamma)) +
+  geom_point(vargr, mapping = aes(dist, gamma), size = 2) +
+  scale_size(range = c(1, 5)) +
+  geom_line(tab1, mapping = aes(h, gamma), linewidth = 1, color = 'steelblue') +
+  geom_point(data.frame(h = 0, gamma = nugget), mapping = aes(h, gamma), size = 3, color = 'orangered') +
+  annotate("text", x = 1.5 * width, y = nugget, label = paste("nugget =", nugget), color = 'orangered') + 
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  ylab(expression(widehat(gamma))) +
+  ggtitle('Сферическая модель') +
+  theme_bw()
+```
+
+## Сферическая модель
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+n = 60
+a = 40
+h = 0:n
+
+tab = tibble::tibble(
+  h = 0:60,
+  gamma = c(3 * (0:(a-1)) / (2 * a) - 0.5 * (0:(a-1) / a)^3, rep(1, n-a+1))
+)
+
+ggplot() +
+  geom_line(tab, mapping = aes(h, gamma), linewidth = 1, color = 'steelblue') +
+  geom_vline(xintercept = a, color = 'orangered') +
+  annotate("text", x = a + 5, y = 0.5625, label = paste("a =", a), color = 'orangered') + 
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  ylab(expression(gamma)) +
+  theme_bw()
+```
+
+-   Данная модель достигает плато в точке $h = a$.
+
+-   За пределами радиуса корреляции зависимость отсутствует
+
+## Экспоненциальная модель
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+tab = tibble::tibble(
+  h = h,
+  gamma = 1 - exp(-3*h/a)
+)
+
+ggplot() +
+  geom_line(tab, mapping = aes(h, gamma), linewidth = 1, color = 'steelblue') +
+  geom_vline(xintercept = a, color = 'orangered') +
+  annotate("text", x = a + 5, y = 0.5625, label = paste("a =", a), color = 'orangered') + 
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  ylab(expression(gamma)) +
+  theme_bw()
+```
+
+-   Данная модель достигает плато асимптотически.
+-   В точке $h = a$ достигается $95\%$ уровня плато.
+
+## Гауссова модель
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+tab = tibble::tibble(
+  h = h,
+  gamma = 1 - exp(-3*h^2/a^2)
+)
+
+ggplot() +
+  geom_line(tab, mapping = aes(h, gamma), linewidth = 1, color = 'steelblue') +
+  geom_vline(xintercept = a, color = 'orangered') +
+  annotate("text", x = a + 5, y = 0.5625, label = paste("a =", a), color = 'orangered') + 
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  ylab(expression(gamma)) +
+  theme_bw()
+```
+
+-   Данная модель достигает плато асимптотически.
+-   В точке $h = a$ достигается $95\%$ уровня плато.
+
+## Степенная модель
+
+```{r, fig.height=2.5, fig.width=5, dpi=300}
+tab = tibble::tibble(
+  h = h,
+  gamma = h^1.5
+)
+
+ggplot() +
+  geom_line(tab, mapping = aes(h, gamma), linewidth = 1, color = 'steelblue') +
+  xlab(expression(paste('|', p[i]-p[j], '|, м'))) +
+  ylab(expression(gamma)) +
+  theme_bw()
+```
+
+-   Зависимость присутствует на всех расстояниях: $a \rightarrow \infty$
+-   Как правило, это означает наличие тренда в данных
+
+## Кригинг
+
+**Кригинг** --- это *геостатистический* интерполятор вида [@krige:1951]:
+
+$$Z(\mathbf p_0) = \sum_{i} \lambda_i Z(\mathbf p_i) + \lambda_0$$
+
+В случае *обычного* кригинга веса определяются на основе вариограммы путем решения системы линейных уравнений:
+
+$$
+\begin{cases}\sum_j \lambda_j \gamma_{ij} - \mu = \gamma_{i0},\color{gray}{~i = 1,...,N,}\\
+\sum_i \lambda_i = 1
+\end{cases},
+$$ при условии $\lambda_0 = 0$, где $\gamma_{ij} = \gamma(\mathbf p_i - \mathbf p_j)$, $p_0$ --- интерполируемая точка, $\mu$ --- множитель Лагранжа, возникающий из-за дополнительного условия $\sum_i \lambda_i = 1$.
+
+## Кригинг
+
+Оценка кригинга --- результат интерполяции методом кригинга. По виду похожа на метод РБФ, но статистически обоснована.
+
+```{r, message=FALSE}
+varmd = fit.variogram(vargr, model = vgm(psill = 215, model = 'Sph', range = 120000, nugget = 15))
+
+box = st_bbox(rainfall)
+envelope = box[c(1,3,2,4)]
+
+px_grid = st_as_stars(box, dx = 2000, dy = 2000)
+px_grid = krige(rain_24~1, rainfall, px_grid, model = varmd, debug.level = 0)
+
+rain_colors = colorRampPalette(c("white", "dodgerblue", "dodgerblue4"))
+rain_levels = seq(-10,80,by=10)
+rain_ncolors = length(rain_levels)-1
+
+err_colors = colorRampPalette(c("white", "coral", "violetred"))
+err_levels = seq(0, 200, by = 20)
+err_ncolors = length(err_levels) - 1
+
+cont = st_contour(px_grid['var1.pred'], breaks = rain_levels, contour_lines = TRUE)
+conterr = st_contour(px_grid['var1.var'], breaks = err_levels, contour_lines = TRUE)
+
+ggplot() +
+  geom_stars(data = cut(px_grid['var1.pred'], breaks = rain_levels)) +
+  scale_fill_manual(name = NULL,
+                    values = rain_colors(rain_ncolors),
+                    labels = paste(rain_levels[-rain_ncolors-1], '-', rain_levels[-1]),
+                    drop = FALSE) +
+  # coord_sf(crs = st_crs(rainfall)) +
+  geom_sf(data = cont, color = 'black', size = 0.2) +
+  geom_sf(data = rainfall, color = 'black', size = 1) +
+  xlab(NULL) + ylab(NULL) +
+  theme_bw()
+```
+
+## Кригинг
+
+Дисперсия кригинга $\sigma = \sum_{i}\lambda_i\gamma_{i0} - \mu$ --- неопределенность оценки, которая напрямую зависит от плотности исходных данных.
+
+```{r}
+ggplot() +
+  geom_stars(data = cut(sqrt(px_grid['var1.var']), breaks = sqrt(err_levels))) +
+  scale_fill_manual(name = NULL,
+                    values = err_colors(err_ncolors),
+                    labels = paste(round(sqrt(err_levels[-err_ncolors-1]),1), '-', round(sqrt(err_levels[-1]),1)),
+                    drop = FALSE) +
+  # coord_sf(crs = st_crs(rainfall)) +
+  geom_sf(data = conterr, color = 'black', size = 0.2) +
+  geom_sf(data = rainfall, color = 'black', size = 1) +
+  xlab(NULL) + ylab(NULL) +
+  theme_bw()
+```
+
+## Словарик
+
+::: columns
+::: {.column width="50%" style="color: blue; text-align: end;"}
+Пространственная статистика
+
+Пространственная зависимость
+
+Пространств. гетерогенность
+
+Пространственная интерполяция
+
+Ближайший сосед
+
+Обр. взвешенные расстояния
+
+Радиальные базисные функции
+
+Полиномиальная регрессия
+
+Геостатистика
+
+Вариограмма
+
+Кригинг
+:::
+
+::: {.column width="50%" style="color: red"}
+Spatial statistics
+
+Spatial dependency
+
+Spatial heterogeneity
+
+Spatial inteprolation
+
+Nearest neighbor
+
+Inverse distance weighted
+
+Radial basis functions
+
+Polynomial regression
+
+Geostatistics
+
+Variogram
+
+Kriging
+:::
+:::
+
+## Библиография
