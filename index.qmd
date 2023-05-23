@@ -38,15 +38,15 @@ engine: knitr
 
 [**Открыть**](https://tsamsonov.github.io/gis-course/01_Basics.html){target="_blank"} в отдельной вкладке браузера.
 
-## Создание объектов и пространственные отношения
+## Пространственная привязка и создание объектов
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/02_Relations.html" title="Лекция №2. Создание объектов и пространственные отношения"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/02_Georeferencing.html" title="Лекция №2. Пространственная привязка и создание объектов"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/02_Relations.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/02_Georeferencing.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Базы пространственных данных
 
@@ -78,55 +78,55 @@ engine: knitr
 
 [**Открыть**](https://tsamsonov.github.io/gis-course/05_Raster.html){target="_blank"} в отдельной вкладке браузера.
 
-## Цифровое моделирование рельефа
+## Сетевой анализ
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/06_Dem.html" title="Лекция №6. Цифровое моделирование рельефа"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/06_Networks.html" title="Лекция №6. Сетевой анализ"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/06_Dem.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/06_Networks.html){target="_blank"} в отдельной вкладке браузера.
+
+## Цифровое моделирование рельефа и геоморфометрия
+
+::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
+```{=html}
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/07_Dem.html" title="Лекция №7. Цифровое моделирование рельефа и геоморфометрия"></iframe>
+```
+:::
+
+[**Открыть**](https://tsamsonov.github.io/gis-course/07_Dem.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная интерполяция и вариография
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/07_Interpolation.html" title="Лекция №7. Пространственная статистика I. Интерполяция и вариография"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/08_Interpolation.html" title="Лекция №8. Пространственная интерполяция и вариография"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/07_Interpolation.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/08_Interpolation.html){target="_blank"} в отдельной вкладке браузера.
 
-## Пространственная зависимость и гетерогенность
+## Пространственная и географически взвешенная регрессия
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/08_Regression.html" title="Лекция №8. Пространственная статистика II. Зависимость и гетерогенность"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/09_Regression.html" title="Лекция №9. Пространственная и географически взвешенная регрессия"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/08_Regression.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/09_Regression.html){target="_blank"} в отдельной вкладке браузера.
 
-## Модели размещения объектов
+## Точечные процессы
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/09_PointPatterns.html" title="Лекция №9. Пространственная статистика III. Модели размещения объектов"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/10_PointPatterns.html" title="Лекция №10. Точечные процессы"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/09_PointPatterns.html){target="_blank"} в отдельной вкладке браузера.
-
-## Сетевой анализ
-
-::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
-```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/10_Networks.html" title="Лекция №10. Сетевой анализ"></iframe>
-```
-:::
-
-[**Открыть**](https://tsamsonov.github.io/gis-course/10_Networks.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/10_PointPatterns.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Геоинформационные технологии
 
