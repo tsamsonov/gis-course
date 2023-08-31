@@ -486,7 +486,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div id="1df7c356" class="cell" data-execution_count="2">
+<div id="0b5c178e" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-3-output-1.png" width="366" height="411"></p>
 </div>
@@ -550,7 +550,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="8a874245" class="cell" data-execution_count="3">
+<div id="8fd042b8" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-4-output-1.png" width="366" height="411"></p>
 </div>
@@ -653,7 +653,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="17a170dd" class="cell" data-execution_count="4">
+<div id="1af2153c" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-5-output-1.png" width="366" height="411"></p>
 </div>
@@ -759,6 +759,20 @@
 <li><p>Обработка запроса представляет собой последовательность шагов, которую инициирует СУБД для выполнения запроса.</p></li>
 </ul>
 </section>
+<section id="обработка-запросов-1" class="slide level2">
+<h2>Обработка запросов</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>SELECT</span>
+<span id="cb3-2"><a href="#cb3-2"></a>FROM reltypes R, soiltypes S</span>
+<span id="cb3-3"><a href="#cb3-3"></a>WHERE st_area(S.geom) &lt; 10000 AND st_area(R.geom) &lt; 10000</span>
+<span id="cb3-4"><a href="#cb3-4"></a>AND st_intersects(R.geom, s.geom)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="images/filter_refine.svg" style="width:100.0%" class="r-stretch"><p>Пространственный запрос состоит из фильтрации (<code>FILTER</code>) на основе MBR и уточнения (<code>REFINE</code>) по реальной геометрии.</p>
+</section>
+<section id="хранение-данных" class="slide level2">
+<h2>Хранение данных</h2>
+<p>Данные в файлах имеют одномерное упорядочение. Однако записи можно хранить так чтобы пространственно близкие располагались ближе друг к другу</p>
+
+<img data-src="images/ordering_comp.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="векторная-модель" class="slide level2">
 <h2>Векторная модель</h2>
 <p><strong>Simple Features</strong> — стандарт <span class="citation" data-cites="OGC2010">OGC (<a href="#/библиография" role="doc-biblioref" onclick="">2010</a>)</span>, который определяет общую модель хранения и доступа к простым (векторным) объектам.</p>
@@ -817,8 +831,8 @@
 <p><strong>Линейно связные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -847,8 +861,8 @@
 <p><strong>Линейно несвязные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -878,38 +892,38 @@
 </section>
 <section id="хранение-координат" class="slide level2">
 <h2>Хранение координат</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>library(sf)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>p = st_point(c(0.5,0.5))</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a>pc = rbind(c(0.5,0.5), c(1, 3), c(2, 1), c(0.2, 2), c(2, 3), c(1.5, 1.5))</span>
-<span id="cb3-5"><a href="#cb3-5"></a>mp = st_multipoint(pc)</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a>s1 = rbind(c(0,1),c(0.5,1.5),c(1.2,1.2),c(2,1.3),c(3,2))</span>
-<span id="cb3-8"><a href="#cb3-8"></a>ls = st_linestring(s1)</span>
-<span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a>s1 = rbind(c(0.5,1.5),c(1.2,1.2),c(2,1.3))</span>
-<span id="cb3-11"><a href="#cb3-11"></a>s2 = rbind(c(0,1.5),c(0.5,2.0),c(1.2,1.7))</span>
-<span id="cb3-12"><a href="#cb3-12"></a>s3 = rbind(c(2,1.8),c(3,2.5))</span>
-<span id="cb3-13"><a href="#cb3-13"></a>mls = st_multilinestring(list(s1,s2,s3))</span>
-<span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a>p1 = rbind(c(0.5,0.5), c(2,0), c(3,2), c(1.5,4), c(0,3), c(0.5,0.5))</span>
-<span id="cb3-16"><a href="#cb3-16"></a>p2 = rbind(c(1,1), c(0.8,2), c(2,2.2), c(1.4,1.1), c(1,1))</span>
-<span id="cb3-17"><a href="#cb3-17"></a>pol = st_polygon(list(p1, p2))</span>
-<span id="cb3-18"><a href="#cb3-18"></a>p3 = rbind(c(3,3.3), c(3.5, 3.1), c(4,3), c(4,3.7), c(3.7, 3.96), c(3.2,4), c(3,3.3))</span>
-<span id="cb3-19"><a href="#cb3-19"></a>p4 = rbind(c(3.2,3.4), c(3.8,3.2), c(3.8,3.7), c(3.3,3.8), c(3.2,3.4))</span>
-<span id="cb3-20"><a href="#cb3-20"></a>p5 = rbind(c(3,1.2), c(2.5,0.2), c(3.5,0.2), c(3.5,1.2), c(3,1.2))</span>
-<span id="cb3-21"><a href="#cb3-21"></a>p6 = rbind(c(0,1), c(0.1,0.8), c(0.2,0.5), c(0.1,0.3), c(0, 0.7), c(0,1))</span>
-<span id="cb3-22"><a href="#cb3-22"></a>mpol = st_multipolygon(list(list(p1,p2), list(p3,p4), list(p5), list(p6)))</span>
-<span id="cb3-23"><a href="#cb3-23"></a></span>
-<span id="cb3-24"><a href="#cb3-24"></a>gc = st_geometrycollection(list(pol, mp + c(3, -1), mls + c(2.5,2)))</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>library(sf)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>p = st_point(c(0.5,0.5))</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a>pc = rbind(c(0.5,0.5), c(1, 3), c(2, 1), c(0.2, 2), c(2, 3), c(1.5, 1.5))</span>
+<span id="cb4-5"><a href="#cb4-5"></a>mp = st_multipoint(pc)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a>s1 = rbind(c(0,1),c(0.5,1.5),c(1.2,1.2),c(2,1.3),c(3,2))</span>
+<span id="cb4-8"><a href="#cb4-8"></a>ls = st_linestring(s1)</span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a>s1 = rbind(c(0.5,1.5),c(1.2,1.2),c(2,1.3))</span>
+<span id="cb4-11"><a href="#cb4-11"></a>s2 = rbind(c(0,1.5),c(0.5,2.0),c(1.2,1.7))</span>
+<span id="cb4-12"><a href="#cb4-12"></a>s3 = rbind(c(2,1.8),c(3,2.5))</span>
+<span id="cb4-13"><a href="#cb4-13"></a>mls = st_multilinestring(list(s1,s2,s3))</span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a>p1 = rbind(c(0.5,0.5), c(2,0), c(3,2), c(1.5,4), c(0,3), c(0.5,0.5))</span>
+<span id="cb4-16"><a href="#cb4-16"></a>p2 = rbind(c(1,1), c(0.8,2), c(2,2.2), c(1.4,1.1), c(1,1))</span>
+<span id="cb4-17"><a href="#cb4-17"></a>pol = st_polygon(list(p1, p2))</span>
+<span id="cb4-18"><a href="#cb4-18"></a>p3 = rbind(c(3,3.3), c(3.5, 3.1), c(4,3), c(4,3.7), c(3.7, 3.96), c(3.2,4), c(3,3.3))</span>
+<span id="cb4-19"><a href="#cb4-19"></a>p4 = rbind(c(3.2,3.4), c(3.8,3.2), c(3.8,3.7), c(3.3,3.8), c(3.2,3.4))</span>
+<span id="cb4-20"><a href="#cb4-20"></a>p5 = rbind(c(3,1.2), c(2.5,0.2), c(3.5,0.2), c(3.5,1.2), c(3,1.2))</span>
+<span id="cb4-21"><a href="#cb4-21"></a>p6 = rbind(c(0,1), c(0.1,0.8), c(0.2,0.5), c(0.1,0.3), c(0, 0.7), c(0,1))</span>
+<span id="cb4-22"><a href="#cb4-22"></a>mpol = st_multipolygon(list(list(p1,p2), list(p3,p4), list(p5), list(p6)))</span>
+<span id="cb4-23"><a href="#cb4-23"></a></span>
+<span id="cb4-24"><a href="#cb4-24"></a>gc = st_geometrycollection(list(pol, mp + c(3, -1), mls + c(2.5,2)))</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Well-Known Text (WKT)</strong> — текстовый формат</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>cat(st_as_text(p))</span>
-<span id="cb4-2"><a href="#cb4-2"></a>cat(st_as_text(ls))</span>
-<span id="cb4-3"><a href="#cb4-3"></a>cat(st_as_text(pol))</span>
-<span id="cb4-4"><a href="#cb4-4"></a>cat(st_as_text(mp))</span>
-<span id="cb4-5"><a href="#cb4-5"></a>cat(st_as_text(mls))</span>
-<span id="cb4-6"><a href="#cb4-6"></a># cat(st_as_text(mpol))</span>
-<span id="cb4-7"><a href="#cb4-7"></a># cat(st_as_text(gc))</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>cat(st_as_text(p))</span>
+<span id="cb5-2"><a href="#cb5-2"></a>cat(st_as_text(ls))</span>
+<span id="cb5-3"><a href="#cb5-3"></a>cat(st_as_text(pol))</span>
+<span id="cb5-4"><a href="#cb5-4"></a>cat(st_as_text(mp))</span>
+<span id="cb5-5"><a href="#cb5-5"></a>cat(st_as_text(mls))</span>
+<span id="cb5-6"><a href="#cb5-6"></a># cat(st_as_text(mpol))</span>
+<span id="cb5-7"><a href="#cb5-7"></a># cat(st_as_text(gc))</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -927,13 +941,13 @@
 <section id="хранение-координат-1" class="slide level2">
 <h2>Хранение координат</h2>
 <p><strong>Well-Known Binary (WKB)</strong> — бинарный формат</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>cat('POINT:', st_as_binary(p))</span>
-<span id="cb5-2"><a href="#cb5-2"></a>cat('LINESTRING:', st_as_binary(ls))</span>
-<span id="cb5-3"><a href="#cb5-3"></a># cat('POLYGON:', st_as_binary(pol))</span>
-<span id="cb5-4"><a href="#cb5-4"></a># cat(st_as_binary(mp))</span>
-<span id="cb5-5"><a href="#cb5-5"></a># cat(st_as_binary(mls))</span>
-<span id="cb5-6"><a href="#cb5-6"></a># cat(st_as_binary(mpol))</span>
-<span id="cb5-7"><a href="#cb5-7"></a># cat(st_as_binary(gc))</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource {r} number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>cat('POINT:', st_as_binary(p))</span>
+<span id="cb6-2"><a href="#cb6-2"></a>cat('LINESTRING:', st_as_binary(ls))</span>
+<span id="cb6-3"><a href="#cb6-3"></a># cat('POLYGON:', st_as_binary(pol))</span>
+<span id="cb6-4"><a href="#cb6-4"></a># cat(st_as_binary(mp))</span>
+<span id="cb6-5"><a href="#cb6-5"></a># cat(st_as_binary(mls))</span>
+<span id="cb6-6"><a href="#cb6-6"></a># cat(st_as_binary(mpol))</span>
+<span id="cb6-7"><a href="#cb6-7"></a># cat(st_as_binary(gc))</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
