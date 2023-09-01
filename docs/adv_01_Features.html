@@ -486,7 +486,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div id="35238c88" class="cell" data-execution_count="2">
+<div id="eaa0e00f" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-3-output-1.png" width="366" height="411"></p>
 </div>
@@ -550,7 +550,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="9b82662e" class="cell" data-execution_count="3">
+<div id="c24b4d27" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-4-output-1.png" width="366" height="411"></p>
 </div>
@@ -653,7 +653,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="1eea6c0d" class="cell" data-execution_count="4">
+<div id="0da4733b" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-5-output-1.png" width="366" height="411"></p>
 </div>
@@ -678,7 +678,7 @@
 </section>
 <section id="абстрактные-типы-данных" class="slide level2">
 <h2>Абстрактные типы данных</h2>
-<p>Важным наследием объектно-ориентированных систем является поддержка абстрактных типов данных.</p>
+<p>Важное наследие объектно-ориентированных систем — поддержка абстрактных типов данных.</p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p><em>Примитивные типы данных</em> составляют основу реляционных БД. <img data-src="images/elementary_types.svg" style="width:90.0%"></p>
@@ -690,7 +690,8 @@
 </section>
 <section id="пространственная-субд" class="slide level2">
 <h2>Пространственная СУБД</h2>
-<p>Абстрактные типы данных открывают возможность для реализации возможностей пространственных СУБД. ПСУБД должна отвечать следующим требованиям:</p>
+<p>Абстрактные типы данных — основа реализации пространственных СУБД.</p>
+<p>ПСУБД должна отвечать следующим требованиям:</p>
 <ol type="1">
 <li>Представляет собой программный модуль, взаимодействующий с нижестоящей СУБД или являющийся ее компонентой</li>
 <li>Поддерживает множественные модели пространственных данных, соответствующие им абстрактные типы данных, а также язык запросов, из которого эти типы могут быть вызваны.</li>
@@ -699,7 +700,7 @@
 </section>
 <section id="пространственная-субд-1" class="slide level2">
 <h2>Пространственная СУБД</h2>
-<p>Основу функционирования ПСУБД составляют следующие аспекты:</p>
+<p>Основные аспекты функционирования ПСУБД:</p>
 <ol type="1">
 <li>Модели пространственных данных и пространственных отношений.</li>
 <li>Язык запросов</li>
@@ -861,103 +862,186 @@
 <section id="векторная-модель-1" class="slide level2">
 <h2>Векторная модель</h2>
 
-<img data-src="images/sf_hierarchy.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="векторная-модель-2" class="slide level2">
-<h2>Векторная модель</h2>
-<p>Стандарт включает в себя <strong>17 моделей пространственных объектов</strong>.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Основными являются 7 моделей:</p>
-<ul>
-<li><strong>Линейно связные</strong>: <code>POINT</code>, <code>LINESTRING</code>, <code>POLYGON</code></li>
-<li><strong>Линейно несвязные</strong>: <code>MULTIPOINT</code>, <code>MULTIPOINT</code>, <code>MULTIPOLYGON</code>, <code>GEOMETRYCOLLECTION</code></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="callout callout-note callout-titled callout-style-default">
+<img data-src="images/sf_hierarchy.svg" style="width:100.0%" class="r-stretch"><p>Модель <em>Simple Features</em> представляет собой иерархию классов, между которыми существуют отношения <strong>наследования</strong> (<strong>△</strong>) и <strong>коллекции</strong> (<strong>♢</strong>).</p>
+</section>
+<section id="geometry" class="slide level2">
+<h2>Geometry</h2>
+<p>Все объекты типа <em>Simple Features</em> наследуют свойства от базового класса <strong><code>GEOMETRY</code></strong>. Механизм этого наследования основан на следующих принципах:</p>
+<ol type="1">
+<li><p><strong><code>GEOMETRY</code></strong> представляет собой <em>абстрактный</em> класс, т.е. вы не можете создать экземпляр этого класса.</p></li>
+<li><p>Все подклассы геометрий являются топологически закрытыми, т.е. включают границу в множество точек.</p></li>
+<li><p>На уровне класса <strong><code>GEOMETRY</code></strong> определен интерфейс — набор методов, которые позволяют получить информацию об объекте.</p></li>
+<li><p>Реализация интерфейса зависит от конкретного класса.</p></li>
+<li><p>С каждым классом геометрии ассоциированы системы отсчета, которые определяют пространственные (<span class="math inline">\(XYZ\)</span>) и дополнительные (<span class="math inline">\(M\)</span>) измерения.</p></li>
+</ol>
+</section>
+<section id="интерфейс-класса-geometry" class="slide level2">
+<h2>Интерфейс класса <code>GEOMETRY</code></h2>
+<table>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Dimension()</code></td>
+<td>Пространственная размерность <em>данного</em> геометрического объекта. Меньше или равна размерности координат. Для гетерогенных коллекций — максимальная размерность содержимых объектов.</td>
+</tr>
+<tr class="even">
+<td><code>GeometryType()</code></td>
+<td>Имя подтипа класса <code>GEOMETRY</code>, экземпляром которого является <em>данный</em> объект.</td>
+</tr>
+<tr class="odd">
+<td><code>SRID()</code></td>
+<td>Идентификатор пространственной системы отсчета (SRS) данного объекта. Как правило, является внешним ключом к таблице систем отсчета.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="интерфейс-класса-geometry-1" class="slide level2">
+<h2>Интерфейс класса <code>GEOMETRY</code></h2>
+<table>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Envelope()</code></td>
+<td>Минимальный ограничивающий прямоугольник данного объекта, параллельный осям координат. Полигон, определяемый углами <span class="math inline">\((X_{min}, Y_{min})\)</span>, <span class="math inline">\((X_{min}, Y_{max})\)</span>, <span class="math inline">\((X_{max}, Y_{max})\)</span>, <span class="math inline">\((X_{max}, Y_{min})\)</span>, <span class="math inline">\((X_{min}, Y_{min})\)</span>. При этом в фактических реализациях достаточно указать минимумы и максимумы.</td>
+</tr>
+<tr class="even">
+<td><code>AsText()</code></td>
+<td>Экспортирует данный геометрический объект в конкретное представление вида <em>Well-Known Text (WKB)</em></td>
+</tr>
+<tr class="odd">
+<td><code>AsBinary()</code></td>
+<td>Экспортирует данный геометрический объект в конкретное представление вида <em>Well-Known Binary (WKB)</em></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="интерфейс-класса-geometry-2" class="slide level2">
+<h2>Интерфейс класса <code>GEOMETRY</code></h2>
+<table>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>IsEmpty()</code></td>
+<td>Возвращает <code>TRUE</code> (<span class="math inline">\(1\)</span>), если <em>данный</em> геометрический объект пуст, т.е. представляет пустое множество точек <span class="math inline">\(\emptyset\)</span> в координатном пространстве; возвращает <code>FALSE</code> (<span class="math inline">\(0\)</span>) в противном случае.</td>
+</tr>
+<tr class="even">
+<td><code>IsSimple()</code></td>
+<td>Возвращает <code>TRUE</code> (<span class="math inline">\(1\)</span>), если <em>данный</em> геометрический объект не содержит аномальных точек, таких как самопересечения и самокасания; возвращает <code>FALSE</code> (<span class="math inline">\(0\)</span>) в противном случае.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="интерфейс-класса-geometry-3" class="slide level2">
+<h2>Интерфейс класса <code>GEOMETRY</code></h2>
+<table>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Is3D()</code></td>
+<td>Возвращает <code>TRUE</code> (<span class="math inline">\(1\)</span>), если <em>данный</em> объект имеет координаты <span class="math inline">\(Z\)</span>.</td>
+</tr>
+<tr class="even">
+<td><code>IsMeasured()</code></td>
+<td>Возвращает <code>TRUE</code> (<span class="math inline">\(1\)</span>), если <em>данный</em> объект имеет координаты <span class="math inline">\(M\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><code>Boundary()</code></td>
+<td>Возвращает <em>замыкание</em> комбинаторной границы <em>данного</em> объекта</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Линейная связность</strong></p>
+<p><strong>Важно</strong></p>
 </div>
 <div class="callout-content">
-<p>Линейно связным называется пространство, в котором любые две точки можно соединить непрерывной кривой.</p>
-<p><img data-src="images/connect.svg" style="width:60.0%"></p>
+<p>Названия методов в программных реализациях Simple Features могут отличаться от предлагаемых в стандарте. Однако наличие соответствующих методов является условием реализации стандарта.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<p>Оставшиеся виды моделей включают: <code>CIRCULARSTRING</code>, <code>COMPOUNDCURVE</code>, <code>CURVEPOLYGON</code>, <code>MULTICURVE</code>, <code>MULTISURFACE</code>, <code>CURVE</code>, <code>SURFACE</code>, <code>POLYHEDRALSURFACE</code>, <code>TIN</code>, <code>TRIANGLE</code>.</p>
 </section>
-<section id="векторная-модель-3" class="slide level2">
-<h2>Векторная модель</h2>
-
-<img data-src="images/simple_features.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="векторная-модель-4" class="slide level2">
-<h2>Векторная модель</h2>
-<p><strong>Линейно связные</strong> модели пространственных объектов.</p>
+<section id="дополнительные-измерения" class="slide level2">
+<h2>Дополнительные измерения</h2>
+<ol type="1">
+<li><p>Стандартные геометрические операции и топологические предикаты <em>игнорируют</em> дополнительные измерения <span class="math inline">\(ZM\)</span>.</p></li>
+<li><p>Не существует ограничений на координату <span class="math inline">\(M\)</span> — она, в частности, не обязана непрерывно возрастать вдоль объекта <code>LINESTRING</code>.</p></li>
+<li><p>Интерфейс объектов с <span class="math inline">\(M\)</span>-геометрией содержит дополнительные методы <code>LocateAlong()</code> и <code>LocateBetween()</code>.</p></li>
+</ol>
 <table>
 <colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Тип</th>
-<th>Описание</th>
+<th>Метод</th>
+<th>Назначение</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>POINT</code></td>
-<td>нуль-мерная геометрия, содержащая одну точку</td>
+<td><code>LocateAlong(m)</code></td>
+<td>Возвращает производную геометрическую коллекцию, которая соответствует <code>m</code></td>
 </tr>
 <tr class="even">
-<td><code>LINESTRING</code></td>
-<td>последовательность точек, соединенных прямыми, несамопересекающимися отрезками; одномерная геометрия</td>
-</tr>
-<tr class="odd">
-<td><code>POLYGON</code></td>
-<td>геометрия с положительной площадью (двумерная); последовательность точек, отрезки между которыми формируют замкнутое кольцо без самопересечений; первое кольцо является внешним, ноль и более остальных колец представляют дырки внутри полигона</td>
+<td><code>LocateBetween(m1, m2)</code></td>
+<td>Возвращает производную геометрическую коллекцию, которая соответствует отрезку <code>[m1, m2]</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="векторная-модель-5" class="slide level2">
-<h2>Векторная модель</h2>
-<p><strong>Линейно несвязные</strong> модели пространственных объектов.</p>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Тип</th>
-<th>Описание</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>MULTIPOINT</code></td>
-<td>множество точек; геометрия типа <code>MULTIPOINT</code> называется <em>простой</em> если ни одна пара точек в <code>MULTIPOINT</code> не совпадает</td>
-</tr>
-<tr class="even">
-<td><code>MULTILINESTRING</code></td>
-<td>множество линий</td>
-</tr>
-<tr class="odd">
-<td><code>MULTIPOLYGON</code></td>
-<td>множество полигонов</td>
-</tr>
-<tr class="even">
-<td><code>GEOMETRYCOLLECTION</code></td>
-<td>множество геометрий произвольного типа за исключением <code>GEOMETRYCOLLECTION</code></td>
-</tr>
-</tbody>
-</table>
+<section id="дополнительные-измерения-1" class="slide level2">
+<h2>Дополнительные измерения</h2>
+<p>Запрос измерения мультиточечного объекта возвращает мультиточку/точку:</p>
+<p><strong><code>p:</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)</code></p>
+<p><strong><code>p.LocateAlong(4):</code></strong> <code>MULTIPOINT M(0 0 4, 3 1 4)</code></p>
+<p><strong><code>p.LocateBetween(2,4):</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)</code></p>
+<p><strong><code>p.LocateAlong(3):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
+<div id="7e4d735a" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<p><img data-src="adv_01_Features_files/figure-revealjs/cell-6-output-1.png" width="794" height="360"></p>
+</div>
+</div>
 </section>
 <section id="хранение-координат" class="slide level2">
 <h2>Хранение координат</h2>
@@ -1057,7 +1141,7 @@
 <h2>Библиография</h2>
 
 <div class="footer footer-default">
-<p>Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ</p>
+<p>Самсонов Т. Е. Геоинформатика: курс лекций для студентов кафедры картографии и геоинформатики МГУ</p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-OGC2010" class="csl-entry" role="listitem">
@@ -1244,9 +1328,9 @@ OGC. 2010. <span>«OpenGIS® Implementation Standard for Geographic information 
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1280,
 
-        height: 700,
+        height: 720,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.2,
