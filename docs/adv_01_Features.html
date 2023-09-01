@@ -486,7 +486,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<div id="ae11831e" class="cell" data-execution_count="2">
+<div id="35238c88" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-3-output-1.png" width="366" height="411"></p>
 </div>
@@ -550,7 +550,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="709d3efa" class="cell" data-execution_count="3">
+<div id="9b82662e" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-4-output-1.png" width="366" height="411"></p>
 </div>
@@ -653,7 +653,7 @@
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div id="229e040a" class="cell" data-execution_count="4">
+<div id="1eea6c0d" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/cell-5-output-1.png" width="366" height="411"></p>
 </div>
@@ -705,7 +705,7 @@
 <li>Язык запросов</li>
 <li>Обработка и оптимизация запросов</li>
 <li>Организация файлового хранилища</li>
-<li>Выполнение аналитических операций</li>
+<li>Выполнение аналитических операций (добыча данных).</li>
 </ol>
 </section>
 <section id="модели-пространственных-данных" class="slide level2">
@@ -757,6 +757,7 @@
 <li><p>SQL — декларативный язык. Он описывает <em>что</em> необходимо получить, но не <em>как</em>, т.е. не сам алгоритм выполнения процедуры.</p></li>
 <li><p>СУБД должна самостоятельно определить план эффективного выполнения запроса.</p></li>
 <li><p>Обработка запроса представляет собой последовательность шагов, которую инициирует СУБД для выполнения запроса.</p></li>
+<li><p>Оптимизация пространственных запросов обладает своей спецификой</p></li>
 </ul>
 </section>
 <section id="обработка-запросов-1" class="slide level2">
@@ -778,6 +779,69 @@
 <p>Данные в файлах имеют одномерное упорядочение. Однако записи можно хранить так чтобы пространственно близкие располагались ближе друг к другу</p>
 
 <img data-src="images/ordering_comp2.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="оптимизация-запросов" class="slide level2">
+<h2>Оптимизация запросов</h2>
+<p><strong>Непространственный запрос</strong> <em><code>Выбери всех абитуриентов женского пола, которые являются призерами всероссийской олимпиады по географии</code></em> раскладывается на 2 подзапроса:</p>
+<ul>
+<li><p><strong>ПРОЕКЦИЯ</strong> (single-scan): выбрать всех абитуриентов женского пола</p></li>
+<li><p><strong>СОЕДИНЕНИЕ</strong> (multi-scan): сопоставить таблицу призеров и таблицу абитуриентов</p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Последовательность</strong></p>
+</div>
+<div class="callout-content">
+<p>Сначала должен быть выполнен запрос проекции, т.к. соединение является более ресурсоемкой многопроходной (<em>multiscan</em>) операцией</p>
+</div>
+</div>
+</div>
+</section>
+<section id="оптимизация-запросов-1" class="slide level2">
+<h2>Оптимизация запросов</h2>
+<p><strong>Пространственный запрос</strong> <em><code>Выбери все регионы с площадью более 100 тыс. кв. км, в которых проходил заключительный этап всероссийской олимпиады школьников по географии</code></em> раскладывается на 2 подзапроса:</p>
+<ul>
+<li><p><strong>ДИАПАЗОН</strong> (single-scan): выбрать регионы с площадью более <span class="math inline">\(100\)</span> тыс. кв. км</p></li>
+<li><p><strong>ПРОСТРАНСТВЕННОЕ СОЕДИНЕНИЕ</strong> (multi-scan): выбрать регионы, в которых находятся города проведения заключительного этапа</p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Последовательность</strong></p>
+</div>
+<div class="callout-content">
+<p>Последовательность не очевидна, т.к. вычисление площади — ресурсоемкая операция. Порядок выполнения пространственных запросов требует тщательного анализа.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="добыча-данных" class="slide level2">
+<h2>Добыча данных</h2>
+<p><strong>Базы <em>[пространственных]</em> данных</strong> — источник информации, который требует особого подхода в силу потенциального объема информации и способов взаимодействия с нею.</p>
+<ol type="1">
+<li>Алгоритмы, которые способны работать с большими данными, или решения, позволяющие совмещать аналитику данных и технологии обработки больших массивов информации.</li>
+<li>Расширение функциональности языка запросов таким образом чтобы появилась возможность выполнять пространственную аналитику данных “на лету”.</li>
+</ol>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Пример</strong></p>
+</div>
+<div class="callout-content">
+<p>Пространственно-временные базы данных абонентов сотовой сети могут содержать терабайты информации. Как сделать равномерную случайную выборку?</p>
+</div>
+</div>
+</div>
+</section>
 <section id="векторная-модель" class="slide level2">
 <h2>Векторная модель</h2>
 <p><strong>Simple Features</strong> — стандарт <span class="citation" data-cites="OGC2010">OGC (<a href="#/библиография" role="doc-biblioref" onclick="">2010</a>)</span>, который определяет общую модель хранения и доступа к простым (векторным) объектам.</p>
