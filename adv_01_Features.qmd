@@ -431,7 +431,7 @@ AND st_intersects(R.geom, s.geom)
 
 ## Дополнительные измерения
 
-Запрос измерения мультиточечного объекта возвращает мультиточку/точку:
+Запрос измерения мультиточечного объекта:
 
 **`p:`** `MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)`
 
@@ -446,9 +446,33 @@ mpts = shapely.MultiPoint(((0, 0), (2, 1), (3, 1), (4, 2), (5, 3), (7, 2)))
 gmpts = gpd.GeoSeries(mpts)
 df = pd.DataFrame({})
 gdf = gpd.GeoDataFrame(df, geometry=gmpts)
-gdf.plot()
+gdf.plot(markersize = 50, color='orangered')
 plt.show()
 ```
+
+## Дополнительные измерения
+
+Запрос измерения линейного объекта :
+
+**`l:`** `MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))`
+
+**`l.LocateAlong(3):`** `MULTIPOINT M(1.3 0.7 3)`
+
+**`l.LocateBetween(2,5):`** `GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))`
+
+**`l.LocateAlong(0.5):`** `POINT M()` --- *пустой* объект
+
+```{python}
+#| fig-height: 4
+mline = shapely.MultiLineString((((0, 0), (2, 1), (3, 1)), ((4, 2), (5, 3), (7, 2))))
+gmline = gpd.GeoSeries(mline)
+df = pd.DataFrame({})
+gdf = gpd.GeoDataFrame(df, geometry=gmline)
+gdf.plot(color='orangered')
+plt.show()
+```
+
+## 
 
 ## Хранение координат
 
