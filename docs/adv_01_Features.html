@@ -969,8 +969,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -998,8 +998,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1027,8 +1027,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1052,8 +1052,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1099,8 +1099,8 @@
 </ol>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1149,8 +1149,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1187,8 +1187,8 @@
 </div>
 <table>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 80%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1296,8 +1296,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1360,6 +1360,23 @@
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="multicurve" class="slide level2">
+<h2><code>MULTICURVE</code></h2>
+<p><code>MULTICURVE</code> представляет 1-мерный подкласс <code>GEOMETRYCOLLECTION</code> — коллекцию объектов <code>CURVE</code>.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/multicurve_borders.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li><p><code>MULTICURVE</code> как и <code>CURVE</code> является абстрактным классом. Вы не можете создать объект данного класса.</p></li>
+<li><p><code>MULTICURVE</code> является <em>простым</em>, если каждый его элемент является простым, а их пересечения происходят только в граничных точках.</p></li>
+<li><p>Точка принадлежит границе объекта <code>MULTICURVE</code> если она принадлежит границам <em>нечетного</em> числа его элементов.</p></li>
+<li><p>Объект <code>MULTICURVE</code> замкнут, если замкнуты всего его элементы.</p></li>
+<li><p>Граница замкнутого объекта <code>MULTICURVE</code> всегда пуста.</p></li>
+</ul>
 </div>
 </div>
 </section>

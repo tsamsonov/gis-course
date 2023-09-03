@@ -3554,5 +3554,12 @@
     "title": "Введение",
     "section": "LINESTRING, LINE, LINEARRING",
     "text": "LINESTRING, LINE, LINEARRING\nLINESTRING — это CURVE с линейной интерполяцией между точками.\n\n\n\n\n\nКаждая пара последовательных точек определяет отрезок\nLINE — это LINESTRING из двух точек\nLINEARRING — это простой замкнутый LINESTRING\nИнтерфейс содержит дополнительные методы:\n\n\n\n\nМетод\nНазначение\n\n\n\n\nNumPoints()\nКоличество точек в данном объекте LINESTRING\n\n\nPointN(n)\n\\(n\\)-я точка данного объекта LINESTRING"
+  },
+  {
+    "objectID": "adv_01_Features.html#multicurve",
+    "href": "adv_01_Features.html#multicurve",
+    "title": "Введение",
+    "section": "MULTICURVE",
+    "text": "MULTICURVE\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\n\nMULTICURVE как и CURVE является абстрактным классом. Вы не можете создать объект данного класса.\nMULTICURVE является простым, если каждый его элемент является простым, а их пересечения происходят только в граничных точках.\nТочка принадлежит границе объекта MULTICURVE если она принадлежит границам нечетного числа его элементов.\nОбъект MULTICURVE замкнут, если замкнуты всего его элементы.\nГраница замкнутого объекта MULTICURVE всегда пуста."
   }
 ]
