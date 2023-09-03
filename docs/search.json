@@ -3568,5 +3568,19 @@
     "title": "Введение",
     "section": "MULTICURVE",
     "text": "MULTICURVE\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\nИнтерфейс MULTICURVE дополнительно к GEOMETRYCOLLECTION реализует следующие методы:\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nIsClosed()\nTRUE (\\(1\\)) если данный объект MULTICURVE является замкнутым (т.е. каждый объект CURVE в коллекции является замкнутым. Возвращает FALSE (\\(0\\)) в противном случае\n\n\nLength()\nДлина данного объекта MULTICURVE, которая равна сумме длин элементов коллекции."
+  },
+  {
+    "objectID": "adv_01_Features.html#multicurve-и-multilinestring",
+    "href": "adv_01_Features.html#multicurve-и-multilinestring",
+    "title": "Введение",
+    "section": "MULTICURVE и MULTILINESTRING",
+    "text": "MULTICURVE и MULTILINESTRING\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\nИнтерфейс MULTICURVE дополнительно к GEOMETRYCOLLECTION реализует следующие методы:\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nIsClosed()\nTRUE (\\(1\\)) если данный объект MULTICURVE является замкнутым (т.е. каждый объект CURVE в коллекции является замкнутым. Возвращает FALSE (\\(0\\)) в противном случае\n\n\nLength()\nДлина данного объекта MULTICURVE, которая равна сумме длин элементов коллекции.\n\n\n\nMULTILINESTRING — это MULTICURVE, элементами которого являются объекты LINESTRING."
+  },
+  {
+    "objectID": "adv_01_Features.html#multilinestring",
+    "href": "adv_01_Features.html#multilinestring",
+    "title": "Введение",
+    "section": "MULTILINESTRING",
+    "text": "MULTILINESTRING\nMULTILINESTRING — это MULTICURVE с элементами класса LINESTRING."
   }
 ]

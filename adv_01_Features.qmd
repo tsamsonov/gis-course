@@ -767,4 +767,10 @@ $$
 :::
 :::
 
+## `MULTILINESTRING`
+
+`MULTILINESTRING` --- это `MULTICURVE` с элементами класса `LINESTRING`.
+
+![](images/multilinestrings.svg){width="100%"}
+
 ## Библиография
