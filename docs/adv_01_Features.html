@@ -782,10 +782,10 @@
 <img data-src="images/ordering_comp2.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="оптимизация-запросов" class="slide level2">
 <h2>Оптимизация запросов</h2>
-<p><strong>Непространственный запрос</strong> <em><code>Выбери всех абитуриентов женского пола, которые являются призерами всероссийской олимпиады по географии</code></em> раскладывается на 2 подзапроса:</p>
+<p><strong>Непространственный запрос</strong> <em><code>Выбери всех школьников 10 класса, которые являются призерами всероссийской олимпиады по географии</code></em> раскладывается на 2 подзапроса:</p>
 <ul>
-<li><p><strong>ПРОЕКЦИЯ</strong> (single-scan): выбрать всех абитуриентов женского пола</p></li>
-<li><p><strong>СОЕДИНЕНИЕ</strong> (multi-scan): сопоставить таблицу призеров и таблицу абитуриентов</p></li>
+<li><p><strong>ПРОЕКЦИЯ</strong> (single-scan): выбрать всех школьников 10 класса</p></li>
+<li><p><strong>СОЕДИНЕНИЕ</strong> (multi-scan): сопоставить таблицу призеров и таблицу школьников</p></li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -859,8 +859,8 @@
 <p>Существует 4 варианта координат: <span class="math inline">\(XY\)</span>, <span class="math inline">\(XYZ\)</span>, <span class="math inline">\(XYM\)</span> и <span class="math inline">\(XYZM\)</span>.</p>
 <p>В географических координатах <span class="math inline">\(X\)</span> — долгота, <span class="math inline">\(Y\)</span> — широта.</p>
 </section>
-<section id="векторная-модель-1" class="slide level2">
-<h2>Векторная модель</h2>
+<section id="иерархия-классов" class="slide level2">
+<h2>Иерархия классов</h2>
 
 <img data-src="images/sf_hierarchy.svg" style="width:100.0%" class="r-stretch"><p>Модель <em>Simple Features</em> представляет собой иерархию классов, между которыми существуют отношения <strong>наследования</strong> (<strong>△</strong>) и <strong>коллекции</strong> (<strong>♢</strong>).</p>
 </section>
@@ -879,8 +879,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -908,8 +908,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -937,8 +937,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -962,8 +962,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1080,7 +1080,7 @@
 <dl>
 <dt>Комбинаторная граница <span class="math inline">\(\partial \mathcal K\)</span> <span class="math inline">\(n\)</span>-комплекса <span class="math inline">\(\mathcal K\)</span></dt>
 <dd>
-<p>Множество <span class="math inline">\((n-1)\)</span>-симплексов <span class="math inline">\(\mathcal K\)</span>, каждый из которых входит в состав только одного <span class="math inline">\(n\)</span>-симплекса <span class="math inline">\(\mathcal K\)</span> вместе со своими гранями.</p>
+<p>Множество <span class="math inline">\((n-1)\)</span>-симплексов <span class="math inline">\(\mathcal K\)</span>, каждый из которых входит в состав только одного <span class="math inline">\(n\)</span>-симплекса <span class="math inline">\(\mathcal K\)</span>.</p>
 </dd>
 </dl>
 
@@ -1090,54 +1090,6 @@
 <p>Замыкание комбинаторной границы <em>данного</em> объекта</p>
 
 <img data-src="images/combinatorial_boundary.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="дополнительные-измерения" class="slide level2">
-<h2>Дополнительные измерения</h2>
-<ol type="1">
-<li><p>Стандартные геометрические операции и топологические предикаты <em>игнорируют</em> дополнительные измерения <span class="math inline">\(ZM\)</span>.</p></li>
-<li><p>Не существует ограничений на координату <span class="math inline">\(M\)</span> — она, в частности, не обязана непрерывно возрастать вдоль объекта <code>LINESTRING</code>.</p></li>
-<li><p>Интерфейс объектов с <span class="math inline">\(M\)</span>-геометрией содержит дополнительные методы <code>LocateAlong()</code> и <code>LocateBetween()</code>.</p></li>
-</ol>
-<table>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Метод</th>
-<th>Назначение</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>LocateAlong(m)</code></td>
-<td>Возвращает производную геометрическую коллекцию, которая соответствует <code>m</code></td>
-</tr>
-<tr class="even">
-<td><code>LocateBetween(m1, m2)</code></td>
-<td>Возвращает производную геометрическую коллекцию, которая соответствует отрезку <code>[m1, m2]</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="дополнительные-измерения-1" class="slide level2">
-<h2>Дополнительные измерения</h2>
-<p>Запрос измерения мультиточечного объекта:</p>
-<p><strong><code>p:</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)</code></p>
-<p><strong><code>p.LocateAlong(4):</code></strong> <code>MULTIPOINT M(0 0 4, 3 1 4)</code></p>
-<p><strong><code>p.LocateBetween(2,4):</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)</code></p>
-<p><strong><code>p.LocateAlong(3):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
-
-<img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-7-7.png" width="960" class="r-stretch"></section>
-<section id="дополнительные-измерения-2" class="slide level2">
-<h2>Дополнительные измерения</h2>
-<p>Запрос измерения линейного объекта :</p>
-<p><strong><code>l:</code></strong> <code>MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))</code></p>
-<p><strong><code>l.LocateAlong(3):</code></strong> <code>MULTIPOINT M(1.3 0.7 3)</code></p>
-<p><strong><code>l.LocateBetween(2,5):</code></strong> <code>GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))</code></p>
-<p><strong><code>l.LocateAlong(0.5):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
-
-<img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-8-9.png" width="960" class="r-stretch"></section>
 <section id="геометрическая-коллекция" class="slide level2">
 <h2>Геометрическая коллекция</h2>
 <p><code>GEOMETRYCOLLECTION</code> — коллекция геометрических элементов</p>
@@ -1180,15 +1132,15 @@
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-9-11.png" width="800"></p>
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-7-7.png" width="800"></p>
 </div>
 </div>
 </div>
 </div>
 <table>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 80%">
+<col style="width: 12%">
+<col style="width: 87%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1229,7 +1181,7 @@
 </div><div class="column" style="width:30%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-10-13.png" width="400" height="200"></p>
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-8-9.png" width="400" height="200"></p>
 </div>
 </div>
 </div>
@@ -1296,8 +1248,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 20%">
+<col style="width: 79%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1390,8 +1342,8 @@
 <p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 19%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1443,7 +1395,7 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 25%">
+<col style="width: 24%">
 <col style="width: 75%">
 </colgroup>
 <thead>
@@ -1482,8 +1434,8 @@
 </div><div class="column" style="width:70%;">
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1546,8 +1498,8 @@
 <p>Интерфейс <code>POLYHEDRALSURFACE</code> дополнительно поддерживает следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1575,11 +1527,96 @@
 </tbody>
 </table>
 </section>
+<section id="мультиповерхность-multisurface" class="slide level2">
+<h2>Мультиповерхность (<code>MULTISURFACE</code>)</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/multisurface.svg" style="width:80.0%"></p>
+</div><div class="column" style="width:70%;">
+<p><code>MULTISURFACE</code> — 2-мерный объект класса <code>GEOMETRYCOLLECTION</code>, элементами которого являются объекты класса <code>SURFACE</code>.</p>
+<ul>
+<li><p>Внутренние области любых двух поверхностей в коллекции не могут пересекаться.</p></li>
+<li><p>Границы любых двух поверхностей в коллекции могут пересекаться только в конечном числе точек.</p></li>
+<li><p>В случае касания вдоль кривой поверхности могут быть объединены.</p></li>
+<li><p>Дополнительные методы аналогичны методам <code>SURFACE</code>.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="мультиполигон-multipolygon" class="slide level2">
+<h2>Мультиполигон (<code>MULTIPOLYGON</code>)</h2>
+<p><code>MULTIPOLYGON</code> — это объект класса <code>MULTISURFACE</code>, элементы которого являются объектами класса <code>POLYGON</code>.</p>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p><img data-src="images/multipolygons.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:75%;">
+<ul>
+<li><p><code>MULTIPOLYGON</code> наследует все ограничения, действующие для объектов классов <code>MULTISURFACE</code> и <code>POLYGON</code>.</p></li>
+<li><p>Внутренняя область объекта <code>MULTIPOLYGON</code> , включающего 2 и более полигонов, не является линейно связной. Количество компонент = количество полигонов.</p></li>
+<li><p>Границей объекта <code>MULTIPOLYGON</code> является множество замкнутых объектов <code>LINESTRING</code>, соответствующих границам вложенных объектов <code>POLYGON</code>.</p></li>
+<li><p><code>POLYHEDRALSURFACE</code> не является мультиполигоном, т.к. может нарушать правило касания в конечном числе точек.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="иерархия-классов-1" class="slide level2">
+<h2>Иерархия классов</h2>
+
+<img data-src="images/sf_hierarchy.svg" style="width:100.0%" class="r-stretch"><p>Модель <em>Simple Features</em> представляет собой иерархию классов, между которыми существуют отношения <strong>наследования</strong> (<strong>△</strong>) и <strong>коллекции</strong> (<strong>♢</strong>).</p>
+</section>
+<section id="дополнительные-измерения" class="slide level2">
+<h2>Дополнительные измерения</h2>
+<ol type="1">
+<li><p>Стандартные геометрические операции и топологические предикаты <em>игнорируют</em> дополнительные измерения <span class="math inline">\(ZM\)</span>.</p></li>
+<li><p>Не существует ограничений на координату <span class="math inline">\(M\)</span> — она, в частности, не обязана непрерывно возрастать вдоль объекта <code>LINESTRING</code>.</p></li>
+<li><p>Интерфейс объектов с <span class="math inline">\(M\)</span>-геометрией содержит дополнительные методы <code>LocateAlong()</code> и <code>LocateBetween()</code>.</p></li>
+</ol>
+<table>
+<colgroup>
+<col style="width: 34%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>LocateAlong(m)</code></td>
+<td>Возвращает производную геометрическую коллекцию, которая соответствует <code>m</code></td>
+</tr>
+<tr class="even">
+<td><code>LocateBetween(m1, m2)</code></td>
+<td>Возвращает производную геометрическую коллекцию, которая соответствует отрезку <code>[m1, m2]</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="дополнительные-измерения-1" class="slide level2">
+<h2>Дополнительные измерения</h2>
+<p>Запрос измерения мультиточечного объекта:</p>
+<p><strong><code>p:</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)</code></p>
+<p><strong><code>p.LocateAlong(4):</code></strong> <code>MULTIPOINT M(0 0 4, 3 1 4)</code></p>
+<p><strong><code>p.LocateBetween(2,4):</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)</code></p>
+<p><strong><code>p.LocateAlong(3):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
+
+<img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-10-11.png" width="960" class="r-stretch"></section>
+<section id="дополнительные-измерения-2" class="slide level2">
+<h2>Дополнительные измерения</h2>
+<p>Запрос измерения линейного объекта :</p>
+<p><strong><code>l:</code></strong> <code>MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))</code></p>
+<p><strong><code>l.LocateAlong(3):</code></strong> <code>MULTIPOINT M(1.3 0.7 3)</code></p>
+<p><strong><code>l.LocateBetween(2,5):</code></strong> <code>GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))</code></p>
+<p><strong><code>l.LocateAlong(0.5):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
+
+<img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-11-13.png" width="960" class="r-stretch"></section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
 <div class="footer footer-default">
-<p>Самсонов Т. Е. Геоинформатика: курс лекций для студентов кафедры картографии и геоинформатики МГУ</p>
+<p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-OGC2010" class="csl-entry" role="listitem">
