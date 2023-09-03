@@ -826,8 +826,8 @@
 <h2>Добыча данных</h2>
 <p><strong>Базы <em>[пространственных]</em> данных</strong> — источник информации, который требует особого подхода в силу потенциального объема информации и способов взаимодействия с нею.</p>
 <ol type="1">
-<li>Алгоритмы, которые способны работать с большими данными, или решения, позволяющие совмещать аналитику данных и технологии обработки больших массивов информации.</li>
-<li>Расширение функциональности языка запросов таким образом чтобы появилась возможность выполнять пространственную аналитику данных “на лету”.</li>
+<li>Алгоритмы для больших данных, или решения, позволяющие совмещать аналитику данных и технологии обработки больших массивов информации.</li>
+<li>Расширение функциональности языка запросов — возможность выполнять пространственную аналитику данных “на лету”.</li>
 </ol>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -843,6 +843,96 @@
 </div>
 </div>
 </section>
+<section id="граница-и-замыкание" class="slide level2">
+<h2>Граница и замыкание</h2>
+<dl>
+<dt>Граничная точка</dt>
+<dd>
+<p>Точка, в любой окрестности которой находятся как принадлежащие, так и не принадлежащие множеству точки</p>
+</dd>
+<dt>Граница множества <span class="math inline">\(\partial A\)</span></dt>
+<dd>
+<p>Совокупность граничных точек множества</p>
+</dd>
+<dt>Замыкание множества <span class="math inline">\(\overline A\)</span></dt>
+<dd>
+<p>Объединение множества и его границы: <span class="math inline">\(\overline A = A \cup \partial A\)</span></p>
+</dd>
+<dt>Дополнение множества <span class="math inline">\(A^-\)</span>, вложенного в <span class="math inline">\(\mathbb R^n\)</span> (<span class="math inline">\(A \subset \mathbb R^n\)</span>)</dt>
+<dd>
+<p>Множество всех точек <span class="math inline">\(\mathbb R^n\)</span>, не являющихся элементами множества: <span class="math inline">\(A^- = \mathbb R^n \backslash A\)</span></p>
+</dd>
+<dt>Внутренность множества (<span class="math inline">\(A^{\circ}\)</span>)</dt>
+<dd>
+<p>Объединение всех открытых подмножеств множества: <span class="math inline">\(A^\circ = \mathbb R^n \backslash \overline{A^-}\)</span></p>
+</dd>
+</dl>
+</section>
+<section id="топологическая-граница" class="slide level2">
+<h2>Топологическая граница</h2>
+
+<img data-src="images/topological_boundary.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="симплекс" class="slide level2">
+<h2>Симплекс</h2>
+<dl>
+<dt>Симплекс <span class="math inline">\(\Delta^n\)</span></dt>
+<dd>
+<p>Геометрическая фигура, являющаяся <span class="math inline">\(n\)</span>-мерным обобщением треугольника</p>
+</dd>
+<dt>Остов симплекса</dt>
+<dd>
+<p>Множество его вершин</p>
+</dd>
+<dt>Грань симплекса размерности <span class="math inline">\(s\)</span></dt>
+<dd>
+<p><span class="math inline">\(s\)</span>-мерный симплекс, остов которого является подмножеством остова <span class="math inline">\(\Delta^n\)</span>.<br>
+<em>Ребро</em> — это грань размерности <span class="math inline">\(1\)</span>.</p>
+</dd>
+</dl>
+
+<img data-src="images/simplices.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="комплекс" class="slide level2">
+<h2>Комплекс</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/complex.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:70%;">
+<dl>
+<dt>Симплициальный комплекс <span class="math inline">\(\mathcal K\)</span></dt>
+<dd>
+<p>Множество симплексов, удовлетворяющее условиям:</p>
+<ol type="1">
+<li>Все грани каждого симплекса из <span class="math inline">\(\mathcal K\)</span> также принадлежат <span class="math inline">\(\mathcal K\)</span></li>
+<li>Непустое пересечение двух симплексов <span class="math inline">\(\sigma_1, \sigma_2 \in \mathcal K\)</span> является гранью как <span class="math inline">\(\sigma_1\)</span>, так и <span class="math inline">\(\sigma_2\)</span>.</li>
+</ol>
+</dd>
+<dt>Симплициальный <span class="math inline">\(n\)</span>-комплекс <span class="math inline">\(\mathcal K\)</span></dt>
+<dd>
+<p><span class="math inline">\(\mathcal K\)</span>, в котором наибольшее измерение какого-либо симлекса равно <span class="math inline">\(n\)</span></p>
+</dd>
+<dt>Триангуляция</dt>
+<dd>
+<p>Разбиение геометрического объекта на симплексы</p>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="комбинаторная-граница" class="slide level2">
+<h2>Комбинаторная граница</h2>
+<dl>
+<dt>Комбинаторная граница <span class="math inline">\(\partial \mathcal K\)</span> <span class="math inline">\(n\)</span>-комплекса <span class="math inline">\(\mathcal K\)</span></dt>
+<dd>
+<p>Множество <span class="math inline">\((n-1)\)</span>-симплексов <span class="math inline">\(\mathcal K\)</span>, каждый из которых входит в состав только одного <span class="math inline">\(n\)</span>-симплекса <span class="math inline">\(\mathcal K\)</span> вместе со своими гранями.</p>
+</dd>
+</dl>
+
+<img data-src="images/combinatorial_solo.svg" style="width:60.0%" class="r-stretch"></section>
+<section id="граница-simple-features" class="slide level2">
+<h2>Граница Simple Features</h2>
+<p>Замыкание комбинаторной границы <em>данного</em> объекта</p>
+
+<img data-src="images/combinatorial_boundary.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="векторная-модель" class="slide level2">
 <h2>Векторная модель</h2>
 <p><strong>Simple Features</strong> — стандарт <span class="citation" data-cites="OGC2010">OGC (<a href="#/библиография" role="doc-biblioref" onclick="">2010</a>)</span>, который определяет общую модель хранения и доступа к простым (векторным) объектам.</p>
@@ -869,7 +959,7 @@
 <p>Все объекты типа <em>Simple Features</em> наследуют свойства от базового класса <strong><code>GEOMETRY</code></strong>. Механизм этого наследования основан на следующих принципах:</p>
 <ol type="1">
 <li><p><strong><code>GEOMETRY</code></strong> представляет собой <em>абстрактный</em> класс, т.е. вы не можете создать экземпляр этого класса.</p></li>
-<li><p>Все подклассы геометрий являются топологически закрытыми, т.е. включают границу в множество точек.</p></li>
+<li><p>Все подклассы геометрий являются замыканиями, т.е. включают границу в множество точек.</p></li>
 <li><p>На уровне класса <strong><code>GEOMETRY</code></strong> определен интерфейс — набор методов, которые позволяют получить информацию об объекте.</p></li>
 <li><p>Реализация интерфейса зависит от конкретного класса.</p></li>
 <li><p>С каждым классом геометрии ассоциированы системы отсчета, которые определяют пространственные (<span class="math inline">\(XYZ\)</span>) и дополнительные (<span class="math inline">\(M\)</span>) измерения.</p></li>
@@ -879,8 +969,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -908,8 +998,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -937,8 +1027,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -962,8 +1052,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1009,8 +1099,8 @@
 </ol>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1059,8 +1149,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1080,31 +1170,6 @@
 </tbody>
 </table>
 </section>
-<section id="граница-и-замыкание" class="slide level2">
-<h2>Граница и замыкание</h2>
-<dl>
-<dt>Граничная точка</dt>
-<dd>
-<p>Точка, в любой окрестности которой находятся как принадлежащие, так и не принадлежащие множеству точки</p>
-</dd>
-<dt>Граница множества <span class="math inline">\(\partial A\)</span></dt>
-<dd>
-<p>Совокупность граничных точек множества</p>
-</dd>
-<dt>Замыкание множества <span class="math inline">\(\overline A\)</span></dt>
-<dd>
-<p>Объединение множества и его границы: <span class="math inline">\(\overline A = A \cup \partial A\)</span></p>
-</dd>
-<dt>Дополнение множества <span class="math inline">\(A^-\)</span>, вложенного в <span class="math inline">\(\mathbb R^n\)</span> (<span class="math inline">\(A \subset \mathbb R^n\)</span>)</dt>
-<dd>
-<p>Множество всех точек <span class="math inline">\(\mathbb R^n\)</span>, не являющихся элементами множества: <span class="math inline">\(A^- = \mathbb R^n \backslash A\)</span></p>
-</dd>
-<dt>Внутренность множества (<span class="math inline">\(A^{\circ}\)</span>)</dt>
-<dd>
-<p>Объединение всех открытых подмножеств множества: <span class="math inline">\(A^\circ = \mathbb R^n \backslash \overline{A^-}\)</span></p>
-</dd>
-</dl>
-</section>
 <section id="точка-point" class="slide level2">
 <h2>Точка (<code>POINT</code>)</h2>
 <div class="columns">
@@ -1122,8 +1187,8 @@
 </div>
 <table>
 <colgroup>
-<col style="width: 12%">
-<col style="width: 87%">
+<col style="width: 19%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1153,18 +1218,18 @@
 </section>
 <section id="мультиточка-multipoint" class="slide level2">
 <h2>Мультиточка (<code>MULTIPOINT</code>)</h2>
+<p><code>MULTIPOINT</code> — <span class="math inline">\(0\)</span>-мерная геометрическая коллекция объектов класса <code>POINT</code>.</p>
 <div class="columns">
 <div class="column" style="width:70%;">
-<p><code>MULTIPOINT</code> — <span class="math inline">\(0\)</span>-мерная геометрическая коллекция, элементами которой являются объекты класса <code>POINT</code></p>
 <ul>
 <li><p>Элементы коллекции не связаны и не имеют какого-либо смыслового упорядочения (наследуется свойство <code>GEOMETRYCOLLECTION</code> ).</p></li>
-<li><p>Граница <code>MULTIPOINT</code> — пустое множество: <span class="math inline">\(\partial A = \varnothing\)</span></p></li>
-<li><p>Для доступа к координатам необходимо сначала извлечь элемент:</p></li>
+<li><p>Граница <code>MULTIPOINT</code> — пустое множество: <span class="math inline">\(\partial A = \varnothing\)</span>.</p></li>
+<li><p>Объект <code>MULTIPOINT</code> является простым, если ни одна пара <code>POINT</code> в его коллекции не совпадает.</p></li>
 </ul>
 </div><div class="column" style="width:30%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-10-13.png" width="400" height="400"></p>
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-10-13.png" width="400" height="200"></p>
 </div>
 </div>
 </div>
@@ -1174,7 +1239,7 @@
 <div>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-  A(MULTIPOINT) --&gt;|"GeometryN( )"| B(POINT)
+  A(MULTIPOINT) --&gt;|"GeometryN( 0 )"| B(POINT)
   B --&gt;|"X( )"| C(X)
   B --&gt;|"Y( )"| D(Y)
 </pre>
@@ -1182,6 +1247,87 @@
 </div>
 </div>
 </div>
+</section>
+<section id="кривая-curve" class="slide level2">
+<h2>Кривая (<code>CURVE</code>)</h2>
+<p><code>CURVE</code> — одномерный геометрический объект, хранимый в виде последовательности точек.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+
+</div><div class="column" style="width:70%;">
+<p>Кривая определяется как непрерывное отображение отрезка в пространство:</p>
+<p><span class="math display">\[f: [a, b] \rightarrow R^n\]</span></p>
+<ul>
+<li><p>Это абстрактный класс, вы не можете создать объект <code>CURVE</code>.</p></li>
+<li><p>Интерполяция между точками определяется конкретным подклассом <code>CURVE</code>.</p></li>
+<li><p>Стандарт определяет только подкласс <code>LINESTRING</code>, в котором используется линейная интерполяция.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="кривая-curve-1" class="slide level2">
+<h2>Кривая (<code>CURVE</code>)</h2>
+<ul>
+<li>Кривая является <em>простой</em>, если она не проходит дважды через одну и ту же точку, за исключением начальной и конечной точки:</li>
+</ul>
+<p><span class="math display">\[
+\texttt{f.IsSimple()} \Leftrightarrow \boxed{f(t_1)=f(t_2) \land t_1 \neq t_2 \color{red}{\Rightarrow} t_1 = a \land t_2 = b}  
+\]</span></p>
+<ul>
+<li><p>Кривая является замкнутой, если ее начальная точка равна конечной точке:</p>
+<p><span class="math display">\[
+\texttt{f.IsClosed()} \Leftrightarrow \boxed{f(a)=f(b)}  
+\]</span></p></li>
+<li><p>Граница замкнутой кривой является пустым множеством:</p>
+<p><span class="math display">\[
+\texttt{f.IsClosed()} \Leftrightarrow \boxed{\partial f=\varnothing}  
+\]</span></p></li>
+</ul>
+</section>
+<section id="кривая-curve-2" class="slide level2">
+<h2>Кривая (<code>CURVE</code>)</h2>
+<ul>
+<li><p>Граница незамкнутой кривой содержит ее конечные точки:</p>
+<p><span class="math display">\[
+\texttt{!f.IsClosed()} \Leftrightarrow \boxed{\partial f=\{f(a), f(b)\}}
+\]</span></p></li>
+<li><p>Простая и замкнутая кривая является <em>кольцом</em> (<code>RING</code>).</p></li>
+<li><p>Интерфейс объекта <code>CURVE</code> включает следующие методы:</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Length()</code></td>
+<td>Длина данного объекта <code>CURVE</code> в ассоциированной СК</td>
+</tr>
+<tr class="even">
+<td><code>StartPoint()</code></td>
+<td>Начальная точка данного объекта <code>CURVE</code></td>
+</tr>
+<tr class="odd">
+<td><code>EndPoint()</code></td>
+<td>Конечная точка данного объекта <code>CURVE</code></td>
+</tr>
+<tr class="even">
+<td><code>IsClosed()</code></td>
+<td><code>TRUE</code>, если <code>StartPoint() == EndPoint()</code></td>
+</tr>
+<tr class="odd">
+<td><code>IsRing()</code></td>
+<td><code>TRUE</code>, если <code>IsSimple()</code> и <code>StartPoint() == EndPoint()</code></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
