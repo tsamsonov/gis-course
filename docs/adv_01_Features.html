@@ -1525,6 +1525,22 @@
 </div>
 </div>
 </section>
+<section id="polyhedralsurface-и-tin" class="slide level2">
+<h2><code>POLYHEDRALSURFACE</code> и <code>TIN</code></h2>
+<p><code>POLYHEDRALSURFACE</code> — коллекция полигонов, которые имеют общие границы.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/polyhedral.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li><p>Для каждой пары касающихся полигонов их общая граница должна быть представима в виде коллекции объектов <code>LINESTRING</code>.</p></li>
+<li><p>Каждый такой <code>LINESTRING</code> должен входить в состав не более чем <span class="math inline">\(2\)</span>-х полигонов.</p></li>
+<li><p>Направление обхода контура у всех граней <code>POLYHEDRALSURFACE</code> должно быть одинаковым. Два соседних полигона проходят общую границу в противоположных направлениях.</p></li>
+<li><p><code>TIN</code> <em>(Triangular Irregular Network)</em> — это <code>POLYHEDRALSURFACE</code>, который состоит из объектов класса <code>TRIANGLE</code>.</p></li>
+</ul>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
