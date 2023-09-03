@@ -3547,5 +3547,12 @@
     "title": "Введение",
     "section": "Кривая (CURVE)",
     "text": "Кривая (CURVE)\n\nГраница незамкнутой кривой содержит ее конечные точки:\n\\[\n\\texttt{!f.IsClosed()} \\Leftrightarrow \\boxed{\\partial f=\\{f(a), f(b)\\}}\n\\]\nПростая и замкнутая кривая является кольцом (RING).\nИнтерфейс объекта CURVE включает следующие методы:\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nLength()\nДлина данного объекта CURVE в ассоциированной СК\n\n\nStartPoint()\nНачальная точка данного объекта CURVE\n\n\nEndPoint()\nКонечная точка данного объекта CURVE\n\n\nIsClosed()\nTRUE, если StartPoint() == EndPoint()\n\n\nIsRing()\nTRUE, если IsSimple() и StartPoint() == EndPoint()"
+  },
+  {
+    "objectID": "adv_01_Features.html#linestring-line-linearring",
+    "href": "adv_01_Features.html#linestring-line-linearring",
+    "title": "Введение",
+    "section": "LINESTRING, LINE, LINEARRING",
+    "text": "LINESTRING, LINE, LINEARRING\nLINESTRING — это CURVE с линейной интерполяцией между точками.\n\n\n\n\n\nКаждая пара последовательных точек определяет отрезок\nLINE — это LINESTRING из двух точек\nLINEARRING — это простой замкнутый LINESTRING\nИнтерфейс содержит дополнительные методы:\n\n\n\n\nМетод\nНазначение\n\n\n\n\nNumPoints()\nКоличество точек в данном объекте LINESTRING\n\n\nPointN(n)\n\\(n\\)-я точка данного объекта LINESTRING"
   }
 ]

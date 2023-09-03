@@ -701,4 +701,29 @@ $$
 | `IsClosed()`   | `TRUE`, если `StartPoint() == EndPoint()`                |
 | `IsRing()`     | `TRUE`, если `IsSimple()` и `StartPoint() == EndPoint()` |
 
+## `LINESTRING`, `LINE`, `LINEARRING`
+
+`LINESTRING` --- это `CURVE` с линейной интерполяцией между точками.
+
+::: columns
+::: {.column width="30%"}
+![](images/linestrings.svg){width="100%"}
+:::
+
+::: {.column width="70%"}
+-   Каждая пара последовательных точек определяет отрезок
+
+-   `LINE` --- это `LINESTRING` из двух точек
+
+-   `LINEARRING` --- это простой замкнутый `LINESTRING`
+
+-   Интерфейс содержит дополнительные методы:
+
+| Метод         | Назначение                                     |
+|---------------|------------------------------------------------|
+| `NumPoints()` | Количество точек в данном объекте `LINESTRING` |
+| `PointN(n)`   | $n$-я точка данного объекта `LINESTRING`       |
+:::
+:::
+
 ## Библиография

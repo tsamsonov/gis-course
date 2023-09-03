@@ -1329,6 +1329,40 @@
 </tbody>
 </table>
 </section>
+<section id="linestring-line-linearring" class="slide level2">
+<h2><code>LINESTRING</code>, <code>LINE</code>, <code>LINEARRING</code></h2>
+<p><code>LINESTRING</code> — это <code>CURVE</code> с линейной интерполяцией между точками.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/linestrings.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li><p>Каждая пара последовательных точек определяет отрезок</p></li>
+<li><p><code>LINE</code> — это <code>LINESTRING</code> из двух точек</p></li>
+<li><p><code>LINEARRING</code> — это простой замкнутый <code>LINESTRING</code></p></li>
+<li><p>Интерфейс содержит дополнительные методы:</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>NumPoints()</code></td>
+<td>Количество точек в данном объекте <code>LINESTRING</code></td>
+</tr>
+<tr class="even">
+<td><code>PointN(n)</code></td>
+<td><span class="math inline">\(n\)</span>-я точка данного объекта <code>LINESTRING</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
