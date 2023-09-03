@@ -879,8 +879,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -908,8 +908,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -937,8 +937,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -962,8 +962,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1099,8 +1099,8 @@
 </ol>
 <table>
 <colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1149,8 +1149,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1187,8 +1187,8 @@
 </div>
 <table>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 12%">
+<col style="width: 87%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1296,8 +1296,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1329,8 +1329,8 @@
 </tbody>
 </table>
 </section>
-<section id="linestring-line-linearring" class="slide level2">
-<h2><code>LINESTRING</code>, <code>LINE</code>, <code>LINEARRING</code></h2>
+<section id="линия-linestring-line-linearring" class="slide level2">
+<h2>Линия (<code>LINESTRING</code>, <code>LINE</code>, <code>LINEARRING</code>)</h2>
 <p><code>LINESTRING</code> — это <code>CURVE</code> с линейной интерполяцией между точками.</p>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -1363,8 +1363,8 @@
 </div>
 </div>
 </section>
-<section id="multicurve" class="slide level2">
-<h2><code>MULTICURVE</code></h2>
+<section id="мультикривая-multicurve" class="slide level2">
+<h2>Мультикривая (<code>MULTICURVE</code>)</h2>
 <p><code>MULTICURVE</code> представляет 1-мерный подкласс <code>GEOMETRYCOLLECTION</code> — коллекцию объектов <code>CURVE</code>.</p>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -1380,8 +1380,8 @@
 </div>
 </div>
 </section>
-<section id="multicurve-1" class="slide level2">
-<h2><code>MULTICURVE</code></h2>
+<section id="мультикривая-multicurve-1" class="slide level2">
+<h2>Мультикривая (<code>MULTICURVE</code>)</h2>
 <p><code>MULTICURVE</code> представляет 1-мерный подкласс <code>GEOMETRYCOLLECTION</code> — коллекцию объектов <code>CURVE</code>.</p>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -1390,8 +1390,8 @@
 <p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 18%">
-<col style="width: 81%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1413,11 +1413,27 @@
 </div>
 </div>
 </section>
-<section id="multilinestring" class="slide level2">
-<h2><code>MULTILINESTRING</code></h2>
+<section id="мультилиния-multilinestring" class="slide level2">
+<h2>Мультилиния (<code>MULTILINESTRING</code>)</h2>
 <p><code>MULTILINESTRING</code> —&nbsp;это <code>MULTICURVE</code> с элементами класса <code>LINESTRING</code>.</p>
 
 <img data-src="images/multilinestrings.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="поверхность-surface" class="slide level2">
+<h2>Поверхность (<code>SURFACE</code>)</h2>
+<p><code>SURFACE</code> — это <span class="math inline">\(2\)</span>-мерный геометрический объект.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/surface.svg" style="width:80.0%"></p>
+</div><div class="column" style="width:70%;">
+<ul>
+<li><p><strong>Простая</strong> поверхность состоит из единичной области (<em>“patch”</em>), которая соответствует одной внешней границе, а также <span class="math inline">\(0\)</span> и более внутренних границ.</p></li>
+<li><p>Простая поверхность в 3-мерном пространстве изоморфна планарной поверхности с точностью до поворота на плоскость <span class="math inline">\(z = 0\)</span>.</p></li>
+<li><p><strong>Полиэдральная</strong> поверхность формируется “склеиванием” простых поверхностей по общим границам (<em>полиэдр</em> — объединение многогранников).</p></li>
+<li><p>Если нормали всех компонент полиэдральной поверхности параллельны, то она может быть представлена в виде простой поверхности.</p></li>
+</ul>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 

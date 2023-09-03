@@ -3582,5 +3582,40 @@
     "title": "Введение",
     "section": "MULTILINESTRING",
     "text": "MULTILINESTRING\nMULTILINESTRING — это MULTICURVE с элементами класса LINESTRING."
+  },
+  {
+    "objectID": "adv_01_Features.html#линия-linestring-line-linearring",
+    "href": "adv_01_Features.html#линия-linestring-line-linearring",
+    "title": "Введение",
+    "section": "Линия (LINESTRING, LINE, LINEARRING)",
+    "text": "Линия (LINESTRING, LINE, LINEARRING)\nLINESTRING — это CURVE с линейной интерполяцией между точками.\n\n\n\n\n\nКаждая пара последовательных точек определяет отрезок\nLINE — это LINESTRING из двух точек\nLINEARRING — это простой замкнутый LINESTRING\nИнтерфейс содержит дополнительные методы:\n\n\n\n\nМетод\nНазначение\n\n\n\n\nNumPoints()\nКоличество точек в данном объекте LINESTRING\n\n\nPointN(n)\n\\(n\\)-я точка данного объекта LINESTRING"
+  },
+  {
+    "objectID": "adv_01_Features.html#мультикривая-multicurve",
+    "href": "adv_01_Features.html#мультикривая-multicurve",
+    "title": "Введение",
+    "section": "Мультикривая (MULTICURVE)",
+    "text": "Мультикривая (MULTICURVE)\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\n\nMULTICURVE как и CURVE является абстрактным классом. Вы не можете создать объект данного класса.\nMULTICURVE является простым, если каждый его элемент является простым, а их пересечения происходят только в граничных точках.\nТочка принадлежит границе объекта MULTICURVE если она принадлежит границам нечетного числа его элементов.\nОбъект MULTICURVE замкнут, если замкнуты всего его элементы.\nГраница замкнутого объекта MULTICURVE всегда пуста."
+  },
+  {
+    "objectID": "adv_01_Features.html#мультикривая-multicurve-1",
+    "href": "adv_01_Features.html#мультикривая-multicurve-1",
+    "title": "Введение",
+    "section": "Мультикривая (MULTICURVE)",
+    "text": "Мультикривая (MULTICURVE)\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\nИнтерфейс MULTICURVE дополнительно к GEOMETRYCOLLECTION реализует следующие методы:\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nIsClosed()\nTRUE (\\(1\\)) если данный объект MULTICURVE является замкнутым (т.е. каждый объект CURVE в коллекции является замкнутым. Возвращает FALSE (\\(0\\)) в противном случае\n\n\nLength()\nДлина данного объекта MULTICURVE, которая равна сумме длин элементов коллекции."
+  },
+  {
+    "objectID": "adv_01_Features.html#мультилиния-multilinestring",
+    "href": "adv_01_Features.html#мультилиния-multilinestring",
+    "title": "Введение",
+    "section": "Мультилиния (MULTILINESTRING)",
+    "text": "Мультилиния (MULTILINESTRING)\nMULTILINESTRING — это MULTICURVE с элементами класса LINESTRING."
+  },
+  {
+    "objectID": "adv_01_Features.html#поверхность-surface",
+    "href": "adv_01_Features.html#поверхность-surface",
+    "title": "Введение",
+    "section": "Поверхность (SURFACE)",
+    "text": "Поверхность (SURFACE)\nSURFACE — это \\(2\\)-мерный геометрический объект.\n\n\n\n\n\nПростая поверхность состоит из единичной области (“patch”), которая соответствует одной внешней границе, а также \\(0\\) и более внутренних границ.\nПростая поверхность в 3-мерном пространстве изоморфна планарной поверхности с точностью до поворота на плоскость \\(z = 0\\).\nПолиэдральная поверхность формируется “склеиванием” простых поверхностей по общим границам (полиэдр — объединение многогранников).\nЕсли нормали всех компонент полиэдральной поверхности параллельны, то она может быть представлена в виде простой поверхности."
   }
 ]
