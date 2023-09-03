@@ -1541,6 +1541,40 @@
 </div>
 </div>
 </section>
+<section id="polyhedralsurface-и-tin-1" class="slide level2">
+<h2><code>POLYHEDRALSURFACE</code> и <code>TIN</code></h2>
+<p>Интерфейс <code>POLYHEDRALSURFACE</code> дополнительно поддерживает следующие методы:</p>
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>NumPatches()</code></td>
+<td>Количество полигонов <em>данного</em> объекта <code>POLYHEDRALSURFACE</code></td>
+</tr>
+<tr class="even">
+<td><code>PatchN(n)</code></td>
+<td><span class="math inline">\(n\)</span>-ный полигон <em>данного</em> объекта <code>POLYHEDRALSURFACE</code> в виде объекта <code>POLYGON</code></td>
+</tr>
+<tr class="odd">
+<td><code>BoundingPolygons(p)</code></td>
+<td>Коллекция полигонов, которые граничат с <code>p</code> в данном объекте <code>POLYHEDRALSURFACE</code> в виде объекта <code>MULTIPOLYGON</code>.</td>
+</tr>
+<tr class="even">
+<td><code>IsClosed()</code></td>
+<td><code>TRUE</code>, если поверхность замкнута сама на себя, т.е. не имеет границы и оконтуривает сплошное тело.</td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 

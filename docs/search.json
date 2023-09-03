@@ -3645,5 +3645,12 @@
     "title": "Введение",
     "section": "POLYHEDRALSURFACE и TIN",
     "text": "POLYHEDRALSURFACE и TIN\nPOLYHEDRALSURFACE — коллекция полигонов, которые имеют общие границы.\n\n\n\n\n\nДля каждой пары касающихся полигонов их общая граница должна быть представима в виде коллекции объектов LINESTRING.\nКаждый такой LINESTRING должен входить в состав не более чем \\(2\\)-х полигонов.\nНаправление обхода контура у всех граней POLYHEDRALSURFACE должно быть одинаковым. Два соседних полигона проходят общую границу в противоположных направлениях.\nTIN (Triangular Irregular Network) — это POLYHEDRALSURFACE, который состоит из объектов класса TRIANGLE."
+  },
+  {
+    "objectID": "adv_01_Features.html#polyhedralsurface-и-tin-1",
+    "href": "adv_01_Features.html#polyhedralsurface-и-tin-1",
+    "title": "Введение",
+    "section": "POLYHEDRALSURFACE и TIN",
+    "text": "POLYHEDRALSURFACE и TIN\nИнтерфейс POLYHEDRALSURFACE дополнительно поддерживает следующие методы:\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nNumPatches()\nКоличество полигонов данного объекта POLYHEDRALSURFACE\n\n\nPatchN(n)\n\\(n\\)-ный полигон данного объекта POLYHEDRALSURFACE в виде объекта POLYGON\n\n\nBoundingPolygons(p)\nКоллекция полигонов, которые граничат с p в данном объекте POLYHEDRALSURFACE в виде объекта MULTIPOLYGON.\n\n\nIsClosed()\nTRUE, если поверхность замкнута сама на себя, т.е. не имеет границы и оконтуривает сплошное тело."
   }
 ]
