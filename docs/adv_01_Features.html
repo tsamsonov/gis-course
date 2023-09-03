@@ -843,96 +843,6 @@
 </div>
 </div>
 </section>
-<section id="граница-и-замыкание" class="slide level2">
-<h2>Граница и замыкание</h2>
-<dl>
-<dt>Граничная точка</dt>
-<dd>
-<p>Точка, в любой окрестности которой находятся как принадлежащие, так и не принадлежащие множеству точки</p>
-</dd>
-<dt>Граница множества <span class="math inline">\(\partial A\)</span></dt>
-<dd>
-<p>Совокупность граничных точек множества</p>
-</dd>
-<dt>Замыкание множества <span class="math inline">\(\overline A\)</span></dt>
-<dd>
-<p>Объединение множества и его границы: <span class="math inline">\(\overline A = A \cup \partial A\)</span></p>
-</dd>
-<dt>Дополнение множества <span class="math inline">\(A^-\)</span>, вложенного в <span class="math inline">\(\mathbb R^n\)</span> (<span class="math inline">\(A \subset \mathbb R^n\)</span>)</dt>
-<dd>
-<p>Множество всех точек <span class="math inline">\(\mathbb R^n\)</span>, не являющихся элементами множества: <span class="math inline">\(A^- = \mathbb R^n \backslash A\)</span></p>
-</dd>
-<dt>Внутренность множества (<span class="math inline">\(A^{\circ}\)</span>)</dt>
-<dd>
-<p>Объединение всех открытых подмножеств множества: <span class="math inline">\(A^\circ = \mathbb R^n \backslash \overline{A^-}\)</span></p>
-</dd>
-</dl>
-</section>
-<section id="топологическая-граница" class="slide level2">
-<h2>Топологическая граница</h2>
-
-<img data-src="images/topological_boundary.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="симплекс" class="slide level2">
-<h2>Симплекс</h2>
-<dl>
-<dt>Симплекс <span class="math inline">\(\Delta^n\)</span></dt>
-<dd>
-<p>Геометрическая фигура, являющаяся <span class="math inline">\(n\)</span>-мерным обобщением треугольника</p>
-</dd>
-<dt>Остов симплекса</dt>
-<dd>
-<p>Множество его вершин</p>
-</dd>
-<dt>Грань симплекса размерности <span class="math inline">\(s\)</span></dt>
-<dd>
-<p><span class="math inline">\(s\)</span>-мерный симплекс, остов которого является подмножеством остова <span class="math inline">\(\Delta^n\)</span>.<br>
-<em>Ребро</em> — это грань размерности <span class="math inline">\(1\)</span>.</p>
-</dd>
-</dl>
-
-<img data-src="images/simplices.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="комплекс" class="slide level2">
-<h2>Комплекс</h2>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p><img data-src="images/complex.svg" style="width:100.0%"></p>
-</div><div class="column" style="width:70%;">
-<dl>
-<dt>Симплициальный комплекс <span class="math inline">\(\mathcal K\)</span></dt>
-<dd>
-<p>Множество симплексов, удовлетворяющее условиям:</p>
-<ol type="1">
-<li>Все грани каждого симплекса из <span class="math inline">\(\mathcal K\)</span> также принадлежат <span class="math inline">\(\mathcal K\)</span></li>
-<li>Непустое пересечение двух симплексов <span class="math inline">\(\sigma_1, \sigma_2 \in \mathcal K\)</span> является гранью как <span class="math inline">\(\sigma_1\)</span>, так и <span class="math inline">\(\sigma_2\)</span>.</li>
-</ol>
-</dd>
-<dt>Симплициальный <span class="math inline">\(n\)</span>-комплекс <span class="math inline">\(\mathcal K\)</span></dt>
-<dd>
-<p><span class="math inline">\(\mathcal K\)</span>, в котором наибольшее измерение какого-либо симлекса равно <span class="math inline">\(n\)</span></p>
-</dd>
-<dt>Триангуляция</dt>
-<dd>
-<p>Разбиение геометрического объекта на симплексы</p>
-</dd>
-</dl>
-</div>
-</div>
-</section>
-<section id="комбинаторная-граница" class="slide level2">
-<h2>Комбинаторная граница</h2>
-<dl>
-<dt>Комбинаторная граница <span class="math inline">\(\partial \mathcal K\)</span> <span class="math inline">\(n\)</span>-комплекса <span class="math inline">\(\mathcal K\)</span></dt>
-<dd>
-<p>Множество <span class="math inline">\((n-1)\)</span>-симплексов <span class="math inline">\(\mathcal K\)</span>, каждый из которых входит в состав только одного <span class="math inline">\(n\)</span>-симплекса <span class="math inline">\(\mathcal K\)</span> вместе со своими гранями.</p>
-</dd>
-</dl>
-
-<img data-src="images/combinatorial_solo.svg" style="width:60.0%" class="r-stretch"></section>
-<section id="граница-simple-features" class="slide level2">
-<h2>Граница Simple Features</h2>
-<p>Замыкание комбинаторной границы <em>данного</em> объекта</p>
-
-<img data-src="images/combinatorial_boundary.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="векторная-модель" class="slide level2">
 <h2>Векторная модель</h2>
 <p><strong>Simple Features</strong> — стандарт <span class="citation" data-cites="OGC2010">OGC (<a href="#/библиография" role="doc-biblioref" onclick="">2010</a>)</span>, который определяет общую модель хранения и доступа к простым (векторным) объектам.</p>
@@ -1090,6 +1000,96 @@
 </div>
 </div>
 </section>
+<section id="граница-и-замыкание" class="slide level2">
+<h2>Граница и замыкание</h2>
+<dl>
+<dt>Граничная точка</dt>
+<dd>
+<p>Точка, в любой окрестности которой находятся как принадлежащие, так и не принадлежащие множеству точки</p>
+</dd>
+<dt>Граница множества <span class="math inline">\(\partial A\)</span></dt>
+<dd>
+<p>Совокупность граничных точек множества</p>
+</dd>
+<dt>Замыкание множества <span class="math inline">\(\overline A\)</span></dt>
+<dd>
+<p>Объединение множества и его границы: <span class="math inline">\(\overline A = A \cup \partial A\)</span></p>
+</dd>
+<dt>Дополнение множества <span class="math inline">\(A^-\)</span>, вложенного в <span class="math inline">\(\mathbb R^n\)</span> (<span class="math inline">\(A \subset \mathbb R^n\)</span>)</dt>
+<dd>
+<p>Множество всех точек <span class="math inline">\(\mathbb R^n\)</span>, не являющихся элементами множества: <span class="math inline">\(A^- = \mathbb R^n \backslash A\)</span></p>
+</dd>
+<dt>Внутренность множества (<span class="math inline">\(A^{\circ}\)</span>)</dt>
+<dd>
+<p>Объединение всех открытых подмножеств множества: <span class="math inline">\(A^\circ = \mathbb R^n \backslash \overline{A^-}\)</span></p>
+</dd>
+</dl>
+</section>
+<section id="топологическая-граница" class="slide level2">
+<h2>Топологическая граница</h2>
+
+<img data-src="images/topological_boundary.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="симплекс" class="slide level2">
+<h2>Симплекс</h2>
+<dl>
+<dt>Симплекс <span class="math inline">\(\Delta^n\)</span></dt>
+<dd>
+<p>Геометрическая фигура, являющаяся <span class="math inline">\(n\)</span>-мерным обобщением треугольника</p>
+</dd>
+<dt>Остов симплекса</dt>
+<dd>
+<p>Множество его вершин</p>
+</dd>
+<dt>Грань симплекса размерности <span class="math inline">\(s\)</span></dt>
+<dd>
+<p><span class="math inline">\(s\)</span>-мерный симплекс, остов которого является подмножеством остова <span class="math inline">\(\Delta^n\)</span>.<br>
+<em>Ребро</em> — это грань размерности <span class="math inline">\(1\)</span>.</p>
+</dd>
+</dl>
+
+<img data-src="images/simplices.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="комплекс" class="slide level2">
+<h2>Комплекс</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/complex.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:70%;">
+<dl>
+<dt>Симплициальный комплекс <span class="math inline">\(\mathcal K\)</span></dt>
+<dd>
+<p>Множество симплексов, удовлетворяющее условиям:</p>
+<ol type="1">
+<li>Все грани каждого симплекса из <span class="math inline">\(\mathcal K\)</span> также принадлежат <span class="math inline">\(\mathcal K\)</span></li>
+<li>Непустое пересечение двух симплексов <span class="math inline">\(\sigma_1, \sigma_2 \in \mathcal K\)</span> является гранью как <span class="math inline">\(\sigma_1\)</span>, так и <span class="math inline">\(\sigma_2\)</span>.</li>
+</ol>
+</dd>
+<dt>Симплициальный <span class="math inline">\(n\)</span>-комплекс <span class="math inline">\(\mathcal K\)</span></dt>
+<dd>
+<p><span class="math inline">\(\mathcal K\)</span>, в котором наибольшее измерение какого-либо симлекса равно <span class="math inline">\(n\)</span></p>
+</dd>
+<dt>Триангуляция</dt>
+<dd>
+<p>Разбиение геометрического объекта на симплексы</p>
+</dd>
+</dl>
+</div>
+</div>
+</section>
+<section id="комбинаторная-граница" class="slide level2">
+<h2>Комбинаторная граница</h2>
+<dl>
+<dt>Комбинаторная граница <span class="math inline">\(\partial \mathcal K\)</span> <span class="math inline">\(n\)</span>-комплекса <span class="math inline">\(\mathcal K\)</span></dt>
+<dd>
+<p>Множество <span class="math inline">\((n-1)\)</span>-симплексов <span class="math inline">\(\mathcal K\)</span>, каждый из которых входит в состав только одного <span class="math inline">\(n\)</span>-симплекса <span class="math inline">\(\mathcal K\)</span> вместе со своими гранями.</p>
+</dd>
+</dl>
+
+<img data-src="images/combinatorial_solo.svg" style="width:60.0%" class="r-stretch"></section>
+<section id="граница-simple-features" class="slide level2">
+<h2>Граница Simple Features</h2>
+<p>Замыкание комбинаторной границы <em>данного</em> объекта</p>
+
+<img data-src="images/combinatorial_boundary.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="дополнительные-измерения" class="slide level2">
 <h2>Дополнительные измерения</h2>
 <ol type="1">
