@@ -1380,6 +1380,39 @@
 </div>
 </div>
 </section>
+<section id="multicurve-1" class="slide level2">
+<h2><code>MULTICURVE</code></h2>
+<p><code>MULTICURVE</code> представляет 1-мерный подкласс <code>GEOMETRYCOLLECTION</code> — коллекцию объектов <code>CURVE</code>.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/closed_multicurves.svg" style="width:80.0%"></p>
+</div><div class="column" style="width:70%;">
+<p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
+<table>
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>IsClosed()</code></td>
+<td><code>TRUE</code> (<span class="math inline">\(1\)</span>) если <em>данный</em> объект <code>MULTICURVE</code> является замкнутым (т.е. каждый объект <code>CURVE</code> в коллекции является замкнутым. Возвращает <code>FALSE</code> (<span class="math inline">\(0\)</span>) в противном случае</td>
+</tr>
+<tr class="even">
+<td><code>Length()</code></td>
+<td>Длина данного объекта <code>MULTICURVE</code>, которая равна сумме длин элементов коллекции.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 

@@ -3561,5 +3561,12 @@
     "title": "Введение",
     "section": "MULTICURVE",
     "text": "MULTICURVE\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\n\nMULTICURVE как и CURVE является абстрактным классом. Вы не можете создать объект данного класса.\nMULTICURVE является простым, если каждый его элемент является простым, а их пересечения происходят только в граничных точках.\nТочка принадлежит границе объекта MULTICURVE если она принадлежит границам нечетного числа его элементов.\nОбъект MULTICURVE замкнут, если замкнуты всего его элементы.\nГраница замкнутого объекта MULTICURVE всегда пуста."
+  },
+  {
+    "objectID": "adv_01_Features.html#multicurve-1",
+    "href": "adv_01_Features.html#multicurve-1",
+    "title": "Введение",
+    "section": "MULTICURVE",
+    "text": "MULTICURVE\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\nИнтерфейс MULTICURVE дополнительно к GEOMETRYCOLLECTION реализует следующие методы:\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nIsClosed()\nTRUE (\\(1\\)) если данный объект MULTICURVE является замкнутым (т.е. каждый объект CURVE в коллекции является замкнутым. Возвращает FALSE (\\(0\\)) в противном случае\n\n\nLength()\nДлина данного объекта MULTICURVE, которая равна сумме длин элементов коллекции."
   }
 ]
