@@ -879,8 +879,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -908,8 +908,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -937,8 +937,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -962,8 +962,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 31%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1099,8 +1099,8 @@
 </ol>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1149,8 +1149,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1187,8 +1187,8 @@
 </div>
 <table>
 <colgroup>
-<col style="width: 12%">
-<col style="width: 87%">
+<col style="width: 19%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1296,8 +1296,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 27%">
+<col style="width: 72%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1390,8 +1390,8 @@
 <p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1430,6 +1430,97 @@
 <li><p>Простая поверхность в 3-мерном пространстве изоморфна планарной поверхности с точностью до поворота на плоскость <span class="math inline">\(z = 0\)</span>.</p></li>
 <li><p><strong>Полиэдральная</strong> поверхность формируется “склеиванием” простых поверхностей по общим границам (<em>полиэдр</em> — объединение многогранников).</p></li>
 <li><p>Если нормали всех компонент полиэдральной поверхности параллельны, то она может быть представлена в виде простой поверхности.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="поверхность-surface-1" class="slide level2">
+<h2>Поверхность (<code>SURFACE</code>)</h2>
+<ul>
+<li><p><code>SURFACE</code> — это абстрактный класс, вы не можете создать объект этого класса.</p></li>
+<li><p>Граница объекта <code>SURFACE</code> — это множество объектов класса <code>CURVE</code>, соответствующих его <em>внешней</em> и (опционально) <em>внутренним</em> границам.</p></li>
+<li><p>Интерфейс класса имеет дополнительные методы:</p></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Area()</code></td>
+<td>Площадь данного объекта <code>SURFACE</code> в его системе координат</td>
+</tr>
+<tr class="even">
+<td><code>Centroid()</code></td>
+<td>Математический центроид данного объекта <code>SURFACE</code> как объект класса <code>POINT</code>. Может находиться за пределами объекта.</td>
+</tr>
+<tr class="odd">
+<td><code>PointOnSurface()</code></td>
+<td>Объект класса <code>POINT</code>, который гарантированно принадлежит данному объекту <code>SURFACE</code>.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="полигон-polygon-и-треугольник-triangle" class="slide level2">
+<h2>Полигон (<code>POLYGON</code>) и треугольник (<code>TRIANGLE</code>)</h2>
+<p><code>POLYGON</code> — плоская поверхность с одной внешней и 0+ внутренних границ</p>
+<ul>
+<li><p>Границы <code>POLYGON</code> имеют класс <code>LINEARRING</code>.</p></li>
+<li><p><em>Внешняя</em> граница против часовой стрелки, <em>внутренние</em> — по часовой.</p></li>
+<li><p><code>TRIANGLE</code> — это <code>POLYGON</code> из 3 различных, неколлинеарных точек.</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/contour_direction.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:70%;">
+<table>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Метод</th>
+<th>Назначение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ExtriorRing()</code></td>
+<td>Внешнее кольцо <em>данного</em> <code>POLYGON</code> в виде <code>LINESTRING</code></td>
+</tr>
+<tr class="even">
+<td><code>NumInteriorRing()</code></td>
+<td>Количество внутренних колец <em>данного</em> <code>POLYGON</code></td>
+</tr>
+<tr class="odd">
+<td><code>InteriorRingN(n)</code></td>
+<td><span class="math inline">\(n\)</span>-ное внутреннее кольцо <em>данного</em> <code>POLYGON</code> в виде <code>LINESTRING</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="полигон-polygon" class="slide level2">
+<h2>Полигон (<code>POLYGON</code>)</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="images/illegal_polygons.svg" style="width:80.0%"></p>
+</div><div class="column" style="width:70%;">
+<p><strong>Дополнительные проверки:</strong></p>
+<ul>
+<li><p><em>Внутренняя</em> область полигона <span class="math inline">\(P^\circ\)</span> — линейно связное множество.</p></li>
+<li><p><em>Внешняя</em> область полигона <span class="math inline">\(P^-\)</span> с 1 и более дырок — линейно несвязное множество.</p></li>
+<li><p>Границы полигона не могут перекрываться, а их пересечение возможно только в форме касания в точке.</p></li>
+<li><p>Полигон не может иметь линий разреза, шипов и проколов. Формально это означает, что <em>полигон совпадает с замыканием его внутренней области</em>: <span class="math inline">\(P = \overline{P^\circ}\)</span>.</p></li>
 </ul>
 </div>
 </div>
