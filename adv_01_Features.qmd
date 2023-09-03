@@ -645,6 +645,7 @@ flowchart LR
 
 ::: columns
 ::: {.column width="30%"}
+![](images/curve.svg){width="100%"}
 :::
 
 ::: {.column width="70%"}
