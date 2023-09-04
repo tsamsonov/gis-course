@@ -431,6 +431,9 @@
 <h2>Геоинформатика</h2>
 
 <img data-src="images/semesters.png" class="r-stretch"></section>
+<section id="обзор" class="slide level2 center">
+<h2>Обзор</h2>
+</section>
 <section id="база-пространственных-данных" class="slide level2">
 <h2>База пространственных данных</h2>
 <dl>
@@ -488,7 +491,7 @@
 <div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-3-1.png" width="400" height="400"></p>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
@@ -552,7 +555,7 @@
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-4-3.png" width="960"></p>
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-4-3.png" width="400" height="400"></p>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
@@ -655,7 +658,7 @@
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-5-5.png" width="960"></p>
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-5-5.png" width="400" height="400"></p>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
@@ -843,8 +846,11 @@
 </div>
 </div>
 </section>
-<section id="векторная-модель" class="slide level2">
-<h2>Векторная модель</h2>
+<section id="simple-features" class="slide level2 center">
+<h2>Simple Features</h2>
+</section>
+<section id="simple-features-1" class="slide level2">
+<h2>Simple Features</h2>
 <p><strong>Simple Features</strong> — стандарт <span class="citation" data-cites="OGC2010">OGC (<a href="#/библиография" role="doc-biblioref" onclick="">2010</a>)</span>, который определяет общую модель хранения и доступа к простым (векторным) объектам.</p>
 <ul>
 <li>все геометрии состоят из точек;</li>
@@ -879,8 +885,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -908,8 +914,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -937,8 +943,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 31%">
-<col style="width: 68%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -949,7 +955,7 @@
 <tbody>
 <tr class="odd">
 <td><code>IsEmpty()</code></td>
-<td>Возвращает <code>TRUE</code> (<span class="math inline">\(1\)</span>), если <em>данный</em> геометрический объект пуст, т.е. представляет пустое множество точек <span class="math inline">\(\emptyset\)</span> в координатном пространстве; возвращает <code>FALSE</code> (<span class="math inline">\(0\)</span>) в противном случае.</td>
+<td>Возвращает <code>TRUE</code> (<span class="math inline">\(1\)</span>), если <em>данный</em> геометрический объект пуст, т.е. представляет пустое множество точек <span class="math inline">\(\varnothing\)</span> в координатном пространстве; возвращает <code>FALSE</code> (<span class="math inline">\(0\)</span>) в противном случае.</td>
 </tr>
 <tr class="even">
 <td><code>IsSimple()</code></td>
@@ -962,8 +968,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1101,8 +1107,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
+<col style="width: 34%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1132,15 +1138,15 @@
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-7-7.png" width="800"></p>
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-7-7.png" width="300" height="300"></p>
 </div>
 </div>
 </div>
 </div>
 <table>
 <colgroup>
-<col style="width: 12%">
-<col style="width: 87%">
+<col style="width: 19%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1248,8 +1254,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1342,8 +1348,8 @@
 <p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 80%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1395,8 +1401,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 24%">
-<col style="width: 75%">
+<col style="width: 25%">
+<col style="width: 74%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1434,8 +1440,8 @@
 </div><div class="column" style="width:70%;">
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1498,8 +1504,8 @@
 <p>Интерфейс <code>POLYHEDRALSURFACE</code> дополнительно поддерживает следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1601,8 +1607,12 @@
 <p><strong><code>p.LocateAlong(4):</code></strong> <code>MULTIPOINT M(0 0 4, 3 1 4)</code></p>
 <p><strong><code>p.LocateBetween(2,4):</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)</code></p>
 <p><strong><code>p.LocateAlong(3):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
-
-<img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-10-11.png" width="960" class="r-stretch"></section>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-10-11.png" width="700" height="350"></p>
+</div>
+</div>
+</section>
 <section id="дополнительные-измерения-2" class="slide level2">
 <h2>Дополнительные измерения</h2>
 <p>Запрос измерения линейного объекта :</p>
@@ -1610,8 +1620,12 @@
 <p><strong><code>l.LocateAlong(3):</code></strong> <code>MULTIPOINT M(1.3 0.7 3)</code></p>
 <p><strong><code>l.LocateBetween(2,5):</code></strong> <code>GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))</code></p>
 <p><strong><code>l.LocateAlong(0.5):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
-
-<img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-11-13.png" width="960" class="r-stretch"></section>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-11-13.png" width="600" height="300"></p>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
