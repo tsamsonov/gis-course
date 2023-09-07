@@ -914,8 +914,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -943,8 +943,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1145,8 +1145,8 @@
 </div>
 <table>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 80%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1254,8 +1254,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1348,8 +1348,8 @@
 <p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1401,8 +1401,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 74%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1440,8 +1440,8 @@
 </div><div class="column" style="width:70%;">
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1504,8 +1504,8 @@
 <p>Интерфейс <code>POLYHEDRALSURFACE</code> дополнительно поддерживает следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1623,6 +1623,72 @@
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-11-13.png" width="600" height="300"></p>
+</div>
+</div>
+</section>
+<section id="формальная-грамматика" class="slide level2">
+<h2>Формальная грамматика</h2>
+<dl>
+<dt>Алфавит</dt>
+<dd>
+<p>Множество неделимых (атомарных) символов</p>
+</dd>
+<dt>Слово</dt>
+<dd>
+<p>Конечный упорядоченный набор (кортеж) символов из заданного алфавита</p>
+</dd>
+<dt>Формальный язык</dt>
+<dd>
+<p>Множество конечных слов над конечным алфавитом</p>
+</dd>
+<dt>Синтаксис</dt>
+<dd>
+<p>Раздел лингвистики, изучающий предложения и словосочетания</p>
+</dd>
+<dt>Формальная грамматика</dt>
+<dd>
+<p>Способ формирования из алфавита языка строк (слов, словосочетаний, предложений) в соответствии с его синтаксисом</p>
+</dd>
+</dl>
+</section>
+<section id="формальная-грамматика-1" class="slide level2">
+<h2>Формальная грамматика</h2>
+<dl>
+<dt>Производящее правило</dt>
+<dd>
+<p>Правило замены символов, которое может применяться для генерации новой последовательности символов</p>
+</dd>
+<dt>Терминальные символы</dt>
+<dd>
+<p>Символы, входящие в алфавит</p>
+</dd>
+<dt>Нетерминальные символы</dt>
+<dd>
+<p>Заменяются группой терминальных символов в соответствии с производящими правилами</p>
+</dd>
+</dl>
+</section>
+<section id="форма-бэкуса-наура-бнф" class="slide level2">
+<h2>Форма Бэкуса-Наура (БНФ)</h2>
+<p><strong>Форма Бэкуса-Наура (БНФ)</strong> — формальная грамматика с последовательным определением синаксических категорий через производящие правила вида:</p>
+<p><code>&lt;symbol&gt; ::= expression</code></p>
+<ul>
+<li><p><code>&lt;symbol&gt;</code> — нетерминальный символ (переменная)</p></li>
+<li><p><code>::=</code> — оператор замены символа слева (<code>&lt;symbol&gt;</code>) на выражение справа (<code>expression</code>).</p></li>
+<li><p><code>expression</code> — выражение, которое состоит из одной и более <em>альтернативных</em> последовательностей терминальных или нетерминальных символов</p></li>
+<li><p><code>|</code> — символ, используемый для разделения альтернативных последовательностей в выражении <code>expression</code></p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Угловые скобки (<code>&lt;&gt;</code>)</strong></p>
+</div>
+<div class="callout-content">
+<p>В нотации Бэкуса-Наура нетерминальные символы всегда заключаются в угловые скобки (<code>&lt;&gt;</code>).</p>
+</div>
 </div>
 </div>
 </section>
