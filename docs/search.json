@@ -3742,7 +3742,7 @@
     "href": "adv_01_Features.html#определение-wkt",
     "title": "Введение",
     "section": "Определение WKT",
-    "text": "Определение WKT\n\n\n\n\n\n\n&lt;empty set&gt; ::= EMPTY\n\n\n&lt;left paren&gt; ::= (\n\n\n&lt;right paren&gt; ::= )\n\n\n&lt;comma&gt; ::= ,\n\n\n&lt;period&gt; ::= .\n\n\n&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9\n\n\n&lt;plus sign&gt; ::= +\n\n\n&lt;minus sign&gt; ::= -\n\n\n&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*\n\n\n&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} |&lt;decimal point&gt;&lt;unsigned integer&gt;"
+    "text": "Определение WKT\n\n\n\n\n\n\n&lt;empty set&gt; ::= EMPTY\n\n\n&lt;left paren&gt; ::= (\n\n\n&lt;right paren&gt; ::= )\n\n\n&lt;comma&gt; ::= ,\n\n\n&lt;period&gt; ::= .\n\n\n&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9\n\n\n&lt;plus sign&gt; ::= +\n\n\n&lt;minus sign&gt; ::= -\n\n\n&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*\n\n\n&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;"
   },
   {
     "objectID": "adv_01_Features.html#определение-wkt-1",
@@ -3756,6 +3756,34 @@
     "href": "adv_01_Features.html#определение-2d-геометрий",
     "title": "Введение",
     "section": "Определение \\(2D\\)-геометрий",
-    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;\n\n\n&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;\n\n\n&lt;point tagged text&gt; ::= point &lt;point text&gt;\n\n\n&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;\n\n\n&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;\n\n\n&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt; {&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;\n\n\n&lt;polyhedralsurface text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;polyhedralsurface tagged text&gt; ::= polyhedralsurface &lt;polyhedralsurface text&gt;"
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;\n\n\n&lt;point text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;\n\n\n&lt;point tagged text&gt; ::= point &lt;point text&gt;\n\n\n&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;\n\n\n&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;\n\n\n&lt;polygon text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;\n{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;\n\n\n&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;"
+  },
+  {
+    "objectID": "adv_01_Features.html#определение-2d-коллекций",
+    "href": "adv_01_Features.html#определение-2d-коллекций",
+    "title": "Введение",
+    "section": "Определение \\(2D\\)-коллекций",
+    "text": "Определение \\(2D\\)-коллекций\n\n\n\n\n\n\n&lt;multipoint text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;point text&gt; {&lt;comma&gt; &lt;point text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipoint tagged text&gt; ::= multipoint &lt;multipoint text&gt;\n\n\n&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;multilinestring tagged text&gt; ::=\nmultilinestring &lt;multilinestring text&gt;\n\n\n&lt;multipolygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipolygon tagged text&gt; ::=\nmultipolygon &lt;multipolygon text&gt;"
+  },
+  {
+    "objectID": "adv_01_Features.html#определение-geometrycollection",
+    "href": "adv_01_Features.html#определение-geometrycollection",
+    "title": "Введение",
+    "section": "Определение GEOMETRYCOLLECTION",
+    "text": "Определение GEOMETRYCOLLECTION\n\n\n\n\n\n\n&lt;geometry tagged text&gt; ::=\n&lt;point tagged text&gt; | &lt;linestring tagged text&gt;\n| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;\n| &lt;polyhedralsurface tagged text&gt;\n| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;\n| &lt;multilinestring tagged text&gt;\n| &lt;multipolygon tagged text&gt;\n| &lt;geometrycollection tagged text&gt;\n\n\n&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;\n\n\n&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;"
+  },
+  {
+    "objectID": "adv_01_Features.html#определение-2d-геометрий-1",
+    "href": "adv_01_Features.html#определение-2d-геометрий-1",
+    "title": "Введение",
+    "section": "Определение \\(2D\\)-геометрий",
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;polyhedralsurface text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt;\n{&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;polyhedralsurface tagged text&gt; ::=\npolyhedralsurface &lt;polyhedralsurface text&gt;\n\n\n&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;"
+  },
+  {
+    "objectID": "adv_01_Features.html#определение-2d-geometrycollection",
+    "href": "adv_01_Features.html#определение-2d-geometrycollection",
+    "title": "Введение",
+    "section": "Определение \\(2D\\)-GEOMETRYCOLLECTION",
+    "text": "Определение \\(2D\\)-GEOMETRYCOLLECTION\n\n\n\n\n\n\n&lt;geometry tagged text&gt; ::=\n&lt;point tagged text&gt; | &lt;linestring tagged text&gt;\n| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;\n| &lt;polyhedralsurface tagged text&gt;\n| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;\n| &lt;multilinestring tagged text&gt;\n| &lt;multipolygon tagged text&gt;\n| &lt;geometrycollection tagged text&gt;\n\n\n&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;\n\n\n&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;"
   }
 ]

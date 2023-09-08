@@ -885,8 +885,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 9%">
+<col style="width: 90%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -914,8 +914,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 4%">
+<col style="width: 95%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -943,8 +943,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 7%">
+<col style="width: 92%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -968,8 +968,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 20%">
+<col style="width: 79%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1107,8 +1107,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1145,8 +1145,8 @@
 </div>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 17%">
+<col style="width: 82%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1254,8 +1254,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1348,8 +1348,8 @@
 <p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 8%">
+<col style="width: 91%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1401,8 +1401,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 15%">
+<col style="width: 84%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1440,8 +1440,8 @@
 </div><div class="column" style="width:70%;">
 <table>
 <colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
+<col style="width: 24%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1504,8 +1504,8 @@
 <p>Интерфейс <code>POLYHEDRALSURFACE</code> дополнительно поддерживает следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 17%">
+<col style="width: 82%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1579,8 +1579,8 @@
 </ol>
 <table>
 <colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1697,8 +1697,8 @@
 <p><strong>БНФ</strong> базируется на следующих обозначениях:</p>
 <table>
 <colgroup>
-<col style="width: 16%">
-<col style="width: 83%">
+<col style="width: 7%">
+<col style="width: 92%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1770,7 +1770,7 @@
 <td><code>&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;</code></td>
 </tr>
 <tr class="odd">
-<td><code>&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} |&lt;decimal point&gt;&lt;unsigned integer&gt;</code></td>
+<td><code>&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -1779,7 +1779,7 @@
 <h2>Определение WKT</h2>
 <table>
 <colgroup>
-<col style="width: 100%">
+<col style="width: 101%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1816,14 +1816,15 @@
 <h2>Определение <span class="math inline">\(2D\)</span>-геометрий</h2>
 <table>
 <colgroup>
-<col style="width: 100%">
+<col style="width: 101%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><code>&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;</code></td>
 </tr>
 <tr class="even">
-<td><code>&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;</code></td>
+<td><p><code>&lt;point text&gt; ::=</code></p>
+<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;</code></p></td>
 </tr>
 <tr class="odd">
 <td><code>&lt;point tagged text&gt; ::= point &lt;point text&gt;</code></td>
@@ -1835,16 +1836,96 @@
 <td><code>&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;</code></td>
 </tr>
 <tr class="even">
-<td><code>&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt; {&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></td>
+<td><p><code>&lt;polygon text&gt; ::=</code></p>
+<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;</code></p>
+<p><code>{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
 </tr>
 <tr class="odd">
 <td><code>&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;</code></td>
 </tr>
 <tr class="even">
-<td><code>&lt;polyhedralsurface text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;</code></td>
+<td><code>&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="определение-2d-геометрий-1" class="slide level2">
+<h2>Определение <span class="math inline">\(2D\)</span>-геометрий</h2>
+<table>
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><p><code>&lt;polyhedralsurface text&gt; ::=</code></p>
+<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt;</code></p>
+<p><code>{&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;</code></p></td>
+</tr>
+<tr class="even">
+<td><p><code>&lt;polyhedralsurface tagged text&gt; ::=</code></p>
+<p><code>polyhedralsurface &lt;polyhedralsurface text&gt;</code></p></td>
 </tr>
 <tr class="odd">
-<td><code>&lt;polyhedralsurface tagged text&gt; ::= polyhedralsurface &lt;polyhedralsurface text&gt;</code></td>
+<td><code>&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="определение-2d-коллекций" class="slide level2">
+<h2>Определение <span class="math inline">\(2D\)</span>-коллекций</h2>
+<table>
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><p><code>&lt;multipoint text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
+<p><code>&lt;point text&gt; {&lt;comma&gt; &lt;point text&gt;}* &lt;right paren&gt;</code></p></td>
+</tr>
+<tr class="even">
+<td><code>&lt;multipoint tagged text&gt; ::= multipoint &lt;multipoint text&gt;</code></td>
+</tr>
+<tr class="odd">
+<td><p><code>&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
+<p><code>&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
+</tr>
+<tr class="even">
+<td><p><code>&lt;multilinestring tagged text&gt; ::=</code></p>
+<p><code>multilinestring &lt;multilinestring text&gt;</code></p></td>
+</tr>
+<tr class="odd">
+<td><p><code>&lt;multipolygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
+<p><code>&lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;</code></p></td>
+</tr>
+<tr class="even">
+<td><p><code>&lt;multipolygon tagged text&gt; ::=</code></p>
+<p><code>multipolygon &lt;multipolygon text&gt;</code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="определение-2d-geometrycollection" class="slide level2">
+<h2>Определение <span class="math inline">\(2D\)</span>-<code>GEOMETRYCOLLECTION</code></h2>
+<table>
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><p><code>&lt;geometry tagged text&gt; ::=</code></p>
+<p><code>&lt;point tagged text&gt; | &lt;linestring tagged text&gt;</code></p>
+<p><code>| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;</code></p>
+<p><code>| &lt;polyhedralsurface tagged text&gt;</code></p>
+<p><code>| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;</code></p>
+<p><code>| &lt;multilinestring tagged text&gt;</code></p>
+<p><code>| &lt;multipolygon tagged text&gt;</code></p>
+<p><code>| &lt;geometrycollection tagged text&gt;</code></p></td>
+</tr>
+<tr class="even">
+<td><code>&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;</code></td>
 </tr>
 </tbody>
 </table>
