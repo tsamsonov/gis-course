@@ -3785,5 +3785,509 @@
     "title": "Введение",
     "section": "Определение \\(2D\\)-GEOMETRYCOLLECTION",
     "text": "Определение \\(2D\\)-GEOMETRYCOLLECTION\n\n\n\n\n\n\n&lt;geometry tagged text&gt; ::=\n&lt;point tagged text&gt; | &lt;linestring tagged text&gt;\n| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;\n| &lt;polyhedralsurface tagged text&gt;\n| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;\n| &lt;multilinestring tagged text&gt;\n| &lt;multipolygon tagged text&gt;\n| &lt;geometrycollection tagged text&gt;\n\n\n&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;\n\n\n&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;"
+  },
+  {
+    "objectID": "adv_01_Features.html#определение-3d4d-геометрий-и-коллекций",
+    "href": "adv_01_Features.html#определение-3d4d-геометрий-и-коллекций",
+    "title": "Введение",
+    "section": "Определение \\(3D/4D\\)-геометрий и коллекций",
+    "text": "Определение \\(3D/4D\\)-геометрий и коллекций"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#формальная-грамматика",
+    "href": "adv_03_WKT_WKB.html#формальная-грамматика",
+    "title": "WKT и WKB",
+    "section": "Формальная грамматика",
+    "text": "Формальная грамматика\n\nАлфавит\n\nМножество неделимых (атомарных) символов\n\nСлово\n\nКонечный упорядоченный набор (кортеж) символов из заданного алфавита\n\nФормальный язык\n\nМножество конечных слов над конечным алфавитом\n\nСинтаксис\n\nРаздел лингвистики, изучающий предложения и словосочетания\n\nФормальная грамматика\n\nСпособ формирования из алфавита языка строк (слов, словосочетаний, предложений) в соответствии с его синтаксисом"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#формальная-грамматика-1",
+    "href": "adv_03_WKT_WKB.html#формальная-грамматика-1",
+    "title": "WKT и WKB",
+    "section": "Формальная грамматика",
+    "text": "Формальная грамматика\n\nПроизводящее правило\n\nПравило замены символов, которое может применяться для генерации новой последовательности символов\n\nТерминальные символы\n\nСимволы, входящие в алфавит\n\nНетерминальные символы\n\nЗаменяются группой терминальных символов в соответствии с производящими правилами"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#форма-бэкуса-наура-бнф",
+    "href": "adv_03_WKT_WKB.html#форма-бэкуса-наура-бнф",
+    "title": "WKT и WKB",
+    "section": "Форма Бэкуса-Наура (БНФ)",
+    "text": "Форма Бэкуса-Наура (БНФ)\nФорма Бэкуса-Наура (БНФ) — формальная грамматика с последовательным определением синаксических категорий через производящие правила вида:\n&lt;symbol&gt; ::= expression\n\n&lt;symbol&gt; — нетерминальный символ (переменная)\n::= — оператор замены символа слева (&lt;symbol&gt;) на выражение справа (expression).\nexpression — выражение, которое состоит из одной и более альтернативных последовательностей терминальных или нетерминальных символов (токенов)\n| — символ, используемый для разделения альтернативных последовательностей в выражении expression\n\n\n\n\n\n\n\nУгловые скобки (&lt;&gt;)\n\n\nВ нотации Бэкуса-Наура нетерминальные символы всегда заключаются в угловые скобки (&lt;&gt;)."
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#форма-бэкуса-наура-бнф-1",
+    "href": "adv_03_WKT_WKB.html#форма-бэкуса-наура-бнф-1",
+    "title": "WKT и WKB",
+    "section": "Форма Бэкуса-Наура (БНФ)",
+    "text": "Форма Бэкуса-Наура (БНФ)\nБНФ базируется на следующих обозначениях:\n\n\n\n\n\n\n\n{}\nОпциональный (необязательный) токен; фигурные скобки используются для обозначения и не являются частью токена\n\n\n()\nГруппировка последовательности токенов в один токен; круглые скобки используются для обозначения и не являются частью токена\n\n\n*\nОпциональное (необязательное) использование множества экземпляров токена\n\n\n|\nРазделитель альтернативных токенов; не включается в результат\n\n\n&lt;&gt;\nОпределяемый нетерминальный токен\n\n\n::=\nОператор, обозначающий производящее правило: левый операнд может быть заменен на правый.\n\n\n\nПоследовательность символов без обозначений представляет собой терминальный токен"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-wkt",
+    "href": "adv_03_WKT_WKB.html#определение-wkt",
+    "title": "WKT и WKB",
+    "section": "Определение WKT",
+    "text": "Определение WKT\n\n\n\n\n\n\n&lt;empty set&gt; ::= EMPTY\n\n\n&lt;left paren&gt; ::= (\n\n\n&lt;right paren&gt; ::= )\n\n\n&lt;comma&gt; ::= ,\n\n\n&lt;period&gt; ::= .\n\n\n&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9\n\n\n&lt;plus sign&gt; ::= +\n\n\n&lt;minus sign&gt; ::= -\n\n\n&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*\n\n\n&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-wkt-1",
+    "href": "adv_03_WKT_WKB.html#определение-wkt-1",
+    "title": "WKT и WKB",
+    "section": "Определение WKT",
+    "text": "Определение WKT\n\n\n\n\n\n\n&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;\n\n\n&lt;exponent&gt; ::= &lt;signed integer&gt;\n\n\n&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;\n\n\n&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;\n\n\n&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;\n\n\n&lt;x&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;y&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;z&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;m&gt; ::= &lt;signed numeric literal&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-2d-геометрий",
+    "href": "adv_03_WKT_WKB.html#определение-2d-геометрий",
+    "title": "WKT и WKB",
+    "section": "Определение \\(2D\\)-геометрий",
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;\n\n\n&lt;point text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;\n\n\n&lt;point tagged text&gt; ::= point &lt;point text&gt;\n\n\n&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;\n\n\n&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;\n\n\n&lt;polygon text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;\n{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;\n\n\n&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-2d-геометрий-1",
+    "href": "adv_03_WKT_WKB.html#определение-2d-геометрий-1",
+    "title": "WKT и WKB",
+    "section": "Определение \\(2D\\)-геометрий",
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;polyhedralsurface text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt;\n{&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;polyhedralsurface tagged text&gt; ::=\npolyhedralsurface &lt;polyhedralsurface text&gt;\n\n\n&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-2d-коллекций",
+    "href": "adv_03_WKT_WKB.html#определение-2d-коллекций",
+    "title": "WKT и WKB",
+    "section": "Определение \\(2D\\)-коллекций",
+    "text": "Определение \\(2D\\)-коллекций\n\n\n\n\n\n\n&lt;multipoint text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;point text&gt; {&lt;comma&gt; &lt;point text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipoint tagged text&gt; ::= multipoint &lt;multipoint text&gt;\n\n\n&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;multilinestring tagged text&gt; ::=\nmultilinestring &lt;multilinestring text&gt;\n\n\n&lt;multipolygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipolygon tagged text&gt; ::=\nmultipolygon &lt;multipolygon text&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-2d-geometrycollection",
+    "href": "adv_03_WKT_WKB.html#определение-2d-geometrycollection",
+    "title": "WKT и WKB",
+    "section": "Определение \\(2D\\)-GEOMETRYCOLLECTION",
+    "text": "Определение \\(2D\\)-GEOMETRYCOLLECTION\n\n\n\n\n\n\n&lt;geometry tagged text&gt; ::=\n&lt;point tagged text&gt; | &lt;linestring tagged text&gt;\n| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;\n| &lt;polyhedralsurface tagged text&gt;\n| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;\n| &lt;multilinestring tagged text&gt;\n| &lt;multipolygon tagged text&gt;\n| &lt;geometrycollection tagged text&gt;\n\n\n&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;\n\n\n&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-3d4d-геометрий-и-коллекций",
+    "href": "adv_03_WKT_WKB.html#определение-3d4d-геометрий-и-коллекций",
+    "title": "WKT и WKB",
+    "section": "Определение \\(3D/4D\\)-геометрий и коллекций",
+    "text": "Определение \\(3D/4D\\)-геометрий и коллекций\nИдентично \\(2D\\) со следующими модификациями:\n\nКоличество координат равно числу измерений (\\(3\\) или \\(4\\))\nПосле названия tagged-геометрии добавляется расширение z, m или zm:\npoint z, linestring m, polygon zm."
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#библиография",
+    "href": "adv_03_WKT_WKB.html#библиография",
+    "title": "WKT и WKB",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
+  },
+  {
+    "objectID": "adv_01_Intro.html#геоинформатика",
+    "href": "adv_01_Intro.html#геоинформатика",
+    "title": "Введение",
+    "section": "Геоинформатика",
+    "text": "Геоинформатика"
+  },
+  {
+    "objectID": "adv_01_Intro.html#обзор",
+    "href": "adv_01_Intro.html#обзор",
+    "title": "Введение",
+    "section": "Обзор",
+    "text": "Обзор"
+  },
+  {
+    "objectID": "adv_01_Intro.html#база-пространственных-данных",
+    "href": "adv_01_Intro.html#база-пространственных-данных",
+    "title": "Введение",
+    "section": "База пространственных данных",
+    "text": "База пространственных данных\n\nБаза пространственных данных (ГОСТ Р 52438-2005 2018)\n\nСовокупность пространственных данных, организованных по определенным правилам, устанавливающим общие принципы описания, хранения и манипулирования данными, предназначенная для удовлетворения информационных потребностей пользователя.\n\n\n\n\n\n\n\n\nЖаргон\n\n\nНе рекомендуются к использованию словосочетания: база геоданных, пространственная база данных, база данных ГИС"
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственный-объект",
+    "href": "adv_01_Intro.html#пространственный-объект",
+    "title": "Введение",
+    "section": "Пространственный объект",
+    "text": "Пространственный объект\n\nПространственный объект (ГОСТ Р 52438-2005 2018)\n\nЦифровая модель материального или абстрактного объекта реального или виртуального мира с указанием его идентификатора, координатных и атрибутивных данных."
+  },
+  {
+    "objectID": "adv_01_Intro.html#эволюция-моделей-субд",
+    "href": "adv_01_Intro.html#эволюция-моделей-субд",
+    "title": "Введение",
+    "section": "Эволюция моделей СУБД",
+    "text": "Эволюция моделей СУБД\n\n\n\n\nflowchart TB\n  A(Файловые) --&gt; B(Сетевые)\n  A --&gt; C(Иерархические)\n  C --&gt; D(Реляционные / РСУБД)\n  B --&gt; D\n  E(Объектно-ориентированные / ООСУБД) --&gt; F(Объектно-Реляционные / ОРСУБД)\n  D --&gt; F"
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственные-данные-в-рсубд",
+    "href": "adv_01_Intro.html#пространственные-данные-в-рсубд",
+    "title": "Введение",
+    "section": "Пространственные данные в РСУБД",
+    "text": "Пространственные данные в РСУБД\n\n\n\n\n\n\n\nПредставление в обычной РСУБД достаточно громоздко\n\n\nParcels\n\n\nName\nArea\nPrice\nBoundaryID\n\n\n\n\nУч. 2\n37.0\n560000\n1055\n\n\n\n\nPolygons\n\n\nBoundaryID\nEdge\n\n\n\n\n1055\nA\n\n\n1055\nB\n\n\n1055\nC\n\n\n1055\nD\n\n\n1055\nE"
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственные-данные-в-рсубд-1",
+    "href": "adv_01_Intro.html#пространственные-данные-в-рсубд-1",
+    "title": "Введение",
+    "section": "Пространственные данные в РСУБД",
+    "text": "Пространственные данные в РСУБД\n\n\n\n\n\n\n\nПредставление в обычной РСУБД достаточно громоздко\n\n\nEdges\n\n\nEdge\nPoint\n\n\n\n\nA\n1\n\n\nA\n2\n\n\nB\n2\n\n\nB\n3\n\n\nC\n3\n\n\nC\n4\n\n\nD\n4\n\n\nD\n5\n\n\nE\n5\n\n\nE\n1\n\n\n\n\n\nPoints\n\n\nPoint\nX\nY\n\n\n\n\n1\n5\n0\n\n\n2\n0\n5\n\n\n3\n3\n9\n\n\n4\n8\n8\n\n\n5\n6\n4"
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственные-данные-в-рсубд-2",
+    "href": "adv_01_Intro.html#пространственные-данные-в-рсубд-2",
+    "title": "Введение",
+    "section": "Пространственные данные в РСУБД",
+    "text": "Пространственные данные в РСУБД\n\n\n\n\n\n\n\nПредставление в обычной РСУБД достаточно громоздко\n\n\n\n\n\nflowchart TB\n  A(Parcels) --&gt; B(Polygons)\n  B --&gt; C(Edges)\n  C --&gt; D(Points)"
+  },
+  {
+    "objectID": "adv_01_Intro.html#абстрактные-типы-данных",
+    "href": "adv_01_Intro.html#абстрактные-типы-данных",
+    "title": "Введение",
+    "section": "Абстрактные типы данных",
+    "text": "Абстрактные типы данных\nВажное наследие объектно-ориентированных систем — поддержка абстрактных типов данных.\n\n\nПримитивные типы данных составляют основу реляционных БД. \n\nАбстрактные типы данных (АТД) обеспечивают хранение коллекций и объектов со свойствами. \n\n\nБольшинство ОРСУБД предлагают модульный подход к АТД, позволяя добавлять и удалять их."
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственная-субд",
+    "href": "adv_01_Intro.html#пространственная-субд",
+    "title": "Введение",
+    "section": "Пространственная СУБД",
+    "text": "Пространственная СУБД\nАбстрактные типы данных — основа реализации пространственных СУБД.\nПСУБД должна отвечать следующим требованиям:\n\nПредставляет собой программный модуль, взаимодействующий с нижестоящей СУБД или являющийся ее компонентой\nПоддерживает множественные модели пространственных данных, соответствующие им абстрактные типы данных, а также язык запросов, из которого эти типы могут быть вызваны.\nРеализует пространственное индексирование, эффективные алгоритмы пространственных операций и специальные правила оптимизации запросов."
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственная-субд-1",
+    "href": "adv_01_Intro.html#пространственная-субд-1",
+    "title": "Введение",
+    "section": "Пространственная СУБД",
+    "text": "Пространственная СУБД\nОсновные аспекты функционирования ПСУБД:\n\nМодели пространственных данных и пространственных отношений.\nЯзык запросов\nОбработка и оптимизация запросов\nОрганизация файлового хранилища\nВыполнение аналитических операций (добыча данных)."
+  },
+  {
+    "objectID": "adv_01_Intro.html#модели-пространственных-данных",
+    "href": "adv_01_Intro.html#модели-пространственных-данных",
+    "title": "Введение",
+    "section": "Модели пространственных данных",
+    "text": "Модели пространственных данных\n\nАбстрактные типы данных в ПСУБД реализуют различные модели пространственных данных"
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственные-отношения",
+    "href": "adv_01_Intro.html#пространственные-отношения",
+    "title": "Введение",
+    "section": "Пространственные отношения",
+    "text": "Пространственные отношения\n\nПространственные запросы в ПСУБД опираются на модели пространственных отношений"
+  },
+  {
+    "objectID": "adv_01_Intro.html#язык-запросов",
+    "href": "adv_01_Intro.html#язык-запросов",
+    "title": "Введение",
+    "section": "Язык запросов",
+    "text": "Язык запросов\nStructured Query Language (SQL) — язык структурированных запросов. Применяется для создания, модификации и управления данными в реляционной базе данных.\nПространственная СУБД поддерживает создание и манипулирование пространственными типами данных:\nSELECT 'SRID=4326;POINT(-123 34)'::geography\n\"0101000020E61000000000000000C05EC00000000000004140\"\n\nCREATE TABLE geotable(gid serial PRIMARY KEY, name TEXT, geom geography(POINT) );\n\nINSERT INTO geotable ( name, geom )\n  VALUES ( ST_GeomFromEWKT('SRID=312;POINTM(-126.4 45.32 15)'), 'A Place' )"
+  },
+  {
+    "objectID": "adv_01_Intro.html#пространственные-расширения-sql",
+    "href": "adv_01_Intro.html#пространственные-расширения-sql",
+    "title": "Введение",
+    "section": "Пространственные расширения SQL",
+    "text": "Пространственные расширения SQL\nSELECT\n  m.name,\n  SUM(ST_Length(r.geom))/1000 as roads_km\nFROM bc_roads AS r\nJOIN bc_municipality AS m\n  ON ST_Contains(m.geom, r.geom)\nGROUP BY m.name\nORDER BY roads_km;\n\nname                        | roads_km\n----------------------------+------------------\nSURREY                      | 1539.47553551242\nVANCOUVER                   | 1450.33093486576\nLANGLEY DISTRICT            | 833.793392535662\nBURNABY                     | 773.769091404338\nPRINCE GEORGE               | 694.37554369147\n..."
+  },
+  {
+    "objectID": "adv_01_Intro.html#обработка-запросов",
+    "href": "adv_01_Intro.html#обработка-запросов",
+    "title": "Введение",
+    "section": "Обработка запросов",
+    "text": "Обработка запросов\n\n\nSQL — декларативный язык. Он описывает что необходимо получить, но не как, т.е. не сам алгоритм выполнения процедуры.\nСУБД должна самостоятельно определить план эффективного выполнения запроса.\nОбработка запроса представляет собой последовательность шагов, которую инициирует СУБД для выполнения запроса.\nОптимизация пространственных запросов обладает своей спецификой"
+  },
+  {
+    "objectID": "adv_01_Intro.html#обработка-запросов-1",
+    "href": "adv_01_Intro.html#обработка-запросов-1",
+    "title": "Введение",
+    "section": "Обработка запросов",
+    "text": "Обработка запросов\nSELECT\nFROM reltypes R, soiltypes S\nWHERE st_area(S.geom) &lt; 10000 AND st_area(R.geom) &lt; 10000\nAND st_intersects(R.geom, s.geom)\n\nПространственный запрос состоит из фильтрации (FILTER) на основе MBR и уточнения (REFINE) по реальной геометрии."
+  },
+  {
+    "objectID": "adv_01_Intro.html#хранение-данных",
+    "href": "adv_01_Intro.html#хранение-данных",
+    "title": "Введение",
+    "section": "Хранение данных",
+    "text": "Хранение данных\nДанные в файлах имеют одномерное упорядочение. Однако записи можно хранить так чтобы пространственно близкие располагались ближе друг к другу"
+  },
+  {
+    "objectID": "adv_01_Intro.html#хранение-данных-1",
+    "href": "adv_01_Intro.html#хранение-данных-1",
+    "title": "Введение",
+    "section": "Хранение данных",
+    "text": "Хранение данных\nДанные в файлах имеют одномерное упорядочение. Однако записи можно хранить так чтобы пространственно близкие располагались ближе друг к другу"
+  },
+  {
+    "objectID": "adv_01_Intro.html#оптимизация-запросов",
+    "href": "adv_01_Intro.html#оптимизация-запросов",
+    "title": "Введение",
+    "section": "Оптимизация запросов",
+    "text": "Оптимизация запросов\nНепространственный запрос Выбери всех школьников 10 класса, которые являются призерами всероссийской олимпиады по географии раскладывается на 2 подзапроса:\n\nПРОЕКЦИЯ (single-scan): выбрать всех школьников 10 класса\nСОЕДИНЕНИЕ (multi-scan): сопоставить таблицу призеров и таблицу школьников\n\n\n\n\n\n\n\nПоследовательность\n\n\nСначала должен быть выполнен запрос проекции, т.к. соединение является более ресурсоемкой многопроходной (multiscan) операцией"
+  },
+  {
+    "objectID": "adv_01_Intro.html#оптимизация-запросов-1",
+    "href": "adv_01_Intro.html#оптимизация-запросов-1",
+    "title": "Введение",
+    "section": "Оптимизация запросов",
+    "text": "Оптимизация запросов\nПространственный запрос Выбери все регионы с площадью более 100 тыс. кв. км, в которых проходил заключительный этап всероссийской олимпиады школьников по географии раскладывается на 2 подзапроса:\n\nДИАПАЗОН (single-scan): выбрать регионы с площадью более \\(100\\) тыс. кв. км\nПРОСТРАНСТВЕННОЕ СОЕДИНЕНИЕ (multi-scan): выбрать регионы, в которых находятся города проведения заключительного этапа\n\n\n\n\n\n\n\nПоследовательность\n\n\nПоследовательность не очевидна, т.к. вычисление площади — ресурсоемкая операция. Порядок выполнения пространственных запросов требует тщательного анализа."
+  },
+  {
+    "objectID": "adv_01_Intro.html#добыча-данных",
+    "href": "adv_01_Intro.html#добыча-данных",
+    "title": "Введение",
+    "section": "Добыча данных",
+    "text": "Добыча данных\nБазы [пространственных] данных — источник информации, который требует особого подхода в силу потенциального объема информации и способов взаимодействия с нею.\n\nАлгоритмы для больших данных, или решения, позволяющие совмещать аналитику данных и технологии обработки больших массивов информации.\nРасширение функциональности языка запросов — возможность выполнять пространственную аналитику данных “на лету”.\n\n\n\n\n\n\n\nПример\n\n\nПространственно-временные базы данных абонентов сотовой сети могут содержать терабайты информации. Как сделать равномерную случайную выборку?"
+  },
+  {
+    "objectID": "adv_01_Intro.html#библиография",
+    "href": "adv_01_Intro.html#библиография",
+    "title": "Введение",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nГОСТ Р 52438-2005. 2018. «Географические информационные системы. Термины и определения». Москва: Стандартинформ. https://docs.cntd.ru/document/1200044680."
+  },
+  {
+    "objectID": "adv_02_Features.html#simple-features",
+    "href": "adv_02_Features.html#simple-features",
+    "title": "Модель OGC Simple Features",
+    "section": "Simple Features",
+    "text": "Simple Features\nSimple Features — стандарт OGC (2010), который определяет общую модель хранения и доступа к простым (векторным) объектам.\n\nвсе геометрии состоят из точек;\nвсе точки в геометрии имеют одинаковую размерность;\nразмерность точек может быть 2, 3 или 4.\n\nВ дополнение к обязательным измерениям \\(X\\) и \\(Y\\) возможны:\n\n\\(Z\\), обозначающее высоту\n\\(M\\), обозначающее некоторую меру — например, время\n\nСуществует 4 варианта координат: \\(XY\\), \\(XYZ\\), \\(XYM\\) и \\(XYZM\\).\nВ географических координатах \\(X\\) — долгота, \\(Y\\) — широта."
+  },
+  {
+    "objectID": "adv_02_Features.html#иерархия-классов",
+    "href": "adv_02_Features.html#иерархия-классов",
+    "title": "Модель OGC Simple Features",
+    "section": "Иерархия классов",
+    "text": "Иерархия классов\n\nМодель Simple Features представляет собой иерархию классов, между которыми существуют отношения наследования (△) и коллекции (♢)."
+  },
+  {
+    "objectID": "adv_02_Features.html#geometry",
+    "href": "adv_02_Features.html#geometry",
+    "title": "Модель OGC Simple Features",
+    "section": "Geometry",
+    "text": "Geometry\nВсе объекты типа Simple Features наследуют свойства от базового класса GEOMETRY. Механизм этого наследования основан на следующих принципах:\n\nGEOMETRY представляет собой абстрактный класс, т.е. вы не можете создать экземпляр этого класса.\nВсе подклассы геометрий являются замыканиями, т.е. включают границу в множество точек.\nНа уровне класса GEOMETRY определен интерфейс — набор методов, которые позволяют получить информацию об объекте.\nРеализация интерфейса зависит от конкретного класса.\nС каждым классом геометрии ассоциированы системы отсчета, которые определяют пространственные (\\(XYZ\\)) и дополнительные (\\(M\\)) измерения."
+  },
+  {
+    "objectID": "adv_02_Features.html#интерфейс-класса-geometry",
+    "href": "adv_02_Features.html#интерфейс-класса-geometry",
+    "title": "Модель OGC Simple Features",
+    "section": "Интерфейс класса GEOMETRY",
+    "text": "Интерфейс класса GEOMETRY\n\n\n\n\n\n\n\nМетод\nОписание\n\n\n\n\nDimension()\nПространственная размерность данного геометрического объекта. Меньше или равна размерности координат. Для гетерогенных коллекций — максимальная размерность содержимых объектов.\n\n\nGeometryType()\nИмя подтипа класса GEOMETRY, экземпляром которого является данный объект.\n\n\nSRID()\nИдентификатор пространственной системы отсчета (SRS) данного объекта. Как правило, является внешним ключом к таблице систем отсчета."
+  },
+  {
+    "objectID": "adv_02_Features.html#интерфейс-класса-geometry-1",
+    "href": "adv_02_Features.html#интерфейс-класса-geometry-1",
+    "title": "Модель OGC Simple Features",
+    "section": "Интерфейс класса GEOMETRY",
+    "text": "Интерфейс класса GEOMETRY\n\n\n\n\n\n\n\nМетод\nОписание\n\n\n\n\nEnvelope()\nМинимальный ограничивающий прямоугольник данного объекта, параллельный осям координат. Полигон, определяемый углами \\((X_{min}, Y_{min})\\), \\((X_{min}, Y_{max})\\), \\((X_{max}, Y_{max})\\), \\((X_{max}, Y_{min})\\), \\((X_{min}, Y_{min})\\). При этом в фактических реализациях достаточно указать минимумы и максимумы.\n\n\nAsText()\nЭкспортирует данный геометрический объект в конкретное представление вида Well-Known Text (WKB)\n\n\nAsBinary()\nЭкспортирует данный геометрический объект в конкретное представление вида Well-Known Binary (WKB)"
+  },
+  {
+    "objectID": "adv_02_Features.html#интерфейс-класса-geometry-2",
+    "href": "adv_02_Features.html#интерфейс-класса-geometry-2",
+    "title": "Модель OGC Simple Features",
+    "section": "Интерфейс класса GEOMETRY",
+    "text": "Интерфейс класса GEOMETRY\n\n\n\n\n\n\n\nМетод\nОписание\n\n\n\n\nIsEmpty()\nВозвращает TRUE (\\(1\\)), если данный геометрический объект пуст, т.е. представляет пустое множество точек \\(\\varnothing\\) в координатном пространстве; возвращает FALSE (\\(0\\)) в противном случае.\n\n\nIsSimple()\nВозвращает TRUE (\\(1\\)), если данный геометрический объект не содержит аномальных точек, таких как самопересечения и самокасания; возвращает FALSE (\\(0\\)) в противном случае."
+  },
+  {
+    "objectID": "adv_02_Features.html#интерфейс-класса-geometry-3",
+    "href": "adv_02_Features.html#интерфейс-класса-geometry-3",
+    "title": "Модель OGC Simple Features",
+    "section": "Интерфейс класса GEOMETRY",
+    "text": "Интерфейс класса GEOMETRY\n\n\n\n\n\n\n\nМетод\nОписание\n\n\n\n\nIs3D()\nВозвращает TRUE (\\(1\\)), если данный объект имеет координаты \\(Z\\).\n\n\nIsMeasured()\nВозвращает TRUE (\\(1\\)), если данный объект имеет координаты \\(M\\).\n\n\nBoundary()\nВозвращает замыкание комбинаторной границы данного объекта\n\n\n\n\n\n\n\n\n\nВажно\n\n\nНазвания методов в программных реализациях Simple Features могут отличаться от предлагаемых в стандарте. Однако наличие соответствующих методов является условием реализации стандарта."
+  },
+  {
+    "objectID": "adv_02_Features.html#граница-и-замыкание",
+    "href": "adv_02_Features.html#граница-и-замыкание",
+    "title": "Модель OGC Simple Features",
+    "section": "Граница и замыкание",
+    "text": "Граница и замыкание\n\nГраничная точка\n\nТочка, в любой окрестности которой находятся как принадлежащие, так и не принадлежащие множеству точки\n\nГраница множества \\(\\partial A\\)\n\nСовокупность граничных точек множества\n\nЗамыкание множества \\(\\overline A\\)\n\nОбъединение множества и его границы: \\(\\overline A = A \\cup \\partial A\\)\n\nДополнение множества \\(A^-\\), вложенного в \\(\\mathbb R^n\\) (\\(A \\subset \\mathbb R^n\\))\n\nМножество всех точек \\(\\mathbb R^n\\), не являющихся элементами множества: \\(A^- = \\mathbb R^n \\backslash A\\)\n\nВнутренность множества (\\(A^{\\circ}\\))\n\nОбъединение всех открытых подмножеств множества: \\(A^\\circ = \\mathbb R^n \\backslash \\overline{A^-}\\)"
+  },
+  {
+    "objectID": "adv_02_Features.html#топологическая-граница",
+    "href": "adv_02_Features.html#топологическая-граница",
+    "title": "Модель OGC Simple Features",
+    "section": "Топологическая граница",
+    "text": "Топологическая граница"
+  },
+  {
+    "objectID": "adv_02_Features.html#симплекс",
+    "href": "adv_02_Features.html#симплекс",
+    "title": "Модель OGC Simple Features",
+    "section": "Симплекс",
+    "text": "Симплекс\n\nСимплекс \\(\\Delta^n\\)\n\nГеометрическая фигура, являющаяся \\(n\\)-мерным обобщением треугольника\n\nОстов симплекса\n\nМножество его вершин\n\nГрань симплекса размерности \\(s\\)\n\n\\(s\\)-мерный симплекс, остов которого является подмножеством остова \\(\\Delta^n\\).\nРебро — это грань размерности \\(1\\)."
+  },
+  {
+    "objectID": "adv_02_Features.html#комплекс",
+    "href": "adv_02_Features.html#комплекс",
+    "title": "Модель OGC Simple Features",
+    "section": "Комплекс",
+    "text": "Комплекс\n\n\n\n\n\nСимплициальный комплекс \\(\\mathcal K\\)\n\nМножество симплексов, удовлетворяющее условиям:\n\nВсе грани каждого симплекса из \\(\\mathcal K\\) также принадлежат \\(\\mathcal K\\)\nНепустое пересечение двух симплексов \\(\\sigma_1, \\sigma_2 \\in \\mathcal K\\) является гранью как \\(\\sigma_1\\), так и \\(\\sigma_2\\).\n\n\nСимплициальный \\(n\\)-комплекс \\(\\mathcal K\\)\n\n\\(\\mathcal K\\), в котором наибольшее измерение какого-либо симлекса равно \\(n\\)\n\nТриангуляция\n\nРазбиение геометрического объекта на симплексы"
+  },
+  {
+    "objectID": "adv_02_Features.html#комбинаторная-граница",
+    "href": "adv_02_Features.html#комбинаторная-граница",
+    "title": "Модель OGC Simple Features",
+    "section": "Комбинаторная граница",
+    "text": "Комбинаторная граница\n\nКомбинаторная граница \\(\\partial \\mathcal K\\) \\(n\\)-комплекса \\(\\mathcal K\\)\n\nМножество \\((n-1)\\)-симплексов \\(\\mathcal K\\), каждый из которых входит в состав только одного \\(n\\)-симплекса \\(\\mathcal K\\)."
+  },
+  {
+    "objectID": "adv_02_Features.html#граница-simple-features",
+    "href": "adv_02_Features.html#граница-simple-features",
+    "title": "Модель OGC Simple Features",
+    "section": "Граница Simple Features",
+    "text": "Граница Simple Features\nЗамыкание комбинаторной границы данного объекта"
+  },
+  {
+    "objectID": "adv_02_Features.html#геометрическая-коллекция",
+    "href": "adv_02_Features.html#геометрическая-коллекция",
+    "title": "Модель OGC Simple Features",
+    "section": "Геометрическая коллекция",
+    "text": "Геометрическая коллекция\nGEOMETRYCOLLECTION — коллекция геометрических элементов\n\nЕдинственное ограничение: все элементы коллекции должны иметь единую пространственную систему отсчета.\nПодклассы могут накладывать дополнительные ограничения.\nПорядок элементов коллекции не имеет значения.\nИнтерфейс должен поддерживать методы NumGeometries() и GeometryN()\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nNumGeometries()\nВозвращает количество геометрий в данной геометрической коллекции\n\n\nGeometryN(n)\nВозвращает \\(n\\)-ную геометрию в данной геометрической коллекции"
+  },
+  {
+    "objectID": "adv_02_Features.html#точка-point",
+    "href": "adv_02_Features.html#точка-point",
+    "title": "Модель OGC Simple Features",
+    "section": "Точка (POINT)",
+    "text": "Точка (POINT)\n\n\nPOINT — \\(0\\)-мерный геометрический объект, единичное местоположение\nГраница POINT — пустое множество: \\(\\partial A = \\varnothing\\)\nИнтерфейс точки должен поддерживать возвращение ее координат:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nX()\nКоордината \\(x\\) данного объекта POINT\n\n\nY()\nКоордината \\(y\\) данного объекта POINT\n\n\nZ()\nКоордината \\(z\\) данного объекта POINT, или NULL если не задано.\n\n\nM()\nКоордината \\(m\\) данного объекта POINT, или NULL если не задано."
+  },
+  {
+    "objectID": "adv_02_Features.html#мультиточка-multipoint",
+    "href": "adv_02_Features.html#мультиточка-multipoint",
+    "title": "Модель OGC Simple Features",
+    "section": "Мультиточка (MULTIPOINT)",
+    "text": "Мультиточка (MULTIPOINT)\nMULTIPOINT — \\(0\\)-мерная геометрическая коллекция объектов класса POINT.\n\n\n\nЭлементы коллекции не связаны и не имеют какого-либо смыслового упорядочения (наследуется свойство GEOMETRYCOLLECTION ).\nГраница MULTIPOINT — пустое множество: \\(\\partial A = \\varnothing\\).\nОбъект MULTIPOINT является простым, если ни одна пара POINT в его коллекции не совпадает.\n\n\n\n\n\n\n\n\n\n\n\n\n\nflowchart LR\n  A(MULTIPOINT) --&gt;|\"GeometryN( 0 )\"| B(POINT)\n  B --&gt;|\"X( )\"| C(X)\n  B --&gt;|\"Y( )\"| D(Y)"
+  },
+  {
+    "objectID": "adv_02_Features.html#кривая-curve",
+    "href": "adv_02_Features.html#кривая-curve",
+    "title": "Модель OGC Simple Features",
+    "section": "Кривая (CURVE)",
+    "text": "Кривая (CURVE)\nCURVE — одномерный геометрический объект, хранимый в виде последовательности точек.\n\n\n\n\nКривая определяется как непрерывное отображение отрезка в пространство:\n\\[f: [a, b] \\rightarrow R^n\\]\n\nЭто абстрактный класс, вы не можете создать объект CURVE.\nИнтерполяция между точками определяется конкретным подклассом CURVE.\nСтандарт определяет только подкласс LINESTRING, в котором используется линейная интерполяция."
+  },
+  {
+    "objectID": "adv_02_Features.html#кривая-curve-1",
+    "href": "adv_02_Features.html#кривая-curve-1",
+    "title": "Модель OGC Simple Features",
+    "section": "Кривая (CURVE)",
+    "text": "Кривая (CURVE)\n\nКривая является простой, если она не проходит дважды через одну и ту же точку, за исключением начальной и конечной точки:\n\n\\[\n\\texttt{f.IsSimple()} \\Leftrightarrow \\boxed{f(t_1)=f(t_2) \\land t_1 \\neq t_2 \\color{red}{\\Rightarrow} t_1 = a \\land t_2 = b}  \n\\]\n\nКривая является замкнутой, если ее начальная точка равна конечной точке:\n\\[\n\\texttt{f.IsClosed()} \\Leftrightarrow \\boxed{f(a)=f(b)}  \n\\]\nГраница замкнутой кривой является пустым множеством:\n\\[\n\\texttt{f.IsClosed()} \\Leftrightarrow \\boxed{\\partial f=\\varnothing}  \n\\]"
+  },
+  {
+    "objectID": "adv_02_Features.html#кривая-curve-2",
+    "href": "adv_02_Features.html#кривая-curve-2",
+    "title": "Модель OGC Simple Features",
+    "section": "Кривая (CURVE)",
+    "text": "Кривая (CURVE)\n\nГраница незамкнутой кривой содержит ее конечные точки:\n\\[\n\\texttt{!f.IsClosed()} \\Leftrightarrow \\boxed{\\partial f=\\{f(a), f(b)\\}}\n\\]\nПростая и замкнутая кривая является кольцом (RING).\nИнтерфейс объекта CURVE включает следующие методы:\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nLength()\nДлина данного объекта CURVE в ассоциированной СК\n\n\nStartPoint()\nНачальная точка данного объекта CURVE\n\n\nEndPoint()\nКонечная точка данного объекта CURVE\n\n\nIsClosed()\nTRUE, если StartPoint() == EndPoint()\n\n\nIsRing()\nTRUE, если IsSimple() и StartPoint() == EndPoint()"
+  },
+  {
+    "objectID": "adv_02_Features.html#линия-linestring-line-linearring",
+    "href": "adv_02_Features.html#линия-linestring-line-linearring",
+    "title": "Модель OGC Simple Features",
+    "section": "Линия (LINESTRING, LINE, LINEARRING)",
+    "text": "Линия (LINESTRING, LINE, LINEARRING)\nLINESTRING — это CURVE с линейной интерполяцией между точками.\n\n\n\n\n\nКаждая пара последовательных точек определяет отрезок\nLINE — это LINESTRING из двух точек\nLINEARRING — это простой замкнутый LINESTRING\nИнтерфейс содержит дополнительные методы:\n\n\n\n\nМетод\nНазначение\n\n\n\n\nNumPoints()\nКоличество точек в данном объекте LINESTRING\n\n\nPointN(n)\n\\(n\\)-я точка данного объекта LINESTRING"
+  },
+  {
+    "objectID": "adv_02_Features.html#мультикривая-multicurve",
+    "href": "adv_02_Features.html#мультикривая-multicurve",
+    "title": "Модель OGC Simple Features",
+    "section": "Мультикривая (MULTICURVE)",
+    "text": "Мультикривая (MULTICURVE)\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\n\nMULTICURVE как и CURVE является абстрактным классом. Вы не можете создать объект данного класса.\nMULTICURVE является простым, если каждый его элемент является простым, а их пересечения происходят только в граничных точках.\nТочка принадлежит границе объекта MULTICURVE если она принадлежит границам нечетного числа его элементов.\nОбъект MULTICURVE замкнут, если замкнуты всего его элементы.\nГраница замкнутого объекта MULTICURVE всегда пуста."
+  },
+  {
+    "objectID": "adv_02_Features.html#мультикривая-multicurve-1",
+    "href": "adv_02_Features.html#мультикривая-multicurve-1",
+    "title": "Модель OGC Simple Features",
+    "section": "Мультикривая (MULTICURVE)",
+    "text": "Мультикривая (MULTICURVE)\nMULTICURVE представляет 1-мерный подкласс GEOMETRYCOLLECTION — коллекцию объектов CURVE.\n\n\n\n\nИнтерфейс MULTICURVE дополнительно к GEOMETRYCOLLECTION реализует следующие методы:\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nIsClosed()\nTRUE (\\(1\\)) если данный объект MULTICURVE является замкнутым (т.е. каждый объект CURVE в коллекции является замкнутым. Возвращает FALSE (\\(0\\)) в противном случае\n\n\nLength()\nДлина данного объекта MULTICURVE, которая равна сумме длин элементов коллекции."
+  },
+  {
+    "objectID": "adv_02_Features.html#мультилиния-multilinestring",
+    "href": "adv_02_Features.html#мультилиния-multilinestring",
+    "title": "Модель OGC Simple Features",
+    "section": "Мультилиния (MULTILINESTRING)",
+    "text": "Мультилиния (MULTILINESTRING)\nMULTILINESTRING — это MULTICURVE с элементами класса LINESTRING."
+  },
+  {
+    "objectID": "adv_02_Features.html#поверхность-surface",
+    "href": "adv_02_Features.html#поверхность-surface",
+    "title": "Модель OGC Simple Features",
+    "section": "Поверхность (SURFACE)",
+    "text": "Поверхность (SURFACE)\nSURFACE — это \\(2\\)-мерный геометрический объект.\n\n\n\n\n\nПростая поверхность состоит из единичной области (“patch”), которая соответствует одной внешней границе, а также \\(0\\) и более внутренних границ.\nПростая поверхность в 3-мерном пространстве изоморфна планарной поверхности с точностью до поворота на плоскость \\(z = 0\\).\nПолиэдральная поверхность формируется “склеиванием” простых поверхностей по общим границам (полиэдр — объединение многогранников).\nЕсли нормали всех компонент полиэдральной поверхности параллельны, то она может быть представлена в виде простой поверхности."
+  },
+  {
+    "objectID": "adv_02_Features.html#поверхность-surface-1",
+    "href": "adv_02_Features.html#поверхность-surface-1",
+    "title": "Модель OGC Simple Features",
+    "section": "Поверхность (SURFACE)",
+    "text": "Поверхность (SURFACE)\n\nSURFACE — это абстрактный класс, вы не можете создать объект этого класса.\nГраница объекта SURFACE — это множество объектов класса CURVE, соответствующих его внешней и (опционально) внутренним границам.\nИнтерфейс класса имеет дополнительные методы:\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nArea()\nПлощадь данного объекта SURFACE в его системе координат\n\n\nCentroid()\nМатематический центроид данного объекта SURFACE как объект класса POINT. Может находиться за пределами объекта.\n\n\nPointOnSurface()\nОбъект класса POINT, который гарантированно принадлежит данному объекту SURFACE."
+  },
+  {
+    "objectID": "adv_02_Features.html#полигон-polygon-и-треугольник-triangle",
+    "href": "adv_02_Features.html#полигон-polygon-и-треугольник-triangle",
+    "title": "Модель OGC Simple Features",
+    "section": "Полигон (POLYGON) и треугольник (TRIANGLE)",
+    "text": "Полигон (POLYGON) и треугольник (TRIANGLE)\nPOLYGON — плоская поверхность с одной внешней и 0+ внутренних границ\n\nГраницы POLYGON имеют класс LINEARRING.\nВнешняя граница против часовой стрелки, внутренние — по часовой.\nTRIANGLE — это POLYGON из 3 различных, неколлинеарных точек.\n\n\n\n\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nExtriorRing()\nВнешнее кольцо данного POLYGON в виде LINESTRING\n\n\nNumInteriorRing()\nКоличество внутренних колец данного POLYGON\n\n\nInteriorRingN(n)\n\\(n\\)-ное внутреннее кольцо данного POLYGON в виде LINESTRING"
+  },
+  {
+    "objectID": "adv_02_Features.html#полигон-polygon",
+    "href": "adv_02_Features.html#полигон-polygon",
+    "title": "Модель OGC Simple Features",
+    "section": "Полигон (POLYGON)",
+    "text": "Полигон (POLYGON)\n\n\n\n\nДополнительные проверки:\n\nВнутренняя область полигона \\(P^\\circ\\) — линейно связное множество.\nВнешняя область полигона \\(P^-\\) с 1 и более дырок — линейно несвязное множество.\nГраницы полигона не могут перекрываться, а их пересечение возможно только в форме касания в точке.\nПолигон не может иметь линий разреза, шипов и проколов. Формально это означает, что полигон совпадает с замыканием его внутренней области: \\(P = \\overline{P^\\circ}\\)."
+  },
+  {
+    "objectID": "adv_02_Features.html#polyhedralsurface-и-tin",
+    "href": "adv_02_Features.html#polyhedralsurface-и-tin",
+    "title": "Модель OGC Simple Features",
+    "section": "POLYHEDRALSURFACE и TIN",
+    "text": "POLYHEDRALSURFACE и TIN\nPOLYHEDRALSURFACE — коллекция полигонов, которые имеют общие границы.\n\n\n\n\n\nДля каждой пары касающихся полигонов их общая граница должна быть представима в виде коллекции объектов LINESTRING.\nКаждый такой LINESTRING должен входить в состав не более чем \\(2\\)-х полигонов.\nНаправление обхода контура у всех граней POLYHEDRALSURFACE должно быть одинаковым. Два соседних полигона проходят общую границу в противоположных направлениях.\nTIN (Triangular Irregular Network) — это POLYHEDRALSURFACE, который состоит из объектов класса TRIANGLE."
+  },
+  {
+    "objectID": "adv_02_Features.html#polyhedralsurface-и-tin-1",
+    "href": "adv_02_Features.html#polyhedralsurface-и-tin-1",
+    "title": "Модель OGC Simple Features",
+    "section": "POLYHEDRALSURFACE и TIN",
+    "text": "POLYHEDRALSURFACE и TIN\nИнтерфейс POLYHEDRALSURFACE дополнительно поддерживает следующие методы:\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nNumPatches()\nКоличество полигонов данного объекта POLYHEDRALSURFACE\n\n\nPatchN(n)\n\\(n\\)-ный полигон данного объекта POLYHEDRALSURFACE в виде объекта POLYGON\n\n\nBoundingPolygons(p)\nКоллекция полигонов, которые граничат с p в данном объекте POLYHEDRALSURFACE в виде объекта MULTIPOLYGON.\n\n\nIsClosed()\nTRUE, если поверхность замкнута сама на себя, т.е. не имеет границы и оконтуривает сплошное тело."
+  },
+  {
+    "objectID": "adv_02_Features.html#мультиповерхность-multisurface",
+    "href": "adv_02_Features.html#мультиповерхность-multisurface",
+    "title": "Модель OGC Simple Features",
+    "section": "Мультиповерхность (MULTISURFACE)",
+    "text": "Мультиповерхность (MULTISURFACE)\n\n\n\n\nMULTISURFACE — 2-мерный объект класса GEOMETRYCOLLECTION, элементами которого являются объекты класса SURFACE.\n\nВнутренние области любых двух поверхностей в коллекции не могут пересекаться.\nГраницы любых двух поверхностей в коллекции могут пересекаться только в конечном числе точек.\nВ случае касания вдоль кривой поверхности могут быть объединены.\nДополнительные методы аналогичны методам SURFACE."
+  },
+  {
+    "objectID": "adv_02_Features.html#мультиполигон-multipolygon",
+    "href": "adv_02_Features.html#мультиполигон-multipolygon",
+    "title": "Модель OGC Simple Features",
+    "section": "Мультиполигон (MULTIPOLYGON)",
+    "text": "Мультиполигон (MULTIPOLYGON)\nMULTIPOLYGON — это объект класса MULTISURFACE, элементы которого являются объектами класса POLYGON.\n\n\n\n\n\nMULTIPOLYGON наследует все ограничения, действующие для объектов классов MULTISURFACE и POLYGON.\nВнутренняя область объекта MULTIPOLYGON , включающего 2 и более полигонов, не является линейно связной. Количество компонент = количество полигонов.\nГраницей объекта MULTIPOLYGON является множество замкнутых объектов LINESTRING, соответствующих границам вложенных объектов POLYGON.\nPOLYHEDRALSURFACE не является мультиполигоном, т.к. может нарушать правило касания в конечном числе точек."
+  },
+  {
+    "objectID": "adv_02_Features.html#иерархия-классов-1",
+    "href": "adv_02_Features.html#иерархия-классов-1",
+    "title": "Модель OGC Simple Features",
+    "section": "Иерархия классов",
+    "text": "Иерархия классов\n\nМодель Simple Features представляет собой иерархию классов, между которыми существуют отношения наследования (△) и коллекции (♢)."
+  },
+  {
+    "objectID": "adv_02_Features.html#библиография",
+    "href": "adv_02_Features.html#библиография",
+    "title": "Модель OGC Simple Features",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nOGC. 2010. «OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture». Open Geospatial Consortium. https://www.ogc.org/standards/sfa."
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#дополнительные-измерения",
+    "href": "adv_03_WKT_WKB.html#дополнительные-измерения",
+    "title": "WKT и WKB",
+    "section": "Дополнительные измерения",
+    "text": "Дополнительные измерения\n\nСтандартные геометрические операции и топологические предикаты игнорируют дополнительные измерения \\(ZM\\).\nНе существует ограничений на координату \\(M\\) — она, в частности, не обязана непрерывно возрастать вдоль объекта LINESTRING.\nИнтерфейс объектов с \\(M\\)-геометрией содержит дополнительные методы LocateAlong() и LocateBetween().\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nLocateAlong(m)\nВозвращает производную геометрическую коллекцию, которая соответствует m\n\n\nLocateBetween(m1, m2)\nВозвращает производную геометрическую коллекцию, которая соответствует отрезку [m1, m2]"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#дополнительные-измерения-1",
+    "href": "adv_03_WKT_WKB.html#дополнительные-измерения-1",
+    "title": "WKT и WKB",
+    "section": "Дополнительные измерения",
+    "text": "Дополнительные измерения\nЗапрос измерения мультиточечного объекта:\np: MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)\np.LocateAlong(4): MULTIPOINT M(0 0 4, 3 1 4)\np.LocateBetween(2,4): MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)\np.LocateAlong(3): POINT M() — пустой объект"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#дополнительные-измерения-2",
+    "href": "adv_03_WKT_WKB.html#дополнительные-измерения-2",
+    "title": "WKT и WKB",
+    "section": "Дополнительные измерения",
+    "text": "Дополнительные измерения\nЗапрос измерения линейного объекта :\nl: MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))\nl.LocateAlong(3): MULTIPOINT M(1.3 0.7 3)\nl.LocateBetween(2,5): GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))\nl.LocateAlong(0.5): POINT M() — пустой объект"
   }
 ]

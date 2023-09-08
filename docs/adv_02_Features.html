@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.309">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
-  <title>Основы геоинформатики - Введение</title>
+  <title>Основы геоинформатики - Модель OGC Simple Features</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,71 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -414,7 +349,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Введение</h1>
+  <h1 class="title">Модель OGC Simple Features</h1>
   <p class="subtitle">Геоинформатика I. Базы пространственных данных</p>
 
 <div class="quarto-title-authors">
@@ -427,429 +362,7 @@
 
   <p class="date">10 февраля 2023 г.</p>
 </section>
-<section id="геоинформатика" class="slide level2">
-<h2>Геоинформатика</h2>
-
-<img data-src="images/semesters.png" class="r-stretch"></section>
-<section id="обзор" class="slide level2 center">
-<h2>Обзор</h2>
-</section>
-<section id="база-пространственных-данных" class="slide level2">
-<h2>База пространственных данных</h2>
-<dl>
-<dt>База пространственных данных <span class="citation" data-cites="gost:52438-2005">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 52438-2005 2018</a>)</span></dt>
-<dd>
-<p>Совокупность пространственных данных, организованных по определенным правилам, устанавливающим общие принципы описания, хранения и манипулирования данными, предназначенная для удовлетворения информационных потребностей пользователя.</p>
-</dd>
-</dl>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Жаргон</strong></p>
-</div>
-<div class="callout-content">
-<p>Не рекомендуются к использованию словосочетания: база геоданных, пространственная база данных, база данных ГИС</p>
-</div>
-</div>
-</div>
-</section>
-<section id="пространственный-объект" class="slide level2">
-<h2>Пространственный объект</h2>
-<dl>
-<dt>Пространственный объект <span class="citation" data-cites="gost:52438-2005">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 52438-2005 2018</a>)</span></dt>
-<dd>
-<p>Цифровая модель материального или абстрактного объекта реального или виртуального мира с указанием его идентификатора, координатных и атрибутивных данных.</p>
-</dd>
-</dl>
-
-<img data-src="images/feature.svg" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
-<section id="эволюция-моделей-субд" class="slide level2">
-<h2>Эволюция моделей СУБД</h2>
-<div class="cell" data-reveal="true" data-fig-width="11">
-<div class="cell-output-display">
-<div>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-  A(Файловые) --&gt; B(Сетевые)
-  A --&gt; C(Иерархические)
-  C --&gt; D(Реляционные / РСУБД)
-  B --&gt; D
-  E(Объектно-ориентированные / ООСУБД) --&gt; F(Объектно-Реляционные / ОРСУБД)
-  D --&gt; F
-</pre>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="пространственные-данные-в-рсубд" class="slide level2">
-<h2>Пространственные данные в РСУБД</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-3-1.png" width="400" height="400"></p>
-</div>
-</div>
-<p>Представление в обычной РСУБД достаточно громоздко</p>
-</div><div class="column" style="width:60%;">
-<table>
-<caption>Parcels</caption>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Area</th>
-<th>Price</th>
-<th>BoundaryID</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Уч. 2</td>
-<td>37.0</td>
-<td>560000</td>
-<td>1055</td>
-</tr>
-</tbody>
-</table>
-<table>
-<caption>Polygons</caption>
-<thead>
-<tr class="header">
-<th>BoundaryID</th>
-<th>Edge</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1055</td>
-<td>A</td>
-</tr>
-<tr class="even">
-<td>1055</td>
-<td>B</td>
-</tr>
-<tr class="odd">
-<td>1055</td>
-<td>C</td>
-</tr>
-<tr class="even">
-<td>1055</td>
-<td>D</td>
-</tr>
-<tr class="odd">
-<td>1055</td>
-<td>E</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="пространственные-данные-в-рсубд-1" class="slide level2">
-<h2>Пространственные данные в РСУБД</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-4-3.png" width="400" height="400"></p>
-</div>
-</div>
-<p>Представление в обычной РСУБД достаточно громоздко</p>
-</div><div class="column" style="width:25%;">
-<table>
-<caption>Edges</caption>
-<thead>
-<tr class="header">
-<th>Edge</th>
-<th>Point</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>A</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>A</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>B</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>B</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>C</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>C</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>D</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>D</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>E</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>E</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width:25%;">
-<table>
-<caption>Points</caption>
-<thead>
-<tr class="header">
-<th>Point</th>
-<th>X</th>
-<th>Y</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>5</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>0</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>3</td>
-<td>9</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>8</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>6</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="пространственные-данные-в-рсубд-2" class="slide level2">
-<h2>Пространственные данные в РСУБД</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-5-5.png" width="400" height="400"></p>
-</div>
-</div>
-<p>Представление в обычной РСУБД достаточно громоздко</p>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-reveal="true" data-fig-width="2">
-<div class="cell-output-display">
-<div>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-  A(Parcels) --&gt; B(Polygons)
-  B --&gt; C(Edges)
-  C --&gt; D(Points)
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="абстрактные-типы-данных" class="slide level2">
-<h2>Абстрактные типы данных</h2>
-<p>Важное наследие объектно-ориентированных систем — поддержка абстрактных типов данных.</p>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p><em>Примитивные типы данных</em> составляют основу реляционных БД. <img data-src="images/elementary_types.svg" style="width:90.0%"></p>
-</div><div class="column" style="width:55%;">
-<p><em>Абстрактные типы данных (АТД)</em> обеспечивают хранение коллекций и объектов со свойствами. <img data-src="images/abstract_types.svg" style="width:100.0%"></p>
-</div>
-</div>
-<p>Большинство ОРСУБД предлагают модульный подход к АТД, позволяя добавлять и удалять их.</p>
-</section>
-<section id="пространственная-субд" class="slide level2">
-<h2>Пространственная СУБД</h2>
-<p>Абстрактные типы данных — основа реализации пространственных СУБД.</p>
-<p>ПСУБД должна отвечать следующим требованиям:</p>
-<ol type="1">
-<li>Представляет собой программный модуль, взаимодействующий с нижестоящей СУБД или являющийся ее компонентой</li>
-<li>Поддерживает множественные модели пространственных данных, соответствующие им абстрактные типы данных, а также язык запросов, из которого эти типы могут быть вызваны.</li>
-<li>Реализует пространственное индексирование, эффективные алгоритмы пространственных операций и специальные правила оптимизации запросов.</li>
-</ol>
-</section>
-<section id="пространственная-субд-1" class="slide level2">
-<h2>Пространственная СУБД</h2>
-<p>Основные аспекты функционирования ПСУБД:</p>
-<ol type="1">
-<li>Модели пространственных данных и пространственных отношений.</li>
-<li>Язык запросов</li>
-<li>Обработка и оптимизация запросов</li>
-<li>Организация файлового хранилища</li>
-<li>Выполнение аналитических операций (добыча данных).</li>
-</ol>
-</section>
-<section id="модели-пространственных-данных" class="slide level2">
-<h2>Модели пространственных данных</h2>
-
-<img data-src="images/basic_primitives.svg" style="width:100.0%" class="r-stretch"><p>Абстрактные типы данных в ПСУБД реализуют различные модели пространственных данных</p>
-</section>
-<section id="пространственные-отношения" class="slide level2">
-<h2>Пространственные отношения</h2>
-
-<img data-src="images/sp_relations.svg" style="width:100.0%" class="r-stretch"><p>Пространственные запросы в ПСУБД опираются на модели пространственных отношений</p>
-</section>
-<section id="язык-запросов" class="slide level2">
-<h2>Язык запросов</h2>
-<p><strong>Structured Query Language (SQL)</strong> — язык структурированных запросов. Применяется для создания, модификации и управления данными в реляционной базе данных.</p>
-<p>Пространственная СУБД поддерживает создание и манипулирование пространственными типами данных:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>SELECT 'SRID=4326;POINT(-123 34)'::geography</span>
-<span id="cb1-2"><a href="#cb1-2"></a>"0101000020E61000000000000000C05EC00000000000004140"</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>CREATE TABLE geotable(gid serial PRIMARY KEY, name TEXT, geom geography(POINT) );</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a>INSERT INTO geotable ( name, geom )</span>
-<span id="cb1-7"><a href="#cb1-7"></a>  VALUES ( ST_GeomFromEWKT('SRID=312;POINTM(-126.4 45.32 15)'), 'A Place' )</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="пространственные-расширения-sql" class="slide level2">
-<h2>Пространственные расширения SQL</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>SELECT</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  m.name,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  SUM(ST_Length(r.geom))/1000 as roads_km</span>
-<span id="cb2-4"><a href="#cb2-4"></a>FROM bc_roads AS r</span>
-<span id="cb2-5"><a href="#cb2-5"></a>JOIN bc_municipality AS m</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  ON ST_Contains(m.geom, r.geom)</span>
-<span id="cb2-7"><a href="#cb2-7"></a>GROUP BY m.name</span>
-<span id="cb2-8"><a href="#cb2-8"></a>ORDER BY roads_km;</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a>name                        | roads_km</span>
-<span id="cb2-11"><a href="#cb2-11"></a>----------------------------+------------------</span>
-<span id="cb2-12"><a href="#cb2-12"></a>SURREY                      | 1539.47553551242</span>
-<span id="cb2-13"><a href="#cb2-13"></a>VANCOUVER                   | 1450.33093486576</span>
-<span id="cb2-14"><a href="#cb2-14"></a>LANGLEY DISTRICT            | 833.793392535662</span>
-<span id="cb2-15"><a href="#cb2-15"></a>BURNABY                     | 773.769091404338</span>
-<span id="cb2-16"><a href="#cb2-16"></a>PRINCE GEORGE               | 694.37554369147</span>
-<span id="cb2-17"><a href="#cb2-17"></a>...</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="обработка-запросов" class="slide level2">
-<h2>Обработка запросов</h2>
-
-<img data-src="images/query_plan.svg" style="width:100.0%" class="r-stretch"><ul>
-<li><p>SQL — декларативный язык. Он описывает <em>что</em> необходимо получить, но не <em>как</em>, т.е. не сам алгоритм выполнения процедуры.</p></li>
-<li><p>СУБД должна самостоятельно определить план эффективного выполнения запроса.</p></li>
-<li><p>Обработка запроса представляет собой последовательность шагов, которую инициирует СУБД для выполнения запроса.</p></li>
-<li><p>Оптимизация пространственных запросов обладает своей спецификой</p></li>
-</ul>
-</section>
-<section id="обработка-запросов-1" class="slide level2">
-<h2>Обработка запросов</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>SELECT</span>
-<span id="cb3-2"><a href="#cb3-2"></a>FROM reltypes R, soiltypes S</span>
-<span id="cb3-3"><a href="#cb3-3"></a>WHERE st_area(S.geom) &lt; 10000 AND st_area(R.geom) &lt; 10000</span>
-<span id="cb3-4"><a href="#cb3-4"></a>AND st_intersects(R.geom, s.geom)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-<img data-src="images/filter_refine.svg" style="width:100.0%" class="r-stretch"><p>Пространственный запрос состоит из фильтрации (<code>FILTER</code>) на основе MBR и уточнения (<code>REFINE</code>) по реальной геометрии.</p>
-</section>
-<section id="хранение-данных" class="slide level2">
-<h2>Хранение данных</h2>
-<p>Данные в файлах имеют одномерное упорядочение. Однако записи можно хранить так чтобы пространственно близкие располагались ближе друг к другу</p>
-
-<img data-src="images/ordering_comp1.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="хранение-данных-1" class="slide level2">
-<h2>Хранение данных</h2>
-<p>Данные в файлах имеют одномерное упорядочение. Однако записи можно хранить так чтобы пространственно близкие располагались ближе друг к другу</p>
-
-<img data-src="images/ordering_comp2.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="оптимизация-запросов" class="slide level2">
-<h2>Оптимизация запросов</h2>
-<p><strong>Непространственный запрос</strong> <em><code>Выбери всех школьников 10 класса, которые являются призерами всероссийской олимпиады по географии</code></em> раскладывается на 2 подзапроса:</p>
-<ul>
-<li><p><strong>ПРОЕКЦИЯ</strong> (single-scan): выбрать всех школьников 10 класса</p></li>
-<li><p><strong>СОЕДИНЕНИЕ</strong> (multi-scan): сопоставить таблицу призеров и таблицу школьников</p></li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Последовательность</strong></p>
-</div>
-<div class="callout-content">
-<p>Сначала должен быть выполнен запрос проекции, т.к. соединение является более ресурсоемкой многопроходной (<em>multiscan</em>) операцией</p>
-</div>
-</div>
-</div>
-</section>
-<section id="оптимизация-запросов-1" class="slide level2">
-<h2>Оптимизация запросов</h2>
-<p><strong>Пространственный запрос</strong> <em><code>Выбери все регионы с площадью более 100 тыс. кв. км, в которых проходил заключительный этап всероссийской олимпиады школьников по географии</code></em> раскладывается на 2 подзапроса:</p>
-<ul>
-<li><p><strong>ДИАПАЗОН</strong> (single-scan): выбрать регионы с площадью более <span class="math inline">\(100\)</span> тыс. кв. км</p></li>
-<li><p><strong>ПРОСТРАНСТВЕННОЕ СОЕДИНЕНИЕ</strong> (multi-scan): выбрать регионы, в которых находятся города проведения заключительного этапа</p></li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Последовательность</strong></p>
-</div>
-<div class="callout-content">
-<p>Последовательность не очевидна, т.к. вычисление площади — ресурсоемкая операция. Порядок выполнения пространственных запросов требует тщательного анализа.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="добыча-данных" class="slide level2">
-<h2>Добыча данных</h2>
-<p><strong>Базы <em>[пространственных]</em> данных</strong> — источник информации, который требует особого подхода в силу потенциального объема информации и способов взаимодействия с нею.</p>
-<ol type="1">
-<li>Алгоритмы для больших данных, или решения, позволяющие совмещать аналитику данных и технологии обработки больших массивов информации.</li>
-<li>Расширение функциональности языка запросов — возможность выполнять пространственную аналитику данных “на лету”.</li>
-</ol>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Пример</strong></p>
-</div>
-<div class="callout-content">
-<p>Пространственно-временные базы данных абонентов сотовой сети могут содержать терабайты информации. Как сделать равномерную случайную выборку?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="simple-features" class="slide level2 center">
-<h2>Simple Features</h2>
-</section>
-<section id="simple-features-1" class="slide level2">
+<section id="simple-features" class="slide level2">
 <h2>Simple Features</h2>
 <p><strong>Simple Features</strong> — стандарт <span class="citation" data-cites="OGC2010">OGC (<a href="#/библиография" role="doc-biblioref" onclick="">2010</a>)</span>, который определяет общую модель хранения и доступа к простым (векторным) объектам.</p>
 <ul>
@@ -886,7 +399,7 @@
 <table>
 <colgroup>
 <col style="width: 9%">
-<col style="width: 90%">
+<col style="width: 91%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -943,8 +456,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 7%">
-<col style="width: 92%">
+<col style="width: 6%">
+<col style="width: 93%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -968,8 +481,8 @@
 <h2>Интерфейс класса <code>GEOMETRY</code></h2>
 <table>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
+<col style="width: 18%">
+<col style="width: 81%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1107,8 +620,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 21%">
+<col style="width: 78%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1138,15 +651,15 @@
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-7-7.png" width="300" height="300"></p>
+<p><img data-src="adv_02_Features_files/figure-revealjs/unnamed-chunk-1-1.png" width="300" height="300"></p>
 </div>
 </div>
 </div>
 </div>
 <table>
 <colgroup>
-<col style="width: 17%">
-<col style="width: 82%">
+<col style="width: 9%">
+<col style="width: 90%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1187,7 +700,7 @@
 </div><div class="column" style="width:30%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-8-9.png" width="400" height="200"></p>
+<p><img data-src="adv_02_Features_files/figure-revealjs/unnamed-chunk-2-3.png" width="400" height="200"></p>
 </div>
 </div>
 </div>
@@ -1254,8 +767,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 21%">
+<col style="width: 78%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1348,8 +861,8 @@
 <p>Интерфейс <code>MULTICURVE</code> дополнительно к <code>GEOMETRYCOLLECTION</code> реализует следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 8%">
-<col style="width: 91%">
+<col style="width: 7%">
+<col style="width: 92%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1401,8 +914,8 @@
 </ul>
 <table>
 <colgroup>
-<col style="width: 15%">
-<col style="width: 84%">
+<col style="width: 14%">
+<col style="width: 85%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1440,8 +953,8 @@
 </div><div class="column" style="width:70%;">
 <table>
 <colgroup>
-<col style="width: 24%">
-<col style="width: 75%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1504,8 +1017,8 @@
 <p>Интерфейс <code>POLYHEDRALSURFACE</code> дополнительно поддерживает следующие методы:</p>
 <table>
 <colgroup>
-<col style="width: 17%">
-<col style="width: 82%">
+<col style="width: 16%">
+<col style="width: 83%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1570,369 +1083,6 @@
 
 <img data-src="images/sf_hierarchy.svg" style="width:100.0%" class="r-stretch"><p>Модель <em>Simple Features</em> представляет собой иерархию классов, между которыми существуют отношения <strong>наследования</strong> (<strong>△</strong>) и <strong>коллекции</strong> (<strong>♢</strong>).</p>
 </section>
-<section id="дополнительные-измерения" class="slide level2">
-<h2>Дополнительные измерения</h2>
-<ol type="1">
-<li><p>Стандартные геометрические операции и топологические предикаты <em>игнорируют</em> дополнительные измерения <span class="math inline">\(ZM\)</span>.</p></li>
-<li><p>Не существует ограничений на координату <span class="math inline">\(M\)</span> — она, в частности, не обязана непрерывно возрастать вдоль объекта <code>LINESTRING</code>.</p></li>
-<li><p>Интерфейс объектов с <span class="math inline">\(M\)</span>-геометрией содержит дополнительные методы <code>LocateAlong()</code> и <code>LocateBetween()</code>.</p></li>
-</ol>
-<table>
-<colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Метод</th>
-<th>Назначение</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>LocateAlong(m)</code></td>
-<td>Возвращает производную геометрическую коллекцию, которая соответствует <code>m</code></td>
-</tr>
-<tr class="even">
-<td><code>LocateBetween(m1, m2)</code></td>
-<td>Возвращает производную геометрическую коллекцию, которая соответствует отрезку <code>[m1, m2]</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="дополнительные-измерения-1" class="slide level2">
-<h2>Дополнительные измерения</h2>
-<p>Запрос измерения мультиточечного объекта:</p>
-<p><strong><code>p:</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)</code></p>
-<p><strong><code>p.LocateAlong(4):</code></strong> <code>MULTIPOINT M(0 0 4, 3 1 4)</code></p>
-<p><strong><code>p.LocateBetween(2,4):</code></strong> <code>MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)</code></p>
-<p><strong><code>p.LocateAlong(3):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-10-11.png" width="700" height="350"></p>
-</div>
-</div>
-</section>
-<section id="дополнительные-измерения-2" class="slide level2">
-<h2>Дополнительные измерения</h2>
-<p>Запрос измерения линейного объекта :</p>
-<p><strong><code>l:</code></strong> <code>MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))</code></p>
-<p><strong><code>l.LocateAlong(3):</code></strong> <code>MULTIPOINT M(1.3 0.7 3)</code></p>
-<p><strong><code>l.LocateBetween(2,5):</code></strong> <code>GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))</code></p>
-<p><strong><code>l.LocateAlong(0.5):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="adv_01_Features_files/figure-revealjs/unnamed-chunk-11-13.png" width="600" height="300"></p>
-</div>
-</div>
-</section>
-<section id="формальная-грамматика" class="slide level2">
-<h2>Формальная грамматика</h2>
-<dl>
-<dt>Алфавит</dt>
-<dd>
-<p>Множество неделимых (атомарных) символов</p>
-</dd>
-<dt>Слово</dt>
-<dd>
-<p>Конечный упорядоченный набор (кортеж) символов из заданного алфавита</p>
-</dd>
-<dt>Формальный язык</dt>
-<dd>
-<p>Множество конечных слов над конечным алфавитом</p>
-</dd>
-<dt>Синтаксис</dt>
-<dd>
-<p>Раздел лингвистики, изучающий предложения и словосочетания</p>
-</dd>
-<dt>Формальная грамматика</dt>
-<dd>
-<p>Способ формирования из алфавита языка строк (слов, словосочетаний, предложений) в соответствии с его синтаксисом</p>
-</dd>
-</dl>
-</section>
-<section id="формальная-грамматика-1" class="slide level2">
-<h2>Формальная грамматика</h2>
-<dl>
-<dt>Производящее правило</dt>
-<dd>
-<p>Правило замены символов, которое может применяться для генерации новой последовательности символов</p>
-</dd>
-<dt>Терминальные символы</dt>
-<dd>
-<p>Символы, входящие в алфавит</p>
-</dd>
-<dt>Нетерминальные символы</dt>
-<dd>
-<p>Заменяются группой терминальных символов в соответствии с производящими правилами</p>
-</dd>
-</dl>
-</section>
-<section id="форма-бэкуса-наура-бнф" class="slide level2">
-<h2>Форма Бэкуса-Наура (БНФ)</h2>
-<p><strong>Форма Бэкуса-Наура (БНФ)</strong> — формальная грамматика с последовательным определением синаксических категорий через производящие правила вида:</p>
-<p><code>&lt;symbol&gt; ::= expression</code></p>
-<ul>
-<li><p><code>&lt;symbol&gt;</code> — нетерминальный символ (переменная)</p></li>
-<li><p><code>::=</code> — оператор замены символа слева (<code>&lt;symbol&gt;</code>) на выражение справа (<code>expression</code>).</p></li>
-<li><p><code>expression</code> — выражение, которое состоит из одной и более <em>альтернативных</em> последовательностей терминальных или нетерминальных символов (токенов)</p></li>
-<li><p><code>|</code> — символ, используемый для разделения альтернативных последовательностей в выражении <code>expression</code></p></li>
-</ul>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Угловые скобки (<code>&lt;&gt;</code>)</strong></p>
-</div>
-<div class="callout-content">
-<p>В нотации Бэкуса-Наура нетерминальные символы всегда заключаются в угловые скобки (<code>&lt;&gt;</code>).</p>
-</div>
-</div>
-</div>
-</section>
-<section id="форма-бэкуса-наура-бнф-1" class="slide level2">
-<h2>Форма Бэкуса-Наура (БНФ)</h2>
-<p><strong>БНФ</strong> базируется на следующих обозначениях:</p>
-<table>
-<colgroup>
-<col style="width: 7%">
-<col style="width: 92%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><code>{}</code></td>
-<td>Опциональный (необязательный) токен; фигурные скобки используются для обозначения и не являются частью токена</td>
-</tr>
-<tr class="even">
-<td><code>()</code></td>
-<td>Группировка последовательности токенов в один токен; круглые скобки используются для обозначения и не являются частью токена</td>
-</tr>
-<tr class="odd">
-<td><code>*</code></td>
-<td>Опциональное (необязательное) использование множества экземпляров токена</td>
-</tr>
-<tr class="even">
-<td><code>|</code></td>
-<td>Разделитель альтернативных токенов; не включается в результат</td>
-</tr>
-<tr class="odd">
-<td><code>&lt;&gt;</code></td>
-<td>Определяемый нетерминальный токен</td>
-</tr>
-<tr class="even">
-<td><code>::=</code></td>
-<td>Оператор, обозначающий производящее правило: левый операнд может быть заменен на правый.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Последовательность символов без обозначений представляет собой терминальный токен</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-wkt" class="slide level2">
-<h2>Определение WKT</h2>
-<table>
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><code>&lt;empty set&gt; ::= EMPTY</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;left paren&gt; ::= (</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;right paren&gt; ::= )</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;comma&gt; ::= ,</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;period&gt; ::= .</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;plus sign&gt; ::= +</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;minus sign&gt; ::= -</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-wkt-1" class="slide level2">
-<h2>Определение WKT</h2>
-<table>
-<colgroup>
-<col style="width: 101%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><code>&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;exponent&gt; ::= &lt;signed integer&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;x&gt; ::= &lt;signed numeric literal&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;y&gt; ::= &lt;signed numeric literal&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;z&gt; ::= &lt;signed numeric literal&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;m&gt; ::= &lt;signed numeric literal&gt;</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-2d-геометрий" class="slide level2">
-<h2>Определение <span class="math inline">\(2D\)</span>-геометрий</h2>
-<table>
-<colgroup>
-<col style="width: 101%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><code>&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;</code></td>
-</tr>
-<tr class="even">
-<td><p><code>&lt;point text&gt; ::=</code></p>
-<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;</code></p></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;point tagged text&gt; ::= point &lt;point text&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;</code></td>
-</tr>
-<tr class="even">
-<td><p><code>&lt;polygon text&gt; ::=</code></p>
-<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;</code></p>
-<p><code>{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-2d-геометрий-1" class="slide level2">
-<h2>Определение <span class="math inline">\(2D\)</span>-геометрий</h2>
-<table>
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><code>&lt;polyhedralsurface text&gt; ::=</code></p>
-<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt;</code></p>
-<p><code>{&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code>&lt;polyhedralsurface tagged text&gt; ::=</code></p>
-<p><code>polyhedralsurface &lt;polyhedralsurface text&gt;</code></p></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-2d-коллекций" class="slide level2">
-<h2>Определение <span class="math inline">\(2D\)</span>-коллекций</h2>
-<table>
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><code>&lt;multipoint text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
-<p><code>&lt;point text&gt; {&lt;comma&gt; &lt;point text&gt;}* &lt;right paren&gt;</code></p></td>
-</tr>
-<tr class="even">
-<td><code>&lt;multipoint tagged text&gt; ::= multipoint &lt;multipoint text&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><p><code>&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
-<p><code>&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code>&lt;multilinestring tagged text&gt; ::=</code></p>
-<p><code>multilinestring &lt;multilinestring text&gt;</code></p></td>
-</tr>
-<tr class="odd">
-<td><p><code>&lt;multipolygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
-<p><code>&lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;</code></p></td>
-</tr>
-<tr class="even">
-<td><p><code>&lt;multipolygon tagged text&gt; ::=</code></p>
-<p><code>multipolygon &lt;multipolygon text&gt;</code></p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-2d-geometrycollection" class="slide level2">
-<h2>Определение <span class="math inline">\(2D\)</span>-<code>GEOMETRYCOLLECTION</code></h2>
-<table>
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p><code>&lt;geometry tagged text&gt; ::=</code></p>
-<p><code>&lt;point tagged text&gt; | &lt;linestring tagged text&gt;</code></p>
-<p><code>| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;</code></p>
-<p><code>| &lt;polyhedralsurface tagged text&gt;</code></p>
-<p><code>| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;</code></p>
-<p><code>| &lt;multilinestring tagged text&gt;</code></p>
-<p><code>| &lt;multipolygon tagged text&gt;</code></p>
-<p><code>| &lt;geometrycollection tagged text&gt;</code></p></td>
-</tr>
-<tr class="even">
-<td><code>&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-3d4d-геометрий-и-коллекций" class="slide level2">
-<h2>Определение <span class="math inline">\(3D/4D\)</span>-геометрий и коллекций</h2>
-</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
@@ -1942,9 +1092,6 @@
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-OGC2010" class="csl-entry" role="listitem">
 OGC. 2010. <span>«OpenGIS® Implementation Standard for Geographic information - Simple feature access - Part 1: Common architecture»</span>. Open Geospatial Consortium. <a href="https://www.ogc.org/standards/sfa">https://www.ogc.org/standards/sfa</a>.
-</div>
-<div id="ref-gost:52438-2005" class="csl-entry" role="listitem">
-ГОСТ Р 52438-2005. 2018. <span>«Географические информационные системы. Термины и определения»</span>. Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200044680">https://docs.cntd.ru/document/1200044680</a>.
 </div>
 </div>
 </section>
