@@ -450,7 +450,7 @@
 <h2>Определение WKT</h2>
 <table>
 <colgroup>
-<col style="width: 100%">
+<col style="width: 101%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -469,13 +469,19 @@
 <td><code>&lt;period&gt; ::= .</code></td>
 </tr>
 <tr class="even">
-<td><code>&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9</code></td>
+<td><code>&lt;decimal point&gt; ::= .</code></td>
 </tr>
 <tr class="odd">
-<td><code>&lt;plus sign&gt; ::= +</code></td>
+<td><code>&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9</code></td>
 </tr>
 <tr class="even">
+<td><code>&lt;plus sign&gt; ::= +</code></td>
+</tr>
+<tr class="odd">
 <td><code>&lt;minus sign&gt; ::= -</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;sign&gt; ::= &lt;plus sign&gt; | &lt;minus sign&gt;</code></td>
 </tr>
 <tr class="odd">
 <td><code>&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*</code></td>
@@ -483,49 +489,57 @@
 <tr class="even">
 <td><code>&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;</code></td>
 </tr>
-<tr class="odd">
-<td><code>&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;</code></td>
-</tr>
 </tbody>
 </table>
 </section>
+<section id="разложение-целого-со-знаком" class="slide level2">
+<h2>Разложение целого со знаком</h2>
+
+<img data-src="images/signed_integer.svg" style="width:50.0%" class="r-stretch"></section>
 <section id="определение-wkt-1" class="slide level2">
 <h2>Определение WKT</h2>
 <table>
 <colgroup>
-<col style="width: 101%">
+<col style="width: 100%">
 </colgroup>
 <tbody>
 <tr class="odd">
+<td><code>&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;</code></td>
+</tr>
+<tr class="even">
 <td><code>&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>&lt;exponent&gt; ::= &lt;signed integer&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>&lt;x&gt; ::= &lt;signed numeric literal&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>&lt;y&gt; ::= &lt;signed numeric literal&gt;</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>&lt;z&gt; ::= &lt;signed numeric literal&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>&lt;m&gt; ::= &lt;signed numeric literal&gt;</code></td>
 </tr>
 </tbody>
 </table>
 </section>
+<section id="разложение-действительного-числа" class="slide level2">
+<h2>Разложение действительного числа</h2>
+
+<img data-src="images/signed_literal.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="определение-2d-геометрий" class="slide level2">
 <h2>Определение <span class="math inline">\(2D\)</span>-геометрий</h2>
 <table>
@@ -563,11 +577,15 @@
 </tbody>
 </table>
 </section>
+<section id="разложение-2d-точки" class="slide level2">
+<h2>Разложение <span class="math inline">\(2D\)</span>-точки</h2>
+
+<img data-src="images/point_tagged.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="определение-2d-геометрий-1" class="slide level2">
 <h2>Определение <span class="math inline">\(2D\)</span>-геометрий</h2>
-<table>
+<table style="width:76%;">
 <colgroup>
-<col style="width: 100%">
+<col style="width: 76%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -587,9 +605,9 @@
 </section>
 <section id="определение-2d-коллекций" class="slide level2">
 <h2>Определение <span class="math inline">\(2D\)</span>-коллекций</h2>
-<table>
+<table style="width:89%;">
 <colgroup>
-<col style="width: 100%">
+<col style="width: 88%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -708,9 +726,6 @@
 <p><img data-src="adv_03_WKT_WKB_files/figure-revealjs/unnamed-chunk-2-3.png" width="600" height="300"></p>
 </div>
 </div>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>

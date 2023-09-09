@@ -3826,14 +3826,14 @@
     "href": "adv_03_WKT_WKB.html#определение-wkt",
     "title": "WKT и WKB",
     "section": "Определение WKT",
-    "text": "Определение WKT\n\n\n\n\n\n\n&lt;empty set&gt; ::= EMPTY\n\n\n&lt;left paren&gt; ::= (\n\n\n&lt;right paren&gt; ::= )\n\n\n&lt;comma&gt; ::= ,\n\n\n&lt;period&gt; ::= .\n\n\n&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9\n\n\n&lt;plus sign&gt; ::= +\n\n\n&lt;minus sign&gt; ::= -\n\n\n&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*\n\n\n&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;"
+    "text": "Определение WKT\n\n\n\n\n\n\n&lt;empty set&gt; ::= EMPTY\n\n\n&lt;left paren&gt; ::= (\n\n\n&lt;right paren&gt; ::= )\n\n\n&lt;comma&gt; ::= ,\n\n\n&lt;period&gt; ::= .\n\n\n&lt;decimal point&gt; ::= .\n\n\n&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9\n\n\n&lt;plus sign&gt; ::= +\n\n\n&lt;minus sign&gt; ::= -\n\n\n&lt;sign&gt; ::= &lt;plus sign&gt; | &lt;minus sign&gt;\n\n\n&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*\n\n\n&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-wkt-1",
     "href": "adv_03_WKT_WKB.html#определение-wkt-1",
     "title": "WKT и WKB",
     "section": "Определение WKT",
-    "text": "Определение WKT\n\n\n\n\n\n\n&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;\n\n\n&lt;exponent&gt; ::= &lt;signed integer&gt;\n\n\n&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;\n\n\n&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;\n\n\n&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;\n\n\n&lt;x&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;y&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;z&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;m&gt; ::= &lt;signed numeric literal&gt;"
+    "text": "Определение WKT\n\n\n\n\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;\n\n\n&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;\n\n\n&lt;exponent&gt; ::= &lt;signed integer&gt;\n\n\n&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;\n\n\n&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;\n\n\n&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;\n\n\n&lt;x&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;y&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;z&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;m&gt; ::= &lt;signed numeric literal&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-2d-геометрий",
@@ -4289,5 +4289,96 @@
     "title": "WKT и WKB",
     "section": "Дополнительные измерения",
     "text": "Дополнительные измерения\nЗапрос измерения линейного объекта :\nl: MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))\nl.LocateAlong(3): MULTIPOINT M(1.3 0.7 3)\nl.LocateBetween(2,5): GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))\nl.LocateAlong(0.5): POINT M() — пустой объект"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-wkt-2",
+    "href": "adv_03_WKT_WKB.html#определение-wkt-2",
+    "title": "WKT и WKB",
+    "section": "Определение WKT",
+    "text": "Определение WKT\n\n\n\n\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;\n\n\n&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;\n\n\n&lt;exponent&gt; ::= &lt;signed integer&gt;\n\n\n&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;\n\n\n&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;\n\n\n&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;\n\n\n&lt;x&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;y&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;z&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;m&gt; ::= &lt;signed numeric literal&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-wkt-3",
+    "href": "adv_03_WKT_WKB.html#определение-wkt-3",
+    "title": "WKT и WKB",
+    "section": "Определение WKT",
+    "text": "Определение WKT\nБНФ-разложение действительного числа (signed numeric literal):"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#бнф-разложение-signed-numeric-literal",
+    "href": "adv_03_WKT_WKB.html#бнф-разложение-signed-numeric-literal",
+    "title": "WKT и WKB",
+    "section": "БНФ-разложение <signed numeric literal>",
+    "text": "БНФ-разложение &lt;signed numeric literal&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#определение-2d-геометрий-2",
+    "href": "adv_03_WKT_WKB.html#определение-2d-геометрий-2",
+    "title": "WKT и WKB",
+    "section": "Определение \\(2D\\)-геометрий",
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;polyhedralsurface text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt;\n{&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;polyhedralsurface tagged text&gt; ::=\npolyhedralsurface &lt;polyhedralsurface text&gt;\n\n\n&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#бнф-разложение-point",
+    "href": "adv_03_WKT_WKB.html#бнф-разложение-point",
+    "title": "WKT и WKB",
+    "section": "БНФ-разложение <point>",
+    "text": "БНФ-разложение &lt;point&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-signed-integer",
+    "href": "adv_03_WKT_WKB.html#разложение-signed-integer",
+    "title": "WKT и WKB",
+    "section": "Разложение <signed integer>",
+    "text": "Разложение &lt;signed integer&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-signed-numeric-literal",
+    "href": "adv_03_WKT_WKB.html#разложение-signed-numeric-literal",
+    "title": "WKT и WKB",
+    "section": "Разложение <signed numeric literal>",
+    "text": "Разложение &lt;signed numeric literal&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-point",
+    "href": "adv_03_WKT_WKB.html#разложение-point",
+    "title": "WKT и WKB",
+    "section": "Разложение <point>",
+    "text": "Разложение &lt;point&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-point-tagged-text",
+    "href": "adv_03_WKT_WKB.html#разложение-point-tagged-text",
+    "title": "WKT и WKB",
+    "section": "Разложение <point tagged text>",
+    "text": "Разложение &lt;point tagged text&gt;"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-целого-со-знаком",
+    "href": "adv_03_WKT_WKB.html#разложение-целого-со-знаком",
+    "title": "WKT и WKB",
+    "section": "Разложение целого со знаком",
+    "text": "Разложение целого со знаком"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-действительного-числа",
+    "href": "adv_03_WKT_WKB.html#разложение-действительного-числа",
+    "title": "WKT и WKB",
+    "section": "Разложение действительного числа",
+    "text": "Разложение действительного числа"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-точки",
+    "href": "adv_03_WKT_WKB.html#разложение-точки",
+    "title": "WKT и WKB",
+    "section": "Разложение точки",
+    "text": "Разложение точки"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-2d-точки",
+    "href": "adv_03_WKT_WKB.html#разложение-2d-точки",
+    "title": "WKT и WKB",
+    "section": "Разложение \\(2D\\)-точки",
+    "text": "Разложение \\(2D\\)-точки"
   }
 ]
