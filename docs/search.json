@@ -3798,7 +3798,7 @@
     "href": "adv_03_WKT_WKB.html#формальная-грамматика",
     "title": "WKT и WKB",
     "section": "Формальная грамматика",
-    "text": "Формальная грамматика\n\nАлфавит\n\nМножество неделимых (атомарных) символов\n\nСлово\n\nКонечный упорядоченный набор (кортеж) символов из заданного алфавита\n\nФормальный язык\n\nМножество конечных слов над конечным алфавитом\n\nСинтаксис\n\nРаздел лингвистики, изучающий предложения и словосочетания\n\nФормальная грамматика\n\nСпособ формирования из алфавита языка строк (слов, словосочетаний, предложений) в соответствии с его синтаксисом"
+    "text": "Формальная грамматика\n\nАлфавит\n\nМножество неделимых (атомарных) символов\n\nСлово\n\nКонечный упорядоченный набор (кортеж) символов из заданного алфавита\n\nФормальный язык\n\nМножество конечных слов над конечным алфавитом\n\nСинтаксис\n\nСовокупность правил, упорядочивающих структуру предложений\n\nФормальная грамматика\n\nСпособ формирования из алфавита языка строк (слов, словосочетаний, предложений) в соответствии с его синтаксисом"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#формальная-грамматика-1",
@@ -3840,7 +3840,7 @@
     "href": "adv_03_WKT_WKB.html#определение-2d-геометрий",
     "title": "WKT и WKB",
     "section": "Определение \\(2D\\)-геометрий",
-    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;\n\n\n&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;\n\n\n&lt;point tagged text&gt; ::= point &lt;point text&gt;\n\n\n&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;\n\n\n&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;\n\n\n&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;\n{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;\n\n\n&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;"
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;\n\n\n&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;point&gt; &lt;right paren&gt;\n\n\n&lt;point tagged text&gt; ::= point &lt;point text&gt;\n\n\n&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;\n\n\n&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;\n\n\n&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;\n\n\n&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-2d-геометрий-1",

@@ -357,7 +357,7 @@
 </dd>
 <dt>Синтаксис</dt>
 <dd>
-<p>Раздел лингвистики, изучающий предложения и словосочетания</p>
+<p>Совокупность правил, упорядочивающих структуру предложений</p>
 </dd>
 <dt>Формальная грамматика</dt>
 <dd>
@@ -551,7 +551,8 @@
 <td><code>&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;</code></td>
 </tr>
 <tr class="even">
-<td><code>&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;</code></td>
+<td><p><code>&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
+<p><code>&lt;point&gt; &lt;right paren&gt;</code></p></td>
 </tr>
 <tr class="odd">
 <td><code>&lt;point tagged text&gt; ::= point &lt;point text&gt;</code></td>
@@ -563,8 +564,8 @@
 <td><code>&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;</code></td>
 </tr>
 <tr class="even">
-<td><p><code>&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;</code></p>
-<p><code>{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
+<td><p><code>&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
+<p><code>&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
 </tr>
 <tr class="odd">
 <td><code>&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;</code></td>
@@ -679,7 +680,8 @@
 <li><p>После названия <em>tagged</em>-геометрии добавляется расширение <code>z</code>, <code>m</code> или <code>zm</code>:<br>
 <code>point z</code>, <code>linestring m</code>, <code>polygon zm</code>.</p></li>
 </ul>
-</section>
+
+<img data-src="images/linestringzm_tagged.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="дополнительные-измерения" class="slide level2">
 <h2>Дополнительные измерения</h2>
 <ol type="1">
@@ -719,7 +721,7 @@
 <p><strong><code>p.LocateAlong(3):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_03_WKT_WKB_files/figure-revealjs/unnamed-chunk-1-1.png" width="700" height="350"></p>
+<p><img data-src="adv_03_WKT_WKB_files/figure-revealjs/unnamed-chunk-1-1.png" width="600" height="450"></p>
 </div>
 </div>
 </section>
