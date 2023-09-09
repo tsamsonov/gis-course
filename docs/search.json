@@ -4408,5 +4408,12 @@
     "title": "WKT и WKB",
     "section": "Разложение \\(2D\\)-мультиполигона",
     "text": "Разложение \\(2D\\)-мультиполигона"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-2d-geometrycollection",
+    "href": "adv_03_WKT_WKB.html#разложение-2d-geometrycollection",
+    "title": "WKT и WKB",
+    "section": "Разложение \\(2D\\)-GEOMETRYCOLLECTION",
+    "text": "Разложение \\(2D\\)-GEOMETRYCOLLECTION"
   }
 ]

@@ -251,6 +251,10 @@ mainfont: PT Sans
 | `<geometrycollection tagged text> ::= geometrycollection <geometrycollection text>`                                               |
 +-----------------------------------------------------------------------------------------------------------------------------------+
 
+## Разложение $2D$-`GEOMETRYCOLLECTION`
+
+![](images/geometry_tagged.svg){width="100%"}
+
 ## Определение $3D/4D$-геометрий и коллекций
 
 Идентично $2D$ со следующими модификациями:
