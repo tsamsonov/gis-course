@@ -3833,35 +3833,35 @@
     "href": "adv_03_WKT_WKB.html#определение-wkt-1",
     "title": "WKT и WKB",
     "section": "Определение WKT",
-    "text": "Определение WKT\n\n\n\n\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;\n\n\n&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;\n\n\n&lt;exponent&gt; ::= &lt;signed integer&gt;\n\n\n&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;\n\n\n&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;\n\n\n&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;\n\n\n&lt;x&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;y&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;z&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;m&gt; ::= &lt;signed numeric literal&gt;"
+    "text": "Определение WKT\n\n\n\n\n\n\n&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal po int&gt;{&lt;unsigned integer&gt;}}|&lt;decimal point&gt;&lt;unsigned integer&gt;\n\n\n&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;\n\n\n&lt;exponent&gt; ::= &lt;signed integer&gt;\n\n\n&lt;approximate numeric literal&gt; ::= &lt;mantissa&gt;E&lt;exponent&gt;\n\n\n&lt;unsigned numeric literal&gt; ::= &lt;exact numeric literal&gt; | &lt;approximate numeric literal&gt;\n\n\n&lt;signed numeric literal&gt; ::= {&lt;sign&gt;}&lt;unsigned numeric literal&gt;\n\n\n&lt;x&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;y&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;z&gt; ::= &lt;signed numeric literal&gt;\n\n\n&lt;m&gt; ::= &lt;signed numeric literal&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-2d-геометрий",
     "href": "adv_03_WKT_WKB.html#определение-2d-геометрий",
     "title": "WKT и WKB",
     "section": "Определение \\(2D\\)-геометрий",
-    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;\n\n\n&lt;point text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;\n\n\n&lt;point tagged text&gt; ::= point &lt;point text&gt;\n\n\n&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;\n\n\n&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;\n\n\n&lt;polygon text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;\n{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;\n\n\n&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;"
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;\n\n\n&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;\n\n\n&lt;point tagged text&gt; ::= point &lt;point text&gt;\n\n\n&lt;linestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; {&lt;comma&gt; &lt;point&gt;}* &lt;right paren&gt;\n\n\n&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;\n\n\n&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;\n{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;polygon tagged text&gt; ::= polygon &lt;polygon text&gt;\n\n\n&lt;triangle tagged text&gt; ::= triangle &lt;polygon text&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-2d-геометрий-1",
     "href": "adv_03_WKT_WKB.html#определение-2d-геометрий-1",
     "title": "WKT и WKB",
     "section": "Определение \\(2D\\)-геометрий",
-    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;polyhedralsurface text&gt; ::=\n&lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt;\n{&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;polyhedralsurface tagged text&gt; ::=\npolyhedralsurface &lt;polyhedralsurface text&gt;\n\n\n&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;"
+    "text": "Определение \\(2D\\)-геометрий\n\n\n\n\n\n\n&lt;polyhedralsurface text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;polyhedralsurface tagged text&gt; ::= polyhedralsurface &lt;polyhedralsurface text&gt;\n\n\n&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-2d-коллекций",
     "href": "adv_03_WKT_WKB.html#определение-2d-коллекций",
     "title": "WKT и WKB",
     "section": "Определение \\(2D\\)-коллекций",
-    "text": "Определение \\(2D\\)-коллекций\n\n\n\n\n\n\n&lt;multipoint text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;point text&gt; {&lt;comma&gt; &lt;point text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipoint tagged text&gt; ::= multipoint &lt;multipoint text&gt;\n\n\n&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;multilinestring tagged text&gt; ::=\nmultilinestring &lt;multilinestring text&gt;\n\n\n&lt;multipolygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipolygon tagged text&gt; ::=\nmultipolygon &lt;multipolygon text&gt;"
+    "text": "Определение \\(2D\\)-коллекций\n\n\n\n\n\n\n&lt;multipoint text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;point text&gt; {&lt;comma&gt; &lt;point text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipoint tagged text&gt; ::= multipoint &lt;multipoint text&gt;\n\n\n&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;\n\n\n&lt;multilinestring tagged text&gt; ::= multilinestring &lt;multilinestring text&gt;\n\n\n&lt;multipolygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;\n&lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;\n\n\n&lt;multipolygon tagged text&gt; ::=\nmultipolygon &lt;multipolygon text&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-2d-geometrycollection",
     "href": "adv_03_WKT_WKB.html#определение-2d-geometrycollection",
     "title": "WKT и WKB",
     "section": "Определение \\(2D\\)-GEOMETRYCOLLECTION",
-    "text": "Определение \\(2D\\)-GEOMETRYCOLLECTION\n\n\n\n\n\n\n&lt;geometry tagged text&gt; ::=\n&lt;point tagged text&gt; | &lt;linestring tagged text&gt;\n| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;\n| &lt;polyhedralsurface tagged text&gt;\n| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;\n| &lt;multilinestring tagged text&gt;\n| &lt;multipolygon tagged text&gt;\n| &lt;geometrycollection tagged text&gt;\n\n\n&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;\n\n\n&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;"
+    "text": "Определение \\(2D\\)-GEOMETRYCOLLECTION\n\n\n\n\n\n\n&lt;geometry tagged text&gt; ::=\n&lt;point tagged text&gt; | &lt;linestring tagged text&gt;\n| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;\n| &lt;polyhedralsurface tagged text&gt; | &lt;tin tagged text&gt;\n| &lt;multipoint tagged text&gt; | &lt;multilinestring tagged text&gt;\n| &lt;multipolygon tagged text&gt;\n| &lt;geometrycollection tagged text&gt;\n\n\n&lt;geometrycollection text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;geometry tagged text&gt; {&lt;comma&gt; &lt;geometry tagged text&gt;}* &lt;right paren&gt;\n\n\n&lt;geometrycollection tagged text&gt; ::= geometrycollection &lt;geometrycollection text&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-3d4d-геометрий-и-коллекций",
@@ -4380,5 +4380,19 @@
     "title": "WKT и WKB",
     "section": "Разложение \\(2D\\)-точки",
     "text": "Разложение \\(2D\\)-точки"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-2d-линии",
+    "href": "adv_03_WKT_WKB.html#разложение-2d-линии",
+    "title": "WKT и WKB",
+    "section": "Разложение \\(2D\\)-линии",
+    "text": "Разложение \\(2D\\)-линии"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#разложение-2d-линии-и-полигона",
+    "href": "adv_03_WKT_WKB.html#разложение-2d-линии-и-полигона",
+    "title": "WKT и WKB",
+    "section": "Разложение \\(2D\\)-линии и полигона",
+    "text": "Разложение \\(2D\\)-линии и полигона"
   }
 ]

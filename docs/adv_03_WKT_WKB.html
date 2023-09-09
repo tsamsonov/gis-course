@@ -504,7 +504,7 @@
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><code>&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal point&gt;{&lt;unsigned integer&gt;}} | &lt;decimal point&gt;&lt;unsigned integer&gt;</code></td>
+<td><code>&lt;exact numeric literal&gt; ::= &lt;unsigned integer&gt; {&lt;decimal po int&gt;{&lt;unsigned integer&gt;}}|&lt;decimal point&gt;&lt;unsigned integer&gt;</code></td>
 </tr>
 <tr class="even">
 <td><code>&lt;mantissa&gt; ::= &lt;exact numeric literal&gt;</code></td>
@@ -551,8 +551,7 @@
 <td><code>&lt;point&gt; ::= &lt;x&gt; &lt;y&gt;</code></td>
 </tr>
 <tr class="even">
-<td><p><code>&lt;point text&gt; ::=</code></p>
-<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;</code></p></td>
+<td><code>&lt;point text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;point&gt; &lt;right paren&gt;</code></td>
 </tr>
 <tr class="odd">
 <td><code>&lt;point tagged text&gt; ::= point &lt;point text&gt;</code></td>
@@ -564,8 +563,7 @@
 <td><code>&lt;linestring tagged text&gt; ::= linestring &lt;linestring text&gt;</code></td>
 </tr>
 <tr class="even">
-<td><p><code>&lt;polygon text&gt; ::=</code></p>
-<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;</code></p>
+<td><p><code>&lt;polygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;</code></p>
 <p><code>{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
 </tr>
 <tr class="odd">
@@ -581,33 +579,35 @@
 <h2>Разложение <span class="math inline">\(2D\)</span>-точки</h2>
 
 <img data-src="images/point_tagged.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="разложение-2d-линии-и-полигона" class="slide level2">
+<h2>Разложение <span class="math inline">\(2D\)</span>-линии и полигона</h2>
+
+<img data-src="images/line_polygon_tagged.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="определение-2d-геометрий-1" class="slide level2">
 <h2>Определение <span class="math inline">\(2D\)</span>-геометрий</h2>
-<table style="width:76%;">
+<table>
 <colgroup>
-<col style="width: 76%">
+<col style="width: 100%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><p><code>&lt;polyhedralsurface text&gt; ::=</code></p>
-<p><code>&lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt;</code></p>
-<p><code>{&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;</code></p></td>
+<td><code>&lt;polyhedralsurface text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;polygon text&gt; {&lt;comma&gt; &lt;polygon text&gt;}* &lt;right paren&gt;</code></td>
 </tr>
 <tr class="even">
-<td><p><code>&lt;polyhedralsurface tagged text&gt; ::=</code></p>
-<p><code>polyhedralsurface &lt;polyhedralsurface text&gt;</code></p></td>
+<td><code>&lt;polyhedralsurface tagged text&gt; ::= polyhedralsurface &lt;polyhedralsurface text&gt;</code></td>
 </tr>
 <tr class="odd">
 <td><code>&lt;tin tagged text&gt; ::= tin &lt;polyhedralsurface text&gt;</code></td>
 </tr>
 </tbody>
 </table>
-</section>
+
+<img data-src="images/tin_tagged.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="определение-2d-коллекций" class="slide level2">
 <h2>Определение <span class="math inline">\(2D\)</span>-коллекций</h2>
-<table style="width:89%;">
+<table>
 <colgroup>
-<col style="width: 88%">
+<col style="width: 100%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -618,12 +618,10 @@
 <td><code>&lt;multipoint tagged text&gt; ::= multipoint &lt;multipoint text&gt;</code></td>
 </tr>
 <tr class="odd">
-<td><p><code>&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
-<p><code>&lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></p></td>
+<td><code>&lt;multilinestring text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt; &lt;linestring text&gt;{&lt;comma&gt; &lt;linestring text&gt;}* &lt;right paren&gt;</code></td>
 </tr>
 <tr class="even">
-<td><p><code>&lt;multilinestring tagged text&gt; ::=</code></p>
-<p><code>multilinestring &lt;multilinestring text&gt;</code></p></td>
+<td><code>&lt;multilinestring tagged text&gt; ::= multilinestring &lt;multilinestring text&gt;</code></td>
 </tr>
 <tr class="odd">
 <td><p><code>&lt;multipolygon text&gt; ::= &lt;empty set&gt; | &lt;left paren&gt;</code></p>
@@ -647,9 +645,8 @@
 <td><p><code>&lt;geometry tagged text&gt; ::=</code></p>
 <p><code>&lt;point tagged text&gt; | &lt;linestring tagged text&gt;</code></p>
 <p><code>| &lt;polygon tagged text&gt; | &lt;triangle tagged text&gt;</code></p>
-<p><code>| &lt;polyhedralsurface tagged text&gt;</code></p>
-<p><code>| &lt;tin tagged text&gt; | &lt;multipoint tagged text&gt;</code></p>
-<p><code>| &lt;multilinestring tagged text&gt;</code></p>
+<p><code>| &lt;polyhedralsurface tagged text&gt; | &lt;tin tagged text&gt;</code></p>
+<p><code>| &lt;multipoint tagged text&gt; | &lt;multilinestring tagged text&gt;</code></p>
 <p><code>| &lt;multipolygon tagged text&gt;</code></p>
 <p><code>| &lt;geometrycollection tagged text&gt;</code></p></td>
 </tr>
