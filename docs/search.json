@@ -4415,5 +4415,229 @@
     "title": "WKT и WKB",
     "section": "Разложение \\(2D\\)-GEOMETRYCOLLECTION",
     "text": "Разложение \\(2D\\)-GEOMETRYCOLLECTION"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка",
+    "href": "adv_A01_pginstall.html#установка",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка",
+    "text": "Установка\nДля установки связки PostgreSQL + PostGIS необходимо скачать:\n\nPostgreSQL (дистрибутив EDB)\nPostGIS\n\nШаг 2 является опициональным, т.к. PostGIS можно установить, используя программу Stack Builder, входяющую в дистрибутив EDB\nПояснения в данной инструкции касаются операционной системы Windows, но на других ОС (macOS, Linux) все аналогично."
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#файлы-дистрибутива",
+    "href": "adv_A01_pginstall.html#файлы-дистрибутива",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Файлы дистрибутива",
+    "text": "Файлы дистрибутива\nЕсли загрузка дистрибутивов прошла успешно, вы должны получить два установочных файла — для PostgreSQL и PostGIS. Запускаем отсюда установщик PostgreSQL."
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql",
+    "href": "adv_A01_pginstall.html#установка-postgresql",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nНажимаем Next"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-1",
+    "href": "adv_A01_pginstall.html#установка-postgresql-1",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nУстановочную директорию оставляем по умолчанию"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-2",
+    "href": "adv_A01_pginstall.html#установка-postgresql-2",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nПункты списка оставляем по умолчанию (все)"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-3",
+    "href": "adv_A01_pginstall.html#установка-postgresql-3",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nДиректорию данных оставляем по умолчанию (но если на системном диске совсем мало места, то можно указать другую)"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-4",
+    "href": "adv_A01_pginstall.html#установка-postgresql-4",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nПридумываем (и запоминаем!) пароль для базы данных postgres, которая будет автоматически создана после установки."
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-5",
+    "href": "adv_A01_pginstall.html#установка-postgresql-5",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nПорт прослушивания оставляем по умолчанию — 5432"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-6",
+    "href": "adv_A01_pginstall.html#установка-postgresql-6",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nСистемную локаль так же оставляем по умолчанию"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#stack-builder",
+    "href": "adv_A01_pginstall.html#stack-builder",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Stack Builder",
+    "text": "Stack Builder\nПосле установки вам предложат запустить Stack Builder.\n\n\nЗдесь у вас есть выбор:\n\nснять галочку, закрыть окно и запустить установку PostGIS из скачанного дистрибутива.\nвоспользоваться Stack Builder.\n\nМы будем пользоваться Stack Builder, но если вы устанавливаете из скачанного дистрибутива, то переходите сразу к слайду Глава 17"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis",
+    "href": "adv_A01_pginstall.html#установка-postgis",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nПри запуске Stack Builder надо выбрать только что установленный экземпляр PostgreSQL, который вещает на порту 5432"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-1",
+    "href": "adv_A01_pginstall.html#установка-postgis-1",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nОтыскиваем раздел Spatial Extensions и в нем ставим флажок PostGIS. Остальное не трогаем и идём дальше."
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-2",
+    "href": "adv_A01_pginstall.html#установка-postgis-2",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nВам предложат выбрать директорию для скачивания дистрибутива. Можете оставить по умолчанию или выбрать какую-то другую."
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-3",
+    "href": "adv_A01_pginstall.html#установка-postgis-3",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nПлосле скачивания флажок Skip Installation НЕ ставим и идем далее"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-4",
+    "href": "adv_A01_pginstall.html#установка-postgis-4",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nСтавим все флажки кроме Create spatial database. Это мы сделаем вручную потом."
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-5",
+    "href": "adv_A01_pginstall.html#установка-postgis-5",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nУстановщик PostGIS должен автоматически определить каталог, в который у вас установлен PostgreSQL. Убедитесь, что это он (обычно проблем не бывает). После этого идем дальше"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-6",
+    "href": "adv_A01_pginstall.html#установка-postgis-6",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nВ конце установки отображается статус Completed. Закрываем окно"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-7",
+    "href": "adv_A01_pginstall.html#установка-postgis-7",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nИ закрываем Stack Builder"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgis-8",
+    "href": "adv_A01_pginstall.html#установка-postgis-8",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nИ закрываем Stack Builder"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgresql",
+    "href": "adv_A01_pginstall.html#проверка-postgresql",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostgreSQL",
+    "text": "Проверка PostgreSQL\nТеперь надо проверить, всё ли нормально установилось. Первым делом смотрим в диспетчере задач, выполняется ли служба postgresql-x64-15"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgresql-1",
+    "href": "adv_A01_pginstall.html#проверка-postgresql-1",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostgreSQL",
+    "text": "Проверка PostgreSQL\nДалее отыскиваем в установленных программах pgAdmin 4 и запускаем его"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgresql-2",
+    "href": "adv_A01_pginstall.html#проверка-postgresql-2",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostgreSQL",
+    "text": "Проверка PostgreSQL\nСмотрим на красивый сплэш-скрин"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgresql-3",
+    "href": "adv_A01_pginstall.html#проверка-postgresql-3",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostgreSQL",
+    "text": "Проверка PostgreSQL\nПо умолчанию pgAdmin подхватывает работающий экземпляр PostgreSQL"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgresql-4",
+    "href": "adv_A01_pginstall.html#проверка-postgresql-4",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostgreSQL",
+    "text": "Проверка PostgreSQL\nЩелкните на нем дважды. Вас попросят ввести пароль (да-да, тот самый который надо было запомнить при установке)"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgis",
+    "href": "adv_A01_pginstall.html#проверка-postgis",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostGIS",
+    "text": "Проверка PostGIS\nТеперь надо проверить, что PostGIS доступен для активации. Щелкаем правой кнопкой мыши на пункте Extensions и выбираем Create &gt; Extension…"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-установки",
+    "href": "adv_A01_pginstall.html#проверка-установки",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка установки",
+    "text": "Проверка установки\nВ появившемся диалоге в поле Name набираем gis и убеждаемся, что среди отобранных расширений присутствует postgis и его друзья.\n\nЕсли да, то все в порядке. Можно закрывать диалог, ничего не создавая.\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-7",
+    "href": "adv_A01_pginstall.html#установка-postgresql-7",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nТеперь все готово к установке. Можно перепроверить данные, чтобы случайно не установить туда, куда не следует. После проверки жмем Next"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#установка-postgresql-8",
+    "href": "adv_A01_pginstall.html#установка-postgresql-8",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostgreSQL",
+    "text": "Установка PostgreSQL\nУстановка в процессе"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#pgis",
+    "href": "adv_A01_pginstall.html#pgis",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nВам привет от PostGIS"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#sec-pgis",
+    "href": "adv_A01_pginstall.html#sec-pgis",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Установка PostGIS",
+    "text": "Установка PostGIS\nВам привет от PostGIS"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgresql-5",
+    "href": "adv_A01_pginstall.html#проверка-postgresql-5",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostgreSQL",
+    "text": "Проверка PostgreSQL\nЕсли пароль введен правильно, вы увидите базу данных postgres"
+  },
+  {
+    "objectID": "adv_A01_pginstall.html#проверка-postgis-1",
+    "href": "adv_A01_pginstall.html#проверка-postgis-1",
+    "title": "Установка PostgreSQL + PostGIS",
+    "section": "Проверка PostGIS",
+    "text": "Проверка PostGIS\nВ появившемся диалоге в поле Name набираем gis и убеждаемся, что среди отобранных расширений присутствует postgis и его друзья.\n\nЕсли да, то все в порядке. Можно закрывать диалог, ничего не создавая.\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
   }
 ]
