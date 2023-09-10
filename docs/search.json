@@ -3826,7 +3826,7 @@
     "href": "adv_03_WKT_WKB.html#определение-wkt",
     "title": "WKT и WKB",
     "section": "Определение WKT",
-    "text": "Определение WKT\n\n\n\n\n\n\n&lt;empty set&gt; ::= EMPTY\n\n\n&lt;left paren&gt; ::= (\n\n\n&lt;right paren&gt; ::= )\n\n\n&lt;comma&gt; ::= ,\n\n\n&lt;period&gt; ::= .\n\n\n&lt;decimal point&gt; ::= .\n\n\n&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9\n\n\n&lt;plus sign&gt; ::= +\n\n\n&lt;minus sign&gt; ::= -\n\n\n&lt;sign&gt; ::= &lt;plus sign&gt; | &lt;minus sign&gt;\n\n\n&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*\n\n\n&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;"
+    "text": "Определение WKT\n\n\n\n&lt;empty set&gt; ::= EMPTY\n\n\n&lt;left paren&gt; ::= (\n\n\n&lt;right paren&gt; ::= )\n\n\n&lt;comma&gt; ::= ,\n\n\n&lt;period&gt; ::= .\n\n\n&lt;decimal point&gt; ::= .\n\n\n&lt;digit&gt; ::= 0|1|2|3|4|5|6|7|8|9\n\n\n&lt;plus sign&gt; ::= +\n\n\n&lt;minus sign&gt; ::= -\n\n\n&lt;sign&gt; ::= &lt;plus sign&gt; | &lt;minus sign&gt;\n\n\n&lt;unsigned integer&gt; ::= (&lt;digit&gt;)*\n\n\n&lt;signed integer&gt; ::= {&lt;sign&gt;}&lt;unsigned integer&gt;"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-wkt-1",
