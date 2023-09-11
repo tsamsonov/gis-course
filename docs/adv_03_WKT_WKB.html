@@ -338,7 +338,30 @@
 </div>
 </div>
 
-  <p class="date">10 сентября 2023 г.</p>
+  <p class="date">11 сентября 2023 г.</p>
+</section>
+<section id="well-known-text-wkt" class="slide level2">
+<h2>Well-Known Text (WKT)</h2>
+<p><strong>Well-Known Text (WKT)</strong> — формальный язык описания геометрий, который используется для</p>
+<ul>
+<li><p>создания новых экземпляров геометрии;</p></li>
+<li><p>конвертации экземпляров в алфавитно-цифровую текстовую форму для отображения и <em>сериализации</em>.</p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Сериализация</strong></p>
+</div>
+<div class="callout-content">
+<p>Преобразование состояния объекта в форму, пригодную для сохранения или передачи. Обратный процесс называется <em>десериализацией</em>.</p>
+</div>
+</div>
+</div>
+<p><strong>WKT</strong> используется для описания не только геометрий, но также <em>пространственных систем отсчета</em>.</p>
+<p><strong>WKT</strong> является <em>регистронезависимым</em>: <code>POINT</code>, <code>Point</code> и <code>point</code> — это одно и то же.</p>
 </section>
 <section id="формальная-грамматика" class="slide level2">
 <h2>Формальная грамматика</h2>
@@ -365,8 +388,8 @@
 </dd>
 </dl>
 </section>
-<section id="формальная-грамматика-1" class="slide level2">
-<h2>Формальная грамматика</h2>
+<section id="производящее-правило" class="slide level2">
+<h2>Производящее правило</h2>
 <dl>
 <dt>Производящее правило</dt>
 <dd>
@@ -576,7 +599,8 @@
 <section id="разложение-2d-точки" class="slide level2">
 <h2>Разложение <span class="math inline">\(2D\)</span>-точки</h2>
 
-<img data-src="images/point_tagged.svg" style="width:100.0%" class="r-stretch"></section>
+<img data-src="images/point_tagged.svg" style="width:100.0%" class="r-stretch"><p>Для остальных классов пустая (<code>EMPTY</code>) геометрия описывается аналогичным образом: <code>LINESTRING EMPTY</code>, <code>POLYGON EMPTY</code> и т.п.</p>
+</section>
 <section id="разложение-2d-линии-и-полигона" class="slide level2">
 <h2>Разложение <span class="math inline">\(2D\)</span>-линии и полигона</h2>
 
