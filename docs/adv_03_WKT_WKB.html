@@ -338,7 +338,7 @@
 </div>
 </div>
 
-  <p class="date">11 сентября 2023 г.</p>
+  <p class="date">14 сентября 2023 г.</p>
 </section>
 <section id="well-known-text-wkt" class="slide level2">
 <h2>Well-Known Text (WKT)</h2>
@@ -758,6 +758,17 @@
 <p><img data-src="adv_03_WKT_WKB_files/figure-revealjs/unnamed-chunk-2-3.png" width="600" height="300"></p>
 </div>
 </div>
+</section>
+<section id="well-known-binary-wkb" class="slide level2">
+<h2>Well-Known Binary (WKB)</h2>
+<p><strong>Well-Known Binary (WKB)</strong> — компактное представление геометрического объекта в виде непрерывной последовательности байтов.</p>
+<ul>
+<li><p>Позволяет обмениваться пространственными данными в бинарной форме</p></li>
+<li><p>Реализуется путем представления геометрического объекта в виде последовательности чисел типов <code>{Unsigned Integer, Double}</code> и их сериализации в последовательность байтов</p></li>
+<li><p>Для сериализации используется порядок байтов с большого (<em>Big Endian</em>) или малого (<em>Little Endian</em>) конца.</p></li>
+</ul>
+<p><code>Unsigned Integer</code> — <span class="math inline">\(32\)</span>-битный (<span class="math inline">\(4\)</span>-байтовый) тип данных, который представляет неотрицательные целые числа в диапазоне <code>[0, 4 294 967 259]</code></p>
+<p><code>Double</code> — <span class="math inline">\(64\)</span>-битный (<span class="math inline">\(8\)</span>-байтовый) тип данных, который представляет числа с плавающей точкой двойной точности стандарта <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a>.</p>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
