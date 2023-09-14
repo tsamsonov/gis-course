@@ -770,6 +770,167 @@
 <p><code>Unsigned Integer</code> — <span class="math inline">\(32\)</span>-битный (<span class="math inline">\(4\)</span>-байтовый) тип данных, который представляет неотрицательные целые числа в диапазоне <code>[0, 4 294 967 259]</code></p>
 <p><code>Double</code> — <span class="math inline">\(64\)</span>-битный (<span class="math inline">\(8\)</span>-байтовый) тип данных, который представляет числа с плавающей точкой двойной точности стандарта <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a>.</p>
 </section>
+<section id="коды-геометрических-типов" class="slide level2">
+<h2>Коды геометрических типов</h2>
+<table style="width:94%;">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 15%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Тип</strong></td>
+<td><strong>XY</strong></td>
+<td><strong>XYZ</strong></td>
+<td><strong>XYM</strong></td>
+<td><strong>XYZM</strong></td>
+</tr>
+<tr class="even">
+<td><code>GEOMETRY</code></td>
+<td><code>0</code></td>
+<td><code>1000</code></td>
+<td><code>2000</code></td>
+<td><code>3000</code></td>
+</tr>
+<tr class="odd">
+<td><code>POINT</code></td>
+<td><code>1</code></td>
+<td><code>1001</code></td>
+<td><code>2001</code></td>
+<td><code>3001</code></td>
+</tr>
+<tr class="even">
+<td><code>LINESTRING</code></td>
+<td><code>2</code></td>
+<td><code>1002</code></td>
+<td><code>2002</code></td>
+<td><code>3002</code></td>
+</tr>
+<tr class="odd">
+<td><code>POLYGON</code></td>
+<td><code>3</code></td>
+<td><code>1003</code></td>
+<td><code>2003</code></td>
+<td><code>3003</code></td>
+</tr>
+<tr class="even">
+<td><code>MULTIPOINT</code></td>
+<td><code>4</code></td>
+<td><code>1004</code></td>
+<td><code>2004</code></td>
+<td><code>3004</code></td>
+</tr>
+<tr class="odd">
+<td><code>MULTILINESTRING</code></td>
+<td><code>5</code></td>
+<td><code>1005</code></td>
+<td><code>2005</code></td>
+<td><code>3005</code></td>
+</tr>
+<tr class="even">
+<td><code>MULTIPOLYGON</code></td>
+<td><code>6</code></td>
+<td><code>1006</code></td>
+<td><code>2006</code></td>
+<td><code>3006</code></td>
+</tr>
+<tr class="odd">
+<td><code>GEOMETRYCOLLECTION</code></td>
+<td><code>7</code></td>
+<td><code>1007</code></td>
+<td><code>2007</code></td>
+<td><code>3007</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{CIRCULARSTRING}\)</span></td>
+<td><code>8</code></td>
+<td><code>1008</code></td>
+<td><code>2008</code></td>
+<td><code>3008</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\texttt{COMPOUNDCURVE}\)</span></td>
+<td><code>9</code></td>
+<td><code>1009</code></td>
+<td><code>2009</code></td>
+<td><code>3009</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{CURVEPOLYGON}\)</span></td>
+<td><code>10</code></td>
+<td><code>1010</code></td>
+<td><code>2010</code></td>
+<td><code>3010</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="коды-геометрических-типов-1" class="slide level2">
+<h2>Коды геометрических типов</h2>
+<table style="width:96%;">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Тип</strong></td>
+<td><strong>XY</strong></td>
+<td><strong>XYZ</strong></td>
+<td><strong>XYM</strong></td>
+<td><strong>XYZM</strong></td>
+</tr>
+<tr class="even">
+<td><code>MULTICURVE</code></td>
+<td><code>11</code></td>
+<td><code>1011</code></td>
+<td><code>2011</code></td>
+<td><code>3011</code></td>
+</tr>
+<tr class="odd">
+<td><code>MULTISURFACE</code></td>
+<td><code>12</code></td>
+<td><code>1012</code></td>
+<td><code>2012</code></td>
+<td><code>3012</code></td>
+</tr>
+<tr class="even">
+<td><code>CURVE</code></td>
+<td><code>13</code></td>
+<td><code>1013</code></td>
+<td><code>2013</code></td>
+<td><code>3013</code></td>
+</tr>
+<tr class="odd">
+<td><code>SURFACE</code></td>
+<td><code>14</code></td>
+<td><code>1014</code></td>
+<td><code>2014</code></td>
+<td><code>3014</code></td>
+</tr>
+<tr class="even">
+<td><code>POLYHEDRALSURFACE</code></td>
+<td><code>15</code></td>
+<td><code>1015</code></td>
+<td><code>2015</code></td>
+<td><code>3015</code></td>
+</tr>
+<tr class="odd">
+<td><code>TIN</code></td>
+<td><code>16</code></td>
+<td><code>1016</code></td>
+<td><code>2016</code></td>
+<td><code>3016</code></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 
