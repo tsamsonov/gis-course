@@ -4681,5 +4681,26 @@
     "title": "WKT и WKB",
     "section": "Well-Known Representation",
     "text": "Well-Known Representation\nБазовые определения типов\n// byte : 1 byte \n// uint32 : 32 bit unsigned integer (4 bytes) \n// double : double precision number (8 bytes) \nТочки\n\n\nPoint { \n  double x; \n  double y;\n} \n\nPointZ { \n  double x; \n  double y; \n  double z;\n} \nОпределения используют синтаксис, похожий на язык программирования C.\n\nPointM { \n  double x; \n  double y; \n  double m;\n} \n\nPointZM { \n  double x; \n  double y; \n  double z; \n  double m;\n}"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#классы-wkbgeometry",
+    "href": "adv_03_WKT_WKB.html#классы-wkbgeometry",
+    "title": "WKT и WKB",
+    "section": "Классы WKBGeometry",
+    "text": "Классы WKBGeometry\nБазовые определения типов\n// byte : 1 byte \n// uint32 : 32 bit unsigned integer (4 bytes) \n// double : double precision number (8 bytes) \nТочки\n\n\nPoint { \n  double x; \n  double y;\n} \n\nPointZ { \n  double x; \n  double y; \n  double z;\n} \nОпределения используют синтаксис, похожий на язык программирования C.\n\nPointM { \n  double x; \n  double y; \n  double m;\n} \n\nPointZM { \n  double x; \n  double y; \n  double z; \n  double m;\n}"
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#классы-wkbgeometry-1",
+    "href": "adv_03_WKT_WKB.html#классы-wkbgeometry-1",
+    "title": "WKT и WKB",
+    "section": "Классы WKBGeometry",
+    "text": "Классы WKBGeometry\n\n\nЛинейные кольца\nLinearRing { \n  uint32 numPoints; \n  Point points[numPoints];\n} \n\nLinearRingZ { \n  uint32 numPoints; \n  PointZ points[numPoints];\n} \n\nLinearRingM { \n  uint32 numPoints; \n  PointM points[numPoints];\n} \n\nLinearRingZM { \n  uint32 numPoints; \n  PointZM points[numPoints];\n}\n\nПорядок байтов\nenum WKBByteOrder { \n  wkbXDR = 0, // Big Endian \n  wkbNDR = 1 // Little Endian \n}\nПорядок байтов определяет последовательность представления машинного слова в памяти компьютера:\n\nBig Endian (BE) — от большего к меньшему\nLittel Endian (LE) — от меньшего к большему\n\nВ современных компьютерах машинное слово \\(64\\)-битное и состоит из \\(8\\) байтов."
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#endians",
+    "href": "adv_03_WKT_WKB.html#endians",
+    "title": "WKT и WKB",
+    "section": "Endians",
+    "text": "Endians\n\\(256 = 2^8\\) — максимальное число, которое можно записать в один байт.\nПроизвольное число можно разложить по байтам:\n\\[\nM = \\sum_{i=0}^{n-1}A_i\\cdot 256^i=A_0\\cdot 256^0+A_1\\cdot 256^1+A_2\\cdot 256^2+\\dots+A_{n-1}\\cdot 256^{n-1}.\n\\]\n\n\\(A_0,\\dots,A_{n-1}\\) — целые числа в диапазоне от \\(0\\) до \\(255\\)\n\\(A_0\\) — младший (little) байт\n\\(A_{n-1}\\) — старший (big) байт\n\nЧисло \\(11789_{10}\\) (0x2E0D) можно записать двумя способами:\n\n\n\n\n\n\n\n\nLittle Endian\n\\(A_0A_1...A_{n-1}\\)\n0000 1101 0010 1110\n\n\nBig Endian\n\\(A_{n-1}...A_1A_0\\)\n0010 1110 0000 1101"
   }
 ]

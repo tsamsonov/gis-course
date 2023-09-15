@@ -997,8 +997,8 @@
 </tbody>
 </table>
 </section>
-<section id="well-known-representation" class="slide level2">
-<h2>Well-Known Representation</h2>
+<section id="классы-wkbgeometry" class="slide level2">
+<h2>Классы WKBGeometry</h2>
 <p><strong>Базовые определения типов</strong></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>// byte : 1 byte </span>
 <span id="cb1-2"><a href="#cb1-2"></a>// uint32 : 32 bit unsigned integer (4 bytes) </span>
@@ -1016,7 +1016,7 @@
 <span id="cb2-8"><a href="#cb2-8"></a>  double y; </span>
 <span id="cb2-9"><a href="#cb2-9"></a>  double z;</span>
 <span id="cb2-10"><a href="#cb2-10"></a>} </span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Определения используют синтаксис, похожий на язык программирования <em>C.</em></p>
+<p>Определения используют синтаксис, похожий на язык программирования <em><strong>C</strong>.</em></p>
 </div><div class="column" style="width:50%;">
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>PointM { </span>
 <span id="cb3-2"><a href="#cb3-2"></a>  double x; </span>
@@ -1032,6 +1032,78 @@
 <span id="cb3-12"><a href="#cb3-12"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
+</section>
+<section id="классы-wkbgeometry-1" class="slide level2">
+<h2>Классы WKBGeometry</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Линейные кольца</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>LinearRing { </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  uint32 numPoints; </span>
+<span id="cb4-3"><a href="#cb4-3"></a>  Point points[numPoints];</span>
+<span id="cb4-4"><a href="#cb4-4"></a>} </span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a>LinearRingZ { </span>
+<span id="cb4-7"><a href="#cb4-7"></a>  uint32 numPoints; </span>
+<span id="cb4-8"><a href="#cb4-8"></a>  PointZ points[numPoints];</span>
+<span id="cb4-9"><a href="#cb4-9"></a>} </span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a>LinearRingM { </span>
+<span id="cb4-12"><a href="#cb4-12"></a>  uint32 numPoints; </span>
+<span id="cb4-13"><a href="#cb4-13"></a>  PointM points[numPoints];</span>
+<span id="cb4-14"><a href="#cb4-14"></a>} </span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a>LinearRingZM { </span>
+<span id="cb4-17"><a href="#cb4-17"></a>  uint32 numPoints; </span>
+<span id="cb4-18"><a href="#cb4-18"></a>  PointZM points[numPoints];</span>
+<span id="cb4-19"><a href="#cb4-19"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Порядок байтов</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>enum WKBByteOrder { </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  wkbXDR = 0, // Big Endian </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  wkbNDR = 1 // Little Endian </span>
+<span id="cb5-4"><a href="#cb5-4"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Порядок байтов определяет последовательность представления машинного слова в памяти компьютера:</p>
+<ul>
+<li><p><strong>Big Endian (BE)</strong> — от большего к меньшему</p></li>
+<li><p><strong>Littel Endian (LE)</strong> — от меньшего к большему</p></li>
+</ul>
+<p>В современных компьютерах машинное слово <span class="math inline">\(64\)</span>-битное и состоит из <span class="math inline">\(8\)</span> байтов.</p>
+</div>
+</div>
+</section>
+<section id="endians" class="slide level2">
+<h2>Endians</h2>
+<p><span class="math inline">\(256 = 2^8\)</span> — максимальное число, которое можно записать в один байт.</p>
+<p>Произвольное число можно разложить по байтам:</p>
+<p><span class="math display">\[
+M = \sum_{i=0}^{n-1}A_i\cdot 256^i=A_0\cdot 256^0+A_1\cdot 256^1+A_2\cdot 256^2+\dots+A_{n-1}\cdot 256^{n-1}.
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(A_0,\dots,A_{n-1}\)</span> — целые числа в диапазоне от <span class="math inline">\(0\)</span> до <span class="math inline">\(255\)</span></p></li>
+<li><p><span class="math inline">\(A_0\)</span> — младший (<em>little</em>) байт</p></li>
+<li><p><span class="math inline">\(A_{n-1}\)</span> — старший (<em>big</em>) байт</p></li>
+</ul>
+<p>Число <span class="math inline">\(11789_{10}\)</span> (<code>0x2E0D</code>) можно записать двумя способами:</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 23%">
+<col style="width: 52%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Little Endian</strong></td>
+<td><span class="math inline">\(A_0A_1...A_{n-1}\)</span></td>
+<td><code>0000 1101 0010 1110</code></td>
+</tr>
+<tr class="even">
+<td><strong>Big Endian</strong></td>
+<td><span class="math inline">\(A_{n-1}...A_1A_0\)</span></td>
+<td><code>0010 1110 0000 1101</code></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
