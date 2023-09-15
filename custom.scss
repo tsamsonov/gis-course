@@ -25,6 +25,10 @@ $presentation-heading-color: #383d3d !default;
   line-height: 1.2em;
 }
 
+.reveal .table-small table {
+  line-height: 1em;
+}
+
 .title {
   color: brown !important;
 }
@@ -40,4 +44,8 @@ $presentation-heading-color: #383d3d !default;
 .date {
   color: steelblue;
   font-weight: 200;
+}
+
+.reveal pre.sourceCode code {
+  max-height: 720px;
 }
