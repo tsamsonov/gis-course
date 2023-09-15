@@ -532,4 +532,139 @@ $$
 | $\texttt{Little Endian}$ | $\color{blue}{A_0}\color{green}{A_1}...\color{red}{A_{n-1}} \rightarrow \color{blue}{\texttt{0110 1110}}~\color{green}{\texttt{1110 0100}}~\color{red}{\texttt{1011 0011}}$ |
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+## IEEE 754 `binary64`
+
+-   Знак: $1$ бит
+
+-   Экспонента: $11$ бит
+
+-   Мантисса: $53$ бит ($52$ хранятся явно)
+
+![](images/IEEE_754.svg)
+
+## Классы WKBGeometry
+
+::: columns
+::: {.column width="50%"}
+``` code
+WKBPoint { 
+  byte byteOrder; 
+  static uint32 wkbType = 1; 
+  Point point
+}
+
+WKBLineString { 
+  byte byteOrder; 
+  static uint32 wkbType = 2; 
+  uint32 numPoints; 
+  Point points[numPoints]
+}
+
+WKBPolygon {
+  byte byteOrder; 
+  static uint32 wkbType = 3; 
+  uint32 numRings; 
+  LinearRing rings[numRings]
+}
+```
+:::
+
+::: {.column width="50%"}
+``` code
+WKBTriangle { 
+  byte byteOrder; 
+  static uint32 wkbType = 17; 
+  uint32 numRings; 
+  LinearRing rings[numRings]
+}
+
+WKBPolyhedralSurface { 
+  byte byteOrder; 
+  static uint32 wkbType = 15; 
+  uint32 numPolygons; 
+  WKBPolygon polygons[numPolygons]
+}
+
+WKBTIN { 
+  byte byteOrder; 
+  static uint32 wkbType = 16; 
+  uint32 numPolygons; 
+  WKBPolygon polygons[numPolygons]
+}
+```
+:::
+:::
+
+## Классы WKBGeometry
+
+::: columns
+::: {.column width="50%"}
+``` code
+WKBMultiPoint { 
+  byte byteOrder; 
+  static uint32 wkbType=4; 
+  uint32 numPoints; 
+  WKBPoint points[numPoints]
+}
+
+WKBMultiLineString { 
+  byte byteOrder; 
+  static uint32 wkbType = 5; 
+  uint32 numLineStrings; 
+  WKBLineString lineStrings[numLineStrings]
+}
+
+WKBMultiPolygon { 
+  byte byteOrder; 
+  static uint32 wkbType = 6; 
+  uint32 numPolygons; 
+  WKBPolygon polygons[numPolygons]
+}
+```
+:::
+
+::: {.column width="50%"}
+``` code
+WKBGeometryCollection { 
+  byte byte_order; 
+  static uint32 wkbType = 7; 
+  uint32 numGeometries; 
+  WKBGeometry geometries[numGeometries]
+}
+
+WKBGeometry {
+  Union { 
+    WKBPoint point; 
+    WKBLineString linestring; 
+    WKBPolygon polygon; 
+    WKBTriangle triangle 
+    WKBPolyhedralSurface polyhedralsurface; 
+    WKBTIN tin WKBMultiPoint mpoint; 
+    WKBMultiLineString mlinestring; 
+    WKBMultiPolygon mpolygon; 
+    WKBGeometryCollection 
+    collection;
+  }
+}
+```
+:::
+:::
+
+## Пример
+
+```         
+01
+03000000
+01000000
+04000000
+0000000000000000
+0000000000000000
+000000000000F03F
+000000000000F03F
+0000000000000040
+0000000000000000
+0000000000000000
+0000000000000000
+```
+
 ## Библиография

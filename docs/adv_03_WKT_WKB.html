@@ -1102,6 +1102,126 @@ M = \sum_{i=0}^{n-1}A_i\cdot 256^i=A_0\cdot 256^0+A_1\cdot 256^1+A_2\cdot 256^2+
 </tbody>
 </table>
 </section>
+<section id="ieee-754-binary64" class="slide level2">
+<h2>IEEE 754 <code>binary64</code></h2>
+<ul>
+<li><p>Знак: <span class="math inline">\(1\)</span> бит</p></li>
+<li><p>Экспонента: <span class="math inline">\(11\)</span> бит</p></li>
+<li><p>Мантисса: <span class="math inline">\(53\)</span> бит (<span class="math inline">\(52\)</span> хранятся явно)</p></li>
+</ul>
+
+<img data-src="images/IEEE_754.svg" class="r-stretch"></section>
+<section id="классы-wkbgeometry-2" class="slide level2">
+<h2>Классы WKBGeometry</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>WKBPoint { </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  byte byteOrder; </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  static uint32 wkbType = 1; </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  Point point</span>
+<span id="cb6-5"><a href="#cb6-5"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>WKBLineString { </span>
+<span id="cb6-8"><a href="#cb6-8"></a>  byte byteOrder; </span>
+<span id="cb6-9"><a href="#cb6-9"></a>  static uint32 wkbType = 2; </span>
+<span id="cb6-10"><a href="#cb6-10"></a>  uint32 numPoints; </span>
+<span id="cb6-11"><a href="#cb6-11"></a>  Point points[numPoints]</span>
+<span id="cb6-12"><a href="#cb6-12"></a>}</span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a>WKBPolygon {</span>
+<span id="cb6-15"><a href="#cb6-15"></a>  byte byteOrder; </span>
+<span id="cb6-16"><a href="#cb6-16"></a>  static uint32 wkbType = 3; </span>
+<span id="cb6-17"><a href="#cb6-17"></a>  uint32 numRings; </span>
+<span id="cb6-18"><a href="#cb6-18"></a>  LinearRing rings[numRings]</span>
+<span id="cb6-19"><a href="#cb6-19"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>WKBTriangle { </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  byte byteOrder; </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  static uint32 wkbType = 17; </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  uint32 numRings; </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  LinearRing rings[numRings]</span>
+<span id="cb7-6"><a href="#cb7-6"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a>WKBPolyhedralSurface { </span>
+<span id="cb7-9"><a href="#cb7-9"></a>  byte byteOrder; </span>
+<span id="cb7-10"><a href="#cb7-10"></a>  static uint32 wkbType = 15; </span>
+<span id="cb7-11"><a href="#cb7-11"></a>  uint32 numPolygons; </span>
+<span id="cb7-12"><a href="#cb7-12"></a>  WKBPolygon polygons[numPolygons]</span>
+<span id="cb7-13"><a href="#cb7-13"></a>}</span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a>WKBTIN { </span>
+<span id="cb7-16"><a href="#cb7-16"></a>  byte byteOrder; </span>
+<span id="cb7-17"><a href="#cb7-17"></a>  static uint32 wkbType = 16; </span>
+<span id="cb7-18"><a href="#cb7-18"></a>  uint32 numPolygons; </span>
+<span id="cb7-19"><a href="#cb7-19"></a>  WKBPolygon polygons[numPolygons]</span>
+<span id="cb7-20"><a href="#cb7-20"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="классы-wkbgeometry-3" class="slide level2">
+<h2>Классы WKBGeometry</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>WKBMultiPoint { </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  byte byteOrder; </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  static uint32 wkbType=4; </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  uint32 numPoints; </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  WKBPoint points[numPoints]</span>
+<span id="cb8-6"><a href="#cb8-6"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a>WKBMultiLineString { </span>
+<span id="cb8-9"><a href="#cb8-9"></a>  byte byteOrder; </span>
+<span id="cb8-10"><a href="#cb8-10"></a>  static uint32 wkbType = 5; </span>
+<span id="cb8-11"><a href="#cb8-11"></a>  uint32 numLineStrings; </span>
+<span id="cb8-12"><a href="#cb8-12"></a>  WKBLineString lineStrings[numLineStrings]</span>
+<span id="cb8-13"><a href="#cb8-13"></a>}</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a>WKBMultiPolygon { </span>
+<span id="cb8-16"><a href="#cb8-16"></a>  byte byteOrder; </span>
+<span id="cb8-17"><a href="#cb8-17"></a>  static uint32 wkbType = 6; </span>
+<span id="cb8-18"><a href="#cb8-18"></a>  uint32 numPolygons; </span>
+<span id="cb8-19"><a href="#cb8-19"></a>  WKBPolygon polygons[numPolygons]</span>
+<span id="cb8-20"><a href="#cb8-20"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>WKBGeometryCollection { </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  byte byte_order; </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  static uint32 wkbType = 7; </span>
+<span id="cb9-4"><a href="#cb9-4"></a>  uint32 numGeometries; </span>
+<span id="cb9-5"><a href="#cb9-5"></a>  WKBGeometry geometries[numGeometries]</span>
+<span id="cb9-6"><a href="#cb9-6"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>WKBGeometry {</span>
+<span id="cb9-9"><a href="#cb9-9"></a>  Union { </span>
+<span id="cb9-10"><a href="#cb9-10"></a>    WKBPoint point; </span>
+<span id="cb9-11"><a href="#cb9-11"></a>    WKBLineString linestring; </span>
+<span id="cb9-12"><a href="#cb9-12"></a>    WKBPolygon polygon; </span>
+<span id="cb9-13"><a href="#cb9-13"></a>    WKBTriangle triangle </span>
+<span id="cb9-14"><a href="#cb9-14"></a>    WKBPolyhedralSurface polyhedralsurface; </span>
+<span id="cb9-15"><a href="#cb9-15"></a>    WKBTIN tin WKBMultiPoint mpoint; </span>
+<span id="cb9-16"><a href="#cb9-16"></a>    WKBMultiLineString mlinestring; </span>
+<span id="cb9-17"><a href="#cb9-17"></a>    WKBMultiPolygon mpolygon; </span>
+<span id="cb9-18"><a href="#cb9-18"></a>    WKBGeometryCollection </span>
+<span id="cb9-19"><a href="#cb9-19"></a>    collection;</span>
+<span id="cb9-20"><a href="#cb9-20"></a>  }</span>
+<span id="cb9-21"><a href="#cb9-21"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="пример" class="slide level2">
+<h2>Пример</h2>
+<pre><code>01
+03000000
+01000000
+04000000
+0000000000000000
+0000000000000000
+000000000000F03F
+000000000000F03F
+0000000000000040
+0000000000000000
+0000000000000000
+0000000000000000</code></pre>
+</section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 
