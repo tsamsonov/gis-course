@@ -938,7 +938,7 @@
 <h2>Коды геометрических типов</h2>
 <table style="width:96%;">
 <colgroup>
-<col style="width: 30%">
+<col style="width: 28%">
 <col style="width: 16%">
 <col style="width: 16%">
 <col style="width: 16%">
@@ -1084,23 +1084,20 @@ M = \sum_{i=0}^{n-1}A_i\cdot 256^i=A_0\cdot 256^0+A_1\cdot 256^1+A_2\cdot 256^2+
 <li><p><span class="math inline">\(A_0\)</span> — младший (<em>little</em>) байт</p></li>
 <li><p><span class="math inline">\(A_{n-1}\)</span> — старший (<em>big</em>) байт</p></li>
 </ul>
-<p>Число <span class="math inline">\(11789_{10}\)</span> (<code>0x2E0D</code>) можно записать двумя способами:</p>
-<table style="width:99%;">
+<p>Число <span class="math inline">\(11789422_{10}\)</span> (<span class="math inline">\(\texttt{0x}\color{red}{\texttt{B3}}\color{green}{\texttt{E4}}\color{blue}{\texttt{6E}}_{16}\)</span>) можно записать двумя способами:</p>
+<table>
 <colgroup>
-<col style="width: 22%">
-<col style="width: 23%">
-<col style="width: 52%">
+<col style="width: 13%">
+<col style="width: 86%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><strong>Little Endian</strong></td>
-<td><span class="math inline">\(A_0A_1...A_{n-1}\)</span></td>
-<td><code>0000 1101 0010 1110</code></td>
+<td><span class="math inline">\(\texttt{Big Endian}\)</span></td>
+<td><span class="math inline">\(\color{red}{A_{n-1}}...\color{green}{A_1}\color{blue}{A_0} \rightarrow \color{red}{\texttt{1011 0011}}~\color{green}{\texttt{1110 0100}}~\color{blue}{\texttt{0110 1110}}\)</span></td>
 </tr>
 <tr class="even">
-<td><strong>Big Endian</strong></td>
-<td><span class="math inline">\(A_{n-1}...A_1A_0\)</span></td>
-<td><code>0010 1110 0000 1101</code></td>
+<td><span class="math inline">\(\texttt{Little Endian}\)</span></td>
+<td><span class="math inline">\(\color{blue}{A_0}\color{green}{A_1}...\color{red}{A_{n-1}} \rightarrow \color{blue}{\texttt{0110 1110}}~\color{green}{\texttt{1110 0100}}~\color{red}{\texttt{1011 0011}}\)</span></td>
 </tr>
 </tbody>
 </table>
