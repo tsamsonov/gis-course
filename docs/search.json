@@ -4722,13 +4722,13 @@
     "href": "adv_03_WKT_WKB.html#ieee-754-binary64",
     "title": "WKT и WKB",
     "section": "IEEE 754 binary64",
-    "text": "IEEE 754 binary64\n\nЗнак: \\(1\\) бит\nЭкспонента: \\(11\\) бит\nМантисса: \\(53\\) бит (\\(52\\) хранятся явно)"
+    "text": "IEEE 754 binary64\nЧисло двойной точности записывается из трёх компонент:\n\nДля конвертации из бинарной в десятичную форму используется соотношение:\n\\[\n(-1)^s \\cdot \\bigg(1 + \\frac{m}{2^{52}}\\bigg) \\cdot 2^{e-1023}\n\\]"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#пример",
     "href": "adv_03_WKT_WKB.html#пример",
     "title": "WKT и WKB",
     "section": "Пример",
-    "text": "Пример\n01\n03000000\n01000000\n04000000\n0000000000000000\n0000000000000000\n000000000000F03F\n000000000000F03F\n0000000000000040\n0000000000000000\n0000000000000000\n0000000000000000"
+    "text": "Пример\nWKBPoint { \n  byte byteOrder; \n  static uint32 wkbType = 1; \n  Point point\n}\n\nPoint { \n  double x; \n  double y;\n} \n\nPOINT (1.3 2.7)\n\n01 01000000 CDCCCCCCCCCCF43F 9A99999999990540\n\nCDCCCCCCCCCCF43F = 0 01111111111 0100 11001100 11001100 11001100 11001100 11001100 11001101"
   }
 ]
