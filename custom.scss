@@ -49,3 +49,7 @@ $presentation-heading-color: #383d3d !default;
 .reveal pre.sourceCode code {
   max-height: 720px;
 }
+
+.reveal .code-large code {
+  font-size: 1.5em;
+}

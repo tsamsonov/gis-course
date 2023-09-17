@@ -406,7 +406,7 @@
 </div>
 </div>
 
-  <p class="date">17 сентября 2023 г.</p>
+  <p class="date">18 сентября 2023 г.</p>
 </section>
 <section id="координатная-система-отсчета" class="slide level2">
 <h2>Координатная система отсчета</h2>
@@ -917,6 +917,80 @@ temporalMeasure</td>
 <p>Например, если в файле с данными координата <span class="math inline">\(X\)</span> соответствует направлению на север, то это можно указать в параметрах осей:</p>
 <p><code>AXIS["(E)", east,  ORDER[2]],</code><br>
 <code>AXIS["(N)", north, ORDER[1]]</code></p>
+</section>
+<section id="единицы-измерения-осей" class="slide level2">
+<h2>Единицы измерения осей</h2>
+<p>Могут быть указаны как на уровне системы координат (<code>&lt;cs unit&gt;</code>), так и на уровне каждой оси по отдельности (<code>&lt;axis unit&gt;</code>).</p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Не следует использовать <code>&lt;cs unit&gt;</code> когда единицы измерения осей разные (например, в полярной СК).</p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>CS[Cartesian,3],</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  AXIS["(X)",geocentricX], </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  AXIS["(Y)",geocentricY], </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  AXIS["(Z)",geocentricZ], </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  LENGTHUNIT["metre",1.0] — &lt;cs unit&gt;</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  </span>
+<span id="cb7-7"><a href="#cb7-7"></a>CS[polar,2],</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  AXIS["distance (r)", awayFrom, ORDER[1],</span>
+<span id="cb7-9"><a href="#cb7-9"></a>       LENGTHUNIT["metre",1.0]],                     — &lt;axis unit&gt;</span>
+<span id="cb7-10"><a href="#cb7-10"></a>  AXIS["bearing (U)", clockwise, BEARING[234], ORDER[2], </span>
+<span id="cb7-11"><a href="#cb7-11"></a>       ANGLEUNIT["degree",0.0174532925199433]]       — &lt;axis unit&gt;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="геодезические-ск" class="slide level2">
+<h2>Геодезические СК</h2>
+<p><strong>Топоцентрическая декартова</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>CS[Cartesian,3], </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  AXIS["(X)",east],</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  AXIS["(Y)",north],</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  AXIS["(Z)",up], </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  LENGTHUNIT["metre",1.0]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Геоцентрическая сферическая</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>CS[spherical,2], </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  AXIS["geocentric latitude (U)",  north, ORDER[1], </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  AXIS["geocentric longitude (V)", east,  ORDER[2], </span>
+<span id="cb9-4"><a href="#cb9-4"></a>  ANGLEUNIT["degree", 0.0174532925199433]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="географические-ск" class="slide level2">
+<h2>Географические СК</h2>
+<p><strong>Трехмерная эллипсоидальная</strong></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href="#cb10-1"></a>CS[ellipsoidal,3], </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  AXIS["latitude", north, ORDER[1],</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    ANGLEUNIT["degree", 0.0174532925199433]], </span>
+<span id="cb10-4"><a href="#cb10-4"></a>  AXIS["longitude", east, ORDER[2],</span>
+<span id="cb10-5"><a href="#cb10-5"></a>    ANGLEUNIT["degree", 0.0174532925199433]], </span>
+<span id="cb10-6"><a href="#cb10-6"></a>  AXIS["ellipsoidal height (h)", up, ORDER[3],</span>
+<span id="cb10-7"><a href="#cb10-7"></a>    LENGTHUNIT["metre",1.0]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Двумерная эллипсоидальная</strong></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb11-1"><a href="#cb11-1"></a>CS[ellipsoidal,2], </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  AXIS["(lat)", north], </span>
+<span id="cb11-3"><a href="#cb11-3"></a>  AXIS["(lon)", east], </span>
+<span id="cb11-4"><a href="#cb11-4"></a>  ANGLEUNIT["degree", 0.0174532925199433]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="проецированные-ск" class="slide level2">
+<h2>Проецированные СК</h2>
+<p><strong>Трехмерная</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href="#cb12-1"></a>CS[Cartesian,2],</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  AXIS["northing (X)", north,ORDER[1]], </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  AXIS["easting (Y)", east,ORDER[2]], </span>
+<span id="cb12-4"><a href="#cb12-4"></a>  AXIS["ellipsoid height (h)",up, ORDER[3]],</span>
+<span id="cb12-5"><a href="#cb12-5"></a>  LENGTHUNIT["metre",1.0]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Двумерная с центром на полюсе</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href="#cb13-1"></a>CS[Cartesian,2],</span>
+<span id="cb13-2"><a href="#cb13-2"></a>  AXIS["easting (X)",south, </span>
+<span id="cb13-3"><a href="#cb13-3"></a>    MERIDIAN[90,ANGLEUNIT["degree",0.0174532925199433]], ORDER[1]],</span>
+<span id="cb13-4"><a href="#cb13-4"></a>  AXIS["northing (Y)",south,</span>
+<span id="cb13-5"><a href="#cb13-5"></a>    MERIDIAN[180,ANGLEUNIT["degree",0.0174532925199433]], ORDER[2]],</span>
+<span id="cb13-6"><a href="#cb13-6"></a>  LENGTHUNIT["metre",1.0]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>

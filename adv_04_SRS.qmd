@@ -408,4 +408,95 @@ PARAMETRICUNIT["hectopascal",100]
 `AXIS["(E)", east,  ORDER[2]],`\
 `AXIS["(N)", north, ORDER[1]]`
 
+## Единицы измерения осей
+
+Могут быть указаны как на уровне системы координат (`<cs unit>`), так и на уровне каждой оси по отдельности (`<axis unit>`).
+
+::: callout-warning
+## Внимание
+
+Не следует использовать `<cs unit>` когда единицы измерения осей разные (например, в полярной СК).
+:::
+
+``` code
+CS[Cartesian,3],
+  AXIS["(X)",geocentricX], 
+  AXIS["(Y)",geocentricY], 
+  AXIS["(Z)",geocentricZ], 
+  LENGTHUNIT["metre",1.0] — <cs unit>
+  
+CS[polar,2],
+  AXIS["distance (r)", awayFrom, ORDER[1],
+       LENGTHUNIT["metre",1.0]],                     — <axis unit>
+  AXIS["bearing (U)", clockwise, BEARING[234], ORDER[2], 
+       ANGLEUNIT["degree",0.0174532925199433]]       — <axis unit>
+```
+
+## Геодезические СК
+
+**Топоцентрическая декартова**
+
+``` code
+CS[Cartesian,3], 
+  AXIS["(X)",east],
+  AXIS["(Y)",north],
+  AXIS["(Z)",up], 
+  LENGTHUNIT["metre",1.0]
+```
+
+**Геоцентрическая сферическая**
+
+``` code
+CS[spherical,2], 
+  AXIS["geocentric latitude (U)",  north, ORDER[1], 
+  AXIS["geocentric longitude (V)", east,  ORDER[2], 
+  ANGLEUNIT["degree", 0.0174532925199433]
+```
+
+## Географические СК
+
+**Трехмерная эллипсоидальная**
+
+``` code
+CS[ellipsoidal,3], 
+  AXIS["latitude", north, ORDER[1],
+    ANGLEUNIT["degree", 0.0174532925199433]], 
+  AXIS["longitude", east, ORDER[2],
+    ANGLEUNIT["degree", 0.0174532925199433]], 
+  AXIS["ellipsoidal height (h)", up, ORDER[3],
+    LENGTHUNIT["metre",1.0]]
+```
+
+**Двумерная эллипсоидальная**
+
+``` code
+CS[ellipsoidal,2], 
+  AXIS["(lat)", north], 
+  AXIS["(lon)", east], 
+  ANGLEUNIT["degree", 0.0174532925199433]
+```
+
+## Проецированные СК
+
+**Трехмерная**
+
+``` code
+CS[Cartesian,2],
+  AXIS["northing (X)", north,ORDER[1]], 
+  AXIS["easting (Y)", east,ORDER[2]], 
+  AXIS["ellipsoid height (h)",up, ORDER[3]],
+  LENGTHUNIT["metre",1.0]
+```
+
+**Двумерная с центром на полюсе**
+
+``` code
+CS[Cartesian,2],
+  AXIS["easting (X)",south, 
+    MERIDIAN[90,ANGLEUNIT["degree",0.0174532925199433]], ORDER[1]],
+  AXIS["northing (Y)",south,
+    MERIDIAN[180,ANGLEUNIT["degree",0.0174532925199433]], ORDER[2]],
+  LENGTHUNIT["metre",1.0]
+```
+
 ## Библиография
