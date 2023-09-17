@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -742,7 +807,7 @@
 <p><strong><code>p.LocateAlong(3):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_03_WKT_WKB_files/figure-revealjs/unnamed-chunk-1-1.png" width="600" height="450"></p>
+<p><img data-src="adv_03_WKT_WKB_full_files/figure-revealjs/unnamed-chunk-1-1.png" width="600" height="450"></p>
 </div>
 </div>
 </section>
@@ -755,9 +820,430 @@
 <p><strong><code>l.LocateAlong(0.5):</code></strong> <code>POINT M()</code> — <em>пустой</em> объект</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="adv_03_WKT_WKB_files/figure-revealjs/unnamed-chunk-2-3.png" width="600" height="300"></p>
+<p><img data-src="adv_03_WKT_WKB_full_files/figure-revealjs/unnamed-chunk-2-3.png" width="600" height="300"></p>
 </div>
 </div>
+</section>
+<section id="well-known-binary-wkb" class="slide level2">
+<h2>Well-Known Binary (WKB)</h2>
+<p><strong>Well-Known Binary (WKB)</strong> — компактное представление геометрического объекта в виде непрерывной последовательности байтов.</p>
+<ul>
+<li><p>Позволяет обмениваться пространственными данными в бинарной форме</p></li>
+<li><p>Реализуется путем представления геометрического объекта в виде последовательности чисел типов <code>{Unsigned Integer, Double}</code> и их сериализации в последовательность байтов</p></li>
+<li><p>Для сериализации используется порядок байтов с большого (<em>Big Endian</em>) или малого (<em>Little Endian</em>) конца.</p></li>
+</ul>
+<p><code>Unsigned Integer</code> — <span class="math inline">\(32\)</span>-битный (<span class="math inline">\(4\)</span>-байтовый) тип данных, который представляет неотрицательные целые числа в диапазоне <code>[0, 4 294 967 259]</code></p>
+<p><code>Double</code> — <span class="math inline">\(64\)</span>-битный (<span class="math inline">\(8\)</span>-байтовый) тип данных, который представляет числа с плавающей точкой двойной точности стандарта <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a>.</p>
+</section>
+<section id="коды-геометрических-типов" class="slide level2 table-small">
+<h2>Коды геометрических типов</h2>
+<table style="width:96%;">
+<colgroup>
+<col style="width: 42%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Тип</strong></td>
+<td><strong>XY</strong></td>
+<td><strong>XYZ</strong></td>
+<td><strong>XYM</strong></td>
+<td><strong>XYZM</strong></td>
+</tr>
+<tr class="even">
+<td><code>GEOMETRY</code></td>
+<td><code>0</code></td>
+<td><code>1000</code></td>
+<td><code>2000</code></td>
+<td><code>3000</code></td>
+</tr>
+<tr class="odd">
+<td><code>POINT</code></td>
+<td><code>1</code></td>
+<td><code>1001</code></td>
+<td><code>2001</code></td>
+<td><code>3001</code></td>
+</tr>
+<tr class="even">
+<td><code>LINESTRING</code></td>
+<td><code>2</code></td>
+<td><code>1002</code></td>
+<td><code>2002</code></td>
+<td><code>3002</code></td>
+</tr>
+<tr class="odd">
+<td><code>POLYGON</code></td>
+<td><code>3</code></td>
+<td><code>1003</code></td>
+<td><code>2003</code></td>
+<td><code>3003</code></td>
+</tr>
+<tr class="even">
+<td><code>MULTIPOINT</code></td>
+<td><code>4</code></td>
+<td><code>1004</code></td>
+<td><code>2004</code></td>
+<td><code>3004</code></td>
+</tr>
+<tr class="odd">
+<td><code>MULTILINESTRING</code></td>
+<td><code>5</code></td>
+<td><code>1005</code></td>
+<td><code>2005</code></td>
+<td><code>3005</code></td>
+</tr>
+<tr class="even">
+<td><code>MULTIPOLYGON</code></td>
+<td><code>6</code></td>
+<td><code>1006</code></td>
+<td><code>2006</code></td>
+<td><code>3006</code></td>
+</tr>
+<tr class="odd">
+<td><code>GEOMETRYCOLLECTION</code></td>
+<td><code>7</code></td>
+<td><code>1007</code></td>
+<td><code>2007</code></td>
+<td><code>3007</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{CIRCULARSTRING}^ \star\)</span></td>
+<td><code>8</code></td>
+<td><code>1008</code></td>
+<td><code>2008</code></td>
+<td><code>3008</code></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\texttt{COMPOUNDCURVE}^\star\)</span></td>
+<td><code>9</code></td>
+<td><code>1009</code></td>
+<td><code>2009</code></td>
+<td><code>3009</code></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{CURVEPOLYGON}^\star\)</span></td>
+<td><code>10</code></td>
+<td><code>1010</code></td>
+<td><code>2010</code></td>
+<td><code>3010</code></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\star\)</span> — зарезервированные типы</p>
+</section>
+<section id="коды-геометрических-типов-1" class="slide level2">
+<h2>Коды геометрических типов</h2>
+<table style="width:96%;">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Тип</strong></td>
+<td><strong>XY</strong></td>
+<td><strong>XYZ</strong></td>
+<td><strong>XYM</strong></td>
+<td><strong>XYZM</strong></td>
+</tr>
+<tr class="even">
+<td><code>MULTICURVE</code></td>
+<td><code>11</code></td>
+<td><code>1011</code></td>
+<td><code>2011</code></td>
+<td><code>3011</code></td>
+</tr>
+<tr class="odd">
+<td><code>MULTISURFACE</code></td>
+<td><code>12</code></td>
+<td><code>1012</code></td>
+<td><code>2012</code></td>
+<td><code>3012</code></td>
+</tr>
+<tr class="even">
+<td><code>CURVE</code></td>
+<td><code>13</code></td>
+<td><code>1013</code></td>
+<td><code>2013</code></td>
+<td><code>3013</code></td>
+</tr>
+<tr class="odd">
+<td><code>SURFACE</code></td>
+<td><code>14</code></td>
+<td><code>1014</code></td>
+<td><code>2014</code></td>
+<td><code>3014</code></td>
+</tr>
+<tr class="even">
+<td><code>POLYHEDRALSURFACE</code></td>
+<td><code>15</code></td>
+<td><code>1015</code></td>
+<td><code>2015</code></td>
+<td><code>3015</code></td>
+</tr>
+<tr class="odd">
+<td><code>TIN</code></td>
+<td><code>16</code></td>
+<td><code>1016</code></td>
+<td><code>2016</code></td>
+<td><code>3016</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="классы-wkbgeometry" class="slide level2">
+<h2>Классы WKBGeometry</h2>
+<p><strong>Базовые определения типов</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>// byte : 1 byte </span>
+<span id="cb1-2"><a href="#cb1-2"></a>// uint32 : 32 bit unsigned integer (4 bytes) </span>
+<span id="cb1-3"><a href="#cb1-3"></a>// double : double precision number (8 bytes) </span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Точки</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>Point { </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  double x; </span>
+<span id="cb2-3"><a href="#cb2-3"></a>  double y;</span>
+<span id="cb2-4"><a href="#cb2-4"></a>} </span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>PointZ { </span>
+<span id="cb2-7"><a href="#cb2-7"></a>  double x; </span>
+<span id="cb2-8"><a href="#cb2-8"></a>  double y; </span>
+<span id="cb2-9"><a href="#cb2-9"></a>  double z;</span>
+<span id="cb2-10"><a href="#cb2-10"></a>} </span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Определения используют синтаксис, похожий на язык программирования <em><strong>C</strong>.</em></p>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>PointM { </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  double x; </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  double y; </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  double m;</span>
+<span id="cb3-5"><a href="#cb3-5"></a>} </span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a>PointZM { </span>
+<span id="cb3-8"><a href="#cb3-8"></a>  double x; </span>
+<span id="cb3-9"><a href="#cb3-9"></a>  double y; </span>
+<span id="cb3-10"><a href="#cb3-10"></a>  double z; </span>
+<span id="cb3-11"><a href="#cb3-11"></a>  double m;</span>
+<span id="cb3-12"><a href="#cb3-12"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="классы-wkbgeometry-1" class="slide level2">
+<h2>Классы WKBGeometry</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Линейные кольца</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>LinearRing { </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  uint32 numPoints; </span>
+<span id="cb4-3"><a href="#cb4-3"></a>  Point points[numPoints];</span>
+<span id="cb4-4"><a href="#cb4-4"></a>} </span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a>LinearRingZ { </span>
+<span id="cb4-7"><a href="#cb4-7"></a>  uint32 numPoints; </span>
+<span id="cb4-8"><a href="#cb4-8"></a>  PointZ points[numPoints];</span>
+<span id="cb4-9"><a href="#cb4-9"></a>} </span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a>LinearRingM { </span>
+<span id="cb4-12"><a href="#cb4-12"></a>  uint32 numPoints; </span>
+<span id="cb4-13"><a href="#cb4-13"></a>  PointM points[numPoints];</span>
+<span id="cb4-14"><a href="#cb4-14"></a>} </span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a>LinearRingZM { </span>
+<span id="cb4-17"><a href="#cb4-17"></a>  uint32 numPoints; </span>
+<span id="cb4-18"><a href="#cb4-18"></a>  PointZM points[numPoints];</span>
+<span id="cb4-19"><a href="#cb4-19"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<p><strong>Порядок байтов</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>enum WKBByteOrder { </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  wkbXDR = 0, // Big Endian </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  wkbNDR = 1 // Little Endian </span>
+<span id="cb5-4"><a href="#cb5-4"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Порядок байтов определяет последовательность представления машинного слова в памяти компьютера:</p>
+<ul>
+<li><p><strong>Big Endian (BE)</strong> — от большего к меньшему</p></li>
+<li><p><strong>Littel Endian (LE)</strong> — от меньшего к большему</p></li>
+</ul>
+<p>В современных компьютерах машинное слово <span class="math inline">\(64\)</span>-битное и состоит из <span class="math inline">\(8\)</span> байтов.</p>
+</div>
+</div>
+</section>
+<section id="endians" class="slide level2">
+<h2>Endians</h2>
+<p><span class="math inline">\(256 = 2^8\)</span> — максимальное число, которое можно записать в один байт.</p>
+<p>Произвольное число можно разложить по байтам:</p>
+<p><span class="math display">\[
+M = \sum_{i=0}^{n-1}A_i\cdot 256^i=A_0\cdot 256^0+A_1\cdot 256^1+A_2\cdot 256^2+\dots+A_{n-1}\cdot 256^{n-1}.
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(A_0,\dots,A_{n-1}\)</span> — целые числа в диапазоне от <span class="math inline">\(0\)</span> до <span class="math inline">\(255\)</span></p></li>
+<li><p><span class="math inline">\(A_0\)</span> — младший (<em>little</em>) байт</p></li>
+<li><p><span class="math inline">\(A_{n-1}\)</span> — старший (<em>big</em>) байт</p></li>
+</ul>
+<p>Число <span class="math inline">\(11789422_{10}\)</span> (<span class="math inline">\(\texttt{0x}\color{red}{\texttt{B3}}\color{green}{\texttt{E4}}\color{blue}{\texttt{6E}}_{16}\)</span>) можно записать двумя способами:</p>
+<table>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\texttt{Big Endian}\)</span></td>
+<td><span class="math inline">\(\color{red}{A_{n-1}}...\color{green}{A_1}\color{blue}{A_0} \rightarrow \color{red}{\texttt{1011 0011}}~\color{green}{\texttt{1110 0100}}~\color{blue}{\texttt{0110 1110}}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{Little Endian}\)</span></td>
+<td><span class="math inline">\(\color{blue}{A_0}\color{green}{A_1}...\color{red}{A_{n-1}} \rightarrow \color{blue}{\texttt{0110 1110}}~\color{green}{\texttt{1110 0100}}~\color{red}{\texttt{1011 0011}}\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ieee-754-binary64" class="slide level2">
+<h2>IEEE 754 <code>binary64</code></h2>
+<p>Число двойной точности записывается из трёх компонент:</p>
+
+<img data-src="images/IEEE_754.svg" style="width:100.0%" class="r-stretch"><p>Для конвертации из бинарной в десятичную форму используется соотношение:</p>
+<p><span class="math display">\[
+(-1)^s \cdot \bigg(1 + \frac{m}{2^{52}}\bigg) \cdot 2^{e-1023}
+\]</span></p>
+<table style="width:85%;">
+<colgroup>
+<col style="width: 41%">
+<col style="width: 43%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Порядок числа</td>
+<td>от <span class="math inline">\(10^{-307}\)</span> до <span class="math inline">\(10^{307}\)</span></td>
+</tr>
+<tr class="even">
+<td>Точность, десятичных знаков</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="классы-wkbgeometry-2" class="slide level2">
+<h2>Классы WKBGeometry</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>WKBPoint { </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  byte byteOrder; </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  static uint32 wkbType = 1; </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  Point point</span>
+<span id="cb6-5"><a href="#cb6-5"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a>WKBLineString { </span>
+<span id="cb6-8"><a href="#cb6-8"></a>  byte byteOrder; </span>
+<span id="cb6-9"><a href="#cb6-9"></a>  static uint32 wkbType = 2; </span>
+<span id="cb6-10"><a href="#cb6-10"></a>  uint32 numPoints; </span>
+<span id="cb6-11"><a href="#cb6-11"></a>  Point points[numPoints]</span>
+<span id="cb6-12"><a href="#cb6-12"></a>}</span>
+<span id="cb6-13"><a href="#cb6-13"></a></span>
+<span id="cb6-14"><a href="#cb6-14"></a>WKBPolygon {</span>
+<span id="cb6-15"><a href="#cb6-15"></a>  byte byteOrder; </span>
+<span id="cb6-16"><a href="#cb6-16"></a>  static uint32 wkbType = 3; </span>
+<span id="cb6-17"><a href="#cb6-17"></a>  uint32 numRings; </span>
+<span id="cb6-18"><a href="#cb6-18"></a>  LinearRing rings[numRings]</span>
+<span id="cb6-19"><a href="#cb6-19"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a href="#cb7-1"></a>WKBTriangle { </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  byte byteOrder; </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  static uint32 wkbType = 17; </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  uint32 numRings; </span>
+<span id="cb7-5"><a href="#cb7-5"></a>  LinearRing rings[numRings]</span>
+<span id="cb7-6"><a href="#cb7-6"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a>WKBPolyhedralSurface { </span>
+<span id="cb7-9"><a href="#cb7-9"></a>  byte byteOrder; </span>
+<span id="cb7-10"><a href="#cb7-10"></a>  static uint32 wkbType = 15; </span>
+<span id="cb7-11"><a href="#cb7-11"></a>  uint32 numPolygons; </span>
+<span id="cb7-12"><a href="#cb7-12"></a>  WKBPolygon polygons[numPolygons]</span>
+<span id="cb7-13"><a href="#cb7-13"></a>}</span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a>WKBTIN { </span>
+<span id="cb7-16"><a href="#cb7-16"></a>  byte byteOrder; </span>
+<span id="cb7-17"><a href="#cb7-17"></a>  static uint32 wkbType = 16; </span>
+<span id="cb7-18"><a href="#cb7-18"></a>  uint32 numPolygons; </span>
+<span id="cb7-19"><a href="#cb7-19"></a>  WKBPolygon polygons[numPolygons]</span>
+<span id="cb7-20"><a href="#cb7-20"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="классы-wkbgeometry-3" class="slide level2">
+<h2>Классы WKBGeometry</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href="#cb8-1"></a>WKBMultiPoint { </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  byte byteOrder; </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  static uint32 wkbType=4; </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  uint32 numPoints; </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  WKBPoint points[numPoints]</span>
+<span id="cb8-6"><a href="#cb8-6"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a>WKBMultiLineString { </span>
+<span id="cb8-9"><a href="#cb8-9"></a>  byte byteOrder; </span>
+<span id="cb8-10"><a href="#cb8-10"></a>  static uint32 wkbType = 5; </span>
+<span id="cb8-11"><a href="#cb8-11"></a>  uint32 numLineStrings; </span>
+<span id="cb8-12"><a href="#cb8-12"></a>  WKBLineString lineStrings[numLineStrings]</span>
+<span id="cb8-13"><a href="#cb8-13"></a>}</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-15"><a href="#cb8-15"></a>WKBMultiPolygon { </span>
+<span id="cb8-16"><a href="#cb8-16"></a>  byte byteOrder; </span>
+<span id="cb8-17"><a href="#cb8-17"></a>  static uint32 wkbType = 6; </span>
+<span id="cb8-18"><a href="#cb8-18"></a>  uint32 numPolygons; </span>
+<span id="cb8-19"><a href="#cb8-19"></a>  WKBPolygon polygons[numPolygons]</span>
+<span id="cb8-20"><a href="#cb8-20"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href="#cb9-1"></a>WKBGeometryCollection { </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  byte byte_order; </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  static uint32 wkbType = 7; </span>
+<span id="cb9-4"><a href="#cb9-4"></a>  uint32 numGeometries; </span>
+<span id="cb9-5"><a href="#cb9-5"></a>  WKBGeometry geometries[numGeometries]</span>
+<span id="cb9-6"><a href="#cb9-6"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7"></a></span>
+<span id="cb9-8"><a href="#cb9-8"></a>WKBGeometry {</span>
+<span id="cb9-9"><a href="#cb9-9"></a>  Union { </span>
+<span id="cb9-10"><a href="#cb9-10"></a>    WKBPoint point; </span>
+<span id="cb9-11"><a href="#cb9-11"></a>    WKBLineString linestring; </span>
+<span id="cb9-12"><a href="#cb9-12"></a>    WKBPolygon polygon; </span>
+<span id="cb9-13"><a href="#cb9-13"></a>    WKBTriangle triangle </span>
+<span id="cb9-14"><a href="#cb9-14"></a>    WKBPolyhedralSurface polyhedralsurface; </span>
+<span id="cb9-15"><a href="#cb9-15"></a>    WKBTIN tin WKBMultiPoint mpoint; </span>
+<span id="cb9-16"><a href="#cb9-16"></a>    WKBMultiLineString mlinestring; </span>
+<span id="cb9-17"><a href="#cb9-17"></a>    WKBMultiPolygon mpolygon; </span>
+<span id="cb9-18"><a href="#cb9-18"></a>    WKBGeometryCollection </span>
+<span id="cb9-19"><a href="#cb9-19"></a>    collection;</span>
+<span id="cb9-20"><a href="#cb9-20"></a>  }</span>
+<span id="cb9-21"><a href="#cb9-21"></a>}</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="пример" class="slide level2">
+<h2>Пример</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href="#cb10-1"></a>WKBPoint { </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  byte byteOrder; </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  static uint32 wkbType = 1; </span>
+<span id="cb10-4"><a href="#cb10-4"></a>  Point point</span>
+<span id="cb10-5"><a href="#cb10-5"></a>}</span>
+<span id="cb10-6"><a href="#cb10-6"></a>Point { </span>
+<span id="cb10-7"><a href="#cb10-7"></a>  double x; </span>
+<span id="cb10-8"><a href="#cb10-8"></a>  double y;</span>
+<span id="cb10-9"><a href="#cb10-9"></a>} </span>
+<span id="cb10-10"><a href="#cb10-10"></a>POINT (1.3 2.7)</span>
+<span id="cb10-11"><a href="#cb10-11"></a>Little Endian: 01 01000000 CDCCCCCCCCCCF43F 9A99999999990540</span>
+<span id="cb10-12"><a href="#cb10-12"></a>Big Endian x:  3FF4CCCCCCCCCCCD = </span>
+<span id="cb10-13"><a href="#cb10-13"></a>                  0 01111111111 0100 1100 1100 1100 1100 1100 1100 </span>
+<span id="cb10-14"><a href="#cb10-14"></a>                                1100 1100 1100 1100 1100 1101</span>
+<span id="cb10-15"><a href="#cb10-15"></a>По основанию 10:  0    1023     1351079888211149</span>
+<span id="cb10-16"><a href="#cb10-16"></a>                 (s)   (e)      (m)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math display">\[
+(-1)^0 \cdot \bigg(1 + \frac{1351079888211149}{4 503 599 627 370 496} \bigg) \cdot 2^{1023-1023} = 1 \cdot (1 + 0.3) \cdot 2^0 = 1.3
+\]</span></p>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
