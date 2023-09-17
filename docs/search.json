@@ -5017,5 +5017,33 @@
     "title": "Координатные системы отсчета",
     "section": "Определение SRS на языке WKT",
     "text": "Определение SRS на языке WKT\n\n\n\n\n\n\n\n\n&lt;geocentric cs&gt;\n::=\nGEOCCS &lt;left delimiter&gt; &lt;name&gt; &lt;comma&gt; &lt;datum&gt; &lt;comma&gt; &lt;prime meridian&gt; &lt;comma&gt; &lt;linear unit&gt; &lt;right delimiter&gt;\n\n\n&lt;geographic cs&gt;\n::=\nGEOGCS &lt;left delimiter&gt; &lt;csname&gt; &lt;comma&gt; &lt;datum&gt; &lt;comma&gt; &lt;prime meridian&gt; &lt;comma&gt; &lt;angular unit&gt; (&lt;comma&gt; &lt;linear unit&gt; ) &lt;right delimiter&gt;\n\n\n&lt;projected cs&gt;\n::=\nPROJCS &lt;left delimiter&gt; &lt;csname&gt; &lt;comma&gt; &lt;geographic cs&gt; &lt;comma&gt; &lt;projection&gt; (&lt;comma&gt; &lt;parameter&gt; )* &lt;comma&gt; &lt;linear unit&gt; &lt;right delimiter&gt;\n\n\n&lt;spatial reference system&gt;\n::=\n&lt;projected cs&gt; | &lt;geographic cs&gt; | &lt;geocentric cs&gt;"
+  },
+  {
+    "objectID": "adv_04_SRS.html#общие-атрибуты",
+    "href": "adv_04_SRS.html#общие-атрибуты",
+    "title": "Координатные системы отсчета",
+    "section": "Общие атрибуты",
+    "text": "Общие атрибуты\nВне зависимости от типа описываемого объекта ему всегда могут быть заданы:\n\nИмя (name).\nИспользование (usage)\n\nОбласть применения (scope).\nПространственный охват (extent).\n\nИдентификатор (identifier).\nПримечания (remarks).\n\n\n\n\n\n\n\nИмя\n\n\nИмя является обязательным атрибутом при описании координатной системы отсчета, а также для некоторых компонент структуры ее описания"
+  },
+  {
+    "objectID": "adv_04_SRS.html#использование",
+    "href": "adv_04_SRS.html#использование",
+    "title": "Координатные системы отсчета",
+    "section": "Использование",
+    "text": "Использование\n&lt;usage&gt; включает в себя обязательную пару области применения и охвата:\nUSAGE[&lt;scope&gt;, &lt;extent&gt;]\n&lt;scope&gt; представляет текстовое описание области применения:\nSCOPE[\"Engineering survey, topographic mapping.\"]\n&lt;extent&gt; хранит описание пространственного охвата:\n\nAREA[\"Between 36°E and 42°E, northern hemisphere]\nBBOX[0, 36, 84, 42]\nVERTICALEXTENT[-1000,0]\nVERTICALEXTENT[-200, 6000, LENGTHUNIT[\"metre\",1.0]]\nTIMEEXTENT[2013-01-01,2013-12-31]\nTIMEEXTENT[\"Carbon\", \"Pleistocene\"]\n\nТокенов &lt;usage&gt; может быть несколько — для каждой области применения."
+  },
+  {
+    "objectID": "adv_04_SRS.html#пример-utm-37n",
+    "href": "adv_04_SRS.html#пример-utm-37n",
+    "title": "Координатные системы отсчета",
+    "section": "Пример: UTM 37N",
+    "text": "Пример: UTM 37N\nUSAGE[\n  SCOPE[\"Engineering survey, topographic mapping.\"],\n  AREA[\"Between 36°E and 42°E, northern hemisphere between equator \n        and 84°N, onshore and offshore. Djibouti. Egypt. Eritrea. \n        Ethiopia. Georgia. Iraq. Jordan. Kenya. Lebanon. Russian \n        Federation. Saudi Arabia. Somalia. Sudan. Syria. Turkey. \n        Ukraine.\"],\n  BBOX[0,36,84,42]\n]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#примеры",
+    "href": "adv_04_SRS.html#примеры",
+    "title": "Координатные системы отсчета",
+    "section": "Примеры",
+    "text": "Примеры\nUTM 37N\nUSAGE[\n  SCOPE[\"Engineering survey, topographic mapping.\"],\n  AREA[\"Between 36°E and 42°E, northern hemisphere between equator \n        and 84°N, onshore and offshore. Djibouti. Egypt. Eritrea. \n        Ethiopia. Georgia. Iraq. Jordan. Kenya. Lebanon. Russian \n        Federation. Saudi Arabia. Somalia. Sudan. Syria. Turkey. \n        Ukraine.\"],\n  BBOX[0,36,84,42]]\nМестная система координат\nUSAGE[\n  SCOPE[\"Small scale topographic mapping.\"], \n  AREA[\"Finland - onshore and offshore.\"]],\nUSAGE[\n  SCOPE[\"Cadastre.\"],\n  AREA[\"Finland - onshore between 26°30'E and 27°30'E.\"], \n  BBOX[60.36,26.5,70.05,27.5]]"
   }
 ]

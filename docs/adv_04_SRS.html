@@ -451,6 +451,70 @@
 <span id="cb1-9"><a href="#cb1-9"></a>  ]</span>
 <span id="cb1-10"><a href="#cb1-10"></a>]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="общие-атрибуты" class="slide level2">
+<h2>Общие атрибуты</h2>
+<p>Вне зависимости от типа описываемого объекта ему всегда могут быть заданы:</p>
+<ol type="1">
+<li><p>Имя (<em>name</em>).</p></li>
+<li><p>Использование (<em>usage</em>)</p>
+<ul>
+<li><p>Область применения (<em>scope</em>).</p></li>
+<li><p>Пространственный охват (<em>extent</em>).</p></li>
+</ul></li>
+<li><p>Идентификатор (<em>identifier</em>).</p></li>
+<li><p>Примечания (<em>remarks</em>).</p></li>
+</ol>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Имя</strong></p>
+</div>
+<div class="callout-content">
+<p>Имя является обязательным атрибутом при описании <em>координатной системы отсчета</em>, а также для некоторых компонент структуры ее описания</p>
+</div>
+</div>
+</div>
+</section>
+<section id="использование" class="slide level2">
+<h2>Использование</h2>
+<p><code>&lt;usage&gt;</code> включает в себя обязательную пару области применения и охвата:</p>
+<p><code>USAGE[&lt;scope&gt;, &lt;extent&gt;]</code></p>
+<p><code>&lt;scope&gt;</code> представляет текстовое описание области применения:</p>
+<p><code>SCOPE["Engineering survey, topographic mapping."]</code></p>
+<p><code>&lt;extent&gt;</code> хранит описание пространственного охвата:</p>
+<ul>
+<li><p><code>AREA["Between 36°E and 42°E, northern hemisphere]</code></p></li>
+<li><p><code>BBOX[0, 36, 84, 42]</code></p></li>
+<li><p><code>VERTICALEXTENT[-1000,0]</code></p></li>
+<li><p><code>VERTICALEXTENT[-200, 6000, LENGTHUNIT["metre",1.0]]</code></p></li>
+<li><p><code>TIMEEXTENT[2013-01-01,2013-12-31]</code></p></li>
+<li><p><code>TIMEEXTENT["Carbon", "Pleistocene"]</code></p></li>
+</ul>
+<p>Токенов <code>&lt;usage&gt;</code> может быть несколько — для каждой области применения.</p>
+</section>
+<section id="примеры" class="slide level2">
+<h2>Примеры</h2>
+<p><strong>UTM 37N</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>USAGE[</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  SCOPE["Engineering survey, topographic mapping."],</span>
+<span id="cb2-3"><a href="#cb2-3"></a>  AREA["Between 36°E and 42°E, northern hemisphere between equator </span>
+<span id="cb2-4"><a href="#cb2-4"></a>        and 84°N, onshore and offshore. Djibouti. Egypt. Eritrea. </span>
+<span id="cb2-5"><a href="#cb2-5"></a>        Ethiopia. Georgia. Iraq. Jordan. Kenya. Lebanon. Russian </span>
+<span id="cb2-6"><a href="#cb2-6"></a>        Federation. Saudi Arabia. Somalia. Sudan. Syria. Turkey. </span>
+<span id="cb2-7"><a href="#cb2-7"></a>        Ukraine."],</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  BBOX[0,36,84,42]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Местная система координат</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>USAGE[</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  SCOPE["Small scale topographic mapping."], </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  AREA["Finland - onshore and offshore."]],</span>
+<span id="cb3-4"><a href="#cb3-4"></a>USAGE[</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  SCOPE["Cadastre."],</span>
+<span id="cb3-6"><a href="#cb3-6"></a>  AREA["Finland - onshore between 26°30'E and 27°30'E."], </span>
+<span id="cb3-7"><a href="#cb3-7"></a>  BBOX[60.36,26.5,70.05,27.5]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="определение-srs-на-языке-wkt-1" class="slide level2">
 <h2>Определение SRS на языке WKT</h2>
 <table>

@@ -62,6 +62,81 @@ KEYWORD1[
 ]
 ```
 
+## Общие атрибуты
+
+Вне зависимости от типа описываемого объекта ему всегда могут быть заданы:
+
+1.  Имя (*name*).
+
+2.  Использование (*usage*)
+
+    -   Область применения (*scope*).
+
+    -   Пространственный охват (*extent*).
+
+3.  Идентификатор (*identifier*).
+
+4.  Примечания (*remarks*).
+
+::: callout-note
+## Имя
+
+Имя является обязательным атрибутом при описании *координатной системы отсчета*, а также для некоторых компонент структуры ее описания
+:::
+
+## Использование
+
+`<usage>` включает в себя обязательную пару области применения и охвата:
+
+`USAGE[<scope>, <extent>]`
+
+`<scope>` представляет текстовое описание области применения:
+
+`SCOPE["Engineering survey, topographic mapping."]`
+
+`<extent>` хранит описание пространственного охвата:
+
+-   `AREA["Between 36°E and 42°E, northern hemisphere]`
+
+-   `BBOX[0, 36, 84, 42]`
+
+-   `VERTICALEXTENT[-1000,0]`
+
+-   `VERTICALEXTENT[-200, 6000, LENGTHUNIT["metre",1.0]]`
+
+-   `TIMEEXTENT[2013-01-01,2013-12-31]`
+
+-   `TIMEEXTENT["Carbon", "Pleistocene"]`
+
+Токенов `<usage>` может быть несколько --- для каждой области применения.
+
+## Примеры
+
+**UTM 37N**
+
+``` code
+USAGE[
+  SCOPE["Engineering survey, topographic mapping."],
+  AREA["Between 36°E and 42°E, northern hemisphere between equator 
+        and 84°N, onshore and offshore. Djibouti. Egypt. Eritrea. 
+        Ethiopia. Georgia. Iraq. Jordan. Kenya. Lebanon. Russian 
+        Federation. Saudi Arabia. Somalia. Sudan. Syria. Turkey. 
+        Ukraine."],
+  BBOX[0,36,84,42]]
+```
+
+**Местная система координат**
+
+``` code
+USAGE[
+  SCOPE["Small scale topographic mapping."], 
+  AREA["Finland - onshore and offshore."]],
+USAGE[
+  SCOPE["Cadastre."],
+  AREA["Finland - onshore between 26°30'E and 27°30'E."], 
+  BBOX[60.36,26.5,70.05,27.5]]
+```
+
 ## Определение SRS на языке WKT
 
 |                                                                                                           |
