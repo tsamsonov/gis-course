@@ -518,11 +518,11 @@
 <section id="идентификатор" class="slide level2">
 <h2>Идентификатор</h2>
 <p><strong>Идентификатор</strong> — опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 8%">
-<col style="width: 69%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 88%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -562,11 +562,11 @@
 <section id="единицы-измерения" class="slide level2">
 <h2>Единицы измерения</h2>
 <p><strong>Единицы измерения</strong> указываются для некоторых параметров осей координат, а также параметров координатных операций.</p>
-<table>
+<table style="width:99%;">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 8%">
-<col style="width: 69%">
+<col style="width: 18%">
+<col style="width: 12%">
+<col style="width: 67%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -600,6 +600,68 @@
 </div>
 </div>
 </div>
+</section>
+<section id="система-координат" class="slide level2">
+<h2>Система координат</h2>
+<p>Определяется рядом параметров:</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 7%">
+<col style="width: 67%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>&lt;coordinate&nbsp;system&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>&lt;spatial cs&gt; | &lt;temporalCountMeasure cs&gt; | &lt;ordinal-dateTime cs&gt;</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;spatial&nbsp;cs&gt;</code></td>
+<td><code>::=</code></td>
+<td><p><code>&lt;cs keyword&gt; &lt;left delimiter&gt; &lt;spatial cs type&gt;</code></p>
+<p><code>&lt;wkt separator&gt; &lt;dimension&gt;</code></p>
+<p><code>[{&lt;wkt separator&gt; &lt;identifier&gt;}]*</code></p>
+<p><code>&lt;right delimiter&gt;</code></p>
+<p><code>{&lt;wkt separator&gt; &lt;spatial axis&gt;}*</code></p>
+<p><code>[&lt;wkt separator&gt; &lt;cs unit&gt;]</code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="система-координат-1" class="slide level2">
+<h2>Система координат</h2>
+<p>Определяется рядом параметров:</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 5%">
+<col style="width: 77%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>&lt;dimension&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>1|2|3</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;spatial&nbsp;cs&nbsp;type&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>affine | Cartesian | cylindrical | ellipsoidal | linear | parametric | polar | spherical | vertical</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;spatial&nbsp;axis&gt;</code></td>
+<td><code>::=</code></td>
+<td><p><code>&lt;axis keyword&gt; &lt;left delimiter&gt; &lt;axis nameAbbrev&gt;</code></p>
+<p><code>&lt;wkt separator&gt; &lt;axis direction&gt;</code></p>
+<p><code>[&lt;wkt separator&gt; &lt;axis order&gt;]</code></p>
+<p><code>[&lt;wkt separator&gt; &lt;spatial unit&gt;]</code></p>
+<p><code>[&lt;wkt separator&gt; &lt;axis range&gt;]</code></p>
+<p><code>[{ &lt;wkt separator&gt; &lt;identifier&gt; }]*</code></p>
+<p><code>&lt;right delimiter&gt;</code></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>

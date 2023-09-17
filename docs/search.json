@@ -5066,5 +5066,19 @@
     "title": "Координатные системы отсчета",
     "section": "Единицы измерения",
     "text": "Единицы измерения\nЕдиницы измерения указываются для некоторых параметров осей координат, а также параметров координатных операций.\n\n\n\n\n\n\n\n\n&lt;spatial unit&gt;\n::=\n&lt;angle unit&gt; | &lt;length unit&gt; | &lt;parametric unit&gt; | &lt;scale unit&gt;\n\n\n&lt;unit&gt;\n::=\n&lt;spatial unit&gt; | &lt;time unit&gt;\n\n\n\nПосле единицы измерения указывается коэффициент пересчета:\nLENGTHUNIT[\"metre\",1] \nLENGTHUNIT[\"German legal metre\",1.0000135965] \nANGLEUNIT[\"degree\",0.0174532925199433] \nSCALEUNIT[\"parts per million\",1E-06] \nPARAMETRICUNIT[\"hectopascal\",100]\n\n\n\n\n\n\nЭталоны\n\n\nКоэффициенты пересчета указываются к эталонным единицам СИ: метрам, радианам и т.д."
+  },
+  {
+    "objectID": "adv_04_SRS.html#система-координат",
+    "href": "adv_04_SRS.html#система-координат",
+    "title": "Координатные системы отсчета",
+    "section": "Система координат",
+    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;coordinate system&gt;\n::=\n&lt;spatial cs&gt; | &lt;temporalCountMeasure cs&gt; | &lt;ordinal-dateTime cs&gt;\n\n\n&lt;spatial cs&gt;\n::=\n&lt;cs keyword&gt; &lt;left delimiter&gt; &lt;spatial cs type&gt;\n&lt;wkt separator&gt; &lt;dimension&gt;\n[{&lt;wkt separator&gt; &lt;identifier&gt;}]*\n&lt;right delimiter&gt;\n{&lt;wkt separator&gt; &lt;spatial axis&gt;}*\n[&lt;wkt separator&gt; &lt;cs unit&gt;]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#система-координат-1",
+    "href": "adv_04_SRS.html#система-координат-1",
+    "title": "Координатные системы отсчета",
+    "section": "Система координат",
+    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;dimension&gt;\n::=\n1|2|3\n\n\n&lt;spatial cs type&gt;\n::=\naffine | Cartesian | cylindrical | ellipsoidal | linear | parametric | polar | spherical | vertical\n\n\n&lt;spatial axis&gt;\n::=\n&lt;axis keyword&gt; &lt;left delimiter&gt; &lt;axis nameAbbrev&gt;\n&lt;wkt separator&gt; &lt;axis direction&gt;\n[&lt;wkt separator&gt; &lt;axis order&gt;]\n[&lt;wkt separator&gt; &lt;spatial unit&gt;]\n[&lt;wkt separator&gt; &lt;axis range&gt;]\n[{ &lt;wkt separator&gt; &lt;identifier&gt; }]*\n&lt;right delimiter&gt;"
   }
 ]
