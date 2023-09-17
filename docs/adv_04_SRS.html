@@ -669,14 +669,17 @@
 <dt>Аффинная</dt>
 <dd>
 <p>Координатная система в Евклидовом пространстве с прямыми осями, которые не обязательно взаимно перпендикулярны</p>
+<p><code>CS[affine,2]</code></p>
 </dd>
 <dt>Декартова</dt>
 <dd>
 <p>Аффинная система координат, в которой оси взаимно перепендикулярны и имеют одинаковые единицы измерения</p>
+<p><code>CS[Cartesian,3]</code></p>
 </dd>
 <dt>Линейная</dt>
 <dd>
 <p>Одномерная система координат, в которой ось определена линейным пространственным объектом</p>
+<p><code>CS[linear,1]</code></p>
 </dd>
 </dl>
 </section>
@@ -686,14 +689,17 @@
 <dt>Полярная</dt>
 <dd>
 <p>Двумерная система координат в Евклидовом пространстве, в котором местоположение определяется расстоянием и углом</p>
+<p><code>CS[polar,2]</code></p>
 </dd>
 <dt>Цилиндрическая</dt>
 <dd>
 <p>Трехмерная система координат в Евклидовом пространстве, в котором местоположение задается двумя расстояниями и углом</p>
+<p><code>CS[cylindrical,3]</code></p>
 </dd>
 <dt>Порядковая</dt>
 <dd>
 <p>Система координат, в которой местоположение по осям определяется целыми числами</p>
+<p><code>CS[ordinal,2]</code></p>
 </dd>
 </dl>
 </section>
@@ -703,14 +709,17 @@
 <dt>Сферическая</dt>
 <dd>
 <p>Двух- или трехмерная система координат в Евклидовом пространстве, в которой местоположение определяется двумя угловыми координатами и (в трехмерном случае) одной координатой-расстоянием</p>
+<p><code>CS[spherical,3]</code></p>
 </dd>
 <dt>Эллипсоидальная</dt>
 <dd>
 <p>Двух- или трехмерная система координат, в которой местоположение определяется геодезической широтой, долготой и (в трехмерном случае) геодезической высотой</p>
+<p><code>CS[ellipsoidal,3]</code></p>
 </dd>
 <dt>Параметрическая</dt>
 <dd>
 <p>Одномерная система координат, в которой единицы измерения по оси являются непространственными параметрами</p>
+<p><code>CS[parametric,1]</code></p>
 </dd>
 </dl>
 </section>
@@ -853,42 +862,61 @@ temporalMeasure</td>
 <section id="направления-осей" class="slide level2">
 <h2>Направления осей</h2>
 <p>Направление оси соответствует положительному изменению значания.</p>
-<table style="width:92%;">
+<table style="width:99%;">
 <colgroup>
-<col style="width: 37%">
-<col style="width: 54%">
+<col style="width: 21%">
+<col style="width: 22%">
+<col style="width: 55%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Координатная система</strong></td>
 <td><strong>Допустимые направления</strong></td>
+<td><strong>Пример</strong></td>
 </tr>
 <tr class="even">
 <td>географическая</td>
 <td><code>north</code>, <code>east</code>, <code>up</code></td>
+<td><code>AXIS["(lat)",north]</code><br>
+<code>AXIS["(lon)",east]</code></td>
 </tr>
 <tr class="odd">
 <td>геодезическая декартова</td>
 <td><code>geocentricX</code><br>
 <code>geocentricY</code><br>
 <code>geocentricZ</code></td>
+<td><code>AXIS["(X)",geocentricX]</code><br>
+<code>AXIS["(Y)",geocentricY]</code><br>
+<code>AXIS["(Z)",geocentricZ]</code></td>
 </tr>
 <tr class="even">
 <td>проецированная</td>
 <td><code>north</code> / <code>south</code><br>
 <code>east</code> / <code>west</code><br>
 <code>up</code></td>
+<td><code>AXIS["(E)",east]</code><br>
+<code>AXIS["(N)",north]</code><br>
+<code>AXIS["ellipsoid height (h)",up]</code></td>
 </tr>
 <tr class="odd">
 <td>вертикальная</td>
 <td><code>up</code> / <code>down</code></td>
-</tr>
-<tr class="even">
-<td>временная</td>
-<td><code>future</code> / <code>past</code></td>
+<td><code>AXIS["depth (D)",down]</code></td>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="порядок-осей" class="slide level2">
+<h2>Порядок осей</h2>
+<p>Токен <code>&lt;axis order&gt; ::= ORDER[&lt;digit&gt;]</code> определяет соответствие между координатами точек в данных и осям координат.</p>
+<ul>
+<li><p>Нумерация осей начинается с <span class="math inline">\(1\)</span> и увеличивается с шагом <span class="math inline">\(1\)</span></p></li>
+<li><p>Порядок должен быть указан для всех осей, либо ни для какой из них</p></li>
+<li><p>Если порядок не указан, по умолчанию предполагается, что порядок осей соответствует порядку их перечисления в описании СК.</p></li>
+</ul>
+<p>Например, если в файле с данными координата <span class="math inline">\(X\)</span> соответствует направлению на север, то это можно указать в параметрах осей:</p>
+<p><code>AXIS["(E)", east,  ORDER[2]],</code><br>
+<code>AXIS["(N)", north, ORDER[1]]</code></p>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
