@@ -606,9 +606,9 @@
 <p>Определяется рядом параметров:</p>
 <table style="width:99%;">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 7%">
-<col style="width: 67%">
+<col style="width: 22%">
+<col style="width: 12%">
+<col style="width: 64%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -634,9 +634,9 @@
 <p>Определяется рядом параметров:</p>
 <table style="width:99%;">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 5%">
-<col style="width: 77%">
+<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 75%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -659,6 +659,233 @@
 <p><code>[&lt;wkt separator&gt; &lt;axis range&gt;]</code></p>
 <p><code>[{ &lt;wkt separator&gt; &lt;identifier&gt; }]*</code></p>
 <p><code>&lt;right delimiter&gt;</code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="типы-систем-координат" class="slide level2">
+<h2>Типы систем координат</h2>
+<dl>
+<dt>Аффинная</dt>
+<dd>
+<p>Координатная система в Евклидовом пространстве с прямыми осями, которые не обязательно взаимно перпендикулярны</p>
+</dd>
+<dt>Декартова</dt>
+<dd>
+<p>Аффинная система координат, в которой оси взаимно перепендикулярны и имеют одинаковые единицы измерения</p>
+</dd>
+<dt>Линейная</dt>
+<dd>
+<p>Одномерная система координат, в которой ось определена линейным пространственным объектом</p>
+</dd>
+</dl>
+</section>
+<section id="типы-систем-координат-1" class="slide level2">
+<h2>Типы систем координат</h2>
+<dl>
+<dt>Полярная</dt>
+<dd>
+<p>Двумерная система координат в Евклидовом пространстве, в котором местоположение определяется расстоянием и углом</p>
+</dd>
+<dt>Цилиндрическая</dt>
+<dd>
+<p>Трехмерная система координат в Евклидовом пространстве, в котором местоположение задается двумя расстояниями и углом</p>
+</dd>
+<dt>Порядковая</dt>
+<dd>
+<p>Система координат, в которой местоположение по осям определяется целыми числами</p>
+</dd>
+</dl>
+</section>
+<section id="типы-систем-координат-2" class="slide level2">
+<h2>Типы систем координат</h2>
+<dl>
+<dt>Сферическая</dt>
+<dd>
+<p>Двух- или трехмерная система координат в Евклидовом пространстве, в которой местоположение определяется двумя угловыми координатами и (в трехмерном случае) одной координатой-расстоянием</p>
+</dd>
+<dt>Эллипсоидальная</dt>
+<dd>
+<p>Двух- или трехмерная система координат, в которой местоположение определяется геодезической широтой, долготой и (в трехмерном случае) геодезической высотой</p>
+</dd>
+<dt>Параметрическая</dt>
+<dd>
+<p>Одномерная система координат, в которой единицы измерения по оси являются непространственными параметрами</p>
+</dd>
+</dl>
+</section>
+<section id="допустимые-системы-координат" class="slide level2">
+<h2>Допустимые системы координат</h2>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 24%">
+<col style="width: 30%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Координатная система отсчета</strong></td>
+<td><strong>Допустимые СК</strong></td>
+<td><strong>Размерность<br>
+(число осей)</strong></td>
+</tr>
+<tr class="even">
+<td>геодезическая</td>
+<td>декартова<br>
+сферическая</td>
+<td>3<br>
+2 или 3</td>
+</tr>
+<tr class="odd">
+<td>географическая</td>
+<td>эллипсоидальная</td>
+<td>2 или 3</td>
+</tr>
+<tr class="even">
+<td>проецированная</td>
+<td>декартова</td>
+<td>2 или 3</td>
+</tr>
+<tr class="odd">
+<td>проецированная <em>производная</em></td>
+<td>аффинная<br>
+декартова<br>
+цилиндрическая<br>
+порядковая<br>
+полярная<br>
+сферическая</td>
+<td>2 или 3<br>
+2 или 3<br>
+3<br>
+1 или 2 или 3<br>
+2<br>
+2 или 3</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="допустимые-системы-координат-1" class="slide level2">
+<h2>Допустимые системы координат</h2>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 47%">
+<col style="width: 27%">
+<col style="width: 23%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Координатная система отсчета</strong></td>
+<td><strong>Допустимые СК</strong></td>
+<td><strong>Размерность<br>
+(число осей)</strong></td>
+</tr>
+<tr class="even">
+<td>вертикальная</td>
+<td>вертикальная</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>инженерная</td>
+<td>аффинная<br>
+декартова<br>
+цилиндрическая<br>
+линейная<br>
+порядковая<br>
+полярная<br>
+сферическая</td>
+<td>2 или 3<br>
+2 или 3<br>
+3<br>
+1<br>
+1 или 2 или 3<br>
+2<br>
+2 или 3</td>
+</tr>
+<tr class="even">
+<td>параметрическая</td>
+<td>параметрическая</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>временная</td>
+<td>temporalDateTime<br>
+temporalCount<br>
+temporalMeasure</td>
+<td>1<br>
+1<br>
+1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="названия-осей" class="slide level2">
+<h2>Названия осей</h2>
+<p>Согласно стандарту <a href="https://www.iso.org/standard/74039.html">ISO 19111</a>, для каждой оси должны быть указаны как имя, так и аббревиатура. В стандарте <a href="OGC 18-005r8">OGC 18-005r8</a> требование более мягкое: достаточно указать одну или обе компоненты:</p>
+<table style="width:64%;">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 13%">
+<col style="width: 29%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>"northing"</code></td>
+<td><code>"(Y)"</code></td>
+<td><code>"northing (Y)"</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>в <strong>геоцентрической</strong> СК указываются только аббревиатуры <code>(X)</code> , <code>(Y)</code>, <code>(Z)</code></p></li>
+<li><p>в <strong>географической</strong> СК указываются</p>
+<ul>
+<li><p><code>geodetic latitude (Lat)</code></p></li>
+<li><p><code>geodetic longitude (lon)</code></p></li>
+<li><p><code>ellipsoidal height (h)</code></p></li>
+</ul></li>
+<li><p>в <strong>проецированной</strong> СК указываются</p>
+<ul>
+<li><p><code>northing (N)</code> / <code>southing (S)</code></p></li>
+<li><p><code>easting (E)</code> / <code>westing (W)</code></p></li>
+</ul></li>
+</ul>
+</section>
+<section id="направления-осей" class="slide level2">
+<h2>Направления осей</h2>
+<p>Направление оси соответствует положительному изменению значания.</p>
+<table style="width:92%;">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 54%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Координатная система</strong></td>
+<td><strong>Допустимые направления</strong></td>
+</tr>
+<tr class="even">
+<td>географическая</td>
+<td><code>north</code>, <code>east</code>, <code>up</code></td>
+</tr>
+<tr class="odd">
+<td>геодезическая декартова</td>
+<td><code>geocentricX</code><br>
+<code>geocentricY</code><br>
+<code>geocentricZ</code></td>
+</tr>
+<tr class="even">
+<td>проецированная</td>
+<td><code>north</code> / <code>south</code><br>
+<code>east</code> / <code>west</code><br>
+<code>up</code></td>
+</tr>
+<tr class="odd">
+<td>вертикальная</td>
+<td><code>up</code> / <code>down</code></td>
+</tr>
+<tr class="even">
+<td>временная</td>
+<td><code>future</code> / <code>past</code></td>
 </tr>
 </tbody>
 </table>
