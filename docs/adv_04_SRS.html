@@ -462,7 +462,7 @@
 <li><p>Пространственный охват (<em>extent</em>).</p></li>
 </ul></li>
 <li><p>Идентификатор (<em>identifier</em>).</p></li>
-<li><p>Примечания (<em>remarks</em>).</p></li>
+<li><p>Ремарка (<em>remark</em>).</p></li>
 </ol>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -541,6 +541,23 @@
 <span id="cb4-2"><a href="#cb4-2"></a>ID["EPSG",20907]  — GSK-2011 / Gauss-Kruger zone 23</span>
 <span id="cb4-3"><a href="#cb4-3"></a>ID["EPSG",4326,URI["urn:ogc:def:crs:EPSG::4326"]]</span>
 <span id="cb4-4"><a href="#cb4-4"></a>ID["ESRI",102604] — NAD_1983_Georgia_Statewide_Lambert</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ремарка-примечание" class="slide level2">
+<h2>Ремарка (примечание)</h2>
+<p><strong>Ремарка</strong> является опциональным параметром и носит информационный характер, т.е. не влияет на поведение объекта, к которому она относится.</p>
+<ul>
+<li><p>Ремарки нельзя использовать на уровне компонент координатной системы.</p></li>
+<li><p>Ремарка — единственное место в WKT, где можно использовать символы, не входящие в латинский алфавит.</p></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href="#cb5-1"></a>GEOGCRS["S-95",</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  DATUM["Pulkovo 1995", </span>
+<span id="cb5-3"><a href="#cb5-3"></a>    ELLIPSOID["Krassowsky 1940",6378245,298.3, LENGTHUNIT["metre",1.0]] ], </span>
+<span id="cb5-4"><a href="#cb5-4"></a>  CS[ellipsoidal,2], </span>
+<span id="cb5-5"><a href="#cb5-5"></a>    AXIS["latitude",north,ORDER[1]], </span>
+<span id="cb5-6"><a href="#cb5-6"></a>    AXIS["longitude",east,ORDER[2]], </span>
+<span id="cb5-7"><a href="#cb5-7"></a>    ANGLEUNIT["degree",0.0174532925199433], </span>
+<span id="cb5-8"><a href="#cb5-8"></a>  REMARK["Система Геодеэических Координат года 1995(СК-95)"]</span>
+<span id="cb5-9"><a href="#cb5-9"></a>]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
