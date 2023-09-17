@@ -5059,5 +5059,12 @@
     "title": "Координатные системы отсчета",
     "section": "Ремарка (примечание)",
     "text": "Ремарка (примечание)\nРемарка является опциональным параметром и носит информационный характер, т.е. не влияет на поведение объекта, к которому она относится.\n\nРемарки нельзя использовать на уровне компонент координатной системы.\nРемарка — единственное место в WKT, где можно использовать символы, не входящие в латинский алфавит.\n\nGEOGCRS[\"S-95\",\n  DATUM[\"Pulkovo 1995\", \n    ELLIPSOID[\"Krassowsky 1940\",6378245,298.3, LENGTHUNIT[\"metre\",1.0]] ], \n  CS[ellipsoidal,2], \n    AXIS[\"latitude\",north,ORDER[1]], \n    AXIS[\"longitude\",east,ORDER[2]], \n    ANGLEUNIT[\"degree\",0.0174532925199433], \n  REMARK[\"Система Геодеэических Координат года 1995(СК-95)\"]\n]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#единицы-измерения",
+    "href": "adv_04_SRS.html#единицы-измерения",
+    "title": "Координатные системы отсчета",
+    "section": "Единицы измерения",
+    "text": "Единицы измерения\nЕдиницы измерения указываются для некоторых параметров осей координат, а также параметров координатных операций.\n\n\n\n\n\n\n\n\n&lt;spatial unit&gt;\n::=\n&lt;angle unit&gt; | &lt;length unit&gt; | &lt;parametric unit&gt; | &lt;scale unit&gt;\n\n\n&lt;unit&gt;\n::=\n&lt;spatial unit&gt; | &lt;time unit&gt;\n\n\n\nПосле единицы измерения указывается коэффициент пересчета:\nLENGTHUNIT[\"metre\",1] \nLENGTHUNIT[\"German legal metre\",1.0000135965] \nANGLEUNIT[\"degree\",0.0174532925199433] \nSCALEUNIT[\"parts per million\",1E-06] \nPARAMETRICUNIT[\"hectopascal\",100]\n\n\n\n\n\n\nЭталоны\n\n\nКоэффициенты пересчета указываются к эталонным единицам СИ: метрам, радианам и т.д."
   }
 ]

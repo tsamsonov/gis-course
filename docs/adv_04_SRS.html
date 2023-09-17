@@ -559,6 +559,48 @@
 <span id="cb5-8"><a href="#cb5-8"></a>  REMARK["Система Геодеэических Координат года 1995(СК-95)"]</span>
 <span id="cb5-9"><a href="#cb5-9"></a>]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="единицы-измерения" class="slide level2">
+<h2>Единицы измерения</h2>
+<p><strong>Единицы измерения</strong> указываются для некоторых параметров осей координат, а также параметров координатных операций.</p>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 8%">
+<col style="width: 69%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>&lt;spatial&nbsp;unit&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>&lt;angle unit&gt; | &lt;length unit&gt; | &lt;parametric unit&gt; | &lt;scale unit&gt;</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;unit&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>&lt;spatial unit&gt; | &lt;time unit&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>После единицы измерения указывается <em>коэффициент пересчета:</em></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>LENGTHUNIT["metre",1] </span>
+<span id="cb6-2"><a href="#cb6-2"></a>LENGTHUNIT["German legal metre",1.0000135965] </span>
+<span id="cb6-3"><a href="#cb6-3"></a>ANGLEUNIT["degree",0.0174532925199433] </span>
+<span id="cb6-4"><a href="#cb6-4"></a>SCALEUNIT["parts per million",1E-06] </span>
+<span id="cb6-5"><a href="#cb6-5"></a>PARAMETRICUNIT["hectopascal",100]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Эталоны</strong></p>
+</div>
+<div class="callout-content">
+<p>Коэффициенты пересчета указываются <strong><em>к</em></strong> эталонным единицам СИ: метрам, радианам и т.д.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 
