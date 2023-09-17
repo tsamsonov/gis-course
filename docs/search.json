@@ -5030,7 +5030,7 @@
     "href": "adv_04_SRS.html#использование",
     "title": "Координатные системы отсчета",
     "section": "Использование",
-    "text": "Использование\n&lt;usage&gt; включает в себя обязательную пару области применения и охвата:\nUSAGE[&lt;scope&gt;, &lt;extent&gt;]\n&lt;scope&gt; представляет текстовое описание области применения:\nSCOPE[\"Engineering survey, topographic mapping.\"]\n&lt;extent&gt; хранит описание пространственного охвата:\n\nAREA[\"Between 36°E and 42°E, northern hemisphere]\nBBOX[0, 36, 84, 42]\nVERTICALEXTENT[-1000,0]\nVERTICALEXTENT[-200, 6000, LENGTHUNIT[\"metre\",1.0]]\nTIMEEXTENT[2013-01-01,2013-12-31]\nTIMEEXTENT[\"Carbon\", \"Pleistocene\"]\n\nТокенов &lt;usage&gt; может быть несколько — для каждой области применения."
+    "text": "Использование\n&lt;usage&gt; включает в себя обязательную пару области применения и охвата:\nUSAGE[&lt;scope&gt;, &lt;extent&gt;]\n&lt;scope&gt; представляет текстовое описание области применения:\nSCOPE[\"Engineering survey, topographic mapping.\"]\n&lt;extent&gt; хранит описание пространственного охвата:\n\nAREA[\"Between 36°E and 42°E, northern hemisphere]\nBBOX[0, 36, 84, 42] — \\([\\phi_0, \\lambda_0, \\phi_1, \\lambda_1]\\)\nVERTICALEXTENT[-1000,0]\nVERTICALEXTENT[-200, 6000, LENGTHUNIT[\"metre\",1.0]]\nTIMEEXTENT[2013-01-01,2013-12-31] — \\([T_0, T_1]\\)\nTIMEEXTENT[\"Carbon\", \"Pleistocene\"]\n\nТокенов &lt;usage&gt; может быть несколько — для каждой области применения."
   },
   {
     "objectID": "adv_04_SRS.html#пример-utm-37n",
@@ -5045,5 +5045,12 @@
     "title": "Координатные системы отсчета",
     "section": "Примеры",
     "text": "Примеры\nUTM 37N\nUSAGE[\n  SCOPE[\"Engineering survey, topographic mapping.\"],\n  AREA[\"Between 36°E and 42°E, northern hemisphere between equator \n        and 84°N, onshore and offshore. Djibouti. Egypt. Eritrea. \n        Ethiopia. Georgia. Iraq. Jordan. Kenya. Lebanon. Russian \n        Federation. Saudi Arabia. Somalia. Sudan. Syria. Turkey. \n        Ukraine.\"],\n  BBOX[0,36,84,42]]\nМестная система координат\nUSAGE[\n  SCOPE[\"Small scale topographic mapping.\"], \n  AREA[\"Finland - onshore and offshore.\"]],\nUSAGE[\n  SCOPE[\"Cadastre.\"],\n  AREA[\"Finland - onshore between 26°30'E and 27°30'E.\"], \n  BBOX[60.36,26.5,70.05,27.5]]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#идентификатор",
+    "href": "adv_04_SRS.html#идентификатор",
+    "title": "Координатные системы отсчета",
+    "section": "Идентификатор",
+    "text": "Идентификатор\nИдентификатор — опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).\n\n\n\n\n\n\n\n\n&lt;wkt separator&gt;\n::=\n&lt;comma&gt;\n\n\n&lt;identifier&gt;\n::=\n&lt;identifier keyword&gt; &lt;left delimiter&gt; &lt;authority name&gt; &lt;wkt separator&gt; &lt;authority unique identifier&gt; [ &lt;wkt separator&gt; &lt;version&gt; ] [ &lt;wkt separator&gt; &lt;authority citation&gt; ] [ &lt;wkt separator&gt; &lt;id uri&gt; ] &lt;right delimiter&gt;\n\n\n\nID[\"Росреестр\", \"СК-ХХХ\", 666]\nID[\"EPSG\",20907]  — GSK-2011 / Gauss-Kruger zone 23\nID[\"EPSG\",4326,URI[\"urn:ogc:def:crs:EPSG::4326\"]]\nID[\"ESRI\",102604] — NAD_1983_Georgia_Statewide_Lambert"
   }
 ]

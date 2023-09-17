@@ -487,10 +487,10 @@
 <p><code>&lt;extent&gt;</code> хранит описание пространственного охвата:</p>
 <ul>
 <li><p><code>AREA["Between 36°E and 42°E, northern hemisphere]</code></p></li>
-<li><p><code>BBOX[0, 36, 84, 42]</code></p></li>
+<li><p><code>BBOX[0, 36, 84, 42]</code> — <span class="math inline">\([\phi_0, \lambda_0, \phi_1, \lambda_1]\)</span></p></li>
 <li><p><code>VERTICALEXTENT[-1000,0]</code></p></li>
 <li><p><code>VERTICALEXTENT[-200, 6000, LENGTHUNIT["metre",1.0]]</code></p></li>
-<li><p><code>TIMEEXTENT[2013-01-01,2013-12-31]</code></p></li>
+<li><p><code>TIMEEXTENT[2013-01-01,2013-12-31]</code> — <span class="math inline">\([T_0, T_1]\)</span></p></li>
 <li><p><code>TIMEEXTENT["Carbon", "Pleistocene"]</code></p></li>
 </ul>
 <p>Токенов <code>&lt;usage&gt;</code> может быть несколько — для каждой области применения.</p>
@@ -515,145 +515,32 @@
 <span id="cb3-6"><a href="#cb3-6"></a>  AREA["Finland - onshore between 26°30'E and 27°30'E."], </span>
 <span id="cb3-7"><a href="#cb3-7"></a>  BBOX[60.36,26.5,70.05,27.5]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="определение-srs-на-языке-wkt-1" class="slide level2">
-<h2>Определение SRS на языке WKT</h2>
+<section id="идентификатор" class="slide level2">
+<h2>Идентификатор</h2>
+<p><strong>Идентификатор</strong> — опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).</p>
 <table>
 <colgroup>
-<col style="width: 100%">
+<col style="width: 21%">
+<col style="width: 8%">
+<col style="width: 69%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td><code>&lt;simple Latin lower case letter&gt; ::= a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z</code></td>
+<td><code>&lt;wkt&nbsp;separator&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>&lt;comma&gt;</code></td>
 </tr>
 <tr class="even">
-<td><code>&lt;simple Latin upper case letter&gt; ::= A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;simple Latin letter&gt; ::= &lt;simple Latin upper case letter&gt; | &lt;simple Latin lower case letter&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;underscore&gt; ::= _</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;quote&gt; ::= '</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;space&gt; ::= " "</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;special&gt; ::= &lt;right paren&gt; | &lt;left paren&gt; | &lt;minus sign&gt; | &lt;underscore&gt; | &lt;period&gt; | &lt;quote&gt; | &lt;space&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;letter&gt; ::= &lt;simple Latin letter&gt; | &lt;digit&gt; | &lt;special&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;letters&gt; ::= (&lt;letter&gt;)*</code></td>
+<td><code>&lt;identifier&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>&lt;identifier keyword&gt; &lt;left delimiter&gt; &lt;authority name&gt; &lt;wkt separator&gt; &lt;authority unique identifier&gt; [ &lt;wkt separator&gt; &lt;version&gt; ] [ &lt;wkt separator&gt; &lt;authority citation&gt; ] [ &lt;wkt separator&gt; &lt;id uri&gt; ] &lt;right delimiter&gt;</code></td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="определение-srs-на-языке-wkt-2" class="slide level2">
-<h2>Определение SRS на языке WKT</h2>
-<table>
-<colgroup>
-<col style="width: 100%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><code>&lt;name&gt; ::= &lt;letters&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;double quote&gt; ::= "</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;quoted name&gt; ::= &lt;double quote&gt; &lt;name&gt; &lt;double quote&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;unit name&gt;, &lt;spheroid name&gt;, &lt;projection name&gt;, &lt;prime meridian name&gt;, &lt;parameter name&gt;, &lt;datum name&gt;, &lt;csname&gt; ::= &lt;quoted name&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;value&gt;, &lt;semi-major axis&gt;, &lt;longitude&gt;, &lt;inverse flattening&gt;, &lt;conversion factor&gt; ::= &lt;signed numeric literal&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;unit&gt; ::= UNIT &lt;left delimiter&gt; &lt;unit name&gt; &lt;comma&gt; &lt;conversion factor&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;linear unit&gt; ::= &lt;unit&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;angular unit&gt; ::= &lt;unit&gt;</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-srs-на-языке-wkt-3" class="slide level2">
-<h2>Определение SRS на языке WKT</h2>
-<table style="width:99%;">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 5%">
-<col style="width: 79%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><code>&lt;prime meridian&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>PRIMEM &lt;left delimiter&gt; &lt;prime meridian name&gt; &lt;comma&gt; &lt;longitude&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;spheroid&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>SPHEROID &lt;left delimiter&gt; &lt;spheroid name&gt; &lt;comma&gt; &lt;semi-major axis&gt; &lt;comma&gt; &lt;inverse flattening&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;parameter&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>PARAMETER &lt;left delimiter&gt; &lt;parameter name&gt; &lt;comma&gt; &lt;value&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;projection&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>PROJECTION &lt;left delimiter&gt; &lt;projection name&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;datum&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>DATUM &lt;left delimiter&gt; &lt;datum name&gt; &lt;comma&gt; &lt;spheroid&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="определение-srs-на-языке-wkt-4" class="slide level2">
-<h2>Определение SRS на языке WKT</h2>
-<table style="width:99%;">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 4%">
-<col style="width: 78%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><code>&lt;geocentric cs&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>GEOCCS &lt;left delimiter&gt; &lt;name&gt; &lt;comma&gt; &lt;datum&gt; &lt;comma&gt; &lt;prime meridian&gt; &lt;comma&gt; &lt;linear unit&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;geographic cs&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>GEOGCS &lt;left delimiter&gt; &lt;csname&gt; &lt;comma&gt; &lt;datum&gt; &lt;comma&gt; &lt;prime meridian&gt; &lt;comma&gt; &lt;angular unit&gt; (&lt;comma&gt; &lt;linear unit&gt; ) &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="odd">
-<td><code>&lt;projected cs&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>PROJCS &lt;left delimiter&gt; &lt;csname&gt; &lt;comma&gt; &lt;geographic cs&gt; &lt;comma&gt; &lt;projection&gt; (&lt;comma&gt; &lt;parameter&gt; )* &lt;comma&gt; &lt;linear unit&gt; &lt;right delimiter&gt;</code></td>
-</tr>
-<tr class="even">
-<td><code>&lt;spatial reference system&gt;</code></td>
-<td><code>::=</code></td>
-<td><code>&lt;projected cs&gt; | &lt;geographic cs&gt; | &lt;geocentric cs&gt;</code></td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href="#cb4-1"></a>ID["Росреестр", "СК-ХХХ", 666]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>ID["EPSG",20907]  — GSK-2011 / Gauss-Kruger zone 23</span>
+<span id="cb4-3"><a href="#cb4-3"></a>ID["EPSG",4326,URI["urn:ogc:def:crs:EPSG::4326"]]</span>
+<span id="cb4-4"><a href="#cb4-4"></a>ID["ESRI",102604] — NAD_1983_Georgia_Statewide_Lambert</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
