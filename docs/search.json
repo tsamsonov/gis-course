@@ -4673,7 +4673,7 @@
     "href": "adv_03_WKT_WKB.html#коды-геометрических-типов-1",
     "title": "WKT и WKB",
     "section": "Коды геометрических типов",
-    "text": "Коды геометрических типов\n\n\n\n\n\n\n\n\n\n\nТип\nXY\nXYZ\nXYM\nXYZM\n\n\nMULTICURVE\n11\n1011\n2011\n3011\n\n\nMULTISURFACE\n12\n1012\n2012\n3012\n\n\nCURVE\n13\n1013\n2013\n3013\n\n\nSURFACE\n14\n1014\n2014\n3014\n\n\nPOLYHEDRALSURFACE\n15\n1015\n2015\n3015\n\n\nTIN\n16\n1016\n2016\n3016"
+    "text": "Коды геометрических типов\n\n\n\nТип\nXY\nXYZ\nXYM\nXYZM\n\n\nMULTICURVE\n11\n1011\n2011\n3011\n\n\nMULTISURFACE\n12\n1012\n2012\n3012\n\n\nCURVE\n13\n1013\n2013\n3013\n\n\nSURFACE\n14\n1014\n2014\n3014\n\n\nPOLYHEDRALSURFACE\n15\n1015\n2015\n3015\n\n\nTIN\n16\n1016\n2016\n3016"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#well-known-representation",
@@ -4694,7 +4694,7 @@
     "href": "adv_03_WKT_WKB.html#классы-wkbgeometry-1",
     "title": "WKT и WKB",
     "section": "Классы WKBGeometry",
-    "text": "Классы WKBGeometry\n\n\nЛинейные кольца\nLinearRing { \n  uint32 numPoints; \n  Point points[numPoints];\n} \n\nLinearRingZ { \n  uint32 numPoints; \n  PointZ points[numPoints];\n} \n\nLinearRingM { \n  uint32 numPoints; \n  PointM points[numPoints];\n} \n\nLinearRingZM { \n  uint32 numPoints; \n  PointZM points[numPoints];\n}\n\nПорядок байтов\nenum WKBByteOrder { \n  wkbXDR = 0, // Big Endian \n  wkbNDR = 1 // Little Endian \n}\nПорядок байтов определяет последовательность представления машинного слова в памяти компьютера:\n\nBig Endian (BE) — от большего к меньшему\nLittel Endian (LE) — от меньшего к большему\n\nВ современных компьютерах машинное слово \\(64\\)-битное и состоит из \\(8\\) байтов."
+    "text": "Классы WKBGeometry\n\n\nЛинейные кольца\nLinearRing { \n  uint32 numPoints; \n  Point points[numPoints];\n} \n\nLinearRingZ { \n  uint32 numPoints; \n  PointZ points[numPoints];\n} \n\nLinearRingM { \n  uint32 numPoints; \n  PointM points[numPoints];\n} \n\nLinearRingZM { \n  uint32 numPoints; \n  PointZM points[numPoints];\n}\n\nПорядок байтов\nenum WKBByteOrder { \n  wkbXDR = 0, // Big Endian \n  wkbNDR = 1 // Little Endian \n}\nПорядок байтов определяет последовательность представления байтов в памяти компьютера:\n\nBig Endian (BE) — от большего к меньшему\nLittel Endian (LE) — от меньшего к большему\n\nВ современных компьютерах машинное слово \\(64\\)-битное и состоит из \\(8\\) байтов."
   },
   {
     "objectID": "adv_03_WKT_WKB.html#endians",
@@ -4722,7 +4722,7 @@
     "href": "adv_03_WKT_WKB.html#ieee-754-binary64",
     "title": "WKT и WKB",
     "section": "IEEE 754 binary64",
-    "text": "IEEE 754 binary64\nЧисло двойной точности записывается из трёх компонент:\n\nДля конвертации из бинарной в десятичную форму используется соотношение:\n\\[\n(-1)^s \\cdot \\bigg(1 + \\frac{m}{2^{52}}\\bigg) \\cdot 2^{e-1023}\n\\]\n\n\n\n\n\n\n\nПорядок числа\nот \\(10^{-307}\\) до \\(10^{307}\\)\n\n\nТочность, десятичных знаков\n16"
+    "text": "IEEE 754 binary64\nЧисло двойной точности записывается из трёх компонент:\n\nДля конвертации из бинарной в десятичную форму используется соотношение:\n\\[\n(-1)^s \\cdot \\bigg(1 + \\frac{m}{2^{52}}\\bigg) \\cdot 2^{e-1023}\n\\]\n\n\n\nПорядок числа\nот \\(10^{-307}\\) до \\(10^{307}\\)\n\n\nТочность, десятичных знаков\n16"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#пример",
@@ -5241,5 +5241,12 @@
     "title": "Координатные системы отсчета",
     "section": "Геодезическая/географическая СО",
     "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеографическая статическая 2-мерная эллипсоидальная\nGEOGCRS[\"NTF (Paris)\",\n  DATUM[\"Nouvelle Triangulation Francaise\", \n    ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.4660213]\n  ], \n  PRIMEM[\"Paris\",2.5969213],\n  CS[ellipsoidal,2],\n    AXIS[\"latitude\",north,ORDER[1]],\n    AXIS[\"longitude\",east,ORDER[2]],\n    ANGLEUNIT[\"grad\",0.015707963267949],\n  REMARK[\"Nouvelle Triangulation Française\"]\n]\n\n\n\n\n\n\nОбратите внимание\n\n\nДанная система отсчета использует нестандартный меридиан (Парижский) и угловые единицы (грады)."
+  },
+  {
+    "objectID": "adv_03_WKT_WKB.html#что-это",
+    "href": "adv_03_WKT_WKB.html#что-это",
+    "title": "WKT и WKB",
+    "section": "Что это?",
+    "text": "Что это?\n01030000000100000004000000000000\n00000004409A999999999909409A9999\n99999915403333333333332040000000\n0000002640666666666666E63F000000\n00000004409A99999999990940\n\nОпределите тип и координаты данного объекта.\nПредставьте результат в формате WKT.\n\n\n\n\n\n\n\nПодсказка\n\n\nДанные представлены в шестнадцатеричной системе в формате Little Endian"
   }
 ]
