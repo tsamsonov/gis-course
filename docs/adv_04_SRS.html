@@ -533,7 +533,7 @@
 <tr class="even">
 <td><code>&lt;identifier&gt;</code></td>
 <td><code>::=</code></td>
-<td><code>&lt;identifier keyword&gt; &lt;left delimiter&gt; &lt;authority name&gt; &lt;wkt separator&gt; &lt;authority unique identifier&gt; [ &lt;wkt separator&gt; &lt;version&gt; ] [ &lt;wkt separator&gt; &lt;authority citation&gt; ] [ &lt;wkt separator&gt; &lt;id uri&gt; ] &lt;right delimiter&gt;</code></td>
+<td><code>&lt;identifier keyword&gt; &lt;left delimiter&gt; &lt;authority name&gt; &lt;wkt separator&gt; &lt;authority unique identifier&gt; { &lt;wkt separator&gt; &lt;version&gt; } { &lt;wkt separator&gt; &lt;authority citation&gt; } { &lt;wkt separator&gt; &lt;id uri&gt; } &lt;right delimiter&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -608,7 +608,7 @@
 <colgroup>
 <col style="width: 22%">
 <col style="width: 12%">
-<col style="width: 64%">
+<col style="width: 63%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -621,10 +621,10 @@
 <td><code>::=</code></td>
 <td><p><code>&lt;cs keyword&gt; &lt;left delimiter&gt; &lt;spatial cs type&gt;</code></p>
 <p><code>&lt;wkt separator&gt; &lt;dimension&gt;</code></p>
-<p><code>[{&lt;wkt separator&gt; &lt;identifier&gt;}]*</code></p>
+<p><code>{(&lt;wkt separator&gt; &lt;identifier&gt;)}*</code></p>
 <p><code>&lt;right delimiter&gt;</code></p>
-<p><code>{&lt;wkt separator&gt; &lt;spatial axis&gt;}*</code></p>
-<p><code>[&lt;wkt separator&gt; &lt;cs unit&gt;]</code></p></td>
+<p><code>(&lt;wkt separator&gt; &lt;spatial axis&gt;)*</code></p>
+<p><code>{&lt;wkt separator&gt; &lt;cs unit&gt;}</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -654,10 +654,10 @@
 <td><code>::=</code></td>
 <td><p><code>&lt;axis keyword&gt; &lt;left delimiter&gt; &lt;axis nameAbbrev&gt;</code></p>
 <p><code>&lt;wkt separator&gt; &lt;axis direction&gt;</code></p>
-<p><code>[&lt;wkt separator&gt; &lt;axis order&gt;]</code></p>
-<p><code>[&lt;wkt separator&gt; &lt;spatial unit&gt;]</code></p>
-<p><code>[&lt;wkt separator&gt; &lt;axis range&gt;]</code></p>
-<p><code>[{ &lt;wkt separator&gt; &lt;identifier&gt; }]*</code></p>
+<p><code>{&lt;wkt separator&gt; &lt;axis order&gt;}</code></p>
+<p><code>{&lt;wkt separator&gt; &lt;spatial unit&gt;}</code></p>
+<p><code>{&lt;wkt separator&gt; &lt;axis range&gt;}</code></p>
+<p><code>{( &lt;wkt separator&gt; &lt;identifier&gt; )}*</code></p>
 <p><code>&lt;right delimiter&gt;</code></p></td>
 </tr>
 </tbody>
@@ -727,9 +727,9 @@
 <h2>Допустимые системы координат</h2>
 <table style="width:99%;">
 <colgroup>
-<col style="width: 43%">
-<col style="width: 24%">
-<col style="width: 30%">
+<col style="width: 46%">
+<col style="width: 26%">
+<col style="width: 26%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -830,11 +830,11 @@ temporalMeasure</td>
 <section id="названия-осей" class="slide level2">
 <h2>Названия осей</h2>
 <p>Согласно стандарту <a href="https://www.iso.org/standard/74039.html">ISO 19111</a>, для каждой оси должны быть указаны как имя, так и аббревиатура. В стандарте <a href="OGC 18-005r8">OGC 18-005r8</a> требование более мягкое: достаточно указать одну или обе компоненты:</p>
-<table style="width:64%;">
+<table style="width:68%;">
 <colgroup>
 <col style="width: 20%">
-<col style="width: 13%">
-<col style="width: 29%">
+<col style="width: 20%">
+<col style="width: 26%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -864,9 +864,9 @@ temporalMeasure</td>
 <p>Направление оси соответствует положительному изменению значания.</p>
 <table style="width:99%;">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 22%">
-<col style="width: 55%">
+<col style="width: 29%">
+<col style="width: 31%">
+<col style="width: 38%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -991,6 +991,65 @@ temporalMeasure</td>
 <span id="cb13-4"><a href="#cb13-4"></a>  AXIS["northing (Y)",south,</span>
 <span id="cb13-5"><a href="#cb13-5"></a>    MERIDIAN[180,ANGLEUNIT["degree",0.0174532925199433]], ORDER[2]],</span>
 <span id="cb13-6"><a href="#cb13-6"></a>  LENGTHUNIT["metre",1.0]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="эллипсоид" class="slide level2">
+<h2>Эллипсоид</h2>
+<p><strong>Эллипсоид</strong> входит в состав исходных геодезических дат (датума)</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 4%">
+<col style="width: 79%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>&lt;ellipsoid&gt;</code></td>
+<td><code>::=</code></td>
+<td><p><code>&lt;ellipsoid keyword&gt; &lt;left delimiter&gt; &lt;ellipsoid name&gt;  &lt;wkt separator&gt; &lt;semi-major axis&gt; &lt;wkt separator&gt; &lt;inverse flattening&gt;</code></p>
+<p><code>{&lt;wkt separator&gt; &lt;length unit&gt;} {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;</code></p></td>
+</tr>
+<tr class="even">
+<td><code>&lt;ellipsoid keyword&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>ELLIPSOID | SPHEROID</code></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1.0]]</span>
+<span id="cb14-2"><a href="#cb14-2"></a>SPHEROID["GRS 1980",6378137.0,298.257222101]</span>
+<span id="cb14-3"><a href="#cb14-3"></a>ELLIPSOID["Clark 1866",20925832.164,294.97869821, </span>
+<span id="cb14-4"><a href="#cb14-4"></a>  LENGTHUNIT["US survey foot",0.304800609601219]]</span>
+<span id="cb14-5"><a href="#cb14-5"></a>ELLIPSOID["Sphere",6371000,0,LENGTHUNIT["metre",1.0]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="нулевой-меридиан" class="slide level2">
+<h2>Нулевой меридиан</h2>
+<p><strong>Нулевой меридиан</strong> соответствует нулевому значению долготы</p>
+<ul>
+<li><p>Относится к датуму, но не входит в его состав</p></li>
+<li><p>Задается для геодезических и географических СК в случае если не совпадает с Гринвичским (<em>irm</em> — international reference meridian)</p></li>
+</ul>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 4%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>&lt;prime meridian&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>&lt;prime meridian keyword&gt; &lt;left delimiter&gt; &lt;prime meridian name&gt; &lt;wkt separator&gt; &lt;irm longitude&gt; {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;</code></td>
+</tr>
+<tr class="even">
+<td><code>&lt;prime meridian keyword&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>PRIMEM | PRIMEMERIDIAN</code></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="#cb15-1"></a>PRIMEM["Ferro",-17.6666667]</span>
+<span id="cb15-2"><a href="#cb15-2"></a>PRIMEM["Paris",2.5969213,ANGLEUNIT["grad",0.015707963267949]]</span>
+<span id="cb15-3"><a href="#cb15-3"></a>PRIMEMERIDIAN["Greenwich",0.0,ANGLEUNIT["degree",0.0174532925199433]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>

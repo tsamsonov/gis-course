@@ -5051,7 +5051,7 @@
     "href": "adv_04_SRS.html#идентификатор",
     "title": "Координатные системы отсчета",
     "section": "Идентификатор",
-    "text": "Идентификатор\nИдентификатор — опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).\n\n\n\n\n\n\n\n\n&lt;wkt separator&gt;\n::=\n&lt;comma&gt;\n\n\n&lt;identifier&gt;\n::=\n&lt;identifier keyword&gt; &lt;left delimiter&gt; &lt;authority name&gt; &lt;wkt separator&gt; &lt;authority unique identifier&gt; [ &lt;wkt separator&gt; &lt;version&gt; ] [ &lt;wkt separator&gt; &lt;authority citation&gt; ] [ &lt;wkt separator&gt; &lt;id uri&gt; ] &lt;right delimiter&gt;\n\n\n\nID[\"Росреестр\", \"СК-ХХХ\", 666]\nID[\"EPSG\",20907]  — GSK-2011 / Gauss-Kruger zone 23\nID[\"EPSG\",4326,URI[\"urn:ogc:def:crs:EPSG::4326\"]]\nID[\"ESRI\",102604] — NAD_1983_Georgia_Statewide_Lambert"
+    "text": "Идентификатор\nИдентификатор — опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).\n\n\n\n\n\n\n\n\n&lt;wkt separator&gt;\n::=\n&lt;comma&gt;\n\n\n&lt;identifier&gt;\n::=\n&lt;identifier keyword&gt; &lt;left delimiter&gt; &lt;authority name&gt; &lt;wkt separator&gt; &lt;authority unique identifier&gt; { &lt;wkt separator&gt; &lt;version&gt; } { &lt;wkt separator&gt; &lt;authority citation&gt; } { &lt;wkt separator&gt; &lt;id uri&gt; } &lt;right delimiter&gt;\n\n\n\nID[\"Росреестр\", \"СК-ХХХ\", 666]\nID[\"EPSG\",20907]  — GSK-2011 / Gauss-Kruger zone 23\nID[\"EPSG\",4326,URI[\"urn:ogc:def:crs:EPSG::4326\"]]\nID[\"ESRI\",102604] — NAD_1983_Georgia_Statewide_Lambert"
   },
   {
     "objectID": "adv_04_SRS.html#ремарка-примечание",
@@ -5072,14 +5072,14 @@
     "href": "adv_04_SRS.html#система-координат",
     "title": "Координатные системы отсчета",
     "section": "Система координат",
-    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;coordinate system&gt;\n::=\n&lt;spatial cs&gt; | &lt;temporalCountMeasure cs&gt; | &lt;ordinal-dateTime cs&gt;\n\n\n&lt;spatial cs&gt;\n::=\n&lt;cs keyword&gt; &lt;left delimiter&gt; &lt;spatial cs type&gt;\n&lt;wkt separator&gt; &lt;dimension&gt;\n[{&lt;wkt separator&gt; &lt;identifier&gt;}]*\n&lt;right delimiter&gt;\n{&lt;wkt separator&gt; &lt;spatial axis&gt;}*\n[&lt;wkt separator&gt; &lt;cs unit&gt;]"
+    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;coordinate system&gt;\n::=\n&lt;spatial cs&gt; | &lt;temporalCountMeasure cs&gt; | &lt;ordinal-dateTime cs&gt;\n\n\n&lt;spatial cs&gt;\n::=\n&lt;cs keyword&gt; &lt;left delimiter&gt; &lt;spatial cs type&gt;\n&lt;wkt separator&gt; &lt;dimension&gt;\n{(&lt;wkt separator&gt; &lt;identifier&gt;)}*\n&lt;right delimiter&gt;\n(&lt;wkt separator&gt; &lt;spatial axis&gt;)*\n{&lt;wkt separator&gt; &lt;cs unit&gt;}"
   },
   {
     "objectID": "adv_04_SRS.html#система-координат-1",
     "href": "adv_04_SRS.html#система-координат-1",
     "title": "Координатные системы отсчета",
     "section": "Система координат",
-    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;dimension&gt;\n::=\n1|2|3\n\n\n&lt;spatial cs type&gt;\n::=\naffine | Cartesian | cylindrical | ellipsoidal | linear | parametric | polar | spherical | vertical\n\n\n&lt;spatial axis&gt;\n::=\n&lt;axis keyword&gt; &lt;left delimiter&gt; &lt;axis nameAbbrev&gt;\n&lt;wkt separator&gt; &lt;axis direction&gt;\n[&lt;wkt separator&gt; &lt;axis order&gt;]\n[&lt;wkt separator&gt; &lt;spatial unit&gt;]\n[&lt;wkt separator&gt; &lt;axis range&gt;]\n[{ &lt;wkt separator&gt; &lt;identifier&gt; }]*\n&lt;right delimiter&gt;"
+    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;dimension&gt;\n::=\n1|2|3\n\n\n&lt;spatial cs type&gt;\n::=\naffine | Cartesian | cylindrical | ellipsoidal | linear | parametric | polar | spherical | vertical\n\n\n&lt;spatial axis&gt;\n::=\n&lt;axis keyword&gt; &lt;left delimiter&gt; &lt;axis nameAbbrev&gt;\n&lt;wkt separator&gt; &lt;axis direction&gt;\n{&lt;wkt separator&gt; &lt;axis order&gt;}\n{&lt;wkt separator&gt; &lt;spatial unit&gt;}\n{&lt;wkt separator&gt; &lt;axis range&gt;}\n{( &lt;wkt separator&gt; &lt;identifier&gt; )}*\n&lt;right delimiter&gt;"
   },
   {
     "objectID": "adv_04_SRS.html#допустимые-системы-координат",
@@ -5178,5 +5178,26 @@
     "title": "WKT и WKB",
     "section": "Что это?",
     "text": "Что это?\n01030000000100000004000000000000\n00000004409A999999999909409A9999\n99999915403333333333332040000000\n0000002640666666666666E63F000000\n00000004409A99999999990940\n\nОпределите тип и координаты данного объекта.\nПредставьте результат в формате WKT.\n\n\n\n\n\n\n\nПодсказка\n\n\nДанные представлены в шестнадцатеричной системе в формате Little Endian"
+  },
+  {
+    "objectID": "adv_04_SRS.html#эллипсоид",
+    "href": "adv_04_SRS.html#эллипсоид",
+    "title": "Координатные системы отсчета",
+    "section": "Эллипсоид",
+    "text": "Эллипсоид\nЭллипсоид входит в состав исходных геодезических дат (датума)\n\n\n\n\n\n\n\n\n&lt;ellipsoid&gt;\n::=\n&lt;ellipsoid keyword&gt; &lt;left delimiter&gt; &lt;ellipsoid name&gt;  &lt;wkt separator&gt; &lt;semi-major axis&gt; &lt;wkt separator&gt; &lt;inverse flattening&gt;\n{&lt;wkt separator&gt; &lt;length unit&gt;} {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;\n\n\n&lt;ellipsoid keyword&gt;\n::=\nELLIPSOID | SPHEROID\n\n\n\nELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1.0]]\nSPHEROID[\"GRS 1980\",6378137.0,298.257222101]\nELLIPSOID[\"Clark 1866\",20925832.164,294.97869821, \n  LENGTHUNIT[\"US survey foot\",0.304800609601219]]\nELLIPSOID[\"Sphere\",6371000,0,LENGTHUNIT[\"metre\",1.0]]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#исходные-геодезические-даты-датум",
+    "href": "adv_04_SRS.html#исходные-геодезические-даты-датум",
+    "title": "Координатные системы отсчета",
+    "section": "Исходные геодезические даты (датум)",
+    "text": "Исходные геодезические даты (датум)"
+  },
+  {
+    "objectID": "adv_04_SRS.html#нулевой-меридиан",
+    "href": "adv_04_SRS.html#нулевой-меридиан",
+    "title": "Координатные системы отсчета",
+    "section": "Нулевой меридиан",
+    "text": "Нулевой меридиан\nНулевой меридиан соответствует нулевому значению долготы\n\nОтносится к датуму, но не входит в его состав\nЗадается для геодезических и географических СК в случае если не совпадает с Гринвичским (irm — international reference meridian)\n\n\n\n\n\n\n\n\n\n&lt;prime meridian&gt;\n::=\n&lt;prime meridian keyword&gt; &lt;left delimiter&gt; &lt;prime meridian name&gt; &lt;wkt separator&gt; &lt;irm longitude&gt; {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;\n\n\n&lt;prime meridian keyword&gt;\n::=\nPRIMEM | PRIMEMERIDIAN\n\n\n\nPRIMEM[\"Ferro\",-17.6666667]\nPRIMEM[\"Paris\",2.5969213,ANGLEUNIT[\"grad\",0.015707963267949]]\nPRIMEMERIDIAN[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]]"
   }
 ]
