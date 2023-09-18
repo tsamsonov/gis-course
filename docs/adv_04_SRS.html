@@ -1015,11 +1015,10 @@ temporalMeasure</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1.0]]</span>
-<span id="cb14-2"><a href="#cb14-2"></a>SPHEROID["GRS 1980",6378137.0,298.257222101]</span>
-<span id="cb14-3"><a href="#cb14-3"></a>ELLIPSOID["Clark 1866",20925832.164,294.97869821, </span>
-<span id="cb14-4"><a href="#cb14-4"></a>  LENGTHUNIT["US survey foot",0.304800609601219]]</span>
-<span id="cb14-5"><a href="#cb14-5"></a>ELLIPSOID["Sphere",6371000,0,LENGTHUNIT["metre",1.0]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href="#cb14-1"></a>SPHEROID["GRS 1980",6378137.0,298.257222101]</span>
+<span id="cb14-2"><a href="#cb14-2"></a>ELLIPSOID["Clark 1866",20925832.164,294.97869821, </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  LENGTHUNIT["US survey foot",0.304800609601219]]</span>
+<span id="cb14-4"><a href="#cb14-4"></a>ELLIPSOID["Sphere",6371000,0,LENGTHUNIT["metre",1.0]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="нулевой-меридиан" class="slide level2">
 <h2>Нулевой меридиан</h2>
@@ -1050,6 +1049,39 @@ temporalMeasure</td>
 <div class="sourceCode" id="cb15"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="#cb15-1"></a>PRIMEM["Ferro",-17.6666667]</span>
 <span id="cb15-2"><a href="#cb15-2"></a>PRIMEM["Paris",2.5969213,ANGLEUNIT["grad",0.015707963267949]]</span>
 <span id="cb15-3"><a href="#cb15-3"></a>PRIMEMERIDIAN["Greenwich",0.0,ANGLEUNIT["degree",0.0174532925199433]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="датум" class="slide level2">
+<h2>Датум</h2>
+<p><strong>Датум</strong> определяет положение референцного тела (эллипсоида) в теле Земли.</p>
+<ul>
+<li><p>Может быть <em>статическим</em> и <em>динамическим</em></p></li>
+<li><p>Динамический датум в обязательном порядке включает эпоху (<code>ANCHOREPOCH</code>)</p></li>
+</ul>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 10%">
+<col style="width: 40%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><code>&lt;geodetic&nbsp;reference&nbsp;frame&nbsp;keyword&gt;</code></td>
+<td><code>::=</code></td>
+<td><code>DATUM | TRF | GEODETICDATUM</code></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb16-1"><a href="#cb16-1"></a>DATUM["Pulkovo 1942", </span>
+<span id="cb16-2"><a href="#cb16-2"></a>  ELLIPSOID["Krassowsky 1940",6378245,298.3, LENGTHUNIT["metre",1]]],</span>
+<span id="cb16-3"><a href="#cb16-3"></a>PRIMEM["Greenwich",0, ANGLEUNIT["degree",0.0174532925199433]]</span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a>TRF["World Geodetic System 1984", </span>
+<span id="cb16-6"><a href="#cb16-6"></a>  ELLIPSOID["WGS 84",6378388.0,298.257223563,LENGTHUNIT["metre",1.0]]], </span>
+<span id="cb16-7"><a href="#cb16-7"></a>PRIMEM["Greenwich",0.0]</span>
+<span id="cb16-8"><a href="#cb16-8"></a></span>
+<span id="cb16-9"><a href="#cb16-9"></a>GEODETICDATUM["NAD83 (National Spatial Reference System 2011)", </span>
+<span id="cb16-10"><a href="#cb16-10"></a>  ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1.0]],</span>
+<span id="cb16-11"><a href="#cb16-11"></a>  ANCHOREPOCH[2010.0]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>

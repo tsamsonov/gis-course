@@ -5184,7 +5184,7 @@
     "href": "adv_04_SRS.html#эллипсоид",
     "title": "Координатные системы отсчета",
     "section": "Эллипсоид",
-    "text": "Эллипсоид\nЭллипсоид входит в состав исходных геодезических дат (датума)\n\n\n\n\n\n\n\n\n&lt;ellipsoid&gt;\n::=\n&lt;ellipsoid keyword&gt; &lt;left delimiter&gt; &lt;ellipsoid name&gt;  &lt;wkt separator&gt; &lt;semi-major axis&gt; &lt;wkt separator&gt; &lt;inverse flattening&gt;\n{&lt;wkt separator&gt; &lt;length unit&gt;} {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;\n\n\n&lt;ellipsoid keyword&gt;\n::=\nELLIPSOID | SPHEROID\n\n\n\nELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1.0]]\nSPHEROID[\"GRS 1980\",6378137.0,298.257222101]\nELLIPSOID[\"Clark 1866\",20925832.164,294.97869821, \n  LENGTHUNIT[\"US survey foot\",0.304800609601219]]\nELLIPSOID[\"Sphere\",6371000,0,LENGTHUNIT[\"metre\",1.0]]"
+    "text": "Эллипсоид\nЭллипсоид входит в состав исходных геодезических дат (датума)\n\n\n\n\n\n\n\n\n&lt;ellipsoid&gt;\n::=\n&lt;ellipsoid keyword&gt; &lt;left delimiter&gt; &lt;ellipsoid name&gt;  &lt;wkt separator&gt; &lt;semi-major axis&gt; &lt;wkt separator&gt; &lt;inverse flattening&gt;\n{&lt;wkt separator&gt; &lt;length unit&gt;} {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;\n\n\n&lt;ellipsoid keyword&gt;\n::=\nELLIPSOID | SPHEROID\n\n\n\nSPHEROID[\"GRS 1980\",6378137.0,298.257222101]\nELLIPSOID[\"Clark 1866\",20925832.164,294.97869821, \n  LENGTHUNIT[\"US survey foot\",0.304800609601219]]\nELLIPSOID[\"Sphere\",6371000,0,LENGTHUNIT[\"metre\",1.0]]"
   },
   {
     "objectID": "adv_04_SRS.html#исходные-геодезические-даты-датум",
@@ -5199,5 +5199,12 @@
     "title": "Координатные системы отсчета",
     "section": "Нулевой меридиан",
     "text": "Нулевой меридиан\nНулевой меридиан соответствует нулевому значению долготы\n\nОтносится к датуму, но не входит в его состав\nЗадается для геодезических и географических СК в случае если не совпадает с Гринвичским (irm — international reference meridian)\n\n\n\n\n\n\n\n\n\n&lt;prime meridian&gt;\n::=\n&lt;prime meridian keyword&gt; &lt;left delimiter&gt; &lt;prime meridian name&gt; &lt;wkt separator&gt; &lt;irm longitude&gt; {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;\n\n\n&lt;prime meridian keyword&gt;\n::=\nPRIMEM | PRIMEMERIDIAN\n\n\n\nPRIMEM[\"Ferro\",-17.6666667]\nPRIMEM[\"Paris\",2.5969213,ANGLEUNIT[\"grad\",0.015707963267949]]\nPRIMEMERIDIAN[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#датум",
+    "href": "adv_04_SRS.html#датум",
+    "title": "Координатные системы отсчета",
+    "section": "Датум",
+    "text": "Датум\nДатум определяет положение референцного тела (эллипсоида) в теле Земли.\n\nМожет быть статическим и динамическим\nДинамический датум в обязательном порядке включает эпоху (ANCHOREPOCH)\n\n\n\n\n\n\n\n\n\n&lt;geodetic reference frame keyword&gt;\n::=\nDATUM | TRF | GEODETICDATUM\n\n\n\nDATUM[\"Pulkovo 1942\", \n  ELLIPSOID[\"Krassowsky 1940\",6378245,298.3, LENGTHUNIT[\"metre\",1]]],\nPRIMEM[\"Greenwich\",0, ANGLEUNIT[\"degree\",0.0174532925199433]]\n\nTRF[\"World Geodetic System 1984\", \n  ELLIPSOID[\"WGS 84\",6378388.0,298.257223563,LENGTHUNIT[\"metre\",1.0]]], \nPRIMEM[\"Greenwich\",0.0]\n\nGEODETICDATUM[\"NAD83 (National Spatial Reference System 2011)\", \n  ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1.0]],\n  ANCHOREPOCH[2010.0]]"
   }
 ]

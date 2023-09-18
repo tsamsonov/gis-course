@@ -512,7 +512,6 @@ CS[Cartesian,2],
 +-----------------------+-------+---------------------------------------------------------------------------------------------------------------------------------+
 
 ``` code
-ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1.0]]
 SPHEROID["GRS 1980",6378137.0,298.257222101]
 ELLIPSOID["Clark 1866",20925832.164,294.97869821, 
   LENGTHUNIT["US survey foot",0.304800609601219]]
@@ -537,6 +536,32 @@ ELLIPSOID["Sphere",6371000,0,LENGTHUNIT["metre",1.0]]
 PRIMEM["Ferro",-17.6666667]
 PRIMEM["Paris",2.5969213,ANGLEUNIT["grad",0.015707963267949]]
 PRIMEMERIDIAN["Greenwich",0.0,ANGLEUNIT["degree",0.0174532925199433]]
+```
+
+## Датум
+
+**Датум** определяет положение референцного тела (эллипсоида) в теле Земли.
+
+-   Может быть *статическим* и *динамическим*
+
+-   Динамический датум в обязательном порядке включает эпоху (`ANCHOREPOCH`)
+
++--------------------------------------+-------+-------------------------------+
+| `<geodetic reference frame keyword>` | `::=` | `DATUM | TRF | GEODETICDATUM` |
++--------------------------------------+-------+-------------------------------+
+
+``` code
+DATUM["Pulkovo 1942", 
+  ELLIPSOID["Krassowsky 1940",6378245,298.3, LENGTHUNIT["metre",1]]],
+PRIMEM["Greenwich",0, ANGLEUNIT["degree",0.0174532925199433]]
+
+TRF["World Geodetic System 1984", 
+  ELLIPSOID["WGS 84",6378388.0,298.257223563,LENGTHUNIT["metre",1.0]]], 
+PRIMEM["Greenwich",0.0]
+
+GEODETICDATUM["NAD83 (National Spatial Reference System 2011)", 
+  ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1.0]],
+  ANCHOREPOCH[2010.0]]
 ```
 
 ## Библиография
