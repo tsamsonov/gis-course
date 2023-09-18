@@ -564,4 +564,75 @@ GEODETICDATUM["NAD83 (National Spatial Reference System 2011)",
   ANCHOREPOCH[2010.0]]
 ```
 
+## Геодезическая/географическая СО
+
+Опирается на 3-мерную декартову СК или 2/3-мерную сферическую
+
+**Геодезическая статическая 3-мерная декартова**
+
+``` code
+GEODCRS["JGD2000",
+  DATUM["Japanese Geodetic Datum 2000", 
+    ELLIPSOID["GRS 1980",6378137,298.257222101]
+  ], 
+  CS[Cartesian,3], 
+    AXIS["(X)",geocentricX], 
+    AXIS["(Y)",geocentricY], 
+    AXIS["(Z)",geocentricZ], LENGTHUNIT["metre",1.0], 
+  USAGE[SCOPE["Geodesy, topographic mapping and cadastre"], 
+    AREA["Japan"], BBOX[17.09,122.38,46.05,157.64], 
+    TIMEEXTENT[2002-04-01,2011-10-21]
+  ], 
+  ID["EPSG",4946,URI["urn:ogc:def:crs:EPSG::4946"]], 
+  REMARK["注：JGD2000 ジオセントリックは現在 JGD2011 に代わりました。"]
+]
+```
+
+## Геодезическая/географическая СО
+
+Опирается на 3-мерную декартову СК или 2/3-мерную сферическую
+
+**Географическая динамическая 3-мерная эллипсоидальная**
+
+``` code
+GEOGCRS["WGS 84 (G1762)",
+  DYNAMIC[FRAMEEPOCH[2005.0]], 
+  TRF["World Geodetic System 1984 (G1762)", 
+    ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1.0]]
+  ], 
+  CS[ellipsoidal,3], 
+    AXIS["(lat)",north,ANGLEUNIT["degree",0.0174532925199433]], 
+    AXIS["(lon)",east,ANGLEUNIT["degree",0.0174532925199433]], 
+    AXIS["ellipsoidal height (h)",up,LENGTHUNIT["metre",1.0]]
+]
+```
+
+Информация о эпохе может быть указана на уровне системы отсчета, а не датума посредством токена `DYNAMIC[FRAMEEPOCH[...]]`
+
+## Геодезическая/географическая СО
+
+Опирается на 3-мерную декартову СК или 2/3-мерную сферическую
+
+**Географическая статическая 2-мерная эллипсоидальная**
+
+``` code
+GEOGCRS["NTF (Paris)",
+  DATUM["Nouvelle Triangulation Francaise", 
+    ELLIPSOID["Clarke 1880 (IGN)",6378249.2,293.4660213]
+  ], 
+  PRIMEM["Paris",2.5969213],
+  CS[ellipsoidal,2],
+    AXIS["latitude",north,ORDER[1]],
+    AXIS["longitude",east,ORDER[2]],
+    ANGLEUNIT["grad",0.015707963267949],
+  REMARK["Nouvelle Triangulation Française"]
+]
+```
+
+::: callout-important
+## Обратите внимание
+
+Данная система отсчета использует нестандартный меридиан (*Парижский*) и угловые единицы (*грады*).
+:::
+
 ## Библиография

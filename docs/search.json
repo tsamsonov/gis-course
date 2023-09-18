@@ -5206,5 +5206,40 @@
     "title": "Координатные системы отсчета",
     "section": "Датум",
     "text": "Датум\nДатум определяет положение референцного тела (эллипсоида) в теле Земли.\n\nМожет быть статическим и динамическим\nДинамический датум в обязательном порядке включает эпоху (ANCHOREPOCH)\n\n\n\n\n\n\n\n\n\n&lt;geodetic reference frame keyword&gt;\n::=\nDATUM | TRF | GEODETICDATUM\n\n\n\nDATUM[\"Pulkovo 1942\", \n  ELLIPSOID[\"Krassowsky 1940\",6378245,298.3, LENGTHUNIT[\"metre\",1]]],\nPRIMEM[\"Greenwich\",0, ANGLEUNIT[\"degree\",0.0174532925199433]]\n\nTRF[\"World Geodetic System 1984\", \n  ELLIPSOID[\"WGS 84\",6378388.0,298.257223563,LENGTHUNIT[\"metre\",1.0]]], \nPRIMEM[\"Greenwich\",0.0]\n\nGEODETICDATUM[\"NAD83 (National Spatial Reference System 2011)\", \n  ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1.0]],\n  ANCHOREPOCH[2010.0]]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#геодезическая-система-отсчета",
+    "href": "adv_04_SRS.html#геодезическая-система-отсчета",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая система отсчета",
+    "text": "Геодезическая система отсчета\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nСтатическая декартова\nGEODCRS[\"JGD2000\",\n  DATUM[\"Japanese Geodetic Datum 2000\", \n    ELLIPSOID[\"GRS 1980\",6378137,298.257222101]\n  ], \n  CS[Cartesian,3], \n    AXIS[\"(X)\",geocentricX], \n    AXIS[\"(Y)\",geocentricY], \n    AXIS[\"(Z)\",geocentricZ], LENGTHUNIT[\"metre\",1.0], \n  USAGE[SCOPE[\"Geodesy, topographic mapping and cadastre\"], \n    AREA[\"Japan\"], BBOX[17.09,122.38,46.05,157.64], \n    TIMEEXTENT[2002-04-01,2011-10-21]\n  ], \n  ID[\"EPSG\",4946,URI[\"urn:ogc:def:crs:EPSG::4946\"]], \n  REMARK[\"注：JGD2000 ジオセントリックは現在 JGD2011 に代わりました。\"]\n]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#геодезическаягеографическая-система-отсчета",
+    "href": "adv_04_SRS.html#геодезическаягеографическая-система-отсчета",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая/географическая система отсчета",
+    "text": "Геодезическая/географическая система отсчета\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nСтатическая декартова\nGEODCRS[\"JGD2000\",\n  DATUM[\"Japanese Geodetic Datum 2000\", \n    ELLIPSOID[\"GRS 1980\",6378137,298.257222101]\n  ], \n  CS[Cartesian,3], \n    AXIS[\"(X)\",geocentricX], \n    AXIS[\"(Y)\",geocentricY], \n    AXIS[\"(Z)\",geocentricZ], LENGTHUNIT[\"metre\",1.0], \n  USAGE[SCOPE[\"Geodesy, topographic mapping and cadastre\"], \n    AREA[\"Japan\"], BBOX[17.09,122.38,46.05,157.64], \n    TIMEEXTENT[2002-04-01,2011-10-21]\n  ], \n  ID[\"EPSG\",4946,URI[\"urn:ogc:def:crs:EPSG::4946\"]], \n  REMARK[\"注：JGD2000 ジオセントリックは現在 JGD2011 に代わりました。\"]\n]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#геодезическаягеографическая-со",
+    "href": "adv_04_SRS.html#геодезическаягеографическая-со",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая/географическая СО",
+    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеодезическая статическая 3-мерная декартова\nGEODCRS[\"JGD2000\",\n  DATUM[\"Japanese Geodetic Datum 2000\", \n    ELLIPSOID[\"GRS 1980\",6378137,298.257222101]\n  ], \n  CS[Cartesian,3], \n    AXIS[\"(X)\",geocentricX], \n    AXIS[\"(Y)\",geocentricY], \n    AXIS[\"(Z)\",geocentricZ], LENGTHUNIT[\"metre\",1.0], \n  USAGE[SCOPE[\"Geodesy, topographic mapping and cadastre\"], \n    AREA[\"Japan\"], BBOX[17.09,122.38,46.05,157.64], \n    TIMEEXTENT[2002-04-01,2011-10-21]\n  ], \n  ID[\"EPSG\",4946,URI[\"urn:ogc:def:crs:EPSG::4946\"]], \n  REMARK[\"注：JGD2000 ジオセントリックは現在 JGD2011 に代わりました。\"]\n]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#геодезическаягеографическая-со-1",
+    "href": "adv_04_SRS.html#геодезическаягеографическая-со-1",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая/географическая СО",
+    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеографическая динамическая 3-мерная эллипсоидальная\nGEOGCRS[\"WGS 84 (G1762)\",\n  DYNAMIC[FRAMEEPOCH[2005.0]], \n  TRF[\"World Geodetic System 1984 (G1762)\", \n    ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1.0]]\n  ], \n  CS[ellipsoidal,3], \n    AXIS[\"(lat)\",north,ANGLEUNIT[\"degree\",0.0174532925199433]], \n    AXIS[\"(lon)\",east,ANGLEUNIT[\"degree\",0.0174532925199433]], \n    AXIS[\"ellipsoidal height (h)\",up,LENGTHUNIT[\"metre\",1.0]]\n]\nИнформация о эпохе может быть указана на уровне системы отсчета, а не датума посредством токена DYNAMIC[FRAMEEPOCH[...]]"
+  },
+  {
+    "objectID": "adv_04_SRS.html#геодезическаягеографическая-со-2",
+    "href": "adv_04_SRS.html#геодезическаягеографическая-со-2",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая/географическая СО",
+    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеографическая статическая 2-мерная эллипсоидальная\nGEOGCRS[\"NTF (Paris)\",\n  DATUM[\"Nouvelle Triangulation Francaise\", \n    ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.4660213]\n  ], \n  PRIMEM[\"Paris\",2.5969213],\n  CS[ellipsoidal,2],\n    AXIS[\"latitude\",north,ORDER[1]],\n    AXIS[\"longitude\",east,ORDER[2]],\n    ANGLEUNIT[\"grad\",0.015707963267949],\n  REMARK[\"Nouvelle Triangulation Française\"]\n]\n\n\n\n\n\n\nОбратите внимание\n\n\nДанная система отсчета использует нестандартный меридиан (Парижский) и угловые единицы (грады)."
   }
 ]

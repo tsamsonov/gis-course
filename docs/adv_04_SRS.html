@@ -1083,6 +1083,71 @@ temporalMeasure</td>
 <span id="cb16-10"><a href="#cb16-10"></a>  ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1.0]],</span>
 <span id="cb16-11"><a href="#cb16-11"></a>  ANCHOREPOCH[2010.0]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="геодезическаягеографическая-со" class="slide level2">
+<h2>Геодезическая/географическая СО</h2>
+<p>Опирается на 3-мерную декартову СК или 2/3-мерную сферическую</p>
+<p><strong>Геодезическая статическая 3-мерная декартова</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb17-1"><a href="#cb17-1"></a>GEODCRS["JGD2000",</span>
+<span id="cb17-2"><a href="#cb17-2"></a>  DATUM["Japanese Geodetic Datum 2000", </span>
+<span id="cb17-3"><a href="#cb17-3"></a>    ELLIPSOID["GRS 1980",6378137,298.257222101]</span>
+<span id="cb17-4"><a href="#cb17-4"></a>  ], </span>
+<span id="cb17-5"><a href="#cb17-5"></a>  CS[Cartesian,3], </span>
+<span id="cb17-6"><a href="#cb17-6"></a>    AXIS["(X)",geocentricX], </span>
+<span id="cb17-7"><a href="#cb17-7"></a>    AXIS["(Y)",geocentricY], </span>
+<span id="cb17-8"><a href="#cb17-8"></a>    AXIS["(Z)",geocentricZ], LENGTHUNIT["metre",1.0], </span>
+<span id="cb17-9"><a href="#cb17-9"></a>  USAGE[SCOPE["Geodesy, topographic mapping and cadastre"], </span>
+<span id="cb17-10"><a href="#cb17-10"></a>    AREA["Japan"], BBOX[17.09,122.38,46.05,157.64], </span>
+<span id="cb17-11"><a href="#cb17-11"></a>    TIMEEXTENT[2002-04-01,2011-10-21]</span>
+<span id="cb17-12"><a href="#cb17-12"></a>  ], </span>
+<span id="cb17-13"><a href="#cb17-13"></a>  ID["EPSG",4946,URI["urn:ogc:def:crs:EPSG::4946"]], </span>
+<span id="cb17-14"><a href="#cb17-14"></a>  REMARK["注：JGD2000 ジオセントリックは現在 JGD2011 に代わりました。"]</span>
+<span id="cb17-15"><a href="#cb17-15"></a>]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="геодезическаягеографическая-со-1" class="slide level2">
+<h2>Геодезическая/географическая СО</h2>
+<p>Опирается на 3-мерную декартову СК или 2/3-мерную сферическую</p>
+<p><strong>Географическая динамическая 3-мерная эллипсоидальная</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb18-1"><a href="#cb18-1"></a>GEOGCRS["WGS 84 (G1762)",</span>
+<span id="cb18-2"><a href="#cb18-2"></a>  DYNAMIC[FRAMEEPOCH[2005.0]], </span>
+<span id="cb18-3"><a href="#cb18-3"></a>  TRF["World Geodetic System 1984 (G1762)", </span>
+<span id="cb18-4"><a href="#cb18-4"></a>    ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1.0]]</span>
+<span id="cb18-5"><a href="#cb18-5"></a>  ], </span>
+<span id="cb18-6"><a href="#cb18-6"></a>  CS[ellipsoidal,3], </span>
+<span id="cb18-7"><a href="#cb18-7"></a>    AXIS["(lat)",north,ANGLEUNIT["degree",0.0174532925199433]], </span>
+<span id="cb18-8"><a href="#cb18-8"></a>    AXIS["(lon)",east,ANGLEUNIT["degree",0.0174532925199433]], </span>
+<span id="cb18-9"><a href="#cb18-9"></a>    AXIS["ellipsoidal height (h)",up,LENGTHUNIT["metre",1.0]]</span>
+<span id="cb18-10"><a href="#cb18-10"></a>]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Информация о эпохе может быть указана на уровне системы отсчета, а не датума посредством токена <code>DYNAMIC[FRAMEEPOCH[...]]</code></p>
+</section>
+<section id="геодезическаягеографическая-со-2" class="slide level2">
+<h2>Геодезическая/географическая СО</h2>
+<p>Опирается на 3-мерную декартову СК или 2/3-мерную сферическую</p>
+<p><strong>Географическая статическая 2-мерная эллипсоидальная</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a href="#cb19-1"></a>GEOGCRS["NTF (Paris)",</span>
+<span id="cb19-2"><a href="#cb19-2"></a>  DATUM["Nouvelle Triangulation Francaise", </span>
+<span id="cb19-3"><a href="#cb19-3"></a>    ELLIPSOID["Clarke 1880 (IGN)",6378249.2,293.4660213]</span>
+<span id="cb19-4"><a href="#cb19-4"></a>  ], </span>
+<span id="cb19-5"><a href="#cb19-5"></a>  PRIMEM["Paris",2.5969213],</span>
+<span id="cb19-6"><a href="#cb19-6"></a>  CS[ellipsoidal,2],</span>
+<span id="cb19-7"><a href="#cb19-7"></a>    AXIS["latitude",north,ORDER[1]],</span>
+<span id="cb19-8"><a href="#cb19-8"></a>    AXIS["longitude",east,ORDER[2]],</span>
+<span id="cb19-9"><a href="#cb19-9"></a>    ANGLEUNIT["grad",0.015707963267949],</span>
+<span id="cb19-10"><a href="#cb19-10"></a>  REMARK["Nouvelle Triangulation Française"]</span>
+<span id="cb19-11"><a href="#cb19-11"></a>]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратите внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Данная система отсчета использует нестандартный меридиан (<em>Парижский</em>) и угловые единицы (<em>грады</em>).</p>
+</div>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 
