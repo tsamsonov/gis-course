@@ -727,9 +727,9 @@
 <h2>Допустимые системы координат</h2>
 <table style="width:99%;">
 <colgroup>
-<col style="width: 46%">
-<col style="width: 26%">
-<col style="width: 26%">
+<col style="width: 47%">
+<col style="width: 27%">
+<col style="width: 24%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -998,8 +998,8 @@ temporalMeasure</td>
 <table style="width:99%;">
 <colgroup>
 <col style="width: 14%">
-<col style="width: 4%">
-<col style="width: 79%">
+<col style="width: 6%">
+<col style="width: 78%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1030,8 +1030,8 @@ temporalMeasure</td>
 <table style="width:99%;">
 <colgroup>
 <col style="width: 15%">
-<col style="width: 4%">
-<col style="width: 80%">
+<col style="width: 5%">
+<col style="width: 79%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1059,9 +1059,9 @@ temporalMeasure</td>
 </ul>
 <table style="width:99%;">
 <colgroup>
-<col style="width: 48%">
-<col style="width: 10%">
-<col style="width: 40%">
+<col style="width: 45%">
+<col style="width: 16%">
+<col style="width: 37%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1147,6 +1147,51 @@ temporalMeasure</td>
 </div>
 </div>
 </div>
+</section>
+<section id="проецированная-со" class="slide level2">
+<h2>Проецированная СО</h2>
+<p><strong>Проецированная</strong> система отсчета является частным случаем <em>производной</em> СО.</p>
+<dl>
+<dt>Производная координатная система отсчета</dt>
+<dd>
+<p>Координатная система отсчета, определяемая через преобразование координат ранее установленной координатной системы отсчета</p>
+<ul>
+<li><p>Ранее установленная СО называется базовой</p></li>
+<li><p>Производная СО наследует датум от базовой</p></li>
+<li><p>Преобразование координат определяется с использованием параметров и формул, указанных в определении</p></li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li><p><code>PROJCRS | PROJECTEDCRS</code> — система отсчета</p></li>
+<li><p><code>BASEGEODCRS | BASEGEOGCRS</code> — базовая СО</p></li>
+<li><p><code>CONVERSION</code> — картографическая проекция</p></li>
+<li><p><code>METHOD | PROJECTION</code> — метод проецирования</p></li>
+</ul>
+</section>
+<section id="проецированная-со-1" class="slide level2">
+<h2>Проецированная СО</h2>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource code number-lines code-with-copy"><code class="sourceCode"><span id="cb20-1"><a href="#cb20-1"></a>PROJCRS["World_Mollweide",</span>
+<span id="cb20-2"><a href="#cb20-2"></a>    BASEGEOGCRS["WGS 84",</span>
+<span id="cb20-3"><a href="#cb20-3"></a>        DATUM["World Geodetic System 1984",</span>
+<span id="cb20-4"><a href="#cb20-4"></a>            ELLIPSOID["WGS 84",6378137,298.257223563,</span>
+<span id="cb20-5"><a href="#cb20-5"></a>                LENGTHUNIT["metre",1]]],</span>
+<span id="cb20-6"><a href="#cb20-6"></a>        PRIMEM["Greenwich",0,</span>
+<span id="cb20-7"><a href="#cb20-7"></a>            ANGLEUNIT["Degree",0.0174532925199433]]],</span>
+<span id="cb20-8"><a href="#cb20-8"></a>    CONVERSION["World_Mollweide",</span>
+<span id="cb20-9"><a href="#cb20-9"></a>        METHOD["Mollweide"],</span>
+<span id="cb20-10"><a href="#cb20-10"></a>        PARAMETER["Longitude of natural origin",0,</span>
+<span id="cb20-11"><a href="#cb20-11"></a>            ANGLEUNIT["Degree",0.0174532925199433],</span>
+<span id="cb20-12"><a href="#cb20-12"></a>            ID["EPSG",8802]],</span>
+<span id="cb20-13"><a href="#cb20-13"></a>        PARAMETER["False easting",0, LENGTHUNIT["metre",1],</span>
+<span id="cb20-14"><a href="#cb20-14"></a>            ID["EPSG",8806]],</span>
+<span id="cb20-15"><a href="#cb20-15"></a>        PARAMETER["False northing",0, LENGTHUNIT["metre",1],</span>
+<span id="cb20-16"><a href="#cb20-16"></a>            ID["EPSG",8807]]],</span>
+<span id="cb20-17"><a href="#cb20-17"></a>    CS[Cartesian,2],</span>
+<span id="cb20-18"><a href="#cb20-18"></a>        AXIS["(E)",east,  ORDER[1], LENGTHUNIT["metre",1]],</span>
+<span id="cb20-19"><a href="#cb20-19"></a>        AXIS["(N)",north, ORDER[2], LENGTHUNIT["metre",1]],</span>
+<span id="cb20-20"><a href="#cb20-20"></a>    USAGE[SCOPE["Not known."],AREA["World."], BBOX[-90,-180,90,180]],</span>
+<span id="cb20-21"><a href="#cb20-21"></a>    ID["ESRI",54009]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>

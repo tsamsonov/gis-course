@@ -1,7 +1,7 @@
 ## Определение SRS на языке WKT
 
 |                                                                                                           |
-|------------------------------------------------------------------------|
+|-----------------------------------------------------------------------------------------------------------|
 | `<simple Latin lower case letter> ::= a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z`                |
 | `<simple Latin upper case letter> ::= A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z`                |
 | `<simple Latin letter> ::= <simple Latin upper case letter> | <simple Latin lower case letter>`           |
@@ -15,7 +15,7 @@
 ## Определение SRS на языке WKT
 
 |                                                                                                                                      |
-|------------------------------------------------------------------------|
+|--------------------------------------------------------------------------------------------------------------------------------------|
 | `<name> ::= <letters>`                                                                                                               |
 | `<double quote> ::= "`                                                                                                               |
 | `<quoted name> ::= <double quote> <name> <double quote>`                                                                             |
@@ -28,7 +28,7 @@
 ## Определение SRS на языке WKT
 
 |                    |       |                                                                                                                      |
-|--------------|--------------|---------------------------------------------|
+|--------------------|-------|----------------------------------------------------------------------------------------------------------------------|
 | `<prime meridian>` | `::=` | `PRIMEM <left delimiter> <prime meridian name> <comma> <longitude> <right delimiter>`                                |
 | `<spheroid>`       | `::=` | `SPHEROID <left delimiter> <spheroid name> <comma> <semi-major axis> <comma> <inverse flattening> <right delimiter>` |
 | `<parameter>`      | `::=` | `PARAMETER <left delimiter> <parameter name> <comma> <value> <right delimiter>`                                      |
@@ -38,7 +38,7 @@
 ## Определение SRS на языке WKT
 
 |                              |       |                                                                                                                                                 |
-|--------------|--------------|--------------------------------------------|
+|------------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `<geocentric cs>`            | `::=` | `GEOCCS <left delimiter> <name> <comma> <datum> <comma> <prime meridian> <comma> <linear unit> <right delimiter>`                               |
 | `<geographic cs>`            | `::=` | `GEOGCS <left delimiter> <csname> <comma> <datum> <comma> <prime meridian> <comma> <angular unit> (<comma> <linear unit> ) <right delimiter>`   |
 | `<projected cs>`             | `::=` | `PROJCS <left delimiter> <csname> <comma> <geographic cs> <comma> <projection> (<comma> <parameter> )* <comma> <linear unit> <right delimiter>` |
