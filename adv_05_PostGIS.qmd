@@ -21,9 +21,9 @@ bibliography: references.yaml
 mainfont: PT Sans
 ---
 
-## Четыре кита
+## Базовые библиотеки
 
-Функциональность PostGIS опирается на 4 библиотеки:
+Функциональность **PostGIS** опирается на 4 библиотеки:
 
 ::: columns
 ::: {.column width="50%"}
@@ -53,6 +53,8 @@ mainfont: PT Sans
 :::
 :::
 
-## 
+## Структура базы данных
+
+![](images/pg_database.svg){width="100%"}
 
 ## Библиография
