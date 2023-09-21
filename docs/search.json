@@ -5262,5 +5262,222 @@
     "title": "Координатные системы отсчета",
     "section": "Проецированная СО",
     "text": "Проецированная СО\nPROJCRS[\"World_Mollweide\",\n    BASEGEOGCRS[\"WGS 84\",\n        DATUM[\"World Geodetic System 1984\",\n            ELLIPSOID[\"WGS 84\",6378137,298.257223563,\n                LENGTHUNIT[\"metre\",1]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"Degree\",0.0174532925199433]]],\n    CONVERSION[\"World_Mollweide\",\n        METHOD[\"Mollweide\"],\n        PARAMETER[\"Longitude of natural origin\",0,\n            ANGLEUNIT[\"Degree\",0.0174532925199433],\n            ID[\"EPSG\",8802]],\n        PARAMETER[\"False easting\",0, LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8806]],\n        PARAMETER[\"False northing\",0, LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8807]]],\n    CS[Cartesian,2],\n        AXIS[\"(E)\",east,  ORDER[1], LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(N)\",north, ORDER[2], LENGTHUNIT[\"metre\",1]],\n    USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"], BBOX[-90,-180,90,180]],\n    ID[\"ESRI\",54009]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#координатная-система-отсчета",
+    "href": "adv_04_CRS.html#координатная-система-отсчета",
+    "title": "Координатные системы отсчета",
+    "section": "Координатная система отсчета",
+    "text": "Координатная система отсчета\n\n\n\n\nflowchart LR\n  A(Система отсчета) --&gt; B(Пространственная)\n  A --&gt; C(Временная)\n  B --&gt; D(Географические идентификаторы)\n  B --&gt; E(Координатная)\n  B --&gt; F(Параметрическая координатная)\n  C --&gt; G(Координатная)\n  C --&gt; H(Порядковая)\n  C --&gt; I(Календари)\n  E --&gt; J(Координатная)\n  F --&gt; J\n  G --&gt; J"
+  },
+  {
+    "objectID": "adv_04_CRS.html#определение-crs-на-языке-wkt",
+    "href": "adv_04_CRS.html#определение-crs-на-языке-wkt",
+    "title": "Координатные системы отсчета",
+    "section": "Определение CRS на языке WKT",
+    "text": "Определение CRS на языке WKT\nWKT представляет одну систему координат или объект координатной операции.\n\nКаждый объект представляется в виде токена, состоящего из ключевого слова, за которым следует множесто атрибутов объекта.\nНекоторые объекты состоят из других объектов, поэтому результат может состоять из нескольких уровней вложенности (глубина не ограничена).\n\nПример для трёх уровней:\nKEYWORD1[\n  attribute1, \n  KEYWORD2[\n    attribute2, \n    attribute3,\n    KEYWORD3[\n      attribute4\n    ]\n  ]\n]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#общие-атрибуты",
+    "href": "adv_04_CRS.html#общие-атрибуты",
+    "title": "Координатные системы отсчета",
+    "section": "Общие атрибуты",
+    "text": "Общие атрибуты\nВне зависимости от типа описываемого объекта ему всегда могут быть заданы:\n\nИмя (name).\nИспользование (usage)\n\nОбласть применения (scope).\nПространственный охват (extent).\n\nИдентификатор (identifier).\nРемарка (remark).\n\n\n\n\n\n\n\nИмя\n\n\nИмя является обязательным атрибутом при описании координатной системы отсчета, а также для некоторых компонент структуры ее описания"
+  },
+  {
+    "objectID": "adv_04_CRS.html#использование",
+    "href": "adv_04_CRS.html#использование",
+    "title": "Координатные системы отсчета",
+    "section": "Использование",
+    "text": "Использование\n&lt;usage&gt; включает в себя обязательную пару области применения и охвата:\nUSAGE[&lt;scope&gt;, &lt;extent&gt;]\n&lt;scope&gt; представляет текстовое описание области применения:\nSCOPE[\"Engineering survey, topographic mapping.\"]\n&lt;extent&gt; хранит описание пространственного охвата:\n\nAREA[\"Between 36°E and 42°E, northern hemisphere]\nBBOX[0, 36, 84, 42] — \\([\\phi_0, \\lambda_0, \\phi_1, \\lambda_1]\\)\nVERTICALEXTENT[-1000,0]\nVERTICALEXTENT[-200, 6000, LENGTHUNIT[\"metre\",1.0]]\nTIMEEXTENT[2013-01-01,2013-12-31] — \\([T_0, T_1]\\)\nTIMEEXTENT[\"Carbon\", \"Pleistocene\"]\n\nТокенов &lt;usage&gt; может быть несколько — для каждой области применения."
+  },
+  {
+    "objectID": "adv_04_CRS.html#примеры",
+    "href": "adv_04_CRS.html#примеры",
+    "title": "Координатные системы отсчета",
+    "section": "Примеры",
+    "text": "Примеры\nUTM 37N\nUSAGE[\n  SCOPE[\"Engineering survey, topographic mapping.\"],\n  AREA[\"Between 36°E and 42°E, northern hemisphere between equator \n        and 84°N, onshore and offshore. Djibouti. Egypt. Eritrea. \n        Ethiopia. Georgia. Iraq. Jordan. Kenya. Lebanon. Russian \n        Federation. Saudi Arabia. Somalia. Sudan. Syria. Turkey. \n        Ukraine.\"],\n  BBOX[0,36,84,42]]\nМестная система координат\nUSAGE[\n  SCOPE[\"Small scale topographic mapping.\"], \n  AREA[\"Finland - onshore and offshore.\"]],\nUSAGE[\n  SCOPE[\"Cadastre.\"],\n  AREA[\"Finland - onshore between 26°30'E and 27°30'E.\"], \n  BBOX[60.36,26.5,70.05,27.5]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#идентификатор",
+    "href": "adv_04_CRS.html#идентификатор",
+    "title": "Координатные системы отсчета",
+    "section": "Идентификатор",
+    "text": "Идентификатор\nИдентификатор — опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).\n\n\n\n\n\n\n\n\n&lt;wkt separator&gt;\n::=\n&lt;comma&gt;\n\n\n&lt;identifier&gt;\n::=\n&lt;identifier keyword&gt; &lt;left delimiter&gt; &lt;authority name&gt; &lt;wkt separator&gt; &lt;authority unique identifier&gt; { &lt;wkt separator&gt; &lt;version&gt; } { &lt;wkt separator&gt; &lt;authority citation&gt; } { &lt;wkt separator&gt; &lt;id uri&gt; } &lt;right delimiter&gt;\n\n\n\nID[\"Росреестр\", \"СК-ХХХ\", 666]\nID[\"EPSG\",20907]  — GSK-2011 / Gauss-Kruger zone 23\nID[\"EPSG\",4326,URI[\"urn:ogc:def:crs:EPSG::4326\"]]\nID[\"ESRI\",102604] — NAD_1983_Georgia_Statewide_Lambert"
+  },
+  {
+    "objectID": "adv_04_CRS.html#ремарка-примечание",
+    "href": "adv_04_CRS.html#ремарка-примечание",
+    "title": "Координатные системы отсчета",
+    "section": "Ремарка (примечание)",
+    "text": "Ремарка (примечание)\nРемарка является опциональным параметром и носит информационный характер, т.е. не влияет на поведение объекта, к которому она относится.\n\nРемарки нельзя использовать на уровне компонент координатной системы.\nРемарка — единственное место в WKT, где можно использовать символы, не входящие в латинский алфавит.\n\nGEOGCRS[\"S-95\",\n  DATUM[\"Pulkovo 1995\", \n    ELLIPSOID[\"Krassowsky 1940\",6378245,298.3, LENGTHUNIT[\"metre\",1.0]] ], \n  CS[ellipsoidal,2], \n    AXIS[\"latitude\",north,ORDER[1]], \n    AXIS[\"longitude\",east,ORDER[2]], \n    ANGLEUNIT[\"degree\",0.0174532925199433], \n  REMARK[\"Система Геодеэических Координат года 1995(СК-95)\"]\n]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#единицы-измерения",
+    "href": "adv_04_CRS.html#единицы-измерения",
+    "title": "Координатные системы отсчета",
+    "section": "Единицы измерения",
+    "text": "Единицы измерения\nЕдиницы измерения указываются для некоторых параметров осей координат, а также параметров координатных операций.\n\n\n\n\n\n\n\n\n&lt;spatial unit&gt;\n::=\n&lt;angle unit&gt; | &lt;length unit&gt; | &lt;parametric unit&gt; | &lt;scale unit&gt;\n\n\n&lt;unit&gt;\n::=\n&lt;spatial unit&gt; | &lt;time unit&gt;\n\n\n\nПосле единицы измерения указывается коэффициент пересчета:\nLENGTHUNIT[\"metre\",1] \nLENGTHUNIT[\"German legal metre\",1.0000135965] \nANGLEUNIT[\"degree\",0.0174532925199433] \nSCALEUNIT[\"parts per million\",1E-06] \nPARAMETRICUNIT[\"hectopascal\",100]\n\n\n\n\n\n\nЭталоны\n\n\nКоэффициенты пересчета указываются к эталонным единицам СИ: метрам, радианам и т.д."
+  },
+  {
+    "objectID": "adv_04_CRS.html#система-координат",
+    "href": "adv_04_CRS.html#система-координат",
+    "title": "Координатные системы отсчета",
+    "section": "Система координат",
+    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;coordinate system&gt;\n::=\n&lt;spatial cs&gt; | &lt;temporalCountMeasure cs&gt; | &lt;ordinal-dateTime cs&gt;\n\n\n&lt;spatial cs&gt;\n::=\n&lt;cs keyword&gt; &lt;left delimiter&gt; &lt;spatial cs type&gt;\n&lt;wkt separator&gt; &lt;dimension&gt;\n{(&lt;wkt separator&gt; &lt;identifier&gt;)}*\n&lt;right delimiter&gt;\n(&lt;wkt separator&gt; &lt;spatial axis&gt;)*\n{&lt;wkt separator&gt; &lt;cs unit&gt;}"
+  },
+  {
+    "objectID": "adv_04_CRS.html#система-координат-1",
+    "href": "adv_04_CRS.html#система-координат-1",
+    "title": "Координатные системы отсчета",
+    "section": "Система координат",
+    "text": "Система координат\nОпределяется рядом параметров:\n\n\n\n\n\n\n\n\n&lt;dimension&gt;\n::=\n1|2|3\n\n\n&lt;spatial cs type&gt;\n::=\naffine | Cartesian | cylindrical | ellipsoidal | linear | parametric | polar | spherical | vertical\n\n\n&lt;spatial axis&gt;\n::=\n&lt;axis keyword&gt; &lt;left delimiter&gt; &lt;axis nameAbbrev&gt;\n&lt;wkt separator&gt; &lt;axis direction&gt;\n{&lt;wkt separator&gt; &lt;axis order&gt;}\n{&lt;wkt separator&gt; &lt;spatial unit&gt;}\n{&lt;wkt separator&gt; &lt;axis range&gt;}\n{( &lt;wkt separator&gt; &lt;identifier&gt; )}*\n&lt;right delimiter&gt;"
+  },
+  {
+    "objectID": "adv_04_CRS.html#типы-систем-координат",
+    "href": "adv_04_CRS.html#типы-систем-координат",
+    "title": "Координатные системы отсчета",
+    "section": "Типы систем координат",
+    "text": "Типы систем координат\n\nАффинная\n\nКоординатная система в Евклидовом пространстве с прямыми осями, которые не обязательно взаимно перпендикулярны\nCS[affine,2]\n\nДекартова\n\nАффинная система координат, в которой оси взаимно перепендикулярны и имеют одинаковые единицы измерения\nCS[Cartesian,3]\n\nЛинейная\n\nОдномерная система координат, в которой ось определена линейным пространственным объектом\nCS[linear,1]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#типы-систем-координат-1",
+    "href": "adv_04_CRS.html#типы-систем-координат-1",
+    "title": "Координатные системы отсчета",
+    "section": "Типы систем координат",
+    "text": "Типы систем координат\n\nПолярная\n\nДвумерная система координат в Евклидовом пространстве, в котором местоположение определяется расстоянием и углом\nCS[polar,2]\n\nЦилиндрическая\n\nТрехмерная система координат в Евклидовом пространстве, в котором местоположение задается двумя расстояниями и углом\nCS[cylindrical,3]\n\nПорядковая\n\nСистема координат, в которой местоположение по осям определяется целыми числами\nCS[ordinal,2]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#типы-систем-координат-2",
+    "href": "adv_04_CRS.html#типы-систем-координат-2",
+    "title": "Координатные системы отсчета",
+    "section": "Типы систем координат",
+    "text": "Типы систем координат\n\nСферическая\n\nДвух- или трехмерная система координат в Евклидовом пространстве, в которой местоположение определяется двумя угловыми координатами и (в трехмерном случае) одной координатой-расстоянием\nCS[spherical,3]\n\nЭллипсоидальная\n\nДвух- или трехмерная система координат, в которой местоположение определяется геодезической широтой, долготой и (в трехмерном случае) геодезической высотой\nCS[ellipsoidal,3]\n\nПараметрическая\n\nОдномерная система координат, в которой единицы измерения по оси являются непространственными параметрами\nCS[parametric,1]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#допустимые-системы-координат",
+    "href": "adv_04_CRS.html#допустимые-системы-координат",
+    "title": "Координатные системы отсчета",
+    "section": "Допустимые системы координат",
+    "text": "Допустимые системы координат\n\n\n\n\n\n\n\n\nКоординатная система отсчета\nДопустимые СК\nРазмерность\n(число осей)\n\n\nгеодезическая\nдекартова\nсферическая\n3\n2 или 3\n\n\nгеографическая\nэллипсоидальная\n2 или 3\n\n\nпроецированная\nдекартова\n2 или 3\n\n\nпроецированная производная\nаффинная\nдекартова\nцилиндрическая\nпорядковая\nполярная\nсферическая\n2 или 3\n2 или 3\n3\n1 или 2 или 3\n2\n2 или 3"
+  },
+  {
+    "objectID": "adv_04_CRS.html#допустимые-системы-координат-1",
+    "href": "adv_04_CRS.html#допустимые-системы-координат-1",
+    "title": "Координатные системы отсчета",
+    "section": "Допустимые системы координат",
+    "text": "Допустимые системы координат\n\n\n\n\n\n\n\n\nКоординатная система отсчета\nДопустимые СК\nРазмерность\n(число осей)\n\n\nвертикальная\nвертикальная\n1\n\n\nинженерная\nаффинная\nдекартова\nцилиндрическая\nлинейная\nпорядковая\nполярная\nсферическая\n2 или 3\n2 или 3\n3\n1\n1 или 2 или 3\n2\n2 или 3\n\n\nпараметрическая\nпараметрическая\n1\n\n\nвременная\ntemporalDateTime\ntemporalCount\ntemporalMeasure\n1\n1\n1"
+  },
+  {
+    "objectID": "adv_04_CRS.html#названия-осей",
+    "href": "adv_04_CRS.html#названия-осей",
+    "title": "Координатные системы отсчета",
+    "section": "Названия осей",
+    "text": "Названия осей\nСогласно стандарту ISO 19111, для каждой оси должны быть указаны как имя, так и аббревиатура. В стандарте OGC 18-005r8 требование более мягкое: достаточно указать одну или обе компоненты:\n\n\n\n\"northing\"\n\"(Y)\"\n\"northing (Y)\"\n\n\n\n\nв геоцентрической СК указываются только аббревиатуры (X) , (Y), (Z)\nв географической СК указываются\n\ngeodetic latitude (Lat)\ngeodetic longitude (lon)\nellipsoidal height (h)\n\nв проецированной СК указываются\n\nnorthing (N) / southing (S)\neasting (E) / westing (W)"
+  },
+  {
+    "objectID": "adv_04_CRS.html#направления-осей",
+    "href": "adv_04_CRS.html#направления-осей",
+    "title": "Координатные системы отсчета",
+    "section": "Направления осей",
+    "text": "Направления осей\nНаправление оси соответствует положительному изменению значания.\n\n\n\n\n\n\n\n\nКоординатная система\nДопустимые направления\nПример\n\n\nгеографическая\nnorth, east, up\nAXIS[\"(lat)\",north]\nAXIS[\"(lon)\",east]\n\n\nгеодезическая декартова\ngeocentricX\ngeocentricY\ngeocentricZ\nAXIS[\"(X)\",geocentricX]\nAXIS[\"(Y)\",geocentricY]\nAXIS[\"(Z)\",geocentricZ]\n\n\nпроецированная\nnorth / south\neast / west\nup\nAXIS[\"(E)\",east]\nAXIS[\"(N)\",north]\nAXIS[\"ellipsoid height (h)\",up]\n\n\nвертикальная\nup / down\nAXIS[\"depth (D)\",down]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#порядок-осей",
+    "href": "adv_04_CRS.html#порядок-осей",
+    "title": "Координатные системы отсчета",
+    "section": "Порядок осей",
+    "text": "Порядок осей\nТокен &lt;axis order&gt; ::= ORDER[&lt;digit&gt;] определяет соответствие между координатами точек в данных и осям координат.\n\nНумерация осей начинается с \\(1\\) и увеличивается с шагом \\(1\\)\nПорядок должен быть указан для всех осей, либо ни для какой из них\nЕсли порядок не указан, по умолчанию предполагается, что порядок осей соответствует порядку их перечисления в описании СК.\n\nНапример, если в файле с данными координата \\(X\\) соответствует направлению на север, то это можно указать в параметрах осей:\nAXIS[\"(E)\", east,  ORDER[2]],\nAXIS[\"(N)\", north, ORDER[1]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#единицы-измерения-осей",
+    "href": "adv_04_CRS.html#единицы-измерения-осей",
+    "title": "Координатные системы отсчета",
+    "section": "Единицы измерения осей",
+    "text": "Единицы измерения осей\nМогут быть указаны как на уровне системы координат (&lt;cs unit&gt;), так и на уровне каждой оси по отдельности (&lt;axis unit&gt;).\n\n\n\n\n\n\nВнимание\n\n\nНе следует использовать &lt;cs unit&gt; когда единицы измерения осей разные (например, в полярной СК).\n\n\n\nCS[Cartesian,3],\n  AXIS[\"(X)\",geocentricX], \n  AXIS[\"(Y)\",geocentricY], \n  AXIS[\"(Z)\",geocentricZ], \n  LENGTHUNIT[\"metre\",1.0] — &lt;cs unit&gt;\n  \nCS[polar,2],\n  AXIS[\"distance (r)\", awayFrom, ORDER[1],\n       LENGTHUNIT[\"metre\",1.0]],                     — &lt;axis unit&gt;\n  AXIS[\"bearing (U)\", clockwise, BEARING[234], ORDER[2], \n       ANGLEUNIT[\"degree\",0.0174532925199433]]       — &lt;axis unit&gt;"
+  },
+  {
+    "objectID": "adv_04_CRS.html#геодезические-ск",
+    "href": "adv_04_CRS.html#геодезические-ск",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезические СК",
+    "text": "Геодезические СК\nТопоцентрическая декартова\nCS[Cartesian,3], \n  AXIS[\"(X)\",east],\n  AXIS[\"(Y)\",north],\n  AXIS[\"(Z)\",up], \n  LENGTHUNIT[\"metre\",1.0]\nГеоцентрическая сферическая\nCS[spherical,2], \n  AXIS[\"geocentric latitude (U)\",  north, ORDER[1], \n  AXIS[\"geocentric longitude (V)\", east,  ORDER[2], \n  ANGLEUNIT[\"degree\", 0.0174532925199433]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#географические-ск",
+    "href": "adv_04_CRS.html#географические-ск",
+    "title": "Координатные системы отсчета",
+    "section": "Географические СК",
+    "text": "Географические СК\nТрехмерная эллипсоидальная\nCS[ellipsoidal,3], \n  AXIS[\"latitude\", north, ORDER[1],\n    ANGLEUNIT[\"degree\", 0.0174532925199433]], \n  AXIS[\"longitude\", east, ORDER[2],\n    ANGLEUNIT[\"degree\", 0.0174532925199433]], \n  AXIS[\"ellipsoidal height (h)\", up, ORDER[3],\n    LENGTHUNIT[\"metre\",1.0]]\nДвумерная эллипсоидальная\nCS[ellipsoidal,2], \n  AXIS[\"(lat)\", north], \n  AXIS[\"(lon)\", east], \n  ANGLEUNIT[\"degree\", 0.0174532925199433]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#проецированные-ск",
+    "href": "adv_04_CRS.html#проецированные-ск",
+    "title": "Координатные системы отсчета",
+    "section": "Проецированные СК",
+    "text": "Проецированные СК\nТрехмерная\nCS[Cartesian,2],\n  AXIS[\"northing (X)\", north,ORDER[1]], \n  AXIS[\"easting (Y)\", east,ORDER[2]], \n  AXIS[\"ellipsoid height (h)\",up, ORDER[3]],\n  LENGTHUNIT[\"metre\",1.0]\nДвумерная с центром на полюсе\nCS[Cartesian,2],\n  AXIS[\"easting (X)\",south, \n    MERIDIAN[90,ANGLEUNIT[\"degree\",0.0174532925199433]], ORDER[1]],\n  AXIS[\"northing (Y)\",south,\n    MERIDIAN[180,ANGLEUNIT[\"degree\",0.0174532925199433]], ORDER[2]],\n  LENGTHUNIT[\"metre\",1.0]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#эллипсоид",
+    "href": "adv_04_CRS.html#эллипсоид",
+    "title": "Координатные системы отсчета",
+    "section": "Эллипсоид",
+    "text": "Эллипсоид\nЭллипсоид входит в состав исходных геодезических дат (датума)\n\n\n\n\n\n\n\n\n&lt;ellipsoid&gt;\n::=\n&lt;ellipsoid keyword&gt; &lt;left delimiter&gt; &lt;ellipsoid name&gt;  &lt;wkt separator&gt; &lt;semi-major axis&gt; &lt;wkt separator&gt; &lt;inverse flattening&gt;\n{&lt;wkt separator&gt; &lt;length unit&gt;} {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;\n\n\n&lt;ellipsoid keyword&gt;\n::=\nELLIPSOID | SPHEROID\n\n\n\nSPHEROID[\"GRS 1980\",6378137.0,298.257222101]\nELLIPSOID[\"Clark 1866\",20925832.164,294.97869821, \n  LENGTHUNIT[\"US survey foot\",0.304800609601219]]\nELLIPSOID[\"Sphere\",6371000,0,LENGTHUNIT[\"metre\",1.0]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#нулевой-меридиан",
+    "href": "adv_04_CRS.html#нулевой-меридиан",
+    "title": "Координатные системы отсчета",
+    "section": "Нулевой меридиан",
+    "text": "Нулевой меридиан\nНулевой меридиан соответствует нулевому значению долготы\n\nОтносится к датуму, но не входит в его состав\nЗадается для геодезических и географических СК в случае если не совпадает с Гринвичским (irm — international reference meridian)\n\n\n\n\n\n\n\n\n\n&lt;prime meridian&gt;\n::=\n&lt;prime meridian keyword&gt; &lt;left delimiter&gt; &lt;prime meridian name&gt; &lt;wkt separator&gt; &lt;irm longitude&gt; {(&lt;wkt separator&gt; &lt;identifier&gt;)}* &lt;right delimiter&gt;\n\n\n&lt;prime meridian keyword&gt;\n::=\nPRIMEM | PRIMEMERIDIAN\n\n\n\nPRIMEM[\"Ferro\",-17.6666667]\nPRIMEM[\"Paris\",2.5969213,ANGLEUNIT[\"grad\",0.015707963267949]]\nPRIMEMERIDIAN[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#датум",
+    "href": "adv_04_CRS.html#датум",
+    "title": "Координатные системы отсчета",
+    "section": "Датум",
+    "text": "Датум\nДатум определяет положение референцного тела (эллипсоида) в теле Земли.\n\nМожет быть статическим и динамическим\nДинамический датум в обязательном порядке включает эпоху (ANCHOREPOCH)\n\n\n\n\n\n\n\n\n\n&lt;geodetic reference frame keyword&gt;\n::=\nDATUM | TRF | GEODETICDATUM\n\n\n\nDATUM[\"Pulkovo 1942\", \n  ELLIPSOID[\"Krassowsky 1940\",6378245,298.3, LENGTHUNIT[\"metre\",1]]],\nPRIMEM[\"Greenwich\",0, ANGLEUNIT[\"degree\",0.0174532925199433]]\n\nTRF[\"World Geodetic System 1984\", \n  ELLIPSOID[\"WGS 84\",6378388.0,298.257223563,LENGTHUNIT[\"metre\",1.0]]], \nPRIMEM[\"Greenwich\",0.0]\n\nGEODETICDATUM[\"NAD83 (National Spatial Reference System 2011)\", \n  ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1.0]],\n  ANCHOREPOCH[2010.0]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#геодезическаягеографическая-со",
+    "href": "adv_04_CRS.html#геодезическаягеографическая-со",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая/географическая СО",
+    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеодезическая статическая 3-мерная декартова\nGEODCRS[\"JGD2000\",\n  DATUM[\"Japanese Geodetic Datum 2000\", \n    ELLIPSOID[\"GRS 1980\",6378137,298.257222101]\n  ], \n  CS[Cartesian,3], \n    AXIS[\"(X)\",geocentricX], \n    AXIS[\"(Y)\",geocentricY], \n    AXIS[\"(Z)\",geocentricZ], LENGTHUNIT[\"metre\",1.0], \n  USAGE[SCOPE[\"Geodesy, topographic mapping and cadastre\"], \n    AREA[\"Japan\"], BBOX[17.09,122.38,46.05,157.64], \n    TIMEEXTENT[2002-04-01,2011-10-21]\n  ], \n  ID[\"EPSG\",4946,URI[\"urn:ogc:def:crs:EPSG::4946\"]], \n  REMARK[\"注：JGD2000 ジオセントリックは現在 JGD2011 に代わりました。\"]\n]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#геодезическаягеографическая-со-1",
+    "href": "adv_04_CRS.html#геодезическаягеографическая-со-1",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая/географическая СО",
+    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеографическая динамическая 3-мерная эллипсоидальная\nGEOGCRS[\"WGS 84 (G1762)\",\n  DYNAMIC[FRAMEEPOCH[2005.0]], \n  TRF[\"World Geodetic System 1984 (G1762)\", \n    ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1.0]]\n  ], \n  CS[ellipsoidal,3], \n    AXIS[\"(lat)\",north,ANGLEUNIT[\"degree\",0.0174532925199433]], \n    AXIS[\"(lon)\",east,ANGLEUNIT[\"degree\",0.0174532925199433]], \n    AXIS[\"ellipsoidal height (h)\",up,LENGTHUNIT[\"metre\",1.0]]\n]\nИнформация о эпохе может быть указана на уровне системы отсчета, а не датума посредством токена DYNAMIC[FRAMEEPOCH[...]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#геодезическаягеографическая-со-2",
+    "href": "adv_04_CRS.html#геодезическаягеографическая-со-2",
+    "title": "Координатные системы отсчета",
+    "section": "Геодезическая/географическая СО",
+    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеографическая статическая 2-мерная эллипсоидальная\nGEOGCRS[\"NTF (Paris)\",\n  DATUM[\"Nouvelle Triangulation Francaise\", \n    ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.4660213]\n  ], \n  PRIMEM[\"Paris\",2.5969213],\n  CS[ellipsoidal,2],\n    AXIS[\"latitude\",north,ORDER[1]],\n    AXIS[\"longitude\",east,ORDER[2]],\n    ANGLEUNIT[\"grad\",0.015707963267949],\n  REMARK[\"Nouvelle Triangulation Française\"]\n]\n\n\n\n\n\n\nОбратите внимание\n\n\nДанная система отсчета использует нестандартный меридиан (Парижский) и угловые единицы (грады)."
+  },
+  {
+    "objectID": "adv_04_CRS.html#проецированная-со",
+    "href": "adv_04_CRS.html#проецированная-со",
+    "title": "Координатные системы отсчета",
+    "section": "Проецированная СО",
+    "text": "Проецированная СО\nПроецированная система отсчета является частным случаем производной СО.\n\nПроизводная координатная система отсчета\n\nКоординатная система отсчета, определяемая через преобразование координат ранее установленной координатной системы отсчета\n\nРанее установленная СО называется базовой\nПроизводная СО наследует датум от базовой\nПреобразование координат определяется с использованием параметров и формул, указанных в определении\n\n\n\n\nPROJCRS | PROJECTEDCRS — система отсчета\nBASEGEODCRS | BASEGEOGCRS — базовая СО\nCONVERSION — картографическая проекция\nMETHOD | PROJECTION — метод проецирования"
+  },
+  {
+    "objectID": "adv_04_CRS.html#проецированная-со-1",
+    "href": "adv_04_CRS.html#проецированная-со-1",
+    "title": "Координатные системы отсчета",
+    "section": "Проецированная СО",
+    "text": "Проецированная СО\nPROJCRS[\"World_Mollweide\",\n    BASEGEOGCRS[\"WGS 84\",\n        DATUM[\"World Geodetic System 1984\",\n            ELLIPSOID[\"WGS 84\",6378137,298.257223563,\n                LENGTHUNIT[\"metre\",1]]],\n        PRIMEM[\"Greenwich\",0,\n            ANGLEUNIT[\"Degree\",0.0174532925199433]]],\n    CONVERSION[\"World_Mollweide\",\n        METHOD[\"Mollweide\"],\n        PARAMETER[\"Longitude of natural origin\",0,\n            ANGLEUNIT[\"Degree\",0.0174532925199433],\n            ID[\"EPSG\",8802]],\n        PARAMETER[\"False easting\",0, LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8806]],\n        PARAMETER[\"False northing\",0, LENGTHUNIT[\"metre\",1],\n            ID[\"EPSG\",8807]]],\n    CS[Cartesian,2],\n        AXIS[\"(E)\",east,  ORDER[1], LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(N)\",north, ORDER[2], LENGTHUNIT[\"metre\",1]],\n    USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"], BBOX[-90,-180,90,180]],\n    ID[\"ESRI\",54009]]"
+  },
+  {
+    "objectID": "adv_04_CRS.html#библиография",
+    "href": "adv_04_CRS.html#библиография",
+    "title": "Координатные системы отсчета",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
   }
 ]
