@@ -5507,5 +5507,19 @@
     "title": "PostGIS",
     "section": "Структура базы данных",
     "text": "Структура базы данных"
+  },
+  {
+    "objectID": "adv_05_PostGIS.html#структура-схемы",
+    "href": "adv_05_PostGIS.html#структура-схемы",
+    "title": "PostGIS",
+    "section": "Структура схемы",
+    "text": "Структура схемы"
+  },
+  {
+    "objectID": "adv_05_PostGIS.html#структура-схемы-продолжение",
+    "href": "adv_05_PostGIS.html#структура-схемы-продолжение",
+    "title": "PostGIS",
+    "section": "Структура схемы (продолжение)",
+    "text": "Структура схемы (продолжение)"
   }
 ]

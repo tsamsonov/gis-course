@@ -57,4 +57,12 @@ mainfont: PT Sans
 
 ![](images/pg_database.svg){width="100%"}
 
+## Структура схемы
+
+![](images/pg_schema1.svg){width="100%"}
+
+## Структура схемы (продолжение)
+
+![](images/pg_schema2.svg){width="100%"}
+
 ## Библиография
