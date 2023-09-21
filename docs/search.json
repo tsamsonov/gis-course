@@ -4281,14 +4281,14 @@
     "href": "adv_03_WKT_WKB.html#дополнительные-измерения-1",
     "title": "WKT и WKB",
     "section": "Дополнительные измерения",
-    "text": "Дополнительные измерения\nЗапрос измерения мультиточечного объекта:\np: MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)\np.LocateAlong(4): MULTIPOINT M(0 0 4, 3 1 4)\np.LocateBetween(2,4): MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)\np.LocateAlong(3): POINT M() — пустой объект"
+    "text": "Дополнительные измерения\nЗапрос измерения мультиточечного объекта:\np: MULTIPOINT M(0 0 4, 2 1 1, 3 1 2, 4 2 4, 5 3 5, 7 2 7)\np.LocateAlong(4): MULTIPOINT M(0 0 4, 3 1 4)\np.LocateBetween(2,4): MULTIPOINT M(0 0 4, 2 1 2, 3 1 4)\np.LocateAlong(3): POINT M EMPTY — пустой объект"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#дополнительные-измерения-2",
     "href": "adv_03_WKT_WKB.html#дополнительные-измерения-2",
     "title": "WKT и WKB",
     "section": "Дополнительные измерения",
-    "text": "Дополнительные измерения\nЗапрос измерения линейного объекта :\nl: MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))\nl.LocateAlong(3): MULTIPOINT M(1.3 0.7 3)\nl.LocateBetween(2,5): GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))\nl.LocateAlong(0.5): POINT M() — пустой объект"
+    "text": "Дополнительные измерения\nЗапрос измерения линейного объекта :\nl: MULTILINESTRING M((0 0 4, 2 1 1, 3 1 2), (4 2 4, 5 3 6))\nl.LocateAlong(3): MULTIPOINT M(1.3 0.7 3)\nl.LocateBetween(2,5): GEOMETRYCOLLECTION M(LINESTRING M(0 0 4,1.33 0.67 2),POINT M(3 1 2),LINESTRING M(4 2 4,4.5 2.5 5))\nl.LocateAlong(0.5): POINT M EMPTY — пустой объект"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#определение-wkt-2",
