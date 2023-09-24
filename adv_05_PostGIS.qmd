@@ -1,5 +1,5 @@
 ---
-title: "PostGIS"
+title: "PostGIS. Создание и загрузка данных"
 subtitle: "Геоинформатика I. Базы пространственных данных"
 date: today
 date-format: long
@@ -209,5 +209,34 @@ COPY postgis.geo_points
 	DELIMITER as ',' 
 	CSV HEADER;
 ```
+
+## Непространственная таблица
+
+Полученная таблица не является пространственной:
+
+![](images/copy_csv.png)
+
+## Активация пространственных точек
+
+::: columns
+::: {.column width="50%"}
+Если данные точечные и содержат координаты в столбцах, то можно на их основе создать геометрию
+
+``` sql
+ALTER TABLE postgis.geo_points 
+  ADD geom geometry(point, 32637);
+UPDATE postgis.geo_points
+  SET geom = ST_Point(x, y)
+```
+
+![](images/geom_fromxy.png)
+:::
+
+::: {.column width="50%"}
+Для преобразования используем одну из функций PostGIS (без или с указанием *SRID*).
+
+![](images/st_point.png)
+:::
+:::
 
 ## Библиография

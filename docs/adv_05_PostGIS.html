@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.309">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
-  <title>Основы геоинформатики - PostGIS</title>
+  <title>Основы геоинформатики - PostGIS. Создание и загрузка данных</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -392,7 +392,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">PostGIS</h1>
+  <h1 class="title">PostGIS. Создание и загрузка данных</h1>
   <p class="subtitle">Геоинформатика I. Базы пространственных данных</p>
 
 <div class="quarto-title-authors">
@@ -615,6 +615,27 @@
 <span id="cb7-15"><a href="#cb7-15"></a>    <span class="kw">FROM</span> <span class="st">'/Volumes/Data/Spatial/Satino/geo_points.csv'</span> </span>
 <span id="cb7-16"><a href="#cb7-16"></a>    DELIMITER <span class="kw">as</span> <span class="st">','</span> </span>
 <span id="cb7-17"><a href="#cb7-17"></a>    CSV <span class="kw">HEADER</span>;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="непространственная-таблица" class="slide level2">
+<h2>Непространственная таблица</h2>
+<p>Полученная таблица не является пространственной:</p>
+
+<img data-src="images/copy_csv.png" class="r-stretch"></section>
+<section id="активация-пространственных-точек" class="slide level2">
+<h2>Активация пространственных точек</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Если данные точечные и содержат координаты в столбцах, то можно на их основе создать геометрию</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> postgis.geo_points </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="kw">ADD</span> geom geometry(point, <span class="dv">32637</span>);</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">UPDATE</span> postgis.geo_points</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="kw">SET</span> geom <span class="op">=</span> ST_Point(x, y)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img data-src="images/geom_fromxy.png"></p>
+</div><div class="column" style="width:50%;">
+<p>Для преобразования используем одну из функций PostGIS (без или с указанием <em>SRID</em>).</p>
+<p><img data-src="images/st_point.png"></p>
+</div>
+</div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>

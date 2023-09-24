@@ -5490,42 +5490,42 @@
   {
     "objectID": "adv_05_PostGIS.html#библиография",
     "href": "adv_05_PostGIS.html#библиография",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Библиография",
     "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
   },
   {
     "objectID": "adv_05_PostGIS.html#базовые-библиотеки",
     "href": "adv_05_PostGIS.html#базовые-библиотеки",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Базовые библиотеки",
     "text": "Базовые библиотеки\nФункциональность PostGIS опирается на 4 библиотеки:\n\n\n\n\n\n\nGDAL выполняет конвертацию между форматами данных и растровые операции\n\n\nPROJ выполняет преобразования систем координат\n\n\nGEOS выполняет геометрические операции в 2D\n\n[SF]CGAL выполняет геометрические операции в 3D"
   },
   {
     "objectID": "adv_05_PostGIS.html#структура-базы-данных",
     "href": "adv_05_PostGIS.html#структура-базы-данных",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Структура базы данных",
     "text": "Структура базы данных"
   },
   {
     "objectID": "adv_05_PostGIS.html#структура-схемы",
     "href": "adv_05_PostGIS.html#структура-схемы",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Структура схемы",
     "text": "Структура схемы"
   },
   {
     "objectID": "adv_05_PostGIS.html#структура-схемы-продолжение",
     "href": "adv_05_PostGIS.html#структура-схемы-продолжение",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Структура схемы (продолжение)",
     "text": "Структура схемы (продолжение)"
   },
   {
     "objectID": "adv_05_PostGIS.html#создание-пустой-бд",
     "href": "adv_05_PostGIS.html#создание-пустой-бд",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Создание пустой БД",
     "text": "Создание пустой БД\nСоздание БД (запрос к любой существующей БД)\nCREATE DATABASE satino;\nСоздание схемы и активация расширения\nCREATE SCHEMA postgis;\nGRANT USAGE ON schema postgis to public; -- доступ для всех\nCREATE EXTENSION postgis SCHEMA postgis; -- включить postgis для схемы\nCREATE EXTENSION postgis_raster SCHEMA postgis; -- включить растры для схемы\nALTER DATABASE satino SET search_path=public,postgis; -- добавить в путь поиска\nПроверка установки\nSELECT postgis_full_version();\n\n\n\n\n\n\nВнимание\n\n\nУстановка расширения postgis через графический интерфейс не позволяет выбрать схему и выполняется в схеме public."
   },
@@ -5539,36 +5539,50 @@
   {
     "objectID": "adv_05_PostGIS.html#типы-пространственных-данных",
     "href": "adv_05_PostGIS.html#типы-пространственных-данных",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Типы пространственных данных",
     "text": "Типы пространственных данных\nВ PostGIS существует 4 типа пространственных данных\n\n\n\n\nТип\nОсобенности\n\n\n\n\n1\ngeometry\nВекторные данные в декартовой системе координат\n\n\n2\ngeography\nВекторные данные в угловой системе координат\n\n\n3\nraster\nРастровые данные (многомерные)\n\n\n4\ntopology\nТопологические данные (вершины и грани).\n\n\n\n\n\n\n\n\n\nТопологические данные\n\n\nТип данных topology используется для хранения топологических покрытий и сетевых данных. Для анализа последних применяется отдельное расширение pgRouting.\n\n\n\n\n\n\n\n\n\nИнтересный факт\n\n\nPostGIS позволяет хранить несколько пространственных столбцов в одной таблице"
   },
   {
     "objectID": "adv_05_PostGIS.html#каталог-систем-координат",
     "href": "adv_05_PostGIS.html#каталог-систем-координат",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Каталог систем координат",
     "text": "Каталог систем координат\n\n\nСистемы координат хранятся в таблице spatial_ref_sys\n\n\n\n\n\n\nSRS vs CRS\n\n\nНесмотря на то, что каталог имеет называется SRS (Spatial Reference Systems), по факту он хранит описание CRS (Coordinate Reference Systems).\n\n\n\n\n\n\n\n\n\nТерминология WKT\n\n\nТерминология WKT при описании CRS может не полностью соответствовать стандартами ISO / OGC"
   },
   {
     "objectID": "adv_05_PostGIS.html#создание-пространственных-таблиц",
     "href": "adv_05_PostGIS.html#создание-пространственных-таблиц",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Создание пространственных таблиц",
     "text": "Создание пространственных таблиц\nПри создании пространственных таблиц необходимо указать\n\nуникальный идентификатор\nгеометрический столбец заданного типа и КСО\n\nНапример, таблица точек гидрологических промеров может иметь следующий состав:\nCREATE TABLE postgis.hydro_measures (\n    fid serial primary key,\n    depth real,\n    geom geography(point, 4326)\n)"
   },
   {
     "objectID": "adv_05_PostGIS.html#ручное-создание-данных",
     "href": "adv_05_PostGIS.html#ручное-создание-данных",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Ручное создание данных",
     "text": "Ручное создание данных\nВставка новых строк выполняется посредством стандартной команды INSERT:\nINSERT INTO postgis.hydro_measures(fid, depth, geom)\nVALUES\n    (1, 1.23, ST_GeomFromText('POINT (36.37802128 55.21121827)')),\n    (2, 1.57, ST_GeomFromText('POINT (36.37834198 55.21127511)')),\n    (3, 0.78, ST_GeomFromText('POINT (36.37861509 55.21139158)')),\n    (4, 0.95, ST_GeomFromText('POINT (36.37905934 55.21137259)')),\n    (5, 1.11, ST_GeomFromText('POINT (36.37938529 55.21125473)'));\nАльтернативный синтаксис через преобразование строки к типу данных:\nINSERT INTO postgis.hydro_measures(fid, depth, geom)\nVALUES\n    (1, 1.23, 'POINT (36.37802128 55.21121827)'::geography),\n    (2, 1.57, 'POINT (36.37834198 55.21127511)'::geography),\n    (3, 0.78, 'POINT (36.37861509 55.21139158)'::geography),\n    (4, 0.95, 'POINT (36.37905934 55.21137259)'::geography),\n    (5, 1.11, 'POINT (36.37938529 55.21125473)'::geography);"
   },
   {
     "objectID": "adv_05_PostGIS.html#импорт-из-csv",
     "href": "adv_05_PostGIS.html#импорт-из-csv",
-    "title": "PostGIS",
+    "title": "PostGIS. Создание и загрузка данных",
     "section": "Импорт из CSV",
     "text": "Импорт из CSV\nДля импорта можно использовать команду COPY :\nCREATE TABLE IF NOT EXISTS postgis.geo_points (\n    fid serial primary key,\n    name text,\n    comment text,\n    height_abs real,\n    height_add real,\n    type text,\n    x real, \n    y real\n);\n\nDELETE FROM postgis.geo_points; -- опционально, если хотите очистить\n\nCOPY postgis.geo_points \n    FROM '/Volumes/Data/Spatial/Satino/geo_points.csv' \n    DELIMITER as ',' \n    CSV HEADER;"
+  },
+  {
+    "objectID": "adv_05_PostGIS.html#непространственная-таблица",
+    "href": "adv_05_PostGIS.html#непространственная-таблица",
+    "title": "PostGIS. Создание и загрузка данных",
+    "section": "Непространственная таблица",
+    "text": "Непространственная таблица\nПолученная таблица не является пространственной:"
+  },
+  {
+    "objectID": "adv_05_PostGIS.html#активация-пространственных-точек",
+    "href": "adv_05_PostGIS.html#активация-пространственных-точек",
+    "title": "PostGIS. Создание и загрузка данных",
+    "section": "Активация пространственных точек",
+    "text": "Активация пространственных точек\n\n\nЕсли данные точечные и содержат координаты в столбцах, то можно на их основе создать геометрию\nALTER TABLE postgis.geo_points \n  ADD geom geometry(point, 32637);\nUPDATE postgis.geo_points\n  SET geom = ST_Point(x, y)\n\n\nДля преобразования используем одну из функций PostGIS (без или с указанием SRID)."
   }
 ]

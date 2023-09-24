@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS postgis.geo_points (
 	x real, 
 	y real
 );
+DELETE FROM postgis.geo_points;
 COPY postgis.geo_points 
 	FROM '/Volumes/Data/Spatial/Satino/geo_points.csv' 
-	DELIMITER as ',';
+	DELIMITER as ',' 
+	CSV HEADER;
