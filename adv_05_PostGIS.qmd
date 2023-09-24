@@ -239,4 +239,97 @@ UPDATE postgis.geo_points
 :::
 :::
 
+## Импорт из шейп-файла
+
+Вместе с **PostGIS** устанавливаются утилиты [**`shp2pgsql`**](https://postgis.net/docs/using_postgis_dbmanagement.html#shp2pgsql_usage) и [**`pgsql2shp`**](https://postgis.net/docs/using_postgis_dbmanagement.html#pgsql2shp-usage) , позволяющие импортировать из и экспортировать данные в формат [Shapefile](https://www.esri.com/content/dam/esrisites/sitecore-archive/Files/Pdfs/library/whitepapers/pdfs/shapefile.pdf).
+
+``` bash
+Last login: Fri Sep 22 14:36:05 on console
+(base) tsamsonov@Butterfly ~ % shp2pgsql
+RELEASE: 3.3.4 (3.3.4)
+USAGE: shp2pgsql [<options>] <shapefile> [[<schema>.]<table>]
+OPTIONS:
+  -s [<from>:]<srid> Set the SRID field. Defaults to 0.
+      Optionally reprojects from given SRID.
+ (-d|a|c|p) These are mutually exclusive options:
+     -d  Drops the table, then recreates it and populates
+         it with current shape file data.
+     -a  Appends shape file into current table, must be
+         exactly the same table schema.
+     -c  Creates a new table and populates it, this is the
+         default if you do not specify any options.
+     -p  Prepare mode, only creates the table.
+```
+
+## shp2pgsql на Windows
+
+При установке путь к утилите не прописывается в переменные среды:
+
+![](images/shp2pgsql_win.png)
+
+## shp2pgsql на Windows
+
+На *Windows* утилита по умолчанию находится в папке `C:\Program Files\PostgreSQL\<version>\bin`
+
+![](images/shp2pgsql.png)
+
+## shp2pgsql на Windows
+
+Чтобы не вводить каждый раз полный путь к программе, необходимо прописать его в переменные окружения:
+
+``` bash
+setx path "%PATH%;C:\Program Files\PostgreSQL\15\bin"
+```
+
+После этого перезапустите командную строку, и утилита будет запускаться:
+
+![](images/shp2pgsql2.png)
+
+## Импорт из шейп-файла
+
+Если запустить без параметров, то будет только диагностика без импорта:
+
+``` bash
+tsamsonov@Butterfly satino_base % shp2pgsql border.shp postgis.border
+Field fid is an FTDouble with width 20 and precision 0
+Shapefile type: Polygon
+Postgis type: MULTIPOLYGON[2]
+SET CLIENT_ENCODING TO UTF8;
+SET STANDARD_CONFORMING_STRINGS TO ON;
+BEGIN;
+CREATE TABLE "postgis"."border" (gid serial,
+"fid" numeric,
+"name" varchar(60));
+ALTER TABLE "postgis"."border" ADD PRIMARY KEY (gid);
+SELECT AddGeometryColumn('postgis','border','geom','0','MULTIPOLYGON',2);
+INSERT INTO "postgis"."border" ("fid","name",geom) VALUES ('1',NULL,'0106000000010000000103000000010000000500000030FF21BDE4231441BAFC8774DB575741503789C1D8231441C05B2081C35B5741F04A59C6FA711441C442AD71C45B5741F0DBD7C106721441BCE31465DC57574130FF21BDE4231441BAFC8774DB575741');
+COMMIT;
+ANALYZE "postgis"."border";
+tsamsonov@Butterfly satino_base % 
+```
+
+## Импорт из шейп-файла
+
+По факту утилита создает SQL-запрос, который можно направить в файл через `>`:
+
+``` bash
+shp2pgsql -g geom border.shp postgis.border > border.sql
+```
+
+::: columns
+::: {.column width="30%"}
+Полученный файл можно открыть средствами СУБД и запустить.
+
+::: callout-tip
+## Большие файлы
+
+При импорте больших файлов рекомендуется использовать параметр `-D`, при котором будет создаваться не SQL-запрос, а бинарный файл *дампа* базы данных.
+:::
+:::
+
+::: {.column width="70%"}
+![](images/importsql.png)
+:::
+:::
+
 ## Библиография
