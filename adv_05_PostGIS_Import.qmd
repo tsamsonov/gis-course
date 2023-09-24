@@ -422,6 +422,28 @@ ogr2ogr
   -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis
 ```
 
+## Каталог геометрий
+
+PostGIS при активации создает два *представления* (*View*), в которых систематизированы все геометрические и географические атрибуты в БД:
+
+::: columns
+::: {.column width="30%"}
+`geometry_columns`
+
+`geography_columns`
+:::
+
+::: {.column width="70%"}
+![](images/geometry_catalog.png)
+:::
+:::
+
+## Каталог геометрий
+
+Программный код представления можно посмотреть в свойствах на вкладке *Code*
+
+![](images/geometry_catalog2.png)
+
 ## Подключение к PostGIS из QGIS
 
 ::: columns

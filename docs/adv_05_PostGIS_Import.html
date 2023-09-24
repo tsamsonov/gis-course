@@ -787,6 +787,23 @@
 <span id="cb17-3"><a href="#cb17-3"></a>  <span class="ex">satino_thematic.gpkg</span> </span>
 <span id="cb17-4"><a href="#cb17-4"></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="каталог-геометрий" class="slide level2">
+<h2>Каталог геометрий</h2>
+<p>PostGIS при активации создает два <em>представления</em> (<em>View</em>), в которых систематизированы все геометрические и географические атрибуты в БД:</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><code>geometry_columns</code></p>
+<p><code>geography_columns</code></p>
+</div><div class="column" style="width:70%;">
+<p><img data-src="images/geometry_catalog.png"></p>
+</div>
+</div>
+</section>
+<section id="каталог-геометрий-1" class="slide level2">
+<h2>Каталог геометрий</h2>
+<p>Программный код представления можно посмотреть в свойствах на вкладке <em>Code</em></p>
+
+<img data-src="images/geometry_catalog2.png" class="r-stretch"></section>
 <section id="подключение-к-postgis-из-qgis" class="slide level2">
 <h2>Подключение к PostGIS из QGIS</h2>
 <div class="columns">
