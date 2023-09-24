@@ -5793,7 +5793,7 @@
     "href": "adv_05_PostGIS_Import.html#импорт-из-шейп-файла-2",
     "title": "PostGIS. Создание и импорт векторных данных",
     "section": "Импорт из шейп-файла",
-    "text": "Импорт из шейп-файла\nПо факту утилита создает SQL-запрос, который можно направить в файл через &gt;:\nshp2pgsql -g geom border.shp postgis.border &gt; border.sql\n\n\nПолученный файл можно открыть средствами СУБД и запустить.\n\n\n\n\n\n\nБольшие файлы\n\n\nПри импорте больших файлов рекомендуется использовать параметр -D, при котором будет создаваться не SQL-запрос, а бинарный файл дампа базы данных."
+    "text": "Импорт из шейп-файла\nПо факту утилита создает SQL-запрос, который можно направить в файл через &gt;:\nshp2pgsql -s 32637 -g geom border.shp postgis.border &gt; border.sql\n\n\nПолученный файл можно открыть средствами СУБД и запустить.\n\n\n\n\n\n\nБольшие файлы\n\n\nПри импорте больших файлов рекомендуется использовать параметр -D, при котором будет создаваться не SQL-запрос, а бинарный файл дампа базы данных."
   },
   {
     "objectID": "adv_05_PostGIS_Import.html#импорт-через-psql",
@@ -5836,5 +5836,26 @@
     "title": "PostGIS. Создание и импорт векторных данных",
     "section": "Библиография",
     "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#подключение-к-postgis-из-qgis",
+    "href": "adv_05_PostGIS_Import.html#подключение-к-postgis-из-qgis",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Подключение к PostGIS из QGIS",
+    "text": "Подключение к PostGIS из QGIS\n\n\nPostgreSQL &gt; New Connection\n\n\nBasic &gt; Test Connection &gt; OK"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#подключение-к-postgis-из-qgis-1",
+    "href": "adv_05_PostGIS_Import.html#подключение-к-postgis-из-qgis-1",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Подключение к PostGIS из QGIS",
+    "text": "Подключение к PostGIS из QGIS\nПароль может быть запрошен снова, если на предыдущем шаге не поставить галочки Store"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#подключение-к-postgis-из-qgis-2",
+    "href": "adv_05_PostGIS_Import.html#подключение-к-postgis-из-qgis-2",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Подключение к PostGIS из QGIS",
+    "text": "Подключение к PostGIS из QGIS\n\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
   }
 ]

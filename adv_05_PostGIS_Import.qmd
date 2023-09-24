@@ -313,7 +313,7 @@ tsamsonov@Butterfly satino_base %
 По факту утилита создает SQL-запрос, который можно направить в файл через `>`:
 
 ``` bash
-shp2pgsql -g geom border.shp postgis.border > border.sql
+shp2pgsql -s 32637 -g geom border.shp postgis.border > border.sql
 ```
 
 ::: columns
@@ -421,4 +421,28 @@ ogr2ogr
   -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis
 ```
 
-## Библиография
+## Подключение к PostGIS из QGIS
+
+::: columns
+::: {.column width="50%"}
+*PostgreSQL \> New Connection*
+
+![](images/pg_connect.png){width="85%"}
+:::
+
+::: {.column width="50%"}
+*Basic \> Test Connection \> OK*
+
+![](images/pg_connect2.png){width="83%"}
+:::
+:::
+
+## Подключение к PostGIS из QGIS
+
+Пароль может быть запрошен снова, если на предыдущем шаге не поставить галочки *Store*
+
+![](images/pg_password.png)
+
+## Подключение к PostGIS из QGIS
+
+![](images/pg_qgis.png)

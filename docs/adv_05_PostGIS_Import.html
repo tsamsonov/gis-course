@@ -696,7 +696,7 @@
 <section id="импорт-из-шейп-файла-2" class="slide level2">
 <h2>Импорт из шейп-файла</h2>
 <p>По факту утилита создает SQL-запрос, который можно направить в файл через <code>&gt;</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">shp2pgsql</span> <span class="at">-g</span> geom border.shp postgis.border <span class="op">&gt;</span> border.sql</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">shp2pgsql</span> <span class="at">-s</span> 32637 <span class="at">-g</span> geom border.shp postgis.border <span class="op">&gt;</span> border.sql</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="columns">
 <div class="column" style="width:30%;">
 <p>Полученный файл можно открыть средствами СУБД и запустить.</p>
@@ -786,10 +786,28 @@
 <span id="cb17-3"><a href="#cb17-3"></a>  <span class="ex">satino_thematic.gpkg</span> </span>
 <span id="cb17-4"><a href="#cb17-4"></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="библиография" class="slide level2">
-<h2>Библиография</h2>
+<section id="подключение-к-postgis-из-qgis" class="slide level2">
+<h2>Подключение к PostGIS из QGIS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><em>PostgreSQL &gt; New Connection</em></p>
+<p><img data-src="images/pg_connect.png" style="width:85.0%"></p>
+</div><div class="column" style="width:50%;">
+<p><em>Basic &gt; Test Connection &gt; OK</em></p>
+<p><img data-src="images/pg_connect2.png" style="width:83.0%"></p>
+</div>
+</div>
+</section>
+<section id="подключение-к-postgis-из-qgis-1" class="slide level2">
+<h2>Подключение к PostGIS из QGIS</h2>
+<p>Пароль может быть запрошен снова, если на предыдущем шаге не поставить галочки <em>Store</em></p>
 
-<div class="footer footer-default">
+<img data-src="images/pg_password.png" class="r-stretch"></section>
+<section id="подключение-к-postgis-из-qgis-2" class="slide level2">
+<h2>Подключение к PostGIS из QGIS</h2>
+
+
+<img data-src="images/pg_qgis.png" class="r-stretch"><div class="footer footer-default">
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
 </div>
 </section>
