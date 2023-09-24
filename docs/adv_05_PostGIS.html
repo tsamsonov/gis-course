@@ -718,6 +718,13 @@
 </div>
 </div>
 </section>
+<section id="импорт-из-шейп-файла-3" class="slide level2">
+<h2>Импорт из шейп-файла</h2>
+<p>В большинстве случаев однако запрос не пишут в файл, а направляют через пайп (<code>|</code>) в <a href="https://www.postgresql.org/docs/current/app-psql.html"><strong>psql</strong></a> — командный интерфейс <strong>PostgreSQL</strong>. Необходимо указать как минимум базу данных (<code>-d</code>) и имя пользователя (<code>-U)</code>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">shp2pgsql</span> <span class="at">-g</span> geom border.shp postgis.border <span class="kw">|</span> <span class="ex">psql</span> <span class="at">-d</span> satino <span class="at">-U</span> postgres</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>После ввода пароля данные будут записаны в указанную таблицу:</p>
+
+<img data-src="images/psql_pipe.png" class="r-stretch"></section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 
