@@ -718,13 +718,74 @@
 </div>
 </div>
 </section>
-<section id="импорт-из-шейп-файла-3" class="slide level2">
-<h2>Импорт из шейп-файла</h2>
+<section id="импорт-через-psql" class="slide level2">
+<h2>Импорт через <code>psql</code></h2>
 <p>В большинстве случаев однако запрос не пишут в файл, а направляют через пайп (<code>|</code>) в <a href="https://www.postgresql.org/docs/current/app-psql.html"><strong>psql</strong></a> — командный интерфейс <strong>PostgreSQL</strong>. Необходимо указать как минимум базу данных (<code>-d</code>) и имя пользователя (<code>-U)</code>:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">shp2pgsql</span> <span class="at">-g</span> geom border.shp postgis.border <span class="kw">|</span> <span class="ex">psql</span> <span class="at">-d</span> satino <span class="at">-U</span> postgres</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>После ввода пароля данные будут записаны в указанную таблицу:</p>
 
 <img data-src="images/psql_pipe.png" class="r-stretch"></section>
+<section id="универсальный-импорт-через-ogr2ogr" class="slide level2">
+<h2>Универсальный импорт через ogr2ogr</h2>
+<p><a href="https://gdal.org/programs/ogr2ogr.html"><strong>ogr2ogr</strong></a> — утилита GDAL, универсальный конвертер форматов данных.</p>
+<p>Вместе с ней идет утилита <strong>ogrinfo</strong>, для анализа входных данных:</p>
+
+<img data-src="images/ogrinfo.png" class="r-stretch"></section>
+<section id="ogrinfo" class="slide level2">
+<h2>ogrinfo</h2>
+<p>Поддерживаемые форматы можно выяснить через <code>ogr2ogr --formats</code> :</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> Satino % ogr2ogr <span class="at">--formats</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="ex">Supported</span> Formats:</span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="ex">FITS</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+</span><span class="kw">)</span><span class="bu">:</span> Flexible Image Transport System</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="ex">PCIDSK</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> PCIDSK Database File</span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="ex">netCDF</span> <span class="at">-raster,multidimensional</span> raster,vector- <span class="er">(</span><span class="ex">rw+s</span><span class="kw">)</span><span class="bu">:</span> Network Common Data Format</span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="ex">PDS4</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+vs</span><span class="kw">)</span><span class="bu">:</span> NASA Planetary Data System 4</span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="ex">VICAR</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MIPL VICAR file</span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="ex">JP2OpenJPEG</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rwv</span><span class="kw">)</span><span class="bu">:</span> JPEG-2000 driver based on OpenJPEG library</span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="ex">PDF</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+vs</span><span class="kw">)</span><span class="bu">:</span> Geospatial PDF</span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="ex">MBTiles</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MBTiles</span>
+<span id="cb14-11"><a href="#cb14-11"></a>  <span class="ex">BAG</span> <span class="at">-raster,multidimensional</span> raster,vector- <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> Bathymetry Attributed Grid</span>
+<span id="cb14-12"><a href="#cb14-12"></a>  <span class="ex">EEDA</span> <span class="at">-vector-</span> <span class="er">(</span><span class="ex">ro</span><span class="kw">)</span><span class="bu">:</span> Earth Engine Data API</span>
+<span id="cb14-13"><a href="#cb14-13"></a>  <span class="ex">OGCAPI</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rov</span><span class="kw">)</span><span class="bu">:</span> OGCAPI</span>
+<span id="cb14-14"><a href="#cb14-14"></a>  <span class="ex">ESRI</span> Shapefile <span class="at">-vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> ESRI Shapefile</span>
+<span id="cb14-15"><a href="#cb14-15"></a>  <span class="ex">MapInfo</span> File <span class="at">-vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MapInfo File</span>
+<span id="cb14-16"><a href="#cb14-16"></a>  <span class="ex">...</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="параметры-ogr2ogr" class="slide level2">
+<h2>Параметры ogr2ogr</h2>
+<p>Данная программа содержит множество параметров (см. <a href="https://gdal.org/programs/ogr2ogr.html">документацию</a>):</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> Satino % ogr2ogr</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="ex">Usage:</span> ogr2ogr <span class="pp">[--</span><span class="ss">help</span><span class="pp">-</span><span class="ss">general</span><span class="pp">]</span> <span class="pp">[-</span><span class="ss">skipfailures</span><span class="pp">]</span> [-append <span class="kw">|</span> <span class="ex">-upsert]</span> <span class="pp">[-</span><span class="ss">update</span><span class="pp">]</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>               <span class="ex">[-select</span> field_list] [-where restricted_where<span class="kw">|</span><span class="ex">@filename]</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>               <span class="ex">[-progress]</span> [-sql <span class="op">&lt;</span>sql statement<span class="op">&gt;|</span>@filename] [-dialect dialect]</span>
+<span id="cb15-5"><a href="#cb15-5"></a>               <span class="ex">[-preserve_fid]</span> [-fid FID] [-limit nb_features]</span>
+<span id="cb15-6"><a href="#cb15-6"></a>               <span class="ex">[-spat</span> xmin ymin xmax ymax] [-spat_srs srs_def] [-geomfield field]</span>
+<span id="cb15-7"><a href="#cb15-7"></a>               <span class="ex">[-a_srs</span> srs_def] [-t_srs srs_def] [-s_srs srs_def] [-ct string]</span>
+<span id="cb15-8"><a href="#cb15-8"></a>               <span class="ex">[-f</span> format_name] <span class="pp">[-</span><span class="ss">overwrite</span><span class="pp">]</span> [[-dsco NAME=VALUE] ...]</span>
+<span id="cb15-9"><a href="#cb15-9"></a>               <span class="ex">dst_datasource_name</span> src_datasource_name</span>
+<span id="cb15-10"><a href="#cb15-10"></a>               <span class="ex">[-lco</span> NAME=VALUE] [-nln name] </span>
+<span id="cb15-11"><a href="#cb15-11"></a>               <span class="ex">[-nlt</span> type<span class="kw">|</span><span class="ex">PROMOTE_TO_MULTI</span><span class="kw">|</span><span class="ex">CONVERT_TO_LINEAR</span><span class="kw">|</span><span class="ex">CONVERT_TO_CURVE]</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a>               <span class="ex">[-dim</span> XY<span class="kw">|</span><span class="ex">XYZ</span><span class="kw">|</span><span class="ex">XYM</span><span class="kw">|</span><span class="ex">XYZM</span><span class="kw">|</span><span class="ex">layer_dim]</span> [layer [layer ...]]</span>
+<span id="cb15-13"><a href="#cb15-13"></a>       <span class="ex">Advanced</span> options :</span>
+<span id="cb15-14"><a href="#cb15-14"></a>               <span class="ex">[-gt</span> n] <span class="pp">[-</span><span class="ss">ds_transaction</span><span class="pp">]</span></span>
+<span id="cb15-15"><a href="#cb15-15"></a>               <span class="ex">[[-oo</span> NAME=VALUE] ...] [[-doo NAME=VALUE] ...]</span>
+<span id="cb15-16"><a href="#cb15-16"></a>               <span class="ex">[-clipsrc</span> [xmin ymin xmax ymax]<span class="kw">|</span><span class="ex">WKT</span><span class="kw">|</span><span class="ex">datasource</span><span class="kw">|</span><span class="ex">spat_extent]</span></span>
+<span id="cb15-17"><a href="#cb15-17"></a>               <span class="ex">...</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="импорт-geopackage-через-ogr2ogr" class="slide level2">
+<h2>Импорт GeoPackage через ogr2ogr</h2>
+<p>Для импорта необходимо указать формат входного файла (<code>f</code>), параметры подключения, а также параметры, специфичные для выходного формата (<code>-lco</code>).</p>
+<p><strong>Импорт одного слоя (<code>landscapes</code>)</strong></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="ex">ogr2ogr</span> </span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="ex">-f</span> PostgreSQL PG:<span class="st">"dbname=satino user=postgres password=....."</span> </span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="ex">satino_thematic.gpkg</span> landscapes </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Импорт всех слоев</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">ogr2ogr</span> </span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="ex">-f</span> PostgreSQL PG:<span class="st">"dbname=satino user=postgres password=....."</span> </span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="ex">satino_thematic.gpkg</span> </span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 

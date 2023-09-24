@@ -344,4 +344,81 @@ shp2pgsql -g geom border.shp postgis.border | psql -d satino -U postgres
 
 ![](images/psql_pipe.png)
 
+## Универсальный импорт через ogr2ogr
+
+[**ogr2ogr**](https://gdal.org/programs/ogr2ogr.html) --- утилита GDAL, универсальный конвертер форматов данных.
+
+Вместе с ней идет утилита **ogrinfo**, для анализа входных данных:
+
+![](images/ogrinfo.png)
+
+## ogrinfo
+
+Поддерживаемые форматы можно выяснить через `ogr2ogr --formats` :
+
+``` bash
+(base) tsamsonov@Butterfly Satino % ogr2ogr --formats
+Supported Formats:
+  FITS -raster,vector- (rw+): Flexible Image Transport System
+  PCIDSK -raster,vector- (rw+v): PCIDSK Database File
+  netCDF -raster,multidimensional raster,vector- (rw+s): Network Common Data Format
+  PDS4 -raster,vector- (rw+vs): NASA Planetary Data System 4
+  VICAR -raster,vector- (rw+v): MIPL VICAR file
+  JP2OpenJPEG -raster,vector- (rwv): JPEG-2000 driver based on OpenJPEG library
+  PDF -raster,vector- (rw+vs): Geospatial PDF
+  MBTiles -raster,vector- (rw+v): MBTiles
+  BAG -raster,multidimensional raster,vector- (rw+v): Bathymetry Attributed Grid
+  EEDA -vector- (ro): Earth Engine Data API
+  OGCAPI -raster,vector- (rov): OGCAPI
+  ESRI Shapefile -vector- (rw+v): ESRI Shapefile
+  MapInfo File -vector- (rw+v): MapInfo File
+  ...
+```
+
+## Параметры ogr2ogr
+
+Данная программа содержит множество параметров (см. [документацию](https://gdal.org/programs/ogr2ogr.html)):
+
+``` bash
+(base) tsamsonov@Butterfly Satino % ogr2ogr
+Usage: ogr2ogr [--help-general] [-skipfailures] [-append | -upsert] [-update]
+               [-select field_list] [-where restricted_where|@filename]
+               [-progress] [-sql <sql statement>|@filename] [-dialect dialect]
+               [-preserve_fid] [-fid FID] [-limit nb_features]
+               [-spat xmin ymin xmax ymax] [-spat_srs srs_def] [-geomfield field]
+               [-a_srs srs_def] [-t_srs srs_def] [-s_srs srs_def] [-ct string]
+               [-f format_name] [-overwrite] [[-dsco NAME=VALUE] ...]
+               dst_datasource_name src_datasource_name
+               [-lco NAME=VALUE] [-nln name] 
+               [-nlt type|PROMOTE_TO_MULTI|CONVERT_TO_LINEAR|CONVERT_TO_CURVE]
+               [-dim XY|XYZ|XYM|XYZM|layer_dim] [layer [layer ...]]
+       Advanced options :
+               [-gt n] [-ds_transaction]
+               [[-oo NAME=VALUE] ...] [[-doo NAME=VALUE] ...]
+               [-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent]
+               ...
+```
+
+## Импорт GeoPackage через ogr2ogr
+
+Для импорта необходимо указать формат входного файла (`f`), параметры подключения, а также параметры, специфичные для выходного формата (`-lco`).
+
+**Импорт одного слоя (`landscapes`)**
+
+``` bash
+ogr2ogr 
+  -f PostgreSQL PG:"dbname=satino user=postgres password=....." 
+  satino_thematic.gpkg landscapes 
+  -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis
+```
+
+**Импорт всех слоев**
+
+``` bash
+ogr2ogr 
+  -f PostgreSQL PG:"dbname=satino user=postgres password=....." 
+  satino_thematic.gpkg 
+  -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis
+```
+
 ## Библиография
