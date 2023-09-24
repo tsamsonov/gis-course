@@ -337,7 +337,8 @@ shp2pgsql -s 32637 -g geom border.shp postgis.border > border.sql
 В большинстве случаев однако запрос не пишут в файл, а направляют через пайп (`|`) в [**psql**](https://www.postgresql.org/docs/current/app-psql.html) --- командный интерфейс **PostgreSQL**. Необходимо указать как минимум базу данных (`-d`) и имя пользователя (`-U)`:
 
 ``` bash
-shp2pgsql -g geom border.shp postgis.border | psql -d satino -U postgres
+shp2pgsql -s 32637 -g geom border.shp postgis.border 
+  | psql -d satino -U postgres
 ```
 
 После ввода пароля данные будут записаны в указанную таблицу:
