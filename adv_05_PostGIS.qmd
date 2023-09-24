@@ -65,4 +65,149 @@ mainfont: PT Sans
 
 ![](images/pg_schema2.svg){width="100%"}
 
+## Создание пустой БД
+
+**Создание БД** (запрос к любой существующей БД)
+
+``` sql
+CREATE DATABASE satino;
+```
+
+**Создание схемы и активация расширения**
+
+``` sql
+CREATE SCHEMA postgis;
+GRANT USAGE ON schema postgis to public; -- доступ для всех
+CREATE EXTENSION postgis SCHEMA postgis; -- включить postgis для схемы
+CREATE EXTENSION postgis_raster SCHEMA postgis; -- включить растры для схемы
+ALTER DATABASE satino SET search_path=public,postgis; -- добавить в путь поиска
+```
+
+**Проверка установки**
+
+``` sql
+SELECT postgis_full_version();
+```
+
+::: callout-important
+## Внимание
+
+Установка расширения `postgis` через графический интерфейс не позволяет выбрать схему и выполняется в схеме `public`.
+:::
+
+## Типы пространственных данных
+
+В PostGIS существует 4 типа пространственных данных
+
+|     | Тип         | Особенности                                     |
+|-----|-------------|-------------------------------------------------|
+| 1   | `geometry`  | Векторные данные в декартовой системе координат |
+| 2   | `geography` | Векторные данные в угловой системе координат    |
+| 3   | `raster`    | Растровые данные (многомерные)                  |
+| 4   | `topology`  | Топологические данные (вершины и грани).        |
+
+::: callout-note
+## Топологические данные
+
+Тип данных `topology` используется для хранения топологических покрытий и сетевых данных. Для анализа последних применяется отдельное расширение **pgRouting**.
+:::
+
+::: callout-tip
+## Интересный факт
+
+PostGIS позволяет хранить несколько пространственных столбцов в одной таблице
+:::
+
+## Каталог систем координат
+
+::: columns
+::: {.column width="30%"}
+Системы координат хранятся в таблице `spatial_ref_sys`
+
+::: callout-note
+#### SRS vs CRS
+
+Несмотря на то, что каталог имеет называется *SRS (Spatial Reference Systems)*, по факту он хранит описание *CRS (Coordinate Reference Systems)*.
+:::
+
+::: callout-important
+#### Терминология WKT
+
+Терминология WKT при описании CRS может не полностью соответствовать стандартами ISO / OGC
+:::
+:::
+
+::: {.column width="70%"}
+![](images/srs_postgis.png)
+:::
+:::
+
+## Создание пространственных таблиц
+
+При создании пространственных таблиц необходимо указать
+
+-   уникальный идентификатор
+
+-   геометрический столбец заданного типа и КСО
+
+Например, таблица точек гидрологических промеров может иметь следующий состав:
+
+``` sql
+CREATE TABLE postgis.hydro_measures (
+	fid serial primary key,
+	depth real,
+	geom geography(point, 4326)
+)
+```
+
+## Ручное создание данных
+
+Вставка новых строк выполняется посредством стандартной команды INSERT:
+
+``` sql
+INSERT INTO postgis.hydro_measures(fid, depth, geom)
+VALUES
+	(1, 1.23, ST_GeomFromText('POINT (36.37802128 55.21121827)')),
+	(2, 1.57, ST_GeomFromText('POINT (36.37834198 55.21127511)')),
+	(3, 0.78, ST_GeomFromText('POINT (36.37861509 55.21139158)')),
+	(4, 0.95, ST_GeomFromText('POINT (36.37905934 55.21137259)')),
+	(5, 1.11, ST_GeomFromText('POINT (36.37938529 55.21125473)'));
+```
+
+Альтернативный синтаксис через преобразование строки к типу данных:
+
+``` sql
+INSERT INTO postgis.hydro_measures(fid, depth, geom)
+VALUES
+	(1, 1.23, 'POINT (36.37802128 55.21121827)'::geography),
+	(2, 1.57, 'POINT (36.37834198 55.21127511)'::geography),
+	(3, 0.78, 'POINT (36.37861509 55.21139158)'::geography),
+	(4, 0.95, 'POINT (36.37905934 55.21137259)'::geography),
+	(5, 1.11, 'POINT (36.37938529 55.21125473)'::geography);
+```
+
+## Импорт из CSV
+
+Для импорта можно использовать команду `COPY` :
+
+``` sql
+CREATE TABLE IF NOT EXISTS postgis.geo_points (
+	fid serial primary key,
+	name text,
+	comment text,
+	height_abs real,
+	height_add real,
+	type text,
+	x real, 
+	y real
+);
+
+DELETE FROM postgis.geo_points; -- опционально, если хотите очистить
+
+COPY postgis.geo_points 
+	FROM '/Volumes/Data/Spatial/Satino/geo_points.csv' 
+	DELIMITER as ',' 
+	CSV HEADER;
+```
+
 ## Библиография

@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -338,7 +403,7 @@
 </div>
 </div>
 
-  <p class="date">21 сентября 2023 г.</p>
+  <p class="date">24 сентября 2023 г.</p>
 </section>
 <section id="базовые-библиотеки" class="slide level2">
 <h2>Базовые библиотеки</h2>
@@ -374,6 +439,183 @@
 <h2>Структура схемы (продолжение)</h2>
 
 <img data-src="images/pg_schema2.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="создание-пустой-бд" class="slide level2">
+<h2>Создание пустой БД</h2>
+<p><strong>Создание БД</strong> (запрос к любой существующей БД)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">CREATE</span> <span class="kw">DATABASE</span> satino;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Создание схемы и активация расширения</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">CREATE</span> <span class="kw">SCHEMA</span> postgis;</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">GRANT</span> <span class="kw">USAGE</span> <span class="kw">ON</span> <span class="kw">schema</span> postgis <span class="kw">to</span> <span class="kw">public</span>; <span class="co">-- доступ для всех</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">CREATE</span> EXTENSION postgis <span class="kw">SCHEMA</span> postgis; <span class="co">-- включить postgis для схемы</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">CREATE</span> EXTENSION postgis_raster <span class="kw">SCHEMA</span> postgis; <span class="co">-- включить растры для схемы</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">ALTER</span> <span class="kw">DATABASE</span> satino <span class="kw">SET</span> search_path<span class="op">=</span><span class="kw">public</span>,postgis; <span class="co">-- добавить в путь поиска</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Проверка установки</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> postgis_full_version();</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Установка расширения <code>postgis</code> через графический интерфейс не позволяет выбрать схему и выполняется в схеме <code>public</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="типы-пространственных-данных" class="slide level2">
+<h2>Типы пространственных данных</h2>
+<p>В PostGIS существует 4 типа пространственных данных</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>Тип</th>
+<th>Особенности</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>geometry</code></td>
+<td>Векторные данные в декартовой системе координат</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>geography</code></td>
+<td>Векторные данные в угловой системе координат</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>raster</code></td>
+<td>Растровые данные (многомерные)</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><code>topology</code></td>
+<td>Топологические данные (вершины и грани).</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Топологические данные</strong></p>
+</div>
+<div class="callout-content">
+<p>Тип данных <code>topology</code> используется для хранения топологических покрытий и сетевых данных. Для анализа последних применяется отдельное расширение <strong>pgRouting</strong>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Интересный факт</strong></p>
+</div>
+<div class="callout-content">
+<p>PostGIS позволяет хранить несколько пространственных столбцов в одной таблице</p>
+</div>
+</div>
+</div>
+</section>
+<section id="каталог-систем-координат" class="slide level2">
+<h2>Каталог систем координат</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Системы координат хранятся в таблице <code>spatial_ref_sys</code></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>SRS vs CRS</strong></p>
+</div>
+<div class="callout-content">
+<p>Несмотря на то, что каталог имеет называется <em>SRS (Spatial Reference Systems)</em>, по факту он хранит описание <em>CRS (Coordinate Reference Systems)</em>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Терминология WKT</strong></p>
+</div>
+<div class="callout-content">
+<p>Терминология WKT при описании CRS может не полностью соответствовать стандартами ISO / OGC</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:70%;">
+<p><img data-src="images/srs_postgis.png"></p>
+</div>
+</div>
+</section>
+<section id="создание-пространственных-таблиц" class="slide level2">
+<h2>Создание пространственных таблиц</h2>
+<p>При создании пространственных таблиц необходимо указать</p>
+<ul>
+<li><p>уникальный идентификатор</p></li>
+<li><p>геометрический столбец заданного типа и КСО</p></li>
+</ul>
+<p>Например, таблица точек гидрологических промеров может иметь следующий состав:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> postgis.hydro_measures (</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    fid serial <span class="kw">primary</span> <span class="kw">key</span>,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>    <span class="fu">depth</span> <span class="dt">real</span>,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    geom geography(point, <span class="dv">4326</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="ручное-создание-данных" class="slide level2">
+<h2>Ручное создание данных</h2>
+<p>Вставка новых строк выполняется посредством стандартной команды INSERT:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> postgis.hydro_measures(fid, <span class="fu">depth</span>, geom)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">VALUES</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    (<span class="dv">1</span>, <span class="fl">1.23</span>, ST_GeomFromText(<span class="st">'POINT (36.37802128 55.21121827)'</span>)),</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    (<span class="dv">2</span>, <span class="fl">1.57</span>, ST_GeomFromText(<span class="st">'POINT (36.37834198 55.21127511)'</span>)),</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    (<span class="dv">3</span>, <span class="fl">0.78</span>, ST_GeomFromText(<span class="st">'POINT (36.37861509 55.21139158)'</span>)),</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    (<span class="dv">4</span>, <span class="fl">0.95</span>, ST_GeomFromText(<span class="st">'POINT (36.37905934 55.21137259)'</span>)),</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    (<span class="dv">5</span>, <span class="fl">1.11</span>, ST_GeomFromText(<span class="st">'POINT (36.37938529 55.21125473)'</span>));</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Альтернативный синтаксис через преобразование строки к типу данных:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> postgis.hydro_measures(fid, <span class="fu">depth</span>, geom)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">VALUES</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>    (<span class="dv">1</span>, <span class="fl">1.23</span>, <span class="st">'POINT (36.37802128 55.21121827)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    (<span class="dv">2</span>, <span class="fl">1.57</span>, <span class="st">'POINT (36.37834198 55.21127511)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    (<span class="dv">3</span>, <span class="fl">0.78</span>, <span class="st">'POINT (36.37861509 55.21139158)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-6"><a href="#cb6-6"></a>    (<span class="dv">4</span>, <span class="fl">0.95</span>, <span class="st">'POINT (36.37905934 55.21137259)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-7"><a href="#cb6-7"></a>    (<span class="dv">5</span>, <span class="fl">1.11</span>, <span class="st">'POINT (36.37938529 55.21125473)'</span>:<span class="ch">:geography</span>);</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="импорт-из-csv" class="slide level2">
+<h2>Импорт из CSV</h2>
+<p>Для импорта можно использовать команду <code>COPY</code> :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> postgis.geo_points (</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    fid serial <span class="kw">primary</span> <span class="kw">key</span>,</span>
+<span id="cb7-3"><a href="#cb7-3"></a>    name text,</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="kw">comment</span> text,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    height_abs <span class="dt">real</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    height_add <span class="dt">real</span>,</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    <span class="kw">type</span> text,</span>
+<span id="cb7-8"><a href="#cb7-8"></a>    x <span class="dt">real</span>, </span>
+<span id="cb7-9"><a href="#cb7-9"></a>    y <span class="dt">real</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>);</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> postgis.geo_points; <span class="co">-- опционально, если хотите очистить</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="kw">COPY</span> postgis.geo_points </span>
+<span id="cb7-15"><a href="#cb7-15"></a>    <span class="kw">FROM</span> <span class="st">'/Volumes/Data/Spatial/Satino/geo_points.csv'</span> </span>
+<span id="cb7-16"><a href="#cb7-16"></a>    DELIMITER <span class="kw">as</span> <span class="st">','</span> </span>
+<span id="cb7-17"><a href="#cb7-17"></a>    CSV <span class="kw">HEADER</span>;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 
