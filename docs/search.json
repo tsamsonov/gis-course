@@ -5490,42 +5490,42 @@
   {
     "objectID": "adv_05_PostGIS.html#библиография",
     "href": "adv_05_PostGIS.html#библиография",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Библиография",
     "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
   },
   {
     "objectID": "adv_05_PostGIS.html#базовые-библиотеки",
     "href": "adv_05_PostGIS.html#базовые-библиотеки",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Базовые библиотеки",
     "text": "Базовые библиотеки\nФункциональность PostGIS опирается на 4 библиотеки:\n\n\n\n\n\n\nGDAL выполняет конвертацию между форматами данных и растровые операции\n\n\nPROJ выполняет преобразования систем координат\n\n\nGEOS выполняет геометрические операции в 2D\n\n[SF]CGAL выполняет геометрические операции в 3D"
   },
   {
     "objectID": "adv_05_PostGIS.html#структура-базы-данных",
     "href": "adv_05_PostGIS.html#структура-базы-данных",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Структура базы данных",
     "text": "Структура базы данных"
   },
   {
     "objectID": "adv_05_PostGIS.html#структура-схемы",
     "href": "adv_05_PostGIS.html#структура-схемы",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Структура схемы",
     "text": "Структура схемы"
   },
   {
     "objectID": "adv_05_PostGIS.html#структура-схемы-продолжение",
     "href": "adv_05_PostGIS.html#структура-схемы-продолжение",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Структура схемы (продолжение)",
     "text": "Структура схемы (продолжение)"
   },
   {
     "objectID": "adv_05_PostGIS.html#создание-пустой-бд",
     "href": "adv_05_PostGIS.html#создание-пустой-бд",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Создание пустой БД",
     "text": "Создание пустой БД\nСоздание БД (запрос к любой существующей БД)\nCREATE DATABASE satino;\nСоздание схемы и активация расширения\nCREATE SCHEMA postgis;\nGRANT USAGE ON schema postgis to public; -- доступ для всех\nCREATE EXTENSION postgis SCHEMA postgis; -- включить postgis для схемы\nCREATE EXTENSION postgis_raster SCHEMA postgis; -- включить растры для схемы\nALTER DATABASE satino SET search_path=public,postgis; -- добавить в путь поиска\nПроверка установки\nSELECT postgis_full_version();\n\n\n\n\n\n\nВнимание\n\n\nУстановка расширения postgis через графический интерфейс не позволяет выбрать схему и выполняется в схеме public."
   },
@@ -5539,91 +5539,91 @@
   {
     "objectID": "adv_05_PostGIS.html#типы-пространственных-данных",
     "href": "adv_05_PostGIS.html#типы-пространственных-данных",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Типы пространственных данных",
     "text": "Типы пространственных данных\nВ PostGIS существует 4 типа пространственных данных\n\n\n\n\nТип\nОсобенности\n\n\n\n\n1\ngeometry\nВекторные данные в декартовой системе координат\n\n\n2\ngeography\nВекторные данные в угловой системе координат\n\n\n3\nraster\nРастровые данные (многомерные)\n\n\n4\ntopology\nТопологические данные (вершины и грани).\n\n\n\n\n\n\n\n\n\nТопологические данные\n\n\nТип данных topology используется для хранения топологических покрытий и сетевых данных. Для анализа последних применяется отдельное расширение pgRouting.\n\n\n\n\n\n\n\n\n\nИнтересный факт\n\n\nPostGIS позволяет хранить несколько пространственных столбцов в одной таблице"
   },
   {
     "objectID": "adv_05_PostGIS.html#каталог-систем-координат",
     "href": "adv_05_PostGIS.html#каталог-систем-координат",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Каталог систем координат",
     "text": "Каталог систем координат\n\n\nСистемы координат хранятся в таблице spatial_ref_sys\n\n\n\n\n\n\nSRS vs CRS\n\n\nНесмотря на то, что каталог имеет называется SRS (Spatial Reference Systems), по факту он хранит описание CRS (Coordinate Reference Systems).\n\n\n\n\n\n\n\n\n\nТерминология WKT\n\n\nТерминология WKT при описании CRS может не полностью соответствовать стандартами ISO / OGC"
   },
   {
     "objectID": "adv_05_PostGIS.html#создание-пространственных-таблиц",
     "href": "adv_05_PostGIS.html#создание-пространственных-таблиц",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Создание пространственных таблиц",
     "text": "Создание пространственных таблиц\nПри создании пространственных таблиц необходимо указать\n\nуникальный идентификатор\nгеометрический столбец заданного типа и КСО\n\nНапример, таблица точек гидрологических промеров может иметь следующий состав:\nCREATE TABLE postgis.hydro_measures (\n    fid serial primary key,\n    depth real,\n    geom geography(point, 4326)\n)"
   },
   {
     "objectID": "adv_05_PostGIS.html#ручное-создание-данных",
     "href": "adv_05_PostGIS.html#ручное-создание-данных",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Ручное создание данных",
     "text": "Ручное создание данных\nВставка новых строк выполняется посредством стандартной команды INSERT:\nINSERT INTO postgis.hydro_measures(fid, depth, geom)\nVALUES\n    (1, 1.23, ST_GeomFromText('POINT (36.37802128 55.21121827)')),\n    (2, 1.57, ST_GeomFromText('POINT (36.37834198 55.21127511)')),\n    (3, 0.78, ST_GeomFromText('POINT (36.37861509 55.21139158)')),\n    (4, 0.95, ST_GeomFromText('POINT (36.37905934 55.21137259)')),\n    (5, 1.11, ST_GeomFromText('POINT (36.37938529 55.21125473)'));\nАльтернативный синтаксис через преобразование строки к типу данных:\nINSERT INTO postgis.hydro_measures(fid, depth, geom)\nVALUES\n    (1, 1.23, 'POINT (36.37802128 55.21121827)'::geography),\n    (2, 1.57, 'POINT (36.37834198 55.21127511)'::geography),\n    (3, 0.78, 'POINT (36.37861509 55.21139158)'::geography),\n    (4, 0.95, 'POINT (36.37905934 55.21137259)'::geography),\n    (5, 1.11, 'POINT (36.37938529 55.21125473)'::geography);"
   },
   {
     "objectID": "adv_05_PostGIS.html#импорт-из-csv",
     "href": "adv_05_PostGIS.html#импорт-из-csv",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Импорт из CSV",
     "text": "Импорт из CSV\nДля импорта можно использовать команду COPY :\nCREATE TABLE IF NOT EXISTS postgis.geo_points (\n    fid serial primary key,\n    name text,\n    comment text,\n    height_abs real,\n    height_add real,\n    type text,\n    x real, \n    y real\n);\n\nDELETE FROM postgis.geo_points; -- опционально, если хотите очистить\n\nCOPY postgis.geo_points \n    FROM '/Volumes/Data/Spatial/Satino/geo_points.csv' \n    DELIMITER as ',' \n    CSV HEADER;"
   },
   {
     "objectID": "adv_05_PostGIS.html#непространственная-таблица",
     "href": "adv_05_PostGIS.html#непространственная-таблица",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Непространственная таблица",
     "text": "Непространственная таблица\nПолученная таблица не является пространственной:"
   },
   {
     "objectID": "adv_05_PostGIS.html#активация-пространственных-точек",
     "href": "adv_05_PostGIS.html#активация-пространственных-точек",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Активация пространственных точек",
     "text": "Активация пространственных точек\n\n\nЕсли данные точечные и содержат координаты в столбцах, то можно на их основе создать геометрию\nALTER TABLE postgis.geo_points \n  ADD geom geometry(point, 32637);\nUPDATE postgis.geo_points\n  SET geom = ST_Point(x, y)\n\n\nДля преобразования используем одну из функций PostGIS (без или с указанием SRID)."
   },
   {
     "objectID": "adv_05_PostGIS.html#импорт-из-шейп-файла",
     "href": "adv_05_PostGIS.html#импорт-из-шейп-файла",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Импорт из шейп-файла",
     "text": "Импорт из шейп-файла\nВместе с PostGIS устанавливаются утилиты shp2pgsql и pgsql2shp , позволяющие импортировать из и экспортировать данные в формат Shapefile.\nLast login: Fri Sep 22 14:36:05 on console\n(base) tsamsonov@Butterfly ~ % shp2pgsql\nRELEASE: 3.3.4 (3.3.4)\nUSAGE: shp2pgsql [&lt;options&gt;] &lt;shapefile&gt; [[&lt;schema&gt;.]&lt;table&gt;]\nOPTIONS:\n  -s [&lt;from&gt;:]&lt;srid&gt; Set the SRID field. Defaults to 0.\n      Optionally reprojects from given SRID.\n (-d|a|c|p) These are mutually exclusive options:\n     -d  Drops the table, then recreates it and populates\n         it with current shape file data.\n     -a  Appends shape file into current table, must be\n         exactly the same table schema.\n     -c  Creates a new table and populates it, this is the\n         default if you do not specify any options.\n     -p  Prepare mode, only creates the table."
   },
   {
     "objectID": "adv_05_PostGIS.html#импорт-из-шейп-файла-1",
     "href": "adv_05_PostGIS.html#импорт-из-шейп-файла-1",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Импорт из шейп-файла",
     "text": "Импорт из шейп-файла\nЕсли запустить без параметров, то будет только диагностика без импорта:\ntsamsonov@Butterfly satino_base % shp2pgsql border.shp postgis.border\nField fid is an FTDouble with width 20 and precision 0\nShapefile type: Polygon\nPostgis type: MULTIPOLYGON[2]\nSET CLIENT_ENCODING TO UTF8;\nSET STANDARD_CONFORMING_STRINGS TO ON;\nBEGIN;\nCREATE TABLE \"postgis\".\"border\" (gid serial,\n\"fid\" numeric,\n\"name\" varchar(60));\nALTER TABLE \"postgis\".\"border\" ADD PRIMARY KEY (gid);\nSELECT AddGeometryColumn('postgis','border','geom','0','MULTIPOLYGON',2);\nINSERT INTO \"postgis\".\"border\" (\"fid\",\"name\",geom) VALUES ('1',NULL,'0106000000010000000103000000010000000500000030FF21BDE4231441BAFC8774DB575741503789C1D8231441C05B2081C35B5741F04A59C6FA711441C442AD71C45B5741F0DBD7C106721441BCE31465DC57574130FF21BDE4231441BAFC8774DB575741');\nCOMMIT;\nANALYZE \"postgis\".\"border\";\ntsamsonov@Butterfly satino_base %"
   },
   {
     "objectID": "adv_05_PostGIS.html#shp2pgsql-на-windows",
     "href": "adv_05_PostGIS.html#shp2pgsql-на-windows",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "shp2pgsql на Windows",
     "text": "shp2pgsql на Windows\nПри установке путь к утилите не прописывается в переменные среды:"
   },
   {
     "objectID": "adv_05_PostGIS.html#shp2pgsql-на-windows-1",
     "href": "adv_05_PostGIS.html#shp2pgsql-на-windows-1",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "shp2pgsql на Windows",
     "text": "shp2pgsql на Windows\nНа Windows утилита по умолчанию находится в папке C:\\Program Files\\PostgreSQL\\&lt;version&gt;\\bin"
   },
   {
     "objectID": "adv_05_PostGIS.html#shp2pgsql-на-windows-2",
     "href": "adv_05_PostGIS.html#shp2pgsql-на-windows-2",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "shp2pgsql на Windows",
     "text": "shp2pgsql на Windows\nЧтобы не вводить каждый раз полный путь к программе, необходимо прописать его в переменные окружения:\nsetx path \"%PATH%;C:\\Program Files\\PostgreSQL\\15\\bin\"\nПосле этого перезапустите командную строку, и утилита будет запускаться:"
   },
   {
     "objectID": "adv_05_PostGIS.html#импорт-из-шейп-файла-2",
     "href": "adv_05_PostGIS.html#импорт-из-шейп-файла-2",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Импорт из шейп-файла",
     "text": "Импорт из шейп-файла\nПо факту утилита создает SQL-запрос, который можно направить в файл через &gt;:\nshp2pgsql -g geom border.shp postgis.border &gt; border.sql\n\n\nПолученный файл можно открыть средствами СУБД и запустить.\n\n\n\n\n\n\nБольшие файлы\n\n\nПри импорте больших файлов рекомендуется использовать параметр -D, при котором будет создаваться не SQL-запрос, а бинарный файл дампа базы данных."
   },
@@ -5637,36 +5637,204 @@
   {
     "objectID": "adv_05_PostGIS.html#импорт-через-psql",
     "href": "adv_05_PostGIS.html#импорт-через-psql",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Импорт через psql",
     "text": "Импорт через psql\nВ большинстве случаев однако запрос не пишут в файл, а направляют через пайп (|) в psql — командный интерфейс PostgreSQL. Необходимо указать как минимум базу данных (-d) и имя пользователя (-U):\nshp2pgsql -g geom border.shp postgis.border | psql -d satino -U postgres\nПосле ввода пароля данные будут записаны в указанную таблицу:"
   },
   {
     "objectID": "adv_05_PostGIS.html#универсальный-импорт-через-ogr2ogr",
     "href": "adv_05_PostGIS.html#универсальный-импорт-через-ogr2ogr",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Универсальный импорт через ogr2ogr",
     "text": "Универсальный импорт через ogr2ogr\nogr2ogr — утилита GDAL, универсальный конвертер форматов данных.\nВместе с ней идет утилита ogrinfo, для анализа входных данных:"
   },
   {
     "objectID": "adv_05_PostGIS.html#ogrinfo",
     "href": "adv_05_PostGIS.html#ogrinfo",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "ogrinfo",
     "text": "ogrinfo\nПоддерживаемые форматы можно выяснить через ogr2ogr --formats :\n(base) tsamsonov@Butterfly Satino % ogr2ogr --formats\nSupported Formats:\n  FITS -raster,vector- (rw+): Flexible Image Transport System\n  PCIDSK -raster,vector- (rw+v): PCIDSK Database File\n  netCDF -raster,multidimensional raster,vector- (rw+s): Network Common Data Format\n  PDS4 -raster,vector- (rw+vs): NASA Planetary Data System 4\n  VICAR -raster,vector- (rw+v): MIPL VICAR file\n  JP2OpenJPEG -raster,vector- (rwv): JPEG-2000 driver based on OpenJPEG library\n  PDF -raster,vector- (rw+vs): Geospatial PDF\n  MBTiles -raster,vector- (rw+v): MBTiles\n  BAG -raster,multidimensional raster,vector- (rw+v): Bathymetry Attributed Grid\n  EEDA -vector- (ro): Earth Engine Data API\n  OGCAPI -raster,vector- (rov): OGCAPI\n  ESRI Shapefile -vector- (rw+v): ESRI Shapefile\n  MapInfo File -vector- (rw+v): MapInfo File\n  ..."
   },
   {
     "objectID": "adv_05_PostGIS.html#параметры-ogr2ogr",
     "href": "adv_05_PostGIS.html#параметры-ogr2ogr",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Параметры ogr2ogr",
     "text": "Параметры ogr2ogr\nДанная программа содержит множество параметров (см. документацию):\n(base) tsamsonov@Butterfly Satino % ogr2ogr\nUsage: ogr2ogr [--help-general] [-skipfailures] [-append | -upsert] [-update]\n               [-select field_list] [-where restricted_where|@filename]\n               [-progress] [-sql &lt;sql statement&gt;|@filename] [-dialect dialect]\n               [-preserve_fid] [-fid FID] [-limit nb_features]\n               [-spat xmin ymin xmax ymax] [-spat_srs srs_def] [-geomfield field]\n               [-a_srs srs_def] [-t_srs srs_def] [-s_srs srs_def] [-ct string]\n               [-f format_name] [-overwrite] [[-dsco NAME=VALUE] ...]\n               dst_datasource_name src_datasource_name\n               [-lco NAME=VALUE] [-nln name] \n               [-nlt type|PROMOTE_TO_MULTI|CONVERT_TO_LINEAR|CONVERT_TO_CURVE]\n               [-dim XY|XYZ|XYM|XYZM|layer_dim] [layer [layer ...]]\n       Advanced options :\n               [-gt n] [-ds_transaction]\n               [[-oo NAME=VALUE] ...] [[-doo NAME=VALUE] ...]\n               [-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent]\n               ..."
   },
   {
     "objectID": "adv_05_PostGIS.html#импорт-geopackage-через-ogr2ogr",
     "href": "adv_05_PostGIS.html#импорт-geopackage-через-ogr2ogr",
-    "title": "PostGIS. Создание и загрузка данных",
+    "title": "PostGIS. Создание и импорт данных",
     "section": "Импорт GeoPackage через ogr2ogr",
     "text": "Импорт GeoPackage через ogr2ogr\nДля импорта необходимо указать формат входного файла (f), параметры подключения, а также параметры, специфичные для выходного формата (-lco).\nИмпорт одного слоя (landscapes)\nogr2ogr \n  -f PostgreSQL PG:\"dbname=satino user=postgres password=.....\" \n  satino_thematic.gpkg landscapes \n  -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis\nИмпорт всех слоев\nogr2ogr \n  -f PostgreSQL PG:\"dbname=satino user=postgres password=.....\" \n  satino_thematic.gpkg \n  -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#базовые-библиотеки",
+    "href": "adv_05_PostGIS_Import.html#базовые-библиотеки",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Базовые библиотеки",
+    "text": "Базовые библиотеки\nФункциональность PostGIS опирается на 4 библиотеки:\n\n\n\n\n\n\nGDAL выполняет конвертацию между форматами данных и растровые операции\n\n\nPROJ выполняет преобразования систем координат\n\n\nGEOS выполняет геометрические операции в 2D\n\n[SF]CGAL выполняет геометрические операции в 3D"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#структура-базы-данных",
+    "href": "adv_05_PostGIS_Import.html#структура-базы-данных",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Структура базы данных",
+    "text": "Структура базы данных"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#структура-схемы",
+    "href": "adv_05_PostGIS_Import.html#структура-схемы",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Структура схемы",
+    "text": "Структура схемы"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#структура-схемы-продолжение",
+    "href": "adv_05_PostGIS_Import.html#структура-схемы-продолжение",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Структура схемы (продолжение)",
+    "text": "Структура схемы (продолжение)"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#создание-пустой-бд",
+    "href": "adv_05_PostGIS_Import.html#создание-пустой-бд",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Создание пустой БД",
+    "text": "Создание пустой БД\nСоздание БД (запрос к любой существующей БД)\nCREATE DATABASE satino;\nСоздание схемы и активация расширения\nCREATE SCHEMA postgis;\nGRANT USAGE ON schema postgis to public; -- доступ для всех\nCREATE EXTENSION postgis SCHEMA postgis; -- включить postgis для схемы\nCREATE EXTENSION postgis_raster SCHEMA postgis; -- включить растры для схемы\nALTER DATABASE satino SET search_path=public,postgis; -- добавить в путь поиска\nПроверка установки\nSELECT postgis_full_version();\n\n\n\n\n\n\nВнимание\n\n\nУстановка расширения postgis через графический интерфейс не позволяет выбрать схему и выполняется в схеме public."
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#типы-пространственных-данных",
+    "href": "adv_05_PostGIS_Import.html#типы-пространственных-данных",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Типы пространственных данных",
+    "text": "Типы пространственных данных\nВ PostGIS существует 4 типа пространственных данных\n\n\n\n\nТип\nОсобенности\n\n\n\n\n1\ngeometry\nВекторные данные в декартовой системе координат\n\n\n2\ngeography\nВекторные данные в угловой системе координат\n\n\n3\nraster\nРастровые данные (многомерные)\n\n\n4\ntopology\nТопологические данные (вершины и грани).\n\n\n\n\n\n\n\n\n\nТопологические данные\n\n\nТип данных topology используется для хранения топологических покрытий и сетевых данных. Для анализа последних применяется отдельное расширение pgRouting.\n\n\n\n\n\n\n\n\n\nИнтересный факт\n\n\nPostGIS позволяет хранить несколько пространственных столбцов в одной таблице"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#каталог-систем-координат",
+    "href": "adv_05_PostGIS_Import.html#каталог-систем-координат",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Каталог систем координат",
+    "text": "Каталог систем координат\n\n\nСистемы координат хранятся в таблице spatial_ref_sys\n\n\n\n\n\n\nSRS vs CRS\n\n\nНесмотря на то, что каталог имеет называется SRS (Spatial Reference Systems), по факту он хранит описание CRS (Coordinate Reference Systems).\n\n\n\n\n\n\n\n\n\nТерминология WKT\n\n\nТерминология WKT при описании CRS может не полностью соответствовать стандартами ISO / OGC"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#создание-пространственных-таблиц",
+    "href": "adv_05_PostGIS_Import.html#создание-пространственных-таблиц",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Создание пространственных таблиц",
+    "text": "Создание пространственных таблиц\nПри создании пространственных таблиц необходимо указать\n\nуникальный идентификатор\nгеометрический столбец заданного типа и КСО\n\nНапример, таблица точек гидрологических промеров может иметь следующий состав:\nCREATE TABLE postgis.hydro_measures (\n    fid serial primary key,\n    depth real,\n    geom geography(point, 4326)\n)"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#ручное-создание-данных",
+    "href": "adv_05_PostGIS_Import.html#ручное-создание-данных",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Ручное создание данных",
+    "text": "Ручное создание данных\nВставка новых строк выполняется посредством стандартной команды INSERT:\nINSERT INTO postgis.hydro_measures(fid, depth, geom)\nVALUES\n    (1, 1.23, ST_GeomFromText('POINT (36.37802128 55.21121827)')),\n    (2, 1.57, ST_GeomFromText('POINT (36.37834198 55.21127511)')),\n    (3, 0.78, ST_GeomFromText('POINT (36.37861509 55.21139158)')),\n    (4, 0.95, ST_GeomFromText('POINT (36.37905934 55.21137259)')),\n    (5, 1.11, ST_GeomFromText('POINT (36.37938529 55.21125473)'));\nАльтернативный синтаксис через преобразование строки к типу данных:\nINSERT INTO postgis.hydro_measures(fid, depth, geom)\nVALUES\n    (1, 1.23, 'POINT (36.37802128 55.21121827)'::geography),\n    (2, 1.57, 'POINT (36.37834198 55.21127511)'::geography),\n    (3, 0.78, 'POINT (36.37861509 55.21139158)'::geography),\n    (4, 0.95, 'POINT (36.37905934 55.21137259)'::geography),\n    (5, 1.11, 'POINT (36.37938529 55.21125473)'::geography);"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#импорт-из-csv",
+    "href": "adv_05_PostGIS_Import.html#импорт-из-csv",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Импорт из CSV",
+    "text": "Импорт из CSV\nДля импорта можно использовать команду COPY :\nCREATE TABLE IF NOT EXISTS postgis.geo_points (\n    fid serial primary key,\n    name text,\n    comment text,\n    height_abs real,\n    height_add real,\n    type text,\n    x real, \n    y real\n);\n\nDELETE FROM postgis.geo_points; -- опционально, если хотите очистить\n\nCOPY postgis.geo_points \n    FROM '/Volumes/Data/Spatial/Satino/geo_points.csv' \n    DELIMITER as ',' \n    CSV HEADER;"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#непространственная-таблица",
+    "href": "adv_05_PostGIS_Import.html#непространственная-таблица",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Непространственная таблица",
+    "text": "Непространственная таблица\nПолученная таблица не является пространственной:"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#активация-пространственных-точек",
+    "href": "adv_05_PostGIS_Import.html#активация-пространственных-точек",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Активация пространственных точек",
+    "text": "Активация пространственных точек\n\n\nЕсли данные точечные и содержат координаты в столбцах, то можно на их основе создать геометрию\nALTER TABLE postgis.geo_points \n  ADD geom geometry(point, 32637);\nUPDATE postgis.geo_points\n  SET geom = ST_Point(x, y)\n\n\nДля преобразования используем одну из функций PostGIS (без или с указанием SRID)."
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#импорт-из-шейп-файла",
+    "href": "adv_05_PostGIS_Import.html#импорт-из-шейп-файла",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Импорт из шейп-файла",
+    "text": "Импорт из шейп-файла\nВместе с PostGIS устанавливаются утилиты shp2pgsql и pgsql2shp , позволяющие импортировать из и экспортировать данные в формат Shapefile.\nLast login: Fri Sep 22 14:36:05 on console\n(base) tsamsonov@Butterfly ~ % shp2pgsql\nRELEASE: 3.3.4 (3.3.4)\nUSAGE: shp2pgsql [&lt;options&gt;] &lt;shapefile&gt; [[&lt;schema&gt;.]&lt;table&gt;]\nOPTIONS:\n  -s [&lt;from&gt;:]&lt;srid&gt; Set the SRID field. Defaults to 0.\n      Optionally reprojects from given SRID.\n (-d|a|c|p) These are mutually exclusive options:\n     -d  Drops the table, then recreates it and populates\n         it with current shape file data.\n     -a  Appends shape file into current table, must be\n         exactly the same table schema.\n     -c  Creates a new table and populates it, this is the\n         default if you do not specify any options.\n     -p  Prepare mode, only creates the table."
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#shp2pgsql-на-windows",
+    "href": "adv_05_PostGIS_Import.html#shp2pgsql-на-windows",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "shp2pgsql на Windows",
+    "text": "shp2pgsql на Windows\nПри установке путь к утилите не прописывается в переменные среды:"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#shp2pgsql-на-windows-1",
+    "href": "adv_05_PostGIS_Import.html#shp2pgsql-на-windows-1",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "shp2pgsql на Windows",
+    "text": "shp2pgsql на Windows\nНа Windows утилита по умолчанию находится в папке C:\\Program Files\\PostgreSQL\\&lt;version&gt;\\bin"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#shp2pgsql-на-windows-2",
+    "href": "adv_05_PostGIS_Import.html#shp2pgsql-на-windows-2",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "shp2pgsql на Windows",
+    "text": "shp2pgsql на Windows\nЧтобы не вводить каждый раз полный путь к программе, необходимо прописать его в переменные окружения:\nsetx path \"%PATH%;C:\\Program Files\\PostgreSQL\\15\\bin\"\nПосле этого перезапустите командную строку, и утилита будет запускаться:"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#импорт-из-шейп-файла-1",
+    "href": "adv_05_PostGIS_Import.html#импорт-из-шейп-файла-1",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Импорт из шейп-файла",
+    "text": "Импорт из шейп-файла\nЕсли запустить без параметров, то будет только диагностика без импорта:\ntsamsonov@Butterfly satino_base % shp2pgsql border.shp postgis.border\nField fid is an FTDouble with width 20 and precision 0\nShapefile type: Polygon\nPostgis type: MULTIPOLYGON[2]\nSET CLIENT_ENCODING TO UTF8;\nSET STANDARD_CONFORMING_STRINGS TO ON;\nBEGIN;\nCREATE TABLE \"postgis\".\"border\" (gid serial,\n\"fid\" numeric,\n\"name\" varchar(60));\nALTER TABLE \"postgis\".\"border\" ADD PRIMARY KEY (gid);\nSELECT AddGeometryColumn('postgis','border','geom','0','MULTIPOLYGON',2);\nINSERT INTO \"postgis\".\"border\" (\"fid\",\"name\",geom) VALUES ('1',NULL,'0106000000010000000103000000010000000500000030FF21BDE4231441BAFC8774DB575741503789C1D8231441C05B2081C35B5741F04A59C6FA711441C442AD71C45B5741F0DBD7C106721441BCE31465DC57574130FF21BDE4231441BAFC8774DB575741');\nCOMMIT;\nANALYZE \"postgis\".\"border\";\ntsamsonov@Butterfly satino_base %"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#импорт-из-шейп-файла-2",
+    "href": "adv_05_PostGIS_Import.html#импорт-из-шейп-файла-2",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Импорт из шейп-файла",
+    "text": "Импорт из шейп-файла\nПо факту утилита создает SQL-запрос, который можно направить в файл через &gt;:\nshp2pgsql -g geom border.shp postgis.border &gt; border.sql\n\n\nПолученный файл можно открыть средствами СУБД и запустить.\n\n\n\n\n\n\nБольшие файлы\n\n\nПри импорте больших файлов рекомендуется использовать параметр -D, при котором будет создаваться не SQL-запрос, а бинарный файл дампа базы данных."
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#импорт-через-psql",
+    "href": "adv_05_PostGIS_Import.html#импорт-через-psql",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Импорт через psql",
+    "text": "Импорт через psql\nВ большинстве случаев однако запрос не пишут в файл, а направляют через пайп (|) в psql — командный интерфейс PostgreSQL. Необходимо указать как минимум базу данных (-d) и имя пользователя (-U):\nshp2pgsql -g geom border.shp postgis.border | psql -d satino -U postgres\nПосле ввода пароля данные будут записаны в указанную таблицу:"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#универсальный-импорт-через-ogr2ogr",
+    "href": "adv_05_PostGIS_Import.html#универсальный-импорт-через-ogr2ogr",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Универсальный импорт через ogr2ogr",
+    "text": "Универсальный импорт через ogr2ogr\nogr2ogr — утилита GDAL, универсальный конвертер форматов данных.\nВместе с ней идет утилита ogrinfo, для анализа входных данных:"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#ogrinfo",
+    "href": "adv_05_PostGIS_Import.html#ogrinfo",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "ogrinfo",
+    "text": "ogrinfo\nПоддерживаемые форматы можно выяснить через ogr2ogr --formats :\n(base) tsamsonov@Butterfly Satino % ogr2ogr --formats\nSupported Formats:\n  FITS -raster,vector- (rw+): Flexible Image Transport System\n  PCIDSK -raster,vector- (rw+v): PCIDSK Database File\n  netCDF -raster,multidimensional raster,vector- (rw+s): Network Common Data Format\n  PDS4 -raster,vector- (rw+vs): NASA Planetary Data System 4\n  VICAR -raster,vector- (rw+v): MIPL VICAR file\n  JP2OpenJPEG -raster,vector- (rwv): JPEG-2000 driver based on OpenJPEG library\n  PDF -raster,vector- (rw+vs): Geospatial PDF\n  MBTiles -raster,vector- (rw+v): MBTiles\n  BAG -raster,multidimensional raster,vector- (rw+v): Bathymetry Attributed Grid\n  EEDA -vector- (ro): Earth Engine Data API\n  OGCAPI -raster,vector- (rov): OGCAPI\n  ESRI Shapefile -vector- (rw+v): ESRI Shapefile\n  MapInfo File -vector- (rw+v): MapInfo File\n  ..."
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#параметры-ogr2ogr",
+    "href": "adv_05_PostGIS_Import.html#параметры-ogr2ogr",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Параметры ogr2ogr",
+    "text": "Параметры ogr2ogr\nДанная программа содержит множество параметров (см. документацию):\n(base) tsamsonov@Butterfly Satino % ogr2ogr\nUsage: ogr2ogr [--help-general] [-skipfailures] [-append | -upsert] [-update]\n               [-select field_list] [-where restricted_where|@filename]\n               [-progress] [-sql &lt;sql statement&gt;|@filename] [-dialect dialect]\n               [-preserve_fid] [-fid FID] [-limit nb_features]\n               [-spat xmin ymin xmax ymax] [-spat_srs srs_def] [-geomfield field]\n               [-a_srs srs_def] [-t_srs srs_def] [-s_srs srs_def] [-ct string]\n               [-f format_name] [-overwrite] [[-dsco NAME=VALUE] ...]\n               dst_datasource_name src_datasource_name\n               [-lco NAME=VALUE] [-nln name] \n               [-nlt type|PROMOTE_TO_MULTI|CONVERT_TO_LINEAR|CONVERT_TO_CURVE]\n               [-dim XY|XYZ|XYM|XYZM|layer_dim] [layer [layer ...]]\n       Advanced options :\n               [-gt n] [-ds_transaction]\n               [[-oo NAME=VALUE] ...] [[-doo NAME=VALUE] ...]\n               [-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent]\n               ..."
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#импорт-geopackage-через-ogr2ogr",
+    "href": "adv_05_PostGIS_Import.html#импорт-geopackage-через-ogr2ogr",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Импорт GeoPackage через ogr2ogr",
+    "text": "Импорт GeoPackage через ogr2ogr\nДля импорта необходимо указать формат входного файла (f), параметры подключения, а также параметры, специфичные для выходного формата (-lco).\nИмпорт одного слоя (landscapes)\nogr2ogr \n  -f PostgreSQL PG:\"dbname=satino user=postgres password=.....\" \n  satino_thematic.gpkg landscapes \n  -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis\nИмпорт всех слоев\nogr2ogr \n  -f PostgreSQL PG:\"dbname=satino user=postgres password=.....\" \n  satino_thematic.gpkg \n  -lco GEOMETRY_NAME=geom -lco SCHEMA=postgis"
+  },
+  {
+    "objectID": "adv_05_PostGIS_Import.html#библиография",
+    "href": "adv_05_PostGIS_Import.html#библиография",
+    "title": "PostGIS. Создание и импорт векторных данных",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
   }
 ]
