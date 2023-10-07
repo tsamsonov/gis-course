@@ -389,12 +389,6 @@
 <div class="columns">
 <div class="column" style="width:60%;">
 <table>
-<thead>
-<tr class="header">
-<th>Символ</th>
-<th>Что означает</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
 <td><span class="math inline">\(P\)</span></td>
@@ -449,7 +443,8 @@
 \dim (P) &amp;= 0 \\
 \dim (L) &amp;= 1 \\
 \dim (A) &amp;= 2 \\
-\dim (\varnothing) &amp;= -
+\dim (\varnothing) &amp;= - \\
+0 \leq \dim (\neg \varnothing) &amp;\leq 2
 \end{align}
 \]</span></p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -465,6 +460,314 @@
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="модель-4-пересечений" class="slide level2">
+<h2>Модель 4-пересечений</h2>
+<ul>
+<li><p>Анализ пересечений внутренней области и границы двух объектов <span class="math inline">\(\lambda_1\)</span> и <span class="math inline">\(\lambda_2\)</span>.</p></li>
+<li><p>Каждое пересечение может быть пустым (<span class="math inline">\(\varnothing\)</span>) или не пустым (<span class="math inline">\(\neg \varnothing\)</span>), что дает <span class="math inline">\(2^4 = 16\)</span> комбинаций.</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Каждая комбинация представляется в виде матрицы пересечений</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}
+\lambda_1^\circ  \cap \lambda_2^\circ   &amp;   \lambda_1^\circ \cap \partial \lambda_2 \\
+\partial \lambda_1 \cap \lambda_2^\circ   &amp;    \partial \lambda_1 \cap \partial \lambda_2
+\end{pmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратные отношения</strong></p>
+</div>
+<div class="callout-content">
+<p>Соответствуют матрицам <span class="math inline">\(M_1\)</span> и <span class="math inline">\(M_2\)</span>, для которых справедливо <span class="math inline">\(M_1 = M_2^T\)</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\lambda_1 \lambda_2\)</span></th>
+<th>Возможно</th>
+<th>Без обратных</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(AA\)</span></td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LA\)</span></td>
+<td>11</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PA\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LL\)</span></td>
+<td>16</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PL\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(PP\)</span></td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><em>Итого</em></td>
+<td><em>37</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="модель-9-пересечений" class="slide level2">
+<h2>Модель 9-пересечений</h2>
+<ul>
+<li><p>Анализ пересечений внутренней области, границы и внешней области двух объектов <span class="math inline">\(\lambda_1\)</span> и <span class="math inline">\(\lambda_2\)</span>.</p></li>
+<li><p>Cочетания пустых (<span class="math inline">\(\varnothing\)</span>) и не пустых (<span class="math inline">\(\neg \varnothing\)</span>) дают <span class="math inline">\(2^9 = 512\)</span> комбинаций.</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Каждая комбинация представляется в виде матрицы пересечений</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}
+\lambda_1^\circ  \cap \lambda_2^\circ &amp; \lambda_1^\circ \cap \partial \lambda_2 &amp; \lambda_1^\circ \cap \lambda_2^- \\
+\partial \lambda_1 \cap \lambda_2^\circ &amp; \partial \lambda_1 \cap \partial \lambda_2 &amp; \partial \lambda_1 \cap \lambda_2^- \\
+\lambda_1^-  \cap \lambda_2^\circ &amp; \lambda_1^- \cap \partial \lambda_2 &amp; \lambda_1^- \cap \lambda_2^-
+\end{pmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратите внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Число комбинаций меняется только между линиями (<span class="math inline">\(LL\)</span>) и между линиями и полигонами (<span class="math inline">\(LA\)</span>).</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\lambda_1\lambda_2\)</span></th>
+<th>Возможно</th>
+<th>Без обратных</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(AA\)</span></td>
+<td>8</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LA\)</span></td>
+<td>19</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PA\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LL\)</span></td>
+<td>33</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PL\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(PP\)</span></td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><em>Итого</em></td>
+<td><em>56</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="модель-4-пересечений-с-размерностью" class="slide level2">
+<h2>Модель 4-пересечений с размерностью</h2>
+<ul>
+<li><p>Анализ пересечений внутренней области и границы двух объектов <span class="math inline">\(\lambda_1\)</span> и <span class="math inline">\(\lambda_2\)</span>.</p></li>
+<li><p>Размерность пересечения может быть <span class="math inline">\(-, 0, 1, 2\)</span>, что дает <span class="math inline">\(4^4 =256\)</span> комбинаций.</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Каждая комбинация представляется в виде матрицы пересечений</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}
+\dim(\lambda_1^\circ  \cap \lambda_2^\circ)   &amp;   \dim(\lambda_1^\circ \cap \partial \lambda_2) \\
+\dim(\partial \lambda_1 \cap \lambda_2^\circ)   &amp; \dim(\partial \lambda_1 \cap \partial \lambda_2)
+\end{pmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Максимальная размерность пересечения</strong></p>
+</div>
+<div class="callout-content">
+<p>Меньше или равна минимальной размерности объектов, участвующих в пересечении</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\lambda_1 \lambda_2\)</span></th>
+<th>Возможно</th>
+<th>Без обратных</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(AA\)</span></td>
+<td>12</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LA\)</span></td>
+<td>17</td>
+<td>17</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PA\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LL\)</span></td>
+<td>24</td>
+<td>18</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PL\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(PP\)</span></td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><em>Итого</em></td>
+<td><em>52</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="модель-9-пересечений-с-размерностью" class="slide level2">
+<h2>Модель 9-пересечений с размерностью</h2>
+<ul>
+<li><p>Анализ пересечений внутренней области, границы и внешней области двух объектов <span class="math inline">\(\lambda_1\)</span> и <span class="math inline">\(\lambda_2\)</span>.</p></li>
+<li><p>Размерность пересечения может быть <span class="math inline">\(-, 0, 1, 2\)</span>, что дает <span class="math inline">\(4^9 =262144\)</span> комбинаций.</p></li>
+</ul>
+<p>Каждая комбинация представляется в виде матрицы пересечений</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}
+\dim(\lambda_1^\circ  \cap \lambda_2^\circ) &amp; \dim(\lambda_1^\circ \cap \partial \lambda_2) &amp; \dim(\lambda_1^\circ \cap \lambda_2^-) \\
+\dim(\partial \lambda_1 \cap \lambda_2^\circ) &amp; \dim(\partial \lambda_1 \cap \partial \lambda_2) &amp; \dim(\partial \lambda_1 \cap \lambda_2^-) \\
+\dim(\lambda_1^-  \cap \lambda_2^\circ) &amp; \dim(\lambda_1^- \cap \partial \lambda_2) &amp; \dim(\lambda_1^- \cap \lambda_2^-)
+\end{pmatrix}
+\]</span></p>
+</section>
+<section id="модель-9-пересечений-с-размерностью-1" class="slide level2">
+<h2>Модель 9-пересечений с размерностью</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p>Анализ пересечений внутренней области, границы и внешней области двух объектов <span class="math inline">\(\lambda_1\)</span> и <span class="math inline">\(\lambda_2\)</span>.</p></li>
+<li><p>Размерность пересечения может быть <span class="math inline">\(-, 0, 1, 2\)</span>, что дает <span class="math inline">\(4^9 =262144\)</span> комбинаций.</p></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\lambda_1 \lambda_2\)</span></th>
+<th>Возможно</th>
+<th>Без обратных</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(AA\)</span></td>
+<td>12</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LA\)</span></td>
+<td>31</td>
+<td>31</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PA\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(LL\)</span></td>
+<td>36</td>
+<td>33</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(PL\)</span></td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(PP\)</span></td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><em>Итого</em></td>
+<td><em>81</em></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
