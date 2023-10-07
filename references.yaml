@@ -122,7 +122,7 @@ references:
     Simple feature access - Part 1: Common architecture"
   type: report
   URL: "https://www.ogc.org/standards/sfa"
-- id: egenhofer1991
+- id: egenhofer1991a
   author:
   - family: Egenhofer
     given: Max J.
@@ -516,4 +516,109 @@ references:
     Proposition in World Economy, Society, and Environment
   type: report
   URL: "https://www.geospatialworld.net/consulting/gki-phase-2/gw-assets/pdf/GKI-Report.pdf"
+- id: egenhofer1991
+  Citation Key: "egenhofer1991"
+  author:
+  - family: Egenhofer
+    given: Max J.
+  - family: Franzosa
+    given: Robert D.
+  container-title: International Journal of Geographical Information
+    Systems
+  DOI: 10.1080/02693799108927841
+  ISSN: 02693798
+  issue: 2
+  issued: 1991
+  key: X4VG3ILV
+  libraryID: 2
+  note: "tex.isbn: 0269-3798 tex.mendeley-groups: Relations & Topology
+    Citation Key: egenhofer:1991"
+  page: 161-174
+  providerKey: 2509FBBE-5BB0-44C4-B119-6083A81ED673
+  tex.isbn: 0269-3798
+  tex.mendeley-groups: Relations
+  title: Point-set topological spatial relations
+  type: article-journal
+  volume: 5
+- id: egenhofer1991b
+  author:
+  - family: Egenhofer
+    given: Max J
+  - family: Herring
+    given: John R.
+  genre: Technical Report
+  issued: 1991
+  key: 9P6YXVW8
+  language: en
+  libraryID: 2
+  page: 28
+  providerKey: 2509FBBE-5BB0-44C4-B119-6083A81ED673
+  publisher: Department of Surveying Engineering, University of Maine
+  publisher-place: Orono, ME
+  source: Zotero
+  title: Categorizing Binary Topological Relations Between Regions,
+    Lines, and Points in Geographic Databases
+  type: report
+- id: clementini1993
+  accessed: "13:50:38"
+  author:
+  - family: Clementini
+    given: Eliseo
+  - family: Di Felice
+    given: Paolino
+  - family: Oosterom
+    given: Peter
+    non-dropping-particle: van
+  collection-editor:
+  - family: Goos
+    given: G.
+  - family: Hartmanis
+    given: J.
+  container-title: Advances in Spatial Databases
+  editor:
+  - family: Abel
+    given: David
+  - family: Chin Ooi
+    given: Beng
+  ISBN: 978-3-540-56869-8 978-3-540-47765-5
+  issued: 1993
+  key: G7SFBZ7D
+  language: en
+  libraryID: 2
+  DOI: 10.1007/3-540-56869-7_16
+  page: 277-295
+  providerKey: Zotero
+  publisher: Springer Berlin Heidelberg
+  publisher-place: Berlin, Heidelberg
+  Series Title: Lecture Notes in Computer Science
+  source: DOI.org (Crossref)
+  title: A small set of formal topological relationships suitable for
+    end-user interaction
+  type: chapter
+  URL: "http://link.springer.com/10.1007/3-540-56869-7_16"
+  volume: 692
+- id: clementini1995
+  accessed: "07:38:32"
+  author:
+  - family: Clementini
+    given: Eliseo
+  - family: Di Felice
+    given: Paolino
+  container-title: Information Sciences - Applications
+  container-title-short: Information Sciences - Applications
+  DOI: 10.1016/1069-0115(94)00033-X
+  ISSN: 10690115
+  issue: 3
+  issued: 1995-05
+  key: 4MNPK7F8
+  language: en
+  libraryID: 2
+  page: 149-178
+  providerKey: Zotero
+  source: DOI.org (Crossref)
+  title: A comparison of methods for representing topological
+    relationships
+  type: article-journal
+  URL: "https://linkinghub.elsevier.com/retrieve/pii/106901159400033X"
+  volume: 3
 ...

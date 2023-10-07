@@ -5871,5 +5871,26 @@
     "title": "PostGIS. Создание и импорт векторных данных",
     "section": "Каталог геометрий",
     "text": "Каталог геометрий\nПрограммный код представления можно посмотреть в свойствах на вкладке Code"
+  },
+  {
+    "objectID": "adv_06_Topology.html#история-развития",
+    "href": "adv_06_Topology.html#история-развития",
+    "title": "Топологические отношения",
+    "section": "История развития",
+    "text": "История развития\nМодели топологических отношений интенсивно развивались в первой половине 90-х гг. ХХ в.:\n\nМодель 4 пересечений 4IM (Max J. Egenhofer и Franzosa 1991).\nМодель 9 пересечений 9IM (Max J. Egenhofer 1991; Max J. Egenhofer и Herring 1991).\nМодель 4 пересечений с размерностью DE-4IM (Clementini, Di Felice, и van Oosterom 1993).\nАналитическая модель CBM (Clementini, Di Felice, и van Oosterom 1993).\nМодель 9 пересечений с размерностью DE-9IM (Clementini и Di Felice 1995).\n\n\n\n\n\n\n\nDE-9IM\n\n\nМодель DE-9IM описывает наиболее полный спектр топологических отношений и поддерживается в большинстве систем управления базами пространственных данных."
+  },
+  {
+    "objectID": "adv_06_Topology.html#библиография",
+    "href": "adv_06_Topology.html#библиография",
+    "title": "Топологические отношения",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nClementini, Eliseo, и Paolino Di Felice. 1995. «A Comparison of Methods for Representing Topological Relationships». Information Sciences - Applications 3 (3): 149–78. https://doi.org/10.1016/1069-0115(94)00033-X.\n\n\nClementini, Eliseo, Paolino Di Felice, и Peter van Oosterom. 1993. «A Small Set of Formal Topological Relationships Suitable for End-User Interaction». В Advances in Spatial Databases, под редакцией David Abel и Beng Chin Ooi, 692:277–95. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/3-540-56869-7_16.\n\n\nEgenhofer, Max J. 1991. «Reasoning about binary topological relations». В Advances in Spatial Databases, под редакцией Oliver Günther и Hans-Jörg Schek, 141–60. Berlin, Heidelberg: Springer Berlin Heidelberg.\n\n\nEgenhofer, Max J., и Robert D. Franzosa. 1991. «Point-set topological spatial relations». International Journal of Geographical Information Systems 5 (2): 161–74. https://doi.org/10.1080/02693799108927841.\n\n\nEgenhofer, Max J, и John R. Herring. 1991. «Categorizing Binary Topological Relations Between Regions, Lines, and Points in Geographic Databases». Technical Report. Orono, ME: Department of Surveying Engineering, University of Maine."
+  },
+  {
+    "objectID": "adv_06_Topology.html#обозначения",
+    "href": "adv_06_Topology.html#обозначения",
+    "title": "Топологические отношения",
+    "section": "Обозначения",
+    "text": "Обозначения\n\n\n\n\n\nСимвол\nЧто означает\n\n\n\n\n\\(P\\)\nточка\n\n\n\\(L\\)\nлиния\n\n\n\\(A\\)\nполигон\n\n\n\\(\\lambda\\)\n\\(P|L|A\\)\n\n\n\\(\\partial\\)\nграница\n\n\n\\(^\\circ\\)\nвнутренность\n\n\n\\(^-\\)\nвнешняя область\n\n\n\\(\\cap\\)\nпересечение\n\n\n\\(\\varnothing\\)\nпустое множество\n\n\n\\(\\neg \\varnothing\\)\nнепустое множество\n\n\n\\(\\dim\\)\nтопологическая размерность\n\n\n\n\nТопологические размерности\n\\[\n\\begin{align}\n\\dim (P) &= 0 \\\\\n\\dim (L) &= 1 \\\\\n\\dim (A) &= 2 \\\\\n\\dim (\\varnothing) &= -\n\\end{align}\n\\]\n\n\n\n\n\n\nНуль\n\n\nДля обозначения отсутствия значения используется специальным символ — нуль (\\(-\\))."
   }
 ]
