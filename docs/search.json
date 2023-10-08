@@ -5934,5 +5934,117 @@
     "title": "Топологические отношения",
     "section": "Модель 9-пересечений с размерностью",
     "text": "Модель 9-пересечений с размерностью\n\n\n\nАнализ пересечений внутренней области, границы и внешней области двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nРазмерность пересечения может быть \\(-, 0, 1, 2\\), что дает \\(4^9 =262144\\) комбинаций.\n\n\n\n\n\n\\(\\lambda_1 \\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n12\n9\n\n\n\\(LA\\)\n31\n31\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n36\n33\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n81"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-8im-49-58-подмножество-de-4im",
+    "href": "adv_06_Topology.html#de-8im-49-58-подмножество-de-4im",
+    "title": "Топологические отношения",
+    "section": "DE-8IM (49-58) подмножество DE-4IM",
+    "text": "DE-8IM (49-58) подмножество DE-4IM"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-8im-01-08-подмножество-de-4im",
+    "href": "adv_06_Topology.html#de-8im-01-08-подмножество-de-4im",
+    "title": "Топологические отношения",
+    "section": "DE-8IM (01-08) подмножество DE-4IM",
+    "text": "DE-8IM (01-08) подмножество DE-4IM"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-01-08-точки",
+    "href": "adv_06_Topology.html#de-48im-01-08-точки",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (01-08) точки",
+    "text": "DE-4/8IM (01-08) точки"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-09-11-полигоны",
+    "href": "adv_06_Topology.html#de-48im-09-11-полигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (09-11) полигоны",
+    "text": "DE-4/8IM (09-11) полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-12-14-полигоны",
+    "href": "adv_06_Topology.html#de-48im-12-14-полигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (12-14) полигоны",
+    "text": "DE-4/8IM (12-14) полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-15-17-полигоны",
+    "href": "adv_06_Topology.html#de-48im-15-17-полигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (15-17) полигоны",
+    "text": "DE-4/8IM (15-17) полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-09-17-полигоны",
+    "href": "adv_06_Topology.html#de-48im-09-17-полигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (09-17) полигоны",
+    "text": "DE-4/8IM (09-17) полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-18-25-полигонылинии",
+    "href": "adv_06_Topology.html#de-48im-18-25-полигонылинии",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (18-25) полигоны/линии",
+    "text": "DE-4/8IM (18-25) полигоны/линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-18-25-линииполигоны",
+    "href": "adv_06_Topology.html#de-48im-18-25-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (18-25) линии/полигоны",
+    "text": "DE-4/8IM (18-25) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-26-33-линииполигоны",
+    "href": "adv_06_Topology.html#de-48im-26-33-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (26-33) линии/полигоны",
+    "text": "DE-4/8IM (26-33) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-34-43-линииполигоны",
+    "href": "adv_06_Topology.html#de-48im-34-43-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (34-43) линии/полигоны",
+    "text": "DE-4/8IM (34-43) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-44-48-линииполигоны",
+    "href": "adv_06_Topology.html#de-48im-44-48-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (44-48) линии/полигоны",
+    "text": "DE-4/8IM (44-48) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-49-58-линии",
+    "href": "adv_06_Topology.html#de-48im-49-58-линии",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (49-58) линии",
+    "text": "DE-4/8IM (49-58) линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-59-69-линии",
+    "href": "adv_06_Topology.html#de-48im-59-69-линии",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (59-69) линии",
+    "text": "DE-4/8IM (59-69) линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-70-78-линии",
+    "href": "adv_06_Topology.html#de-48im-70-78-линии",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (70-78) линии",
+    "text": "DE-4/8IM (70-78) линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-48im-70-78-линии-1",
+    "href": "adv_06_Topology.html#de-48im-70-78-линии-1",
+    "title": "Топологические отношения",
+    "section": "DE-4/8IM (70-78) линии",
+    "text": "DE-4/8IM (70-78) линии"
   }
 ]
