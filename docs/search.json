@@ -6052,7 +6052,7 @@
     "href": "adv_06_Topology.html#определения",
     "title": "Топологические отношения",
     "section": "Определения",
-    "text": "Определения\nГраница\n\n\\(\\partial P\\): граница точки всегда пуста (\\(\\partial P = \\varnothing\\))\n\\(\\partial L\\): граница линии состоит из ее конечных точек или пуста если линия замкнута\n\\(\\partial A\\): граница полигона состоит из кривых, представляющих его предельные точки\n\nВнутренность произвольного объекта \\(\\lambda\\) определяется как:\n\\[\n\\lambda^\\circ = \\lambda - \\partial \\lambda\n\\]\nВнешняя область произвольного объекта \\(\\lambda\\) определяется как:\n\\[\n\\lambda^\\circ = \\mathbb R^2 - \\lambda\n\\]"
+    "text": "Определения\nГраница\n\n\\(\\partial P\\): граница точки всегда пуста (\\(\\partial P = \\varnothing\\))\n\\(\\partial L\\): граница линии состоит из ее конечных точек или пуста если линия замкнута\n\\(\\partial A\\): граница полигона состоит из кривых, представляющих его предельные точки\n\nВнутренность произвольного объекта \\(\\lambda\\) определяется как:\n\\[\n\\lambda^\\circ = \\lambda - \\partial \\lambda\n\\]\nВнешняя область произвольного объекта \\(\\lambda\\) определяется как:\n\\[\n\\lambda^- = \\mathbb R^2 - \\lambda\n\\]"
   },
   {
     "objectID": "adv_06_Topology.html#подсчет-реальных-комбинаций",
@@ -6088,5 +6088,75 @@
     "title": "Топологические отношения",
     "section": "Модель 9-п. с размерностью DE-9IM",
     "text": "Модель 9-п. с размерностью DE-9IM\n\nАнализ пересечений внутренней области, границы и внешней области двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nРазмерность пересечения может быть \\(-, 0, 1, 2\\), что дает \\(4^9 =262144\\) комбинаций.\n\nКаждая комбинация представляется в виде матрицы пересечений\n\\[\nM=\\begin{pmatrix}\n\\dim(\\lambda_1^\\circ  \\cap \\lambda_2^\\circ) & \\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) & \\dim(\\lambda_1^\\circ \\cap \\lambda_2^-) \\\\\n\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ) & \\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2) & \\dim(\\partial \\lambda_1 \\cap \\lambda_2^-) \\\\\n\\dim(\\lambda_1^-  \\cap \\lambda_2^\\circ) & \\dim(\\lambda_1^- \\cap \\partial \\lambda_2) & \\dim(\\lambda_1^- \\cap \\lambda_2^-)\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-01-08-точки",
+    "href": "adv_06_Topology.html#de-49im-01-08-точки",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (01-08) точки",
+    "text": "DE-4/9IM (01-08) точки"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-09-17-полигоны",
+    "href": "adv_06_Topology.html#de-49im-09-17-полигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (09-17) полигоны",
+    "text": "DE-4/9IM (09-17) полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-18-25-линииполигоны",
+    "href": "adv_06_Topology.html#de-49im-18-25-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (18-25) линии/полигоны",
+    "text": "DE-4/9IM (18-25) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-26-33-линииполигоны",
+    "href": "adv_06_Topology.html#de-49im-26-33-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (26-33) линии/полигоны",
+    "text": "DE-4/9IM (26-33) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-34-43-линииполигоны",
+    "href": "adv_06_Topology.html#de-49im-34-43-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (34-43) линии/полигоны",
+    "text": "DE-4/9IM (34-43) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-44-48-линииполигоны",
+    "href": "adv_06_Topology.html#de-49im-44-48-линииполигоны",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (44-48) линии/полигоны",
+    "text": "DE-4/9IM (44-48) линии/полигоны"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-49-58-линии",
+    "href": "adv_06_Topology.html#de-49im-49-58-линии",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (49-58) линии",
+    "text": "DE-4/9IM (49-58) линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-59-69-линии",
+    "href": "adv_06_Topology.html#de-49im-59-69-линии",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (59-69) линии",
+    "text": "DE-4/9IM (59-69) линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-70-78-линии",
+    "href": "adv_06_Topology.html#de-49im-70-78-линии",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (70-78) линии",
+    "text": "DE-4/9IM (70-78) линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#de-49im-79-81-линии",
+    "href": "adv_06_Topology.html#de-49im-79-81-линии",
+    "title": "Топологические отношения",
+    "section": "DE-4/9IM (79-81) линии",
+    "text": "DE-4/9IM (79-81) линии"
   }
 ]
