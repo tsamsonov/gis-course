@@ -6158,5 +6158,19 @@
     "title": "Топологические отношения",
     "section": "DE-4/9IM (79-81) линии",
     "text": "DE-4/9IM (79-81) линии"
+  },
+  {
+    "objectID": "adv_06_Topology.html#calculus-based-model-cbm",
+    "href": "adv_06_Topology.html#calculus-based-model-cbm",
+    "title": "Топологические отношения",
+    "section": "Calculus-based model (CBM)",
+    "text": "Calculus-based model (CBM)\nБазируется на 5 отношениях и операторах границы для полигона (\\(A\\)) и линии (\\(L\\)).\n\n\n\n\n\n\n\n\\(\\langle\\lambda_1, touch, \\lambda_2\\rangle\\)\n\\((\\lambda_1^\\circ \\cap \\lambda_2^\\circ = \\varnothing) \\land (\\lambda_1 \\cap \\lambda_2 \\neq \\varnothing)\\)\n\n\n\\(\\langle\\lambda_1, in, \\lambda_2\\rangle\\)\n\\((\\lambda_1^\\circ \\cap \\lambda_2^\\circ \\neq \\varnothing) \\land (\\lambda_1 \\cap \\lambda_2 = \\lambda_1)\\)\n\n\n\\(\\langle\\lambda_1, cross, \\lambda_2\\rangle\\)\n\\((\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = \\max(\\dim(\\lambda_1^\\circ), \\dim(\\lambda_2^\\circ)) - 1)\\\\\\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_1) \\land (\\lambda_1 \\cap \\lambda_2 = \\lambda_2)\\)\n\n\n\\(\\langle\\lambda_1, overlap, \\lambda_2\\rangle\\)\n\\((\\dim(\\lambda_1^\\circ) = \\dim(\\lambda_2^\\circ) = \\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ))\\\\\\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_1) \\land (\\lambda_1 \\cap \\lambda_2 = \\lambda_2)\\)\n\n\n\\(\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\n\\(\\lambda_1 \\cap \\lambda_2 = \\varnothing\\)\n\n\n\\((A, b)\\)\n\\(\\partial A\\)\n\n\n\\((L, f), (L, t)\\)\n\\(\\partial L = \\{f, t\\}\\)\n\n\n\\(\\lambda\\)\n\\(A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)\\)"
+  },
+  {
+    "objectID": "adv_06_Topology.html#эквивалентность-cbm-и-de-9im",
+    "href": "adv_06_Topology.html#эквивалентность-cbm-и-de-9im",
+    "title": "Топологические отношения",
+    "section": "Эквивалентность CBM и DE-9IM",
+    "text": "Эквивалентность CBM и DE-9IM\nМожно доказать эквивалентность моделей CBM и DE-9IM, расписав каждое отношение в прямую и обратную сторону.\n\\[\n\\color{red}{\\langle\\lambda_1, touch, \\lambda_2\\rangle} \\Leftrightarrow \\Big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = -\\Big) \\\\ \\land \\Big(\\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ) \\neq -\\big) \\lor \\big(\\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) \\neq - \\big) \\lor \\big(\\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2) \\neq -\\big)\\Big)\n\\]\n\\[\n\\color{red}{\\langle\\lambda_1, in, \\lambda_2\\rangle} \\Leftrightarrow \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) \\neq -\\big) \\\\ \\land \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^-) = -\\big) \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^-) = - \\big)\n\\]"
   }
 ]

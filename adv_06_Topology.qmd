@@ -62,7 +62,7 @@ mainfont: PT Sans
 Функция $\dim(S)$ применительно к произвольному множеству точек $S$ дает следующие значения:
 
 |     |                                                                      |
-|-----|----------------------------------------------------------------------|
+|------------|------------------------------------------------------------|
 | $-$ | если $S = \varnothing$                                               |
 | $0$ | если $S$ содержит хотя бы одну точку и не содержит линий и полигонов |
 | $1$ | если $S$ содержит хотя бы одну линию и не содержит полигонов         |
@@ -326,5 +326,32 @@ $$
 ## **DE-4/9IM (79-81) линии**
 
 ![](images/DE-8IM_79-81.svg){width="100%"}
+
+## Calculus-based model (CBM)
+
+Базируется на 5 отношениях и операторах границы для полигона ($A$) и линии ($L$).
+
+|                                                |                                                                                                                                                                                                       |
+|-----------------|-------------------------------------------------------|
+| $\langle\lambda_1, touch, \lambda_2\rangle$    | $(\lambda_1^\circ \cap \lambda_2^\circ = \varnothing) \land (\lambda_1 \cap \lambda_2 \neq \varnothing)$                                                                                              |
+| $\langle\lambda_1, in, \lambda_2\rangle$       | $(\lambda_1^\circ \cap \lambda_2^\circ \neq \varnothing) \land (\lambda_1 \cap \lambda_2 = \lambda_1)$                                                                                                |
+| $\langle\lambda_1, cross, \lambda_2\rangle$    | $(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)) - 1)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 = \lambda_2)$ |
+| $\langle\lambda_1, overlap, \lambda_2\rangle$  | $(\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ))\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 = \lambda_2)$          |
+| $\langle\lambda_1, disjoint, \lambda_2\rangle$ | $\lambda_1 \cap \lambda_2 = \varnothing$                                                                                                                                                              |
+| $(A, b)$                                       | $\partial A$                                                                                                                                                                                          |
+| $(L, f), (L, t)$                               | $\partial L = \{f, t\}$                                                                                                                                                                               |
+| $\lambda$                                      | $A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)$                                                                                                                                                                   |
+
+## Эквивалентность CBM и DE-9IM
+
+Можно доказать эквивалентность моделей CBM и DE-9IM, расписав каждое отношение в прямую и обратную сторону.
+
+$$
+\color{red}{\langle\lambda_1, touch, \lambda_2\rangle} \Leftrightarrow \Big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = -\Big) \\ \land \Big(\big(\dim(\partial \lambda_1 \cap \lambda_2^\circ) \neq -\big) \lor \big(\dim(\lambda_1^\circ \cap \partial \lambda_2) \neq - \big) \lor \big(\dim(\partial \lambda_1 \cap \partial \lambda_2) \neq -\big)\Big)
+$$
+
+$$
+\color{red}{\langle\lambda_1, in, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq -\big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = -\big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big)
+$$
 
 ## Библиография
