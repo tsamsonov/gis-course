@@ -915,14 +915,64 @@ M=\begin{pmatrix}
 </tbody>
 </table>
 </section>
-<section id="эквивалентность-cbm-и-de-9im" class="slide level2">
-<h2>Эквивалентность CBM и DE-9IM</h2>
-<p>Можно доказать эквивалентность моделей CBM и DE-9IM, расписав каждое отношение в прямую и обратную сторону.</p>
+<section id="cbm-и-de-9im-touch-in" class="slide level2">
+<h2>CBM и DE-9IM (touch, in)</h2>
+<p>Можно доказать эквивалентность моделей <strong>CBM</strong> и <strong>DE-9IM</strong>, расписав каждое отношение в прямую и обратную сторону.</p>
 <p><span class="math display">\[
 \color{red}{\langle\lambda_1, touch, \lambda_2\rangle} \Leftrightarrow \Big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = -\Big) \\ \land \Big(\big(\dim(\partial \lambda_1 \cap \lambda_2^\circ) \neq -\big) \lor \big(\dim(\lambda_1^\circ \cap \partial \lambda_2) \neq - \big) \lor \big(\dim(\partial \lambda_1 \cap \partial \lambda_2) \neq -\big)\Big)
 \]</span></p>
 <p><span class="math display">\[
 \color{red}{\langle\lambda_1, in, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq -\big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = -\big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big)
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратите внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Для определения отношений <strong>touch</strong> и <strong>in</strong> не требуется уточнять топологическую размерность геометрии</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cbm-и-de-9im-cross-overlap" class="slide level2">
+<h2>CBM и DE-9IM (cross, overlap)</h2>
+<p><span class="math display">\[
+\color{red}{\langle L, cross, A\rangle} \Leftrightarrow \big(\dim(L^\circ \cap A^\circ) \neq -\big) \land \big(\dim(L^\circ \cap A^-) \neq -\big)
+\]</span></p>
+<p><span class="math display">\[
+\color{red}{\langle L_1, cross, L_2\rangle} \Leftrightarrow \dim(L_1^\circ \cap L_2^\circ) = 0
+\]</span></p>
+<p><span class="math display">\[
+\color{red}{\langle A_1, overlap, A_2\rangle} \Leftrightarrow \big(\dim(A_1^\circ \cap A_2^\circ) \neq -\big) \\ \land \big(\dim(A_1^\circ \cap A_2^-) \neq -\big) \land \big(\dim(A_1^- \cap A_2^\circ) \neq - \big)
+\]</span></p>
+<p><span class="math display">\[
+\color{red}{\langle L_1, overlap, L_2\rangle} \Leftrightarrow \big(\dim(L_1^\circ \cap L_2^\circ) = 1 \big) \\ \land \big(\dim(L_1^\circ \cap L_2^-) \neq -\big) \land \big(\dim(L_1^- \cap L_2^\circ) \neq - \big)
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратите внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Отношение <strong>cross</strong> определено только для линий. Отношение <strong>overlap</strong> определено для геометрий одинаковой топологической размерности (но не точек).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="cbm-и-de-9im-disjoint-equals" class="slide level2">
+<h2>CBM и DE-9IM (disjoint, equals)</h2>
+<p><span class="math display">\[
+\color{red}{\langle\lambda_1, disjoint, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = -\big) \\ \land \big(\dim(\partial \lambda_1 \cap \lambda_2^\circ) = -\big) \land \big(\dim(\lambda_1^\circ \cap \partial \lambda_2) = - \big) \land \big(\dim(\partial \lambda_1 \cap \partial \lambda_2) = -\big)
+\]</span></p>
+<p><span class="math display">\[
+\color{red}{\langle L_1, cross, L_2\rangle} \Leftrightarrow \dim(L_1^\circ \cap L_2^\circ) = 0
 \]</span></p>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">

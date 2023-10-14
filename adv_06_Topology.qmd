@@ -342,9 +342,9 @@ $$
 | $(L, f), (L, t)$                               | $\partial L = \{f, t\}$                                                                                                                                                                               |
 | $\lambda$                                      | $A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)$                                                                                                                                                                   |
 
-## Эквивалентность CBM и DE-9IM
+## CBM и DE-9IM (touch, in)
 
-Можно доказать эквивалентность моделей CBM и DE-9IM, расписав каждое отношение в прямую и обратную сторону.
+Можно доказать эквивалентность моделей **CBM** и **DE-9IM**, расписав каждое отношение в прямую и обратную сторону.
 
 $$
 \color{red}{\langle\lambda_1, touch, \lambda_2\rangle} \Leftrightarrow \Big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = -\Big) \\ \land \Big(\big(\dim(\partial \lambda_1 \cap \lambda_2^\circ) \neq -\big) \lor \big(\dim(\lambda_1^\circ \cap \partial \lambda_2) \neq - \big) \lor \big(\dim(\partial \lambda_1 \cap \partial \lambda_2) \neq -\big)\Big)
@@ -352,6 +352,46 @@ $$
 
 $$
 \color{red}{\langle\lambda_1, in, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq -\big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = -\big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big)
+$$
+
+::: callout-note
+## Обратите внимание
+
+Для определения отношений **touch** и **in** не требуется уточнять топологическую размерность геометрии
+:::
+
+## CBM и DE-9IM (cross, overlap)
+
+$$
+\color{red}{\langle L, cross, A\rangle} \Leftrightarrow \big(\dim(L^\circ \cap A^\circ) \neq -\big) \land \big(\dim(L^\circ \cap A^-) \neq -\big)
+$$
+
+$$
+\color{red}{\langle L_1, cross, L_2\rangle} \Leftrightarrow \dim(L_1^\circ \cap L_2^\circ) = 0
+$$
+
+$$
+\color{red}{\langle A_1, overlap, A_2\rangle} \Leftrightarrow \big(\dim(A_1^\circ \cap A_2^\circ) \neq -\big) \\ \land \big(\dim(A_1^\circ \cap A_2^-) \neq -\big) \land \big(\dim(A_1^- \cap A_2^\circ) \neq - \big)
+$$
+
+$$
+\color{red}{\langle L_1, overlap, L_2\rangle} \Leftrightarrow \big(\dim(L_1^\circ \cap L_2^\circ) = 1 \big) \\ \land \big(\dim(L_1^\circ \cap L_2^-) \neq -\big) \land \big(\dim(L_1^- \cap L_2^\circ) \neq - \big)
+$$
+
+::: callout-note
+## Обратите внимание
+
+Отношение **cross** определено только для линий. Отношение **overlap** определено для геометрий одинаковой топологической размерности (но не точек).
+:::
+
+## CBM и DE-9IM (disjoint, equals)
+
+$$
+\color{red}{\langle\lambda_1, disjoint, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = -\big) \\ \land \big(\dim(\partial \lambda_1 \cap \lambda_2^\circ) = -\big) \land \big(\dim(\lambda_1^\circ \cap \partial \lambda_2) = - \big) \land \big(\dim(\partial \lambda_1 \cap \partial \lambda_2) = -\big)
+$$
+
+$$
+\color{red}{\langle L_1, cross, L_2\rangle} \Leftrightarrow \dim(L_1^\circ \cap L_2^\circ) = 0
 $$
 
 ## Библиография
