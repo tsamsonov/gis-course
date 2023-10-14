@@ -390,8 +390,30 @@ $$
 \color{red}{\langle\lambda_1, disjoint, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = -\big) \\ \land \big(\dim(\partial \lambda_1 \cap \lambda_2^\circ) = -\big) \land \big(\dim(\lambda_1^\circ \cap \partial \lambda_2) = - \big) \land \big(\dim(\partial \lambda_1 \cap \partial \lambda_2) = -\big)
 $$
 
+Отношение **equals** в модели CBM не определено, но его можно развернуть следующим образом:
+
 $$
-\color{red}{\langle L_1, cross, L_2\rangle} \Leftrightarrow \dim(L_1^\circ \cap L_2^\circ) = 0
+\color{red}{\langle \lambda_1, equals, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq - \big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = - \big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big) \\ \land \big(\dim(\lambda_1^- \cap \lambda_2^\circ) = - \big) \land \big(\dim(\lambda_1^- \cap \partial \lambda_2) = - \big)
 $$
+
+## CBM и DE-9IM (частные случаи)
+
+**Граница полигона внутри другого объекта (без уточнения размерности)**
+
+$$
+\color{blue}{\langle (A, b), in, \lambda\rangle} \Leftrightarrow \big( \dim(\partial A \cap \lambda^\circ) \neq - \big) \land \big(\dim(\partial A \cap \lambda^-) \neq - \big) \\ \Leftrightarrow \Big(\dim\big((\partial A)^\circ \cap \lambda^\circ \big) \neq - \Big) \land \Big(\dim\big((\partial A)^\circ \cap \lambda^- \big) = - \Big) \land \Big(\dim\big(\partial(\partial A) \cap \lambda^- \big) = - \Big)
+$$
+
+**Одна граничная точка линии касается полигона, а вторая нет**
+
+$$
+\color{blue}{\langle (L, f), touch, A \rangle \land \langle (L, t), disjoint, A \rangle} \\ \Leftrightarrow \big( \dim(\partial L \cap \partial A) = 0 \big) \land \big( \dim (\partial L \cap A^-) = 0 \big)
+$$
+
+::: callout-tip
+## А остальные?
+
+Аналогичным образом можно определить эквивалентность моделей для каждого из 81 случая модели DE-8IM, а также их генерализаций DE-4IM.
+:::
 
 ## Библиография
