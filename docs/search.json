@@ -6227,7 +6227,7 @@
     "href": "adv_06_Topology.html#дополнительные-функции-postgis",
     "title": "Топологические отношения",
     "section": "Дополнительные функции PostGIS",
-    "text": "Дополнительные функции PostGIS\nДополнительно к этому в PostGIS определены новые функции\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nPostGIS\n\n\n\n\nST_CoveredBy\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle \\lor \\langle \\color{red}{\\lambda_1}, in, \\color{blue}{(\\lambda_2,b)}\\rangle\\)\n✓\n\n\nST_Covers\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\lor \\langle \\color{blue}{\\lambda_2}, in, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓\n\n\nST_ContainsProperly\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\land \\langle \\color{blue}{\\lambda_2}, disjoint, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓"
+    "text": "Дополнительные функции PostGIS\nДополнительно к ST_Contains в PostGIS определены функции:\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nPostGIS\n\n\n\n\nST_CoveredBy\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle \\lor \\langle \\color{red}{\\lambda_1}, in, \\color{blue}{(\\lambda_2,b)}\\rangle\\)\n✓\n\n\nST_Covers\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\lor \\langle \\color{blue}{\\lambda_2}, in, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓\n\n\nST_ContainsProperly\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\land \\langle \\color{blue}{\\lambda_2}, disjoint, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓"
   },
   {
     "objectID": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial-1",
@@ -6242,5 +6242,12 @@
     "title": "Топологические отношения",
     "section": "Геометрическое равенство",
     "text": "Геометрическое равенство\nГеометрическое равенство означает, что геометрии совпадают с точностью до внутреннего представления."
+  },
+  {
+    "objectID": "adv_06_Topology.html#contains-containsproperly-covers",
+    "href": "adv_06_Topology.html#contains-containsproperly-covers",
+    "title": "Топологические отношения",
+    "section": "Contains, ContainsProperly, Covers",
+    "text": "Contains, ContainsProperly, Covers\nДанные топологические отношения различаются следующим образом:\n\n\n\n\n\n\n\n\nФункция\nМножества\nПояснение\n\n\n\n\nST_Contains\n\\(\\lambda_2^\\circ \\subset \\lambda_1^\\circ\\)\nвнутренность второго объекта располагается во внутренности первого\n\n\nST_ContainsProperly\n\\(\\lambda_2 \\subset \\lambda_1^\\circ\\)\nвторой объект располагается во внутренности первого\n\n\nST_Covers\n\\(\\lambda_2 \\subset \\lambda_1\\)\nвторой объект располагается внутри первого"
   }
 ]

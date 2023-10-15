@@ -1108,7 +1108,7 @@ M=\begin{pmatrix}
 <img data-src="images/ST_CrossesWithinContainsOverlaps.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-12" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="дополнительные-функции-postgis" class="slide level2">
 <h2>Дополнительные функции PostGIS</h2>
-<p>Дополнительно к этому в PostGIS определены новые функции</p>
+<p>Дополнительно к <code>ST_Contains</code> в PostGIS определены функции:</p>
 <table>
 <colgroup>
 <col style="width: 27%">
@@ -1137,6 +1137,42 @@ M=\begin{pmatrix}
 <td><code>ST_ContainsProperly</code></td>
 <td><span class="math inline">\(\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \land \langle \color{blue}{\lambda_2}, disjoint, \color{red}{(\lambda_1,b)}\rangle\)</span></td>
 <td>✓</td>
+</tr>
+</tbody>
+</table>
+
+<img data-src="images/ST_CoversContainsProperly.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-13" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="contains-containsproperly-covers" class="slide level2">
+<h2>Contains, ContainsProperly, Covers</h2>
+<p>Данные топологические отношения различаются следующим образом:</p>
+<table>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 16%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Функция</th>
+<th>Множества</th>
+<th>Пояснение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ST_Contains</code></td>
+<td><span class="math inline">\(\lambda_2^\circ \subset \lambda_1^\circ\)</span></td>
+<td>внутренность второго объекта располагается во внутренности первого</td>
+</tr>
+<tr class="even">
+<td><code>ST_ContainsProperly</code></td>
+<td><span class="math inline">\(\lambda_2 \subset \lambda_1^\circ\)</span></td>
+<td>второй объект располагается во внутренности первого</td>
+</tr>
+<tr class="odd">
+<td><code>ST_Covers</code></td>
+<td><span class="math inline">\(\lambda_2 \subset \lambda_1\)</span></td>
+<td>второй объект располагается внутри первого</td>
 </tr>
 </tbody>
 </table>

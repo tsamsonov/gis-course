@@ -444,13 +444,25 @@ $$
 
 ## Дополнительные функции PostGIS
 
-Дополнительно к этому в PostGIS определены новые функции
+Дополнительно к `ST_Contains` в PostGIS определены функции:
 
 | Функция               | CBM / DE-8IM                                                                                                                                            | PostGIS |
 |--------------------|---------------------------------|--------------------|
 | `ST_CoveredBy`        | $\langle \color{red}{\lambda_1}, in, \color{blue}{\lambda_2}\rangle \lor \langle \color{red}{\lambda_1}, in, \color{blue}{(\lambda_2,b)}\rangle$        | ✓       |
 | `ST_Covers`           | $\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \lor \langle \color{blue}{\lambda_2}, in, \color{red}{(\lambda_1,b)}\rangle$        | ✓       |
 | `ST_ContainsProperly` | $\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \land \langle \color{blue}{\lambda_2}, disjoint, \color{red}{(\lambda_1,b)}\rangle$ | ✓       |
+
+![](images/ST_CoversContainsProperly.svg){width="100%"}
+
+## Contains, ContainsProperly, Covers
+
+Данные топологические отношения различаются следующим образом:
+
+| Функция               | Множества                                 | Пояснение                                                          |
+|--------------------|------------|-----------------------------------------|
+| `ST_Contains`         | $\lambda_2^\circ \subset \lambda_1^\circ$ | внутренность второго объекта располагается во внутренности первого |
+| `ST_ContainsProperly` | $\lambda_2 \subset \lambda_1^\circ$       | второй объект располагается во внутренности первого                |
+| `ST_Covers`           | $\lambda_2 \subset \lambda_1$             | второй объект располагается внутри первого                         |
 
 ## Геометрическое равенство
 
