@@ -6248,6 +6248,27 @@
     "href": "adv_06_Topology.html#contains-containsproperly-covers",
     "title": "Топологические отношения",
     "section": "Contains, ContainsProperly, Covers",
-    "text": "Contains, ContainsProperly, Covers\nДанные топологические отношения различаются следующим образом:\n\n\n\n\n\n\n\n\nФункция\nМножества\nПояснение\n\n\n\n\nST_Contains\n\\(\\lambda_2^\\circ \\subset \\lambda_1^\\circ\\)\nвнутренность второго объекта располагается во внутренности первого\n\n\nST_ContainsProperly\n\\(\\lambda_2 \\subset \\lambda_1^\\circ\\)\nвторой объект располагается во внутренности первого\n\n\nST_Covers\n\\(\\lambda_2 \\subset \\lambda_1\\)\nвторой объект располагается внутри первого"
+    "text": "Contains, ContainsProperly, Covers\nДанные топологические отношения различаются следующим образом:\n\n\n\n\n\n\n\n\nФункция\nМножества\nПояснение\n\n\n\n\nST_Contains\n\\(\\lambda_2^\\circ \\subset \\lambda_1^\\circ\\)\nвнутренность второго объекта располагается во внутренности первого\n\n\nST_ContainsProperly\n\\(\\lambda_2 \\subset \\lambda_1^\\circ\\)\nвторой объект располагается во внутренности первого\n\n\nST_Covers\n\\(\\lambda_2 \\subset \\lambda_1\\)\nвторой объект располагается в первом\n\n\n\n\n\n\n\n\n\nНо разница проявляется в области границы\n\n\n\n\n\n\n\n\n\n\n\n\nЧтобы найти линию, целиком совпадающую с границей полигона, нужно использовать ST_Covers. Она не располагается внутри полигона (ST_Contains и ST_ContainsProperly дадут ложь) и при этом полигон имеет пересечение с внутренностью линии (ST_Touches тоже даст ложь)."
+  },
+  {
+    "objectID": "adv_06_Topology.html#пространственное-и-геометрическое-равенство",
+    "href": "adv_06_Topology.html#пространственное-и-геометрическое-равенство",
+    "title": "Топологические отношения",
+    "section": "Пространственное и геометрическое равенство",
+    "text": "Пространственное и геометрическое равенство\nПространственное равенство означает, что геометрии совпадают на уровне множеств координат:\nSELECT ST_Equals(\n ST_GeomFromText('GEOMETRYCOLLECTION (POINT (1 2), POINT (2 3))'),\n ST_GeomFromText('MULTIPOINT ((1 2), (2 3))')\n)\nГеометрическое равенство означает, что геометрии совпадают с точностью до внутреннего представления.\nSELECT ST_OrderingEquals(\n ST_GeomFromText('GEOMETRYCOLLECTION (POINT (1 2), POINT (2 3))'),\n ST_GeomFromText('MULTIPOINT ((1 2), (2 3))')\n)\nST_OrderingEquals — дополнительная функция QGIS, которая позволяет установить факт геометрического равенства: ST_AsBinary(A) = ST_AsBinary(B)"
+  },
+  {
+    "objectID": "adv_06_Topology.html#равенство-геометрий",
+    "href": "adv_06_Topology.html#равенство-геометрий",
+    "title": "Топологические отношения",
+    "section": "Равенство геометрий",
+    "text": "Равенство геометрий\nПространственное равенство означает, что геометрии совпадают на уровне множеств координат:\nSELECT ST_Equals(\n ST_GeomFromText('GEOMETRYCOLLECTION (POINT (1 2), POINT (2 3))'),\n ST_GeomFromText('MULTIPOINT ((1 2), (2 3))')\n) -- true\nГеометрическое равенство означает, что геометрии совпадают с точностью до внутреннего представления.\nSELECT ST_OrderingEquals(\n ST_GeomFromText('GEOMETRYCOLLECTION (POINT (1 2), POINT (2 3))'),\n ST_GeomFromText('MULTIPOINT ((1 2), (2 3))')\n) -- false\nST_OrderingEquals — дополнительная функция PostGIS, которая позволяет установить факт геометрического равенства. Если не учитывать информацию о СК, ее вызов соответствует выражению ST_AsBinary(A) = ST_AsBinary(B)"
+  },
+  {
+    "objectID": "adv_06_Topology.html#st_relate-отношения-общего-вида",
+    "href": "adv_06_Topology.html#st_relate-отношения-общего-вида",
+    "title": "Топологические отношения",
+    "section": "ST_Relate: отношения общего вида",
+    "text": "ST_Relate: отношения общего вида\nСтандарт SQL/MM также предписывает необходимость наличия функции ST_Relate, которую можно использовать для:\n\nпроверки отношения на предмет соответствия заданному шаблону DE-9IM;\nвычисления фактической матрицы DE-9IM для заданных объектов.\n\n\n\n\n\n\n\n\n\nSQL/MM\nDE-9IM\nРасшифровка\n\n\n\n\nT\n\\(\\dim(S) \\neq -\\)\nПересечение существует\n\n\nF\n\\(\\dim(S) = -\\)\nПересечение не существует\n\n\n*\n—\nНаличие пересечения не имеет значения\n\n\n0\n\\(\\dim(S) = 0\\)\nПересечение существует и его размерность равна \\(0\\)\n\n\n1\n\\(\\dim(S) = 1\\)\nПересечение существует и его размерность равна \\(1\\)\n\n\n2\n\\(\\dim(S) = 2\\)\nПересечение существует и его размерность равна \\(2\\)"
   }
 ]

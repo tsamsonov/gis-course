@@ -1,0 +1,16 @@
+SELECT ST_OrderingEquals(
+ ST_GeomFromText('GEOMETRYCOLLECTION (POINT (1 2), POINT (2 3))'),
+ ST_GeomFromText('MULTIPOINT ((1 2), (2 3))')
+);
+
+SELECT 
+ ST_AsBinary(
+	ST_GeomFromText('GEOMETRYCOLLECTION (POINT (1 2), LINESTRING (2 3, 5 7))')
+ ) = ST_AsBinary(
+ 	ST_GeomFromText('GEOMETRYCOLLECTION (LINESTRING (2 3, 5 7), POINT (1 2))')
+ );
+ 
+SELECT ST_OrderingEquals(
+ ST_GeomFromText('GEOMETRYCOLLECTION (POINT (1 2), LINESTRING (2 3, 5 7))'),
+ ST_GeomFromText('GEOMETRYCOLLECTION (LINESTRING (2 3, 5 7), POINT (1 2))')
+);
