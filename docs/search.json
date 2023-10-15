@@ -6164,7 +6164,7 @@
     "href": "adv_06_Topology.html#calculus-based-model-cbm",
     "title": "Топологические отношения",
     "section": "Calculus-based model (CBM)",
-    "text": "Calculus-based model (CBM)\nБазируется на 5 отношениях и операторах границы для полигона (\\(A\\)) и линии (\\(L\\)).\n\n\n\n\n\n\n\n\\(\\langle\\lambda_1, touch, \\lambda_2\\rangle\\)\n\\((\\lambda_1^\\circ \\cap \\lambda_2^\\circ = \\varnothing) \\land (\\lambda_1 \\cap \\lambda_2 \\neq \\varnothing)\\)\n\n\n\\(\\langle\\lambda_1, in, \\lambda_2\\rangle\\)\n\\((\\lambda_1^\\circ \\cap \\lambda_2^\\circ \\neq \\varnothing) \\land (\\lambda_1 \\cap \\lambda_2 = \\lambda_1)\\)\n\n\n\\(\\langle\\lambda_1, cross, \\lambda_2\\rangle\\)\n\\((\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = \\max(\\dim(\\lambda_1^\\circ), \\dim(\\lambda_2^\\circ)) - 1)\\\\\\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_1) \\land (\\lambda_1 \\cap \\lambda_2 = \\lambda_2)\\)\n\n\n\\(\\langle\\lambda_1, overlap, \\lambda_2\\rangle\\)\n\\((\\dim(\\lambda_1^\\circ) = \\dim(\\lambda_2^\\circ) = \\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ))\\\\\\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_1) \\land (\\lambda_1 \\cap \\lambda_2 = \\lambda_2)\\)\n\n\n\\(\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\n\\(\\lambda_1 \\cap \\lambda_2 = \\varnothing\\)\n\n\n\\((A, b)\\)\n\\(\\partial A\\)\n\n\n\\((L, f), (L, t)\\)\n\\(\\partial L = \\{f, t\\}\\)\n\n\n\\(\\lambda\\)\n\\(A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)\\)"
+    "text": "Calculus-based model (CBM)\nБазируется на 5 отношениях и операторах границы для полигона (\\(A\\)) и линии (\\(L\\)).\n\n\n\n\n\n\n\n\\(\\langle\\lambda_1, touch, \\lambda_2\\rangle\\)\n\\((\\lambda_1^\\circ \\cap \\lambda_2^\\circ = \\varnothing) \\land (\\lambda_1 \\cap \\lambda_2 \\neq \\varnothing)\\)\n\n\n\\(\\langle\\lambda_1, in, \\lambda_2\\rangle\\)\n\\((\\lambda_1^\\circ \\cap \\lambda_2^\\circ \\neq \\varnothing) \\land (\\lambda_1 \\cap \\lambda_2 = \\lambda_1)\\)\n\n\n\\(\\langle\\lambda_1, cross, \\lambda_2\\rangle\\)\n\\((\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = \\max(\\dim(\\lambda_1^\\circ), \\dim(\\lambda_2^\\circ)) - 1)\\\\\\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_1) \\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_2)\\)\n\n\n\\(\\langle\\lambda_1, overlap, \\lambda_2\\rangle\\)\n\\((\\dim(\\lambda_1^\\circ) = \\dim(\\lambda_2^\\circ) = \\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ))\\\\\\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_1) \\land (\\lambda_1 \\cap \\lambda_2 \\neq \\lambda_2)\\)\n\n\n\\(\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\n\\(\\lambda_1 \\cap \\lambda_2 = \\varnothing\\)\n\n\n\\((A, b)\\)\n\\(\\partial A\\)\n\n\n\\((L, f), (L, t)\\)\n\\(\\partial L = \\{f, t\\}\\)\n\n\n\\(\\lambda\\)\n\\(A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)\\)"
   },
   {
     "objectID": "adv_06_Topology.html#эквивалентность-cbm-и-de-9im",
@@ -6206,7 +6206,7 @@
     "href": "adv_06_Topology.html#cbm-и-de-9im-disjoint-equals",
     "title": "Топологические отношения",
     "section": "CBM и DE-9IM (disjoint, equals)",
-    "text": "CBM и DE-9IM (disjoint, equals)\n\\[\n\\color{red}{\\langle\\lambda_1, disjoint, \\lambda_2\\rangle} \\Leftrightarrow \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = -\\big) \\\\ \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ) = -\\big) \\land \\big(\\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) = - \\big) \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2) = -\\big)\n\\]\nОтношение equals в модели CBM не определено, но его можно развернуть следующим образом:\n\\[\n\\color{red}{\\langle \\lambda_1, equals, \\lambda_2\\rangle} \\Leftrightarrow \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) \\neq - \\big) \\\\ \\land \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^-) = - \\big) \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^-) = - \\big) \\\\ \\land \\big(\\dim(\\lambda_1^- \\cap \\lambda_2^\\circ) = - \\big) \\land \\big(\\dim(\\lambda_1^- \\cap \\partial \\lambda_2) = - \\big)\n\\]"
+    "text": "CBM и DE-9IM (disjoint, equals)\n\\[\n\\color{red}{\\langle\\lambda_1, disjoint, \\lambda_2\\rangle} \\Leftrightarrow \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = -\\big) \\\\ \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ) = -\\big) \\land \\big(\\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) = - \\big) \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2) = -\\big)\n\\]\nОтношение equals в модели CBM не определено, но его можно развернуть следующим образом:\n\\[\n\\color{green}{\\langle \\lambda_1, equals, \\lambda_2\\rangle} \\Leftrightarrow \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) \\neq - \\big) \\\\ \\land \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^-) = - \\big) \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^-) = - \\big) \\\\ \\land \\big(\\dim(\\lambda_1^- \\cap \\lambda_2^\\circ) = - \\big) \\land \\big(\\dim(\\lambda_1^- \\cap \\partial \\lambda_2) = - \\big)\n\\]"
   },
   {
     "objectID": "adv_06_Topology.html#cbm-и-de-9im-частные-случаи",
@@ -6214,5 +6214,33 @@
     "title": "Топологические отношения",
     "section": "CBM и DE-9IM (частные случаи)",
     "text": "CBM и DE-9IM (частные случаи)\nГраница полигона внутри другого объекта (без уточнения размерности)\n\\[\n\\color{blue}{\\langle (A, b), in, \\lambda\\rangle} \\Leftrightarrow \\big( \\dim(\\partial A \\cap \\lambda^\\circ) \\neq - \\big) \\land \\big(\\dim(\\partial A \\cap \\lambda^-) \\neq - \\big) \\\\ \\Leftrightarrow \\Big(\\dim\\big((\\partial A)^\\circ \\cap \\lambda^\\circ \\big) \\neq - \\Big) \\land \\Big(\\dim\\big((\\partial A)^\\circ \\cap \\lambda^- \\big) = - \\Big) \\land \\Big(\\dim\\big(\\partial(\\partial A) \\cap \\lambda^- \\big) = - \\Big)\n\\]\nОдна граничная точка линии касается полигона, а вторая нет\n\\[\n\\color{blue}{\\langle (L, f), touch, A \\rangle \\land \\langle (L, t), disjoint, A \\rangle} \\\\ \\Leftrightarrow \\big( \\dim(\\partial L \\cap \\partial A) = 0 \\big) \\land \\big( \\dim (\\partial L \\cap A^-) = 0 \\big)\n\\]\n\n\n\n\n\n\nА остальные?\n\n\nАналогичным образом можно определить эквивалентность моделей для каждого из 81 случая модели DE-8IM, а также их генерализаций DE-4IM."
+  },
+  {
+    "objectID": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial",
+    "href": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial",
+    "title": "Топологические отношения",
+    "section": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial",
+    "text": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial\nВ стандарте определены SQL-функции для работы с пространственными данными:\n\n\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nOGC Simple Features\nSQL/MM\nPostGIS\n\n\n\n\nST_Equals\n\\(\\color{green}{\\langle\\lambda_1, equals, \\lambda_2\\rangle}\\)\na.Equals(b)\n✓\n✓\n\n\nST_Disjoint\n\\(\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\na.Disjoint(b)\n✓\n✓\n\n\nST_Intersects\n\\(\\lnot\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\na.Intersects(b)\n✓\n✓\n\n\nST_Touches\n\\(\\langle\\lambda_1, touch, \\lambda_2\\rangle\\)\na.Touches(b)\n✓\n✓"
+  },
+  {
+    "objectID": "adv_06_Topology.html#дополнительные-функции-postgis",
+    "href": "adv_06_Topology.html#дополнительные-функции-postgis",
+    "title": "Топологические отношения",
+    "section": "Дополнительные функции PostGIS",
+    "text": "Дополнительные функции PostGIS\nДополнительно к этому в PostGIS определены новые функции\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nPostGIS\n\n\n\n\nST_CoveredBy\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle \\lor \\langle \\color{red}{\\lambda_1}, in, \\color{blue}{(\\lambda_2,b)}\\rangle\\)\n✓\n\n\nST_Covers\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\lor \\langle \\color{blue}{\\lambda_2}, in, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓\n\n\nST_ContainsProperly\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\land \\langle \\color{blue}{\\lambda_2}, disjoint, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓"
+  },
+  {
+    "objectID": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial-1",
+    "href": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial-1",
+    "title": "Топологические отношения",
+    "section": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial",
+    "text": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial\nВ стандарте определены SQL-функции для работы с пространственными данными:\n\n\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nOGC Simple Features\nSQL/MM\nPostGIS\n\n\n\n\nST_Crosses\n\\(\\langle\\lambda_1, cross, \\lambda_2\\rangle\\)\na.Crosses(b)\n✓\n✓\n\n\nST_Within\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle\\)\na.Within(b)\n✓\n✓\n\n\nST_Contains\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle\\)\na.Contains(b)\n✓\n✓\n\n\nST_Overlaps\n\\(\\langle\\lambda_1, overlap, \\lambda_2\\rangle\\)\na.Overlaps(b)\n✓\n✓"
+  },
+  {
+    "objectID": "adv_06_Topology.html#геометрическое-равенство",
+    "href": "adv_06_Topology.html#геометрическое-равенство",
+    "title": "Топологические отношения",
+    "section": "Геометрическое равенство",
+    "text": "Геометрическое равенство\nГеометрическое равенство означает, что геометрии совпадают с точностью до внутреннего представления."
   }
 ]

@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">14 октября 2023 г.</p>
+  <p class="date">15 октября 2023 г.</p>
 </section>
 <section id="история-развития" class="slide level2">
 <h2>История развития</h2>
@@ -433,8 +433,8 @@
 <p>Функция <span class="math inline">\(\dim(S)\)</span> применительно к произвольному множеству точек <span class="math inline">\(S\)</span> дает следующие значения:</p>
 <table>
 <colgroup>
-<col style="width: 16%">
-<col style="width: 83%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -876,8 +876,8 @@ M=\begin{pmatrix}
 <p>Базируется на 5 отношениях и операторах границы для полигона (<span class="math inline">\(A\)</span>) и линии (<span class="math inline">\(L\)</span>).</p>
 <table>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -890,11 +890,11 @@ M=\begin{pmatrix}
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\langle\lambda_1, cross, \lambda_2\rangle\)</span></td>
-<td><span class="math inline">\((\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)) - 1)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 = \lambda_2)\)</span></td>
+<td><span class="math inline">\((\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)) - 1)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\langle\lambda_1, overlap, \lambda_2\rangle\)</span></td>
-<td><span class="math inline">\((\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ))\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 = \lambda_2)\)</span></td>
+<td><span class="math inline">\((\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ))\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\langle\lambda_1, disjoint, \lambda_2\rangle\)</span></td>
@@ -973,7 +973,7 @@ M=\begin{pmatrix}
 \]</span></p>
 <p>Отношение <strong>equals</strong> в модели CBM не определено, но его можно развернуть следующим образом:</p>
 <p><span class="math display">\[
-\color{red}{\langle \lambda_1, equals, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq - \big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = - \big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big) \\ \land \big(\dim(\lambda_1^- \cap \lambda_2^\circ) = - \big) \land \big(\dim(\lambda_1^- \cap \partial \lambda_2) = - \big)
+\color{green}{\langle \lambda_1, equals, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq - \big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = - \big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big) \\ \land \big(\dim(\lambda_1^- \cap \lambda_2^\circ) = - \big) \land \big(\dim(\lambda_1^- \cap \partial \lambda_2) = - \big)
 \]</span></p>
 </section>
 <section id="cbm-и-de-9im-частные-случаи" class="slide level2">
@@ -999,6 +999,151 @@ M=\begin{pmatrix}
 </div>
 </div>
 </div>
+</section>
+<section id="isoiec-132492016-sqlmm-part-3-spatial" class="slide level2">
+<h2>ISO/IEC 13249:2016 SQL/MM Part 3: Spatial</h2>
+<p>В стандарте определены SQL-функции для работы с пространственными данными:</p>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 27%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Функция</th>
+<th>CBM / DE-8IM</th>
+<th>OGC Simple Features</th>
+<th>SQL/MM</th>
+<th>PostGIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ST_Equals</code></td>
+<td><span class="math inline">\(\color{green}{\langle\lambda_1, equals, \lambda_2\rangle}\)</span></td>
+<td><code>a.Equals(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td><code>ST_Disjoint</code></td>
+<td><span class="math inline">\(\langle\lambda_1, disjoint, \lambda_2\rangle\)</span></td>
+<td><code>a.Disjoint(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td><code>ST_Intersects</code></td>
+<td><span class="math inline">\(\lnot\langle\lambda_1, disjoint, \lambda_2\rangle\)</span></td>
+<td><code>a.Intersects(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td><code>ST_Touches</code></td>
+<td><span class="math inline">\(\langle\lambda_1, touch, \lambda_2\rangle\)</span></td>
+<td><code>a.Touches(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+
+<img data-src="images/ST_EqualsDIsjointTouches.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-11" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="isoiec-132492016-sqlmm-part-3-spatial-1" class="slide level2">
+<h2>ISO/IEC 13249:2016 SQL/MM Part 3: Spatial</h2>
+<p>В стандарте определены SQL-функции для работы с пространственными данными:</p>
+<table>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 24%">
+<col style="width: 27%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Функция</th>
+<th>CBM / DE-8IM</th>
+<th>OGC Simple Features</th>
+<th>SQL/MM</th>
+<th>PostGIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ST_Crosses</code></td>
+<td><span class="math inline">\(\langle\lambda_1, cross, \lambda_2\rangle\)</span></td>
+<td><code>a.Crosses(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td><code>ST_Within</code></td>
+<td><span class="math inline">\(\langle \color{red}{\lambda_1}, in, \color{blue}{\lambda_2}\rangle\)</span></td>
+<td><code>a.Within(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td><code>ST_Contains</code></td>
+<td><span class="math inline">\(\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle\)</span></td>
+<td><code>a.Contains(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td><code>ST_Overlaps</code></td>
+<td><span class="math inline">\(\langle\lambda_1, overlap, \lambda_2\rangle\)</span></td>
+<td><code>a.Overlaps(b)</code></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+
+<img data-src="images/ST_CrossesWithinContainsOverlaps.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-12" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="дополнительные-функции-postgis" class="slide level2">
+<h2>Дополнительные функции PostGIS</h2>
+<p>Дополнительно к этому в PostGIS определены новые функции</p>
+<table>
+<colgroup>
+<col style="width: 27%">
+<col style="width: 45%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Функция</th>
+<th>CBM / DE-8IM</th>
+<th>PostGIS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>ST_CoveredBy</code></td>
+<td><span class="math inline">\(\langle \color{red}{\lambda_1}, in, \color{blue}{\lambda_2}\rangle \lor \langle \color{red}{\lambda_1}, in, \color{blue}{(\lambda_2,b)}\rangle\)</span></td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td><code>ST_Covers</code></td>
+<td><span class="math inline">\(\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \lor \langle \color{blue}{\lambda_2}, in, \color{red}{(\lambda_1,b)}\rangle\)</span></td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td><code>ST_ContainsProperly</code></td>
+<td><span class="math inline">\(\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \land \langle \color{blue}{\lambda_2}, disjoint, \color{red}{(\lambda_1,b)}\rangle\)</span></td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="геометрическое-равенство" class="slide level2">
+<h2>Геометрическое равенство</h2>
+<p><strong>Геометрическое равенство</strong> означает, что геометрии совпадают с точностью до внутреннего представления.</p>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>

@@ -62,7 +62,7 @@ mainfont: PT Sans
 Функция $\dim(S)$ применительно к произвольному множеству точек $S$ дает следующие значения:
 
 |     |                                                                      |
-|------------|------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | $-$ | если $S = \varnothing$                                               |
 | $0$ | если $S$ содержит хотя бы одну точку и не содержит линий и полигонов |
 | $1$ | если $S$ содержит хотя бы одну линию и не содержит полигонов         |
@@ -331,16 +331,16 @@ $$
 
 Базируется на 5 отношениях и операторах границы для полигона ($A$) и линии ($L$).
 
-|                                                |                                                                                                                                                                                                       |
-|-----------------|-------------------------------------------------------|
-| $\langle\lambda_1, touch, \lambda_2\rangle$    | $(\lambda_1^\circ \cap \lambda_2^\circ = \varnothing) \land (\lambda_1 \cap \lambda_2 \neq \varnothing)$                                                                                              |
-| $\langle\lambda_1, in, \lambda_2\rangle$       | $(\lambda_1^\circ \cap \lambda_2^\circ \neq \varnothing) \land (\lambda_1 \cap \lambda_2 = \lambda_1)$                                                                                                |
-| $\langle\lambda_1, cross, \lambda_2\rangle$    | $(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)) - 1)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 = \lambda_2)$ |
-| $\langle\lambda_1, overlap, \lambda_2\rangle$  | $(\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ))\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 = \lambda_2)$          |
-| $\langle\lambda_1, disjoint, \lambda_2\rangle$ | $\lambda_1 \cap \lambda_2 = \varnothing$                                                                                                                                                              |
-| $(A, b)$                                       | $\partial A$                                                                                                                                                                                          |
-| $(L, f), (L, t)$                               | $\partial L = \{f, t\}$                                                                                                                                                                               |
-| $\lambda$                                      | $A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)$                                                                                                                                                                   |
+|                                                |                                                                                                                                                                                                          |
+|------------------|------------------------------------------------------|
+| $\langle\lambda_1, touch, \lambda_2\rangle$    | $(\lambda_1^\circ \cap \lambda_2^\circ = \varnothing) \land (\lambda_1 \cap \lambda_2 \neq \varnothing)$                                                                                                 |
+| $\langle\lambda_1, in, \lambda_2\rangle$       | $(\lambda_1^\circ \cap \lambda_2^\circ \neq \varnothing) \land (\lambda_1 \cap \lambda_2 = \lambda_1)$                                                                                                   |
+| $\langle\lambda_1, cross, \lambda_2\rangle$    | $(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)) - 1)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)$ |
+| $\langle\lambda_1, overlap, \lambda_2\rangle$  | $(\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ))\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)$          |
+| $\langle\lambda_1, disjoint, \lambda_2\rangle$ | $\lambda_1 \cap \lambda_2 = \varnothing$                                                                                                                                                                 |
+| $(A, b)$                                       | $\partial A$                                                                                                                                                                                             |
+| $(L, f), (L, t)$                               | $\partial L = \{f, t\}$                                                                                                                                                                                  |
+| $\lambda$                                      | $A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)$                                                                                                                                                                      |
 
 ## CBM и DE-9IM (touch, in)
 
@@ -393,7 +393,7 @@ $$
 Отношение **equals** в модели CBM не определено, но его можно развернуть следующим образом:
 
 $$
-\color{red}{\langle \lambda_1, equals, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq - \big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = - \big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big) \\ \land \big(\dim(\lambda_1^- \cap \lambda_2^\circ) = - \big) \land \big(\dim(\lambda_1^- \cap \partial \lambda_2) = - \big)
+\color{green}{\langle \lambda_1, equals, \lambda_2\rangle} \Leftrightarrow \big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) \neq - \big) \\ \land \big(\dim(\lambda_1^\circ \cap \lambda_2^-) = - \big) \land \big(\dim(\partial \lambda_1 \cap \lambda_2^-) = - \big) \\ \land \big(\dim(\lambda_1^- \cap \lambda_2^\circ) = - \big) \land \big(\dim(\lambda_1^- \cap \partial \lambda_2) = - \big)
 $$
 
 ## CBM и DE-9IM (частные случаи)
@@ -415,5 +415,45 @@ $$
 
 Аналогичным образом можно определить эквивалентность моделей для каждого из 81 случая модели DE-8IM, а также их генерализаций DE-4IM.
 :::
+
+## ISO/IEC 13249:2016 SQL/MM Part 3: Spatial
+
+В стандарте определены SQL-функции для работы с пространственными данными:
+
+| Функция         | CBM / DE-8IM                                                | OGC Simple Features | SQL/MM | PostGIS |
+|-----------------|-------------------|--------------------|---------|---------|
+| `ST_Equals`     | $\color{green}{\langle\lambda_1, equals, \lambda_2\rangle}$ | `a.Equals(b)`       | ✓      | ✓       |
+| `ST_Disjoint`   | $\langle\lambda_1, disjoint, \lambda_2\rangle$              | `a.Disjoint(b)`     | ✓      | ✓       |
+| `ST_Intersects` | $\lnot\langle\lambda_1, disjoint, \lambda_2\rangle$         | `a.Intersects(b)`   | ✓      | ✓       |
+| `ST_Touches`    | $\langle\lambda_1, touch, \lambda_2\rangle$                 | `a.Touches(b)`      | ✓      | ✓       |
+
+![](images/ST_EqualsDIsjointTouches.svg){width="100%"}
+
+## ISO/IEC 13249:2016 SQL/MM Part 3: Spatial
+
+В стандарте определены SQL-функции для работы с пространственными данными:
+
+| Функция       | CBM / DE-8IM                                                         | OGC Simple Features | SQL/MM | PostGIS |
+|----------------|------------------|--------------------|----------|----------|
+| `ST_Crosses`  | $\langle\lambda_1, cross, \lambda_2\rangle$                          | `a.Crosses(b)`      | ✓      | ✓       |
+| `ST_Within`   | $\langle \color{red}{\lambda_1}, in, \color{blue}{\lambda_2}\rangle$ | `a.Within(b)`       | ✓      | ✓       |
+| `ST_Contains` | $\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle$ | `a.Contains(b)`     | ✓      | ✓       |
+| `ST_Overlaps` | $\langle\lambda_1, overlap, \lambda_2\rangle$                        | `a.Overlaps(b)`     | ✓      | ✓       |
+
+![](images/ST_CrossesWithinContainsOverlaps.svg){width="100%"}
+
+## Дополнительные функции PostGIS
+
+Дополнительно к этому в PostGIS определены новые функции
+
+| Функция               | CBM / DE-8IM                                                                                                                                            | PostGIS |
+|--------------------|---------------------------------|--------------------|
+| `ST_CoveredBy`        | $\langle \color{red}{\lambda_1}, in, \color{blue}{\lambda_2}\rangle \lor \langle \color{red}{\lambda_1}, in, \color{blue}{(\lambda_2,b)}\rangle$        | ✓       |
+| `ST_Covers`           | $\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \lor \langle \color{blue}{\lambda_2}, in, \color{red}{(\lambda_1,b)}\rangle$        | ✓       |
+| `ST_ContainsProperly` | $\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \land \langle \color{blue}{\lambda_2}, disjoint, \color{red}{(\lambda_1,b)}\rangle$ | ✓       |
+
+## Геометрическое равенство
+
+**Геометрическое равенство** означает, что геометрии совпадают с точностью до внутреннего представления.
 
 ## Библиография
