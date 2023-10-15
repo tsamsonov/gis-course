@@ -498,8 +498,8 @@
 <p>Функция <span class="math inline">\(\dim(S)\)</span> применительно к произвольному множеству точек <span class="math inline">\(S\)</span> дает следующие значения:</p>
 <table>
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 16%">
+<col style="width: 83%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -941,8 +941,8 @@ M=\begin{pmatrix}
 <p>Базируется на 5 отношениях и операторах границы для полигона (<span class="math inline">\(A\)</span>) и линии (<span class="math inline">\(L\)</span>).</p>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 19%">
+<col style="width: 80%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1068,19 +1068,19 @@ M=\begin{pmatrix}
 <section id="isoiec-132492016-sqlmm-part-3-spatial" class="slide level2">
 <h2>ISO/IEC 13249:2016 SQL/MM Part 3: Spatial</h2>
 <p>В стандарте определены SQL-функции для работы с пространственными данными:</p>
-<table>
+<table style="width:98%;">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 25%">
-<col style="width: 27%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 50%">
+<col style="width: 16%">
+<col style="width: 7%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Функция</th>
 <th>CBM / DE-8IM</th>
-<th>OGC Simple Features</th>
+<th>Simple Features</th>
 <th>SQL/MM</th>
 <th>PostGIS</th>
 </tr>
@@ -1090,29 +1090,29 @@ M=\begin{pmatrix}
 <td><code>ST_Equals</code></td>
 <td><span class="math inline">\(\color{green}{\langle\lambda_1, equals, \lambda_2\rangle}\)</span></td>
 <td><code>a.Equals(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="even">
 <td><code>ST_Disjoint</code></td>
 <td><span class="math inline">\(\langle\lambda_1, disjoint, \lambda_2\rangle\)</span></td>
 <td><code>a.Disjoint(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="odd">
 <td><code>ST_Intersects</code></td>
 <td><span class="math inline">\(\lnot\langle\lambda_1, disjoint, \lambda_2\rangle\)</span></td>
 <td><code>a.Intersects(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="even">
 <td><code>ST_Touches</code></td>
 <td><span class="math inline">\(\langle\lambda_1, touch, \lambda_2\rangle\)</span></td>
 <td><code>a.Touches(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1121,19 +1121,19 @@ M=\begin{pmatrix}
 <section id="isoiec-132492016-sqlmm-part-3-spatial-1" class="slide level2">
 <h2>ISO/IEC 13249:2016 SQL/MM Part 3: Spatial</h2>
 <p>В стандарте определены SQL-функции для работы с пространственными данными:</p>
-<table>
+<table style="width:98%;">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 24%">
-<col style="width: 27%">
-<col style="width: 13%">
-<col style="width: 13%">
+<col style="width: 12%">
+<col style="width: 55%">
+<col style="width: 15%">
+<col style="width: 6%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Функция</th>
 <th>CBM / DE-8IM</th>
-<th>OGC Simple Features</th>
+<th>Simple Features</th>
 <th>SQL/MM</th>
 <th>PostGIS</th>
 </tr>
@@ -1143,29 +1143,29 @@ M=\begin{pmatrix}
 <td><code>ST_Crosses</code></td>
 <td><span class="math inline">\(\langle\lambda_1, cross, \lambda_2\rangle\)</span></td>
 <td><code>a.Crosses(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="even">
 <td><code>ST_Within</code></td>
 <td><span class="math inline">\(\langle \color{red}{\lambda_1}, in, \color{blue}{\lambda_2}\rangle\)</span></td>
 <td><code>a.Within(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="odd">
 <td><code>ST_Contains</code></td>
 <td><span class="math inline">\(\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle\)</span></td>
 <td><code>a.Contains(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="even">
 <td><code>ST_Overlaps</code></td>
 <td><span class="math inline">\(\langle\lambda_1, overlap, \lambda_2\rangle\)</span></td>
 <td><code>a.Overlaps(b)</code></td>
-<td>✓</td>
-<td>✓</td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1174,11 +1174,11 @@ M=\begin{pmatrix}
 <section id="дополнительные-функции-postgis" class="slide level2">
 <h2>Дополнительные функции PostGIS</h2>
 <p>Дополнительно к <code>ST_Contains</code> в PostGIS определены функции:</p>
-<table>
+<table style="width:99%;">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 45%">
-<col style="width: 27%">
+<col style="width: 12%">
+<col style="width: 77%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1191,17 +1191,17 @@ M=\begin{pmatrix}
 <tr class="odd">
 <td><code>ST_CoveredBy</code></td>
 <td><span class="math inline">\(\langle \color{red}{\lambda_1}, in, \color{blue}{\lambda_2}\rangle \lor \langle \color{red}{\lambda_1}, in, \color{blue}{(\lambda_2,b)}\rangle\)</span></td>
-<td>✓</td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="even">
 <td><code>ST_Covers</code></td>
 <td><span class="math inline">\(\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \lor \langle \color{blue}{\lambda_2}, in, \color{red}{(\lambda_1,b)}\rangle\)</span></td>
-<td>✓</td>
+<td><strong>✓</strong></td>
 </tr>
 <tr class="odd">
 <td><code>ST_ContainsProperly</code></td>
 <td><span class="math inline">\(\langle \color{blue}{\lambda_2}, in, \color{red}{\lambda_1}\rangle \land \langle \color{blue}{\lambda_2}, disjoint, \color{red}{(\lambda_1,b)}\rangle\)</span></td>
-<td>✓</td>
+<td><strong>✓</strong></td>
 </tr>
 </tbody>
 </table>
@@ -1210,11 +1210,11 @@ M=\begin{pmatrix}
 <section id="contains-containsproperly-covers" class="slide level2">
 <h2>Contains, ContainsProperly, Covers</h2>
 <p>Данные топологические отношения различаются следующим образом:</p>
-<table>
+<table style="width:99%;">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 16%">
-<col style="width: 56%">
+<col style="width: 17%">
+<col style="width: 31%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1267,6 +1267,80 @@ M=\begin{pmatrix}
 </div>
 </div>
 </section>
+<section id="свойства-бинарных-отношений" class="slide level2">
+<h2>Свойства бинарных отношений</h2>
+<p>Введенные отношения обладают следующими свойствами:</p>
+<table style="width:98%;">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 21%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Отношение</strong></td>
+<td><strong>Рефлексивность</strong></td>
+<td><strong>Симметричность</strong></td>
+<td><strong>Транзитивность</strong></td>
+</tr>
+<tr class="even">
+<td><strong><code>Equals</code></strong></td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
+</tr>
+<tr class="odd">
+<td><strong><code>Disjoint</code></strong></td>
+<td></td>
+<td><strong>✓</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong><code>Intersects</code></strong></td>
+<td><strong>✓</strong></td>
+<td><strong>✓</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong><code>Touches</code></strong></td>
+<td></td>
+<td><strong>✓</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong><code>Crosses</code></strong></td>
+<td></td>
+<td><strong>✓</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong><code>Within</code></strong> / <strong><code>Contains</code></strong></td>
+<td><strong>✓</strong></td>
+<td></td>
+<td><strong>✓</strong></td>
+</tr>
+<tr class="even">
+<td><strong><code>Overlaps</code></strong></td>
+<td></td>
+<td><strong>✓</strong></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong><code>CoveredBy</code></strong> / <strong><code>Covers</code></strong></td>
+<td><strong>✓</strong></td>
+<td></td>
+<td><strong>✓</strong></td>
+</tr>
+<tr class="even">
+<td><strong><code>ContainsProperly</code></strong></td>
+<td></td>
+<td></td>
+<td><strong>✓</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="равенство-геометрий" class="slide level2">
 <h2>Равенство геометрий</h2>
 <p><strong>Пространственное равенство</strong> означает, что геометрии совпадают на уровне множеств координат:</p>
@@ -1288,11 +1362,11 @@ M=\begin{pmatrix}
 <li><p>проверки отношения на предмет соответствия заданному шаблону <em>DE-9IM</em>;</p></li>
 <li><p>вычисления фактической матрицы <em>DE-9IM</em> для заданных объектов.</p></li>
 </ul>
-<table>
+<table style="width:99%;">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 17%">
-<col style="width: 69%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1314,7 +1388,7 @@ M=\begin{pmatrix}
 </tr>
 <tr class="odd">
 <td><code>*</code></td>
-<td>—</td>
+<td></td>
 <td>Наличие пересечения не имеет значения</td>
 </tr>
 <tr class="even">
@@ -1331,6 +1405,98 @@ M=\begin{pmatrix}
 <td><code>2</code></td>
 <td><span class="math inline">\(\dim(S) = 2\)</span></td>
 <td>Пересечение существует и его размерность равна <span class="math inline">\(2\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="шаблоны-матриц" class="slide level2">
+<h2>Шаблоны матриц</h2>
+<p>Матрицы представляются в виде 9-символьных слов:</p>
+<table style="width:97%;">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong><code>ST_Equals</code></strong></td>
+<td><code>T*F**FFF*</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong><code>ST_Disjoint</code></strong></td>
+<td><code>FF*FF****</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong><code>ST_Intersects</code></strong></td>
+<td><code>T********</code></td>
+<td><code>*T*******</code></td>
+<td><code>***T*****</code></td>
+<td><code>****T****</code></td>
+</tr>
+<tr class="even">
+<td><strong><code>ST_Touches</code></strong></td>
+<td><code>FT*******</code></td>
+<td><code>F**T*****</code></td>
+<td><code>F***T****</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong><code>ST_Crosses</code></strong></td>
+<td><code>T*T******</code></td>
+<td><code>T*****T**</code></td>
+<td><code>0********</code></td>
+<td>(<code>0</code> - линии)</td>
+</tr>
+<tr class="even">
+<td><strong><code>ST_Within</code></strong></td>
+<td><code>T*F**F***</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong><code>ST_Contains</code></strong></td>
+<td><code>T*****FF*</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong><code>ST_Overlaps</code></strong></td>
+<td><code>T*T***T**</code></td>
+<td><code>1*T***T**</code></td>
+<td>(<code>1</code> - линии)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong><code>ST_CoveredBy</code></strong></td>
+<td><code>T*F**F***</code></td>
+<td><code>*TF**F***</code></td>
+<td><code>**FT*F***</code></td>
+<td><code>**F*TF***</code></td>
+</tr>
+<tr class="even">
+<td><strong><code>ST_Covers</code></strong></td>
+<td><code>T*****FF*</code></td>
+<td><code>*T****FF*</code></td>
+<td><code>***T**FF*</code></td>
+<td><code>****T*FF*</code></td>
+</tr>
+<tr class="odd">
+<td><strong><code>ST_ContainsProperly</code></strong></td>
+<td><code>T***F*FF*</code></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
