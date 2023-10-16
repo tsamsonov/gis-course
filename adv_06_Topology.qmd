@@ -569,7 +569,7 @@ WHERE st_<relation>(tab1.geom, tab2.geom)
 AND st_<function>(tab1.geom) AND/OR  <condition>
 ```
 
-Для 2 и более слоев
+Для $3$ и более слоев
 
 ``` sql
 SELECT DISTINCT tab1.* FROM tab1, tab2, tab3

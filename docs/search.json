@@ -6290,7 +6290,7 @@
     "href": "adv_06_Topology.html#пространственный-запрос",
     "title": "Топологические отношения",
     "section": "Пространственный запрос",
-    "text": "Пространственный запрос\nПространственный запрос\nSELECT tab1.* FROM tab1, tab2\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom)\nПространственный запрос с условием:\nSELECT tab1.* FROM tab1, tab2\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom)\nAND st_&lt;function&gt;(tab1.geom) AND/OR  &lt;condition&gt;\nДля 2 и более слоев\nSELECT DISTINCT tab1.* FROM tab1, tab2, tab3\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom) AND/OR st_&lt;relation&gt;(tab1.geom, tab3.geom)\nЧасто используемые функции для геометрических условий: st_area, st_length"
+    "text": "Пространственный запрос\nПространственный запрос\nSELECT tab1.* FROM tab1, tab2\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom)\nПространственный запрос с условием:\nSELECT tab1.* FROM tab1, tab2\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom)\nAND st_&lt;function&gt;(tab1.geom) AND/OR  &lt;condition&gt;\nДля \\(3\\) и более слоев\nSELECT DISTINCT tab1.* FROM tab1, tab2, tab3\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom) AND/OR st_&lt;relation&gt;(tab1.geom, tab3.geom)\nЧасто используемые функции для геометрических условий: st_area, st_length"
   },
   {
     "objectID": "adv_06_Topology.html#представления",
