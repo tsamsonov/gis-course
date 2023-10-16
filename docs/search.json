@@ -6284,5 +6284,19 @@
     "title": "Топологические отношения",
     "section": "Свойства бинарных отношений",
     "text": "Свойства бинарных отношений\nВведенные отношения обладают следующими свойствами:\n\n\n\n\n\n\n\n\n\nОтношение\nРефлексивность\nСимметричность\nТранзитивность\n\n\nEquals\n✓\n✓\n✓\n\n\nDisjoint\n\n✓\n\n\n\nIntersects\n✓\n✓\n\n\n\nTouches\n\n✓\n\n\n\nCrosses\n\n✓\n\n\n\nWithin / Contains\n✓\n\n✓\n\n\nOverlaps\n\n✓\n\n\n\nCoveredBy / Covers\n✓\n\n✓\n\n\nContainsProperly\n\n\n✓"
+  },
+  {
+    "objectID": "adv_06_Topology.html#пространственный-запрос",
+    "href": "adv_06_Topology.html#пространственный-запрос",
+    "title": "Топологические отношения",
+    "section": "Пространственный запрос",
+    "text": "Пространственный запрос\nПространственный запрос\nSELECT tab1.* FROM tab1, tab2\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom)\nПространственный запрос с условием:\nSELECT tab1.* FROM tab1, tab2\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom)\nAND st_&lt;function&gt;(tab1.geom) AND/OR  &lt;condition&gt;\nДля 2 и более слоев\nSELECT DISTINCT tab1.* FROM tab1, tab2, tab3\nWHERE st_&lt;relation&gt;(tab1.geom, tab2.geom) AND/OR st_&lt;relation&gt;(tab1.geom, tab3.geom)\nЧасто используемые функции для геометрических условий: st_area, st_length"
+  },
+  {
+    "objectID": "adv_06_Topology.html#представления",
+    "href": "adv_06_Topology.html#представления",
+    "title": "Топологические отношения",
+    "section": "Представления",
+    "text": "Представления\nПредставление — вирутуальная таблица, которая является результатом выполнения запроса\nCREATE OR REPLACE VIEW geo_forest_parcels AS\n    SELECT DISTINCT geo_points.* \n    FROM base.geo_points, base.forest, base.land_parcels\n    WHERE st_within(geo_points.geom, forest.geom) \n       AND st_overlaps(forest.geom, land_parcels.geom)\n       AND st_area(land_parcels.geom) &gt; 10000\nДля того чтобы связать слой с сам самим, необходимо использовать псевдонимы:\nSELECT DISTINCT t1.* \nFROM tab t1, tab t2\nWHERE st_&lt;relation&gt;(t1.geom, t2.geom)"
   }
 ]
