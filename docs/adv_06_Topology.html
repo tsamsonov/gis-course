@@ -955,11 +955,11 @@ M=\begin{pmatrix}
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\langle\lambda_1, cross, \lambda_2\rangle\)</span></td>
-<td><span class="math inline">\((\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)) - 1)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)\)</span></td>
+<td><span class="math inline">\(\Big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max\big(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)\big) - 1\Big)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(\langle\lambda_1, overlap, \lambda_2\rangle\)</span></td>
-<td><span class="math inline">\((\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ))\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)\)</span></td>
+<td><span class="math inline">\(\big(\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ)\big)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)\)</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math inline">\(\langle\lambda_1, disjoint, \lambda_2\rangle\)</span></td>
@@ -1045,7 +1045,7 @@ M=\begin{pmatrix}
 <h2>CBM и DE-9IM (частные случаи)</h2>
 <p><strong>Граница полигона внутри другого объекта (без уточнения размерности)</strong></p>
 <p><span class="math display">\[
-\color{blue}{\langle (A, b), in, \lambda\rangle} \Leftrightarrow \big( \dim(\partial A \cap \lambda^\circ) \neq - \big) \land \big(\dim(\partial A \cap \lambda^-) \neq - \big) \\ \Leftrightarrow \Big(\dim\big((\partial A)^\circ \cap \lambda^\circ \big) \neq - \Big) \land \Big(\dim\big((\partial A)^\circ \cap \lambda^- \big) = - \Big) \land \Big(\dim\big(\partial(\partial A) \cap \lambda^- \big) = - \Big)
+\color{blue}{\langle (A, b), in, \lambda\rangle} \Leftrightarrow \big( \dim(\partial A \cap \lambda^\circ) \neq - \big) \land \big(\dim(\partial A \cap \lambda^-) = - \big) \\ \Leftrightarrow \Big(\dim\big((\partial A)^\circ \cap \lambda^\circ \big) \neq - \Big) \land \Big(\dim\big((\partial A)^\circ \cap \lambda^- \big) = - \Big) \land \Big(\dim\big(\partial(\partial A) \cap \lambda^- \big) = - \Big)
 \]</span></p>
 <p><strong>Одна граничная точка линии касается полигона, а вторая нет</strong></p>
 <p><span class="math display">\[

@@ -331,16 +331,16 @@ $$
 
 Базируется на 5 отношениях и операторах границы для полигона ($A$) и линии ($L$).
 
-|                                                |                                                                                                                                                                                                          |
+|                                                |                                                                                                                                                                                                                          |
 |------------------|------------------------------------------------------|
-| $\langle\lambda_1, touch, \lambda_2\rangle$    | $(\lambda_1^\circ \cap \lambda_2^\circ = \varnothing) \land (\lambda_1 \cap \lambda_2 \neq \varnothing)$                                                                                                 |
-| $\langle\lambda_1, in, \lambda_2\rangle$       | $(\lambda_1^\circ \cap \lambda_2^\circ \neq \varnothing) \land (\lambda_1 \cap \lambda_2 = \lambda_1)$                                                                                                   |
-| $\langle\lambda_1, cross, \lambda_2\rangle$    | $(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)) - 1)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)$ |
-| $\langle\lambda_1, overlap, \lambda_2\rangle$  | $(\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ))\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)$          |
-| $\langle\lambda_1, disjoint, \lambda_2\rangle$ | $\lambda_1 \cap \lambda_2 = \varnothing$                                                                                                                                                                 |
-| $(A, b)$                                       | $\partial A$                                                                                                                                                                                             |
-| $(L, f), (L, t)$                               | $\partial L = \{f, t\}$                                                                                                                                                                                  |
-| $\lambda$                                      | $A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)$                                                                                                                                                                      |
+| $\langle\lambda_1, touch, \lambda_2\rangle$    | $(\lambda_1^\circ \cap \lambda_2^\circ = \varnothing) \land (\lambda_1 \cap \lambda_2 \neq \varnothing)$                                                                                                                 |
+| $\langle\lambda_1, in, \lambda_2\rangle$       | $(\lambda_1^\circ \cap \lambda_2^\circ \neq \varnothing) \land (\lambda_1 \cap \lambda_2 = \lambda_1)$                                                                                                                   |
+| $\langle\lambda_1, cross, \lambda_2\rangle$    | $\Big(\dim(\lambda_1^\circ \cap \lambda_2^\circ) = \max\big(\dim(\lambda_1^\circ), \dim(\lambda_2^\circ)\big) - 1\Big)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)$ |
+| $\langle\lambda_1, overlap, \lambda_2\rangle$  | $\big(\dim(\lambda_1^\circ) = \dim(\lambda_2^\circ) = \dim(\lambda_1^\circ \cap \lambda_2^\circ)\big)\\\land (\lambda_1 \cap \lambda_2 \neq \lambda_1) \land (\lambda_1 \cap \lambda_2 \neq \lambda_2)$                  |
+| $\langle\lambda_1, disjoint, \lambda_2\rangle$ | $\lambda_1 \cap \lambda_2 = \varnothing$                                                                                                                                                                                 |
+| $(A, b)$                                       | $\partial A$                                                                                                                                                                                                             |
+| $(L, f), (L, t)$                               | $\partial L = \{f, t\}$                                                                                                                                                                                                  |
+| $\lambda$                                      | $A~|~L~|~P~|~(A,b)~|~(L,f)~|~(L,t)$                                                                                                                                                                                      |
 
 ## CBM и DE-9IM (touch, in)
 
@@ -401,7 +401,7 @@ $$
 **Граница полигона внутри другого объекта (без уточнения размерности)**
 
 $$
-\color{blue}{\langle (A, b), in, \lambda\rangle} \Leftrightarrow \big( \dim(\partial A \cap \lambda^\circ) \neq - \big) \land \big(\dim(\partial A \cap \lambda^-) \neq - \big) \\ \Leftrightarrow \Big(\dim\big((\partial A)^\circ \cap \lambda^\circ \big) \neq - \Big) \land \Big(\dim\big((\partial A)^\circ \cap \lambda^- \big) = - \Big) \land \Big(\dim\big(\partial(\partial A) \cap \lambda^- \big) = - \Big)
+\color{blue}{\langle (A, b), in, \lambda\rangle} \Leftrightarrow \big( \dim(\partial A \cap \lambda^\circ) \neq - \big) \land \big(\dim(\partial A \cap \lambda^-) = - \big) \\ \Leftrightarrow \Big(\dim\big((\partial A)^\circ \cap \lambda^\circ \big) \neq - \Big) \land \Big(\dim\big((\partial A)^\circ \cap \lambda^- \big) = - \Big) \land \Big(\dim\big(\partial(\partial A) \cap \lambda^- \big) = - \Big)
 $$
 
 **Одна граничная точка линии касается полигона, а вторая нет**
