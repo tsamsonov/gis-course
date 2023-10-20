@@ -1,0 +1,18 @@
+{
+  "hash": "72f3b9ddecafff5db6f66ca2b291f982",
+  "result": {
+    "markdown": "---\ntitle: \"Геометрические операции\"\nsubtitle: \"Геоинформатика I. Базы пространственных данных\"\ndate: today\ndate-format: long\nauthor: \"Самсонов Тимофей Евгеньевич\"\nexecute:\n  echo: false\n  freeze: true\nengine: knitr\nformat:\n  revealjs: \n    theme: [default, custom.scss]\n    margin: 0.2\n    width: 1280\n    height: 720\n    slide-number: true\n    footer: \"Самсонов Т. Е. Геоинформатика: курс лекций\"\n    header-includes: <link rel=\"stylesheet\" media=\"screen\" href=\"https://fontlibrary.org//face/pt-sans\" type=\"text/css\"/>\nbibliography: references.yaml\nmainfont: PT Sans\n---\n\n\n## Основные операции\n\n::: columns\n::: {.column width=\"50%\"}\n1.  Расстояние между точками\n2.  Расстояние от точки до прямой\n3.  Расстояние от точки до линии/полигона\n4.  Точка относительно прямой\n5.  Пересечение отрезков\n6.  Точка в полигоне\n7.  Оверлей полигонов\n8.  Периметр линии\n9.  Площадь полигона\n10. Центроид полигона\n:::\n\n::: {.column width=\"50%\"}\n1.  Точка на поверхности полигона\n2.  Точка на линии\n3.  Триангуляция Делоне\n4.  Диаграмма Вороного\n5.  Скелет и срединная ось полигона\n6.  Буферная зона\n7.  Ограничивающий прямоугольник\n8.  Минимальный по площади ограничивающий прямоугольник\n9.  Выпуклая оболочка\n10. Альфа-оболочка\n:::\n:::\n\n## Библиография\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

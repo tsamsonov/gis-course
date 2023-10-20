@@ -423,7 +423,7 @@
 </div>
 </div>
 
-  <p class="date">16 октября 2023 г.</p>
+  <p class="date">20 октября 2023 г.</p>
 </section>
 <section id="история-развития" class="slide level2">
 <h2>История развития</h2>
@@ -498,8 +498,8 @@
 <p>Функция <span class="math inline">\(\dim(S)\)</span> применительно к произвольному множеству точек <span class="math inline">\(S\)</span> дает следующие значения:</p>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 16%">
+<col style="width: 83%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -941,8 +941,8 @@ M=\begin{pmatrix}
 <p>Базируется на 5 отношениях и операторах границы для полигона (<span class="math inline">\(A\)</span>) и линии (<span class="math inline">\(L\)</span>).</p>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1068,18 +1068,18 @@ M=\begin{pmatrix}
 <section id="isoiec-132492016-sqlmm-part-3-spatial" class="slide level2">
 <h2>ISO/IEC 13249:2016 SQL/MM Part 3: Spatial</h2>
 <p>В стандарте определены SQL-функции для работы с пространственными данными:</p>
-<table style="width:100%;">
+<table>
 <colgroup>
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 24%">
-<col style="width: 18%">
-<col style="width: 18%">
+<col style="width: 14%">
+<col style="width: 40%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Функция</th>
-<th>CBM / DE-8IM</th>
+<th>CBM / DE-9IM</th>
 <th>Simple Features</th>
 <th>SQL/MM</th>
 <th>PostGIS</th>
@@ -1121,18 +1121,18 @@ M=\begin{pmatrix}
 <section id="isoiec-132492016-sqlmm-part-3-spatial-1" class="slide level2">
 <h2>ISO/IEC 13249:2016 SQL/MM Part 3: Spatial</h2>
 <p>В стандарте определены SQL-функции для работы с пространственными данными:</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 25%">
-<col style="width: 18%">
-<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 45%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Функция</th>
-<th>CBM / DE-8IM</th>
+<th>CBM / DE-9IM</th>
 <th>Simple Features</th>
 <th>SQL/MM</th>
 <th>PostGIS</th>
@@ -1176,14 +1176,14 @@ M=\begin{pmatrix}
 <p>Дополнительно к <code>ST_Contains</code> в PostGIS определены функции:</p>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 47%">
-<col style="width: 23%">
+<col style="width: 15%">
+<col style="width: 69%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Функция</th>
-<th>CBM / DE-8IM</th>
+<th>CBM / DE-9IM</th>
 <th>PostGIS</th>
 </tr>
 </thead>
@@ -1210,11 +1210,11 @@ M=\begin{pmatrix}
 <section id="contains-containsproperly-covers" class="slide level2">
 <h2>Contains, ContainsProperly, Covers</h2>
 <p>Данные топологические отношения различаются следующим образом:</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 25%">
-<col style="width: 47%">
+<col style="width: 23%">
+<col style="width: 30%">
+<col style="width: 46%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1260,7 +1260,7 @@ M=\begin{pmatrix}
 </figure>
 </div>
 </div><div class="column" style="width:90%;">
-<p>Чтобы найти линию, целиком совпадающую с границей полигона, нужно использовать <code>ST_Covers</code>. Она не располагается внутри полигона (<code>ST_Contains</code> и <code>ST_ContainsProperly</code> дадут ложь) и при этом полигон имеет пересечение с внутренностью линии (<code>ST_Touches</code> тоже даст ложь).</p>
+<p>Чтобы найти линию, целиком совпадающую с границей полигона, нужно использовать сочетание <code>ST_Covers</code> и <code>ST_Touches</code>. Такая линия не располагается внутри полигона (<code>ST_Contains</code> и <code>ST_ContainsProperly</code> дадут ложь), но при этом покрывается им (<code>ST_Covers</code> даст истину) и касается его (<code>ST_Touches</code> так же даст истину).</p>
 </div>
 </div>
 </div>
@@ -1272,10 +1272,10 @@ M=\begin{pmatrix}
 <p>Введенные отношения обладают следующими свойствами:</p>
 <table>
 <colgroup>
-<col style="width: 29%">
-<col style="width: 23%">
-<col style="width: 23%">
-<col style="width: 23%">
+<col style="width: 31%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1364,9 +1364,9 @@ M=\begin{pmatrix}
 </ul>
 <table>
 <colgroup>
-<col style="width: 12%">
+<col style="width: 13%">
 <col style="width: 16%">
-<col style="width: 70%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1414,11 +1414,11 @@ M=\begin{pmatrix}
 <p>Матрицы представляются в виде 9-символьных слов:</p>
 <table>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 18%">
 </colgroup>
 <tbody>
 <tr class="odd">

@@ -6220,21 +6220,21 @@
     "href": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial",
     "title": "Топологические отношения",
     "section": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial",
-    "text": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial\nВ стандарте определены SQL-функции для работы с пространственными данными:\n\n\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nSimple Features\nSQL/MM\nPostGIS\n\n\n\n\nST_Equals\n\\(\\color{green}{\\langle\\lambda_1, equals, \\lambda_2\\rangle}\\)\na.Equals(b)\n✓\n✓\n\n\nST_Disjoint\n\\(\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\na.Disjoint(b)\n✓\n✓\n\n\nST_Intersects\n\\(\\lnot\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\na.Intersects(b)\n✓\n✓\n\n\nST_Touches\n\\(\\langle\\lambda_1, touch, \\lambda_2\\rangle\\)\na.Touches(b)\n✓\n✓"
+    "text": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial\nВ стандарте определены SQL-функции для работы с пространственными данными:\n\n\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-9IM\nSimple Features\nSQL/MM\nPostGIS\n\n\n\n\nST_Equals\n\\(\\color{green}{\\langle\\lambda_1, equals, \\lambda_2\\rangle}\\)\na.Equals(b)\n✓\n✓\n\n\nST_Disjoint\n\\(\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\na.Disjoint(b)\n✓\n✓\n\n\nST_Intersects\n\\(\\lnot\\langle\\lambda_1, disjoint, \\lambda_2\\rangle\\)\na.Intersects(b)\n✓\n✓\n\n\nST_Touches\n\\(\\langle\\lambda_1, touch, \\lambda_2\\rangle\\)\na.Touches(b)\n✓\n✓"
   },
   {
     "objectID": "adv_06_Topology.html#дополнительные-функции-postgis",
     "href": "adv_06_Topology.html#дополнительные-функции-postgis",
     "title": "Топологические отношения",
     "section": "Дополнительные функции PostGIS",
-    "text": "Дополнительные функции PostGIS\nДополнительно к ST_Contains в PostGIS определены функции:\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nPostGIS\n\n\n\n\nST_CoveredBy\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle \\lor \\langle \\color{red}{\\lambda_1}, in, \\color{blue}{(\\lambda_2,b)}\\rangle\\)\n✓\n\n\nST_Covers\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\lor \\langle \\color{blue}{\\lambda_2}, in, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓\n\n\nST_ContainsProperly\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\land \\langle \\color{blue}{\\lambda_2}, disjoint, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓"
+    "text": "Дополнительные функции PostGIS\nДополнительно к ST_Contains в PostGIS определены функции:\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-9IM\nPostGIS\n\n\n\n\nST_CoveredBy\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle \\lor \\langle \\color{red}{\\lambda_1}, in, \\color{blue}{(\\lambda_2,b)}\\rangle\\)\n✓\n\n\nST_Covers\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\lor \\langle \\color{blue}{\\lambda_2}, in, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓\n\n\nST_ContainsProperly\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle \\land \\langle \\color{blue}{\\lambda_2}, disjoint, \\color{red}{(\\lambda_1,b)}\\rangle\\)\n✓"
   },
   {
     "objectID": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial-1",
     "href": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial-1",
     "title": "Топологические отношения",
     "section": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial",
-    "text": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial\nВ стандарте определены SQL-функции для работы с пространственными данными:\n\n\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-8IM\nSimple Features\nSQL/MM\nPostGIS\n\n\n\n\nST_Crosses\n\\(\\langle\\lambda_1, cross, \\lambda_2\\rangle\\)\na.Crosses(b)\n✓\n✓\n\n\nST_Within\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle\\)\na.Within(b)\n✓\n✓\n\n\nST_Contains\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle\\)\na.Contains(b)\n✓\n✓\n\n\nST_Overlaps\n\\(\\langle\\lambda_1, overlap, \\lambda_2\\rangle\\)\na.Overlaps(b)\n✓\n✓"
+    "text": "ISO/IEC 13249:2016 SQL/MM Part 3: Spatial\nВ стандарте определены SQL-функции для работы с пространственными данными:\n\n\n\n\n\n\n\n\n\n\nФункция\nCBM / DE-9IM\nSimple Features\nSQL/MM\nPostGIS\n\n\n\n\nST_Crosses\n\\(\\langle\\lambda_1, cross, \\lambda_2\\rangle\\)\na.Crosses(b)\n✓\n✓\n\n\nST_Within\n\\(\\langle \\color{red}{\\lambda_1}, in, \\color{blue}{\\lambda_2}\\rangle\\)\na.Within(b)\n✓\n✓\n\n\nST_Contains\n\\(\\langle \\color{blue}{\\lambda_2}, in, \\color{red}{\\lambda_1}\\rangle\\)\na.Contains(b)\n✓\n✓\n\n\nST_Overlaps\n\\(\\langle\\lambda_1, overlap, \\lambda_2\\rangle\\)\na.Overlaps(b)\n✓\n✓"
   },
   {
     "objectID": "adv_06_Topology.html#геометрическое-равенство",
@@ -6248,7 +6248,7 @@
     "href": "adv_06_Topology.html#contains-containsproperly-covers",
     "title": "Топологические отношения",
     "section": "Contains, ContainsProperly, Covers",
-    "text": "Contains, ContainsProperly, Covers\nДанные топологические отношения различаются следующим образом:\n\n\n\n\n\n\n\n\nФункция\nМножества\nПояснение\n\n\n\n\nST_Contains\n\\(\\lambda_2^\\circ \\subset \\lambda_1^\\circ\\)\nвнутренность второго объекта располагается во внутренности первого\n\n\nST_ContainsProperly\n\\(\\lambda_2 \\subset \\lambda_1^\\circ\\)\nвторой объект располагается во внутренности первого\n\n\nST_Covers\n\\(\\lambda_2 \\subset \\lambda_1\\)\nвторой объект располагается в первом\n\n\n\n\n\n\n\n\n\nНо разница проявляется в области границы\n\n\n\n\n\n\n\n\n\n\n\n\nЧтобы найти линию, целиком совпадающую с границей полигона, нужно использовать ST_Covers. Она не располагается внутри полигона (ST_Contains и ST_ContainsProperly дадут ложь) и при этом полигон имеет пересечение с внутренностью линии (ST_Touches тоже даст ложь)."
+    "text": "Contains, ContainsProperly, Covers\nДанные топологические отношения различаются следующим образом:\n\n\n\n\n\n\n\n\nФункция\nМножества\nПояснение\n\n\n\n\nST_Contains\n\\(\\lambda_2^\\circ \\subset \\lambda_1^\\circ\\)\nвнутренность второго объекта располагается во внутренности первого\n\n\nST_ContainsProperly\n\\(\\lambda_2 \\subset \\lambda_1^\\circ\\)\nвторой объект располагается во внутренности первого\n\n\nST_Covers\n\\(\\lambda_2 \\subset \\lambda_1\\)\nвторой объект располагается в первом\n\n\n\n\n\n\n\n\n\nНо разница проявляется в области границы\n\n\n\n\n\n\n\n\n\n\n\n\nЧтобы найти линию, целиком совпадающую с границей полигона, нужно использовать сочетание ST_Covers и ST_Touches. Такая линия не располагается внутри полигона (ST_Contains и ST_ContainsProperly дадут ложь), но при этом покрывается им (ST_Covers даст истину) и касается его (ST_Touches так же даст истину)."
   },
   {
     "objectID": "adv_06_Topology.html#пространственное-и-геометрическое-равенство",
@@ -6298,5 +6298,19 @@
     "title": "Топологические отношения",
     "section": "Представления",
     "text": "Представления\nПредставление — вирутуальная таблица, которая является результатом выполнения запроса\nCREATE OR REPLACE VIEW geo_forest_parcels AS\n    SELECT DISTINCT geo_points.* \n    FROM base.geo_points, base.forest, base.land_parcels\n    WHERE st_within(geo_points.geom, forest.geom) \n       AND st_overlaps(forest.geom, land_parcels.geom)\n       AND st_area(land_parcels.geom) &gt; 10000\nДля того чтобы связать слой с сам самим, необходимо использовать псевдонимы:\nSELECT DISTINCT t1.* \nFROM tab t1, tab t2\nWHERE st_&lt;relation&gt;(t1.geom, t2.geom)"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#основные-операции",
+    "href": "adv_07_Geometry.html#основные-операции",
+    "title": "Геометрические операции",
+    "section": "Основные операции",
+    "text": "Основные операции\n\n\n\nРасстояние между точками\nРасстояние от точки до прямой\nРасстояние от точки до линии/полигона\nТочка относительно прямой\nПересечение отрезков\nТочка в полигоне\nОверлей полигонов\nПериметр линии\nПлощадь полигона\nЦентроид полигона\n\n\n\nТочка на поверхности полигона\nТочка на линии\nТриангуляция Делоне\nДиаграмма Вороного\nСкелет и срединная ось полигона\nБуферная зона\nОграничивающий прямоугольник\nМинимальный по площади ограничивающий прямоугольник\nВыпуклая оболочка\nАльфа-оболочка"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#библиография",
+    "href": "adv_07_Geometry.html#библиография",
+    "title": "Геометрические операции",
+    "section": "Библиография",
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций"
   }
 ]
