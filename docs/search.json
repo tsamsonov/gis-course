@@ -6388,6 +6388,20 @@
     "href": "adv_07_Geometry.html#точка-относительно-прямой",
     "title": "Геометрические операции",
     "section": "Точка относительно прямой",
-    "text": "Точка относительно прямой\n\n\nПусть прямая \\(l\\) определяется отрезком \\(\\overline{qr}\\). Расположение точки \\(p\\) относительно этой прямой зависит от знака площади треугольника \\(\\triangle qpr\\)\n\n\n\n\n\n\n\n\n\n\n\\[\n\\texttt{area}(\\triangle qpr) = \\frac{1}{2}\\big[x_q y_p - x_p y_q + x_p y_r - x_r y_p + x_r y_q - x_q y_r \\big]\n\\]\n\\[\n\\texttt{side}(q,p,r) = \\begin{cases}\n1,\\textrm{ если } \\texttt{area}(\\triangle qpr) &gt; 0~(p \\textrm{ слева от } l),\\\\\n0,\\textrm{ если } \\texttt{area}(\\triangle qpr) = 0~(p \\textrm{ на } l),\\\\\n-1,\\textrm{ если } \\texttt{area}(\\triangle qpr) &lt; 0~(p \\textrm{ справа от } l),\\\\\n\\end{cases}\n\\]"
+    "text": "Точка относительно прямой\n\n\nПусть прямая \\(l\\) определяется отрезком \\(\\overline{qr}\\). Расположение точки \\(p\\) относительно этой прямой зависит от знака площади треугольника \\(\\triangle qpr\\):\n\n\n\n\n\n\n\n\n\n\n\\[\n\\texttt{area}(\\triangle qpr) = \\frac{1}{2}\\big[x_q y_p - x_p y_q + x_p y_r - x_r y_p + x_r y_q - x_q y_r \\big]\n\\]\n\\[\n\\texttt{side}(q,p,r) = \\begin{cases}\n1,\\textrm{ если } \\texttt{area}(\\triangle qpr) &gt; 0~(p \\textrm{ слева от } l),\\\\\n0,\\textrm{ если } \\texttt{area}(\\triangle qpr) = 0~(p \\textrm{ на } l),\\\\\n-1,\\textrm{ если } \\texttt{area}(\\triangle qpr) &lt; 0~(p \\textrm{ справа от } l),\\\\\n\\end{cases}\n\\]"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#пересечение-отрезков",
+    "href": "adv_07_Geometry.html#пересечение-отрезков",
+    "title": "Геометрические операции",
+    "section": "Пересечение отрезков",
+    "text": "Пересечение отрезков\n\n\nОтрезки пересекаются, если их точки попарно располагаются по разные стороны от соответствующих прямых.\nВ этом случае одновременно выполняются два условия:\n\\[\n\\texttt{side}(p_1, p_2, p_3) \\neq \\texttt{side}(p_1, p_2, p_4)\\\\\n\\texttt{side}(p_3, p_4, p_1) \\neq \\texttt{side}(p_3, p_4, p_2)\n\\]\n\n\n\n\n\n\n\n\n\n\nЕсли отрезки коллинеарны, то надо проверять расстояния:\n\\[\n\\textrm d(p_3, \\overline{p_1 p_2}) &lt; \\epsilon,~\\textrm d(p_4, \\overline{p_1 p_2}) &lt; \\epsilon,~\\textrm d(p_1, \\overline{p_3 p_4}) &lt; \\epsilon,~\\textrm d(p_2, \\overline{p_3 p_4}) &lt; \\epsilon\n\\]"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#точка-пересечения",
+    "href": "adv_07_Geometry.html#точка-пересечения",
+    "title": "Геометрические операции",
+    "section": "Точка пересечения",
+    "text": "Точка пересечения\nПредставим отрезки в параметрическом виде:\n\\[\n\\overline{p_1 p_2} = \\{\\lambda p_1 + (1 - \\lambda) p_2 | \\lambda \\in [0,1]\\}\\\\\n\\overline{p_3 p_4} = \\{\\mu p_3 + (1 - \\mu) p_4 | \\lambda \\in [0,1]\\}\n\\]Если отрезки пересекаются, то справедливо равенство:\n\\[\n\\lambda p_1 + (1 - \\lambda) p_2 = \\mu p_3 + (1 - \\mu) p_4\\\\\n\\lambda(p_1 - p_2) - \\mu(p_3 - p_4) = p_4 - p_2\n\\]\nПереходя от точек к координатам получаем систему уравнений:\n\\[\n\\begin{cases}\n\\lambda(x_1 - x_2) - \\mu(x_3 - x_4) = x_4 - x_2\\\\\n\\lambda(y_1 - y_2) - \\mu(y_3 - y_4) = y_4 - y_2\n\\end{cases}\n\\]\nРешив систему относительно \\(\\lambda\\) и \\(\\mu\\), получаем точку пересечения."
   }
 ]

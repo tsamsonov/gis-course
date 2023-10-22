@@ -586,7 +586,7 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <h2>Точка относительно прямой</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Пусть прямая <span class="math inline">\(l\)</span> определяется отрезком <span class="math inline">\(\overline{qr}\)</span>. Расположение точки <span class="math inline">\(p\)</span> относительно этой прямой зависит от знака площади треугольника <span class="math inline">\(\triangle qpr\)</span></p>
+<p>Пусть прямая <span class="math inline">\(l\)</span> определяется отрезком <span class="math inline">\(\overline{qr}\)</span>. Расположение точки <span class="math inline">\(p\)</span> относительно этой прямой зависит от знака площади треугольника <span class="math inline">\(\triangle qpr\)</span>:</p>
 </div><div class="column" style="width:40%;">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
@@ -607,6 +607,51 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 -1,\textrm{ если } \texttt{area}(\triangle qpr) &lt; 0~(p \textrm{ справа от } l),\\
 \end{cases}
 \]</span></p>
+</section>
+<section id="пересечение-отрезков" class="slide level2">
+<h2>Пересечение отрезков</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Отрезки пересекаются</strong>, если их точки попарно располагаются по разные стороны от соответствующих прямых.</p>
+<p>В этом случае <em>одновременно</em> выполняются два условия:</p>
+<p><span class="math display">\[
+\texttt{side}(p_1, p_2, p_3) \neq \texttt{side}(p_1, p_2, p_4)\\
+\texttt{side}(p_3, p_4, p_1) \neq \texttt{side}(p_3, p_4, p_2)
+\]</span></p>
+</div><div class="column" style="width:40%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center" width="100%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/segment_intersection.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-9" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>Если отрезки коллинеарны, то надо проверять расстояния:</p>
+<p><span class="math display">\[
+\textrm d(p_3, \overline{p_1 p_2}) &lt; \epsilon,~\textrm d(p_4, \overline{p_1 p_2}) &lt; \epsilon,~\textrm d(p_1, \overline{p_3 p_4}) &lt; \epsilon,~\textrm d(p_2, \overline{p_3 p_4}) &lt; \epsilon
+\]</span></p>
+</section>
+<section id="точка-пересечения" class="slide level2">
+<h2>Точка пересечения</h2>
+<p>Представим отрезки в параметрическом виде:</p>
+<p><span class="math display">\[
+\overline{p_1 p_2} = \{\lambda p_1 + (1 - \lambda) p_2 | \lambda \in [0,1]\}\\
+\overline{p_3 p_4} = \{\mu p_3 + (1 - \mu) p_4 | \lambda \in [0,1]\}
+\]</span>Если отрезки пересекаются, то справедливо равенство:</p>
+<p><span class="math display">\[
+\lambda p_1 + (1 - \lambda) p_2 = \mu p_3 + (1 - \mu) p_4\\
+\lambda(p_1 - p_2) - \mu(p_3 - p_4) = p_4 - p_2
+\]</span></p>
+<p>Переходя от точек к координатам получаем систему уравнений:</p>
+<p><span class="math display">\[
+\begin{cases}
+\lambda(x_1 - x_2) - \mu(x_3 - x_4) = x_4 - x_2\\
+\lambda(y_1 - y_2) - \mu(y_3 - y_4) = y_4 - y_2
+\end{cases}
+\]</span></p>
+<p>Решив систему относительно <span class="math inline">\(\lambda\)</span> и <span class="math inline">\(\mu\)</span>, получаем точку пересечения.</p>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
