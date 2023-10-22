@@ -518,6 +518,43 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </section>
+<section id="расстояние-хаусдорфа" class="slide level2">
+<h2>Расстояние Хаусдорфа</h2>
+<p>Если даны два подмножества <span class="math inline">\(\mathcal{A} = \lbrace a \rbrace\)</span> и <span class="math inline">\(\mathcal{B} = \lbrace b \rbrace\)</span> метрического пространства <span class="math inline">\(M\)</span> с заданным расстоянием <span class="math inline">\(d\)</span>, то <strong>расстояние</strong> <strong>Хаусдорфа</strong> <span class="math inline">\(d_H(\mathcal{A}, \mathcal{B})\)</span> вычисляется как:</p>
+<p><span class="math display">\[
+d_{\mathrm H}(\mathcal{A},\mathcal{B}) = \max\left\{\,\sup_{a \in \mathcal{A}} \inf_{b \in \mathcal{B}} d(a,b),\, \sup_{b \in \mathcal{B}} \inf_{a \in \mathcal{A}} d(a,b)\,\right\}
+\]</span></p>
+<p>На практике, когда <span class="math inline">\(\mathcal{A}\)</span> и <span class="math inline">\(\mathcal{B}\)</span> являются конечными точечными множествами, вычисляется дискретная версия <span class="math inline">\(d_H\)</span>.</p>
+<ul>
+<li><p>для каждой точки <span class="math inline">\(a\)</span> в <span class="math inline">\(\mathcal{A}\)</span> находится ближайшая точка <span class="math inline">\(b_a\)</span> в <span class="math inline">\(\mathcal{B}\)</span> и <span class="math inline">\(\vec{d}_H(\mathcal{A},\mathcal{B}) = \underset{a}{\max}~d(a, b_a)\)</span> как приближение <span class="math inline">\(\sup_{a \in \mathcal{A}} \inf_{b \in \mathcal{B}} d(a,b)\)</span>.</p></li>
+<li><p>для каждой точки <span class="math inline">\(b\)</span> в <span class="math inline">\(\mathcal{B}\)</span> находится ближайшая точка <span class="math inline">\(a_b\)</span> в <span class="math inline">\(\mathcal{A}\)</span> и <span class="math inline">\(\vec{d}_H(\mathcal{B},\mathcal{A}) = \underset{b}{\max}~d(b, a_b)\)</span> как приближение <span class="math inline">\(\sup_{b \in \mathcal{B}} \inf_{a \in \mathcal{A}} d(a,b)\)</span>.</p></li>
+</ul>
+</section>
+<section id="дискретное-расстояние-хаусдорфа" class="slide level2">
+<h2>Дискретное расстояние Хаусдорфа</h2>
+<p><strong>Дискретное расстояние Хаусдорфа</strong> определяется как:</p>
+<p><span class="math display">\[
+\widehat {d_H}(\mathcal{A},\mathcal{B}) = \max \left\{\vec{d}_H(\mathcal{A},\mathcal{B}),\, \vec{d}_H(\mathcal{B},\mathcal{A}) \right\}
+\]</span></p>
+<p>Величина <span class="math inline">\(\vec{d}_H\)</span> называется <em>направленным расстоянием Хаусдорфа</em>.</p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Чувствительность к выбросам</strong></p>
+</div>
+<div class="callout-content">
+<p>И <span class="math inline">\(d_H\)</span>, и <span class="math inline">\(\widehat{d_H}\)</span> являются мимимаксными мерами, они чувствительны к выбросам из множества.</p>
+</div>
+</div>
+</div>
+<p><strong>Модифицированное расстояние Хаусдорфа</strong> заменяет максимум кратчайших расстояний их средним значением, что устраняет чувствительность к выбросам:</p>
+<p><span class="math display">\[
+d_M = \max \left\{\frac{1}{|\mathcal{A}|}\underset{a}{\sum} d(a, b_a),\, \frac{1}{|\mathcal{B}|}\underset{b}{\sum} d(b, a_b) \right\}
+\]</span></p>
+</section>
 <section id="длина-периметр" class="slide level2">
 <h2>Длина / периметр</h2>
 <div class="columns">
@@ -652,6 +689,25 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 \end{cases}
 \]</span></p>
 <p>Решив систему относительно <span class="math inline">\(\lambda\)</span> и <span class="math inline">\(\mu\)</span>, получаем точку пересечения.</p>
+</section>
+<section id="принадлежность-точки-полигону" class="slide level2">
+<h2>Принадлежность точки полигону</h2>
+<p>Луч, выпущенный из точки в направлении оси <span class="math inline">\(X\)</span>, <em>сечёт</em> (<code>crosses</code>) границу полигона <strong>нечетное</strong> количество раз.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center" width="90%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/point_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" style="width:90.0%">
+</div>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<h3 id="обратите-внимание">Обратите внимание</h3>
+<p>Если луч пересекает одну из <em>вершин</em> полигона, и оба примыкающих к ней отрезка находятся по одну сторону от луча, то это не сечение, а <em>касание</em> границы, которое не должно влиять на результат.</p>
+</div>
+</div>
+<p>Если полигон состоит из вершин <span class="math inline">\(p_i = (x_i, y_i)\)</span>, то в качестве луча можно взять отрезок <span class="math inline">\(\overline{pq}\)</span>, где <span class="math inline">\(q = (max(x_i), y_p)\)</span>.</p>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
