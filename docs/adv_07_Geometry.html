@@ -359,6 +359,7 @@
 </div><div class="column" style="width:50%;">
 <ol type="1">
 <li>Оверлей полигонов</li>
+<li>Слияние линий и полигонов</li>
 <li>Полигонизация линий</li>
 <li>Триангуляция Делоне</li>
 <li>Диаграмма Вороного</li>
@@ -366,8 +367,7 @@
 <li>Буферная зона</li>
 <li>Ограничивающий прямоугольник</li>
 <li>Минимальный по площади ограничивающий прямоугольник</li>
-<li>Выпуклая оболочка</li>
-<li>Вогнутая оболочка</li>
+<li>Выпуклая и вогнутая оболочка</li>
 </ol>
 </div>
 </div>
@@ -555,6 +555,28 @@ d_{\mathrm H}(\mathcal{A},\mathcal{B}) = \max\left\{\,\sup_{a \in \mathcal{A}} \
 d_M = \max \left\{\frac{1}{|\mathcal{A}|}\underset{a}{\sum} d(a, b_a),\, \frac{1}{|\mathcal{B}|}\underset{b}{\sum} d(b, a_b) \right\}
 \]</span></p>
 </section>
+<section id="расстояние-фреше" class="slide level2">
+<h2>Расстояние Фреше</h2>
+<p><strong>Расстояние Фреше</strong> является мерой близости линий с учетом их направления:</p>
+<p><span class="math display">\[
+d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \Bigg \{d \Big (\mathcal{A}\big(\alpha(t)\big), \, \mathcal{B}\big(\beta(t)\big) \Big ) \Bigg \},
+\]</span></p>
+<p>где <span class="math inline">\(\mathcal{A}(u),~\mathcal{B}(v),~u,v \in [0, 1]\)</span> — <em>параметрические описания</em> линий</p>
+<p><span class="math inline">\(\alpha(t),~\beta(t),~t \in [0, 1]\)</span> — <em>репараметризации</em>, которые оптимизируются для нахождения таких <span class="math inline">\(u = \alpha(t)\)</span> и <span class="math inline">\(v = \beta(t)\)</span>, которые минимизируют максимальное расстояние между <span class="math inline">\(\mathcal{A}(u)\)</span> и <span class="math inline">\(\mathcal{B}(v)\)</span> для общего <span class="math inline">\(t\)</span>.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Аналогия</strong></p>
+</div>
+<div class="callout-content">
+<p>Расстояние Фреше — это минимальная длина поводка, который нужен хозяину, чтобы выгулять собаку при том, что оба они идут разными дорожками от начала до конца.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="длина-периметр" class="slide level2">
 <h2>Длина / периметр</h2>
 <div class="columns">
@@ -695,10 +717,10 @@ d_M = \max \left\{\frac{1}{|\mathcal{A}|}\underset{a}{\sum} d(a, b_a),\, \frac{1
 <p>Луч, выпущенный из точки в направлении оси <span class="math inline">\(X\)</span>, <em>сечёт</em> (<code>crosses</code>) границу полигона <strong>нечетное</strong> количество раз.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center" width="90%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/point_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" style="width:90.0%">
+<img data-src="images/point_in_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" style="width:100.0%">
 </div>
 </figure>
 </div>
