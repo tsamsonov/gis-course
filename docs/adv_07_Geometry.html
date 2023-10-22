@@ -430,13 +430,13 @@ d(p, l) = \frac{|ax_p + by_p + c|}{\sqrt{a^2 + b^2}}
 <p>В зависимости от конфигурации это может быть как расстояние до прямой, так и расстояние до одной из крайних точек отрезка.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Пусть дана точка <span class="math inline">\(p\)</span> и отрезок <span class="math inline">\(qr\)</span>, лежащий на прямой <span class="math inline">\(l\)</span>. Введем три вектора:</p>
+<p>Пусть дана точка <span class="math inline">\(p\)</span> и отрезок <span class="math inline">\(\overline{qr}\)</span>, лежащий на прямой <span class="math inline">\(l\)</span>. Введем три вектора:</p>
 <p><span class="math display">\[
 \mathbf u = \overrightarrow{qp},~\mathbf v = \overrightarrow{pr},~\mathbf w = \overrightarrow{qr}
 \]</span></p>
 <p>Тогда расстояние определится как:</p>
 <p><span class="math display">\[
-\mathrm d(p, qr) = \begin{cases}
+\mathrm d(p, \overline{qr}) = \begin{cases}
 \mathrm d(p, q),~если~(\mathbf u, \mathbf w) &lt; 0; \\
 \mathrm d(p, r),~если~(\mathbf v, \mathbf w) &lt; 0; \\
 \mathrm d(p, l)~\textrm{в противном случае}
@@ -456,6 +456,67 @@ d(p, l) = \frac{|ax_p + by_p + c|}{\sqrt{a^2 + b^2}}
 </section>
 <section id="расстояние-от-точки-до-линии" class="slide level2">
 <h2>Расстояние от точки до линии</h2>
+<p><strong>Расстояние от точки до линии</strong> <span class="math inline">\(L\)</span> , состоящей из <span class="math inline">\(k\)</span> вершин — это минимальное из расстояний от точки до каждого из отрезков линии:</p>
+<p><span class="math display">\[
+d(p, L) = \min \big[\textrm d(p, \overline{p_j p_{j+1}})\big], ~j=0...k-1
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Аппроксимация</strong></p>
+</div>
+<div class="callout-content">
+<p>Если длины сегментов линии существенно меньше, чем расстояние до точки, то в качестве приближения можно взять расстояние до ближайшей точки линии.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:70%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-4" class="quarto-figure quarto-figure-center" width="100%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/d_p_polyline.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-4" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="расстояние-от-точки-до-полигона" class="slide level2">
+<h2>Расстояние от точки до полигона</h2>
+<p><strong>Расстояние от точки до полигона</strong> <span class="math inline">\(A\)</span>, состоящего из <span class="math inline">\(n\)</span> колец, равняется <span class="math inline">\(0\)</span>, если точка внутри полигона, иначе равна минимальному расстоянию до границы полигона.</p>
+<p><span class="math display">\[
+d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,~j = 0...k_i
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Точка в полигоне</strong></p>
+</div>
+<div class="callout-content">
+<p>Для определения принадлежности точки полигону необходимо использовать соответствующий тест</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-5" class="quarto-figure quarto-figure-center" width="100%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/d_p_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-5" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
