@@ -29,7 +29,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -338,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">22 октября 2023 г.</p>
+  <p class="date">23 октября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -350,11 +370,11 @@
 <li>Периметр линии</li>
 <li>Площадь полигона</li>
 <li>Точка относительно прямой</li>
+<li>Точка относительно отрезка</li>
 <li>Пересечение отрезков</li>
 <li>Точка в полигоне</li>
 <li>Центроид полигона</li>
 <li>Точка на поверхности</li>
-<li>Точка на линии</li>
 </ol>
 </div><div class="column" style="width:50%;">
 <ol type="1">
@@ -518,25 +538,55 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </section>
+<section id="расстояния-между-множествами-точек" class="slide level2">
+<h2>Расстояния между множествами точек</h2>
+<p>Однозначность определения расстояния теряется, когда его необходимо определить между двумя множествами точек.</p>
+
+<img data-src="images/d_pointset.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-6" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="расстояния-между-множествами-точек-1" class="slide level2">
+<h2>Расстояния между множествами точек</h2>
+<p>В частности, такими множествами могут быть линии. Должно ли это быть расстояние между ближайшими, дальними или конечными точками линий?</p>
+
+<img data-src="images/d_lineset.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-7" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="расстояние-хаусдорфа-simplified" class="slide level2">
+<h2>Расстояние Хаусдорфа (simplified)</h2>
+<p>Для каждой точки из <span class="math inline">\(\mathcal A\)</span> вычислим расстояние до ближайшей точки из <span class="math inline">\(\mathcal B\)</span> и выберем из них максимальное.</p>
+
+<img data-src="images/hausdorff_1.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-8" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="расстояние-хаусдорфа-simplified-1" class="slide level2">
+<h2>Расстояние Хаусдорфа (simplified)</h2>
+<p>Для каждой точки из <span class="math inline">\(\mathcal B\)</span> вычислим расстояние до ближайшей точки из <span class="math inline">\(\mathcal A\)</span> и выберем из них максимальное.</p>
+
+<img data-src="images/hausforff_2.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-9" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="расстояние-хаусдорфа-simplified-2" class="slide level2">
+<h2>Расстояние Хаусдорфа (simplified)</h2>
+<p>Cравним полученные расстояния и выберем из них максимальное.</p>
+
+<img data-src="images/hausdorff_3.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="расстояние-хаусдорфа-simplified-3" class="slide level2">
+<h2>Расстояние Хаусдорфа (simplified)</h2>
+<p>Полученное расстояние будем называть <strong>расстоянием Хаусдорфа</strong> (или Хаусдорфовым расстоянием).</p>
+
+<img data-src="images/hausdorff_4.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-11" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="расстояние-хаусдорфа" class="slide level2">
 <h2>Расстояние Хаусдорфа</h2>
-<p>Если даны два подмножества <span class="math inline">\(\mathcal{A} = \lbrace a \rbrace\)</span> и <span class="math inline">\(\mathcal{B} = \lbrace b \rbrace\)</span> метрического пространства <span class="math inline">\(M\)</span> с заданным расстоянием <span class="math inline">\(d\)</span>, то <strong>расстояние</strong> <strong>Хаусдорфа</strong> <span class="math inline">\(d_H(\mathcal{A}, \mathcal{B})\)</span> вычисляется как:</p>
+<p>Если даны два подмножества <span class="math inline">\(\mathcal{A} = \lbrace a \rbrace\)</span> и <span class="math inline">\(\mathcal{B} = \lbrace b \rbrace\)</span> метрического пространства <span class="math inline">\(M\)</span> с заданным расстоянием <span class="math inline">\(\mathrm d\)</span>, то <strong>расстояние</strong> <strong>Хаусдорфа</strong> <span class="math inline">\(d_H(\mathcal{A}, \mathcal{B})\)</span> вычисляется как:</p>
 <p><span class="math display">\[
-d_{\mathrm H}(\mathcal{A},\mathcal{B}) = \max\left\{\,\sup_{a \in \mathcal{A}} \inf_{b \in \mathcal{B}} d(a,b),\, \sup_{b \in \mathcal{B}} \inf_{a \in \mathcal{A}} d(a,b)\,\right\}
+\mathrm d_{\mathrm H}(\mathcal{A},\mathcal{B}) = \max\left\{\,\sup_{a \in \mathcal{A}} \inf_{b \in \mathcal{B}} \mathrm d(a,b),\, \sup_{b \in \mathcal{B}} \inf_{a \in \mathcal{A}} \mathrm d(a,b)\,\right\}
 \]</span></p>
-<p>На практике, когда <span class="math inline">\(\mathcal{A}\)</span> и <span class="math inline">\(\mathcal{B}\)</span> являются конечными точечными множествами, вычисляется дискретная версия <span class="math inline">\(d_H\)</span>.</p>
+<p>На практике, когда <span class="math inline">\(\mathcal{A}\)</span> и <span class="math inline">\(\mathcal{B}\)</span> являются конечными точечными множествами, вычисляется дискретная версия <span class="math inline">\(\widehat{\mathrm d_H}\)</span> на основе двух расстояний:</p>
 <ul>
-<li><p>для каждой точки <span class="math inline">\(a\)</span> в <span class="math inline">\(\mathcal{A}\)</span> находится ближайшая точка <span class="math inline">\(b_a\)</span> в <span class="math inline">\(\mathcal{B}\)</span> и <span class="math inline">\(\vec{d}_H(\mathcal{A},\mathcal{B}) = \underset{a}{\max}~d(a, b_a)\)</span> как приближение <span class="math inline">\(\sup_{a \in \mathcal{A}} \inf_{b \in \mathcal{B}} d(a,b)\)</span>.</p></li>
-<li><p>для каждой точки <span class="math inline">\(b\)</span> в <span class="math inline">\(\mathcal{B}\)</span> находится ближайшая точка <span class="math inline">\(a_b\)</span> в <span class="math inline">\(\mathcal{A}\)</span> и <span class="math inline">\(\vec{d}_H(\mathcal{B},\mathcal{A}) = \underset{b}{\max}~d(b, a_b)\)</span> как приближение <span class="math inline">\(\sup_{b \in \mathcal{B}} \inf_{a \in \mathcal{A}} d(a,b)\)</span>.</p></li>
+<li><p><span class="math inline">\(\vec{\mathrm d}_H(\mathcal{A},\mathcal{B}) = \underset{a}{\max}~\mathrm d(a, \mathcal{B})\)</span>, где <span class="math inline">\(d(a, \mathcal{B}) = \min_{b \in \mathcal{B}}\lVert a - b \rVert\)</span> как приближение <span class="math inline">\(\sup_{a \in \mathcal{A}} \inf_{b \in \mathcal{B}} d(a,b)\)</span>.</p></li>
+<li><p><span class="math inline">\(\vec{\mathrm d}_H(\mathcal{B},\mathcal{A}) = \underset{b}{\max}~\mathrm d(b, \mathcal A)\)</span>, где <span class="math inline">\(d(b, \mathcal{A}) = \min_{a \in \mathcal{A}}\lVert b - a \rVert\)</span> как приближение <span class="math inline">\(\sup_{b \in \mathcal{B}} \inf_{a \in \mathcal{A}} d(a,b)\)</span>.</p></li>
 </ul>
 </section>
 <section id="дискретное-расстояние-хаусдорфа" class="slide level2">
 <h2>Дискретное расстояние Хаусдорфа</h2>
 <p><strong>Дискретное расстояние Хаусдорфа</strong> определяется как:</p>
 <p><span class="math display">\[
-\widehat {d_H}(\mathcal{A},\mathcal{B}) = \max \left\{\vec{d}_H(\mathcal{A},\mathcal{B}),\, \vec{d}_H(\mathcal{B},\mathcal{A}) \right\}
+\widehat {\mathrm d_H}(\mathcal{A},\mathcal{B}) = \max \left\{\vec{\mathrm d}_H(\mathcal{A},\mathcal{B}),\, \vec{\mathrm d}_H(\mathcal{B},\mathcal{A}) \right\}
 \]</span></p>
-<p>Величина <span class="math inline">\(\vec{d}_H\)</span> называется <em>направленным расстоянием Хаусдорфа</em>.</p>
+<p>Величина <span class="math inline">\(\vec{\mathrm d}_H\)</span> называется <em>направленным расстоянием Хаусдорфа</em>.</p>
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -546,20 +596,35 @@ d_{\mathrm H}(\mathcal{A},\mathcal{B}) = \max\left\{\,\sup_{a \in \mathcal{A}} \
 <p><strong>Чувствительность к выбросам</strong></p>
 </div>
 <div class="callout-content">
-<p>И <span class="math inline">\(d_H\)</span>, и <span class="math inline">\(\widehat{d_H}\)</span> являются мимимаксными мерами, они чувствительны к выбросам из множества.</p>
+<p>И <span class="math inline">\(\mathrm d_H\)</span>, и <span class="math inline">\(\widehat{\mathrm d_H}\)</span> являются мимимаксными мерами, они чувствительны к выбросам из множества.</p>
 </div>
 </div>
 </div>
 <p><strong>Модифицированное расстояние Хаусдорфа</strong> заменяет максимум кратчайших расстояний их средним значением, что устраняет чувствительность к выбросам:</p>
 <p><span class="math display">\[
-d_M = \max \left\{\frac{1}{|\mathcal{A}|}\underset{a}{\sum} d(a, b_a),\, \frac{1}{|\mathcal{B}|}\underset{b}{\sum} d(b, a_b) \right\}
+\mathrm d_M = \max \left\{\frac{1}{|\mathcal{A}|}\underset{a}{\sum} \mathrm d(a, \mathcal B),\, \frac{1}{|\mathcal{B}|}\underset{b}{\sum} \mathrm d(b, \mathcal A) \right\}
 \]</span></p>
 </section>
+<section id="модифицированное-расстояние-хаусдорфа" class="slide level2">
+<h2>Модифицированное расстояние Хаусдорфа</h2>
+<p>Модифицированное расстояние Хаусдорфа может использоваться в качестве приближенной метрики расстояния между линиями. Однако оно не учитывает <em>непрерывность и направление линии</em>.</p>
+
+<img data-src="images/hausdorff_line.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-12" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="модифицированное-расстояние-хаусдорфа-1" class="slide level2">
+<h2>Модифицированное расстояние Хаусдорфа</h2>
+<p>Данная метрика работает только в простых случаях, когда линии идут параллельными путями. На рисунке ниже расстояние Хаусдорфа и его модификации не эффективны.</p>
+
+<img data-src="images/hausdorff_ineffective.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-13" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="расстояние-фреше" class="slide level2">
 <h2>Расстояние Фреше</h2>
-<p><strong>Расстояние Фреше</strong> является мерой близости линий с учетом их направления:</p>
+<p>Минимальная длина поводка, который нужен хозяину, чтобы выгулять собаку при том, что оба они идут разными дорожками от начала до конца.</p>
+
+<img data-src="images/frechet_distance.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-14" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="расстояние-фреше-1" class="slide level2">
+<h2>Расстояние Фреше</h2>
+<p><strong>Расстояние Фреше</strong> является мерой близости линий с учетом их непрерывности и направления:</p>
 <p><span class="math display">\[
-d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \Bigg \{d \Big (\mathcal{A}\big(\alpha(t)\big), \, \mathcal{B}\big(\beta(t)\big) \Big ) \Bigg \},
+\mathrm d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \Bigg \{\mathrm d \Big (\mathcal{A}\big(\alpha(t)\big), \, \mathcal{B}\big(\beta(t)\big) \Big ) \Bigg \},
 \]</span></p>
 <p>где <span class="math inline">\(\mathcal{A}(u),~\mathcal{B}(v),~u,v \in [0, 1]\)</span> — <em>параметрические описания</em> линий</p>
 <p><span class="math inline">\(\alpha(t),~\beta(t),~t \in [0, 1]\)</span> — <em>репараметризации</em>, которые оптимизируются для нахождения таких <span class="math inline">\(u = \alpha(t)\)</span> и <span class="math inline">\(v = \beta(t)\)</span>, которые минимизируют максимальное расстояние между <span class="math inline">\(\mathcal{A}(u)\)</span> и <span class="math inline">\(\mathcal{B}(v)\)</span> для общего <span class="math inline">\(t\)</span>.</p>
@@ -599,10 +664,10 @@ d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-6" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-15" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/perimeter.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-6" style="width:100.0%">
+<img data-src="images/perimeter.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-15" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -631,10 +696,10 @@ d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-7" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-16" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/area.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-7" style="width:100.0%">
+<img data-src="images/area.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-16" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -647,10 +712,10 @@ d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \
 <div class="column" style="width:60%;">
 <p>Пусть прямая <span class="math inline">\(l\)</span> определяется отрезком <span class="math inline">\(\overline{qr}\)</span>. Расположение точки <span class="math inline">\(p\)</span> относительно этой прямой зависит от знака площади треугольника <span class="math inline">\(\triangle qpr\)</span>:</p>
 </div><div class="column" style="width:40%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-8" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-17" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/triangle_area.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-8" style="width:100.0%">
+<img data-src="images/triangle_area.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-17" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -667,6 +732,40 @@ d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \
 \end{cases}
 \]</span></p>
 </section>
+<section id="точка-на-отрезке" class="slide level2">
+<h2>Точка на отрезке</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Точка <span class="math inline">\(p\)</span> располагается на отрезке <span class="math inline">\(\overline{qr}\)</span>, если одновременно выполняются <span class="math inline">\(3\)</span> условия:</p>
+<p><span class="math display">\[
+\texttt{point_on_segment}(p,\overline{qr}) = \big(\texttt{side}(q,p,r) = 0\big) \\
+\land \big(\min(x_q, x_r) \leq x_p \leq \max(x_q, x_r)\big) \\
+\land \big(\min(y_q, y_r) \leq y_p \leq \max(y_q, y_r)\big)
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Точность вычислений</strong></p>
+</div>
+<div class="callout-content">
+<p>Для того чтобы избежать ошибок, связанных с ограниченной точностью вычислений, часто выполняют не проверку равенства нулю, а сравнение с очень малым числом: <span class="math inline">\(|\texttt{side}(q,p,r)| &lt; \epsilon\)</span>, где <span class="math inline">\(\epsilon\)</span> задается как константа в программе. Например, <code>EPS = 1e-9</code>.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-18" class="quarto-figure quarto-figure-center" width="100%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/point_on_segment.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-18" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="пересечение-отрезков" class="slide level2">
 <h2>Пересечение отрезков</h2>
 <div class="columns">
@@ -678,18 +777,18 @@ d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \
 \texttt{side}(p_3, p_4, p_1) \neq \texttt{side}(p_3, p_4, p_2)
 \]</span></p>
 </div><div class="column" style="width:40%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-9" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-19" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/segment_intersection.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-9" style="width:100.0%">
+<img data-src="images/segment_intersection.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-19" style="width:100.0%">
 </div>
 </figure>
 </div>
 </div>
 </div>
-<p>Если отрезки коллинеарны, то надо проверять расстояния:</p>
+<p>Если отрезки коллинеарны, то надо проверять условия вида:</p>
 <p><span class="math display">\[
-\textrm d(p_3, \overline{p_1 p_2}) &lt; \epsilon,~\textrm d(p_4, \overline{p_1 p_2}) &lt; \epsilon,~\textrm d(p_1, \overline{p_3 p_4}) &lt; \epsilon,~\textrm d(p_2, \overline{p_3 p_4}) &lt; \epsilon
+\texttt{point_on_segment}(p_3, \overline{p_1 p_2}),~\texttt{point_on_segment}(p_4, \overline{p_1 p_2})
 \]</span></p>
 </section>
 <section id="точка-пересечения" class="slide level2">
@@ -717,10 +816,10 @@ d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \
 <p>Луч, выпущенный из точки в направлении оси <span class="math inline">\(X\)</span>, <em>сечёт</em> (<code>crosses</code>) границу полигона <strong>нечетное</strong> количество раз.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-10" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-20" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/point_in_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" style="width:100.0%">
+<img data-src="images/point_in_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-20" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -731,11 +830,121 @@ d_F(\mathcal{A},\mathcal{B}) = \inf_{\alpha, \beta}\,\,\max_{t \in [0,1]} \,\, \
 </div>
 <p>Если полигон состоит из вершин <span class="math inline">\(p_i = (x_i, y_i)\)</span>, то в качестве луча можно взять отрезок <span class="math inline">\(\overline{pq}\)</span>, где <span class="math inline">\(q = (max(x_i), y_p)\)</span>.</p>
 </section>
-<section id="библиография" class="slide level2">
+<section id="ограничивающий-прямоугольник" class="slide level2">
+<h2>Ограничивающий прямоугольник</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Ограничивающий прямоугольник</strong> определяет охват данных по осям координат.</p>
+<p>Задаётся координатами углов:</p>
+<ul>
+<li><p>левого нижнего <span class="math inline">\((x_{min}, y_{min})\)</span></p></li>
+<li><p>правого верхнего <span class="math inline">\((x_{max}, y_{max})\)</span></p></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Ограничивающий прямоугольник является важным элементом <em>метаданных</em> — описания пространственных данных, но также используется и в аналитических задачах.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-21" class="quarto-figure quarto-figure-center" width="100%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/bbox.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-21" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Выпуклая оболочка</strong> — наименьший по площади выпуклый многоугольник, <em>покрывающий</em> заданное множество точек.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Выпуклое множество</strong></p>
+</div>
+<div class="callout-content">
+<p>Множество, в котором отрезок, соединяющий любые две точки также находится внутри этого множества.</p>
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-22" class="quarto-figure quarto-figure-center" width="65%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/non_convex.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-22" style="width:65.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-23" class="quarto-figure quarto-figure-center" width="60%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/convex_hull.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:60.0%">
+</div>
+</figure>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Выпуклые оболочки используются для восстановления ареалов по точечным измерениям. Также выпуклая оболочка является границей <em>триангуляционного покрытия</em>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-1" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>находим <em>нулевую</em> точку с минимальной координатой <span class="math inline">\(X\)</span>;</p></li>
+<li><p>ищем <em>первую</em> точку с минимальным дирекционным углом;</p></li>
+<li><p>получаем отрезок <span class="math inline">\(p_0 p_1\)</span>;</p></li>
+<li><p>продолжаем поиск, находя следующий отрезок, образующий минимальный угол поворота относительно предыдущего.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-24" class="quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/jarvis.gif" id="fig-539a35d47e664c97a50115a146a7f1bd-24">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-jarvis1973" class="csl-entry" role="listitem">
+Jarvis, R.A. 1973. <span>«On the Identification of the Convex Hull of a Finite Set of Points in the Plane»</span>. <em>Information Processing Letters</em> 2 (1): 18–21. <a href="https://doi.org/10.1016/0020-0190(73)90020-3">https://doi.org/10.1016/0020-0190(73)90020-3</a>.
+</div>
 </div>
 </section>
     </div>
