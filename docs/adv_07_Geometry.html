@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">23 октября 2023 г.</p>
+  <p class="date">27 октября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -478,7 +478,7 @@ d(p, l) = \frac{|ax_p + by_p + c|}{\sqrt{a^2 + b^2}}
 <h2>Расстояние от точки до линии</h2>
 <p><strong>Расстояние от точки до линии</strong> <span class="math inline">\(L\)</span> , состоящей из <span class="math inline">\(k\)</span> вершин — это минимальное из расстояний от точки до каждого из отрезков линии:</p>
 <p><span class="math display">\[
-d(p, L) = \min \big[\textrm d(p, \overline{p_j p_{j+1}})\big], ~j=0...k-1
+d(p, L) = \min \big[\textrm d(p, \overline{p_j p_{j+1}})\big], ~j=0...k-2
 \]</span></p>
 <div class="columns">
 <div class="column" style="width:30%;">
@@ -510,7 +510,7 @@ d(p, L) = \min \big[\textrm d(p, \overline{p_j p_{j+1}})\big], ~j=0...k-1
 <h2>Расстояние от точки до полигона</h2>
 <p><strong>Расстояние от точки до полигона</strong> <span class="math inline">\(A\)</span>, состоящего из <span class="math inline">\(n\)</span> колец, равняется <span class="math inline">\(0\)</span>, если точка внутри полигона, иначе равна минимальному расстоянию до границы полигона.</p>
 <p><span class="math display">\[
-d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,~j = 0...k_i
+d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,~j = 0...k_i-2
 \]</span></p>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -570,7 +570,7 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <img data-src="images/hausdorff_4.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-11" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="расстояние-хаусдорфа" class="slide level2">
 <h2>Расстояние Хаусдорфа</h2>
-<p>Если даны два подмножества <span class="math inline">\(\mathcal{A} = \lbrace a \rbrace\)</span> и <span class="math inline">\(\mathcal{B} = \lbrace b \rbrace\)</span> метрического пространства <span class="math inline">\(M\)</span> с заданным расстоянием <span class="math inline">\(\mathrm d\)</span>, то <strong>расстояние</strong> <strong>Хаусдорфа</strong> <span class="math inline">\(d_H(\mathcal{A}, \mathcal{B})\)</span> вычисляется как:</p>
+<p>Если даны два подмножества <span class="math inline">\(\mathcal{A} = \lbrace a \rbrace\)</span> и <span class="math inline">\(\mathcal{B} = \lbrace b \rbrace\)</span> метрического пространства <span class="math inline">\(M\)</span> с заданным расстоянием <span class="math inline">\(\mathrm d\)</span>, то <strong>расстояние</strong> <strong>Хаусдорфа</strong> <span class="math inline">\(\textrm d_H(\mathcal{A}, \mathcal{B})\)</span> вычисляется как:</p>
 <p><span class="math display">\[
 \mathrm d_{\mathrm H}(\mathcal{A},\mathcal{B}) = \max\left\{\,\sup_{a \in \mathcal{A}} \inf_{b \in \mathcal{B}} \mathrm d(a,b),\, \sup_{b \in \mathcal{B}} \inf_{a \in \mathcal{A}} \mathrm d(a,b)\,\right\}
 \]</span></p>
@@ -796,7 +796,7 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <p>Представим отрезки в параметрическом виде:</p>
 <p><span class="math display">\[
 \overline{p_1 p_2} = \{\lambda p_1 + (1 - \lambda) p_2 | \lambda \in [0,1]\}\\
-\overline{p_3 p_4} = \{\mu p_3 + (1 - \mu) p_4 | \lambda \in [0,1]\}
+\overline{p_3 p_4} = \{\mu p_3 + (1 - \mu) p_4 | \mu \in [0,1]\}
 \]</span>Если отрезки пересекаются, то справедливо равенство:</p>
 <p><span class="math display">\[
 \lambda p_1 + (1 - \lambda) p_2 = \mu p_3 + (1 - \mu) p_4\\
@@ -811,15 +811,31 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 \]</span></p>
 <p>Решив систему относительно <span class="math inline">\(\lambda\)</span> и <span class="math inline">\(\mu\)</span>, получаем точку пересечения.</p>
 </section>
-<section id="принадлежность-точки-полигону" class="slide level2">
-<h2>Принадлежность точки полигону</h2>
+<section id="выпуклость-полигона" class="slide level2">
+<h2>Выпуклость полигона</h2>
+<p>Полигон является выпуклым, если каждая последующая его точка одинаково располагается относительно прямой, проходящей через две предыдущих.</p>
+<p><span class="math display">\[
+\texttt{side}(p_0, p_1, p_2) = \texttt{side}(p_1, p_2, p_3) = ... = \texttt{side}(p_{n-3}, p_{n-2}, p_{n-1})
+\]</span></p>
+
+<img data-src="images/convex_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-20" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="точка-в-выпуклом-полигоне" class="slide level2">
+<h2>Точка в выпуклом полигоне</h2>
+<p>Если полигон является выпуклым, то все его внутренние точки располагаются по одну сторону относительно границы.</p>
+<p><span class="math display">\[
+\texttt{side}(p, p_1, p_2) = \texttt{side}(p, p_2, p_3) = ... = \texttt{side}(p, p_{n-2}, p_{n-1})
+\]</span></p>
+
+<img data-src="images/point_convex_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-21" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="точка-в-полигоне-1" class="slide level2">
+<h2>Точка в полигоне</h2>
 <p>Луч, выпущенный из точки в направлении оси <span class="math inline">\(X\)</span>, <em>сечёт</em> (<code>crosses</code>) границу полигона <strong>нечетное</strong> количество раз.</p>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-20" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-22" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/point_in_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-20" style="width:100.0%">
+<img data-src="images/point_in_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-22" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -829,6 +845,9 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 <p>Если полигон состоит из вершин <span class="math inline">\(p_i = (x_i, y_i)\)</span>, то в качестве луча можно взять отрезок <span class="math inline">\(\overline{pq}\)</span>, где <span class="math inline">\(q = (max(x_i), y_p)\)</span>.</p>
+</section>
+<section id="точка-в-полигоне-2" class="slide level2">
+<h2>Точка в полигоне</h2>
 </section>
 <section id="ограничивающий-прямоугольник" class="slide level2">
 <h2>Ограничивающий прямоугольник</h2>
@@ -854,10 +873,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </div><div class="column" style="width:40%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-21" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-23" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/bbox.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-21" style="width:100.0%">
+<img data-src="images/bbox.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -879,10 +898,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 <div class="callout-content">
 <p>Множество, в котором отрезок, соединяющий любые две точки также находится внутри этого множества.</p>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-22" class="quarto-figure quarto-figure-center" width="65%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-24" class="quarto-figure quarto-figure-center" width="65%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/non_convex.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-22" style="width:65.0%">
+<img data-src="images/non_convex.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-24" style="width:65.0%">
 </div>
 </figure>
 </div>
@@ -890,10 +909,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-23" class="quarto-figure quarto-figure-center" width="60%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-25" class="quarto-figure quarto-figure-center" width="60%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/convex_hull.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:60.0%">
+<img data-src="images/convex_hull.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-25" style="width:60.0%">
 </div>
 </figure>
 </div>
@@ -925,10 +944,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <li><p>продолжаем поиск, находя следующий отрезок, образующий минимальный угол поворота относительно предыдущего.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-24" class="quarto-figure quarto-figure-center">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-26" class="quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/jarvis.gif" id="fig-539a35d47e664c97a50115a146a7f1bd-24">
+<img data-src="images/jarvis.gif" id="fig-539a35d47e664c97a50115a146a7f1bd-26">
 </div>
 </figure>
 </div>
