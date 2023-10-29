@@ -6669,5 +6669,61 @@
     "title": "Геометрические операции",
     "section": "Мин. по площади огр. прямоугольник",
     "text": "Мин. по площади огр. прямоугольник\n\n\nЯвляется наименьшим по площади среди всех прямоугольников, охватывающих данное множество точек\nСогласно теореме Фримена-Шапира (Freeman и Shapira 1975) одна из сторон такого прямоугольника должна касаться его выпуклой оболочки.\n\n\n\n\n\n\nВычисление\n\n\nРезультат теоремы Фримена-Шапира позволяет проверить всего лишь \\(n\\) прямоугольников, где \\(n\\) — число сторон в выпуклой оболочке."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник-1",
+    "href": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник-1",
+    "title": "Геометрические операции",
+    "section": "Мин. по площади огр. прямоугольник",
+    "text": "Мин. по площади огр. прямоугольник\nПусть выпуклая оболочка состоит из \\(n\\) вершин \\(p_i = (x_i, y_i),~i = 0...n-1\\). Введем переменные \\(k=0\\) и \\(S_{\\min} = 0\\). Тогда в цикле для каждого \\(j\\) от \\(0\\) до \\(n-2\\):\n\nВычислить направление \\(\\gamma_j = \\texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)\\) для вектора \\(\\overrightarrow{p_j p_{j+1}}\\).\nПовернуть координаты всех точек оболочки на угол \\(-\\gamma_j\\): \\(\\mathrm p_{ij} = \\mathbf R(-\\gamma_j)\\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1\\)\nВычислить площадь ограничивающего прямоугольника повернутых координат:\\(S_j = \\big[\\max(x_{ij})-\\min(x_{ij})\\big] \\times \\big[\\max(y_{ij}) - \\min(y_{ij})\\big]\\).\nЕсли \\(S_j &lt; S_{\\min}\\), то \\(S_{\\min} = S_j, ~ k = j\\).\n\nПолученное значение \\(k\\) указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон выпуклой оболочки"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#аффинные-преобразования-сдвиг",
+    "href": "adv_07_Geometry.html#аффинные-преобразования-сдвиг",
+    "title": "Геометрические операции",
+    "section": "Аффинные преобразования (сдвиг)",
+    "text": "Аффинные преобразования (сдвиг)\nАффинное преобразование \\(f\\colon\\mathbb{R}^{n}\\to \\mathbb{R}^{n}\\) есть преобразование вида:\n\\[\nf(\\mathrm p) = \\mathbf M \\cdot \\mathrm p + \\mathrm v\n\\]\nгде \\(\\mathbf M\\) — обратимая матрица (квадратная матрица, определитель которой отличен от нуля) и \\(v\\in \\mathbb{R}^{n}\\).\n\\(\\mathbf M\\) и \\(\\mathrm v\\) обычно объединяются в одну матрицу \\(\\mathbf A\\), что требует представления \\(p\\) в однородных координатах: \\(\\widehat{\\mathrm p} = (x_p, y_p,..., 1)\\). В этом случае аффинное преобразование можно записать как:\n\\[\nf(\\mathrm p) = \\mathbf A \\cdot \\widehat{\\mathrm p} = \\left[ \\begin{array}{ccc|c} \\, & \\mathbf M & & \\mathrm v \\ \\\\ 0 & \\ldots & 0 & 1 \\end{array} \\right] \\begin{bmatrix} \\mathrm p \\\\ 1 \\end{bmatrix}\n\\]"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#аффинные-преобразования-поворот",
+    "href": "adv_07_Geometry.html#аффинные-преобразования-поворот",
+    "title": "Геометрические операции",
+    "section": "Аффинные преобразования (поворот)",
+    "text": "Аффинные преобразования (поворот)\nПри повороте заполняется верхний левый блок матрицы:\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 0 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} \\cos \\theta &  -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf R(\\theta)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x \\cos \\theta - y \\sin \\theta \\\\ x \\sin \\theta + y \\cos \\theta \\\\ 1 \\end{bmatrix},\n\\]\nгде \\(\\theta\\) - угол поворота."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#аффинные-преобразования-масштабирование",
+    "href": "adv_07_Geometry.html#аффинные-преобразования-масштабирование",
+    "title": "Геометрические операции",
+    "section": "Аффинные преобразования (масштабирование)",
+    "text": "Аффинные преобразования (масштабирование)\nПри массштабировании на главной диагонали появляются коэффициенты:\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} s_x &  0 & 0 \\\\ 0 & s_y  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf S(s_x, s_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x s_x \\\\ y s_y \\\\ 1 \\end{bmatrix},\n\\]\nгде \\(s_x, s_y\\) — масштабные коэффициенты по осям \\(X\\) и \\(Y\\)."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник-2",
+    "href": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник-2",
+    "title": "Геометрические операции",
+    "section": "Мин. по площади огр. прямоугольник",
+    "text": "Мин. по площади огр. прямоугольник\nПосле окончания цикла можно получить координаты углов искомого прямоугольника путем поворота углов в обратном направлении:\n\\[\nq_0 = R(\\gamma_k) \\begin{bmatrix} \\min(x_{ik}) \\\\ \\min(y_{ik}) \\\\ 1 \\end{bmatrix},~q_1 = R(\\gamma_k) \\begin{bmatrix} \\min(x_{ik}) \\\\ \\max(y_{ik}) \\\\ 1 \\end{bmatrix}\n\\]\n\\[\nq_2 = R(\\gamma_k) \\begin{bmatrix} \\max(x_{ik}) \\\\ \\max(y_{ik}) \\\\ 1 \\end{bmatrix},~q_3 = R(\\gamma_k) \\begin{bmatrix} \\max(x_{ik}) \\\\ \\min(y_{ik}) \\\\ 1 \\end{bmatrix}\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nМинимальный по площади ограничивающий прямоугольник нельзя описать координатами двух углов — требуется указание как минимум трёх."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#аффинные-преобразования-масштаб",
+    "href": "adv_07_Geometry.html#аффинные-преобразования-масштаб",
+    "title": "Геометрические операции",
+    "section": "Аффинные преобразования (масштаб)",
+    "text": "Аффинные преобразования (масштаб)\nПри массштабировании на главной диагонали появляются коэффициенты:\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} s_x &  0 & 0 \\\\ 0 & s_y  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf S(s_x, s_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x s_x \\\\ y s_y \\\\ 1 \\end{bmatrix},\n\\]\nгде \\(s_x, s_y\\) — масштабные коэффициенты по осям \\(X\\) и \\(Y\\)."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#аффинные-преобразования",
+    "href": "adv_07_Geometry.html#аффинные-преобразования",
+    "title": "Геометрические операции",
+    "section": "Аффинные преобразования",
+    "text": "Аффинные преобразования\nСдвиг на вектор трансляции \\(t = (t_x, t_y)\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} 1 &  0 & t_x \\\\ 0 & 1 & t_y \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf T(t_x, t_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 1x + 0y + t_x1 \\\\ 0x + 1y + t_y1 \\\\ 0x + 0y + 1 \\end{bmatrix} = \\begin{bmatrix} x + t_x \\\\ y + t_y \\\\ 1 \\end{bmatrix},\n\\]\nМасштабирование с коэффициентами \\(s_x, s_y\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} s_x &  0 & 0 \\\\ 0 & s_y  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf S(s_x, s_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x s_x \\\\ y s_y \\\\ 1 \\end{bmatrix},\n\\]"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#аффинные-преобразования-1",
+    "href": "adv_07_Geometry.html#аффинные-преобразования-1",
+    "title": "Геометрические операции",
+    "section": "Аффинные преобразования",
+    "text": "Аффинные преобразования\nПоворот на угол \\(\\theta\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 0 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} \\cos \\theta &  -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf R(\\theta)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x \\cos \\theta - y \\sin \\theta \\\\ x \\sin \\theta + y \\cos \\theta \\\\ 1 \\end{bmatrix},\n\\]\nКомбинации преобразований. Например, чтобы повернуть относительно точки \\(r = (x_r, y_r)\\) на угол \\(\\theta\\), необходимо преобразование следующего вида:\n\\[\n\\textrm p' =  \\mathbf T(x_r, y_r) \\mathbf R(\\theta) \\mathbf T(-x_r, -y_r) \\mathrm p\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nЕсли точка \\(\\mathrm p\\) записана в столбик, то преобразования выполняются (и читаются) справа налево."
   }
 ]

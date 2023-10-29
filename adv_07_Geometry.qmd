@@ -722,6 +722,56 @@ $k=6,~p_6 = p_0$
 :::
 :::
 
+## Аффинные преобразования (сдвиг)
+
+**Аффинное преобразование** $f\colon\mathbb{R}^{n}\to \mathbb{R}^{n}$ есть преобразование вида:
+
+$$
+f(\mathrm p) = \mathbf M \cdot \mathrm p + \mathrm v
+$$
+
+где $\mathbf M$ --- *обратимая матрица* (квадратная матрица, определитель которой отличен от нуля) и $v\in \mathbb{R}^{n}$.
+
+$\mathbf M$ и $\mathrm v$ обычно объединяются в одну матрицу $\mathbf A$, что требует представления $p$ в *однородных* координатах: $\widehat{\mathrm p} = (x_p, y_p,..., 1)$. В этом случае аффинное преобразование можно записать как:
+
+$$
+f(\mathrm p) = \mathbf A \cdot \widehat{\mathrm p} = \left[ \begin{array}{ccc|c} \, & \mathbf M & & \mathrm v \ \\ 0 & \ldots & 0 & 1 \end{array} \right] \begin{bmatrix} \mathrm p \\ 1 \end{bmatrix}
+$$
+
+## Аффинные преобразования
+
+**Сдвиг** на вектор трансляции $t = (t_x, t_y)$:
+
+$$
+\begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \underbrace{\begin{bmatrix} 1 &  0 & t_x \\ 0 & 1 & t_y \\ 0 & 0 & 1 \end{bmatrix}}_{\mathbf T(t_x, t_y)} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} 1x + 0y + t_x1 \\ 0x + 1y + t_y1 \\ 0x + 0y + 1 \end{bmatrix} = \begin{bmatrix} x + t_x \\ y + t_y \\ 1 \end{bmatrix},
+$$
+
+**Масштабирование** с коэффициентами $s_x, s_y$:
+
+$$
+\begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \underbrace{\begin{bmatrix} s_x &  0 & 0 \\ 0 & s_y  & 0 \\ 0 & 0 & 1 \end{bmatrix}}_{\mathbf S(s_x, s_y)} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} x s_x \\ y s_y \\ 1 \end{bmatrix},
+$$
+
+## Аффинные преобразования
+
+**Поворот** на угол $\theta$:
+
+$$
+\begin{bmatrix} x' \\ y' \\ 0 \end{bmatrix} = \underbrace{\begin{bmatrix} \cos \theta &  -\sin \theta & 0 \\ \sin \theta & \cos \theta  & 0 \\ 0 & 0 & 1 \end{bmatrix}}_{\mathbf R(\theta)} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} x \cos \theta - y \sin \theta \\ x \sin \theta + y \cos \theta \\ 1 \end{bmatrix},
+$$
+
+**Комбинации преобразований**. Например, чтобы *повернуть относительно точки* $r = (x_r, y_r)$ *на угол* $\theta$, необходимо преобразование следующего вида:
+
+$$
+\textrm p' =  \mathbf T(x_r, y_r) \mathbf R(\theta) \mathbf T(-x_r, -y_r) \mathrm p
+$$
+
+::: callout-note
+## Обратите внимание
+
+Если точка $\mathrm p$ записана в столбик, то преобразования выполняются (и читаются) *справа налево*.
+:::
+
 ## **Мин. по площади огр. прямоугольник**
 
 ::: columns
@@ -740,6 +790,38 @@ $k=6,~p_6 = p_0$
 ::: {.column width="50%"}
 ![](images/minimum_area_rectangle.svg){width="100%"}
 :::
+:::
+
+## **Мин. по площади огр. прямоугольник**
+
+Пусть выпуклая оболочка состоит из $n$ вершин $p_i = (x_i, y_i),~i = 0...n-1$. Введем переменные $k=0$ и $S_{\min} = 0$. Тогда в цикле для каждого $j$ от $0$ до $n-2$:
+
+1.  Вычислить направление $\gamma_j = \texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)$ для вектора $\overrightarrow{p_j p_{j+1}}$.
+
+2.  Повернуть координаты всех точек оболочки на угол $-\gamma_j$: $\mathrm p_{ij} = \mathbf R(-\gamma_j)\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1$
+
+3.  Вычислить площадь ограничивающего прямоугольника повернутых координат:$S_j = \big[\max(x_{ij})-\min(x_{ij})\big] \times \big[\max(y_{ij}) - \min(y_{ij})\big]$.
+
+4.  Если $S_j < S_{\min}$, то $S_{\min} = S_j, ~ k = j$.
+
+Полученное значение $k$ указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон выпуклой оболочки
+
+## **Мин. по площади огр. прямоугольник**
+
+После окончания цикла можно получить координаты углов искомого прямоугольника путем поворота углов в обратном направлении:
+
+$$
+q_0 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix},~q_1 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix} 
+$$
+
+$$
+q_2 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix},~q_3 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix} 
+$$
+
+::: callout-note
+## Обратите внимание
+
+Минимальный по площади ограничивающий прямоугольник нельзя описать координатами двух углов --- требуется указание как минимум трёх.
 :::
 
 ## Библиография

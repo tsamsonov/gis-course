@@ -1148,6 +1148,53 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </section>
+<section id="аффинные-преобразования-сдвиг" class="slide level2">
+<h2>Аффинные преобразования (сдвиг)</h2>
+<p><strong>Аффинное преобразование</strong> <span class="math inline">\(f\colon\mathbb{R}^{n}\to \mathbb{R}^{n}\)</span> есть преобразование вида:</p>
+<p><span class="math display">\[
+f(\mathrm p) = \mathbf M \cdot \mathrm p + \mathrm v
+\]</span></p>
+<p>где <span class="math inline">\(\mathbf M\)</span> — <em>обратимая матрица</em> (квадратная матрица, определитель которой отличен от нуля) и <span class="math inline">\(v\in \mathbb{R}^{n}\)</span>.</p>
+<p><span class="math inline">\(\mathbf M\)</span> и <span class="math inline">\(\mathrm v\)</span> обычно объединяются в одну матрицу <span class="math inline">\(\mathbf A\)</span>, что требует представления <span class="math inline">\(p\)</span> в <em>однородных</em> координатах: <span class="math inline">\(\widehat{\mathrm p} = (x_p, y_p,..., 1)\)</span>. В этом случае аффинное преобразование можно записать как:</p>
+<p><span class="math display">\[
+f(\mathrm p) = \mathbf A \cdot \widehat{\mathrm p} = \left[ \begin{array}{ccc|c} \, &amp; \mathbf M &amp; &amp; \mathrm v \ \\ 0 &amp; \ldots &amp; 0 &amp; 1 \end{array} \right] \begin{bmatrix} \mathrm p \\ 1 \end{bmatrix}
+\]</span></p>
+</section>
+<section id="аффинные-преобразования" class="slide level2">
+<h2>Аффинные преобразования</h2>
+<p><strong>Сдвиг</strong> на вектор трансляции <span class="math inline">\(t = (t_x, t_y)\)</span>:</p>
+<p><span class="math display">\[
+\begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \underbrace{\begin{bmatrix} 1 &amp;  0 &amp; t_x \\ 0 &amp; 1 &amp; t_y \\ 0 &amp; 0 &amp; 1 \end{bmatrix}}_{\mathbf T(t_x, t_y)} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} 1x + 0y + t_x1 \\ 0x + 1y + t_y1 \\ 0x + 0y + 1 \end{bmatrix} = \begin{bmatrix} x + t_x \\ y + t_y \\ 1 \end{bmatrix},
+\]</span></p>
+<p><strong>Масштабирование</strong> с коэффициентами <span class="math inline">\(s_x, s_y\)</span>:</p>
+<p><span class="math display">\[
+\begin{bmatrix} x' \\ y' \\ 1 \end{bmatrix} = \underbrace{\begin{bmatrix} s_x &amp;  0 &amp; 0 \\ 0 &amp; s_y  &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}}_{\mathbf S(s_x, s_y)} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} x s_x \\ y s_y \\ 1 \end{bmatrix},
+\]</span></p>
+</section>
+<section id="аффинные-преобразования-1" class="slide level2">
+<h2>Аффинные преобразования</h2>
+<p><strong>Поворот</strong> на угол <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[
+\begin{bmatrix} x' \\ y' \\ 0 \end{bmatrix} = \underbrace{\begin{bmatrix} \cos \theta &amp;  -\sin \theta &amp; 0 \\ \sin \theta &amp; \cos \theta  &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}}_{\mathbf R(\theta)} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} x \cos \theta - y \sin \theta \\ x \sin \theta + y \cos \theta \\ 1 \end{bmatrix},
+\]</span></p>
+<p><strong>Комбинации преобразований</strong>. Например, чтобы <em>повернуть относительно точки</em> <span class="math inline">\(r = (x_r, y_r)\)</span> <em>на угол</em> <span class="math inline">\(\theta\)</span>, необходимо преобразование следующего вида:</p>
+<p><span class="math display">\[
+\textrm p' =  \mathbf T(x_r, y_r) \mathbf R(\theta) \mathbf T(-x_r, -y_r) \mathrm p
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратите внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Если точка <span class="math inline">\(\mathrm p\)</span> записана в столбик, то преобразования выполняются (и читаются) <em>справа налево</em>.</p>
+</div>
+</div>
+</div>
+</section>
 <section id="мин.-по-площади-огр.-прямоугольник" class="slide level2">
 <h2><strong>Мин. по площади огр. прямоугольник</strong></h2>
 <div class="columns">
@@ -1174,6 +1221,40 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <img data-src="images/minimum_area_rectangle.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-37" style="width:100.0%">
 </div>
 </figure>
+</div>
+</div>
+</div>
+</section>
+<section id="мин.-по-площади-огр.-прямоугольник-1" class="slide level2">
+<h2><strong>Мин. по площади огр. прямоугольник</strong></h2>
+<p>Пусть выпуклая оболочка состоит из <span class="math inline">\(n\)</span> вершин <span class="math inline">\(p_i = (x_i, y_i),~i = 0...n-1\)</span>. Введем переменные <span class="math inline">\(k=0\)</span> и <span class="math inline">\(S_{\min} = 0\)</span>. Тогда в цикле для каждого <span class="math inline">\(j\)</span> от <span class="math inline">\(0\)</span> до <span class="math inline">\(n-2\)</span>:</p>
+<ol type="1">
+<li><p>Вычислить направление <span class="math inline">\(\gamma_j = \texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)\)</span> для вектора <span class="math inline">\(\overrightarrow{p_j p_{j+1}}\)</span>.</p></li>
+<li><p>Повернуть координаты всех точек оболочки на угол <span class="math inline">\(-\gamma_j\)</span>: <span class="math inline">\(\mathrm p_{ij} = \mathbf R(-\gamma_j)\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1\)</span></p></li>
+<li><p>Вычислить площадь ограничивающего прямоугольника повернутых координат:<span class="math inline">\(S_j = \big[\max(x_{ij})-\min(x_{ij})\big] \times \big[\max(y_{ij}) - \min(y_{ij})\big]\)</span>.</p></li>
+<li><p>Если <span class="math inline">\(S_j &lt; S_{\min}\)</span>, то <span class="math inline">\(S_{\min} = S_j, ~ k = j\)</span>.</p></li>
+</ol>
+<p>Полученное значение <span class="math inline">\(k\)</span> указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон выпуклой оболочки</p>
+</section>
+<section id="мин.-по-площади-огр.-прямоугольник-2" class="slide level2">
+<h2><strong>Мин. по площади огр. прямоугольник</strong></h2>
+<p>После окончания цикла можно получить координаты углов искомого прямоугольника путем поворота углов в обратном направлении:</p>
+<p><span class="math display">\[
+q_0 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix},~q_1 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+q_2 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix},~q_3 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix}
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Обратите внимание</strong></p>
+</div>
+<div class="callout-content">
+<p>Минимальный по площади ограничивающий прямоугольник нельзя описать координатами двух углов — требуется указание как минимум трёх.</p>
 </div>
 </div>
 </div>
