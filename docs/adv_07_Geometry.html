@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">27 октября 2023 г.</p>
+  <p class="date">29 октября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -846,9 +846,18 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 <p>Если полигон состоит из вершин <span class="math inline">\(p_i = (x_i, y_i)\)</span>, то в качестве луча можно взять отрезок <span class="math inline">\(\overline{pq}\)</span>, где <span class="math inline">\(q = (max(x_i), y_p)\)</span>.</p>
 </section>
-<section id="точка-в-полигоне-углы" class="slide level2">
-<h2>Точка в полигоне (углы)</h2>
-<p>Порядок точки относительно замкнутой кривой — число полных оборотов, которое кривая делает вокруг заданной точки против часовой стрелки.</p>
+<section id="порядок-точки" class="slide level2">
+<h2>Порядок точки</h2>
+<p><strong>Порядок точки</strong> относительно замкнутой кривой — число полных оборотов, которое кривая делает вокруг заданной точки против часовой стрелки.</p>
+</section>
+<section id="точка-в-полигоне-угол" class="slide level2">
+<h2>Точка в полигоне (угол)</h2>
+<p>Точка находится внутри, если сумма углов поворота со знаком ненулевая:</p>
+<p><span class="math display">\[
+\newcommand\sgn{{\mathrm{sgn}}}
+\sum_{i=0}^{n-2} \theta_i \neq 0,~где~\theta_i = \sgn \begin{vmatrix} x^v_i &amp; y^v_i \\ x^v_{i+1} &amp; y^v_{i+1}  \end{vmatrix} \arccos \frac{(\mathbf v_i, \mathbf v_{i+1})}{|\mathbf v_i||\mathbf v_{i+1}|}, \\
+где~\mathbf v_i = \overrightarrow{pp_i} = (x^v_i, y^v_i) = (x_i - x_p,~y_i - y_p)
+\]</span></p>
 
 <img data-src="images/point_winding_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="ограничивающий-прямоугольник" class="slide level2">
