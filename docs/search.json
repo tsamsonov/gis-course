@@ -6598,7 +6598,7 @@
     "href": "adv_07_Geometry.html#точка-в-полигоне-угол",
     "title": "Геометрические операции",
     "section": "Точка в полигоне (угол)",
-    "text": "Точка в полигоне (угол)\nТочка находится внутри, если число оборотов не равно 0:\n\\[\n\\newcommand\\sgn{{\\mathrm{sgn}}}\n\\sum_{i=0}^{n-2} \\theta_i \\neq 0,~где~\\theta_i = \\sgn \\begin{vmatrix} x^v_i & y^v_i \\\\ x^v_{i+1} & y^v_{i+1}  \\end{vmatrix} \\arccos \\frac{(\\mathbf v_i, \\mathbf v_{i+1})}{|\\mathbf v_i||\\mathbf v_{i+1}|}, \\\\\nгде~\\mathbf v_i = \\overrightarrow{pp_i} = (x^v_i, y^v_i) = (x_i - x_p,~y_i - y_p)\n\\]"
+    "text": "Точка в полигоне (угол)\nТочка находится внутри, если число оборотов не равно 0:\n\\[\n\\newcommand\\sgn{{\\mathrm{sgn}}}\n\\sum_{i=0}^{n-2} \\varphi_i \\neq 0,~где~\\varphi_i = \\sgn \\begin{vmatrix} v^x_i & v^y_i \\\\ v^x_{i+1} & v^y_{i+1}  \\end{vmatrix} \\arccos \\frac{(\\mathbf v_i, \\mathbf v_{i+1})}{|\\mathbf v_i||\\mathbf v_{i+1}|}, \\\\\nгде~\\mathbf v_i = \\overrightarrow{pp_i} = (v^x_i, v^y_i) = (x_i - x_p,~y_i - y_p)\n\\]"
   },
   {
     "objectID": "adv_07_Geometry.html#выпуклая-оболочка-2",
@@ -6648,5 +6648,12 @@
     "title": "Геометрические операции",
     "section": "Выпуклая оболочка",
     "text": "Выпуклая оболочка\nИзвестный метод построения — алгоритм Джарвиса (Jarvis 1973):\n\n\n\nНайти точку \\(p_0\\) с минимальной координатой \\(X\\).\nНайти точку \\(p_1\\) с минимальным дирекционным углом относительно \\(p_0\\).\nПока \\(p_k \\neq p_0\\) начиная с \\(k=1\\)\n\nнайти точку \\(p_{k+1}\\) с минимальным углом поворота относительно прямой, проходящей через отрезок \\(\\overline{p_{k-1}p_k}\\);\n\\(k = k + 1\\).\n\nВосстановить полигон по точкам \\(p_0, p_1, … p_k\\), где \\(k &gt; 2\\) и \\(p_0 = p_k\\)."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#угол-между-векторами",
+    "href": "adv_07_Geometry.html#угол-между-векторами",
+    "title": "Геометрические операции",
+    "section": "Угол между векторами",
+    "text": "Угол между векторами\nУгол \\(0 \\leq \\theta \\leq \\pi\\) между векторами определяется через скалярное произведение:\n\\[\n(\\mathbf u, \\mathbf v) = |\\mathbf u||\\mathbf v| \\cos \\theta \\Rightarrow \\theta = \\arccos \\frac{(\\mathbf u, \\mathbf v)}{|\\mathbf u||\\mathbf v|} \\\\\n\\theta = \\arccos \\frac{u_x u_y + v_x v_y}{\\sqrt{u_x^2 + u_y^2}\\sqrt{v_x^2 + v_y^2}}\n\\]"
   }
 ]

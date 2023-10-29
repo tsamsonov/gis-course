@@ -469,6 +469,17 @@ $$
 
 Если полигон состоит из вершин $p_i = (x_i, y_i)$, то в качестве луча можно взять отрезок $\overline{pq}$, где $q = (max(x_i), y_p)$.
 
+## Угол между векторами
+
+Угол $0 \leq \theta \leq \pi$ между векторами определяется через скалярное произведение:
+
+$$
+(\mathbf u, \mathbf v) = |\mathbf u||\mathbf v| \cos \theta \Rightarrow \theta = \arccos \frac{(\mathbf u, \mathbf v)}{|\mathbf u||\mathbf v|} \\
+\theta = \arccos \frac{u_x u_y + v_x v_y}{\sqrt{u_x^2 + u_y^2}\sqrt{v_x^2 + v_y^2}}
+$$
+
+![](images/vector_angle.svg){width="100%"}
+
 ## Порядок точки
 
 **Порядок точки** относительно замкнутой кривой --- число полных оборотов, которое кривая делает вокруг заданной точки против часовой стрелки.
@@ -481,8 +492,8 @@ $$
 
 $$
 \newcommand\sgn{{\mathrm{sgn}}}
-\sum_{i=0}^{n-2} \theta_i \neq 0,~где~\theta_i = \sgn \begin{vmatrix} x^v_i & y^v_i \\ x^v_{i+1} & y^v_{i+1}  \end{vmatrix} \arccos \frac{(\mathbf v_i, \mathbf v_{i+1})}{|\mathbf v_i||\mathbf v_{i+1}|}, \\
-где~\mathbf v_i = \overrightarrow{pp_i} = (x^v_i, y^v_i) = (x_i - x_p,~y_i - y_p)
+\sum_{i=0}^{n-2} \varphi_i \neq 0,~где~\varphi_i = \sgn \begin{vmatrix} v^x_i & v^y_i \\ v^x_{i+1} & v^y_{i+1}  \end{vmatrix} \arccos \frac{(\mathbf v_i, \mathbf v_{i+1})}{|\mathbf v_i||\mathbf v_{i+1}|}, \\
+где~\mathbf v_i = \overrightarrow{pp_i} = (v^x_i, v^y_i) = (x_i - x_p,~y_i - y_p)
 $$
 
 ![](images/point_winding_polygon.svg){width="100%"}
