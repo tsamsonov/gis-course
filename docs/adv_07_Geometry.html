@@ -1148,8 +1148,35 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="мин.-по-площади-огр.-прямоугольник" class="slide level2">
+<h2><strong>Мин. по площади огр. прямоугольник</strong></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Является наименьшим по площади среди всех прямоугольников, охватывающих данное множество точек</p>
+<p>Согласно теореме <strong>Фримена-Шапира</strong> <span class="citation" data-cites="Freeman:1975">(<a href="#/библиография" role="doc-biblioref" onclick="">Freeman и Shapira 1975</a>)</span> одна из сторон такого прямоугольника должна касаться его выпуклой оболочки.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Вычисление</strong></p>
+</div>
+<div class="callout-content">
+<p>Результат теоремы Фримена-Шапира позволяет проверить всего лишь <span class="math inline">\(n\)</span> прямоугольников, где <span class="math inline">\(n\)</span> — число сторон в выпуклой оболочке.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-37" class="quarto-figure quarto-figure-center" width="100%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/minimum_area_rectangle.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-37" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
@@ -1158,6 +1185,9 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Freeman:1975" class="csl-entry" role="listitem">
+Freeman, H, и R Shapira. 1975. <span>«Determining the minimum-area encasing rectangle for an arbitrary closed curve»</span>. <em>Communications of the ACM</em> 18 (7): 409–13. <a href="https://doi.org/10.1145/360881.360919">https://doi.org/10.1145/360881.360919</a>.
+</div>
 <div id="ref-jarvis1973" class="csl-entry" role="listitem">
 Jarvis, R.A. 1973. <span>«On the Identification of the Convex Hull of a Finite Set of Points in the Plane»</span>. <em>Information Processing Letters</em> 2 (1): 18–21. <a href="https://doi.org/10.1016/0020-0190(73)90020-3">https://doi.org/10.1016/0020-0190(73)90020-3</a>.
 </div>

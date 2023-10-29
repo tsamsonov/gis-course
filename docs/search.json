@@ -6311,7 +6311,7 @@
     "href": "adv_07_Geometry.html#библиография",
     "title": "Геометрические операции",
     "section": "Библиография",
-    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nJarvis, R.A. 1973. «On the Identification of the Convex Hull of a Finite Set of Points in the Plane». Information Processing Letters 2 (1): 18–21. https://doi.org/10.1016/0020-0190(73)90020-3."
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nFreeman, H, и R Shapira. 1975. «Determining the minimum-area encasing rectangle for an arbitrary closed curve». Communications of the ACM 18 (7): 409–13. https://doi.org/10.1145/360881.360919.\n\n\nJarvis, R.A. 1973. «On the Identification of the Convex Hull of a Finite Set of Points in the Plane». Information Processing Letters 2 (1): 18–21. https://doi.org/10.1016/0020-0190(73)90020-3."
   },
   {
     "objectID": "adv_07_Geometry.html#расстояния",
@@ -6655,5 +6655,19 @@
     "title": "Геометрические операции",
     "section": "Угол между векторами",
     "text": "Угол между векторами\nУгол \\(0 \\leq \\theta \\leq \\pi\\) между векторами определяется через скалярное произведение:\n\\[\n(\\mathbf u, \\mathbf v) = |\\mathbf u||\\mathbf v| \\cos \\theta \\Rightarrow \\theta = \\arccos \\frac{(\\mathbf u, \\mathbf v)}{|\\mathbf u||\\mathbf v|} \\\\\n\\theta = \\arccos \\frac{u_x u_y + v_x v_y}{\\sqrt{u_x^2 + u_y^2}\\sqrt{v_x^2 + v_y^2}}\n\\]"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#минимальный-по-площади-огр.-прямоугольник",
+    "href": "adv_07_Geometry.html#минимальный-по-площади-огр.-прямоугольник",
+    "title": "Геометрические операции",
+    "section": "Минимальный по площади огр. прямоугольник",
+    "text": "Минимальный по площади огр. прямоугольник\n\n\nЯвляется наименьшим по площади среди всех прямоугольников, охватывающих данное множество точек\n\n\n\n\n\n\nТеорема Фримена-Шапира\n\n\nСогласно теореме Фримена-Шапира (Freeman и Shapira 1975) одна из сторон такого прямоугольника должна касаться его выпуклой оболочки."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник",
+    "href": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник",
+    "title": "Геометрические операции",
+    "section": "Мин. по площади огр. прямоугольник",
+    "text": "Мин. по площади огр. прямоугольник\n\n\nЯвляется наименьшим по площади среди всех прямоугольников, охватывающих данное множество точек\nСогласно теореме Фримена-Шапира (Freeman и Shapira 1975) одна из сторон такого прямоугольника должна касаться его выпуклой оболочки.\n\n\n\n\n\n\nВычисление\n\n\nРезультат теоремы Фримена-Шапира позволяет проверить всего лишь \\(n\\) прямоугольников, где \\(n\\) — число сторон в выпуклой оболочке."
   }
 ]

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 342 321" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;">
+    <rect id="Geometric-Operations-2" serif:id="Geometric Operations 2" x="-167" y="-147" width="4299" height="2861" style="fill:none;"/>
+    <g id="Geometric-Operations-21" serif:id="Geometric Operations 2">
+        <path d="M45.799,240.053L73.015,140.378L150.814,75.841L279,58L306,118L239.899,204.306L146.355,260.124L45.799,240.053Z" style="fill:rgb(45,231,231);fill-opacity:0.51;"/>
+        <path d="M234.913,6.125L8.473,194.644L108.2,314.432L334.64,125.913L234.913,6.125Z" style="fill:none;stroke:rgb(247,0,255);stroke-width:5px;"/>
+        <circle cx="239.899" cy="204.306" r="8"/>
+        <circle cx="166.814" cy="130.062" r="8"/>
+        <circle cx="175.899" cy="188.306" r="8"/>
+        <circle cx="239.899" cy="94.306" r="8"/>
+        <circle cx="146.355" cy="260.124" r="8"/>
+        <circle cx="45.799" cy="240.053" r="8"/>
+        <circle cx="112.459" cy="196.306" r="8"/>
+        <circle cx="278.377" cy="58.419" r="8"/>
+        <circle cx="304.723" cy="117.913" r="8"/>
+        <path d="M73.015,140.378L151.245,75.781" style="fill:none;stroke:rgb(21,183,183);stroke-width:7px;"/>
+        <circle cx="150.814" cy="75.841" r="8"/>
+        <circle cx="73.015" cy="140.378" r="8"/>
+    </g>
+</svg>

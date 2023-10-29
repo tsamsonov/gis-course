@@ -621,4 +621,27 @@ references:
   type: article-journal
   URL: "https://linkinghub.elsevier.com/retrieve/pii/106901159400033X"
   volume: 3
+- id: Freeman:1975
+  author:
+  - family: Freeman
+    given: H
+  - family: Shapira
+    given: R
+  container-title: Communications of the ACM
+  DOI: 10.1145/360881.360919
+  issue: 7
+  issued: 1975
+  key: 4IYXDFU2
+  libraryID: 2
+  note: "tex.mendeley-groups: \\_DSc tex.mendeley-tags: r02951 Citation
+    Key: Freeman:1975"
+  page: 409-413
+  providerKey: 2509FBBE-5BB0-44C4-B119-6083A81ED673
+  tex.mendeley-groups: \_DSc
+  tex.mendeley-tags: r02951
+  title: Determining the minimum-area encasing rectangle for an
+    arbitrary closed curve
+  type: article-journal
+  URL: "http://portal.acm.org/citation.cfm?doid=360881.360919"
+  volume: 18
 ...
