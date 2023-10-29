@@ -772,6 +772,22 @@ $$
 Если точка $\mathrm p$ записана в столбик, то преобразования выполняются (и читаются) *справа налево*.
 :::
 
+## Направление вектора
+
+Для определения направления вектора $\mathbf u = (x, y)$ в диапазоне от $-\pi$ до $\pi$ используется функция $\mathrm{atan2}$:
+
+::: columns
+::: {.column width="70%"}
+$$
+\operatorname{atan2}(y, x) =\begin{cases} \arctan\left(\frac y x\right) &\text{если } x > 0, \\[5mu] \arctan\left(\frac y x\right) + \pi &\text{если } x < 0 \text{ и } y \ge 0, \\[5mu] \arctan\left(\frac y x\right) - \pi &\text{если } x < 0 \text{ и } y < 0, \\[5mu] +\frac{\pi}{2} &\text{если } x = 0 \text{ и } y > 0, \\[5mu] -\frac{\pi}{2} &\text{если } x = 0 \text{ и } y < 0, \\[5mu] \text{undefined} &\text{если } x = 0 \text{ и } y = 0.\end{cases}
+$$
+:::
+
+::: {.column width="30%"}
+![](images/atan2.svg){width="100%"}
+:::
+:::
+
 ## **Мин. по площади огр. прямоугольник**
 
 ::: columns
@@ -800,22 +816,22 @@ $$
 
 2.  Повернуть координаты всех точек оболочки на угол $-\gamma_j$: $\mathrm p_{ij} = \mathbf R(-\gamma_j)\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1$
 
-3.  Вычислить площадь ограничивающего прямоугольника повернутых координат:$S_j = \big[\max(x_{ij})-\min(x_{ij})\big] \times \big[\max(y_{ij}) - \min(y_{ij})\big]$.
+3.  Вычислить площадь ограничивающего прямоугольника повернутых координат: $S_j = \big[\max(x_{ij})-\min(x_{ij})\big] \times \big[\max(y_{ij}) - \min(y_{ij})\big]$.
 
 4.  Если $S_j < S_{\min}$, то $S_{\min} = S_j, ~ k = j$.
 
-Полученное значение $k$ указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон выпуклой оболочки
+Полученное значение $k$ указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон искомого прямоугольника [@toussaint:1983].
 
 ## **Мин. по площади огр. прямоугольник**
 
 После окончания цикла можно получить координаты углов искомого прямоугольника путем поворота углов в обратном направлении:
 
 $$
-q_0 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix},~q_1 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix} 
+q_0 = \mathbf R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix},~q_1 = \mathbf R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix} 
 $$
 
 $$
-q_2 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix},~q_3 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix} 
+q_2 = \mathbf R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix},~q_3 = \mathbf R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix} 
 $$
 
 ::: callout-note

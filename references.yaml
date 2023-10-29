@@ -644,4 +644,19 @@ references:
   type: article-journal
   URL: "http://portal.acm.org/citation.cfm?doid=360881.360919"
   volume: 18
+- id: toussaint:1983
+  author:
+  - family: Toussaint
+    given: Gottfried T.
+  container-title: Proceedings of IEEE MELECON'83
+  event: MELECON'83
+  issued: 1983-05
+  key: DK85FWJC
+  libraryID: 2
+  page: 1-4
+  providerKey: Zotero
+  publisher-place: Athens, Greece
+  title: Solving geometric problems with the rotating calipers
+  type: paper-conference
+  volume: A10. 02
 ...

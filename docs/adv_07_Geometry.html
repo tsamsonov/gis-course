@@ -1195,6 +1195,25 @@ f(\mathrm p) = \mathbf A \cdot \widehat{\mathrm p} = \left[ \begin{array}{ccc|c}
 </div>
 </div>
 </section>
+<section id="направление-вектора" class="slide level2">
+<h2>Направление вектора</h2>
+<p>Для определения направления вектора <span class="math inline">\(\mathbf u = (x, y)\)</span> в диапазоне от <span class="math inline">\(-\pi\)</span> до <span class="math inline">\(\pi\)</span> используется функция <span class="math inline">\(\mathrm{atan2}\)</span>:</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><span class="math display">\[
+\operatorname{atan2}(y, x) =\begin{cases} \arctan\left(\frac y x\right) &amp;\text{если } x &gt; 0, \\[5mu] \arctan\left(\frac y x\right) + \pi &amp;\text{если } x &lt; 0 \text{ и } y \ge 0, \\[5mu] \arctan\left(\frac y x\right) - \pi &amp;\text{если } x &lt; 0 \text{ и } y &lt; 0, \\[5mu] +\frac{\pi}{2} &amp;\text{если } x = 0 \text{ и } y &gt; 0, \\[5mu] -\frac{\pi}{2} &amp;\text{если } x = 0 \text{ и } y &lt; 0, \\[5mu] \text{undefined} &amp;\text{если } x = 0 \text{ и } y = 0.\end{cases}
+\]</span></p>
+</div><div class="column" style="width:30%;">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-37" class="quarto-figure quarto-figure-center" width="100%">
+<figure class="quarto-float quarto-float-fig">
+<div>
+<img data-src="images/atan2.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-37" style="width:100.0%">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="мин.-по-площади-огр.-прямоугольник" class="slide level2">
 <h2><strong>Мин. по площади огр. прямоугольник</strong></h2>
 <div class="columns">
@@ -1215,10 +1234,10 @@ f(\mathrm p) = \mathbf A \cdot \widehat{\mathrm p} = \left[ \begin{array}{ccc|c}
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-37" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-38" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/minimum_area_rectangle.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-37" style="width:100.0%">
+<img data-src="images/minimum_area_rectangle.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-38" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -1231,19 +1250,19 @@ f(\mathrm p) = \mathbf A \cdot \widehat{\mathrm p} = \left[ \begin{array}{ccc|c}
 <ol type="1">
 <li><p>Вычислить направление <span class="math inline">\(\gamma_j = \texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)\)</span> для вектора <span class="math inline">\(\overrightarrow{p_j p_{j+1}}\)</span>.</p></li>
 <li><p>Повернуть координаты всех точек оболочки на угол <span class="math inline">\(-\gamma_j\)</span>: <span class="math inline">\(\mathrm p_{ij} = \mathbf R(-\gamma_j)\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1\)</span></p></li>
-<li><p>Вычислить площадь ограничивающего прямоугольника повернутых координат:<span class="math inline">\(S_j = \big[\max(x_{ij})-\min(x_{ij})\big] \times \big[\max(y_{ij}) - \min(y_{ij})\big]\)</span>.</p></li>
+<li><p>Вычислить площадь ограничивающего прямоугольника повернутых координат: <span class="math inline">\(S_j = \big[\max(x_{ij})-\min(x_{ij})\big] \times \big[\max(y_{ij}) - \min(y_{ij})\big]\)</span>.</p></li>
 <li><p>Если <span class="math inline">\(S_j &lt; S_{\min}\)</span>, то <span class="math inline">\(S_{\min} = S_j, ~ k = j\)</span>.</p></li>
 </ol>
-<p>Полученное значение <span class="math inline">\(k\)</span> указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон выпуклой оболочки</p>
+<p>Полученное значение <span class="math inline">\(k\)</span> указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон искомого прямоугольника <span class="citation" data-cites="toussaint:1983">(<a href="#/библиография" role="doc-biblioref" onclick="">Toussaint 1983</a>)</span>.</p>
 </section>
 <section id="мин.-по-площади-огр.-прямоугольник-2" class="slide level2">
 <h2><strong>Мин. по площади огр. прямоугольник</strong></h2>
 <p>После окончания цикла можно получить координаты углов искомого прямоугольника путем поворота углов в обратном направлении:</p>
 <p><span class="math display">\[
-q_0 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix},~q_1 = R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix}
+q_0 = \mathbf R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix},~q_1 = \mathbf R(\gamma_k) \begin{bmatrix} \min(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix}
 \]</span></p>
 <p><span class="math display">\[
-q_2 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix},~q_3 = R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix}
+q_2 = \mathbf R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \max(y_{ik}) \\ 1 \end{bmatrix},~q_3 = \mathbf R(\gamma_k) \begin{bmatrix} \max(x_{ik}) \\ \min(y_{ik}) \\ 1 \end{bmatrix}
 \]</span></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -1271,6 +1290,9 @@ Freeman, H, и R Shapira. 1975. <span>«Determining the minimum-area encasing re
 </div>
 <div id="ref-jarvis1973" class="csl-entry" role="listitem">
 Jarvis, R.A. 1973. <span>«On the Identification of the Convex Hull of a Finite Set of Points in the Plane»</span>. <em>Information Processing Letters</em> 2 (1): 18–21. <a href="https://doi.org/10.1016/0020-0190(73)90020-3">https://doi.org/10.1016/0020-0190(73)90020-3</a>.
+</div>
+<div id="ref-toussaint:1983" class="csl-entry" role="listitem">
+Toussaint, Gottfried T. 1983. <span>«Solving geometric problems with the rotating calipers»</span>. В <em>Proceedings of IEEE MELECON’83</em>, A10. 02:1–4. Athens, Greece.
 </div>
 </div>
 </section>

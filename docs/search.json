@@ -6311,7 +6311,7 @@
     "href": "adv_07_Geometry.html#библиография",
     "title": "Геометрические операции",
     "section": "Библиография",
-    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nFreeman, H, и R Shapira. 1975. «Determining the minimum-area encasing rectangle for an arbitrary closed curve». Communications of the ACM 18 (7): 409–13. https://doi.org/10.1145/360881.360919.\n\n\nJarvis, R.A. 1973. «On the Identification of the Convex Hull of a Finite Set of Points in the Plane». Information Processing Letters 2 (1): 18–21. https://doi.org/10.1016/0020-0190(73)90020-3."
+    "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nFreeman, H, и R Shapira. 1975. «Determining the minimum-area encasing rectangle for an arbitrary closed curve». Communications of the ACM 18 (7): 409–13. https://doi.org/10.1145/360881.360919.\n\n\nJarvis, R.A. 1973. «On the Identification of the Convex Hull of a Finite Set of Points in the Plane». Information Processing Letters 2 (1): 18–21. https://doi.org/10.1016/0020-0190(73)90020-3.\n\n\nToussaint, Gottfried T. 1983. «Solving geometric problems with the rotating calipers». В Proceedings of IEEE MELECON’83, A10. 02:1–4. Athens, Greece."
   },
   {
     "objectID": "adv_07_Geometry.html#расстояния",
@@ -6675,7 +6675,7 @@
     "href": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник-1",
     "title": "Геометрические операции",
     "section": "Мин. по площади огр. прямоугольник",
-    "text": "Мин. по площади огр. прямоугольник\nПусть выпуклая оболочка состоит из \\(n\\) вершин \\(p_i = (x_i, y_i),~i = 0...n-1\\). Введем переменные \\(k=0\\) и \\(S_{\\min} = 0\\). Тогда в цикле для каждого \\(j\\) от \\(0\\) до \\(n-2\\):\n\nВычислить направление \\(\\gamma_j = \\texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)\\) для вектора \\(\\overrightarrow{p_j p_{j+1}}\\).\nПовернуть координаты всех точек оболочки на угол \\(-\\gamma_j\\): \\(\\mathrm p_{ij} = \\mathbf R(-\\gamma_j)\\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1\\)\nВычислить площадь ограничивающего прямоугольника повернутых координат:\\(S_j = \\big[\\max(x_{ij})-\\min(x_{ij})\\big] \\times \\big[\\max(y_{ij}) - \\min(y_{ij})\\big]\\).\nЕсли \\(S_j &lt; S_{\\min}\\), то \\(S_{\\min} = S_j, ~ k = j\\).\n\nПолученное значение \\(k\\) указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон выпуклой оболочки"
+    "text": "Мин. по площади огр. прямоугольник\nПусть выпуклая оболочка состоит из \\(n\\) вершин \\(p_i = (x_i, y_i),~i = 0...n-1\\). Введем переменные \\(k=0\\) и \\(S_{\\min} = 0\\). Тогда в цикле для каждого \\(j\\) от \\(0\\) до \\(n-2\\):\n\nВычислить направление \\(\\gamma_j = \\texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)\\) для вектора \\(\\overrightarrow{p_j p_{j+1}}\\).\nПовернуть координаты всех точек оболочки на угол \\(-\\gamma_j\\): \\(\\mathrm p_{ij} = \\mathbf R(-\\gamma_j)\\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1\\)\nВычислить площадь ограничивающего прямоугольника повернутых координат: \\(S_j = \\big[\\max(x_{ij})-\\min(x_{ij})\\big] \\times \\big[\\max(y_{ij}) - \\min(y_{ij})\\big]\\).\nЕсли \\(S_j &lt; S_{\\min}\\), то \\(S_{\\min} = S_j, ~ k = j\\).\n\nПолученное значение \\(k\\) указывает на сторону выпуклой оболочки, которой коллинеарна одна из сторон искомого прямоугольника (Toussaint 1983)."
   },
   {
     "objectID": "adv_07_Geometry.html#аффинные-преобразования-сдвиг",
@@ -6703,7 +6703,7 @@
     "href": "adv_07_Geometry.html#мин.-по-площади-огр.-прямоугольник-2",
     "title": "Геометрические операции",
     "section": "Мин. по площади огр. прямоугольник",
-    "text": "Мин. по площади огр. прямоугольник\nПосле окончания цикла можно получить координаты углов искомого прямоугольника путем поворота углов в обратном направлении:\n\\[\nq_0 = R(\\gamma_k) \\begin{bmatrix} \\min(x_{ik}) \\\\ \\min(y_{ik}) \\\\ 1 \\end{bmatrix},~q_1 = R(\\gamma_k) \\begin{bmatrix} \\min(x_{ik}) \\\\ \\max(y_{ik}) \\\\ 1 \\end{bmatrix}\n\\]\n\\[\nq_2 = R(\\gamma_k) \\begin{bmatrix} \\max(x_{ik}) \\\\ \\max(y_{ik}) \\\\ 1 \\end{bmatrix},~q_3 = R(\\gamma_k) \\begin{bmatrix} \\max(x_{ik}) \\\\ \\min(y_{ik}) \\\\ 1 \\end{bmatrix}\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nМинимальный по площади ограничивающий прямоугольник нельзя описать координатами двух углов — требуется указание как минимум трёх."
+    "text": "Мин. по площади огр. прямоугольник\nПосле окончания цикла можно получить координаты углов искомого прямоугольника путем поворота углов в обратном направлении:\n\\[\nq_0 = \\mathbf R(\\gamma_k) \\begin{bmatrix} \\min(x_{ik}) \\\\ \\min(y_{ik}) \\\\ 1 \\end{bmatrix},~q_1 = \\mathbf R(\\gamma_k) \\begin{bmatrix} \\min(x_{ik}) \\\\ \\max(y_{ik}) \\\\ 1 \\end{bmatrix}\n\\]\n\\[\nq_2 = \\mathbf R(\\gamma_k) \\begin{bmatrix} \\max(x_{ik}) \\\\ \\max(y_{ik}) \\\\ 1 \\end{bmatrix},~q_3 = \\mathbf R(\\gamma_k) \\begin{bmatrix} \\max(x_{ik}) \\\\ \\min(y_{ik}) \\\\ 1 \\end{bmatrix}\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nМинимальный по площади ограничивающий прямоугольник нельзя описать координатами двух углов — требуется указание как минимум трёх."
   },
   {
     "objectID": "adv_07_Geometry.html#аффинные-преобразования-масштаб",
@@ -6725,5 +6725,12 @@
     "title": "Геометрические операции",
     "section": "Аффинные преобразования",
     "text": "Аффинные преобразования\nПоворот на угол \\(\\theta\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 0 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} \\cos \\theta &  -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf R(\\theta)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x \\cos \\theta - y \\sin \\theta \\\\ x \\sin \\theta + y \\cos \\theta \\\\ 1 \\end{bmatrix},\n\\]\nКомбинации преобразований. Например, чтобы повернуть относительно точки \\(r = (x_r, y_r)\\) на угол \\(\\theta\\), необходимо преобразование следующего вида:\n\\[\n\\textrm p' =  \\mathbf T(x_r, y_r) \\mathbf R(\\theta) \\mathbf T(-x_r, -y_r) \\mathrm p\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nЕсли точка \\(\\mathrm p\\) записана в столбик, то преобразования выполняются (и читаются) справа налево."
+  },
+  {
+    "objectID": "adv_07_Geometry.html#направление-вектора",
+    "href": "adv_07_Geometry.html#направление-вектора",
+    "title": "Геометрические операции",
+    "section": "Направление вектора",
+    "text": "Направление вектора\nДля определения направления вектора \\(\\mathbf u = (x, y)\\) в диапазоне от \\(-\\pi\\) до \\(\\pi\\) используется функция \\(\\mathrm{atan2}\\):\n\n\n\\[\n\\operatorname{atan2}(y, x) =\\begin{cases} \\arctan\\left(\\frac y x\\right) &\\text{если } x &gt; 0, \\\\[5mu] \\arctan\\left(\\frac y x\\right) + \\pi &\\text{если } x &lt; 0 \\text{ и } y \\ge 0, \\\\[5mu] \\arctan\\left(\\frac y x\\right) - \\pi &\\text{если } x &lt; 0 \\text{ и } y &lt; 0, \\\\[5mu] +\\frac{\\pi}{2} &\\text{если } x = 0 \\text{ и } y &gt; 0, \\\\[5mu] -\\frac{\\pi}{2} &\\text{если } x = 0 \\text{ и } y &lt; 0, \\\\[5mu] \\text{undefined} &\\text{если } x = 0 \\text{ и } y = 0.\\end{cases}\n\\]"
   }
 ]
