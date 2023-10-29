@@ -6598,6 +6598,6 @@
     "href": "adv_07_Geometry.html#точка-в-полигоне-угол",
     "title": "Геометрические операции",
     "section": "Точка в полигоне (угол)",
-    "text": "Точка в полигоне (угол)\nТочка находится внутри, если сумма углов поворота со знаком ненулевая:\n\\[\n\\newcommand\\sgn{{\\mathrm{sgn}}}\n\\sum_{i=0}^{n-2} \\theta_i \\neq 0,~где~\\theta_i = \\sgn \\begin{vmatrix} x^v_i & y^v_i \\\\ x^v_{i+1} & y^v_{i+1}  \\end{vmatrix} \\arccos \\frac{(\\mathbf v_i, \\mathbf v_{i+1})}{|\\mathbf v_i||\\mathbf v_{i+1}|}, \\\\\nгде~\\mathbf v_i = \\overrightarrow{pp_i} = (x^v_i, y^v_i) = (x_i - x_p,~y_i - y_p)\n\\]"
+    "text": "Точка в полигоне (угол)\nЧисло оборотов можно определить по сумме углов со знаком:\n\\[\n\\newcommand\\sgn{{\\mathrm{sgn}}}\n\\sum_{i=0}^{n-2} \\theta_i \\neq 0,~где~\\theta_i = \\sgn \\begin{vmatrix} x^v_i & y^v_i \\\\ x^v_{i+1} & y^v_{i+1}  \\end{vmatrix} \\arccos \\frac{(\\mathbf v_i, \\mathbf v_{i+1})}{|\\mathbf v_i||\\mathbf v_{i+1}|}, \\\\\nгде~\\mathbf v_i = \\overrightarrow{pp_i} = (x^v_i, y^v_i) = (x_i - x_p,~y_i - y_p)\n\\]"
   }
 ]

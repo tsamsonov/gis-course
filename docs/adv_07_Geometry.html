@@ -849,17 +849,18 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <section id="порядок-точки" class="slide level2">
 <h2>Порядок точки</h2>
 <p><strong>Порядок точки</strong> относительно замкнутой кривой — число полных оборотов, которое кривая делает вокруг заданной точки против часовой стрелки.</p>
-</section>
+
+<img data-src="images/winding_curve.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="точка-в-полигоне-угол" class="slide level2">
 <h2>Точка в полигоне (угол)</h2>
-<p>Точка находится внутри, если сумма углов поворота со знаком ненулевая:</p>
+<p>Число оборотов можно определить по сумме углов со знаком:</p>
 <p><span class="math display">\[
 \newcommand\sgn{{\mathrm{sgn}}}
 \sum_{i=0}^{n-2} \theta_i \neq 0,~где~\theta_i = \sgn \begin{vmatrix} x^v_i &amp; y^v_i \\ x^v_{i+1} &amp; y^v_{i+1}  \end{vmatrix} \arccos \frac{(\mathbf v_i, \mathbf v_{i+1})}{|\mathbf v_i||\mathbf v_{i+1}|}, \\
 где~\mathbf v_i = \overrightarrow{pp_i} = (x^v_i, y^v_i) = (x_i - x_p,~y_i - y_p)
 \]</span></p>
 
-<img data-src="images/point_winding_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/point_winding_polygon.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-24" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="ограничивающий-прямоугольник" class="slide level2">
 <h2>Ограничивающий прямоугольник</h2>
 <div class="columns">
@@ -884,10 +885,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </div><div class="column" style="width:40%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-24" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-25" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/bbox.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-24" style="width:100.0%">
+<img data-src="images/bbox.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-25" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -909,10 +910,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 <div class="callout-content">
 <p>Множество, в котором отрезок, соединяющий любые две точки также находится внутри этого множества.</p>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-25" class="quarto-figure quarto-figure-center" width="65%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-26" class="quarto-figure quarto-figure-center" width="65%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/non_convex.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-25" style="width:65.0%">
+<img data-src="images/non_convex.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-26" style="width:65.0%">
 </div>
 </figure>
 </div>
@@ -920,10 +921,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-26" class="quarto-figure quarto-figure-center" width="60%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-27" class="quarto-figure quarto-figure-center" width="60%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/convex_hull.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-26" style="width:60.0%">
+<img data-src="images/convex_hull.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-27" style="width:60.0%">
 </div>
 </figure>
 </div>
@@ -955,10 +956,10 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <li><p>продолжаем поиск, находя следующий отрезок, образующий минимальный угол поворота относительно предыдущего.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-27" class="quarto-figure quarto-figure-center">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-28" class="quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/jarvis.gif" id="fig-539a35d47e664c97a50115a146a7f1bd-27">
+<img data-src="images/jarvis.gif" id="fig-539a35d47e664c97a50115a146a7f1bd-28">
 </div>
 </figure>
 </div>
