@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">29 октября 2023 г.</p>
+  <p class="date">30 октября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -851,7 +851,7 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 <p>Угол <span class="math inline">\(0 \leq \theta \leq \pi\)</span> между векторами определяется через скалярное произведение:</p>
 <p><span class="math display">\[
 (\mathbf u, \mathbf v) = |\mathbf u||\mathbf v| \cos \theta \Rightarrow \theta = \arccos \frac{(\mathbf u, \mathbf v)}{|\mathbf u||\mathbf v|} \\
-\theta = \arccos \frac{u_x u_y + v_x v_y}{\sqrt{u_x^2 + u_y^2}\sqrt{v_x^2 + v_y^2}}
+\theta = \arccos \frac{u_x v_x + u_y v_y}{\sqrt{u_x^2 + u_y^2}\sqrt{v_x^2 + v_y^2}}
 \]</span></p>
 
 <img data-src="images/vector_angle.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
@@ -1246,7 +1246,7 @@ f(\mathrm p) = \mathbf A \cdot \widehat{\mathrm p} = \left[ \begin{array}{ccc|c}
 </section>
 <section id="мин.-по-площади-огр.-прямоугольник-1" class="slide level2">
 <h2><strong>Мин. по площади огр. прямоугольник</strong></h2>
-<p>Пусть выпуклая оболочка состоит из <span class="math inline">\(n\)</span> вершин <span class="math inline">\(p_i = (x_i, y_i),~i = 0...n-1\)</span>. Введем переменные <span class="math inline">\(k=0\)</span> и <span class="math inline">\(S_{\min} = 0\)</span>. Тогда в цикле для каждого <span class="math inline">\(j\)</span> от <span class="math inline">\(0\)</span> до <span class="math inline">\(n-2\)</span>:</p>
+<p>Пусть выпуклая оболочка состоит из <span class="math inline">\(n\)</span> вершин <span class="math inline">\(p_i = (x_i, y_i),~i = 0...n-1\)</span>. Введем переменные <span class="math inline">\(k=0\)</span> и <span class="math inline">\(S_{\min} = +\infty\)</span>. Тогда в цикле для каждого <span class="math inline">\(j\)</span> от <span class="math inline">\(0\)</span> до <span class="math inline">\(n-2\)</span>:</p>
 <ol type="1">
 <li><p>Вычислить направление <span class="math inline">\(\gamma_j = \texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)\)</span> для вектора <span class="math inline">\(\overrightarrow{p_j p_{j+1}}\)</span>.</p></li>
 <li><p>Повернуть координаты всех точек оболочки на угол <span class="math inline">\(-\gamma_j\)</span>: <span class="math inline">\(\mathrm p_{ij} = \mathbf R(-\gamma_j)\mathrm p_i = (x_{ij}, y_{ij}),~i = 0...n-1\)</span></p></li>

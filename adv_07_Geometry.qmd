@@ -475,7 +475,7 @@ $$
 
 $$
 (\mathbf u, \mathbf v) = |\mathbf u||\mathbf v| \cos \theta \Rightarrow \theta = \arccos \frac{(\mathbf u, \mathbf v)}{|\mathbf u||\mathbf v|} \\
-\theta = \arccos \frac{u_x u_y + v_x v_y}{\sqrt{u_x^2 + u_y^2}\sqrt{v_x^2 + v_y^2}}
+\theta = \arccos \frac{u_x v_x + u_y v_y}{\sqrt{u_x^2 + u_y^2}\sqrt{v_x^2 + v_y^2}}
 $$
 
 ![](images/vector_angle.svg){width="100%"}
@@ -810,7 +810,7 @@ $$
 
 ## **Мин. по площади огр. прямоугольник**
 
-Пусть выпуклая оболочка состоит из $n$ вершин $p_i = (x_i, y_i),~i = 0...n-1$. Введем переменные $k=0$ и $S_{\min} = 0$. Тогда в цикле для каждого $j$ от $0$ до $n-2$:
+Пусть выпуклая оболочка состоит из $n$ вершин $p_i = (x_i, y_i),~i = 0...n-1$. Введем переменные $k=0$ и $S_{\min} = +\infty$. Тогда в цикле для каждого $j$ от $0$ до $n-2$:
 
 1.  Вычислить направление $\gamma_j = \texttt{atan2}(y_{j+1} - y_j,~x_{j+1} - x_j)$ для вектора $\overrightarrow{p_j p_{j+1}}$.
 
