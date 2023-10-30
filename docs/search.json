@@ -6717,14 +6717,14 @@
     "href": "adv_07_Geometry.html#аффинные-преобразования",
     "title": "Геометрические операции",
     "section": "Аффинные преобразования",
-    "text": "Аффинные преобразования\nСдвиг на вектор трансляции \\(t = (t_x, t_y)\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} 1 &  0 & t_x \\\\ 0 & 1 & t_y \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf T(t_x, t_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 1x + 0y + t_x1 \\\\ 0x + 1y + t_y1 \\\\ 0x + 0y + 1 \\end{bmatrix} = \\begin{bmatrix} x + t_x \\\\ y + t_y \\\\ 1 \\end{bmatrix},\n\\]\nМасштабирование с коэффициентами \\(s_x, s_y\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} s_x &  0 & 0 \\\\ 0 & s_y  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf S(s_x, s_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x s_x \\\\ y s_y \\\\ 1 \\end{bmatrix},\n\\]"
+    "text": "Аффинные преобразования\nАффинное преобразование \\(f\\colon\\mathbb{R}^{n}\\to \\mathbb{R}^{n}\\) есть преобразование вида:\n\\[\nf(\\mathrm p) = \\mathbf M \\cdot \\mathrm p + \\mathrm v\n\\]\nгде \\(\\mathbf M\\) — обратимая матрица (квадратная матрица, определитель которой отличен от нуля) и \\(v\\in \\mathbb{R}^{n}\\).\n\\(\\mathbf M\\) и \\(\\mathrm v\\) обычно объединяются в одну матрицу \\(\\mathbf A\\), что требует представления \\(p\\) в однородных координатах: \\(\\widehat{\\mathrm p} = (x_p, y_p,..., 1)\\). В этом случае аффинное преобразование можно записать как:\n\\[\nf(\\mathrm p) = \\mathbf A \\cdot \\widehat{\\mathrm p} = \\left[ \\begin{array}{ccc|c} \\, & \\mathbf M & & \\mathrm v \\ \\\\ 0 & \\ldots & 0 & 1 \\end{array} \\right] \\begin{bmatrix} \\mathrm p \\\\ 1 \\end{bmatrix}\n\\]"
   },
   {
     "objectID": "adv_07_Geometry.html#аффинные-преобразования-1",
     "href": "adv_07_Geometry.html#аффинные-преобразования-1",
     "title": "Геометрические операции",
     "section": "Аффинные преобразования",
-    "text": "Аффинные преобразования\nПоворот на угол \\(\\theta\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 0 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} \\cos \\theta &  -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf R(\\theta)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x \\cos \\theta - y \\sin \\theta \\\\ x \\sin \\theta + y \\cos \\theta \\\\ 1 \\end{bmatrix},\n\\]\nКомбинации преобразований. Например, чтобы повернуть относительно точки \\(r = (x_r, y_r)\\) на угол \\(\\theta\\), необходимо преобразование следующего вида:\n\\[\n\\textrm p' =  \\mathbf T(x_r, y_r) \\mathbf R(\\theta) \\mathbf T(-x_r, -y_r) \\mathrm p\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nЕсли точка \\(\\mathrm p\\) записана в столбик, то преобразования выполняются (и читаются) справа налево."
+    "text": "Аффинные преобразования\nСдвиг на вектор трансляции \\(t = (t_x, t_y)\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} 1 &  0 & t_x \\\\ 0 & 1 & t_y \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf T(t_x, t_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 1x + 0y + t_x1 \\\\ 0x + 1y + t_y1 \\\\ 0x + 0y + 1 \\end{bmatrix} = \\begin{bmatrix} x + t_x \\\\ y + t_y \\\\ 1 \\end{bmatrix},\n\\]\nМасштабирование с коэффициентами \\(s_x, s_y\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 1 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} s_x &  0 & 0 \\\\ 0 & s_y  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf S(s_x, s_y)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x s_x \\\\ y s_y \\\\ 1 \\end{bmatrix},\n\\]"
   },
   {
     "objectID": "adv_07_Geometry.html#направление-вектора",
@@ -6732,5 +6732,12 @@
     "title": "Геометрические операции",
     "section": "Направление вектора",
     "text": "Направление вектора\nДля определения направления вектора \\(\\mathbf u = (x, y)\\) в диапазоне от \\(-\\pi\\) до \\(\\pi\\) используется функция \\(\\mathrm{atan2}\\):\n\n\n\\[\n\\operatorname{atan2}(y, x) =\\begin{cases} \\arctan\\left(\\frac y x\\right) &\\text{если } x &gt; 0, \\\\[5mu] \\arctan\\left(\\frac y x\\right) + \\pi &\\text{если } x &lt; 0 \\text{ и } y \\ge 0, \\\\[5mu] \\arctan\\left(\\frac y x\\right) - \\pi &\\text{если } x &lt; 0 \\text{ и } y &lt; 0, \\\\[5mu] +\\frac{\\pi}{2} &\\text{если } x = 0 \\text{ и } y &gt; 0, \\\\[5mu] -\\frac{\\pi}{2} &\\text{если } x = 0 \\text{ и } y &lt; 0, \\\\[5mu] \\text{undefined} &\\text{если } x = 0 \\text{ и } y = 0.\\end{cases}\n\\]"
+  },
+  {
+    "objectID": "adv_07_Geometry.html#аффинные-преобразования-2",
+    "href": "adv_07_Geometry.html#аффинные-преобразования-2",
+    "title": "Геометрические операции",
+    "section": "Аффинные преобразования",
+    "text": "Аффинные преобразования\nПоворот на угол \\(\\theta\\):\n\\[\n\\begin{bmatrix} x' \\\\ y' \\\\ 0 \\end{bmatrix} = \\underbrace{\\begin{bmatrix} \\cos \\theta &  -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta  & 0 \\\\ 0 & 0 & 1 \\end{bmatrix}}_{\\mathbf R(\\theta)} \\begin{bmatrix} x \\\\ y \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} x \\cos \\theta - y \\sin \\theta \\\\ x \\sin \\theta + y \\cos \\theta \\\\ 1 \\end{bmatrix},\n\\]\nКомбинации преобразований. Например, чтобы повернуть относительно точки \\(r = (x_r, y_r)\\) на угол \\(\\theta\\), необходимо преобразование следующего вида:\n\\[\n\\textrm p' =  \\mathbf T(x_r, y_r) \\mathbf R(\\theta) \\mathbf T(-x_r, -y_r) \\mathrm p\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nЕсли точка \\(\\mathrm p\\) записана в столбик, то преобразования выполняются (и читаются) справа налево."
   }
 ]
