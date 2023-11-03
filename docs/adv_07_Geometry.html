@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">30 октября 2023 г.</p>
+  <p class="date">3 ноября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -1123,6 +1123,27 @@ d(p, A) = \min\big[\textrm d(p, \overline{p_{i,j} p_{i,j+1}})\big],~i = 0...n-1,
 </div>
 </section>
 <section id="выпуклая-оболочка-8" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Алгоритм Джарвиса можно реализовать без вычисления углов: минимальный угол поворота образуется тогда, когда все остальные точки располагаются <em>по правую сторону относительно найденного отрезка</em>.</p>
+<p>Пусть <span class="math inline">\(P = \{p_i\}\)</span> — множество точек и <span class="math inline">\(Q = \{q_j\}\)</span> — искомая выпуклая оболочка.</p>
+<ol type="1">
+<li><p><span class="math inline">\(Q = \varnothing;~q =\min_x p\)</span></p></li>
+<li><p>В цикле:</p>
+<ul>
+<li><p><span class="math inline">\(Q = Q \cup q;~r = p_0\)</span></p></li>
+<li><p>По <span class="math inline">\(i\)</span> от <span class="math inline">\(0\)</span> до <span class="math inline">\(n\)</span>:</p>
+<ul>
+<li><p>если <span class="math inline">\(r = q\)</span> или <span class="math inline">\(\texttt{side}(q, p_i, r) = 1\)</span></p>
+<ul>
+<li><span class="math inline">\(r = p_i\)</span></li>
+</ul></li>
+</ul></li>
+<li><p><span class="math inline">\(q = r\)</span></p></li>
+<li><p>если <span class="math inline">\(q = q_0\)</span>, то прервать цикл</p></li>
+</ul></li>
+</ol>
+</section>
+<section id="выпуклая-оболочка-9" class="slide level2">
 <h2>Выпуклая оболочка</h2>
 <p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
 <div class="columns">
