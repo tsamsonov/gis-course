@@ -732,7 +732,7 @@ $k=6,~q_6 = q_0$
 ::: {.column width="55%"}
 1.  $Q = \varnothing;~q =\min_x p$
 
-2.  В цикле:
+2.  В цикле (`while True`):
 
     -   $Q = Q \cup q;~r = p_0$
 
