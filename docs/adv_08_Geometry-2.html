@@ -29,7 +29,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -414,11 +434,77 @@
 </div>
 </div>
 </section>
-<section id="библиография" class="slide level2">
+<section id="сканирующая-линия-sweeping-line" class="slide level2">
+<h2>Сканирующая линия (sweeping line)</h2>
+<p><strong>Общий принцип:</strong> прямая линия (вертикальная или горизонтальная) сканирует сцену в перпендикулярном направлении и отслеживает события, связанные с пересечениями объектов. Пройденные события остаются позади.</p>
+<p><strong>Основные компоненты:</strong></p>
+<ol type="1">
+<li><em>Сканирующая линия.</em> Структура данных, которая в каждый момент времени содержит информацию о пересекаемых объектах. Обновляется при перемещении линии.</li>
+<li><em>Очередь событий.</em> Структура данных, которая содержит перечень событий — координат, в которых меняется состав или порядок пересекаемых объектов. Пройденные события удаляются, но при этом могут возникать новые.</li>
+<li><em>Выходная структура данных</em>.</li>
+</ol>
+</section>
+<section id="алгоритм-бентли-оттмана" class="slide level2">
+<h2>Алгоритм Бентли-Оттмана</h2>
+<p>Определяет пересечения для множества отрезков методом сканирующей линии <span class="citation" data-cites="bentley1979">(<a href="#/библиография" role="doc-biblioref" onclick="">Bentley и Ottmann 1979</a>)</span>.</p>
+<p><strong>Изначальные допущения:</strong></p>
+<ol type="1">
+<li>Вертикальная линия перемещается в направлении оси <span class="math inline">\(X\)</span>.</li>
+<li>Нет вертикальных отрезков и касаний в точках</li>
+<li>В каждой точке пересекается не более двух отрезков</li>
+</ol>
+<p><strong>Сканирующая линия</strong> <span class="math inline">\(L\)</span> содержит идентификаторы отрезков, упорядоченных в направлении оси <span class="math inline">\(Y\)</span>.</p>
+<p><strong>Очередь</strong> <span class="math inline">\(E\)</span> содержит события двух типов:</p>
+<ul>
+<li><p>Все конечные точки отрезков (известны заранее)</p></li>
+<li><p>Точки пересечения отрезков (вычисляются налету)</p></li>
+</ul>
+</section>
+<section id="алгоритм-бентли-оттмана-1" class="slide level2">
+<h2>Алгоритм Бентли-Оттмана</h2>
+<p><strong>Входные данные</strong></p>
+<p><span class="math inline">\(n\)</span> отрезков <span class="math inline">\(s_i = \overline{q_i r_i},~i = 0...n-1\)</span></p>
+<p><strong>Выходные данные</strong></p>
+<p><span class="math inline">\(k = O(n^2)\)</span> пересечений между парами отрезков в виде кортежей <span class="math inline">\((x, y, i, j)\)</span>, где <span class="math inline">\(x,y\)</span> — координаты точки пересечения, <span class="math inline">\(i, j\)</span> — номера (идентификаторы) отрезков</p>
+<p><strong>Начальная инициализация</strong></p>
+<ul>
+<li><p>отсортировать <span class="math inline">\(2n\)</span> конечных точек по возрастанию координаты <span class="math inline">\(X\)</span> и наполнить ими <span class="math inline">\(E\)</span>;</p></li>
+<li><p>$L = $</p></li>
+</ul>
+</section>
+<section id="алгоритм-бентли-оттмана-2" class="slide level2">
+<h2>Алгоритм Бентли-Оттмана</h2>
+<p>Пока <span class="math inline">\(E \neq \varnothing\)</span>, выполнять в цикле:</p>
+<ol type="1">
+<li><span class="math inline">\(p = \min E\)</span></li>
+<li>Если <span class="math inline">\(p = \textrm{start}(s)\)</span>:
+<ul>
+<li>Если <span class="math inline">\(t = s^- \cap s \neq \varnothing\)</span> то <span class="math inline">\(E = E \cup t\)</span>. Аналогично для <span class="math inline">\(s^+\)</span>.</li>
+<li><span class="math inline">\(L = L \cup s\)</span></li>
+</ul></li>
+<li>Если <span class="math inline">\(p = \textrm{end}(s)\)</span>:
+<ul>
+<li>Если <span class="math inline">\(t = s^- \cap s^+ \neq \varnothing\)</span> то <span class="math inline">\(E = E \cup t\)</span>.</li>
+<li><span class="math inline">\(L = L~\backslash~s\)</span></li>
+</ul></li>
+<li>Если <span class="math inline">\(p = s_1 \cap s_2\)</span> при <span class="math inline">\(s_1 &lt;_L s_2\)</span>:
+<ul>
+<li>Если <span class="math inline">\(t = s_1^- \cap s_2 \neq \varnothing\)</span> то <span class="math inline">\(E = E \cup t\)</span>. Аналогично для <span class="math inline">\(s_2^+\)</span> и <span class="math inline">\(s_1\)</span>.</li>
+<li>Поменять местами <span class="math inline">\(s_1\)</span> и <span class="math inline">\(s_2\)</span> в <span class="math inline">\(L\)</span></li>
+</ul></li>
+<li><span class="math inline">\(E = E~\backslash~p\)</span>.</li>
+</ol>
+</section>
+<section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bentley1979" class="csl-entry" role="listitem">
+Bentley, и Ottmann. 1979. <span>«Algorithms for Reporting and Counting Geometric Intersections»</span>. <em>IEEE Transactions on Computers</em> C-28 (9): 643–47. <a href="https://doi.org/10.1109/TC.1979.1675432">https://doi.org/10.1109/TC.1979.1675432</a>.
+</div>
 </div>
 </section>
     </div>

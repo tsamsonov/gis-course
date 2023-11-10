@@ -659,4 +659,24 @@ references:
   title: Solving geometric problems with the rotating calipers
   type: paper-conference
   volume: A10. 02
+- id: bentley1979
+  accessed: "13:04:06"
+  author:
+  - family: Bentley
+  - family: Ottmann
+  container-title: IEEE Transactions on Computers
+  container-title-short: IEEE Trans. Comput.
+  DOI: 10.1109/TC.1979.1675432
+  ISSN: 0018-9340
+  issue: 9
+  issued: 1979-09
+  key: ZCRRGYUN
+  libraryID: 2
+  page: 643-647
+  providerKey: 2509FBBE-5BB0-44C4-B119-6083A81ED673
+  source: DOI.org (Crossref)
+  title: Algorithms for Reporting and Counting Geometric Intersections
+  type: article-journal
+  URL: "http://ieeexplore.ieee.org/document/1675432/"
+  volume: C-28
 ...
