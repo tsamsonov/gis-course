@@ -679,4 +679,19 @@ references:
   type: article-journal
   URL: "http://ieeexplore.ieee.org/document/1675432/"
   volume: C-28
+- id: sacristán2022
+  author:
+  - family: Sacristán
+    given: Vera
+  event: Computational Geometry Course
+  genre: Lecture
+  issued: 2022
+  key: 7JBS2WI3
+  language: en
+  libraryID: 2
+  providerKey: 2509FBBE-5BB0-44C4-B119-6083A81ED673
+  publisher-place: Universitat Politecnica de Catalunya
+  title: Intersecting line segments
+  type: speech
+  URL: "https://dccg.upc.edu/wp-content/uploads/2022/09/GeoC-Intersecting-line-segments2022.pdf"
 ...

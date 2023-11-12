@@ -109,6 +109,8 @@ mainfont: PT Sans
 
 ## Алгоритм Бентли-Оттмана
 
+Определяет пересечения для множества отрезков методом сканирующей линии [@bentley1979].
+
 **Входные данные**
 
 $n$ отрезков $s_i = \overline{q_i r_i},~i = 0...n-1$
@@ -121,22 +123,30 @@ $k = O(n^2)$ пересечений между парами отрезков в 
 
 -   отсортировать $2n$ конечных точек по возрастанию координаты $X$ и наполнить ими $E$;
 
--   \$L = \varnothing\$
+-   $L = \varnothing$
 
-## Алгоритм Бентли-Оттмана
+## Алгоритм Бентли-Оттмана [@sacristán2022]
 
 Пока $E \neq \varnothing$, выполнять в цикле:
 
 1.  $p = \min E$
 2.  Если $p = \textrm{start}(s)$:
-    -   Если $t = s^- \cap s \neq \varnothing$ то $E = E \cup t$. Аналогично для $s^+$.
+    -   Если $r = s^- \cap s \neq \varnothing$ то $E = E \cup r$, $R = R \cup r$. Аналогично для $s^+$ и $s$.
     -   $L = L \cup s$
 3.  Если $p = \textrm{end}(s)$:
-    -   Если $t = s^- \cap s^+ \neq \varnothing$ то $E = E \cup t$.
+    -   Если $r = s^- \cap s^+ \neq \varnothing$ то $E = E \cup r$, $R = R \cup r$.
     -   $L = L~\backslash~s$
 4.  Если $p = s_1 \cap s_2$ при $s_1 <_L s_2$:
-    -   Если $t = s_1^- \cap s_2 \neq \varnothing$ то $E = E \cup t$. Аналогично для $s_2^+$ и $s_1$.
+    -   Если $r = s_1^- \cap s_2 \neq \varnothing$ то $E = E \cup r$, $R = R \cup r$. Аналогично для $s_2^+$ и $s_1$.
     -   Поменять местами $s_1$ и $s_2$ в $L$
 5.  $E = E~\backslash~p$.
+
+```{r, results='asis'}
+for (i in 1:79) {
+  cat('\n\n## Алгоритм Бентли-Оттмана (симуляция)\n\n')
+  cat('![](images/bentley-ottman/bentley-ottman_', i,'.svg){width="100%"}', sep = '')
+}
+```
+
 
 ## Библиография
