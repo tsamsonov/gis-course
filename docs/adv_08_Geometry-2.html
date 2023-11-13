@@ -425,6 +425,7 @@
 <li><em>Очередь событий.</em> Структура данных, которая содержит перечень событий — координат, в которых меняется состав или порядок пересекаемых объектов. Пройденные события удаляются, но при этом могут возникать новые.</li>
 <li><em>Выходная структура данных</em>.</li>
 </ol>
+<p>В общем случае число пересечений имеет порядок <span class="math inline">\(O(n^2)\)</span>, и алгоритм сканирующей линии позволяет проверять не все пары отрезков.</p>
 </section>
 <section id="алгоритм-бентли-оттмана" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана</h2>
@@ -435,7 +436,7 @@
 <li>Нет вертикальных отрезков и касаний в точках</li>
 <li>В каждой точке пересекается не более двух отрезков</li>
 </ol>
-<p><strong>Сканирующая линия</strong> <span class="math inline">\(L\)</span> содержит идентификаторы отрезков, упорядоченных в направлении оси <span class="math inline">\(Y\)</span>.</p>
+<p><strong>Сканирующая линия</strong> <span class="math inline">\(L\)</span> содержит идентификаторы отрезков <span class="math inline">\(s\)</span>, упорядоченных в направлении оси <span class="math inline">\(Y\)</span>. Обозначения: <span class="math inline">\(s^-\)</span> — предыдущий, <span class="math inline">\(s^+\)</span> — следующий отрезок.</p>
 <p><strong>Очередь</strong> <span class="math inline">\(E\)</span> содержит события двух типов:</p>
 <ul>
 <li><p>Все конечные точки отрезков (известны заранее)</p></li>
@@ -463,17 +464,17 @@
 <li><span class="math inline">\(p = \min E\)</span></li>
 <li>Если <span class="math inline">\(p = \textrm{start}(s)\)</span>:
 <ul>
-<li>Если <span class="math inline">\(r = s^- \cap s \neq \varnothing\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Аналогично для <span class="math inline">\(s^+\)</span> и <span class="math inline">\(s\)</span>.</li>
 <li><span class="math inline">\(L = L \cup s\)</span></li>
+<li><span class="math inline">\(r = s^- \cap s\)</span>. Если <span class="math inline">\(r \neq \varnothing \land r &gt;_x p\)</span>, то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Тоже для <span class="math inline">\(s^+\)</span> и <span class="math inline">\(s\)</span></li>
 </ul></li>
 <li>Если <span class="math inline">\(p = \textrm{end}(s)\)</span>:
 <ul>
-<li>Если <span class="math inline">\(r = s^- \cap s^+ \neq \varnothing\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>.</li>
+<li><span class="math inline">\(r = s^- \cap s^+\)</span>. Если <span class="math inline">\(r\neq \varnothing \land r &gt;_x p\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>.</li>
 <li><span class="math inline">\(L = L~\backslash~s\)</span></li>
 </ul></li>
 <li>Если <span class="math inline">\(p = s_1 \cap s_2\)</span> при <span class="math inline">\(s_1 &lt;_L s_2\)</span>:
 <ul>
-<li>Если <span class="math inline">\(r = s_1^- \cap s_2 \neq \varnothing\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Аналогично для <span class="math inline">\(s_2^+\)</span> и <span class="math inline">\(s_1\)</span>.</li>
+<li><span class="math inline">\(r = s_1^- \cap s_2\)</span>. Если <span class="math inline">\(r \neq \varnothing \land r &gt;_x p\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Тоже для <span class="math inline">\(s_2^+\)</span> и <span class="math inline">\(s_1\)</span></li>
 <li>Поменять местами <span class="math inline">\(s_1\)</span> и <span class="math inline">\(s_2\)</span> в <span class="math inline">\(L\)</span></li>
 </ul></li>
 <li><span class="math inline">\(E = E~\backslash~p\)</span>.</li>
@@ -795,6 +796,16 @@
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
 <img data-src="images/bentley-ottman/bentley-ottman_79.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-81" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="алгоритм-бентли-оттмана-свойства" class="slide level2">
+<h2>Алгоритм Бентли-Оттмана (свойства)</h2>
+<p>Гарантируется, что алгоритм находит все существующие пересечения, и не находит несуществующих пересечений.</p>
+<p>Особенности обработки частных случаев <span class="citation" data-cites="sacristán2022">(<a href="#/библиография" role="doc-biblioref" onclick="">Sacristán 2022</a>)</span>:</p>
+<ol type="1">
+<li><p>Если входные данные содержат точки с совпадающими абсциссами, их необходимо сортировать не только по координате X, но также по принадлежности к отрезку.</p></li>
+<li><p>Данных, которые выдает алгоритм, достаточно для того чтобы определить линейные пересечения (в этом случае отрезки будут пересекаться дважды).</p></li>
+<li><p>Если 3 и более отрезков пересекаются в одной точке, то алгоритм при возникновении парных событий должен менять их местами в сканирующей линии (так же как и в случае двух отрезков).</p></li>
+</ol>
+</section>
 <section id="оверлей" class="slide level2">
 <h2>Оверлей</h2>
 <p><strong>Оверлей</strong> — пространственное наложение двух или более пространственных объектов, при котором образуется их геометрическая и атрибутивная композиция.</p>
