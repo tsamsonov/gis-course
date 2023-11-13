@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">12 ноября 2023 г.</p>
+  <p class="date">13 ноября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -378,6 +378,7 @@
 </ol>
 </div><div class="column" style="width:50%;">
 <ol type="1">
+<li><strong>Пересечение множества отрезков</strong></li>
 <li><strong>Оверлей полигонов</strong></li>
 <li><strong>Слияние линий и полигонов</strong></li>
 <li><strong>Полигонизация линий</strong></li>
@@ -385,28 +386,9 @@
 <li><strong>Триангуляция Делоне</strong></li>
 <li><strong>Диаграмма Вороного</strong></li>
 <li><strong>Скелет и срединная ось полигона</strong></li>
-<li><strong>Центроид полигона</strong></li>
-<li><strong>Точка на поверхности</strong></li>
+<li><strong>Центроид и точка на поверхности</strong></li>
 <li><strong>Вогнутая оболочка</strong></li>
 </ol>
-</div>
-</div>
-</section>
-<section id="оверлей" class="slide level2">
-<h2>Оверлей</h2>
-<p><strong>Оверлей</strong> — пространственное наложение двух или более пространственных объектов, при котором образуется их геометрическая и атрибутивная композиция.</p>
-
-<img data-src="images/overlay.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-1" style="width:100.0%" class="r-stretch quarto-figure-center"><div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Проблема</strong></p>
-</div>
-<div class="callout-content">
-<p>Для выполнения оверлея необходимо уметь эффективно находить пересечения между отрезками, из которых состоят границы полигонов. В общем случае это <span class="math inline">\(O(n^2)\)</span> потенциальных пересечений, где <span class="math inline">\(n\)</span> — число отрезков</p>
-</div>
 </div>
 </div>
 </section>
@@ -415,19 +397,19 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Если проекции отрезков на любую ось не пересекаются, то и сами отрезки также не пересекаются</p>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/segment_projections.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-2" style="width:100.0%">
+<img data-src="images/segment_projections.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-1" style="width:100.0%">
 </div>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <p>Пересечению отрезков всегда предшествует их последовательное расположение относительно прямой</p>
-<div id="fig-539a35d47e664c97a50115a146a7f1bd-3" class="quarto-figure quarto-figure-center" width="100%">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center" width="100%">
 <figure class="quarto-float quarto-float-fig">
 <div>
-<img data-src="images/segment_sequence.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-3" style="width:100.0%">
+<img data-src="images/segment_sequence.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-2" style="width:100.0%">
 </div>
 </figure>
 </div>
@@ -466,11 +448,12 @@
 <p><strong>Входные данные</strong></p>
 <p><span class="math inline">\(n\)</span> отрезков <span class="math inline">\(s_i = \overline{q_i r_i},~i = 0...n-1\)</span></p>
 <p><strong>Выходные данные</strong></p>
-<p><span class="math inline">\(k = O(n^2)\)</span> пересечений между парами отрезков в виде кортежей <span class="math inline">\((x, y, i, j)\)</span>, где <span class="math inline">\(x,y\)</span> — координаты точки пересечения, <span class="math inline">\(i, j\)</span> — номера (идентификаторы) отрезков</p>
+<p>Множество <span class="math inline">\(R = \{(x, y, i, j)\}\)</span> кортежей пересечений между парами отрезков, где <span class="math inline">\(x,y\)</span> — координаты точки пересечения, <span class="math inline">\(i, j\)</span> — номера (идентификаторы) отрезков</p>
 <p><strong>Начальная инициализация</strong></p>
 <ul>
 <li><p>отсортировать <span class="math inline">\(2n\)</span> конечных точек по возрастанию координаты <span class="math inline">\(X\)</span> и наполнить ими <span class="math inline">\(E\)</span>;</p></li>
-<li><p><span class="math inline">\(L = \varnothing\)</span></p></li>
+<li><p><span class="math inline">\(L = \varnothing\)</span>;</p></li>
+<li><p><span class="math inline">\(R = \varnothing\)</span>.</p></li>
 </ul>
 </section>
 <section id="алгоритм-бентли-оттмана-sacristán2022" class="slide level2">
@@ -499,319 +482,337 @@
 <section id="алгоритм-бентли-оттмана-симуляция" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_1.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-4" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_1.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-3" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-1" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_2.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-5" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_2.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-4" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-2" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_3.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-6" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_3.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-5" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-3" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_4.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-7" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_4.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-6" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-4" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_5.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-8" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_5.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-7" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-5" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_6.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-9" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_6.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-8" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-6" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_7.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_7.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-9" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-7" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_8.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-11" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_8.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-10" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-8" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_9.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-12" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_9.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-11" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-9" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_10.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-13" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_10.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-12" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-10" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_11.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-14" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_11.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-13" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-11" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_12.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-15" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_12.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-14" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-12" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_13.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-16" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_13.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-15" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-13" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_14.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-17" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_14.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-16" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-14" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_15.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-18" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_15.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-17" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-15" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_16.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-19" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_16.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-18" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-16" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_17.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-20" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_17.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-19" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-17" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_18.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-21" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_18.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-20" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-18" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_19.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-22" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_19.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-21" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-19" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_20.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_20.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-22" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-20" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_21.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-24" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_21.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-23" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-21" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_22.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-25" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_22.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-24" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-22" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_23.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-26" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_23.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-25" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-23" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_24.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-27" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_24.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-26" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-24" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_25.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-28" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_25.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-27" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-25" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_26.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-29" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_26.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-28" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-26" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_27.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-30" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_27.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-29" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-27" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_28.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-31" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_28.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-30" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-28" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_29.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-32" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_29.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-31" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-29" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_30.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-33" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_30.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-32" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-30" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_31.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-34" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_31.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-33" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-31" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_32.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-35" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_32.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-34" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-32" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_33.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-36" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_33.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-35" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-33" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_34.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-37" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_34.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-36" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-34" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_35.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-38" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_35.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-37" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-35" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_36.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-39" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_36.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-38" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-36" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_37.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-40" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_37.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-39" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-37" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_38.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-41" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_38.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-40" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-38" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_39.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-42" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_39.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-41" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-39" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_40.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-43" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_40.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-42" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-40" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_41.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-44" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_41.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-43" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-41" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_42.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-45" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_42.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-44" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-42" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_43.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-46" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_43.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-45" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-43" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_44.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-47" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_44.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-46" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-44" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_45.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-48" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_45.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-47" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-45" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_46.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-49" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_46.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-48" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-46" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_47.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-50" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_47.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-49" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-47" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_48.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-51" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_48.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-50" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-48" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_49.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-52" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_49.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-51" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-49" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_50.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-53" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_50.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-52" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-50" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_51.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-54" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_51.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-53" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-51" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_52.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-55" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_52.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-54" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-52" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_53.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-56" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_53.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-55" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-53" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_54.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-57" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_54.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-56" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-54" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_55.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-58" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_55.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-57" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-55" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_56.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-59" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_56.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-58" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-56" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_57.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-60" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_57.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-59" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-57" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_58.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-61" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_58.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-60" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-58" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_59.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-62" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_59.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-61" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-59" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_60.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-63" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_60.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-62" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-60" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_61.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-64" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_61.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-63" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-61" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_62.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-65" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_62.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-64" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-62" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_63.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-66" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_63.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-65" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-63" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_64.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-67" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_64.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-66" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-64" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_65.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-68" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_65.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-67" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-65" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_66.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-69" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_66.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-68" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-66" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_67.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-70" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_67.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-69" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-67" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_68.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-71" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_68.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-70" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-68" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_69.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-72" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_69.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-71" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-69" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_70.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-73" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_70.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-72" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-70" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_71.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-74" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_71.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-73" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-71" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_72.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-75" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_72.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-74" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-72" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_73.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-76" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_73.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-75" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-73" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_74.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-77" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_74.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-76" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-74" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_75.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-78" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_75.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-77" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-75" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_76.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-79" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_76.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-78" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-76" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_77.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-80" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_77.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-79" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-77" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_78.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-81" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_78.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-80" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
 <section id="алгоритм-бентли-оттмана-симуляция-78" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
-<img data-src="images/bentley-ottman/bentley-ottman_79.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-82" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/bentley-ottman/bentley-ottman_79.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-81" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="оверлей" class="slide level2">
+<h2>Оверлей</h2>
+<p><strong>Оверлей</strong> — пространственное наложение двух или более пространственных объектов, при котором образуется их геометрическая и атрибутивная композиция.</p>
+
+<img data-src="images/overlay.svg" id="fig-539a35d47e664c97a50115a146a7f1bd-82" style="width:100.0%" class="r-stretch quarto-figure-center"><div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Проблема</strong></p>
+</div>
+<div class="callout-content">
+<p>Для выполнения оверлея необходимо уметь эффективно находить пересечения между отрезками, из которых состоят границы полигонов. В общем случае это <span class="math inline">\(O(n^2)\)</span> потенциальных пересечений, где <span class="math inline">\(n\)</span> — число отрезков</p>
+</div>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
