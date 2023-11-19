@@ -417,8 +417,8 @@
 </div>
 </div>
 </section>
-<section id="разбиение-множества-1" class="slide level2">
-<h2>Разбиение множества</h2>
+<section id="разбиение-плоскости" class="slide level2">
+<h2>Разбиение плоскости</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <div class="callout callout-warning callout-titled callout-style-default">
@@ -443,13 +443,137 @@
 <p><strong>Решение</strong></p>
 </div>
 <div class="callout-content">
-<p>Представить разбиение в виде совокупности <em>вершин (</em><span class="math inline">\(V\)</span><em>)</em>, <em>ребер (</em><span class="math inline">\(E\)</span>) и <em>граней (</em><span class="math inline">\(F\)</span>). Эти подмножества являются <em>открытыми</em>: ребра не включают вершины, а грани не включают ребра.</p>
+<p>Представить разбиение в виде совокупности <em>вершин</em>, <em>ребер</em> и <em>граней</em>. Эти подмножества являются <em>открытыми</em>: ребра не включают вершины, а грани не включают вершины и ребра.</p>
 </div>
 </div>
 </div>
-<p><span class="math display">\[Y = V \cup E \cup F\]</span></p>
+<p><span class="math display">\[Y = V \bigcup E \bigcup F,\]</span></p>
+<p>где подмножества <span class="math inline">\(V = \{v_i\}\)</span> — вершины, <span class="math inline">\(E = \{e_j\}\)</span> — ребра, <span class="math inline">\(F = \{f_k\}\)</span> — грани.</p>
 </div><div class="column" style="width:40%;">
 <p><img data-src="images/set_subdivision_details.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="полуребра" class="slide level2">
+<h2>Полуребра</h2>
+<p>При обработке разбиений удобно представить каждое ребро <span class="math inline">\(e_j\)</span> в виде двух полуребер <span class="math inline">\(\vec{e}_{j,0}\)</span> и <span class="math inline">\(\vec{e}_{j,1}\)</span>, имеющих противоположные направления.</p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ol type="1">
+<li><p>Полуребра называются <em>близнецами</em>:</p>
+<p><span class="math display">\[
+\vec{e}_{j,0} = \texttt{twin}(\vec{e}_{j,1});~\vec{e}_{j,1} = \texttt{twin}(\vec{e}_{j,0})
+\]</span></p></li>
+<li><p>Каждое полуребро входит в состав границы только одной грани.</p></li>
+<li><p>Полуребро направлено таким образом, что грань находится <em>слева</em> от него.</p>
+<ul>
+<li><p>полуребра <em>внешних</em> границ упорядочены <em>против</em> часовой стрелки;</p></li>
+<li><p>полуребра <em>внутренних</em> границ (дырок) упорядочены <em>по</em> часовой стрелке.</p></li>
+</ul></li>
+</ol>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/halfedges.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="двусвязный-список-ребер" class="slide level2">
+<h2>Двусвязный список ребер</h2>
+<p>Структура данных, которая опирается на следующие классы объектов:</p>
+<p><strong>Вершина</strong> <span class="math inline">\(v\)</span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\((x,y)\)</span></td>
+<td>координаты</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{halfedge}\)</span></td>
+<td>полуребро, для которого <span class="math inline">\(v\)</span> является началом</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
+<table>
+<colgroup>
+<col style="width: 19%">
+<col style="width: 80%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\texttt{outer}\)</span></td>
+<td>любое полуребро внешней границы</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{inner}\)</span></td>
+<td>список любых полуребер дырок (по одному на каждую дырку)</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Совет</strong></p>
+</div>
+<div class="callout-content">
+<p>Для <em>неограниченной</em> области <span class="math inline">\(\texttt{outer_component} = \varnothing\)</span>, для полигона <em>без дырок</em> <span class="math inline">\(\texttt{inner_components} = \varnothing\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="двусвязный-список-ребер-1" class="slide level2">
+<h2>Двусвязный список ребер</h2>
+<p><strong>Полуребро</strong> <span class="math inline">\(\overrightarrow e\)</span></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\texttt{origin}\)</span></td>
+<td>вершина, являющаяся началом полуребра</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{twin}\)</span></td>
+<td>полуребро-близнец</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\texttt{face}\)</span></td>
+<td>инцидентная грань</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\texttt{next}\)</span></td>
+<td>следующее полуребро в <span class="math inline">\(\texttt{face}\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\texttt{prev}\)</span></td>
+<td>предыдущее полуребро в <span class="math inline">\(\texttt{face}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Объем данных</strong></p>
+</div>
+<div class="callout-content">
+<p>Размер вершины и полуребра в памяти известен заранее. Размер грани зависит от количества дырок.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>А конец полуребра?</strong></p>
+</div>
+<div class="callout-content">
+<p>Конец полуребра можно получить как <span class="math inline">\(\texttt{origin}(\texttt{twin}(\overrightarrow{e}))\)</span></p>
+</div>
 </div>
 </div>
 </section>
