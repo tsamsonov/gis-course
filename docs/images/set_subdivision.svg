@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 534 693" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:10;">
+    <rect id="Geometric-Operations-2" serif:id="Geometric Operations 2" x="-149" y="-776" width="4299" height="2861" style="fill:none;"/>
+    <g id="Geometric-Operations-21" serif:id="Geometric Operations 2">
+        <path d="M264.832,29.99L253.132,9.35L263.032,9.35L269.512,21.47L270.952,25.73L272.332,21.47L279.112,9.35L288.052,9.35L275.932,29.57L288.652,51.35L278.872,51.35L271.492,38.39L269.872,33.95L268.312,38.39L260.872,51.35L251.932,51.35L264.832,29.99Z" style="fill-rule:nonzero;"/>
+        <path d="M525.792,79L363,79L363,471L200,471L200,284L14.792,284L14.792,681L525.792,681L525.792,79Z" style="fill:rgb(248,253,112);stroke:black;stroke-width:2px;"/>
+        <path d="M363,79L14.792,79L14.792,284L200,284L200,471L363,471L363,79Z" style="fill:rgb(45,231,231);stroke:black;stroke-width:2px;"/>
+        <rect x="14.792" y="284" width="185.208" height="397" style="fill:rgb(249,85,185);stroke:black;stroke-width:2px;"/>
+    </g>
+</svg>
