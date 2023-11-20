@@ -29,7 +29,27 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -338,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">19 ноября 2023 г.</p>
+  <p class="date">20 ноября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -363,30 +383,12 @@
 <li><strong>Слияние линий и полигонов</strong></li>
 <li><strong>Полигонизация линий</strong></li>
 <li><strong>Буферная зона</strong></li>
-<li><strong>Триангуляция Делоне</strong></li>
-<li><strong>Диаграмма Вороного</strong></li>
-<li><strong>Скелет и срединная ось полигона</strong></li>
-<li><strong>Центроид и точка на поверхности</strong></li>
-<li><strong>Вогнутая оболочка</strong></li>
+<li>Триангуляция Делоне</li>
+<li>Диаграмма Вороного</li>
+<li>Скелет и срединная ось полигона</li>
+<li>Центроид и точка на поверхности</li>
+<li>Вогнутая оболочка</li>
 </ol>
-</div>
-</div>
-</section>
-<section id="оверлей" class="slide level2">
-<h2>Оверлей</h2>
-<p><strong>Оверлей</strong> — пространственное наложение двух или более пространственных объектов, при котором образуется их геометрическая и атрибутивная композиция.</p>
-
-<img data-src="images/overlay.svg" style="width:100.0%" class="r-stretch"><div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Проблема</strong></p>
-</div>
-<div class="callout-content">
-<p>Для выполнения оверлея неэффективно хранить полигоны как коллекции отрезков. В этом случае затруднительно получать границы образуемых в процессе оверлея областей.</p>
-</div>
 </div>
 </div>
 </section>
@@ -400,16 +402,16 @@
 </dl>
 <div class="columns">
 <div class="column" style="width:70%;">
-<p>Семейство множеств <span class="math inline">\(Y = \{Y_\alpha\}\)</span>, где <span class="math inline">\(\alpha \in A\)</span> — множество индексов, является разбиением множества <span class="math inline">\(X\)</span>, если:</p>
+<p>Семейство множеств <span class="math inline">\(S = \{S_\alpha\}\)</span>, где <span class="math inline">\(\alpha \in A\)</span> — множество индексов, является разбиением множества <span class="math inline">\(X\)</span>, если:</p>
 <ul>
-<li><p><span class="math inline">\(Y\)</span> не содержит пустого множества: <span class="math inline">\(\varnothing \notin Y\)</span></p></li>
-<li><p>Объединение множеств, входящих в <span class="math inline">\(Y\)</span>, равно <span class="math inline">\(X\)</span>:</p>
+<li><p><span class="math inline">\(S\)</span> не содержит пустого множества: <span class="math inline">\(\varnothing \notin S\)</span></p></li>
+<li><p>Объединение множеств, входящих в <span class="math inline">\(S\)</span>, равно <span class="math inline">\(X\)</span>:</p>
 <p><span class="math display">\[
-\bigcup Y_\alpha = X
+\bigcup S_\alpha = X
 \]</span></p></li>
-<li><p>Пересечение любых различных множеств <span class="math inline">\(Y\)</span> пусто:</p>
+<li><p>Пересечение любых различных множеств <span class="math inline">\(S\)</span> пусто:</p>
 <p><span class="math display">\[
-\forall~\alpha,\beta \in A,~\alpha \neq \beta \Longrightarrow Y_\alpha \cap Y_\beta = \varnothing
+\forall~\alpha,\beta \in A,~\alpha \neq \beta \Longrightarrow S_\alpha \cap S_\beta = \varnothing
 \]</span></p></li>
 </ul>
 </div><div class="column" style="width:30%;">
@@ -447,7 +449,7 @@
 </div>
 </div>
 </div>
-<p><span class="math display">\[Y = V \bigcup E \bigcup F,\]</span></p>
+<p><span class="math display">\[S = V \bigcup E \bigcup F,\]</span></p>
 <p>где подмножества <span class="math inline">\(V = \{v_i\}\)</span> — вершины, <span class="math inline">\(E = \{e_j\}\)</span> — ребра, <span class="math inline">\(F = \{f_k\}\)</span> — грани.</p>
 </div><div class="column" style="width:40%;">
 <p><img data-src="images/set_subdivision_details.svg" style="width:100.0%"></p>
@@ -478,7 +480,9 @@
 </section>
 <section id="двусвязный-список-ребер" class="slide level2">
 <h2>Двусвязный список ребер</h2>
-<p>Структура данных, которая опирается на следующие классы объектов:</p>
+<p>Структура данных <span class="math inline">\(D\)</span>, которая опирается на следующие классы объектов:</p>
+<div class="columns">
+<div class="column" style="width:75%;">
 <p><strong>Вершина</strong> <span class="math inline">\(v\)</span></p>
 <table>
 <tbody>
@@ -495,8 +499,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 19%">
-<col style="width: 80%">
+<col style="width: 20%">
+<col style="width: 79%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -509,13 +513,17 @@
 </tr>
 </tbody>
 </table>
-<div class="callout callout-tip callout-titled callout-style-default">
+</div><div class="column" style="width:25%;">
+<p><img data-src="images/vertex_face.svg" style="width:90.0%"></p>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Совет</strong></p>
+<p><strong>Особенности</strong></p>
 </div>
 <div class="callout-content">
 <p>Для <em>неограниченной</em> области <span class="math inline">\(\texttt{outer_component} = \varnothing\)</span>, для полигона <em>без дырок</em> <span class="math inline">\(\texttt{inner_components} = \varnothing\)</span></p>
@@ -525,6 +533,8 @@
 </section>
 <section id="двусвязный-список-ребер-1" class="slide level2">
 <h2>Двусвязный список ребер</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
 <p><strong>Полуребро</strong> <span class="math inline">\(\overrightarrow e\)</span></p>
 <table>
 <tbody>
@@ -559,7 +569,7 @@
 <p><strong>Объем данных</strong></p>
 </div>
 <div class="callout-content">
-<p>Размер вершины и полуребра в памяти известен заранее. Размер грани зависит от количества дырок.</p>
+<p>Размер вершины и полуребра фиксирован. Размер грани <span class="math inline">\(\sim\)</span> кол-во дырок.</p>
 </div>
 </div>
 </div>
@@ -576,12 +586,120 @@
 </div>
 </div>
 </div>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/halfedge.svg" style="width:100.0%"></p>
+</div>
+</div>
 </section>
-<section id="библиография" class="slide level2">
+<section id="оверлей" class="slide level2">
+<h2>Оверлей</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Оверлей</strong> двух разбиений <span class="math inline">\(S_1\)</span> и <span class="math inline">\(S_2\)</span> — это разбиение <span class="math inline">\(O(S_1, S_2)\)</span>, в котором все грани <span class="math inline">\(f\)</span> являются</p>
+<ul>
+<li><p><em>максимальными</em> (по площади);</p></li>
+<li><p><em>открытыми</em> (не включающими ребра и вершины);</p></li>
+<li><p><em>линейно связными</em> (представимыми в виде полигона)</p></li>
+</ul>
+<p>подмножествами пересечений <span class="math inline">\(f_1 \cap f_2\)</span> каких-либо граней <span class="math inline">\(f_1 \in S_1\)</span>, <span class="math inline">\(f_2 \in S_2\)</span>.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/overlay_1.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="оверлей-1" class="slide level2">
+<h2>Оверлей</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Оверлей</strong> двух разбиений <span class="math inline">\(S_1\)</span> и <span class="math inline">\(S_2\)</span> — это разбиение <span class="math inline">\(O(S_1, S_2)\)</span>, в котором все грани <span class="math inline">\(f\)</span> являются</p>
+<ul>
+<li><p><em>максимальными</em> (по площади);</p></li>
+<li><p><em>открытыми</em> (не включающими ребра и вершины);</p></li>
+<li><p><em>линейно связными</em> (представимыми в виде полигона)</p></li>
+</ul>
+<p>подмножествами пересечений <span class="math inline">\(f_1 \cap f_2\)</span> каких-либо граней <span class="math inline">\(f_1 \in S_1\)</span>, <span class="math inline">\(f_2 \in S_2\)</span>.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/overlay_2.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="граф" class="slide level2">
+<h2>Граф</h2>
+<p><strong>Простой граф</strong> <span class="math inline">\(G(V,E)\)</span> — совокупность множества вершин <span class="math inline">\(V = \{v_1, v_2, ...\}\)</span> и множества ребер <span class="math inline">\(E\)</span> <span class="citation" data-cites="newman2018">(<a href="#/библиография" role="doc-biblioref" onclick="">Newman 2018</a>)</span>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><span class="math inline">\(E\)</span> состоит из упорядоченных пар элементов множества вершин:</p>
+<p><span class="math display">\[
+e_{ij} = \{v_i, v_j \},~ i \neq j
+\]</span></p></li>
+<li><p><span class="math inline">\(V\)</span> не пусто;</p></li>
+<li><p><span class="math inline">\(E\)</span> может быть пустым;</p></li>
+<li><p>не все комбинации <span class="math inline">\(\{v_i, v_j \}\)</span> могут входить в <span class="math inline">\(E\)</span>.</p></li>
+</ul>
+<p>Максимальный связный подграф называется <strong>компонентой</strong> графа.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/graph.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="оверлей-алгоритм" class="slide level2">
+<h2>Оверлей — алгоритм</h2>
+<p><strong>Вход</strong>: планарные разбиения <span class="math inline">\(S_1\)</span> и <span class="math inline">\(S_2\)</span> в виде двусвязных списков <span class="math inline">\(D_1\)</span> и <span class="math inline">\(D_2\)</span></p>
+<p><strong>Выход</strong>: оверлей <span class="math inline">\(S_1\)</span> и <span class="math inline">\(S_2\)</span> в виде двусвязного списка <span class="math inline">\(D\)</span>.</p>
+<ol type="1">
+<li><p>Объединить списки простым копированием: <span class="math inline">\(D = D_1 \cup D_2\)</span>, сохранив информацию о принадлежности вершин, ребер и граней исходным разбиениям.</p></li>
+<li><p>Вычислить пересечения между ребрами внутри <span class="math inline">\(D\)</span>, используя алгоритм сканирующей линии Бентли-Оттмана.</p>
+<ul>
+<li>если событие включает ребра из <span class="math inline">\(D_1\)</span> и <span class="math inline">\(D_2\)</span>, обновить ребра в <span class="math inline">\(D\)</span>;</li>
+</ul>
+<p><em>После этого шага</em> <span class="math inline">\(D\)</span> <em>имеет корректный перечень вершин и полуребер для</em> <span class="math inline">\(O(S_1, S_2)\)</span><em>, но не граней</em>.</p></li>
+<li><p>Вычислить все границы (замкнутые последовательности полуребер) в <span class="math inline">\(D\)</span>.</p></li>
+<li><p>Связать внешние границы и относящиеся к ним внутренние в виде графа <span class="math inline">\(G\)</span>.</p></li>
+<li><p>Для каждой компоненты <span class="math inline">\(G\)</span> создать грань в <span class="math inline">\(D\)</span>.</p></li>
+</ol>
+</section>
+<section id="булевы-операции" class="slide level2">
+<h2>Булевы операции</h2>
+<p><strong>Оверлей</strong> полигонов часто используется для выполнения <em>булевых</em> операций.</p>
+
+<img data-src="images/overlay.svg" style="width:100.0%" class="r-stretch"><p><em>Объединение</em>: грани, образованные <span class="math inline">\(A\)</span> или <span class="math inline">\(B\)</span>.</p>
+<p><em>Пересечение</em>: грани, образованные <span class="math inline">\(A\)</span> и <span class="math inline">\(B\)</span>.</p>
+</section>
+<section id="вопросы-на-подумать" class="slide level2">
+<h2>Вопросы на подумать</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Какие из приведенных равенств всегда выполняются для планарного разбиения?</p>
+<p><span class="math display">\[
+\begin{aligned}
+\texttt{twin}(\texttt{twin}(\overrightarrow e)) &amp;= \overrightarrow e\\~\\
+\texttt{next}(\texttt{prev}(\overrightarrow e)) &amp;= \overrightarrow e\\~\\
+\texttt{twin}(\texttt{prev}(\texttt{twin}(\overrightarrow e))) &amp;= \texttt{next}(\overrightarrow e)\\~\\
+\texttt{face}(\overrightarrow e) &amp;= \texttt{face}(\texttt{next}(\overrightarrow e))
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/rick_thinking.png" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="слияние-полигонов" class="slide level2">
+<h2>Слияние полигонов</h2>
+<p><strong>Слияние</strong> — это объединение объектов с сохранением их размерности.</p>
+<p>Осуществляется оверлей полигонов, но перед поиском циклов удаляются ребра и вершины, инцидентные только удаляемым объектам.</p>
+
+<img data-src="images/merge.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-newman2018" class="csl-entry" role="listitem">
+Newman, M. E. J. 2018. <em>Networks</em>. Second edition. Oxford, United Kingdom ; New York, NY, United States of America: Oxford University Press.
+</div>
 </div>
 </section>
     </div>
