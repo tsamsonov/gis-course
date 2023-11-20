@@ -643,8 +643,8 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 </div>
 </div>
 </section>
-<section id="оверлей-алгоритм" class="slide level2">
-<h2>Оверлей — алгоритм</h2>
+<section id="оверлей-алгоритм-deberg2008" class="slide level2">
+<h2>Оверлей — алгоритм <span class="citation" data-cites="deberg:2008">(<a href="#/библиография" role="doc-biblioref" onclick="">de Berg и др. 2008</a>)</span></h2>
 <p><strong>Вход</strong>: планарные разбиения <span class="math inline">\(S_1\)</span> и <span class="math inline">\(S_2\)</span> в виде двусвязных списков <span class="math inline">\(D_1\)</span> и <span class="math inline">\(D_2\)</span></p>
 <p><strong>Выход</strong>: оверлей <span class="math inline">\(S_1\)</span> и <span class="math inline">\(S_2\)</span> в виде двусвязного списка <span class="math inline">\(D\)</span>.</p>
 <ol type="1">
@@ -690,6 +690,56 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <p>Осуществляется оверлей полигонов, но перед поиском циклов удаляются ребра и вершины, инцидентные только удаляемым объектам.</p>
 
 <img data-src="images/merge.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="полигонизация-линий" class="slide level2">
+<h2>Полигонизация линий</h2>
+<p><strong>Полигонизация линий</strong> — это преобразование множества линий в полигоны.</p>
+<p>В планарном разбиении, определяемом множеством линий, сохраняются только грани конечного размера.</p>
+
+<img data-src="images/polygonization.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="буферные-зоны" class="slide level2">
+<h2>Буферные зоны</h2>
+<p><strong>Буферная зона</strong> — это множество точек, располагающихся в пределах заданного расстояния относительно объекта.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>буфер точки представляет собой диск;</p></li>
+<li><p>буфер полигона может быть положительным и отрицательным;</p></li>
+<li><p>буфер точки или линии всегда положительный.</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/buffering.svg" style="width:55.0%"></p>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Используются при анализе влияния. Например, определения водоохранных зон.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="буферная-зона-линии" class="slide level2">
+<h2>Буферная зона линии</h2>
+<p><strong>Буферная зона линии</strong> получается путем <em>слияния</em> прямоугольников и дисков заданной ширины (радиуса), построенных относительно ребер и вершин.</p>
+
+<img data-src="images/buffer_line.svg" style="width:100.0%" class="r-stretch"><p><em>Самостоятельная работа:</em> формализуйте получение координат прямоугольников</p>
+</section>
+<section id="буферная-зона-полигона-положительная" class="slide level2">
+<h2>Буферная зона полигона (положительная)</h2>
+<p><strong>Положительная буферная зона полигона</strong> получается путем <em>слияния</em> полигона и буферной зоны его границы.</p>
+
+<img data-src="images/buffer_poly.svg" style="width:80.0%" class="r-stretch"></section>
+<section id="буферная-зона-полигона-отрицательная" class="slide level2">
+<h2>Буферная зона полигона (отрицательная)</h2>
+<p><strong>Отрицательная буферная зона полигона</strong> получается путем <em>вычитания</em> из полигона буферной зоны его границы.</p>
+
+<img data-src="images/buffer_poly_neg.svg" style="width:80.0%" class="r-stretch"></section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
@@ -697,6 +747,9 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-deberg:2008" class="csl-entry" role="listitem">
+Berg, Mark de, Ottfried Cheong, Marc van Kreveld, и Mark Overmars. 2008. <em>Computational geometry: algorithms and applications</em>. 3rd ed. Berlin: Springer.
+</div>
 <div id="ref-newman2018" class="csl-entry" role="listitem">
 Newman, M. E. J. 2018. <em>Networks</em>. Second edition. Oxford, United Kingdom ; New York, NY, United States of America: Oxford University Press.
 </div>

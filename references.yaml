@@ -694,4 +694,30 @@ references:
   title: Intersecting line segments
   type: speech
   URL: "https://dccg.upc.edu/wp-content/uploads/2022/09/GeoC-Intersecting-line-segments2022.pdf"
+- id: deberg:2008
+  author:
+  - family: Berg
+    given: Mark
+    non-dropping-particle: de
+  - family: Cheong
+    given: Ottfried
+  - family: Kreveld
+    given: Marc
+    non-dropping-particle: van
+  - family: Overmars
+    given: Mark
+  call-number: QA448.D38 C65 2008
+  edition: 3rd ed
+  ISBN: 978-3-540-77973-5
+  issued: 2008
+  key: 7WIJ336C
+  libraryID: 2
+  number-of-pages: 386
+  providerKey: Zotero
+  publisher: Springer
+  publisher-place: Berlin
+  source: Library of Congress ISBN
+  title: "Computational geometry: algorithms and applications"
+  title-short: Computational geometry
+  type: book
 ...
