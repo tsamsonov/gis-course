@@ -7438,7 +7438,7 @@
     "href": "adv_08_Geometry-3.html#двусвязный-список-ребер",
     "title": "Геометрические операции — III",
     "section": "Двусвязный список ребер",
-    "text": "Двусвязный список ребер\nСтруктура данных \\(D\\), которая опирается на следующие классы объектов:\n\n\nВершина \\(v\\)\n\n\n\n\\((x,y)\\)\nкоординаты\n\n\n\\(\\texttt{halfedge}\\)\nполуребро, для которого \\(v\\) является началом\n\n\n\nГрань \\(f\\)\n\n\n\n\n\n\n\n\\(\\texttt{outer}\\)\nлюбое полуребро внешней границы\n\n\n\\(\\texttt{inner}\\)\nсписок любых полуребер дырок (по одному на каждую дырку)\n\n\n\n\n\n\n\n\n\n\n\n\n\nОсобенности\n\n\nДля неограниченной области \\(\\texttt{outer_component} = \\varnothing\\), для полигона без дырок \\(\\texttt{inner_components} = \\varnothing\\)"
+    "text": "Двусвязный список ребер\nСтруктура данных \\(D\\), которая опирается на следующие классы объектов:\n\n\nВершина \\(v\\)\n\n\n\n\\((x,y)\\)\nкоординаты\n\n\n\\(\\texttt{halfedge}\\)\nполуребро, для которого \\(v\\) является началом\n\n\n\nГрань \\(f\\)\n\n\n\n\n\n\n\n\\(\\texttt{outer}\\)\nлюбое полуребро внешней границы\n\n\n\\(\\texttt{inner}\\)\nсписок любых полуребер дырок (по одному на каждую дырку)\n\n\n\n\n\n\n\n\n\n\n\n\n\nОсобенности\n\n\nДля неограниченной области \\(\\texttt{outer} = \\varnothing\\), для полигона без дырок \\(\\texttt{inner} = \\varnothing\\)"
   },
   {
     "objectID": "adv_08_Geometry-3.html#двусвязный-список-ребер-1",
@@ -7551,5 +7551,12 @@
     "title": "Геометрические операции — III",
     "section": "Обновление двусвязного списка",
     "text": "Обновление двусвязного списка\nПри появлении пересечения необходимо добавить вершину, а также новые полуребра, для которых она будет \\(\\texttt{origin}\\). Для старых полуребер обновить \\(\\texttt{next}\\)."
+  },
+  {
+    "objectID": "adv_08_Geometry-3.html#вопросы-на-подумать-1",
+    "href": "adv_08_Geometry-3.html#вопросы-на-подумать-1",
+    "title": "Геометрические операции — III",
+    "section": "Вопросы на подумать",
+    "text": "Вопросы на подумать\n\n\nКакие из приведенных равенств всегда выполняются для планарного разбиения?\n\\[\n\\begin{aligned}\n\\texttt{twin}(\\texttt{twin}(\\overrightarrow e)) &= \\overrightarrow e\\\\~\\\\\n\\texttt{next}(\\texttt{prev}(\\overrightarrow e)) &= \\overrightarrow e\\\\~\\\\\n\\texttt{twin}(\\texttt{prev}(\\texttt{twin}(\\overrightarrow e))) &= \\texttt{next}(\\overrightarrow e)\\\\~\\\\\n\\texttt{face}(\\overrightarrow e) &= \\texttt{face}(\\texttt{next}(\\overrightarrow e))\n\\end{aligned}\n\\]"
   }
 ]

@@ -499,8 +499,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
+<col style="width: 23%">
+<col style="width: 76%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -526,7 +526,7 @@
 <p><strong>Особенности</strong></p>
 </div>
 <div class="callout-content">
-<p>Для <em>неограниченной</em> области <span class="math inline">\(\texttt{outer_component} = \varnothing\)</span>, для полигона <em>без дырок</em> <span class="math inline">\(\texttt{inner_components} = \varnothing\)</span></p>
+<p>Для <em>неограниченной</em> области <span class="math inline">\(\texttt{outer} = \varnothing\)</span>, для полигона <em>без дырок</em> <span class="math inline">\(\texttt{inner} = \varnothing\)</span></p>
 </div>
 </div>
 </div>
@@ -671,24 +671,6 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <img data-src="images/overlay.svg" style="width:100.0%" class="r-stretch"><p><em>Объединение</em>: грани, образованные <span class="math inline">\(A\)</span> или <span class="math inline">\(B\)</span>.</p>
 <p><em>Пересечение</em>: грани, образованные <span class="math inline">\(A\)</span> и <span class="math inline">\(B\)</span>.</p>
 </section>
-<section id="вопросы-на-подумать" class="slide level2">
-<h2>Вопросы на подумать</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p>Какие из приведенных равенств всегда выполняются для планарного разбиения?</p>
-<p><span class="math display">\[
-\begin{aligned}
-\texttt{twin}(\texttt{twin}(\overrightarrow e)) &amp;= \overrightarrow e\\~\\
-\texttt{next}(\texttt{prev}(\overrightarrow e)) &amp;= \overrightarrow e\\~\\
-\texttt{twin}(\texttt{prev}(\texttt{twin}(\overrightarrow e))) &amp;= \texttt{next}(\overrightarrow e)\\~\\
-\texttt{face}(\overrightarrow e) &amp;= \texttt{face}(\texttt{next}(\overrightarrow e))
-\end{aligned}
-\]</span></p>
-</div><div class="column" style="width:30%;">
-<p><img data-src="images/rick_thinking.png" style="width:100.0%"></p>
-</div>
-</div>
-</section>
 <section id="слияние-полигонов" class="slide level2">
 <h2>Слияние полигонов</h2>
 <p><strong>Слияние</strong> — это объединение объектов с сохранением их размерности.</p>
@@ -745,6 +727,24 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <p><strong>Отрицательная буферная зона полигона</strong> получается путем <em>вычитания</em> из полигона буферной зоны его границы.</p>
 
 <img data-src="images/buffer_poly_neg.svg" style="width:80.0%" class="r-stretch"></section>
+<section id="вопросы-на-подумать" class="slide level2">
+<h2>Вопросы на подумать</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Какие из приведенных равенств всегда выполняются для планарного разбиения?</p>
+<p><span class="math display">\[
+\begin{aligned}
+\texttt{twin}(\texttt{twin}(\overrightarrow e)) &amp;= \overrightarrow e\\~\\
+\texttt{next}(\texttt{prev}(\overrightarrow e)) &amp;= \overrightarrow e\\~\\
+\texttt{twin}(\texttt{prev}(\texttt{twin}(\overrightarrow e))) &amp;= \texttt{next}(\overrightarrow e)\\~\\
+\texttt{face}(\overrightarrow e) &amp;= \texttt{face}(\texttt{next}(\overrightarrow e))
+\end{aligned}
+\]</span></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="images/rick_thinking.png" style="width:100.0%"></p>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
