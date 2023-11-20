@@ -491,7 +491,7 @@
 <td>координаты</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(\texttt{halfedge}\)</span></td>
+<td><span class="math inline">\(\texttt{hedge}\)</span></td>
 <td>полуребро, для которого <span class="math inline">\(v\)</span> является началом</td>
 </tr>
 </tbody>
@@ -499,8 +499,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 79%">
+<col style="width: 13%">
+<col style="width: 86%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -594,15 +594,15 @@
 <section id="двусвязный-список-ребер-пример" class="slide level2">
 <h2>Двусвязный список ребер (пример)</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:45%;">
 <p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
-</div><div class="column table-msmall" style="width:50%;">
+</div><div class="column table-msmall" style="width:55%;">
 <table>
 <thead>
 <tr class="header">
 <th>vertex</th>
 <th>coords</th>
-<th>halfedge</th>
+<th>hedge</th>
 </tr>
 </thead>
 <tbody>
@@ -679,9 +679,9 @@
 <section id="двусвязный-список-ребер-пример-1" class="slide level2">
 <h2>Двусвязный список ребер (пример)</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:45%;">
 <p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:55%;">
 <table>
 <thead>
 <tr class="header">
@@ -694,7 +694,7 @@
 <tr class="odd">
 <td><code>0</code></td>
 <td><code>NULL</code></td>
-<td><code>(0,0), (7,1), (8,0)</code></td>
+<td><code>(0,0),(7,1),(8,0)</code></td>
 </tr>
 <tr class="even">
 <td><code>1</code></td>
@@ -719,9 +719,9 @@
 <section id="двусвязный-список-ребер-пример-2" class="slide level2">
 <h2>Двусвязный список ребер (пример)</h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:45%;">
 <p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
-</div><div class="column table-msmall" style="width:50%;">
+</div><div class="column table-vsmall" style="width:55%;">
 <table>
 <thead>
 <tr class="header">
@@ -738,100 +738,283 @@
 <td><code>(0,0)</code></td>
 <td><code>0</code></td>
 <td><code>(0,1)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>0</code></td>
+<td><code>(1,0)</code></td>
+<td><code>(6,0)</code></td>
 </tr>
 <tr class="even">
 <td><code>(0,1)</code></td>
 <td><code>4</code></td>
-<td><code>(1,0)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>(0,0)</code></td>
+<td><code>2</code></td>
+<td><code>(6,1)</code></td>
+<td><code>(9,1)</code></td>
 </tr>
 <tr class="odd">
 <td><code>(1,0)</code></td>
 <td><code>4</code></td>
 <td><code>(1,1)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>0</code></td>
+<td><code>(1,1)</code></td>
+<td><code>(0,0)</code></td>
 </tr>
 <tr class="even">
 <td><code>(1,1)</code></td>
 <td><code>2</code></td>
 <td><code>(1,0)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>0</code></td>
+<td><code>(2,0)</code></td>
+<td><code>(1,0)</code></td>
 </tr>
 <tr class="odd">
 <td><code>(2,0)</code></td>
 <td><code>4</code></td>
 <td><code>(2,1)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>0</code></td>
+<td><code>(3,0)</code></td>
+<td><code>(1,1)</code></td>
 </tr>
 <tr class="even">
 <td><code>(2,1)</code></td>
 <td><code>5</code></td>
 <td><code>(2,0)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>1</code></td>
+<td><code>(9,0)</code></td>
+<td><code>(3,1)</code></td>
 </tr>
 <tr class="odd">
 <td><code>(3,0)</code></td>
 <td><code>5</code></td>
 <td><code>(3,1)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>0</code></td>
+<td><code>(4,0)</code></td>
+<td><code>(2,0)</code></td>
 </tr>
 <tr class="even">
 <td><code>(3,1)</code></td>
 <td><code>12</code></td>
 <td><code>(3,0)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>1</code></td>
+<td><code>(2,1)</code></td>
+<td><code>(4,1)</code></td>
 </tr>
 <tr class="odd">
 <td><code>(4,0)</code></td>
 <td><code>12</code></td>
 <td><code>(4,1)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>0</code></td>
+<td><code>(5,0)</code></td>
+<td><code>(3,0)</code></td>
 </tr>
 <tr class="even">
 <td><code>(4,1)</code></td>
 <td><code>9</code></td>
 <td><code>(4,0)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>1</code></td>
+<td><code>(3,1)</code></td>
+<td><code>(9,0)</code></td>
 </tr>
 <tr class="odd">
 <td><code>(5,0)</code></td>
 <td><code>9</code></td>
 <td><code>(5,1)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>0</code></td>
+<td><code>(6,0)</code></td>
+<td><code>(4,0)</code></td>
 </tr>
 <tr class="even">
 <td><code>(5,1)</code></td>
 <td><code>8</code></td>
 <td><code>(5,0)</code></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>2</code></td>
+<td><code>(9,1)</code></td>
+<td><code>(6,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>(6,0)</code></td>
+<td><code>8</code></td>
+<td><code>(6,1)</code></td>
+<td><code>0</code></td>
+<td><code>(0,0)</code></td>
+<td><code>(5,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>(6,1)</code></td>
+<td><code>0</code></td>
+<td><code>(6,0)</code></td>
+<td><code>2</code></td>
+<td><code>(5,1)</code></td>
+<td><code>(0,1)</code></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="двусвязный-список-ребер-пример-3" class="slide level2">
+<h2>Двусвязный список ребер (пример)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
+</div><div class="column table-vsmall" style="width:55%;">
+<table>
+<thead>
+<tr class="header">
+<th>hedge</th>
+<th>origin</th>
+<th>twin</th>
+<th>face</th>
+<th>next</th>
+<th>prev</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>(7,0)</code></td>
+<td><code>1</code></td>
+<td><code>(7,1)</code></td>
+<td><code>0</code></td>
+<td><code>(7,1)</code></td>
+<td><code>(7,1)</code></td>
+</tr>
+<tr class="even">
+<td><code>(7,1)</code></td>
+<td><code>1</code></td>
+<td><code>(7,0)</code></td>
+<td><code>0</code></td>
+<td><code>(7,0)</code></td>
+<td><code>(7,0)</code></td>
+</tr>
+<tr class="odd">
+<td><code>(8,0)</code></td>
+<td><code>10</code></td>
+<td><code>(8,1)</code></td>
+<td><code>0</code></td>
+<td><code>(8,1)</code></td>
+<td><code>(8,1)</code></td>
+</tr>
+<tr class="even">
+<td><code>(8,1)</code></td>
+<td><code>11</code></td>
+<td><code>(8,0)</code></td>
+<td><code>0</code></td>
+<td><code>(8,0)</code></td>
+<td><code>(8,0)</code></td>
+</tr>
+<tr class="odd">
+<td><code>(9,0)</code></td>
+<td><code>4</code></td>
+<td><code>(9,1)</code></td>
+<td><code>1</code></td>
+<td><code>(4,1)</code></td>
+<td><code>(2,1)</code></td>
+</tr>
+<tr class="even">
+<td><code>(9,1)</code></td>
+<td><code>9</code></td>
+<td><code>(9,0)</code></td>
+<td><code>2</code></td>
+<td><code>(0,1)</code></td>
+<td><code>(5,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>(10,0)</code></td>
+<td><code>3</code></td>
+<td><code>(10,1)</code></td>
+<td><code>2</code></td>
+<td><code>(12,0)</code></td>
+<td><code>(11,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>(10,1)</code></td>
+<td><code>7</code></td>
+<td><code>(10,0)</code></td>
+<td><code>3</code></td>
+<td><code>(11,1)</code></td>
+<td><code>(12,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>(11,0)</code></td>
+<td><code>6</code></td>
+<td><code>(11,1)</code></td>
+<td><code>2</code></td>
+<td><code>(10,0)</code></td>
+<td><code>(12,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>(11,1)</code></td>
+<td><code>3</code></td>
+<td><code>(11,0)</code></td>
+<td><code>3</code></td>
+<td><code>(12,1)</code></td>
+<td><code>(10,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>(12,0)</code></td>
+<td><code>7</code></td>
+<td><code>(12,1)</code></td>
+<td><code>2</code></td>
+<td><code>(11,0)</code></td>
+<td><code>(10,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>(12,1)</code></td>
+<td><code>6</code></td>
+<td><code>(12,0)</code></td>
+<td><code>3</code></td>
+<td><code>(10,1)</code></td>
+<td><code>(11,1)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="двусвязный-список-ребер-пример-4" class="slide level2">
+<h2>Двусвязный список ребер (пример)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:55%;">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Ребра нулевой длины</strong></p>
+</div>
+<div class="callout-content">
+<p>В строгом смысле слова ребра <code>(7,0)</code> и <code>(7,1)</code> в разбиение не входят, т.к. имеют нулевую длину (согласно определению, разбиение не может включать пустое множество). Однако по их наличию в структуре данных можно идентифицировать изолированную вершину: <span class="math inline">\(\texttt{origin}(\vec e) = \texttt{origin}(\texttt{twin}(\vec e))\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Изолированные компоненты</strong></p>
+</div>
+<div class="callout-content">
+<p>Изолированные вершины и изолированные незамкнутые последовательности ребер (например, одиночное ребро <span class="math inline">\(e_8\)</span>) всегда соответствуют дыркам в окружающих гранях.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Внутренность дырки</strong></p>
+</div>
+<div class="callout-content">
+<p>Внутренность дырки (<span class="math inline">\(f_3\)</span>) является полноценной гранью, однако у нее нет информации о принадлежности полигону.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
