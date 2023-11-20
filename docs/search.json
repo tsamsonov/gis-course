@@ -7698,5 +7698,26 @@
     "title": "Геометрические операции — III",
     "section": "Библиография",
     "text": "Библиография\n\n\nСамсонов Т. Е. Геоинформатика: курс лекций\n\n\n\nBerg, Mark de, Ottfried Cheong, Marc van Kreveld, и Mark Overmars. 2008. Computational geometry: algorithms and applications. 3rd ed. Berlin: Springer.\n\n\nNewman, M. E. J. 2018. Networks. Second edition. Oxford, United Kingdom ; New York, NY, United States of America: Oxford University Press."
+  },
+  {
+    "objectID": "adv_09_Geometry-3.html#двусвязный-список-ребер-пример",
+    "href": "adv_09_Geometry-3.html#двусвязный-список-ребер-пример",
+    "title": "Геометрические операции — III",
+    "section": "Двусвязный список ребер (пример)",
+    "text": "Двусвязный список ребер (пример)\n\n\n\n\n\n\n\nvertex\ncoords\nhalfedge\n\n\n\n\n0\nx,y\n(6,1)\n\n\n1\nx,y\n(7,0)\n\n\n2\nx,y\n(1,1)\n\n\n3\nx,y\n(10,0)\n\n\n4\nx,y\n(9,0)\n\n\n5\nx,y\n(2,1)\n\n\n6\nx,y\n(11,0)\n\n\n7\nx,y\n(10,1)\n\n\n8\nx,y\n(6,0)\n\n\n9\nx,y\n(4,1)\n\n\n10\nx,y\n(8,0)\n\n\n11\nx,y\n(8,1)\n\n\n12\nx,y\n(3,1)"
+  },
+  {
+    "objectID": "adv_09_Geometry-3.html#двусвязный-список-ребер-пример-1",
+    "href": "adv_09_Geometry-3.html#двусвязный-список-ребер-пример-1",
+    "title": "Геометрические операции — III",
+    "section": "Двусвязный список ребер (пример)",
+    "text": "Двусвязный список ребер (пример)\n\n\n\n\n\n\n\nface\nouter\ninner\n\n\n\n\n0\nNULL\n(0,0), (7,1), (8,0)\n\n\n1\n(3,1)\nNULL\n\n\n2\n(9,1)\n(12,0)\n\n\n3\n(11,1)\nNULL"
+  },
+  {
+    "objectID": "adv_09_Geometry-3.html#двусвязный-список-ребер-пример-2",
+    "href": "adv_09_Geometry-3.html#двусвязный-список-ребер-пример-2",
+    "title": "Геометрические операции — III",
+    "section": "Двусвязный список ребер (пример)",
+    "text": "Двусвязный список ребер (пример)\n\n\n\n\n\n\n\nhedge\norigin\ntwin\nface\nnext\nprev\n\n\n\n\n(0,0)\n0\n(0,1)\n\n\n\n\n\n(0,1)\n4\n(1,0)\n\n\n\n\n\n(1,0)\n4\n(1,1)\n\n\n\n\n\n(1,1)\n2\n(1,0)\n\n\n\n\n\n(2,0)\n4\n(2,1)\n\n\n\n\n\n(2,1)\n5\n(2,0)\n\n\n\n\n\n(3,0)\n5\n(3,1)\n\n\n\n\n\n(3,1)\n12\n(3,0)\n\n\n\n\n\n(4,0)\n12\n(4,1)\n\n\n\n\n\n(4,1)\n9\n(4,0)\n\n\n\n\n\n(5,0)\n9\n(5,1)\n\n\n\n\n\n(5,1)\n8\n(5,0)"
   }
 ]

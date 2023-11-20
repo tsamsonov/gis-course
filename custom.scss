@@ -29,6 +29,10 @@ $presentation-heading-color: #383d3d !default;
   line-height: 1em;
 }
 
+.reveal .table-msmall table {
+  line-height: 0.9em;
+}
+
 .reveal .ol-dense ol {
   line-height: 0.8em;
 }

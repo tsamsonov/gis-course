@@ -499,8 +499,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 20%">
+<col style="width: 79%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -588,6 +588,250 @@
 </div>
 </div><div class="column" style="width:30%;">
 <p><img data-src="images/halfedge.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="двусвязный-список-ребер-пример" class="slide level2">
+<h2>Двусвязный список ребер (пример)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
+</div><div class="column table-msmall" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th>vertex</th>
+<th>coords</th>
+<th>halfedge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code></td>
+<td><code>x,y</code></td>
+<td><code>(6,1)</code></td>
+</tr>
+<tr class="even">
+<td><code>1</code></td>
+<td><code>x,y</code></td>
+<td><code>(7,0)</code></td>
+</tr>
+<tr class="odd">
+<td><code>2</code></td>
+<td><code>x,y</code></td>
+<td><code>(1,1)</code></td>
+</tr>
+<tr class="even">
+<td><code>3</code></td>
+<td><code>x,y</code></td>
+<td><code>(10,0)</code></td>
+</tr>
+<tr class="odd">
+<td><code>4</code></td>
+<td><code>x,y</code></td>
+<td><code>(9,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>5</code></td>
+<td><code>x,y</code></td>
+<td><code>(2,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>6</code></td>
+<td><code>x,y</code></td>
+<td><code>(11,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>7</code></td>
+<td><code>x,y</code></td>
+<td><code>(10,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>8</code></td>
+<td><code>x,y</code></td>
+<td><code>(6,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>9</code></td>
+<td><code>x,y</code></td>
+<td><code>(4,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>10</code></td>
+<td><code>x,y</code></td>
+<td><code>(8,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>11</code></td>
+<td><code>x,y</code></td>
+<td><code>(8,1)</code></td>
+</tr>
+<tr class="odd">
+<td><code>12</code></td>
+<td><code>x,y</code></td>
+<td><code>(3,1)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="двусвязный-список-ребер-пример-1" class="slide level2">
+<h2>Двусвязный список ребер (пример)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th>face</th>
+<th>outer</th>
+<th>inner</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code></td>
+<td><code>NULL</code></td>
+<td><code>(0,0), (7,1), (8,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>1</code></td>
+<td><code>(3,1)</code></td>
+<td><code>NULL</code></td>
+</tr>
+<tr class="odd">
+<td><code>2</code></td>
+<td><code>(9,1)</code></td>
+<td><code>(12,0)</code></td>
+</tr>
+<tr class="even">
+<td><code>3</code></td>
+<td><code>(11,1)</code></td>
+<td><code>NULL</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="двусвязный-список-ребер-пример-2" class="slide level2">
+<h2>Двусвязный список ребер (пример)</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/edge_list.svg" style="width:100.0%"></p>
+</div><div class="column table-msmall" style="width:50%;">
+<table>
+<thead>
+<tr class="header">
+<th>hedge</th>
+<th>origin</th>
+<th>twin</th>
+<th>face</th>
+<th>next</th>
+<th>prev</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>(0,0)</code></td>
+<td><code>0</code></td>
+<td><code>(0,1)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>(0,1)</code></td>
+<td><code>4</code></td>
+<td><code>(1,0)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>(1,0)</code></td>
+<td><code>4</code></td>
+<td><code>(1,1)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>(1,1)</code></td>
+<td><code>2</code></td>
+<td><code>(1,0)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>(2,0)</code></td>
+<td><code>4</code></td>
+<td><code>(2,1)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>(2,1)</code></td>
+<td><code>5</code></td>
+<td><code>(2,0)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>(3,0)</code></td>
+<td><code>5</code></td>
+<td><code>(3,1)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>(3,1)</code></td>
+<td><code>12</code></td>
+<td><code>(3,0)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>(4,0)</code></td>
+<td><code>12</code></td>
+<td><code>(4,1)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>(4,1)</code></td>
+<td><code>9</code></td>
+<td><code>(4,0)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>(5,0)</code></td>
+<td><code>9</code></td>
+<td><code>(5,1)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>(5,1)</code></td>
+<td><code>8</code></td>
+<td><code>(5,0)</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>
