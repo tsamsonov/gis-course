@@ -659,6 +659,11 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <li><p>Для каждой компоненты <span class="math inline">\(G\)</span> создать грань в <span class="math inline">\(D\)</span>.</p></li>
 </ol>
 </section>
+<section id="обновление-двусвязного-списка" class="slide level2">
+<h2>Обновление двусвязного списка</h2>
+<p>При появлении пересечения необходимо добавить вершину, а также новые полуребра, для которых она будет <span class="math inline">\(\texttt{origin}\)</span>. Для старых полуребер обновить <span class="math inline">\(\texttt{next}\)</span>.</p>
+
+<img data-src="images/overlay_sweep.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="булевы-операции" class="slide level2">
 <h2>Булевы операции</h2>
 <p><strong>Оверлей</strong> полигонов часто используется для выполнения <em>булевых</em> операций.</p>
@@ -687,7 +692,7 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <section id="слияние-полигонов" class="slide level2">
 <h2>Слияние полигонов</h2>
 <p><strong>Слияние</strong> — это объединение объектов с сохранением их размерности.</p>
-<p>Осуществляется оверлей полигонов, но перед поиском циклов удаляются ребра и вершины, инцидентные только удаляемым объектам.</p>
+<p>Осуществляется оверлей полигонов, но перед поиском циклов удаляются ребра и вершины, принадлежащие <em>только</em> удаляемым объектам.</p>
 
 <img data-src="images/merge.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="полигонизация-линий" class="slide level2">
