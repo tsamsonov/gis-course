@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">20 ноября 2023 г.</p>
+  <p class="date">26 ноября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -499,8 +499,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 13%">
-<col style="width: 86%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1086,11 +1086,31 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <li><p>Для каждой компоненты <span class="math inline">\(G\)</span> создать грань в <span class="math inline">\(D\)</span>.</p></li>
 </ol>
 </section>
+<section id="объединение-разбиений" class="slide level2">
+<h2>Объединение разбиений</h2>
+<p>Объединить списки простым копированием: <span class="math inline">\(D = D_1 \cup D_2\)</span>, сохранив информацию о принадлежности вершин, ребер и граней исходным разбиениям.</p>
+
+<img data-src="images/overlay_sweep1.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="обновление-двусвязного-списка" class="slide level2">
 <h2>Обновление двусвязного списка</h2>
 <p>При появлении пересечения необходимо добавить вершину, а также новые полуребра, для которых она будет <span class="math inline">\(\texttt{origin}\)</span>. Для старых полуребер обновить <span class="math inline">\(\texttt{next}\)</span>.</p>
 
 <img data-src="images/overlay_sweep.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="обновление-двусвязного-списка-1" class="slide level2">
+<h2>Обновление двусвязного списка</h2>
+<p>При появлении пересечения необходимо добавить вершину, а также новые полуребра, для которых она будет <span class="math inline">\(\texttt{origin}\)</span>. Для старых полуребер обновить <span class="math inline">\(\texttt{next}\)</span>.</p>
+
+<img data-src="images/overlay_sweep3.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="вычисление-циклов" class="slide level2">
+<h2>Вычисление циклов</h2>
+<p>Вычислить все границы (замкнутые последовательности полуребер) в <span class="math inline">\(D\)</span>. На рисунке показаны циклы, соответствующие внешним границам</p>
+
+<img data-src="images/overlay_sweep4.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="сборка-граней" class="slide level2">
+<h2>Сборка граней</h2>
+<p>Замкнутые последовательности собираются в грани.</p>
+
+<img data-src="images/overlay_sweep5.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="булевы-операции" class="slide level2">
 <h2>Булевы операции</h2>
 <p><strong>Оверлей</strong> полигонов часто используется для выполнения <em>булевых</em> операций.</p>
