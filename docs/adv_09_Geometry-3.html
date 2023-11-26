@@ -499,8 +499,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 32%">
+<col style="width: 67%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1191,6 +1191,260 @@ e_{ij} = \{v_i, v_j \},~ i \neq j
 <p><img data-src="images/rick_thinking.png" style="width:100.0%"></p>
 </div>
 </div>
+</section>
+<section id="диаграмма-вороного" class="slide level2">
+<h2>Диаграмма Вороного</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Диаграмма Вороного</strong> <span class="math inline">\(Vor(P)\)</span> множества точек <span class="math inline">\(P = \{p_0, … p_{n-1}\}\)</span> — <em>разбиение плоскости</em> такое, что точка <span class="math inline">\(q\)</span> принадлежит грани <span class="math inline">\(V(p_i)\)</span> тогда и только тогда, когда:</p>
+<p><span class="math display">\[
+d(q, p_i) &lt; d(q, p_j), \forall i \neq j
+\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Области и ячейки</strong></p>
+</div>
+<div class="callout-content">
+<p>Грани диаграммы Вороного также называют областями или ячейками</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</section>
+<section id="элементы-диаграммы-вороного" class="slide level2">
+<h2>Элементы диаграммы Вороного</h2>
+<p><strong>Область диаграммы Вороного</strong> — множество точек, удовлетворяющее условию:</p>
+<p><span class="math display">\[
+V(p) = \big\{ x \in \mathbb{R}^2: d(x,p) &lt; d(x,q), \forall q \in P~\backslash~p \big\}
+\]</span></p>
+<p><strong>Ребро диаграммы Вороного</strong> — множество точек, удовлетворяющее условию:</p>
+<p><span class="math display">\[
+V(p_0, p_1) = \big\{ x \in \mathbb{R}^2: \big( d(x,p_0) = d(x,p_1) \big) \land \big(d(x,p_0) &lt; d(x,q) \big), \forall q \neq p, p' \big\}
+\]</span></p>
+<p><strong>Вершина диаграммы Вороного</strong> — множество точек, удовлетворяющее условию:</p>
+<p><span class="math display">\[
+V(p_0, p_1, p_2) = \partial V(p_0) \cap \partial V(p_1) \cap \partial V(p_2)
+\]</span></p>
+</section>
+<section id="триангуляция" class="slide level2">
+<h2>Триангуляция</h2>
+<dl>
+<dt>Триангуляция множества точек <span class="math inline">\(P\)</span></dt>
+<dd>
+<p>Планарное разбиение, ограниченные грани которого являются треугольниками, а вершины являются точками <span class="math inline">\(P\)</span></p>
+</dd>
+</dl>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Максимальное разбиение</strong></p>
+</div>
+<div class="callout-content">
+<p>Триангуляция является максимальным разбиением в том смысле, что в нее нельзя добавить новые ребра так чтобы они не пересекали существующие</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Количество треугольников и ребер</strong></p>
+</div>
+<div class="callout-content">
+<p>Если <span class="math inline">\(P\)</span> содержит <span class="math inline">\(n\)</span> точек, и его выпуклая оболочка содержит <span class="math inline">\(k\)</span> точек, то любая триангуляция <span class="math inline">\(P\)</span> содержит <span class="math inline">\(2n-2-k\)</span> треугольников и <span class="math inline">\(3n-3-k\)</span> ребер.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</section>
+<section id="оптимальность-по-углам" class="slide level2">
+<h2>Оптимальность по углам</h2>
+<p>Пусть дана триангуляция <span class="math inline">\(T\)</span>, включающая <span class="math inline">\(m\)</span> треугольников, имеющих углы <span class="math inline">\(\alpha\)</span>. Тогда упорядоченную по возрастанию <span class="math inline">\(\alpha\)</span> последовательность</p>
+<p><span class="math display">\[A(T) := (\alpha_1, \alpha_2,..., \alpha_{3m}),~где~\alpha_i \leq \alpha_j~при~i &lt; j\]</span></p>
+<p>будем называть <strong>угловым вектором</strong> <span class="math inline">\(T\)</span>.</p>
+<p>Угловой вектор <span class="math inline">\(T\)</span> <strong>больше</strong> углового вектора <span class="math inline">\(T'\)</span>, если:</p>
+<p><span class="math display">\[
+A(T) &gt; A(T') \Leftrightarrow \exists i: (\alpha_j = \alpha'_j~при~j &lt; i) \land (\alpha_i &gt; \alpha'_i)
+\]</span></p>
+<p>Триангуляция <span class="math inline">\(T\)</span> называется оптимальной по углам, если</p>
+<p><span class="math display">\[
+A(T) \geq A(T')
+\]</span></p>
+<p>для всех возможных триангуляций <span class="math inline">\(T'\)</span> множества точек <span class="math inline">\(P\)</span>.</p>
+</section>
+<section id="граф-и-триангуляция-делоне" class="slide level2">
+<h2>Граф и триангуляция Делоне</h2>
+<p>Пусть дано множество точек <span class="math inline">\(P = \{p_i\}\)</span> и его диаграмма Вороного <span class="math inline">\(Vor(P)\)</span>.</p>
+<p><strong>Граф Делоне</strong> <span class="math inline">\(DG(P)\)</span> состоит из</p>
+<ul>
+<li><p>вершин <span class="math inline">\(P\)</span>;</p></li>
+<li><p>ребер <span class="math inline">\(E\)</span>, включающих <span class="math inline">\(\overline{p_i p_j}\)</span>, если <span class="math inline">\(V(p_i, p_j) \neq \varnothing\)</span>.</p></li>
+</ul>
+<p><strong>Триангуляция Делоне</strong> <span class="math inline">\(DT(P)\)</span> — триангуляция, ребра которой состоят из ребер графа Делоне <span class="math inline">\(DG(P)\)</span>.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Определяющее свойство</strong></p>
+</div>
+<div class="callout-content">
+<p>Триангуляция множества точек <span class="math inline">\(P\)</span> является триангуляцией Делоне тогда и только тогда, когда диск, описанный вокруг любого треугольника, не содержит точек <span class="math inline">\(P\)</span> в своей внутренней области.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Оптимальность</strong></p>
+</div>
+<div class="callout-content">
+<p>Любая оптимальная по углам триангуляция является триангуляцией Делоне</p>
+</div>
+</div>
+</div>
+</section>
+<section id="перестановка-и-легальность-ребер" class="slide level2">
+<h2>Перестановка и легальность ребер</h2>
+<dl>
+<dt>Перестановка ребра</dt>
+<dd>
+<p>Пусть ребро <span class="math inline">\(e = \overline{p_i p_j}\)</span> инцидентно <span class="math inline">\(\triangle p_i p_j p_k\)</span> и <span class="math inline">\(\triangle p_i p_j p_l\)</span>. Если <span class="math inline">\(p_i p_k p_j p_l\)</span> — выпуклый четырехугольник, то перестановкой <span class="math inline">\(e\)</span> называется получение новой триангуляции <span class="math inline">\(T'\)</span>, в которой <span class="math inline">\(e\)</span> заменено на <span class="math inline">\(e' = \overline{p_k p_l} = \texttt{flip}(\overline{p_i p_j})\)</span></p>
+</dd>
+</dl>
+<div class="columns">
+<div class="column" style="width:50%;">
+<dl>
+<dt>Нелегальное ребро</dt>
+<dd>
+<p>Ребро триангуляции считается <em>нелегальным</em>, если его перестановка уменьшает минимальный угол в инцидентных треугольниках.</p>
+</dd>
+</dl>
+<p>Т.е. если углы <span class="math inline">\(\alpha_0,...\alpha_5\)</span> в <span class="math inline">\(A(T)\)</span> заменяются на <span class="math inline">\(\alpha'_0,...\alpha'_5\)</span> в <span class="math inline">\(A(T')\)</span>, где</p>
+<p><span class="math display">\[
+\min_{0 \leq i \leq 5} \alpha_i &lt; \min_{0 \leq i \leq 5} \alpha'_i
+\]</span></p>
+</div><div class="column" style="width:50%;">
+
+</div>
+</div>
+</section>
+<section id="легальная-триангуляция" class="slide level2">
+<h2>Легальная триангуляция</h2>
+<p><strong>Легальной</strong> называется триангуляция, в которой все ребра легальные.</p>
+<p>Перестановка одного ребра может привести к тому, что в соседних четырехугольниках ребра перестанут быт легальными. Полная процедура требует запуска следующего алгоритма.</p>
+<p><span class="math inline">\(\texttt{legalize_edge}(p_r, \overline{p_i p_j}, T):\)</span></p>
+<ul>
+<li><p>Если ребро <span class="math inline">\(\overline{p_i p_j}\)</span> нелегально:</p>
+<ul>
+<li><p>Пусть <span class="math inline">\(\triangle p_i p_j p_k\)</span> соседствует с <span class="math inline">\(\triangle p_i p_j p_r\)</span> вдоль <span class="math inline">\(\overline{p_i p_j}\)</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(\overline{p_r p_k} = \texttt{flip}(\overline{p_i p_j})\)</span></p></li>
+<li><p><span class="math inline">\(\texttt{legalize_edge}(p_r, \overline{p_i p_k}, T)\)</span></p></li>
+<li><p><span class="math inline">\(\texttt{legalize_edge}(p_r, \overline{p_k p_j}, T)\)</span></p></li>
+</ol></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Гарантируется что данная процедура выполнится за конечное число шагов.</p>
+</blockquote>
+</section>
+<section id="вставка-вершин" class="slide level2">
+<h2>Вставка вершин</h2>
+<p><span class="math inline">\(\texttt{insert}(p_r, T):\)</span></p>
+<ul>
+<li><p>Пусть <span class="math inline">\(t =\triangle {p_i p_j p_k}\)</span> — треугольник, покрывающий <span class="math inline">\(p_r\)</span>, а <span class="math inline">\(t' = \triangle p_i p_j p_l\)</span> — его сосед по ребру <span class="math inline">\(\overline{p_i p_j}\)</span></p>
+<div class="columns">
+<div class="column" style="width:70%;">
+<ul>
+<li><p>Если <span class="math inline">\(p_r \in t^\circ\)</span>:</p>
+<ol type="1">
+<li><p>Создать ребра <span class="math inline">\(\overline{p_r p_i}\)</span>, <span class="math inline">\(\overline{p_r p_j}\)</span> и <span class="math inline">\(\overline{p_r p_k}\)</span></p></li>
+<li><p>Выполнить <span class="math inline">\(\texttt{legalize_edge}(p_r, e, T)\)</span> для каждого <span class="math inline">\(e \subset t\)</span></p></li>
+</ol></li>
+<li><p>Если <span class="math inline">\(p_r \in \partial t\)</span>, а именно <span class="math inline">\(p_r \in \overline{p_i p_j}\)</span>:</p>
+<ol type="1">
+<li><p>Создать ребра <span class="math inline">\(\overline{p_r p_i}\)</span>, <span class="math inline">\(\overline{p_r p_j}\)</span>, <span class="math inline">\(\overline{p_r p_k}\)</span> и <span class="math inline">\(\overline{p_r p_l}\)</span></p></li>
+<li><p>Выполнить <span class="math inline">\(\texttt{legalize_edge}(p_r, e, T)\)</span> для каждого <span class="math inline">\(e \subset t\)</span> и <span class="math inline">\(e' \subset t'\)</span>, кроме <span class="math inline">\(\overline{p_i p_j}\)</span>.</p></li>
+</ol></li>
+</ul>
+</div><div class="column" style="width:30%;">
+
+</div>
+</div></li>
+</ul>
+</section>
+<section id="триангуляция-делоне-алгоритм" class="slide level2">
+<h2>Триангуляция Делоне — алгоритм</h2>
+<p><strong>Дано</strong>: множество <span class="math inline">\(P\)</span>, состоящее из <span class="math inline">\(n\)</span> точек на плоскости</p>
+<p><strong>Получить</strong>: <span class="math inline">\(DT(P)\)</span></p>
+<ol type="1">
+<li><p>Выбрать на плоскости точки <span class="math inline">\(p_{-1}\)</span>, <span class="math inline">\(p_{-2}\)</span> и <span class="math inline">\(p_{-3}\)</span>, такие что <span class="math inline">\(P \subset \triangle p_{-1} p_{-2} p_{-3}\)</span>.</p></li>
+<li><p>Пусть <span class="math inline">\(T = \Big\langle \big\{p_{-1}, p_{-2}, p_{-3}\big\}, \big\{\overline{p_{-1}p_{-2}},~\overline{p_{-2} p_{-3}}, \overline{p_{-3}p_{-1}}\big\},~\big\{\triangle p_{-1} p_{-2} p_{-3}\big\} \Big\rangle\)</span>.</p></li>
+<li><p>Перемешать <span class="math inline">\(p_0, p_2,…, p_{n-1}\)</span> в <span class="math inline">\(P\)</span>.</p></li>
+<li><p>Для каждого <span class="math inline">\(r\)</span> от <span class="math inline">\(0\)</span> до <span class="math inline">\(n-1\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\texttt{insert}(p_r, T)\)</span></li>
+</ul></li>
+<li><p>Удалить <span class="math inline">\(p_{-1}\)</span>, <span class="math inline">\(p_{-2}\)</span> и <span class="math inline">\(p_{-3}\)</span>, а также связанные с ними ребра и треугольники из <span class="math inline">\(T\)</span></p></li>
+<li><p>Вернуть <span class="math inline">\(T\)</span>.</p></li>
+</ol>
+</section>
+<section id="область-и-диаграмма-вороного-алгоритм" class="slide level2">
+<h2>Область и диаграмма Вороного — алгоритм</h2>
+<p><strong>Дано</strong>: <span class="math inline">\(p_i \in DT(P),~\texttt{box}(P)\)</span>.</p>
+<p><strong>Получить</strong>: <span class="math inline">\(V(p_i)\)</span>.</p>
+<ol type="1">
+<li><p><span class="math inline">\(C(p_i) = \{\}\)</span>.</p></li>
+<li><p>Для каждого треугольника <span class="math inline">\(t_j\)</span> последовательности <span class="math inline">\(t_0, ... t_{k-1}\)</span>, треугольников, включающих <span class="math inline">\(p_i\)</span> и упорядоченных по часовой стрелке:</p>
+<ul>
+<li>добавить в <span class="math inline">\(C(p_i)\)</span> центр описанной окружности <span class="math inline">\(t_j\)</span>.</li>
+</ul></li>
+<li><p>Если последовательность <span class="math inline">\(t_j\)</span> незамкнута (<span class="math inline">\(t_0\)</span> и <span class="math inline">\(t_{k-1}\)</span> не инцидентны), то</p>
+<ul>
+<li>добавить в <span class="math inline">\(C(p_i)\)</span> точки, расположенные на пересечении <span class="math inline">\(\texttt{box}(P)\)</span> и срединных перпендикуляров к ребрам <span class="math inline">\(t_0\)</span> и <span class="math inline">\(t_{k-1}\)</span>, принадлежащим выпуклой оболочке <span class="math inline">\(P\)</span></li>
+</ul></li>
+<li><p>Восстановить <span class="math inline">\(V(p_i)\)</span> по точкам <span class="math inline">\(C(p_i)\)</span>.</p></li>
+</ol>
+<blockquote>
+<p>Повторяя данный алгоритм для всех <span class="math inline">\(p_i \in P\)</span> получим диаграмму Вороного.</p>
+</blockquote>
+</section>
+<section id="alpha-оболочка-вогнутая" class="slide level2">
+<h2><span class="math inline">\(\alpha\)</span>-оболочка (вогнутая)</h2>
+</section>
+<section id="триангуляция-полигона" class="slide level2">
+<h2>Триангуляция полигона</h2>
+</section>
+<section id="центроид-полигона" class="slide level2">
+<h2>Центроид полигона</h2>
+</section>
+<section id="точка-на-поверхности" class="slide level2">
+<h2>Точка на поверхности</h2>
+</section>
+<section id="скелет-полигона" class="slide level2">
+<h2>Скелет полигона</h2>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
