@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">26 ноября 2023 г.</p>
+  <p class="date">27 ноября 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -379,15 +379,15 @@
 </div><div class="column" style="width:50%;">
 <ol type="1">
 <li>Пересечение множества отрезков</li>
-<li><strong>Оверлей полигонов</strong></li>
-<li><strong>Слияние линий и полигонов</strong></li>
-<li><strong>Полигонизация линий</strong></li>
-<li><strong>Буферная зона</strong></li>
-<li>Триангуляция Делоне</li>
-<li>Диаграмма Вороного</li>
-<li>Скелет и срединная ось полигона</li>
+<li>Оверлей полигонов</li>
+<li>Слияние линий и полигонов</li>
+<li>Полигонизация линий</li>
+<li>Буферная зона</li>
+<li><strong>Триангуляция Делоне</strong></li>
+<li><strong>Диаграмма Вороного</strong></li>
+<li><strong>Вогнутая оболочка</strong></li>
 <li>Центроид и точка на поверхности</li>
-<li>Вогнутая оболочка</li>
+<li>Скелет полигона</li>
 </ol>
 </div>
 </div>
@@ -499,8 +499,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 32%">
-<col style="width: 67%">
+<col style="width: 33%">
+<col style="width: 66%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1214,7 +1214,7 @@ d(q, p_i) &lt; d(q, p_j), \forall i \neq j
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-
+<p><img data-src="images/voronoy.svg" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -1270,14 +1270,14 @@ V(p_0, p_1, p_2) = \partial V(p_0) \cap \partial V(p_1) \cap \partial V(p_2)
 </div>
 </div>
 </div><div class="column" style="width:50%;">
-
+<p><img data-src="images/TIN.svg" style="width:100.0%"></p>
 </div>
 </div>
 </section>
 <section id="оптимальность-по-углам" class="slide level2">
 <h2>Оптимальность по углам</h2>
 <p>Пусть дана триангуляция <span class="math inline">\(T\)</span>, включающая <span class="math inline">\(m\)</span> треугольников, имеющих углы <span class="math inline">\(\alpha\)</span>. Тогда упорядоченную по возрастанию <span class="math inline">\(\alpha\)</span> последовательность</p>
-<p><span class="math display">\[A(T) := (\alpha_1, \alpha_2,..., \alpha_{3m}),~где~\alpha_i \leq \alpha_j~при~i &lt; j\]</span></p>
+<p><span class="math display">\[A(T) := (\alpha_0, \alpha_1,..., \alpha_{3m-1}),~где~\alpha_i \leq \alpha_j~при~i &lt; j\]</span></p>
 <p>будем называть <strong>угловым вектором</strong> <span class="math inline">\(T\)</span>.</p>
 <p>Угловой вектор <span class="math inline">\(T\)</span> <strong>больше</strong> углового вектора <span class="math inline">\(T'\)</span>, если:</p>
 <p><span class="math display">\[
@@ -1338,7 +1338,7 @@ A(T) \geq A(T')
 <dl>
 <dt>Нелегальное ребро</dt>
 <dd>
-<p>Ребро триангуляции считается <em>нелегальным</em>, если его перестановка уменьшает минимальный угол в инцидентных треугольниках.</p>
+<p>Ребро триангуляции считается <em>нелегальным</em>, если его перестановка увеличивает минимальный угол в инцидентных треугольниках.</p>
 </dd>
 </dl>
 <p>Т.е. если углы <span class="math inline">\(\alpha_0,...\alpha_5\)</span> в <span class="math inline">\(A(T)\)</span> заменяются на <span class="math inline">\(\alpha'_0,...\alpha'_5\)</span> в <span class="math inline">\(A(T')\)</span>, где</p>
@@ -1346,7 +1346,7 @@ A(T) \geq A(T')
 \min_{0 \leq i \leq 5} \alpha_i &lt; \min_{0 \leq i \leq 5} \alpha'_i
 \]</span></p>
 </div><div class="column" style="width:50%;">
-
+<p><img data-src="images/illegal_edges.svg" style="width:65.0%"></p>
 </div>
 </div>
 </section>
@@ -1390,7 +1390,7 @@ A(T) \geq A(T')
 </ol></li>
 </ul>
 </div><div class="column" style="width:30%;">
-
+<p><img data-src="images/insert_point.svg" style="width:100.0%"></p>
 </div>
 </div></li>
 </ul>
@@ -1410,10 +1410,18 @@ A(T) \geq A(T')
 <li><p>Удалить <span class="math inline">\(p_{-1}\)</span>, <span class="math inline">\(p_{-2}\)</span> и <span class="math inline">\(p_{-3}\)</span>, а также связанные с ними ребра и треугольники из <span class="math inline">\(T\)</span></p></li>
 <li><p>Вернуть <span class="math inline">\(T\)</span>.</p></li>
 </ol>
+<blockquote>
+<p>Данный алгоритм носит имя Бойера-Ватсона</p>
+</blockquote>
 </section>
+<section id="триангуляция-делоне-алгоритм-1" class="slide level2">
+<h2>Триангуляция Делоне — алгоритм</h2>
+<p>Удалить <span class="math inline">\(p_{-1}\)</span>, <span class="math inline">\(p_{-2}\)</span> и <span class="math inline">\(p_{-3}\)</span>, а также связанные с ними ребра и треугольники из <span class="math inline">\(T\)</span></p>
+
+<img data-src="images/tin_building.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="область-и-диаграмма-вороного-алгоритм" class="slide level2">
 <h2>Область и диаграмма Вороного — алгоритм</h2>
-<p><strong>Дано</strong>: <span class="math inline">\(p_i \in DT(P),~\texttt{box}(P)\)</span>.</p>
+<p><strong>Дано</strong>: <span class="math inline">\(p_i \in DT(P),~\texttt{box}(P)\)</span> — ограничивающий прямоугольник.</p>
 <p><strong>Получить</strong>: <span class="math inline">\(V(p_i)\)</span>.</p>
 <ol type="1">
 <li><p><span class="math inline">\(C(p_i) = \{\}\)</span>.</p></li>
@@ -1431,21 +1439,10 @@ A(T) \geq A(T')
 <p>Повторяя данный алгоритм для всех <span class="math inline">\(p_i \in P\)</span> получим диаграмму Вороного.</p>
 </blockquote>
 </section>
-<section id="alpha-оболочка-вогнутая" class="slide level2">
-<h2><span class="math inline">\(\alpha\)</span>-оболочка (вогнутая)</h2>
-</section>
-<section id="триангуляция-полигона" class="slide level2">
-<h2>Триангуляция полигона</h2>
-</section>
-<section id="центроид-полигона" class="slide level2">
-<h2>Центроид полигона</h2>
-</section>
-<section id="точка-на-поверхности" class="slide level2">
-<h2>Точка на поверхности</h2>
-</section>
-<section id="скелет-полигона" class="slide level2">
-<h2>Скелет полигона</h2>
-</section>
+<section id="область-и-диаграмма-вороного-алгоритм-1" class="slide level2">
+<h2>Область и диаграмма Вороного — алгоритм</h2>
+
+<img data-src="images/voronoy_polygon.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 

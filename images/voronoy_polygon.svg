@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1429 650" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <rect id="Artboard9" x="-173" y="-1112" width="2618" height="2846" style="fill:none;"/>
+    <path d="M1342.43,623.5L1409.69,623.5L1409.69,109L1230.65,235.924L1181.3,378.65L1194.8,446.47L1342.43,623.5Z" style="fill:rgb(45,231,231);fill-opacity:0.2;stroke:rgb(15,134,134);stroke-width:6px;"/>
+    <path d="M322.645,312.701L436.653,378.65L485.926,234.967L307.432,191.232L322.645,312.701Z" style="fill:rgb(45,231,231);fill-opacity:0.24;stroke:rgb(15,134,134);stroke-width:6px;"/>
+    <path d="M1231.09,235.924L1409.69,109" style="fill:none;stroke:rgb(15,134,134);stroke-width:6px;"/>
+    <path d="M1196.15,446.47L1340,623.5" style="fill:none;stroke:rgb(15,134,134);stroke-width:6px;"/>
+    <rect x="15" y="19" width="651" height="604.5" style="fill:none;stroke:rgb(15,134,134);stroke-width:6px;"/>
+    <rect x="758.693" y="19" width="651" height="604.5" style="fill:none;stroke:rgb(15,134,134);stroke-width:6px;"/>
+    <circle cx="134" cy="373.895" r="13.5"/>
+    <circle cx="877.693" cy="373.895" r="13.5"/>
+    <circle cx="175.581" cy="201.944" r="13.5"/>
+    <circle cx="919.274" cy="201.944" r="13.5"/>
+    <circle cx="327.247" cy="513" r="13.5"/>
+    <path d="M134,374.294L175,202L412,154L540,331L327.247,513L134,374.294Z" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M877.693,374.294L918.693,202L1155.69,154L1283.69,331L1070.94,513L877.693,374.294Z" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M134.095,373.895L256.075,289.124L175,202" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M877.788,373.895L999.768,289.124L918.693,202" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M412,154L381.894,275.624L540,331" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M1155.69,154L1125.59,275.624L1283.69,331" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M256.075,289.124L381.894,275.624L328,379L256.075,289.124Z" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M999.768,289.124L1125.59,275.624L1071.69,379L999.768,289.124Z" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M134,374.294L328,379L327.247,513" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M877.693,374.294L1071.69,379L1070.94,513" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M328,379L540,333.5" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M1071.69,379L1283.69,333.5" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M256.075,287.947L412,154" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <path d="M999.768,287.947L1155.69,154" style="fill:none;stroke:black;stroke-width:6px;"/>
+    <circle cx="320.985" cy="312.347" r="70.847" style="fill:none;stroke:rgb(45,231,231);stroke-width:2px;"/>
+    <circle cx="436.653" cy="373.47" r="111.347" style="fill:none;stroke:rgb(45,231,231);stroke-width:2px;"/>
+    <circle cx="1181.38" cy="373.47" r="111.347" style="fill:none;stroke:rgb(45,231,231);stroke-width:2px;"/>
+    <circle cx="1194.8" cy="442.516" r="141.202" style="fill:none;stroke:rgb(45,231,231);stroke-width:2px;"/>
+    <circle cx="486.365" cy="236.076" r="111.347" style="fill:none;stroke:rgb(45,231,231);stroke-width:2px;"/>
+    <circle cx="1231.09" cy="236.076" r="111.347" style="fill:none;stroke:rgb(45,231,231);stroke-width:2px;"/>
+    <circle cx="306.641" cy="190.671" r="111.347" style="fill:none;stroke:rgb(45,231,231);stroke-width:2px;"/>
+    <circle cx="256.075" cy="289.124" r="13.5" style="fill:rgb(249,85,185);"/>
+    <circle cx="999.768" cy="289.124" r="13.5"/>
+    <circle cx="322.645" cy="312.701" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="436.583" cy="378.65" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="1181.3" cy="378.65" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="1195.66" cy="446.47" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="1340.84" cy="624.465" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="1409.58" cy="110.87" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="485.926" cy="234.967" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="1230.65" cy="234.967" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="307.432" cy="191.232" r="13.5" style="fill:rgb(15,134,134);"/>
+    <circle cx="327.247" cy="378.698" r="13.5" style="fill:rgb(249,85,185);"/>
+    <circle cx="1070.94" cy="378.698" r="13.5" style="fill:rgb(249,85,185);"/>
+    <circle cx="381.894" cy="275.624" r="13.5" style="fill:rgb(169,6,106);"/>
+    <circle cx="1125.59" cy="275.624" r="13.5" style="fill:rgb(249,85,185);"/>
+    <circle cx="538.553" cy="330.807" r="13.5" style="fill:rgb(249,85,185);"/>
+    <circle cx="1282.25" cy="330.807" r="13.5" style="fill:rgb(169,6,106);"/>
+    <circle cx="411.44" cy="155.003" r="13.5" style="fill:rgb(249,85,185);"/>
+    <circle cx="1155.13" cy="155.003" r="13.5" style="fill:rgb(249,85,185);"/>
+    <circle cx="1070.94" cy="513" r="13.5" style="fill:rgb(249,85,185);"/>
+    <path d="M1230.65,236.236L1181.3,378.65L1194.8,446.47" style="fill:none;stroke:rgb(15,134,134);stroke-width:6px;"/>
+    <path d="M544.951,255.808L533,272L527.217,252.724L544.951,255.808Z" style="fill:rgb(249,85,185);"/>
+    <path d="M481,172.462L545,203C545,203 538.98,237.618 535.467,257.813" style="fill:none;stroke:rgb(249,85,185);stroke-width:6px;"/>
+    <path d="M1166.44,249.804L1181.3,236.236L1183.24,256.267L1166.44,249.804Z" style="fill:rgb(249,85,185);"/>
+    <path d="M1146,424L1136,354C1136,354 1164.25,280.568 1176.13,249.676" style="fill:none;stroke:rgb(249,85,185);stroke-width:6px;"/>
+</svg>
