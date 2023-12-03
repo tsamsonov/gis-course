@@ -501,8 +501,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 26%">
+<col style="width: 73%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1619,6 +1619,43 @@ A(T) \geq A(T')
 <p><img data-src="images/monotone_poly_merge3.svg" style="width:100.0%"></p>
 </div>
 </div>
+</section>
+<section id="триангуляция-y-монотонного-полигона" class="slide level2">
+<h2>Триангуляция <em>Y</em>-монотонного полигона</h2>
+<ol type="1">
+<li><p>Отсортировать все вершины <span class="math inline">\(v_i\)</span> по убыванию <span class="math inline">\(Y\)</span></p></li>
+<li><p>Список ребер <span class="math inline">\(E \leftarrow \varnothing\)</span>; cтек вершин <span class="math inline">\(S \leftarrow \varnothing\)</span>; <span class="math inline">\(S.\texttt{push}(v_0)\)</span>; <span class="math inline">\(S.\texttt{push}(v_1)\)</span></p></li>
+<li><p>В цикле по <span class="math inline">\(i\)</span> от <span class="math inline">\(2\)</span> до <span class="math inline">\(n-2\)</span>:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><em>если</em> <span class="math inline">\(v_i\)</span> и <span class="math inline">\(S.\texttt{top}()\)</span> на противоположных сторонах:
+<ul>
+<li>пока <span class="math inline">\(|S|&gt;0\)</span>:
+<ul>
+<li><span class="math inline">\(u \leftarrow S.\texttt{pop}()\)</span></li>
+<li><span class="math inline">\(E = E \cup \overline{v_i u}\)</span> если <span class="math inline">\(|S| &gt; 0\)</span></li>
+</ul></li>
+<li><span class="math inline">\(S.\texttt{push}(v_{i-1})\)</span>; <span class="math inline">\(S.\texttt{push}(v_{i})\)</span></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><em>иначе</em>:
+<ul>
+<li><span class="math inline">\(u \leftarrow S.\texttt{pop}()\)</span></li>
+<li>пока <span class="math inline">\(|S|&gt;0\)</span> и <span class="math inline">\(v_i\)</span> <em>видит</em> <span class="math inline">\(S.\texttt{top}()\)</span>:
+<ul>
+<li><span class="math inline">\(u \leftarrow S.\texttt{pop}()\)</span></li>
+<li><span class="math inline">\(E = E \cup \overline{v_i u}\)</span></li>
+</ul></li>
+<li><span class="math inline">\(S.\texttt{push}(u)\)</span>; <span class="math inline">\(S.\texttt{push}(v_{i})\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div></li>
+<li><p>Соединить <span class="math inline">\(v_{n-1}\)</span> со всеми вершинами в <span class="math inline">\(S\)</span> кроме первой и последней.</p></li>
+</ol>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
