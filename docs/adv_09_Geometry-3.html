@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.489">
+  <meta name="generator" content="quarto-1.4.510">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики - Геометрические операции — III</title>
@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">27 ноября 2023 г.</p>
+  <p class="date">3 декабря 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -372,6 +372,7 @@
 <li>Точка относительно отрезка</li>
 <li>Пересечение отрезков</li>
 <li>Точка в полигоне</li>
+<li>Направление вектора</li>
 <li>Ограничивающий прямоугольник</li>
 <li>Выпуклая оболочка</li>
 <li>Минимальный прямоугольник</li>
@@ -379,14 +380,15 @@
 </div><div class="column" style="width:50%;">
 <ol type="1">
 <li>Пересечение множества отрезков</li>
-<li>Оверлей полигонов</li>
-<li>Слияние линий и полигонов</li>
+<li>Оверлей и слияние полигонов</li>
 <li>Полигонизация линий</li>
 <li>Буферная зона</li>
-<li><strong>Триангуляция Делоне</strong></li>
-<li><strong>Диаграмма Вороного</strong></li>
-<li><strong>Вогнутая оболочка</strong></li>
-<li>Центроид и точка на поверхности</li>
+<li>Триангуляция Делоне</li>
+<li>Диаграмма Вороного</li>
+<li>Вогнутая оболочка</li>
+<li>Минимальное остовное дерево</li>
+<li>Триангуляция полигона</li>
+<li>Центроид полигона</li>
 <li>Скелет полигона</li>
 </ol>
 </div>
@@ -499,8 +501,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 33%">
-<col style="width: 66%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1443,6 +1445,60 @@ A(T) \geq A(T')
 <h2>Область и диаграмма Вороного — алгоритм</h2>
 
 <img data-src="images/voronoy_polygon.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="триангуляция-полигона" class="slide level2">
+<h2>Триангуляция полигона</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<dl>
+<dt>Триангуляция полигона</dt>
+<dd>
+<p>Разбиение полигона на треугольники максимальным числом непересекающихся диагоналей</p>
+</dd>
+<dt>Диагональ полигона</dt>
+<dd>
+<p>Открытый отрезок, соединяющий вершины полигона и лежащий в его внутренней области</p>
+</dd>
+</dl>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Применение</strong></p>
+</div>
+<div class="callout-content">
+<p>Триангуляция полигона играет вспомогательную роль во многих задачах. В частности, она необходима для поиска центроида и скелета полигона, а также его визуализации средствами графического процессора.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/polygon_tri5.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="монотонный-полигон" class="slide level2">
+<h2>Монотонный полигон</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<dl>
+<dt>Монотонный полигон</dt>
+<dd>
+<p>Полигон <span class="math inline">\(A\)</span> называется монотонным по отношению к прямой <span class="math inline">\(l\)</span>, если любая прямая <span class="math inline">\(l'\)</span>, перпендикулярная <span class="math inline">\(l\)</span>, пересекает его не более 2 раз.</p>
+</dd>
+</dl>
+<ul>
+<li><p>При триангуляции полигон разбивается на множество <em>монотонных</em> полигонов.</p></li>
+<li><p>Часто используется монотонность по отношению к одной из осей координат. Например, <em>Y</em>-монотонные.</p>
+<ul>
+<li>При движении от вершины с <span class="math inline">\(\max(Y)\)</span> к вершине с <span class="math inline">\(\min(Y)\)</span> граница всегда следует вниз.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/polygon_tri6.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
