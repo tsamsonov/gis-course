@@ -1536,6 +1536,90 @@ A(T) \geq A(T')
 </div>
 </div>
 </section>
+<section id="разбиение-на-y-монотонные-полигоны" class="slide level2">
+<h2>Разбиение на <em>Y</em>-монотонные полигоны</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>На первом проходе алгоритма обрабатываются <strong>точки разбиения</strong>.</p>
+<ol type="1">
+<li>Для каждой точки <span class="math inline">\(v\)</span> найти расположенное слева ребро <span class="math inline">\(\texttt{left}(v)\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/monotone_poly_split1.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="разбиение-на-y-монотонные-полигоны-1" class="slide level2">
+<h2>Разбиение на <em>Y</em>-монотонные полигоны</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>На первом проходе алгоритма обрабатываются <strong>точки разбиения</strong>.</p>
+<ol type="1">
+<li>Для каждой точки <span class="math inline">\(v\)</span> найти расположенное слева ребро <span class="math inline">\(\texttt{left}(v)\)</span></li>
+<li>Если <span class="math inline">\(v\)</span> точка разбиения, то построить диагональ <span class="math inline">\(\overline{vw}\)</span> для самой нижней точки <span class="math inline">\(w\)</span> над <span class="math inline">\(v\)</span> такой, что <span class="math inline">\(\texttt{left}(w) = \texttt{left}(v)\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/monotone_poly_split2.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="разбиение-на-y-монотонные-полигоны-2" class="slide level2">
+<h2>Разбиение на <em>Y</em>-монотонные полигоны</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>На первом проходе алгоритма обрабатываются <strong>точки разбиения</strong>.</p>
+<ol type="1">
+<li>Для каждой точки <span class="math inline">\(v\)</span> найти расположенное слева ребро <span class="math inline">\(\texttt{left}(v)\)</span></li>
+<li>Если <span class="math inline">\(v\)</span> точка разбиения, то построить диагональ <span class="math inline">\(\overline{vw}\)</span> для самой нижней точки <span class="math inline">\(w\)</span> над <span class="math inline">\(v\)</span> такой, что <span class="math inline">\(\texttt{left}(w) = \texttt{left}(v)\)</span>.</li>
+<li>Если такой точки не найдено, принять за <span class="math inline">\(w\)</span> верхний конец <span class="math inline">\(\texttt{left}(v)\)</span> и построить диагональ <span class="math inline">\(\overline{vw}\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/monotone_poly_split3.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="разбиение-на-y-монотонные-полигоны-3" class="slide level2">
+<h2>Разбиение на <em>Y</em>-монотонные полигоны</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>На втором проходе алгоритма обрабатываются <strong>точки слияния</strong>.</p>
+<ol type="1">
+<li>Для каждой точки <span class="math inline">\(v\)</span> найти расположенное справа ребро <span class="math inline">\(\texttt{right}(v)\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/monotone_poly_merge1.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="разбиение-на-y-монотонные-полигоны-4" class="slide level2">
+<h2>Разбиение на <em>Y</em>-монотонные полигоны</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>На первом проходе алгоритма обрабатываются <strong>точки слияния</strong>.</p>
+<ol type="1">
+<li>Для каждой точки <span class="math inline">\(v\)</span> найти расположенное справа ребро <span class="math inline">\(\texttt{right}(v)\)</span></li>
+<li>Если <span class="math inline">\(v\)</span> точка слияния, то построить диагональ <span class="math inline">\(\overline{vw}\)</span> для самой верхней точки <span class="math inline">\(w\)</span> под <span class="math inline">\(v\)</span> такой, что <span class="math inline">\(\texttt{right}(w) = \texttt{right}(v)\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/monotone_poly_merge2.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="разбиение-на-y-монотонные-полигоны-5" class="slide level2">
+<h2>Разбиение на <em>Y</em>-монотонные полигоны</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>На первом проходе алгоритма обрабатываются <strong>точки слияния</strong>.</p>
+<ol type="1">
+<li>Для каждой точки <span class="math inline">\(v\)</span> найти расположенное справа ребро <span class="math inline">\(\texttt{right}(v)\)</span></li>
+<li>Если <span class="math inline">\(v\)</span> точка слияния, то построить диагональ <span class="math inline">\(\overline{vw}\)</span> для самой верхней точки <span class="math inline">\(w\)</span> под <span class="math inline">\(v\)</span> такой, что <span class="math inline">\(\texttt{right}(w) = \texttt{right}(v)\)</span>.</li>
+<li>Если такой точки не найдено, принять за <span class="math inline">\(w\)</span> нижний конец <span class="math inline">\(\texttt{right}(v)\)</span> и построить диагональ <span class="math inline">\(\overline{vw}\)</span>.</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/monotone_poly_merge3.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
