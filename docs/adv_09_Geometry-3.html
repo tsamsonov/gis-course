@@ -1499,11 +1499,6 @@ A(T) \geq A(T')
 </div>
 </div>
 </section>
-<section id="триангуляция-монотонных-полигонов" class="slide level2">
-<h2>Триангуляция монотонных полигонов</h2>
-<p>Результат объединяется из триангуляций Y-монотонных полигонов.</p>
-
-<img data-src="images/polygon_tri4.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="особые-точки-полигона" class="slide level2">
 <h2>Особые точки полигона</h2>
 <p>Особые точки нужны для разбиения полигона на монотонные части</p>
@@ -1656,6 +1651,66 @@ A(T) \geq A(T')
 </div></li>
 <li><p>Соединить <span class="math inline">\(v_{n-1}\)</span> со всеми вершинами в <span class="math inline">\(S\)</span> кроме первой и последней.</p></li>
 </ol>
+</section>
+<section id="триангуляция-монотонных-полигонов" class="slide level2">
+<h2>Триангуляция монотонных полигонов</h2>
+<p>Результат объединяется из триангуляций Y-монотонных полигонов.</p>
+
+<img data-src="images/polygon_tri4.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="центроид-полигона" class="slide level2">
+<h2>Центроид полигона</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Наиболее простой вариант — осреднить координаты вершин полигона:</p>
+<p><span class="math display">\[
+c = \frac{1}{n}\sum_{i=0}^{n-1} v_i
+\]</span></p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Недостаток</strong></p>
+</div>
+<div class="callout-content">
+<p>Центроид будет смещен в ту сторону, где граница полигона имеет более высокую детализацию.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/polygon_centroid1.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="центроид-полигона-1" class="slide level2">
+<h2>Центроид полигона</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Более устойчивый способ — осреднить центроиды <span class="math inline">\(k\)</span> граней триангуляции полигона с весами, пропорциональными их площади:</p>
+<p><span class="math display">\[
+c = \frac{1}{\texttt{area}(A)}\sum_{j=0}^{k-1} \texttt{area}(t_j)c_j
+\]</span></p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Недостаток</strong></p>
+</div>
+<div class="callout-content">
+<p>Центроид может выходить за пределы полигона.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/polygon_centroid2.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
