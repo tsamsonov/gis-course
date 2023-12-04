@@ -358,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">3 декабря 2023 г.</p>
+  <p class="date">4 декабря 2023 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -386,10 +386,10 @@
 <li>Буферная зона</li>
 <li>Триангуляция Делоне</li>
 <li>Диаграмма Вороного</li>
-<li>Вогнутая оболочка</li>
-<li>Триангуляция полигона</li>
-<li>Центроид полигона</li>
-<li>Скелет полигона</li>
+<li><strong>Вогнутая оболочка</strong></li>
+<li><strong>Триангуляция полигона</strong></li>
+<li><strong>Центроид полигона</strong></li>
+<li><strong>Срединная ось полигона</strong></li>
 </ol>
 </div>
 </div>
@@ -501,8 +501,8 @@
 <p><strong>Грань</strong> <span class="math inline">\(f\)</span></p>
 <table>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 73%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1445,6 +1445,16 @@ A(T) \geq A(T')
 <h2>Область и диаграмма Вороного — алгоритм</h2>
 
 <img data-src="images/voronoy_polygon.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="альфа-оболочка-вогнутая" class="slide level2">
+<h2>Альфа-оболочка (вогнутая)</h2>
+<p><strong>Альфа-комплекс (</strong> <span class="math inline">\(\alpha\)</span>-complex) подмножество триангуляции Делоне, включающее узлы, а также ребра и треугольники, существующие при заданном радиусе диска <span class="math inline">\(r= 1/\alpha\)</span> (при <span class="math inline">\(\alpha &gt; 0\)</span>).</p>
+
+<img data-src="images/acomplex.png" style="width:100.0%" class="r-stretch"><ul>
+<li><p>При увеличении радиуса диска происходит образование и исчезновение циклов.</p></li>
+<li><p>Объединение треугольников называется <strong>альфа-оболочкой</strong>.</p></li>
+<li><p>При <span class="math inline">\(\alpha = 0\)</span> альфа-оболочка совпадает с <em>выпуклой оболочкой</em> множества точек.</p></li>
+</ul>
+</section>
 <section id="триангуляция-полигона" class="slide level2">
 <h2>Триангуляция полигона</h2>
 <div class="columns">
@@ -1615,6 +1625,24 @@ A(T) \geq A(T')
 </div>
 </div>
 </section>
+<section id="стек" class="slide level2">
+<h2>Стек</h2>
+<p><strong>Стек</strong> — одномерная структура данных, действующая по принципу <em>LIFO (Last In First Out)</em>.</p>
+<p>Cтек поддерживает следующие операции:</p>
+<ul>
+<li><p><code>push()</code> — добавление элемента в конец</p></li>
+<li><p><code>pop()</code> — извлечение элемента с конца</p></li>
+<li><p><code>top()</code> — просмотр последнего элемента</p></li>
+</ul>
+<pre><code>S = stack()
+S.push(2) # [2]
+S.push(5) # [2, 5]
+S.push(0) # [2, 5, 0]
+a = S.pop() # 0
+b = S.pop() # 5
+S.push(7) # [2, 7]
+S.top() # 7</code></pre>
+</section>
 <section id="триангуляция-y-монотонного-полигона" class="slide level2">
 <h2>Триангуляция <em>Y</em>-монотонного полигона</h2>
 <ol type="1">
@@ -1657,6 +1685,26 @@ A(T) \geq A(T')
 <p>Результат объединяется из триангуляций Y-монотонных полигонов.</p>
 
 <img data-src="images/polygon_tri4.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="срединная-ось-полигона" class="slide level2">
+<h2>Срединная ось полигона</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Срединная ось полигона может быть аппроксимирована через <em>двойственный граф</em> его триангуляции.</p>
+<dl>
+<dt>Двойственный граф</dt>
+<dd>
+<p>Двойственный граф <span class="math inline">\(G'\)</span> к планарному графу <span class="math inline">\(G\)</span> — это граф, в котором вершины соответствуют граням <span class="math inline">\(G\)</span>, а ребра соединяют соседние грани <span class="math inline">\(G\)</span>.</p>
+</dd>
+</dl>
+<p>В качестве вершин двойственного графа можно выбрать центроиды треугольников. Для треугольника <span class="math inline">\(\triangle p q r\)</span>:</p>
+<p><span class="math display">\[
+c_{\triangle} = \frac{1}{3} (p + q + r)
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/skeleton.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
 <section id="центроид-полигона" class="slide level2">
 <h2>Центроид полигона</h2>
 <div class="columns">
@@ -1687,7 +1735,7 @@ c = \frac{1}{n}\sum_{i=0}^{n-1} v_i
 <h2>Центроид полигона</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p>Более устойчивый способ — осреднить центроиды <span class="math inline">\(k\)</span> граней триангуляции полигона с весами, пропорциональными их площади:</p>
+<p>Более устойчивый способ — осреднить центроиды <span class="math inline">\(k\)</span> граней триангуляции полигона <span class="math inline">\(t\)</span> с весами, пропорциональными их площади:</p>
 <p><span class="math display">\[
 c = \frac{1}{\texttt{area}(A)}\sum_{j=0}^{k-1} \texttt{area}(t_j)c_j
 \]</span></p>
@@ -1709,8 +1757,21 @@ c = \frac{1}{\texttt{area}(A)}\sum_{j=0}^{k-1} \texttt{area}(t_j)c_j
 </div>
 </div>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
+<section id="точка-на-поверхности" class="slide level2">
+<h2>Точка на поверхности</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Точка на поверхности</strong> (<code>POINT_ON_SURFACE</code>) — разновидность центроида, которая гарантированно внутри полигона.</p>
+<ol type="1">
+<li><p>Вычислить ограничивающий прямоугольник полигона.</p></li>
+<li><p>Сгенерировать <span class="math inline">\(N\)</span> горизонтальных или вертикальных линий, пересекающих полигон.</p></li>
+<li><p>Вычислить пересечения между линиями и полигоном.</p></li>
+<li><p>Выбрать в качестве центроида середину самого длинного пересечения.</p></li>
+</ol>
+</div><div class="column" style="width:40%;">
+<p><img data-src="images/point_on_surface.svg" style="width:100.0%"></p>
+</div>
+</div>
 </section>
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
