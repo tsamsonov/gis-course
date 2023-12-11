@@ -350,38 +350,6 @@
 <p>Данные в файлах имеют одномерное упорядочение. Однако записи можно хранить так чтобы пространственно близкие располагались ближе друг к другу</p>
 
 <img data-src="images/ordering_comp2.svg" style="width:100.0%" class="r-stretch"></section>
-<section id="генерация-z-кривой-и-кривой-гильберта" class="slide level2">
-<h2>Генерация Z-кривой и кривой Гильберта</h2>
-<p><strong>Задача</strong>: разбить территорию на <span class="math inline">\(N \times N\)</span> ячеек, упорядочив их по близости.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>Общий алгоритм</strong>:</p>
-<ol type="1">
-<li><p>Начать с представления области в виде одной ячейки (<span class="math inline">\(k = 0\)</span>).</p></li>
-<li><p>Итерировать по <span class="math inline">\(k = 1, ..., n-1\)</span>, где <span class="math inline">\(n = \log_2N\)</span></p>
-<ul>
-<li><p>разбить территорию на <span class="math inline">\(2^k \times 2^k\)</span> блоков;</p></li>
-<li><p>вычислить номера ячеек.</p></li>
-</ul></li>
-</ol>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Размер блока на каждой итерации</strong></p>
-</div>
-<div class="callout-content">
-<p>На каждой итерации каждая ячейка заменяется на 4 блока размером <span class="math inline">\(2^{n-k} \times 2^{n-k}\)</span>.</p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:40%;">
-<p><img data-src="images/curve_subdivision.svg" style="width:100.0%"></p>
-</div>
-</div>
-</section>
 <section id="генерация-z-кривой" class="slide level2">
 <h2>Генерация Z-кривой</h2>
 <div class="columns">
