@@ -338,7 +338,7 @@
 </div>
 </div>
 
-  <p class="date">11 декабря 2023 г.</p>
+  <p class="date">18 декабря 2023 г.</p>
 </section>
 <section id="хранение-данных" class="slide level2">
 <h2>Хранение данных</h2>
@@ -515,6 +515,88 @@
 <li><p>Преобразовать каждую цифру в истинное 2-битовое представление</p></li>
 <li><p>Вычислить искомый номер.</p></li>
 </ol>
+</section>
+<section id="индекс" class="slide level2">
+<h2>Индекс</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<dl>
+<dt>Индекс</dt>
+<dd>
+<p>Специальный объект базы данных, предназначенный для повышения скорости поиска объектов</p>
+</dd>
+</dl>
+<p>Состоит из ключей и указателей:</p>
+<ul>
+<li><p><strong>ключ</strong> — значение или интервал значений одного или более <em>полей</em>;</p></li>
+<li><p><strong>указатели</strong> — ссылки на кортежи с соответствующими значениями <em>полей</em>.</p></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Принцип работы</strong></p>
+</div>
+<div class="callout-content">
+<p>Сначала ищется нужный блок индекса, затем непосредственно объект</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/index.svg" style="width:90.0%"></p>
+</div>
+</div>
+</section>
+<section id="пространственный-индекс" class="slide level2">
+<h2>Пространственный индекс</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<dl>
+<dt>Пространственный индекс</dt>
+<dd>
+<p>Индекс, предназначенный для поиска пространственных объектов</p>
+</dd>
+</dl>
+<p>Повышает скорость запросов:</p>
+<ol type="1">
+<li><strong>Идентификации</strong>: определить объект(ы), находящиеся в точке</li>
+<li><strong>Ближайшего</strong> <strong>соседа</strong>: найти все объекты в пределах заданного расстояния</li>
+<li><strong>Диапазона</strong>: выбрать объекты по заданному охвату координат</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/spatial_index.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="сеточный-индекс" class="slide level2">
+<h2>Сеточный индекс</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Простейший вид индекса, который часто используется для точечных данных.</p>
+<ul>
+<li><p>пространство разделяется линиями сетки на полосы — страйпы;</p></li>
+<li><p>число линий и расстояние между ними может быть разным для осей;</p></li>
+<li><p>точки индексируются по ячейкам — пересечениям полос</p></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Принцип работы</strong></p>
+</div>
+<div class="callout-content">
+<p>Сначала ищутся нужные ячейки по диапазону координат. После этого запрос работает с точками из этих ячеек.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/grid_file.svg" style="width:100.0%"></p>
+</div>
+</div>
 </section>
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
