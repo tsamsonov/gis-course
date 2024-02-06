@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.336">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики - Пространственная и географически взвешенная регрессия</title>
@@ -33,6 +33,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -49,7 +50,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -175,7 +176,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -545,7 +547,11 @@ HOVAL       -0.2739315  0.1031987 1.08745e-02</code></pre>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="09_Regression_files/figure-revealjs/unnamed-chunk-11-1.png" width="1500"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -693,14 +699,22 @@ HOVAL       -0.2739315  0.1031987 1.08745e-02</code></pre>
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="09_Regression_files/figure-revealjs/unnamed-chunk-16-1.png" width="900"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Индекс Морана равен <span class="math inline">\(0.500\)</span></p>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="09_Regression_files/figure-revealjs/unnamed-chunk-17-1.png" width="900"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Индекс Морана равен <span class="math inline">\(0.222\)</span></p>
@@ -762,7 +776,11 @@ HOVAL       -0.2739315  0.1031987 1.08745e-02</code></pre>
 </div><div class="column" style="width:60%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="09_Regression_files/figure-revealjs/unnamed-chunk-23-1.png" width="900"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -859,13 +877,21 @@ w_{ij} = \operatorname{exp}\{-\frac{1}{2} (d_{ij}/h)^2\},
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="09_Regression_files/figure-revealjs/unnamed-chunk-28-1.png" width="900"></p>
+</figure>
+</div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="09_Regression_files/figure-revealjs/unnamed-chunk-29-1.png" width="900"></p>
+</figure>
+</div>
 </div>
 </div>
 </div>
@@ -903,10 +929,12 @@ w_{ij} = \operatorname{exp}\{-\frac{1}{2} (d_{ij}/h)^2\},
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ</p>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-anselin:1988" class="csl-entry" role="listitem">
 Anselin, Luc. 1988. <em>Spatial Econometrics: Methods and Models</em>. Dordrecht Statistics: Springer Netherlands. <a href="https://doi.org/10.1007/978-94-015-7799-1">https://doi.org/10.1007/978-94-015-7799-1</a>.
 </div>
@@ -947,7 +975,6 @@ Moran, P A P. 1950. <span>«Notes on Continuous Stochastic Phenomena»</span>. <
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1246,10 +1273,9 @@ Moran, P A P. 1950. <span>«Notes on Continuous Stochastic Phenomena»</span>. <
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1259,8 +1285,17 @@ Moran, P A P. 1950. <span>«Notes on Continuous Stochastic Phenomena»</span>. <
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
