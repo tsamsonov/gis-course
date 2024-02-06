@@ -36,7 +36,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/01_Basics.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_01_Basics.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная привязка и создание объектов
 
@@ -46,7 +46,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/02_Georeferencing.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_02_Georeferencing.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Базы пространственных данных
 
@@ -56,7 +56,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/03_Databases.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_03_Databases.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Векторный анализ
 
@@ -66,7 +66,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/04_Vector.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_04_Vector.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Растровый анализ
 
@@ -76,7 +76,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/05_Raster.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_05_Raster.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Сетевой анализ
 
@@ -86,7 +86,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/06_Networks.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_06_Networks.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Цифровое моделирование рельефа и геоморфометрия
 
@@ -96,7 +96,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/07_Dem.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_07_Dem.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная интерполяция и вариография
 
@@ -106,7 +106,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/08_Interpolation.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_08_Interpolation.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная и географически взвешенная регрессия
 
@@ -116,7 +116,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/09_Regression.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_09_Regression.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Точечные процессы
 
@@ -126,7 +126,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/10_PointPatterns.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_10_PointPatterns.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Геоинформационные технологии
 
@@ -136,4 +136,4 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/11_Technologies.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/_11_Technologies.html){target="_blank"} в отдельной вкладке браузера.
