@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.309">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики - Введение</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -98,6 +98,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -425,7 +426,7 @@
 </div>
 </div>
 
-  <p class="date">10 сентября 2023 г.</p>
+  <p class="date">6 февраля 2024 г.</p>
 </section>
 <section id="геоинформатика" class="slide level2">
 <h2>Геоинформатика</h2>
@@ -462,12 +463,13 @@
 </dd>
 </dl>
 
-<img data-src="images/feature.svg" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/feature.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
 <section id="эволюция-моделей-субд" class="slide level2">
 <h2>Эволюция моделей СУБД</h2>
-<div class="cell" data-reveal="true" data-fig-width="11">
+<div class="cell" data-reveal="true" data-fig-width="11" data-layout-align="default">
 <div class="cell-output-display">
 <div>
+<p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TB
   A(Файловые) --&gt; B(Сетевые)
@@ -478,6 +480,7 @@
   D --&gt; F
 </pre>
 </div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -488,7 +491,11 @@
 <div class="column" style="width:40%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-3-1.png" width="400" height="400"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
@@ -552,7 +559,11 @@
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-4-3.png" width="400" height="400"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
@@ -655,14 +666,19 @@
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
+<div>
+<figure>
 <p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-5-5.png" width="400" height="400"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-reveal="true" data-fig-width="2">
+<div class="cell" data-reveal="true" data-fig-width="2" data-layout-align="default">
 <div class="cell-output-display">
 <div>
+<p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TB
   A(Parcels) --&gt; B(Polygons)
@@ -670,6 +686,7 @@
   C --&gt; D(Points)
 </pre>
 </div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -723,33 +740,33 @@
 <h2>Язык запросов</h2>
 <p><strong>Structured Query Language (SQL)</strong> — язык структурированных запросов. Применяется для создания, модификации и управления данными в реляционной базе данных.</p>
 <p>Пространственная СУБД поддерживает создание и манипулирование пространственными типами данных:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>SELECT 'SRID=4326;POINT(-123 34)'::geography</span>
-<span id="cb1-2"><a href="#cb1-2"></a>"0101000020E61000000000000000C05EC00000000000004140"</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a>CREATE TABLE geotable(gid serial PRIMARY KEY, name TEXT, geom geography(POINT) );</span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a>INSERT INTO geotable ( name, geom )</span>
-<span id="cb1-7"><a href="#cb1-7"></a>  VALUES ( ST_GeomFromEWKT('SRID=312;POINTM(-126.4 45.32 15)'), 'A Place' )</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>SELECT 'SRID=4326;POINT(-123 34)'::geography</span>
+<span id="cb1-2"><a></a>"0101000020E61000000000000000C05EC00000000000004140"</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>CREATE TABLE geotable(gid serial PRIMARY KEY, name TEXT, geom geography(POINT) );</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a>INSERT INTO geotable ( name, geom )</span>
+<span id="cb1-7"><a></a>  VALUES ( ST_GeomFromEWKT('SRID=312;POINTM(-126.4 45.32 15)'), 'A Place' )</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="пространственные-расширения-sql" class="slide level2">
 <h2>Пространственные расширения SQL</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>SELECT</span>
-<span id="cb2-2"><a href="#cb2-2"></a>  m.name,</span>
-<span id="cb2-3"><a href="#cb2-3"></a>  SUM(ST_Length(r.geom))/1000 as roads_km</span>
-<span id="cb2-4"><a href="#cb2-4"></a>FROM bc_roads AS r</span>
-<span id="cb2-5"><a href="#cb2-5"></a>JOIN bc_municipality AS m</span>
-<span id="cb2-6"><a href="#cb2-6"></a>  ON ST_Contains(m.geom, r.geom)</span>
-<span id="cb2-7"><a href="#cb2-7"></a>GROUP BY m.name</span>
-<span id="cb2-8"><a href="#cb2-8"></a>ORDER BY roads_km;</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a>name                        | roads_km</span>
-<span id="cb2-11"><a href="#cb2-11"></a>----------------------------+------------------</span>
-<span id="cb2-12"><a href="#cb2-12"></a>SURREY                      | 1539.47553551242</span>
-<span id="cb2-13"><a href="#cb2-13"></a>VANCOUVER                   | 1450.33093486576</span>
-<span id="cb2-14"><a href="#cb2-14"></a>LANGLEY DISTRICT            | 833.793392535662</span>
-<span id="cb2-15"><a href="#cb2-15"></a>BURNABY                     | 773.769091404338</span>
-<span id="cb2-16"><a href="#cb2-16"></a>PRINCE GEORGE               | 694.37554369147</span>
-<span id="cb2-17"><a href="#cb2-17"></a>...</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>SELECT</span>
+<span id="cb2-2"><a></a>  m.name,</span>
+<span id="cb2-3"><a></a>  SUM(ST_Length(r.geom))/1000 as roads_km</span>
+<span id="cb2-4"><a></a>FROM bc_roads AS r</span>
+<span id="cb2-5"><a></a>JOIN bc_municipality AS m</span>
+<span id="cb2-6"><a></a>  ON ST_Contains(m.geom, r.geom)</span>
+<span id="cb2-7"><a></a>GROUP BY m.name</span>
+<span id="cb2-8"><a></a>ORDER BY roads_km;</span>
+<span id="cb2-9"><a></a></span>
+<span id="cb2-10"><a></a>name                        | roads_km</span>
+<span id="cb2-11"><a></a>----------------------------+------------------</span>
+<span id="cb2-12"><a></a>SURREY                      | 1539.47553551242</span>
+<span id="cb2-13"><a></a>VANCOUVER                   | 1450.33093486576</span>
+<span id="cb2-14"><a></a>LANGLEY DISTRICT            | 833.793392535662</span>
+<span id="cb2-15"><a></a>BURNABY                     | 773.769091404338</span>
+<span id="cb2-16"><a></a>PRINCE GEORGE               | 694.37554369147</span>
+<span id="cb2-17"><a></a>...</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="обработка-запросов" class="slide level2">
 <h2>Обработка запросов</h2>
@@ -763,10 +780,10 @@
 </section>
 <section id="обработка-запросов-1" class="slide level2">
 <h2>Обработка запросов</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>SELECT</span>
-<span id="cb3-2"><a href="#cb3-2"></a>FROM reltypes R, soiltypes S</span>
-<span id="cb3-3"><a href="#cb3-3"></a>WHERE st_area(S.geom) &lt; 10000 AND st_area(R.geom) &lt; 10000</span>
-<span id="cb3-4"><a href="#cb3-4"></a>AND st_intersects(R.geom, s.geom)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource small number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>SELECT</span>
+<span id="cb3-2"><a></a>FROM reltypes R, soiltypes S</span>
+<span id="cb3-3"><a></a>WHERE st_area(S.geom) &lt; 10000 AND st_area(R.geom) &lt; 10000</span>
+<span id="cb3-4"><a></a>AND st_intersects(R.geom, s.geom)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 <img data-src="images/filter_refine.svg" style="width:100.0%" class="r-stretch"><p>Пространственный запрос состоит из фильтрации (<code>FILTER</code>) на основе MBR и уточнения (<code>REFINE</code>) по реальной геометрии.</p>
 </section>
@@ -846,10 +863,12 @@
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-gost:52438-2005" class="csl-entry" role="listitem">
 ГОСТ Р 52438-2005. 2018. <span>«Географические информационные системы. Термины и определения»</span>. Москва: Стандартинформ. <a href="https://docs.cntd.ru/document/1200044680">https://docs.cntd.ru/document/1200044680</a>.
 </div>

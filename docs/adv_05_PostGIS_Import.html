@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.309">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики - PostGIS. Создание и импорт векторных данных</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -403,7 +403,7 @@
 </div>
 </div>
 
-  <p class="date">24 сентября 2023 г.</p>
+  <p class="date">6 февраля 2024 г.</p>
 </section>
 <section id="базовые-библиотеки" class="slide level2">
 <h2>Базовые библиотеки</h2>
@@ -442,15 +442,15 @@
 <section id="создание-пустой-бд" class="slide level2">
 <h2>Создание пустой БД</h2>
 <p><strong>Создание БД</strong> (запрос к любой существующей БД)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">CREATE</span> <span class="kw">DATABASE</span> satino;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a></a><span class="kw">CREATE</span> <span class="kw">DATABASE</span> satino;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Создание схемы и активация расширения</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">CREATE</span> <span class="kw">SCHEMA</span> postgis;</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">GRANT</span> <span class="kw">USAGE</span> <span class="kw">ON</span> <span class="kw">schema</span> postgis <span class="kw">to</span> <span class="kw">public</span>; <span class="co">-- доступ для всех</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">CREATE</span> EXTENSION postgis <span class="kw">SCHEMA</span> postgis; <span class="co">-- включить postgis для схемы</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">CREATE</span> EXTENSION postgis_raster <span class="kw">SCHEMA</span> postgis; <span class="co">-- включить растры для схемы</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">ALTER</span> <span class="kw">DATABASE</span> satino <span class="kw">SET</span> search_path<span class="op">=</span><span class="kw">public</span>,postgis; <span class="co">-- добавить в путь поиска</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb2-1"><a></a><span class="kw">CREATE</span> <span class="kw">SCHEMA</span> postgis;</span>
+<span id="cb2-2"><a></a><span class="kw">GRANT</span> <span class="kw">USAGE</span> <span class="kw">ON</span> <span class="kw">schema</span> postgis <span class="kw">to</span> <span class="kw">public</span>; <span class="co">-- доступ для всех</span></span>
+<span id="cb2-3"><a></a><span class="kw">CREATE</span> EXTENSION postgis <span class="kw">SCHEMA</span> postgis; <span class="co">-- включить postgis для схемы</span></span>
+<span id="cb2-4"><a></a><span class="kw">CREATE</span> EXTENSION postgis_raster <span class="kw">SCHEMA</span> postgis; <span class="co">-- включить растры для схемы</span></span>
+<span id="cb2-5"><a></a><span class="kw">ALTER</span> <span class="kw">DATABASE</span> satino <span class="kw">SET</span> search_path<span class="op">=</span><span class="kw">public</span>,postgis; <span class="co">-- добавить в путь поиска</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Проверка установки</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">SELECT</span> postgis_full_version();</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb3-1"><a></a><span class="kw">SELECT</span> postgis_full_version();</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -570,51 +570,51 @@
 <li><p>геометрический столбец заданного типа и КСО</p></li>
 </ul>
 <p>Например, таблица точек гидрологических промеров может иметь следующий состав:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> postgis.hydro_measures (</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    fid serial <span class="kw">primary</span> <span class="kw">key</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>    <span class="fu">depth</span> <span class="dt">real</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    geom geography(point, <span class="dv">4326</span>)</span>
-<span id="cb4-5"><a href="#cb4-5"></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb4-1"><a></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> postgis.hydro_measures (</span>
+<span id="cb4-2"><a></a>    fid serial <span class="kw">primary</span> <span class="kw">key</span>,</span>
+<span id="cb4-3"><a></a>    <span class="fu">depth</span> <span class="dt">real</span>,</span>
+<span id="cb4-4"><a></a>    geom geography(point, <span class="dv">4326</span>)</span>
+<span id="cb4-5"><a></a>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="ручное-создание-данных" class="slide level2">
 <h2>Ручное создание данных</h2>
 <p>Вставка новых строк выполняется посредством стандартной команды INSERT:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> postgis.hydro_measures(fid, <span class="fu">depth</span>, geom)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">VALUES</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>    (<span class="dv">1</span>, <span class="fl">1.23</span>, ST_GeomFromText(<span class="st">'POINT (36.37802128 55.21121827)'</span>)),</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    (<span class="dv">2</span>, <span class="fl">1.57</span>, ST_GeomFromText(<span class="st">'POINT (36.37834198 55.21127511)'</span>)),</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    (<span class="dv">3</span>, <span class="fl">0.78</span>, ST_GeomFromText(<span class="st">'POINT (36.37861509 55.21139158)'</span>)),</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    (<span class="dv">4</span>, <span class="fl">0.95</span>, ST_GeomFromText(<span class="st">'POINT (36.37905934 55.21137259)'</span>)),</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    (<span class="dv">5</span>, <span class="fl">1.11</span>, ST_GeomFromText(<span class="st">'POINT (36.37938529 55.21125473)'</span>));</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb5-1"><a></a><span class="kw">INSERT</span> <span class="kw">INTO</span> postgis.hydro_measures(fid, <span class="fu">depth</span>, geom)</span>
+<span id="cb5-2"><a></a><span class="kw">VALUES</span></span>
+<span id="cb5-3"><a></a>    (<span class="dv">1</span>, <span class="fl">1.23</span>, ST_GeomFromText(<span class="st">'POINT (36.37802128 55.21121827)'</span>)),</span>
+<span id="cb5-4"><a></a>    (<span class="dv">2</span>, <span class="fl">1.57</span>, ST_GeomFromText(<span class="st">'POINT (36.37834198 55.21127511)'</span>)),</span>
+<span id="cb5-5"><a></a>    (<span class="dv">3</span>, <span class="fl">0.78</span>, ST_GeomFromText(<span class="st">'POINT (36.37861509 55.21139158)'</span>)),</span>
+<span id="cb5-6"><a></a>    (<span class="dv">4</span>, <span class="fl">0.95</span>, ST_GeomFromText(<span class="st">'POINT (36.37905934 55.21137259)'</span>)),</span>
+<span id="cb5-7"><a></a>    (<span class="dv">5</span>, <span class="fl">1.11</span>, ST_GeomFromText(<span class="st">'POINT (36.37938529 55.21125473)'</span>));</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Альтернативный синтаксис через преобразование строки к типу данных:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> postgis.hydro_measures(fid, <span class="fu">depth</span>, geom)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">VALUES</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>    (<span class="dv">1</span>, <span class="fl">1.23</span>, <span class="st">'POINT (36.37802128 55.21121827)'</span>:<span class="ch">:geography</span>),</span>
-<span id="cb6-4"><a href="#cb6-4"></a>    (<span class="dv">2</span>, <span class="fl">1.57</span>, <span class="st">'POINT (36.37834198 55.21127511)'</span>:<span class="ch">:geography</span>),</span>
-<span id="cb6-5"><a href="#cb6-5"></a>    (<span class="dv">3</span>, <span class="fl">0.78</span>, <span class="st">'POINT (36.37861509 55.21139158)'</span>:<span class="ch">:geography</span>),</span>
-<span id="cb6-6"><a href="#cb6-6"></a>    (<span class="dv">4</span>, <span class="fl">0.95</span>, <span class="st">'POINT (36.37905934 55.21137259)'</span>:<span class="ch">:geography</span>),</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    (<span class="dv">5</span>, <span class="fl">1.11</span>, <span class="st">'POINT (36.37938529 55.21125473)'</span>:<span class="ch">:geography</span>);</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb6-1"><a></a><span class="kw">INSERT</span> <span class="kw">INTO</span> postgis.hydro_measures(fid, <span class="fu">depth</span>, geom)</span>
+<span id="cb6-2"><a></a><span class="kw">VALUES</span></span>
+<span id="cb6-3"><a></a>    (<span class="dv">1</span>, <span class="fl">1.23</span>, <span class="st">'POINT (36.37802128 55.21121827)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-4"><a></a>    (<span class="dv">2</span>, <span class="fl">1.57</span>, <span class="st">'POINT (36.37834198 55.21127511)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-5"><a></a>    (<span class="dv">3</span>, <span class="fl">0.78</span>, <span class="st">'POINT (36.37861509 55.21139158)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-6"><a></a>    (<span class="dv">4</span>, <span class="fl">0.95</span>, <span class="st">'POINT (36.37905934 55.21137259)'</span>:<span class="ch">:geography</span>),</span>
+<span id="cb6-7"><a></a>    (<span class="dv">5</span>, <span class="fl">1.11</span>, <span class="st">'POINT (36.37938529 55.21125473)'</span>:<span class="ch">:geography</span>);</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="импорт-из-csv" class="slide level2">
 <h2>Импорт из CSV</h2>
 <p>Для импорта можно использовать команду <code>COPY</code> :</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> postgis.geo_points (</span>
-<span id="cb7-2"><a href="#cb7-2"></a>    fid serial <span class="kw">primary</span> <span class="kw">key</span>,</span>
-<span id="cb7-3"><a href="#cb7-3"></a>    name text,</span>
-<span id="cb7-4"><a href="#cb7-4"></a>    <span class="kw">comment</span> text,</span>
-<span id="cb7-5"><a href="#cb7-5"></a>    height_abs <span class="dt">real</span>,</span>
-<span id="cb7-6"><a href="#cb7-6"></a>    height_add <span class="dt">real</span>,</span>
-<span id="cb7-7"><a href="#cb7-7"></a>    <span class="kw">type</span> text,</span>
-<span id="cb7-8"><a href="#cb7-8"></a>    x <span class="dt">real</span>, </span>
-<span id="cb7-9"><a href="#cb7-9"></a>    y <span class="dt">real</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a>);</span>
-<span id="cb7-11"><a href="#cb7-11"></a></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> postgis.geo_points; <span class="co">-- опционально, если хотите очистить</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="kw">COPY</span> postgis.geo_points </span>
-<span id="cb7-15"><a href="#cb7-15"></a>    <span class="kw">FROM</span> <span class="st">'/Volumes/Data/Spatial/Satino/geo_points.csv'</span> </span>
-<span id="cb7-16"><a href="#cb7-16"></a>    DELIMITER <span class="kw">as</span> <span class="st">','</span> </span>
-<span id="cb7-17"><a href="#cb7-17"></a>    CSV <span class="kw">HEADER</span>;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb7-1"><a></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> postgis.geo_points (</span>
+<span id="cb7-2"><a></a>    fid serial <span class="kw">primary</span> <span class="kw">key</span>,</span>
+<span id="cb7-3"><a></a>    name text,</span>
+<span id="cb7-4"><a></a>    <span class="kw">comment</span> text,</span>
+<span id="cb7-5"><a></a>    height_abs <span class="dt">real</span>,</span>
+<span id="cb7-6"><a></a>    height_add <span class="dt">real</span>,</span>
+<span id="cb7-7"><a></a>    <span class="kw">type</span> text,</span>
+<span id="cb7-8"><a></a>    x <span class="dt">real</span>, </span>
+<span id="cb7-9"><a></a>    y <span class="dt">real</span></span>
+<span id="cb7-10"><a></a>);</span>
+<span id="cb7-11"><a></a></span>
+<span id="cb7-12"><a></a><span class="kw">DELETE</span> <span class="kw">FROM</span> postgis.geo_points; <span class="co">-- опционально, если хотите очистить</span></span>
+<span id="cb7-13"><a></a></span>
+<span id="cb7-14"><a></a><span class="kw">COPY</span> postgis.geo_points </span>
+<span id="cb7-15"><a></a>    <span class="kw">FROM</span> <span class="st">'/Volumes/Data/Spatial/Satino/geo_points.csv'</span> </span>
+<span id="cb7-16"><a></a>    DELIMITER <span class="kw">as</span> <span class="st">','</span> </span>
+<span id="cb7-17"><a></a>    CSV <span class="kw">HEADER</span>;</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="непространственная-таблица" class="slide level2">
 <h2>Непространственная таблица</h2>
@@ -626,10 +626,10 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>Если данные точечные и содержат координаты в столбцах, то можно на их основе создать геометрию</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> postgis.geo_points </span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="kw">ADD</span> geom geometry(point, <span class="dv">32637</span>);</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">UPDATE</span> postgis.geo_points</span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="kw">SET</span> geom <span class="op">=</span> ST_Point(x, y)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb8-1"><a></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> postgis.geo_points </span>
+<span id="cb8-2"><a></a>  <span class="kw">ADD</span> geom geometry(point, <span class="dv">32637</span>);</span>
+<span id="cb8-3"><a></a><span class="kw">UPDATE</span> postgis.geo_points</span>
+<span id="cb8-4"><a></a>  <span class="kw">SET</span> geom <span class="op">=</span> ST_Point(x, y)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img data-src="images/geom_fromxy.png"></p>
 </div><div class="column" style="width:50%;">
 <p>Для преобразования используем одну из функций PostGIS (без или с указанием <em>SRID</em>).</p>
@@ -640,21 +640,21 @@
 <section id="импорт-из-шейп-файла" class="slide level2">
 <h2>Импорт из шейп-файла</h2>
 <p>Вместе с <strong>PostGIS</strong> устанавливаются утилиты <a href="https://postgis.net/docs/using_postgis_dbmanagement.html#shp2pgsql_usage"><strong><code>shp2pgsql</code></strong></a> и <a href="https://postgis.net/docs/using_postgis_dbmanagement.html#pgsql2shp-usage"><strong><code>pgsql2shp</code></strong></a> , позволяющие импортировать из и экспортировать данные в формат <a href="https://www.esri.com/content/dam/esrisites/sitecore-archive/Files/Pdfs/library/whitepapers/pdfs/shapefile.pdf">Shapefile</a>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="ex">Last</span> login: Fri Sep 22 14:36:05 on console</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> ~ % shp2pgsql</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="ex">RELEASE:</span> 3.3.4 <span class="er">(</span><span class="ex">3.3.4</span><span class="kw">)</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="ex">USAGE:</span> shp2pgsql [<span class="op">&lt;</span>options<span class="op">&gt;</span>] <span class="op">&lt;</span>shapefile<span class="op">&gt;</span> [[<span class="op">&lt;</span>schema<span class="op">&gt;</span>.]<span class="op">&lt;</span>table<span class="op">&gt;</span>]</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="ex">OPTIONS:</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a>  <span class="ex">-s</span> [<span class="op">&lt;</span>from<span class="op">&gt;</span>:]<span class="op">&lt;</span>srid<span class="op">&gt;</span> Set the SRID field. Defaults to 0.</span>
-<span id="cb9-7"><a href="#cb9-7"></a>      <span class="ex">Optionally</span> reprojects from given SRID.</span>
-<span id="cb9-8"><a href="#cb9-8"></a> <span class="kw">(</span><span class="ex">-d</span><span class="kw">|</span><span class="ex">a</span><span class="kw">|</span><span class="ex">c</span><span class="kw">|</span><span class="ex">p</span><span class="kw">)</span> <span class="ex">These</span> are mutually exclusive options:</span>
-<span id="cb9-9"><a href="#cb9-9"></a>     <span class="ex">-d</span>  Drops the table, then recreates it and populates</span>
-<span id="cb9-10"><a href="#cb9-10"></a>         <span class="ex">it</span> with current shape file data.</span>
-<span id="cb9-11"><a href="#cb9-11"></a>     <span class="ex">-a</span>  Appends shape file into current table, must be</span>
-<span id="cb9-12"><a href="#cb9-12"></a>         <span class="ex">exactly</span> the same table schema.</span>
-<span id="cb9-13"><a href="#cb9-13"></a>     <span class="ex">-c</span>  Creates a new table and populates it, this is the</span>
-<span id="cb9-14"><a href="#cb9-14"></a>         <span class="ex">default</span> if you do not specify any options.</span>
-<span id="cb9-15"><a href="#cb9-15"></a>     <span class="ex">-p</span>  Prepare mode, only creates the table.</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="ex">Last</span> login: Fri Sep 22 14:36:05 on console</span>
+<span id="cb9-2"><a></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> ~ % shp2pgsql</span>
+<span id="cb9-3"><a></a><span class="ex">RELEASE:</span> 3.3.4 <span class="er">(</span><span class="ex">3.3.4</span><span class="kw">)</span></span>
+<span id="cb9-4"><a></a><span class="ex">USAGE:</span> shp2pgsql [<span class="op">&lt;</span>options<span class="op">&gt;</span>] <span class="op">&lt;</span>shapefile<span class="op">&gt;</span> [[<span class="op">&lt;</span>schema<span class="op">&gt;</span>.]<span class="op">&lt;</span>table<span class="op">&gt;</span>]</span>
+<span id="cb9-5"><a></a><span class="ex">OPTIONS:</span></span>
+<span id="cb9-6"><a></a>  <span class="ex">-s</span> [<span class="op">&lt;</span>from<span class="op">&gt;</span>:]<span class="op">&lt;</span>srid<span class="op">&gt;</span> Set the SRID field. Defaults to 0.</span>
+<span id="cb9-7"><a></a>      <span class="ex">Optionally</span> reprojects from given SRID.</span>
+<span id="cb9-8"><a></a> <span class="kw">(</span><span class="ex">-d</span><span class="kw">|</span><span class="ex">a</span><span class="kw">|</span><span class="ex">c</span><span class="kw">|</span><span class="ex">p</span><span class="kw">)</span> <span class="ex">These</span> are mutually exclusive options:</span>
+<span id="cb9-9"><a></a>     <span class="ex">-d</span>  Drops the table, then recreates it and populates</span>
+<span id="cb9-10"><a></a>         <span class="ex">it</span> with current shape file data.</span>
+<span id="cb9-11"><a></a>     <span class="ex">-a</span>  Appends shape file into current table, must be</span>
+<span id="cb9-12"><a></a>         <span class="ex">exactly</span> the same table schema.</span>
+<span id="cb9-13"><a></a>     <span class="ex">-c</span>  Creates a new table and populates it, this is the</span>
+<span id="cb9-14"><a></a>         <span class="ex">default</span> if you do not specify any options.</span>
+<span id="cb9-15"><a></a>     <span class="ex">-p</span>  Prepare mode, only creates the table.</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="shp2pgsql-на-windows" class="slide level2">
 <h2>shp2pgsql на Windows</h2>
@@ -669,34 +669,34 @@
 <section id="shp2pgsql-на-windows-2" class="slide level2">
 <h2>shp2pgsql на Windows</h2>
 <p>Чтобы не вводить каждый раз полный путь к программе, необходимо прописать его в переменные окружения:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">setx</span> path <span class="st">"%PATH%;C:\Program Files\PostgreSQL\15\bin"</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="ex">setx</span> path <span class="st">"%PATH%;C:\Program Files\PostgreSQL\15\bin"</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>После этого перезапустите командную строку, и утилита будет запускаться:</p>
 
 <img data-src="images/shp2pgsql2.png" class="r-stretch"></section>
 <section id="импорт-из-шейп-файла-1" class="slide level2">
 <h2>Импорт из шейп-файла</h2>
 <p>Если запустить без параметров, то будет только диагностика без импорта:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="ex">tsamsonov@Butterfly</span> satino_base % shp2pgsql border.shp postgis.border</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="ex">Field</span> fid is an FTDouble with width 20 and precision 0</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="ex">Shapefile</span> type: Polygon</span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="ex">Postgis</span> type: MULTIPOLYGON<span class="pp">[</span><span class="ss">2</span><span class="pp">]</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="ex">SET</span> CLIENT_ENCODING TO UTF8<span class="kw">;</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="ex">SET</span> STANDARD_CONFORMING_STRINGS TO ON<span class="kw">;</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="ex">BEGIN</span><span class="kw">;</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="ex">CREATE</span> TABLE <span class="st">"postgis"</span>.<span class="st">"border"</span> <span class="er">(</span><span class="ex">gid</span> serial,</span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="st">"fid"</span> numeric,</span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="st">"name"</span> varchar<span class="er">(</span><span class="ex">60</span><span class="kw">));</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="ex">ALTER</span> TABLE <span class="st">"postgis"</span>.<span class="st">"border"</span> ADD PRIMARY KEY <span class="er">(</span><span class="ex">gid</span><span class="kw">);</span></span>
-<span id="cb11-12"><a href="#cb11-12"></a><span class="ex">SELECT</span> AddGeometryColumn<span class="er">(</span><span class="st">'postgis'</span><span class="ex">,</span><span class="st">'border'</span><span class="ex">,</span><span class="st">'geom'</span><span class="ex">,</span><span class="st">'0'</span><span class="ex">,</span><span class="st">'MULTIPOLYGON'</span><span class="ex">,2</span><span class="kw">);</span></span>
-<span id="cb11-13"><a href="#cb11-13"></a><span class="ex">INSERT</span> INTO <span class="st">"postgis"</span>.<span class="st">"border"</span> <span class="er">(</span><span class="st">"fid"</span><span class="ex">,</span><span class="st">"name"</span><span class="ex">,geom</span><span class="kw">)</span> <span class="ex">VALUES</span> <span class="er">(</span><span class="st">'1'</span><span class="ex">,NULL,</span><span class="st">'0106000000010000000103000000010000000500000030FF21BDE4231441BAFC8774DB575741503789C1D8231441C05B2081C35B5741F04A59C6FA711441C442AD71C45B5741F0DBD7C106721441BCE31465DC57574130FF21BDE4231441BAFC8774DB575741'</span><span class="kw">);</span></span>
-<span id="cb11-14"><a href="#cb11-14"></a><span class="ex">COMMIT</span><span class="kw">;</span></span>
-<span id="cb11-15"><a href="#cb11-15"></a><span class="ex">ANALYZE</span> <span class="st">"postgis"</span>.<span class="st">"border"</span><span class="kw">;</span></span>
-<span id="cb11-16"><a href="#cb11-16"></a><span class="ex">tsamsonov@Butterfly</span> satino_base % </span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">tsamsonov@Butterfly</span> satino_base % shp2pgsql border.shp postgis.border</span>
+<span id="cb11-2"><a></a><span class="ex">Field</span> fid is an FTDouble with width 20 and precision 0</span>
+<span id="cb11-3"><a></a><span class="ex">Shapefile</span> type: Polygon</span>
+<span id="cb11-4"><a></a><span class="ex">Postgis</span> type: MULTIPOLYGON<span class="pp">[</span><span class="ss">2</span><span class="pp">]</span></span>
+<span id="cb11-5"><a></a><span class="ex">SET</span> CLIENT_ENCODING TO UTF8<span class="kw">;</span></span>
+<span id="cb11-6"><a></a><span class="ex">SET</span> STANDARD_CONFORMING_STRINGS TO ON<span class="kw">;</span></span>
+<span id="cb11-7"><a></a><span class="ex">BEGIN</span><span class="kw">;</span></span>
+<span id="cb11-8"><a></a><span class="ex">CREATE</span> TABLE <span class="st">"postgis"</span>.<span class="st">"border"</span> <span class="er">(</span><span class="ex">gid</span> serial,</span>
+<span id="cb11-9"><a></a><span class="st">"fid"</span> numeric,</span>
+<span id="cb11-10"><a></a><span class="st">"name"</span> varchar<span class="er">(</span><span class="ex">60</span><span class="kw">));</span></span>
+<span id="cb11-11"><a></a><span class="ex">ALTER</span> TABLE <span class="st">"postgis"</span>.<span class="st">"border"</span> ADD PRIMARY KEY <span class="er">(</span><span class="ex">gid</span><span class="kw">);</span></span>
+<span id="cb11-12"><a></a><span class="ex">SELECT</span> AddGeometryColumn<span class="er">(</span><span class="st">'postgis'</span><span class="ex">,</span><span class="st">'border'</span><span class="ex">,</span><span class="st">'geom'</span><span class="ex">,</span><span class="st">'0'</span><span class="ex">,</span><span class="st">'MULTIPOLYGON'</span><span class="ex">,2</span><span class="kw">);</span></span>
+<span id="cb11-13"><a></a><span class="ex">INSERT</span> INTO <span class="st">"postgis"</span>.<span class="st">"border"</span> <span class="er">(</span><span class="st">"fid"</span><span class="ex">,</span><span class="st">"name"</span><span class="ex">,geom</span><span class="kw">)</span> <span class="ex">VALUES</span> <span class="er">(</span><span class="st">'1'</span><span class="ex">,NULL,</span><span class="st">'0106000000010000000103000000010000000500000030FF21BDE4231441BAFC8774DB575741503789C1D8231441C05B2081C35B5741F04A59C6FA711441C442AD71C45B5741F0DBD7C106721441BCE31465DC57574130FF21BDE4231441BAFC8774DB575741'</span><span class="kw">);</span></span>
+<span id="cb11-14"><a></a><span class="ex">COMMIT</span><span class="kw">;</span></span>
+<span id="cb11-15"><a></a><span class="ex">ANALYZE</span> <span class="st">"postgis"</span>.<span class="st">"border"</span><span class="kw">;</span></span>
+<span id="cb11-16"><a></a><span class="ex">tsamsonov@Butterfly</span> satino_base % </span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="импорт-из-шейп-файла-2" class="slide level2">
 <h2>Импорт из шейп-файла</h2>
 <p>По факту утилита создает SQL-запрос, который можно направить в файл через <code>&gt;</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="ex">shp2pgsql</span> <span class="at">-s</span> 32637 <span class="at">-g</span> geom border.shp postgis.border <span class="op">&gt;</span> border.sql</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="ex">shp2pgsql</span> <span class="at">-s</span> 32637 <span class="at">-g</span> geom border.shp postgis.border <span class="op">&gt;</span> border.sql</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="columns">
 <div class="column" style="width:30%;">
 <p>Полученный файл можно открыть средствами СУБД и запустить.</p>
@@ -721,8 +721,8 @@
 <section id="импорт-через-psql" class="slide level2">
 <h2>Импорт через <code>psql</code></h2>
 <p>В большинстве случаев однако запрос не пишут в файл, а направляют через пайп (<code>|</code>) в <a href="https://www.postgresql.org/docs/current/app-psql.html"><strong>psql</strong></a> — командный интерфейс <strong>PostgreSQL</strong>. Необходимо указать как минимум базу данных (<code>-d</code>) и имя пользователя (<code>-U)</code>:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="ex">shp2pgsql</span> <span class="at">-s</span> 32637 <span class="at">-g</span> geom border.shp postgis.border </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="kw">|</span> <span class="ex">psql</span> <span class="at">-d</span> satino <span class="at">-U</span> postgres</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a></a><span class="ex">shp2pgsql</span> <span class="at">-s</span> 32637 <span class="at">-g</span> geom border.shp postgis.border </span>
+<span id="cb13-2"><a></a>  <span class="kw">|</span> <span class="ex">psql</span> <span class="at">-d</span> satino <span class="at">-U</span> postgres</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>После ввода пароля данные будут записаны в указанную таблицу:</p>
 
 <img data-src="images/psql_pipe.png" class="r-stretch"></section>
@@ -735,57 +735,57 @@
 <section id="ogrinfo" class="slide level2">
 <h2>ogrinfo</h2>
 <p>Поддерживаемые форматы можно выяснить через <code>ogr2ogr --formats</code> :</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> Satino % ogr2ogr <span class="at">--formats</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="ex">Supported</span> Formats:</span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="ex">FITS</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+</span><span class="kw">)</span><span class="bu">:</span> Flexible Image Transport System</span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="ex">PCIDSK</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> PCIDSK Database File</span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="ex">netCDF</span> <span class="at">-raster,multidimensional</span> raster,vector- <span class="er">(</span><span class="ex">rw+s</span><span class="kw">)</span><span class="bu">:</span> Network Common Data Format</span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="ex">PDS4</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+vs</span><span class="kw">)</span><span class="bu">:</span> NASA Planetary Data System 4</span>
-<span id="cb14-7"><a href="#cb14-7"></a>  <span class="ex">VICAR</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MIPL VICAR file</span>
-<span id="cb14-8"><a href="#cb14-8"></a>  <span class="ex">JP2OpenJPEG</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rwv</span><span class="kw">)</span><span class="bu">:</span> JPEG-2000 driver based on OpenJPEG library</span>
-<span id="cb14-9"><a href="#cb14-9"></a>  <span class="ex">PDF</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+vs</span><span class="kw">)</span><span class="bu">:</span> Geospatial PDF</span>
-<span id="cb14-10"><a href="#cb14-10"></a>  <span class="ex">MBTiles</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MBTiles</span>
-<span id="cb14-11"><a href="#cb14-11"></a>  <span class="ex">BAG</span> <span class="at">-raster,multidimensional</span> raster,vector- <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> Bathymetry Attributed Grid</span>
-<span id="cb14-12"><a href="#cb14-12"></a>  <span class="ex">EEDA</span> <span class="at">-vector-</span> <span class="er">(</span><span class="ex">ro</span><span class="kw">)</span><span class="bu">:</span> Earth Engine Data API</span>
-<span id="cb14-13"><a href="#cb14-13"></a>  <span class="ex">OGCAPI</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rov</span><span class="kw">)</span><span class="bu">:</span> OGCAPI</span>
-<span id="cb14-14"><a href="#cb14-14"></a>  <span class="ex">ESRI</span> Shapefile <span class="at">-vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> ESRI Shapefile</span>
-<span id="cb14-15"><a href="#cb14-15"></a>  <span class="ex">MapInfo</span> File <span class="at">-vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MapInfo File</span>
-<span id="cb14-16"><a href="#cb14-16"></a>  <span class="ex">...</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> Satino % ogr2ogr <span class="at">--formats</span></span>
+<span id="cb14-2"><a></a><span class="ex">Supported</span> Formats:</span>
+<span id="cb14-3"><a></a>  <span class="ex">FITS</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+</span><span class="kw">)</span><span class="bu">:</span> Flexible Image Transport System</span>
+<span id="cb14-4"><a></a>  <span class="ex">PCIDSK</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> PCIDSK Database File</span>
+<span id="cb14-5"><a></a>  <span class="ex">netCDF</span> <span class="at">-raster,multidimensional</span> raster,vector- <span class="er">(</span><span class="ex">rw+s</span><span class="kw">)</span><span class="bu">:</span> Network Common Data Format</span>
+<span id="cb14-6"><a></a>  <span class="ex">PDS4</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+vs</span><span class="kw">)</span><span class="bu">:</span> NASA Planetary Data System 4</span>
+<span id="cb14-7"><a></a>  <span class="ex">VICAR</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MIPL VICAR file</span>
+<span id="cb14-8"><a></a>  <span class="ex">JP2OpenJPEG</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rwv</span><span class="kw">)</span><span class="bu">:</span> JPEG-2000 driver based on OpenJPEG library</span>
+<span id="cb14-9"><a></a>  <span class="ex">PDF</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+vs</span><span class="kw">)</span><span class="bu">:</span> Geospatial PDF</span>
+<span id="cb14-10"><a></a>  <span class="ex">MBTiles</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MBTiles</span>
+<span id="cb14-11"><a></a>  <span class="ex">BAG</span> <span class="at">-raster,multidimensional</span> raster,vector- <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> Bathymetry Attributed Grid</span>
+<span id="cb14-12"><a></a>  <span class="ex">EEDA</span> <span class="at">-vector-</span> <span class="er">(</span><span class="ex">ro</span><span class="kw">)</span><span class="bu">:</span> Earth Engine Data API</span>
+<span id="cb14-13"><a></a>  <span class="ex">OGCAPI</span> <span class="at">-raster,vector-</span> <span class="er">(</span><span class="ex">rov</span><span class="kw">)</span><span class="bu">:</span> OGCAPI</span>
+<span id="cb14-14"><a></a>  <span class="ex">ESRI</span> Shapefile <span class="at">-vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> ESRI Shapefile</span>
+<span id="cb14-15"><a></a>  <span class="ex">MapInfo</span> File <span class="at">-vector-</span> <span class="er">(</span><span class="ex">rw+v</span><span class="kw">)</span><span class="bu">:</span> MapInfo File</span>
+<span id="cb14-16"><a></a>  <span class="ex">...</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="параметры-ogr2ogr" class="slide level2">
 <h2>Параметры ogr2ogr</h2>
 <p>Данная программа содержит множество параметров (см. <a href="https://gdal.org/programs/ogr2ogr.html">документацию</a>):</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> Satino % ogr2ogr</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="ex">Usage:</span> ogr2ogr <span class="pp">[--</span><span class="ss">help</span><span class="pp">-</span><span class="ss">general</span><span class="pp">]</span> <span class="pp">[-</span><span class="ss">skipfailures</span><span class="pp">]</span> [-append <span class="kw">|</span> <span class="ex">-upsert]</span> <span class="pp">[-</span><span class="ss">update</span><span class="pp">]</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>               <span class="ex">[-select</span> field_list] [-where restricted_where<span class="kw">|</span><span class="ex">@filename]</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>               <span class="ex">[-progress]</span> [-sql <span class="op">&lt;</span>sql statement<span class="op">&gt;|</span>@filename] [-dialect dialect]</span>
-<span id="cb15-5"><a href="#cb15-5"></a>               <span class="ex">[-preserve_fid]</span> [-fid FID] [-limit nb_features]</span>
-<span id="cb15-6"><a href="#cb15-6"></a>               <span class="ex">[-spat</span> xmin ymin xmax ymax] [-spat_srs srs_def] [-geomfield field]</span>
-<span id="cb15-7"><a href="#cb15-7"></a>               <span class="ex">[-a_srs</span> srs_def] [-t_srs srs_def] [-s_srs srs_def] [-ct string]</span>
-<span id="cb15-8"><a href="#cb15-8"></a>               <span class="ex">[-f</span> format_name] <span class="pp">[-</span><span class="ss">overwrite</span><span class="pp">]</span> [[-dsco NAME=VALUE] ...]</span>
-<span id="cb15-9"><a href="#cb15-9"></a>               <span class="ex">dst_datasource_name</span> src_datasource_name</span>
-<span id="cb15-10"><a href="#cb15-10"></a>               <span class="ex">[-lco</span> NAME=VALUE] [-nln name] </span>
-<span id="cb15-11"><a href="#cb15-11"></a>               <span class="ex">[-nlt</span> type<span class="kw">|</span><span class="ex">PROMOTE_TO_MULTI</span><span class="kw">|</span><span class="ex">CONVERT_TO_LINEAR</span><span class="kw">|</span><span class="ex">CONVERT_TO_CURVE]</span></span>
-<span id="cb15-12"><a href="#cb15-12"></a>               <span class="ex">[-dim</span> XY<span class="kw">|</span><span class="ex">XYZ</span><span class="kw">|</span><span class="ex">XYM</span><span class="kw">|</span><span class="ex">XYZM</span><span class="kw">|</span><span class="ex">layer_dim]</span> [layer [layer ...]]</span>
-<span id="cb15-13"><a href="#cb15-13"></a>       <span class="ex">Advanced</span> options :</span>
-<span id="cb15-14"><a href="#cb15-14"></a>               <span class="ex">[-gt</span> n] <span class="pp">[-</span><span class="ss">ds_transaction</span><span class="pp">]</span></span>
-<span id="cb15-15"><a href="#cb15-15"></a>               <span class="ex">[[-oo</span> NAME=VALUE] ...] [[-doo NAME=VALUE] ...]</span>
-<span id="cb15-16"><a href="#cb15-16"></a>               <span class="ex">[-clipsrc</span> [xmin ymin xmax ymax]<span class="kw">|</span><span class="ex">WKT</span><span class="kw">|</span><span class="ex">datasource</span><span class="kw">|</span><span class="ex">spat_extent]</span></span>
-<span id="cb15-17"><a href="#cb15-17"></a>               <span class="ex">...</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">tsamsonov@Butterfly</span> Satino % ogr2ogr</span>
+<span id="cb15-2"><a></a><span class="ex">Usage:</span> ogr2ogr <span class="pp">[--</span><span class="ss">help</span><span class="pp">-</span><span class="ss">general</span><span class="pp">]</span> <span class="pp">[-</span><span class="ss">skipfailures</span><span class="pp">]</span> [-append <span class="kw">|</span> <span class="ex">-upsert]</span> <span class="pp">[-</span><span class="ss">update</span><span class="pp">]</span></span>
+<span id="cb15-3"><a></a>               <span class="ex">[-select</span> field_list] [-where restricted_where<span class="kw">|</span><span class="ex">@filename]</span></span>
+<span id="cb15-4"><a></a>               <span class="ex">[-progress]</span> [-sql <span class="op">&lt;</span>sql statement<span class="op">&gt;|</span>@filename] [-dialect dialect]</span>
+<span id="cb15-5"><a></a>               <span class="ex">[-preserve_fid]</span> [-fid FID] [-limit nb_features]</span>
+<span id="cb15-6"><a></a>               <span class="ex">[-spat</span> xmin ymin xmax ymax] [-spat_srs srs_def] [-geomfield field]</span>
+<span id="cb15-7"><a></a>               <span class="ex">[-a_srs</span> srs_def] [-t_srs srs_def] [-s_srs srs_def] [-ct string]</span>
+<span id="cb15-8"><a></a>               <span class="ex">[-f</span> format_name] <span class="pp">[-</span><span class="ss">overwrite</span><span class="pp">]</span> [[-dsco NAME=VALUE] ...]</span>
+<span id="cb15-9"><a></a>               <span class="ex">dst_datasource_name</span> src_datasource_name</span>
+<span id="cb15-10"><a></a>               <span class="ex">[-lco</span> NAME=VALUE] [-nln name] </span>
+<span id="cb15-11"><a></a>               <span class="ex">[-nlt</span> type<span class="kw">|</span><span class="ex">PROMOTE_TO_MULTI</span><span class="kw">|</span><span class="ex">CONVERT_TO_LINEAR</span><span class="kw">|</span><span class="ex">CONVERT_TO_CURVE]</span></span>
+<span id="cb15-12"><a></a>               <span class="ex">[-dim</span> XY<span class="kw">|</span><span class="ex">XYZ</span><span class="kw">|</span><span class="ex">XYM</span><span class="kw">|</span><span class="ex">XYZM</span><span class="kw">|</span><span class="ex">layer_dim]</span> [layer [layer ...]]</span>
+<span id="cb15-13"><a></a>       <span class="ex">Advanced</span> options :</span>
+<span id="cb15-14"><a></a>               <span class="ex">[-gt</span> n] <span class="pp">[-</span><span class="ss">ds_transaction</span><span class="pp">]</span></span>
+<span id="cb15-15"><a></a>               <span class="ex">[[-oo</span> NAME=VALUE] ...] [[-doo NAME=VALUE] ...]</span>
+<span id="cb15-16"><a></a>               <span class="ex">[-clipsrc</span> [xmin ymin xmax ymax]<span class="kw">|</span><span class="ex">WKT</span><span class="kw">|</span><span class="ex">datasource</span><span class="kw">|</span><span class="ex">spat_extent]</span></span>
+<span id="cb15-17"><a></a>               <span class="ex">...</span></span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="импорт-geopackage-через-ogr2ogr" class="slide level2">
 <h2>Импорт GeoPackage через ogr2ogr</h2>
 <p>Для импорта необходимо указать формат входного файла (<code>f</code>), параметры подключения, а также параметры, специфичные для выходного формата (<code>-lco</code>).</p>
 <p><strong>Импорт одного слоя (<code>landscapes</code>)</strong></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="ex">ogr2ogr</span> </span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="ex">-f</span> PostgreSQL PG:<span class="st">"dbname=satino user=postgres password=....."</span> </span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="ex">satino_thematic.gpkg</span> landscapes </span>
-<span id="cb16-4"><a href="#cb16-4"></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="ex">ogr2ogr</span> </span>
+<span id="cb16-2"><a></a>  <span class="ex">-f</span> PostgreSQL PG:<span class="st">"dbname=satino user=postgres password=....."</span> </span>
+<span id="cb16-3"><a></a>  <span class="ex">satino_thematic.gpkg</span> landscapes </span>
+<span id="cb16-4"><a></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Импорт всех слоев</strong></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">ogr2ogr</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="ex">-f</span> PostgreSQL PG:<span class="st">"dbname=satino user=postgres password=....."</span> </span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="ex">satino_thematic.gpkg</span> </span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a></a><span class="ex">ogr2ogr</span> </span>
+<span id="cb17-2"><a></a>  <span class="ex">-f</span> PostgreSQL PG:<span class="st">"dbname=satino user=postgres password=....."</span> </span>
+<span id="cb17-3"><a></a>  <span class="ex">satino_thematic.gpkg</span> </span>
+<span id="cb17-4"><a></a>  <span class="ex">-lco</span> GEOMETRY_NAME=geom <span class="at">-lco</span> SCHEMA=postgis</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="каталог-геометрий" class="slide level2">
 <h2>Каталог геометрий</h2>
@@ -825,8 +825,10 @@
 <h2>Подключение к PostGIS из QGIS</h2>
 
 
-<img data-src="images/pg_qgis.png" class="r-stretch"><div class="footer footer-default">
+<img data-src="images/pg_qgis.png" class="r-stretch"><div class="quarto-auto-generated-content">
+<div class="footer footer-default">
 <p>Самсонов Т. Е. Геоинформатика: курс лекций</p>
+</div>
 </div>
 </section>
     </div>

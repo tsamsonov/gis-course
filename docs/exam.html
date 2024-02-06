@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.336">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -46,7 +46,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "Поиск не дал результатов",
     "search-matching-documents-text": "Результаты поиска",
@@ -55,13 +61,42 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "дополнительный результат в этом документе",
     "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
     "search-clear-button-title": "Очистить",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Отменить",
-    "search-submit-button-title": "Найти"
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
   }
 }</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -70,9 +105,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Основы геоинформатики</span>
     </a>
@@ -84,41 +119,41 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Лекции</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Лекции</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./translations.html" rel="" target="">
- <span class="menu-text">Словарь</span></a>
+    <a class="nav-link" href="./translations.html"> 
+<span class="menu-text">Словарь</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./exam.html" rel="" target="" aria-current="page">
- <span class="menu-text">Зачёт</span></a>
+    <a class="nav-link active" href="./exam.html" aria-current="page"> 
+<span class="menu-text">Зачёт</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://aentin.github.io/qgis-course/" rel="" target="">
- <span class="menu-text">Практикум в QGIS</span></a>
+    <a class="nav-link" href="https://aentin.github.io/qgis-course/"> 
+<span class="menu-text">Практикум в QGIS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://tsamsonov.github.io/arcgis-course/" rel="" target="">
- <span class="menu-text">Практикум в ArcGIS</span></a>
+    <a class="nav-link" href="https://tsamsonov.github.io/arcgis-course/"> 
+<span class="menu-text">Практикум в ArcGIS</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://instagram.com/gis_in_pictures?igshid=NDk5N2NlZjQ=" rel="" target=""><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://instagram.com/gis_in_pictures?igshid=NDk5N2NlZjQ="> <i class="bi bi-instagram" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/tsamsonov/gis-course" rel="" target=""><i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/tsamsonov/gis-course"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -174,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Дата публикации</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">28 апреля 2023 г.</p>
+      <p class="date">6 февраля 2024 г.</p>
     </div>
   </div>
   
@@ -182,7 +217,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="условия-получения-зачёта" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="условия-получения-зачёта">Условия получения зачёта</h2>
@@ -244,7 +281,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="географическая-информация-и-пространственные-данные">Географическая информация и пространственные данные</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="cfdvtvchxs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#cfdvtvchxs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -685,129 +721,238 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Географическая информация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная привязка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Виды географической информации</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Геоинформатика</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственный объект</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Информация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Данные</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственные данные</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Информационная система</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Географическая информационная система (ГИС)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Геоинформатика (отрасль)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Концептуальная модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Модель пространственных данных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Модели пространственных объектов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Объектно-ориентированная модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Сетевая модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Модель географических полей</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Простой объект (векторный)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Сложный объект (покрытие)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Стандарт Simple Features (SF)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Линейная связность</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Модели пространственных объектов SF</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Хранение координат (WKT и WKB) в SF</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Векторная модель и ее особенности</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Модель покрытий</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Топологическое покрытие и его элементы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Триангуляционное покрытие и его элементы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Растровое покрытие и его элементы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Диаграмма Вороного</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">30</td>
-<td headers="Вопрос" class="gt_row gt_left">Триангуляция Делоне</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">31</td>
-<td headers="Вопрос" class="gt_row gt_left">Сравнение растровой и триангуляционное модели</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">32</td>
-<td headers="Вопрос" class="gt_row gt_left">Геометрия растра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">33</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная привязка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">34</td>
-<td headers="Вопрос" class="gt_row gt_left">Система координат (СК) и ее описание</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">35</td>
-<td headers="Вопрос" class="gt_row gt_left">Эллипсоид вращения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">36</td>
-<td headers="Вопрос" class="gt_row gt_left">Исходные геодезические даты (датум)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">37</td>
-<td headers="Вопрос" class="gt_row gt_left">Географическая система координат</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">38</td>
-<td headers="Вопрос" class="gt_row gt_left">Проекция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">39</td>
-<td headers="Вопрос" class="gt_row gt_left">Плоская прямоугольная система координат</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">40</td>
-<td headers="Вопрос" class="gt_row gt_left">Форматы описания СК (WKT, PROJ.4, EPSG)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">41</td>
-<td headers="Вопрос" class="gt_row gt_left">Операции с СК</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">42</td>
-<td headers="Вопрос" class="gt_row gt_left">Создание СК</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">43</td>
-<td headers="Вопрос" class="gt_row gt_left">Переопределение СК</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">44</td>
-<td headers="Вопрос" class="gt_row gt_left">Чтение СК</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">45</td>
-<td headers="Вопрос" class="gt_row gt_left">Преобразование СК</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">46</td>
-<td headers="Вопрос" class="gt_row gt_left">Преобразование координат</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">47</td>
-<td headers="Вопрос" class="gt_row gt_left">Трансформирование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">48</td>
-<td headers="Вопрос" class="gt_row gt_left">Проецирование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">49</td>
-<td headers="Вопрос" class="gt_row gt_left">Обратное проецирование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">50</td>
-<td headers="Вопрос" class="gt_row gt_left">Координатная привязка (регистрация)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">51</td>
-<td headers="Вопрос" class="gt_row gt_left">Опорные точки и принципы их выбора</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">52</td>
-<td headers="Вопрос" class="gt_row gt_left">Аффинное преобразование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">53</td>
-<td headers="Вопрос" class="gt_row gt_left">Проективное преобразование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">54</td>
-<td headers="Вопрос" class="gt_row gt_left">Полиномиальное преобразование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">55</td>
-<td headers="Вопрос" class="gt_row gt_left">Преобразование методом резинового листа</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Географическая информация</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная привязка</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Виды географической информации</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Геоинформатика</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственный объект</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Информация</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Данные</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственные данные</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Информационная система</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Географическая информационная система (ГИС)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Геоинформатика (отрасль)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Концептуальная модель</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Модель пространственных данных</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Модели пространственных объектов</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Объектно-ориентированная модель</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Сетевая модель</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Модель географических полей</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Простой объект (векторный)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Сложный объект (покрытие)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Стандарт Simple Features (SF)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Линейная связность</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Модели пространственных объектов SF</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Хранение координат (WKT и WKB) в SF</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Векторная модель и ее особенности</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Модель покрытий</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Топологическое покрытие и его элементы</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Триангуляционное покрытие и его элементы</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Растровое покрытие и его элементы</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Диаграмма Вороного</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">30</td>
+<td class="gt_row gt_left" headers="Вопрос">Триангуляция Делоне</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">31</td>
+<td class="gt_row gt_left" headers="Вопрос">Сравнение растровой и триангуляционное модели</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">32</td>
+<td class="gt_row gt_left" headers="Вопрос">Геометрия растра</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">33</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная привязка</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">34</td>
+<td class="gt_row gt_left" headers="Вопрос">Система координат (СК) и ее описание</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">35</td>
+<td class="gt_row gt_left" headers="Вопрос">Эллипсоид вращения</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">36</td>
+<td class="gt_row gt_left" headers="Вопрос">Исходные геодезические даты (датум)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">37</td>
+<td class="gt_row gt_left" headers="Вопрос">Географическая система координат</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">38</td>
+<td class="gt_row gt_left" headers="Вопрос">Проекция</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">39</td>
+<td class="gt_row gt_left" headers="Вопрос">Плоская прямоугольная система координат</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">40</td>
+<td class="gt_row gt_left" headers="Вопрос">Форматы описания СК (WKT, PROJ.4, EPSG)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">41</td>
+<td class="gt_row gt_left" headers="Вопрос">Операции с СК</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">42</td>
+<td class="gt_row gt_left" headers="Вопрос">Создание СК</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">43</td>
+<td class="gt_row gt_left" headers="Вопрос">Переопределение СК</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">44</td>
+<td class="gt_row gt_left" headers="Вопрос">Чтение СК</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">45</td>
+<td class="gt_row gt_left" headers="Вопрос">Преобразование СК</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">46</td>
+<td class="gt_row gt_left" headers="Вопрос">Преобразование координат</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">47</td>
+<td class="gt_row gt_left" headers="Вопрос">Трансформирование</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">48</td>
+<td class="gt_row gt_left" headers="Вопрос">Проецирование</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">49</td>
+<td class="gt_row gt_left" headers="Вопрос">Обратное проецирование</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">50</td>
+<td class="gt_row gt_left" headers="Вопрос">Координатная привязка (регистрация)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">51</td>
+<td class="gt_row gt_left" headers="Вопрос">Опорные точки и принципы их выбора</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">52</td>
+<td class="gt_row gt_left" headers="Вопрос">Аффинное преобразование</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">53</td>
+<td class="gt_row gt_left" headers="Вопрос">Проективное преобразование</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">54</td>
+<td class="gt_row gt_left" headers="Вопрос">Полиномиальное преобразование</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">55</td>
+<td class="gt_row gt_left" headers="Вопрос">Преобразование методом резинового листа</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -816,7 +961,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="создание-объектов-и-пространственные-отношения">Создание объектов и пространственные отношения</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="pipobdprew" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#pipobdprew table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1257,87 +1401,154 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Методы создания пространственных объектов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Автоматическое конструирование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Геокодирование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Географические идентификаторы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Географический справочник (газеттир)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Адресный локатор</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Геокодер</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Векторизация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Автоматическая векторизация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Автоматизированная векторизация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Ручная векторизация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Цифрование</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственное отношение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Предикат</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Метрические отношения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Евклидово расстояние</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Манхэттенское расстояние</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Геодезическое расстояние</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Топологические отношения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Матрица Эгенхофера 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение НЕ ПЕРЕСЕКАЕТ (DISJOINT) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение РАВЕН (EQUALS) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение ПЕРЕКРЫВАЕТ (OVERLAPS) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение КАСАЕТСЯ (TOUCHES) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение ПОКРЫВАЕТ (COVERS) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение ПОКРЫТ (COVERED) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение СОДЕРЖИТ (CONTAINS) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение ВНУТРИ (WITHIN) и его матрица 9IM</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">30</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение ПЕРЕСЕКАЕТ и его связь с другими отношениями</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">31</td>
-<td headers="Вопрос" class="gt_row gt_left">Дирекционные отношения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">32</td>
-<td headers="Вопрос" class="gt_row gt_left">Угловая модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">33</td>
-<td headers="Вопрос" class="gt_row gt_left">Прямоугольная модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">34</td>
-<td headers="Вопрос" class="gt_row gt_left">Проективная модель</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Методы создания пространственных объектов</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Автоматическое конструирование</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Геокодирование</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Географические идентификаторы</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Географический справочник (газеттир)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Адресный локатор</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Геокодер</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Векторизация</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Автоматическая векторизация</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Автоматизированная векторизация</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Ручная векторизация</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Цифрование</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственное отношение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Предикат</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Метрические отношения</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Евклидово расстояние</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Манхэттенское расстояние</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Геодезическое расстояние</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Топологические отношения</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Матрица Эгенхофера 9IM</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение НЕ ПЕРЕСЕКАЕТ (DISJOINT) и его матрица 9IM</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение РАВЕН (EQUALS) и его матрица 9IM</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение ПЕРЕКРЫВАЕТ (OVERLAPS) и его матрица 9IM</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение КАСАЕТСЯ (TOUCHES) и его матрица 9IM</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение ПОКРЫВАЕТ (COVERS) и его матрица 9IM</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение ПОКРЫТ (COVERED) и его матрица 9IM</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение СОДЕРЖИТ (CONTAINS) и его матрица 9IM</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение ВНУТРИ (WITHIN) и его матрица 9IM</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">30</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение ПЕРЕСЕКАЕТ и его связь с другими отношениями</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">31</td>
+<td class="gt_row gt_left" headers="Вопрос">Дирекционные отношения</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">32</td>
+<td class="gt_row gt_left" headers="Вопрос">Угловая модель</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">33</td>
+<td class="gt_row gt_left" headers="Вопрос">Прямоугольная модель</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">34</td>
+<td class="gt_row gt_left" headers="Вопрос">Проективная модель</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1346,7 +1557,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="базы-пространственных-данных">Базы пространственных данных</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="lcmhdkzstt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#lcmhdkzstt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1787,115 +1997,210 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">База пространственных данных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Модели баз данных и их сравнение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Иерархическая модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Сетевая модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Реляционная модель</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Терминология реляционных БД</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Домен</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Атрибут</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Кортеж</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Ключ отношения и его свойства</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Первичный ключ</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Внешний ключ</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Шкалы измерений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Номинальная шкала</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Порядковая шкала</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Интервальная шкала</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Относительная шкала</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Геореляционная база данных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Отношение геометрии и атрибутов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Опора измерений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Экстенсивные атрибуты</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Интенсивные атрибуты</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Уровни проектирования БД</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Концептуальный уровень</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Логический уровень</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Физический уровень</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Требования к базе данных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Система управления базами данных (СУБД)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">30</td>
-<td headers="Вопрос" class="gt_row gt_left">Основные функции СУБД</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">31</td>
-<td headers="Вопрос" class="gt_row gt_left">Транзакции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">32</td>
-<td headers="Вопрос" class="gt_row gt_left">Атрибутивные операции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">33</td>
-<td headers="Вопрос" class="gt_row gt_left">Вычисление атрибутов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">34</td>
-<td headers="Вопрос" class="gt_row gt_left">Интерполяция атрибутов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">35</td>
-<td headers="Вопрос" class="gt_row gt_left">Классификация атрибутов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">36</td>
-<td headers="Вопрос" class="gt_row gt_left">Агрегирование атрибутов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">37</td>
-<td headers="Вопрос" class="gt_row gt_left">Фильтрация реляционных отношений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">38</td>
-<td headers="Вопрос" class="gt_row gt_left">Проекция реляционных отношений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">39</td>
-<td headers="Вопрос" class="gt_row gt_left">Соединение реляционных отношений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">40</td>
-<td headers="Вопрос" class="gt_row gt_left">Язык SQL (Structured Query Language)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">41</td>
-<td headers="Вопрос" class="gt_row gt_left">Запрос проекции SELECT на SQL</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">42</td>
-<td headers="Вопрос" class="gt_row gt_left">Оператор фильтрации WHERE на SQL</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">43</td>
-<td headers="Вопрос" class="gt_row gt_left">Оператор проверка на вхождение в множество IN на SQL</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">44</td>
-<td headers="Вопрос" class="gt_row gt_left">Инвертирование условия NOT в SQL</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">45</td>
-<td headers="Вопрос" class="gt_row gt_left">Проверка на пустоту NOT NULL в SQL</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">46</td>
-<td headers="Вопрос" class="gt_row gt_left">Вспомогательные операторы LIKE, BETWEEN, GROUP BY и JOIN в SQL</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">47</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственные запросы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">48</td>
-<td headers="Вопрос" class="gt_row gt_left">Связь пространственных запросов с пространственным отношениями</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">База пространственных данных</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Модели баз данных и их сравнение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Иерархическая модель</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Сетевая модель</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Реляционная модель</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Терминология реляционных БД</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Домен</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Атрибут</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Кортеж</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Ключ отношения и его свойства</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Первичный ключ</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Внешний ключ</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Шкалы измерений</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Номинальная шкала</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Порядковая шкала</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Интервальная шкала</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Относительная шкала</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Геореляционная база данных</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Отношение геометрии и атрибутов</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Опора измерений</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Экстенсивные атрибуты</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Интенсивные атрибуты</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Уровни проектирования БД</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Концептуальный уровень</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Логический уровень</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Физический уровень</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Требования к базе данных</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Система управления базами данных (СУБД)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">30</td>
+<td class="gt_row gt_left" headers="Вопрос">Основные функции СУБД</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">31</td>
+<td class="gt_row gt_left" headers="Вопрос">Транзакции</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">32</td>
+<td class="gt_row gt_left" headers="Вопрос">Атрибутивные операции</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">33</td>
+<td class="gt_row gt_left" headers="Вопрос">Вычисление атрибутов</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">34</td>
+<td class="gt_row gt_left" headers="Вопрос">Интерполяция атрибутов</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">35</td>
+<td class="gt_row gt_left" headers="Вопрос">Классификация атрибутов</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">36</td>
+<td class="gt_row gt_left" headers="Вопрос">Агрегирование атрибутов</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">37</td>
+<td class="gt_row gt_left" headers="Вопрос">Фильтрация реляционных отношений</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">38</td>
+<td class="gt_row gt_left" headers="Вопрос">Проекция реляционных отношений</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">39</td>
+<td class="gt_row gt_left" headers="Вопрос">Соединение реляционных отношений</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">40</td>
+<td class="gt_row gt_left" headers="Вопрос">Язык SQL (Structured Query Language)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">41</td>
+<td class="gt_row gt_left" headers="Вопрос">Запрос проекции SELECT на SQL</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">42</td>
+<td class="gt_row gt_left" headers="Вопрос">Оператор фильтрации WHERE на SQL</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">43</td>
+<td class="gt_row gt_left" headers="Вопрос">Оператор проверка на вхождение в множество IN на SQL</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">44</td>
+<td class="gt_row gt_left" headers="Вопрос">Инвертирование условия NOT в SQL</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">45</td>
+<td class="gt_row gt_left" headers="Вопрос">Проверка на пустоту NOT NULL в SQL</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">46</td>
+<td class="gt_row gt_left" headers="Вопрос">Вспомогательные операторы LIKE, BETWEEN, GROUP BY и JOIN в SQL</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">47</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственные запросы</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">48</td>
+<td class="gt_row gt_left" headers="Вопрос">Связь пространственных запросов с пространственным отношениями</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -1904,7 +2209,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="векторный-анализ">Векторный анализ</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="rqqkatcvmd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#rqqkatcvmd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2345,73 +2649,126 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Вычисление длины/периметра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Вычисление площади</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Определение принадлежности точки полигону</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Ограничивающий прямоугольник</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Выпуклое множество</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Выпуклая оболочка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Алгоритм Джарвиса для построения выпуклой оболочки</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Центроид фигуры и его вычисление</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Срединная ось фигуры</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Буферная зона</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Особенности буферных зон для точек, линий и полигонов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Взаимные преобразования моделей пространственных объектов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Взаимные преобразования обычных и мультиобъектов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Слияние (объединение по признаку)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Оверлей</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Объединение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Пересечение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Разность</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Симметрическая разность</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Обрезка данных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная ассоциация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Односторонняя ассоциация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Двусторонняя ассоциация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственные соотношения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Интерполяция взвешенная на площадь (ИВП)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">ИВП для экстенсивных атрибутов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">ИВП для интенсивных атрибутов</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Вычисление длины/периметра</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Вычисление площади</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Определение принадлежности точки полигону</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Ограничивающий прямоугольник</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Выпуклое множество</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Выпуклая оболочка</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Алгоритм Джарвиса для построения выпуклой оболочки</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Центроид фигуры и его вычисление</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Срединная ось фигуры</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Буферная зона</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Особенности буферных зон для точек, линий и полигонов</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Взаимные преобразования моделей пространственных объектов</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Взаимные преобразования обычных и мультиобъектов</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Слияние (объединение по признаку)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Оверлей</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Объединение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Пересечение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Разность</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Симметрическая разность</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Обрезка данных</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная ассоциация</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Односторонняя ассоциация</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Двусторонняя ассоциация</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственные соотношения</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Интерполяция взвешенная на площадь (ИВП)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">ИВП для экстенсивных атрибутов</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">ИВП для интенсивных атрибутов</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -2420,7 +2777,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="растровый-анализ">Растровый анализ</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="mufetdqelv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#mufetdqelv table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2861,77 +3217,134 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Растровая геометрия</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Регулярная геометрия</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Аффинная геометрия</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Ректилинейная геометрия</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Криволинейная геометрия</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Соотношение геометрии и матрицы данных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Измерения растра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Растровые кубы данных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Изменение проекции растра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Трансформация растра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Деформация растра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Передискретизация растра и ее применение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Метод ближайшего соседа</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Билинейная интерполяция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Растровая алгебра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Локальные операции и их применение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Фокальные операции и их применение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Окрестности фокальных операций</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Свёртка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Сглаживание растра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Фокальные операции с нефиксированной окрестностью</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Евклидово распределение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Евклидово расстояние</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Зональные операции и их применение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Глобальные операции и их применение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Растровый оверлей</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Взвешенный оверлей</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Извлечение данных растра</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Построение профиля по растру</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Растровая геометрия</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Регулярная геометрия</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Аффинная геометрия</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Ректилинейная геометрия</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Криволинейная геометрия</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Соотношение геометрии и матрицы данных</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Измерения растра</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Растровые кубы данных</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Изменение проекции растра</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Трансформация растра</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Деформация растра</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Передискретизация растра и ее применение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Метод ближайшего соседа</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Билинейная интерполяция</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Растровая алгебра</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Локальные операции и их применение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Фокальные операции и их применение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Окрестности фокальных операций</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Свёртка</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Сглаживание растра</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Фокальные операции с нефиксированной окрестностью</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Евклидово распределение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Евклидово расстояние</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Зональные операции и их применение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Глобальные операции и их применение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Растровый оверлей</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Взвешенный оверлей</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Извлечение данных растра</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Построение профиля по растру</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -2940,7 +3353,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="цифровое-моделирование-рельефа">Цифровое моделирование рельефа</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="yqeppqpspb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#yqeppqpspb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -3381,87 +3793,154 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Цифровая модель рельефа</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Покрытие</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Геоморфометрия</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Основные задачи геоморфометрии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Аппроксимация поверхности</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Метод Эванса и его преимущество</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Производные поверхности Эванса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Уклон и его выражение в производных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Угол наклона и его связь с уклоном</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Экспозиция склона и ее выражение в производных</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Кривизна кривой</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Плановая кривизна и ее интерпретация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Профильная кривизна и ее интерпретация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Интенсивность отражения света от поверхности</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Модель Ламберта и ее математическое определение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Аналитическая отмывка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Отмывка при боковом освещении</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Отмывка при отвесном освещении</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Комбинация боковой и отвесной отмывки</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Гидрологический анализ ЦМР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Основные задачи гидрологического анализа ЦМР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Предварительная подготовка ЦМР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Направление стока</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Метод D8 и его формальное определение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Аккумуляция стока</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Методы выражения аккумуляции стока</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Вычисление аккумуляции в пикселе</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Алгоритм построения растра аккумуляции стока</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Потенциальные водотоки</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">30</td>
-<td headers="Вопрос" class="gt_row gt_left">Алгоритм выделения потенциальных водотоков</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">31</td>
-<td headers="Вопрос" class="gt_row gt_left">Управление густотой потенциальных водотоков через пороговое значение аккумуляции стока</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">32</td>
-<td headers="Вопрос" class="gt_row gt_left">Дренажный граф</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">33</td>
-<td headers="Вопрос" class="gt_row gt_left">Бассейн</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">34</td>
-<td headers="Вопрос" class="gt_row gt_left">Построение границы бассейна</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Цифровая модель рельефа</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Покрытие</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Геоморфометрия</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Основные задачи геоморфометрии</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Аппроксимация поверхности</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Метод Эванса и его преимущество</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Производные поверхности Эванса</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Уклон и его выражение в производных</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Угол наклона и его связь с уклоном</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Экспозиция склона и ее выражение в производных</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Кривизна кривой</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Плановая кривизна и ее интерпретация</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Профильная кривизна и ее интерпретация</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Интенсивность отражения света от поверхности</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Модель Ламберта и ее математическое определение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Аналитическая отмывка</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Отмывка при боковом освещении</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Отмывка при отвесном освещении</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Комбинация боковой и отвесной отмывки</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Гидрологический анализ ЦМР</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Основные задачи гидрологического анализа ЦМР</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Предварительная подготовка ЦМР</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Направление стока</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Метод D8 и его формальное определение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Аккумуляция стока</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Методы выражения аккумуляции стока</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Вычисление аккумуляции в пикселе</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Алгоритм построения растра аккумуляции стока</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Потенциальные водотоки</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">30</td>
+<td class="gt_row gt_left" headers="Вопрос">Алгоритм выделения потенциальных водотоков</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">31</td>
+<td class="gt_row gt_left" headers="Вопрос">Управление густотой потенциальных водотоков через пороговое значение аккумуляции стока</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">32</td>
+<td class="gt_row gt_left" headers="Вопрос">Дренажный граф</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">33</td>
+<td class="gt_row gt_left" headers="Вопрос">Бассейн</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">34</td>
+<td class="gt_row gt_left" headers="Вопрос">Построение границы бассейна</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -3470,7 +3949,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="пространственная-интерполяция-и-вариография">Пространственная интерполяция и вариография</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="cieofmitrk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#cieofmitrk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -3911,111 +4389,202 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная статистика</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Моделирование пространственных распределений и его этапы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Роль геостатистических методов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Интерполяция в общем случае</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Детерминистические методы интерполяции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Аналитическая функция и ее параметры</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Задача детерминистической интерполяции и ее формальная постановка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Узлы интерполяции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Метод ближайшего соседа</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Интерполяция на основе триангуляции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Вычисление коэффициентов уравнения плоскости на основе триангуляции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Характерные особенности триангулированной поверхности</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Метод обратно взвешенных расстояний (ОВР)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Весовая функция ОВР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Изменение вида поверхности ОВР при увеличении степени β</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Характерная особенности поверхности, построенной методом ОВР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Радиальные базисные функции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Радиальная функция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Мультиквадрики</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Обратные мультиквадрики</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Мульти-логарифмическая функция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Сплайны минимальной кривизны</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Влияние параметра  на форму РБФ</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Соотношение поверхности РБФ и диапазона исходных значений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Полиномиальная регрессия при разных степенях</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Функция потери</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Геостатистика</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Вариограмма и ее математическое определение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Особенности вариограммы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">30</td>
-<td headers="Вопрос" class="gt_row gt_left">Вариограммное облако и его интерпретация</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">31</td>
-<td headers="Вопрос" class="gt_row gt_left">Эмпирическая вариограмма и ее построение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">32</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственный лаг</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">33</td>
-<td headers="Вопрос" class="gt_row gt_left">Интерпретация эмпирической вариограммы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">34</td>
-<td headers="Вопрос" class="gt_row gt_left">Модель вариограммы и ее параметры</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">35</td>
-<td headers="Вопрос" class="gt_row gt_left">Эффект самородка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">36</td>
-<td headers="Вопрос" class="gt_row gt_left">Радиус корреляции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">37</td>
-<td headers="Вопрос" class="gt_row gt_left">Плато</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">38</td>
-<td headers="Вопрос" class="gt_row gt_left">Сферическая модель вариограммы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">39</td>
-<td headers="Вопрос" class="gt_row gt_left">Экспоненциальная модель вариограммы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">40</td>
-<td headers="Вопрос" class="gt_row gt_left">Гауссова модель вариограммы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">41</td>
-<td headers="Вопрос" class="gt_row gt_left">Степенная модель вариограммы</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">42</td>
-<td headers="Вопрос" class="gt_row gt_left">Кригинг и его математическая постановка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">43</td>
-<td headers="Вопрос" class="gt_row gt_left">Система уравнений обычного кригинга</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">44</td>
-<td headers="Вопрос" class="gt_row gt_left">Сумма весов обычного кригинга</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">45</td>
-<td headers="Вопрос" class="gt_row gt_left">Оценка кригинга</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">46</td>
-<td headers="Вопрос" class="gt_row gt_left">Дисперсия кригинга</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная статистика</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Моделирование пространственных распределений и его этапы</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Роль геостатистических методов</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Интерполяция в общем случае</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Детерминистические методы интерполяции</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Аналитическая функция и ее параметры</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Задача детерминистической интерполяции и ее формальная постановка</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Узлы интерполяции</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Метод ближайшего соседа</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Интерполяция на основе триангуляции</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Вычисление коэффициентов уравнения плоскости на основе триангуляции</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Характерные особенности триангулированной поверхности</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Метод обратно взвешенных расстояний (ОВР)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Весовая функция ОВР</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Изменение вида поверхности ОВР при увеличении степени β</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Характерная особенности поверхности, построенной методом ОВР</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Радиальные базисные функции</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Радиальная функция</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Мультиквадрики</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Обратные мультиквадрики</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Мульти-логарифмическая функция</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Сплайны минимальной кривизны</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Влияние параметра на форму РБФ</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Соотношение поверхности РБФ и диапазона исходных значений</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Полиномиальная регрессия при разных степенях</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Функция потери</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Геостатистика</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Вариограмма и ее математическое определение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Особенности вариограммы</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">30</td>
+<td class="gt_row gt_left" headers="Вопрос">Вариограммное облако и его интерпретация</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">31</td>
+<td class="gt_row gt_left" headers="Вопрос">Эмпирическая вариограмма и ее построение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">32</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственный лаг</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">33</td>
+<td class="gt_row gt_left" headers="Вопрос">Интерпретация эмпирической вариограммы</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">34</td>
+<td class="gt_row gt_left" headers="Вопрос">Модель вариограммы и ее параметры</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">35</td>
+<td class="gt_row gt_left" headers="Вопрос">Эффект самородка</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">36</td>
+<td class="gt_row gt_left" headers="Вопрос">Радиус корреляции</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">37</td>
+<td class="gt_row gt_left" headers="Вопрос">Плато</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">38</td>
+<td class="gt_row gt_left" headers="Вопрос">Сферическая модель вариограммы</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">39</td>
+<td class="gt_row gt_left" headers="Вопрос">Экспоненциальная модель вариограммы</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">40</td>
+<td class="gt_row gt_left" headers="Вопрос">Гауссова модель вариограммы</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">41</td>
+<td class="gt_row gt_left" headers="Вопрос">Степенная модель вариограммы</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">42</td>
+<td class="gt_row gt_left" headers="Вопрос">Кригинг и его математическая постановка</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">43</td>
+<td class="gt_row gt_left" headers="Вопрос">Система уравнений обычного кригинга</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">44</td>
+<td class="gt_row gt_left" headers="Вопрос">Сумма весов обычного кригинга</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">45</td>
+<td class="gt_row gt_left" headers="Вопрос">Оценка кригинга</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">46</td>
+<td class="gt_row gt_left" headers="Вопрос">Дисперсия кригинга</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -4024,7 +4593,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="пространственная-зависимость-и-гетерогенность">Пространственная зависимость и гетерогенность</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="owjeqoqfac" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#owjeqoqfac table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -4465,99 +5033,178 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная зависимость</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Диаграмма рассеяния</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Линейная регрессия и ее формальная постановка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Система линейных уравнений (СЛУ) регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Матричная форма СЛУ регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Остатки линейной регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Метод наименьших квадратов (МНК)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Оптимальное решение СЛУ по МНК</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Модель линейной регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Анализ карты остатков регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная автокорреляция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Географическое соседство</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Правило ферзя</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Правило ладьи</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственные веса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Бинарные веса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Нормированные веса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Матрица весов W и ее вид для бинарного и нормированного случая</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Коэффициент корреляции Пирсона</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Индекс Морана и его формула</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Интерпретация индекса Морана</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Математическое ожидание индекса Морана</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Автокорреляция остатков регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная регрессия</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Авторегрессия и ее коэффициент</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Предикторы пространственной регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Тренд</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Сигнал</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Шум</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">30</td>
-<td headers="Вопрос" class="gt_row gt_left">Выражение пространственной регрессии в виде обычной регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">31</td>
-<td headers="Вопрос" class="gt_row gt_left">Автокорреляция остатков пространственной регрессии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">32</td>
-<td headers="Вопрос" class="gt_row gt_left">Пространственная гетерогенность</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">33</td>
-<td headers="Вопрос" class="gt_row gt_left">Географически взвешенная регрессия (ГВР)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">34</td>
-<td headers="Вопрос" class="gt_row gt_left">Математическое определение ГВР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">35</td>
-<td headers="Вопрос" class="gt_row gt_left">Весовая функция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">36</td>
-<td headers="Вопрос" class="gt_row gt_left">Полоса пропускания и ее влияние на форму весовой функции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">37</td>
-<td headers="Вопрос" class="gt_row gt_left">Фиксированная весовая функция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">38</td>
-<td headers="Вопрос" class="gt_row gt_left">Адаптивная весовая функция</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">39</td>
-<td headers="Вопрос" class="gt_row gt_left">Коэффициенты ГВР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">40</td>
-<td headers="Вопрос" class="gt_row gt_left">Карты коэффициентов ГВР и их интерпретация</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная зависимость</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Диаграмма рассеяния</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Линейная регрессия и ее формальная постановка</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Система линейных уравнений (СЛУ) регрессии</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Матричная форма СЛУ регрессии</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Остатки линейной регрессии</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Метод наименьших квадратов (МНК)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Оптимальное решение СЛУ по МНК</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Модель линейной регрессии</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Анализ карты остатков регрессии</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная автокорреляция</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Географическое соседство</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Правило ферзя</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Правило ладьи</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственные веса</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Бинарные веса</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Нормированные веса</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Матрица весов W и ее вид для бинарного и нормированного случая</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Коэффициент корреляции Пирсона</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Индекс Морана и его формула</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Интерпретация индекса Морана</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Математическое ожидание индекса Морана</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Автокорреляция остатков регрессии</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная регрессия</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Авторегрессия и ее коэффициент</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Предикторы пространственной регрессии</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Тренд</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Сигнал</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Шум</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">30</td>
+<td class="gt_row gt_left" headers="Вопрос">Выражение пространственной регрессии в виде обычной регрессии</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">31</td>
+<td class="gt_row gt_left" headers="Вопрос">Автокорреляция остатков пространственной регрессии</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">32</td>
+<td class="gt_row gt_left" headers="Вопрос">Пространственная гетерогенность</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">33</td>
+<td class="gt_row gt_left" headers="Вопрос">Географически взвешенная регрессия (ГВР)</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">34</td>
+<td class="gt_row gt_left" headers="Вопрос">Математическое определение ГВР</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">35</td>
+<td class="gt_row gt_left" headers="Вопрос">Весовая функция</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">36</td>
+<td class="gt_row gt_left" headers="Вопрос">Полоса пропускания и ее влияние на форму весовой функции</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">37</td>
+<td class="gt_row gt_left" headers="Вопрос">Фиксированная весовая функция</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">38</td>
+<td class="gt_row gt_left" headers="Вопрос">Адаптивная весовая функция</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">39</td>
+<td class="gt_row gt_left" headers="Вопрос">Коэффициенты ГВР</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">40</td>
+<td class="gt_row gt_left" headers="Вопрос">Карты коэффициентов ГВР и их интерпретация</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -4566,7 +5213,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="модели-размещения-объектов">Модели размещения объектов</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="ghezemgtey" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ghezemgtey table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -5007,101 +5653,182 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Размещение географических объектов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Точечный процесс</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Точечный паттерн</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Эталонные модели распределений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Экспериментальный подход к анализу распределений</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Абсолютно случайное распределение (АСР)</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Распределение координат в АСР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Ожидаемое количество точек в АСР</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Интенсивность точечного процесса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Распределение Пуассона</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Выражение вероятности нахождения  точек в заданной области</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Однородный пуассоновский процесс</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Симуляция однородного пуассоновскго процесса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Неоднородный пуассоновский процесс</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Функция интенсивности неоднородного пуассоновского процесса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Ожидаемое количество точек в заданной области для неоднородного пуассоновского процесса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Процесс Кокса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Симуляция неоднородного пуассоновского процесса методом Льюиса-Шедлера</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Центробежная конфигурация точек</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Центростремительная конфигурация точек</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">21</td>
-<td headers="Вопрос" class="gt_row gt_left">Кластерное распределение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">22</td>
-<td headers="Вопрос" class="gt_row gt_left">Кластер</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">23</td>
-<td headers="Вопрос" class="gt_row gt_left">Моделирование кластерных распределений в три этапа</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">24</td>
-<td headers="Вопрос" class="gt_row gt_left">Кластерная модель Неймана-Скотта</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">25</td>
-<td headers="Вопрос" class="gt_row gt_left">Процесс Матерна</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">26</td>
-<td headers="Вопрос" class="gt_row gt_left">Процесс Томаса</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">27</td>
-<td headers="Вопрос" class="gt_row gt_left">Регулярное распределение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">28</td>
-<td headers="Вопрос" class="gt_row gt_left">Расстояние ингибиции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">29</td>
-<td headers="Вопрос" class="gt_row gt_left">Последовательная модель генерации регулярного распределения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">30</td>
-<td headers="Вопрос" class="gt_row gt_left">Диагностика точечного распределения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">31</td>
-<td headers="Вопрос" class="gt_row gt_left">Свойства I порядка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">32</td>
-<td headers="Вопрос" class="gt_row gt_left">Свойства II порядка</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">33</td>
-<td headers="Вопрос" class="gt_row gt_left">Плотность пространственного распределения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">34</td>
-<td headers="Вопрос" class="gt_row gt_left">Ядерное сглаживание</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">35</td>
-<td headers="Вопрос" class="gt_row gt_left">Диагностика плотности пространственного распределения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">36</td>
-<td headers="Вопрос" class="gt_row gt_left">G-функция и ее формальное определение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">37</td>
-<td headers="Вопрос" class="gt_row gt_left">Алгоритм применения G-функции</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">38</td>
-<td headers="Вопрос" class="gt_row gt_left">G-функция абсолютно случайного распределения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">39</td>
-<td headers="Вопрос" class="gt_row gt_left">G-функция кластерного распределения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">40</td>
-<td headers="Вопрос" class="gt_row gt_left">G-функция регулярного распределения</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">41</td>
-<td headers="Вопрос" class="gt_row gt_left">Анализ и моделирование размещения на примере неоднородного пуассоновского процесса</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Размещение географических объектов</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Точечный процесс</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Точечный паттерн</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Эталонные модели распределений</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Экспериментальный подход к анализу распределений</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Абсолютно случайное распределение (АСР)</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Распределение координат в АСР</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Ожидаемое количество точек в АСР</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Интенсивность точечного процесса</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Распределение Пуассона</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Выражение вероятности нахождения точек в заданной области</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Однородный пуассоновский процесс</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Симуляция однородного пуассоновскго процесса</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Неоднородный пуассоновский процесс</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Функция интенсивности неоднородного пуассоновского процесса</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Ожидаемое количество точек в заданной области для неоднородного пуассоновского процесса</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Процесс Кокса</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Симуляция неоднородного пуассоновского процесса методом Льюиса-Шедлера</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Центробежная конфигурация точек</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Центростремительная конфигурация точек</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">21</td>
+<td class="gt_row gt_left" headers="Вопрос">Кластерное распределение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">22</td>
+<td class="gt_row gt_left" headers="Вопрос">Кластер</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">23</td>
+<td class="gt_row gt_left" headers="Вопрос">Моделирование кластерных распределений в три этапа</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">24</td>
+<td class="gt_row gt_left" headers="Вопрос">Кластерная модель Неймана-Скотта</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">25</td>
+<td class="gt_row gt_left" headers="Вопрос">Процесс Матерна</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">26</td>
+<td class="gt_row gt_left" headers="Вопрос">Процесс Томаса</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">27</td>
+<td class="gt_row gt_left" headers="Вопрос">Регулярное распределение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">28</td>
+<td class="gt_row gt_left" headers="Вопрос">Расстояние ингибиции</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">29</td>
+<td class="gt_row gt_left" headers="Вопрос">Последовательная модель генерации регулярного распределения</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">30</td>
+<td class="gt_row gt_left" headers="Вопрос">Диагностика точечного распределения</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">31</td>
+<td class="gt_row gt_left" headers="Вопрос">Свойства I порядка</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">32</td>
+<td class="gt_row gt_left" headers="Вопрос">Свойства II порядка</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">33</td>
+<td class="gt_row gt_left" headers="Вопрос">Плотность пространственного распределения</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">34</td>
+<td class="gt_row gt_left" headers="Вопрос">Ядерное сглаживание</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">35</td>
+<td class="gt_row gt_left" headers="Вопрос">Диагностика плотности пространственного распределения</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">36</td>
+<td class="gt_row gt_left" headers="Вопрос">G-функция и ее формальное определение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">37</td>
+<td class="gt_row gt_left" headers="Вопрос">Алгоритм применения G-функции</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">38</td>
+<td class="gt_row gt_left" headers="Вопрос">G-функция абсолютно случайного распределения</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">39</td>
+<td class="gt_row gt_left" headers="Вопрос">G-функция кластерного распределения</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">40</td>
+<td class="gt_row gt_left" headers="Вопрос">G-функция регулярного распределения</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">41</td>
+<td class="gt_row gt_left" headers="Вопрос">Анализ и моделирование размещения на примере неоднородного пуассоновского процесса</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -5110,7 +5837,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="сетевой-анализ">Сетевой анализ</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="pwswtdptjb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#pwswtdptjb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -5551,59 +6277,98 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Географические сети</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Граф и его формальное определение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Элементы графа</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Матрица смежности</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Топологическая эквивалентность</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Направления сетевого анализа</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Подготовка данных для сетевого анализа</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Решение задач на графах</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Кратчайший маршрут</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Особенности построения кратчайших маршрутов</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Задача коммивояжёра и ее применение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Ближайший пункт обслуживания</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Изохроны</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Алгоритм построения изохрон</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Анализ структуры географической сети</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Центральность</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Центральность по промежуточности</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Центральность по близости</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Центральность по степени</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">Центральность по влиятельности</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Географические сети</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Граф и его формальное определение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Элементы графа</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Матрица смежности</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Топологическая эквивалентность</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Направления сетевого анализа</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Подготовка данных для сетевого анализа</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Решение задач на графах</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Кратчайший маршрут</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Особенности построения кратчайших маршрутов</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Задача коммивояжёра и ее применение</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Ближайший пункт обслуживания</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Изохроны</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Алгоритм построения изохрон</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Анализ структуры географической сети</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Центральность</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Центральность по промежуточности</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Центральность по близости</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Центральность по степени</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">Центральность по влиятельности</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -5612,7 +6377,6 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="unnumbered anchored" data-anchor-id="геоинформационные-технологии">Геоинформационные технологии</h3>
 <div class="cell">
 <div class="cell-output-display">
-
 <div id="byhaskbqqs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#byhaskbqqs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -6053,59 +6817,98 @@ ul.task-list li input[type="checkbox"] {
   text-indent: 25px;
 }
 </style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <thead>
-    
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="№">№</th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Вопрос">Вопрос</th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="№" class="gt_row gt_left">1</td>
-<td headers="Вопрос" class="gt_row gt_left">Геоинформационная технология</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">2</td>
-<td headers="Вопрос" class="gt_row gt_left">Базовые геоинформационные технологии</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">3</td>
-<td headers="Вопрос" class="gt_row gt_left">Основные продукты геоинформационных технологий</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">4</td>
-<td headers="Вопрос" class="gt_row gt_left">Области применения геоинформационных технологий</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">5</td>
-<td headers="Вопрос" class="gt_row gt_left">Факторы развития геоинформационных технологий</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">6</td>
-<td headers="Вопрос" class="gt_row gt_left">Объем рынка геоинформационных технологий</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">7</td>
-<td headers="Вопрос" class="gt_row gt_left">Развитость геоинформационных технологий в странах мира</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">8</td>
-<td headers="Вопрос" class="gt_row gt_left">Библиотека GDAL</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">9</td>
-<td headers="Вопрос" class="gt_row gt_left">Библиотека PROJ</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">10</td>
-<td headers="Вопрос" class="gt_row gt_left">Библиотека GEOS</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">11</td>
-<td headers="Вопрос" class="gt_row gt_left">Геомаркетинг</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">12</td>
-<td headers="Вопрос" class="gt_row gt_left">Геосенсор</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">13</td>
-<td headers="Вопрос" class="gt_row gt_left">Геохэш</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">14</td>
-<td headers="Вопрос" class="gt_row gt_left">Геокэшинг</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">15</td>
-<td headers="Вопрос" class="gt_row gt_left">Геотег</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">16</td>
-<td headers="Вопрос" class="gt_row gt_left">Геотаргетинг</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">17</td>
-<td headers="Вопрос" class="gt_row gt_left">Геофенсинг</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">18</td>
-<td headers="Вопрос" class="gt_row gt_left">Геосообщение</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">19</td>
-<td headers="Вопрос" class="gt_row gt_left">Георабство</td></tr>
-    <tr><td headers="№" class="gt_row gt_left">20</td>
-<td headers="Вопрос" class="gt_row gt_left">География</td></tr>
-  </tbody>
-  
-  
+
+<table class="gt_table table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="№" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">№</th>
+<th id="Вопрос" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Вопрос</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">1</td>
+<td class="gt_row gt_left" headers="Вопрос">Геоинформационная технология</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">2</td>
+<td class="gt_row gt_left" headers="Вопрос">Базовые геоинформационные технологии</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">3</td>
+<td class="gt_row gt_left" headers="Вопрос">Основные продукты геоинформационных технологий</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">4</td>
+<td class="gt_row gt_left" headers="Вопрос">Области применения геоинформационных технологий</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">5</td>
+<td class="gt_row gt_left" headers="Вопрос">Факторы развития геоинформационных технологий</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">6</td>
+<td class="gt_row gt_left" headers="Вопрос">Объем рынка геоинформационных технологий</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">7</td>
+<td class="gt_row gt_left" headers="Вопрос">Развитость геоинформационных технологий в странах мира</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">8</td>
+<td class="gt_row gt_left" headers="Вопрос">Библиотека GDAL</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">9</td>
+<td class="gt_row gt_left" headers="Вопрос">Библиотека PROJ</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">10</td>
+<td class="gt_row gt_left" headers="Вопрос">Библиотека GEOS</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">11</td>
+<td class="gt_row gt_left" headers="Вопрос">Геомаркетинг</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">12</td>
+<td class="gt_row gt_left" headers="Вопрос">Геосенсор</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">13</td>
+<td class="gt_row gt_left" headers="Вопрос">Геохэш</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">14</td>
+<td class="gt_row gt_left" headers="Вопрос">Геокэшинг</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">15</td>
+<td class="gt_row gt_left" headers="Вопрос">Геотег</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">16</td>
+<td class="gt_row gt_left" headers="Вопрос">Геотаргетинг</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">17</td>
+<td class="gt_row gt_left" headers="Вопрос">Геофенсинг</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">18</td>
+<td class="gt_row gt_left" headers="Вопрос">Геосообщение</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="№">19</td>
+<td class="gt_row gt_left" headers="Вопрос">Георабство</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="№">20</td>
+<td class="gt_row gt_left" headers="Вопрос">География</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
@@ -6194,10 +6997,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -6207,8 +7009,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -6221,6 +7032,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -6264,6 +7194,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -6289,6 +7220,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -6354,12 +7311,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       &nbsp;
     </div>   
-    <div class="nav-footer-center">© 2023, Тимофей Самсонов, Географический факультет МГУ имени М. В. Ломоносова</div>
+    <div class="nav-footer-center">
+<p>© 2023, Тимофей Самсонов, Географический факультет МГУ имени М. В. Ломоносова</p>
+</div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
   </div>
 </footer>
+
 
 
 

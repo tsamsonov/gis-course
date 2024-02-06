@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.336">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики - Пространственная привязка и создание объектов</title>
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span { line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -98,6 +98,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -114,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -240,7 +241,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -497,19 +499,19 @@
 </style>
 </div>
 <p><strong>PROJ.4 String</strong> — строковый формат представления информации о системе координат, введенный в библиотеке <a href="http://proj.org"><strong>PROJ</strong></a>, начиная с версии&nbsp;4. Основные параметры:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>+datum     Датум</span>
-<span id="cb1-2"><a href="#cb1-2"></a>+ellps     Эллипсоид</span>
-<span id="cb1-3"><a href="#cb1-3"></a>+lat_0     Широта стандартной параллели</span>
-<span id="cb1-4"><a href="#cb1-4"></a>+lat_1     Широта первой стандартной параллели</span>
-<span id="cb1-5"><a href="#cb1-5"></a>+lat_2     Широта второй стандартной параллели</span>
-<span id="cb1-6"><a href="#cb1-6"></a>+lat_ts    Широта нулевых искажений</span>
-<span id="cb1-7"><a href="#cb1-7"></a>+lon_0     Центральный меридиан</span>
-<span id="cb1-8"><a href="#cb1-8"></a>+proj      Проекция</span>
-<span id="cb1-9"><a href="#cb1-9"></a>+units     Единицы измерения координат</span>
-<span id="cb1-10"><a href="#cb1-10"></a>+vunits    Единицы измерения высот</span>
-<span id="cb1-11"><a href="#cb1-11"></a>+x_0       Восточное указание</span>
-<span id="cb1-12"><a href="#cb1-12"></a>+y_0       Северное указание</span>
-<span id="cb1-13"><a href="#cb1-13"></a>+zone      Номер зоны</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a></a>+datum     Датум</span>
+<span id="cb1-2"><a></a>+ellps     Эллипсоид</span>
+<span id="cb1-3"><a></a>+lat_0     Широта стандартной параллели</span>
+<span id="cb1-4"><a></a>+lat_1     Широта первой стандартной параллели</span>
+<span id="cb1-5"><a></a>+lat_2     Широта второй стандартной параллели</span>
+<span id="cb1-6"><a></a>+lat_ts    Широта нулевых искажений</span>
+<span id="cb1-7"><a></a>+lon_0     Центральный меридиан</span>
+<span id="cb1-8"><a></a>+proj      Проекция</span>
+<span id="cb1-9"><a></a>+units     Единицы измерения координат</span>
+<span id="cb1-10"><a></a>+vunits    Единицы измерения высот</span>
+<span id="cb1-11"><a></a>+x_0       Восточное указание</span>
+<span id="cb1-12"><a></a>+y_0       Северное указание</span>
+<span id="cb1-13"><a></a>+zone      Номер зоны</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="proj.4-string-примеры" class="slide level2">
 <h2>PROJ.4 String — примеры</h2>
@@ -549,28 +551,28 @@
 <section id="wkt-well-known-text" class="slide level2">
 <h2>WKT (Well-Known Text)</h2>
 <p><strong>WKT</strong> хранит описания СК в виде иерархического списка:</p>
-<div class="sourceCode" id="cb6" style="font-size: 0.62em;"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href="#cb6-1"></a>PROJCS["WGS 84 / EPSG Russia Polar Stereographic",</span>
-<span id="cb6-2"><a href="#cb6-2"></a>    GEOGCS["WGS 84",</span>
-<span id="cb6-3"><a href="#cb6-3"></a>        DATUM["WGS_1984",</span>
-<span id="cb6-4"><a href="#cb6-4"></a>            SPHEROID["WGS 84",6378137,298.257223563,</span>
-<span id="cb6-5"><a href="#cb6-5"></a>                AUTHORITY["EPSG","7030"]],</span>
-<span id="cb6-6"><a href="#cb6-6"></a>            AUTHORITY["EPSG","6326"]],</span>
-<span id="cb6-7"><a href="#cb6-7"></a>        PRIMEM["Greenwich",0,</span>
-<span id="cb6-8"><a href="#cb6-8"></a>            AUTHORITY["EPSG","8901"]],</span>
-<span id="cb6-9"><a href="#cb6-9"></a>        UNIT["degree",0.0174532925199433,</span>
-<span id="cb6-10"><a href="#cb6-10"></a>            AUTHORITY["EPSG","9122"]],</span>
-<span id="cb6-11"><a href="#cb6-11"></a>        AUTHORITY["EPSG","4326"]],</span>
-<span id="cb6-12"><a href="#cb6-12"></a>    PROJECTION["Polar_Stereographic"],</span>
-<span id="cb6-13"><a href="#cb6-13"></a>    PARAMETER["latitude_of_origin",90],</span>
-<span id="cb6-14"><a href="#cb6-14"></a>    PARAMETER["central_meridian",105],</span>
-<span id="cb6-15"><a href="#cb6-15"></a>    PARAMETER["scale_factor",0.994],</span>
-<span id="cb6-16"><a href="#cb6-16"></a>    PARAMETER["false_easting",2000000],</span>
-<span id="cb6-17"><a href="#cb6-17"></a>    PARAMETER["false_northing",2000000],</span>
-<span id="cb6-18"><a href="#cb6-18"></a>    UNIT["metre",1,</span>
-<span id="cb6-19"><a href="#cb6-19"></a>        AUTHORITY["EPSG","9001"]],</span>
-<span id="cb6-20"><a href="#cb6-20"></a>    AXIS["X",EAST],</span>
-<span id="cb6-21"><a href="#cb6-21"></a>    AXIS["Y",NORTH],</span>
-<span id="cb6-22"><a href="#cb6-22"></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" style="font-size: 0.62em;"><pre class="sourceCode numberSource code-block number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>PROJCS["WGS 84 / EPSG Russia Polar Stereographic",</span>
+<span id="cb6-2"><a></a>    GEOGCS["WGS 84",</span>
+<span id="cb6-3"><a></a>        DATUM["WGS_1984",</span>
+<span id="cb6-4"><a></a>            SPHEROID["WGS 84",6378137,298.257223563,</span>
+<span id="cb6-5"><a></a>                AUTHORITY["EPSG","7030"]],</span>
+<span id="cb6-6"><a></a>            AUTHORITY["EPSG","6326"]],</span>
+<span id="cb6-7"><a></a>        PRIMEM["Greenwich",0,</span>
+<span id="cb6-8"><a></a>            AUTHORITY["EPSG","8901"]],</span>
+<span id="cb6-9"><a></a>        UNIT["degree",0.0174532925199433,</span>
+<span id="cb6-10"><a></a>            AUTHORITY["EPSG","9122"]],</span>
+<span id="cb6-11"><a></a>        AUTHORITY["EPSG","4326"]],</span>
+<span id="cb6-12"><a></a>    PROJECTION["Polar_Stereographic"],</span>
+<span id="cb6-13"><a></a>    PARAMETER["latitude_of_origin",90],</span>
+<span id="cb6-14"><a></a>    PARAMETER["central_meridian",105],</span>
+<span id="cb6-15"><a></a>    PARAMETER["scale_factor",0.994],</span>
+<span id="cb6-16"><a></a>    PARAMETER["false_easting",2000000],</span>
+<span id="cb6-17"><a></a>    PARAMETER["false_northing",2000000],</span>
+<span id="cb6-18"><a></a>    UNIT["metre",1,</span>
+<span id="cb6-19"><a></a>        AUTHORITY["EPSG","9001"]],</span>
+<span id="cb6-20"><a></a>    AXIS["X",EAST],</span>
+<span id="cb6-21"><a></a>    AXIS["Y",NORTH],</span>
+<span id="cb6-22"><a></a>    AUTHORITY["EPSG","5940"]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>Полярная стереографическая проекция</em></p>
 </section>
 <section id="epsg" class="slide level2">
@@ -616,9 +618,10 @@
 <li><p><strong>Обратное проецирование</strong> — от плоских прямоугольных координат к географическим.</p></li>
 </ol>
 </div><div class="column" style="width:45%;">
-<div class="cell" data-reveal="true" data-fig-width="2.8">
+<div class="cell" data-reveal="true" data-fig-width="2.8" data-layout-align="default">
 <div class="cell-output-display">
 <div>
+<p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart TB
   A(UTM) -- Обратное проецирование --&gt; B(WGS84)
@@ -628,6 +631,7 @@
   C -- Проецирование --&gt; В(Гаусса-Крюгера)
 </pre>
 </div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -862,9 +866,10 @@ N Name    geometry
 </section>
 <section id="адресное-геокодирование" class="slide level2">
 <h2>Адресное геокодирование</h2>
-<div class="cell" data-reveal="true" data-fig-width="16">
+<div class="cell" data-reveal="true" data-fig-width="16" data-layout-align="default">
 <div class="cell-output-display">
 <div>
+<p></p><figure class=""><p></p>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
   A(Адрес) --&gt; B(Геокодер)
@@ -872,6 +877,7 @@ N Name    geometry
   B --&gt; D(Координаты)
 </pre>
 </div>
+<p></p></figure><p></p>
 </div>
 </div>
 </div>
@@ -996,10 +1002,12 @@ N Name    geometry
 <section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ</p>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-yurtseven2019" class="csl-entry" role="listitem">
 Yurtseven, Huseyin, Mustafa Akgul, Suleyman Coban, и Sercan Gulci. 2019. <span>«Determination and Accuracy Analysis of Individual Tree Crown Parameters Using UAV Based Imagery and OBIA Techniques»</span>. <em>Measurement</em> 145 (октябрь): 651–64. <a href="https://doi.org/10.1016/j.measurement.2019.05.092">https://doi.org/10.1016/j.measurement.2019.05.092</a>.
 </div>
@@ -1034,7 +1042,6 @@ Yurtseven, Huseyin, Mustafa Akgul, Suleyman Coban, и Sercan Gulci. 2019. <span>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1333,10 +1340,9 @@ Yurtseven, Huseyin, Mustafa Akgul, Suleyman Coban, и Sercan Gulci. 2019. <span>
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1346,8 +1352,17 @@ Yurtseven, Huseyin, Mustafa Akgul, Suleyman Coban, и Sercan Gulci. 2019. <span>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

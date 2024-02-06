@@ -32,7 +32,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/01_Basics.html" title="Лекция №1. Географическая информация и пространственные данные"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_01_Basics.html" title="Лекция №1. Географическая информация и пространственные данные"></iframe>
 ```
 :::
 
@@ -42,7 +42,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/02_Georeferencing.html" title="Лекция №2. Пространственная привязка и создание объектов"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_02_Georeferencing.html" title="Лекция №2. Пространственная привязка и создание объектов"></iframe>
 ```
 :::
 
@@ -52,7 +52,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/03_Databases.html" title="Лекция №3. Базы пространственных данных"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_03_Databases.html" title="Лекция №3. Базы пространственных данных"></iframe>
 ```
 :::
 
@@ -62,7 +62,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/04_Vector.html" title="Лекция №4. Векторный анализ"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_04_Vector.html" title="Лекция №4. Векторный анализ"></iframe>
 ```
 :::
 
@@ -72,7 +72,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/05_Raster.html" title="Лекция №5. Растровый анализ"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_05_Raster.html" title="Лекция №5. Растровый анализ"></iframe>
 ```
 :::
 
@@ -82,7 +82,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/06_Networks.html" title="Лекция №6. Сетевой анализ"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_06_Networks.html" title="Лекция №6. Сетевой анализ"></iframe>
 ```
 :::
 
@@ -92,7 +92,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/07_Dem.html" title="Лекция №7. Цифровое моделирование рельефа и геоморфометрия"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_07_Dem.html" title="Лекция №7. Цифровое моделирование рельефа и геоморфометрия"></iframe>
 ```
 :::
 
@@ -102,7 +102,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/08_Interpolation.html" title="Лекция №8. Пространственная интерполяция и вариография"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_08_Interpolation.html" title="Лекция №8. Пространственная интерполяция и вариография"></iframe>
 ```
 :::
 
@@ -112,7 +112,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/09_Regression.html" title="Лекция №9. Пространственная и географически взвешенная регрессия"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_09_Regression.html" title="Лекция №9. Пространственная и географически взвешенная регрессия"></iframe>
 ```
 :::
 
@@ -122,7 +122,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/10_PointPatterns.html" title="Лекция №10. Точечные процессы"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_10_PointPatterns.html" title="Лекция №10. Точечные процессы"></iframe>
 ```
 :::
 
@@ -132,7 +132,7 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/11_Technologies.html" title="Лекция №11. Геоинформационные технологии"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_11_Technologies.html" title="Лекция №11. Геоинформационные технологии"></iframe>
 ```
 :::
 

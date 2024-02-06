@@ -8,7 +8,7 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.336">
+  <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики - Растровый анализ</title>
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -156,7 +156,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -687,12 +688,12 @@ R' = R \circ W = \\ = \begin{bmatrix}    r_{11} &amp; r_{12} &amp; r_{13}\\    r
 <h2>Растровая алгебра</h2>
 <p>Пример <strong>зональной операции</strong> — построение климатограммы.</p>
 
-<img data-src="05_Raster_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch quarto-figure-left"><p class="caption">Типы земельного покрова</p></section>
+<img data-src="05_Raster_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-left r-stretch" width="960"><p class="caption">Типы земельного покрова</p></section>
 <section id="растровая-алгебра-11" class="slide level2">
 <h2>Растровая алгебра</h2>
 <p>Пример <strong>зональной операции</strong> — построение климатограммы.</p>
 
-<img data-src="05_Raster_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch quarto-figure-left"><p class="caption">Среднемесячная температура</p></section>
+<img data-src="05_Raster_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-left r-stretch" width="960"><p class="caption">Среднемесячная температура</p></section>
 <section id="растровая-алгебра-12" class="slide level2">
 <h2>Растровая алгебра</h2>
 <p>Пример <strong>зональной операции</strong> — построение климатограммы.</p>
@@ -790,7 +791,7 @@ R = w_1 r_1 + w_2 r_2 + ...w_n r_n = \sum_{i=1}^n w_i r_i
 <h2>Извлечение данных</h2>
 <p>Данные из растра можно <strong>извлекать</strong> по указанным векторным объектам с помощью <em>функции покрытия</em>. Например, в точке:</p>
 
-<img data-src="05_Raster_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch quarto-figure-left"><p class="caption">Мощность покровного оледенения в точке</p></section>
+<img data-src="05_Raster_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-left r-stretch" width="960"><p class="caption">Мощность покровного оледенения в точке</p></section>
 <section id="извлечение-данных-1" class="slide level2">
 <h2>Извлечение данных</h2>
 <p>Аналогично выполняется построение профиля, но данные извлекаются из всех ячеек, находящихся на линии профиля.</p>
@@ -834,8 +835,10 @@ R = w_1 r_1 + w_2 r_2 + ...w_n r_n = \sum_{i=1}^n w_i r_i
 <section id="библиография" class="slide level2">
 <h2>Библиография</h2>
 
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ</p>
+</div>
 </div>
 </section>
     </div>
@@ -864,7 +867,6 @@ R = w_1 r_1 + w_2 r_2 + ...w_n r_n = \sum_{i=1}^n w_i r_i
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -1163,10 +1165,9 @@ R = w_1 r_1 + w_2 r_2 + ...w_n r_n = \sum_{i=1}^n w_i r_i
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1176,8 +1177,17 @@ R = w_1 r_1 + w_2 r_2 + ...w_n r_n = \sum_{i=1}^n w_i r_i
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
