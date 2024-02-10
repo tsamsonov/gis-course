@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 1137 1048" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
-    <g transform="matrix(1,0,0,1,0,-2585)">
-        <g id="Raster---TIN" serif:id="Raster - TIN" transform="matrix(0.594238,0,0,1.69854,2.11116e-15,-1805.73)">
+<svg width="100%" height="100%" viewBox="0 0 1137 1049" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,-5768,-331)">
+        <g id="raster_tin" transform="matrix(0.594238,0,0,1.69854,5768,-4059.38)">
             <rect x="-0" y="2585" width="1912.45" height="617" style="fill:none;"/>
             <g id="Outline" transform="matrix(1.68283,0,0,0.58874,-364.827,1406.6)">
                 <path d="M704.486,2152.85L767.557,2229.66L783.728,2321.84L759.471,2438.28L699.635,2475.48L571.069,2486.8L507.999,2445.56L465.952,2321.84L490.21,2176.3L587.241,2144.76L704.486,2152.85Z" style="fill:url(#_Radial1);stroke:black;stroke-width:8px;"/>
@@ -688,13 +688,13 @@
                 <text x="754.736px" y="317.424px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:25.19px;">Г<tspan x="763.099px 776.727px " y="317.424px 317.424px ">ра</tspan>ни</text>
             </g>
             <g transform="matrix(3.2067,0,0,1.12187,-1838.26,2825.68)">
-                <text x="746.147px" y="317.424px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:25.19px;">Ячейки</text>
+                <text x="754.736px" y="317.424px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:25.19px;">Г<tspan x="763.099px 776.727px " y="317.424px 317.424px ">ра</tspan>ни</text>
             </g>
             <g transform="matrix(3.2067,0,0,1.12187,-1030.59,2272.76)">
-                <text x="740.152px" y="317.424px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:25.19px;">Области</text>
+                <text x="692.09px" y="317.424px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:25.19px;">Ячейки (области)</text>
             </g>
             <g transform="matrix(3.2067,0,0,1.12187,-1030.59,2825.68)">
-                <text x="739.169px" y="317.424px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:25.19px;">Пиксели</text>
+                <text x="690.805px" y="317.424px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:25.19px;">Ячейки (пиксели)</text>
             </g>
             <g transform="matrix(3.2067,0,0,1.12187,-2129.51,2688.98)">
                 <text x="689.699px" y="320.362px" style="font-family:'PTSans-Bold', 'PT Sans', sans-serif;font-weight:700;font-size:29.388px;">Растр</text>

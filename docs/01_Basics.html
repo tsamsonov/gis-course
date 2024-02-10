@@ -340,9 +340,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pt-sans" type="text/css">
 </head>
 <body class="quarto-light">
@@ -361,7 +358,7 @@
 </div>
 </div>
 
-  <p class="date">10 февраля 2023 г.</p>
+  <p class="date">9 февраля 2024 г.</p>
 </section>
 <section id="географическая-информация" class="slide level2">
 <h2>Географическая информация</h2>
@@ -639,24 +636,8 @@
 </section>
 <section id="онтология-понятий" class="slide level2">
 <h2>Онтология понятий</h2>
-<div class="cell" data-reveal="true" data-fig-width="11" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-  A(Информация) --&gt; B(Данные)
-  C(Пространственный объект) --&gt; D(Пространственные данные)
-  A --&gt; E(Географическая информация)
-  B --&gt; D
-  E -.-&gt; D
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-<div class="callout callout-note callout-titled callout-style-default">
+
+<img data-src="images/ontology.png" style="width:100.0%" class="r-stretch"><div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
@@ -727,20 +708,7 @@
 <h2>Три уровня моделирования</h2>
 <div class="columns">
 <div class="column" style="width:10%;">
-<div class="cell" data-reveal="true" data-fig-width="1" data-fig-height="6" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-  A((1)) ---&gt; B((2))
-  B ---&gt; C((3))
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
+<p><img data-src="images/123.png" style="width:65.0%"></p>
 </div><div class="column" style="width:90%;">
 <dl>
 <dt>Концептуальная модель <span class="citation" data-cites="gost:43.0.3-2009">(<a href="#/библиография" role="doc-biblioref" onclick="">ГОСТ Р 43.0.3-2009 2018</a>)</span></dt>
@@ -874,7 +842,7 @@
 <p><strong>Вектор (vector)</strong></p>
 </div>
 <div class="callout-content">
-<p>Данные, состоящие из простых объектов, называются <strong>векторными</strong>, т.к. с каждым объектом ассоциирован единственный <em>вектор</em> значений атрибутов.</p>
+<p>Каждый <em>объект</em> имеет кортеж значений атрибутов. Объект называется <strong>векторным,</strong> т.к. любая точка на границе описывается <em>векторным уравнением</em>.</p>
 <p><img data-src="images/simple_feature.svg" style="width:100.0%"></p>
 </div>
 </div>
@@ -890,11 +858,26 @@
 <p><strong>Покрытие (coverage)</strong></p>
 </div>
 <div class="callout-content">
-<p>В <em>каждой</em> точке, принадлежащей объекту, существует уникальное значение каждого атрибута. Его можно запросить с помощью функции, которая называется <strong>покрытием</strong>.</p>
+<p>В каждой <em>точке</em>, принадлежащей объекту, существует кортеж значений атрибутов. Его можно запросить с помощью функции, которая называется <strong>покрытием</strong>.</p>
 <p><img data-src="images/complex_feature.svg" style="width:100.0%"></p>
 </div>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="векторное-уравнение" class="slide level2">
+<h2>Векторное уравнение</h2>
+<p><strong>Векторное уравнение</strong> позволяет получать координаты промежуточных точек на основе конечного числа опорных точек.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Пусть <span class="math inline">\(\mathbf{p_0}\)</span> — начальная точка отрезка, а <span class="math inline">\(\mathbf{p_1}\)</span> — конечная точка.</p>
+<p>Тогда произвольная точка <span class="math inline">\(\mathbf{p}\)</span> на отрезке определяется значением параметра <span class="math inline">\(0 \leq t \leq 1\)</span> в <em>векторном уравнении</em>:</p>
+<p><span class="math display">\[
+\mathbf{p} = (1-t)\mathbf{p_0} + t\mathbf{p_1}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/vector_eq.svg" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -922,7 +905,7 @@
 <p>Основными являются 7 моделей:</p>
 <ul>
 <li><strong>Линейно связные</strong>: <code>POINT</code>, <code>LINESTRING</code>, <code>POLYGON</code></li>
-<li><strong>Линейно несвязные</strong>: <code>MULTIPOINT</code>, <code>MULTIPOINT</code>, <code>MULTIPOLYGON</code>, <code>GEOMETRYCOLLECTION</code></li>
+<li><strong>Линейно несвязные</strong>: <code>MULTIPOINT</code>, <code>MULTILINESTRING</code>, <code>MULTIPOLYGON</code>, <code>GEOMETRYCOLLECTION</code></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -952,8 +935,8 @@
 <p><strong>Линейно связные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 16%">
+<col style="width: 83%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -982,8 +965,8 @@
 <p><strong>Линейно несвязные</strong> модели пространственных объектов.</p>
 <table>
 <colgroup>
-<col style="width: 25%">
-<col style="width: 75%">
+<col style="width: 22%">
+<col style="width: 77%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1194,12 +1177,12 @@
 <img data-src="images/tin_details_4.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="триангуляционное-покрытие-4" class="slide level2">
 <h2>Триангуляционное покрытие</h2>
-<p>У каждого узла есть область влияния. Совокупность таких областей называется <strong>диаграммой Вороного</strong>.</p>
+<p>У каждого узла есть ячейка (область влияния). Совокупность таких ячеек называется <strong>диаграммой Вороного</strong>.</p>
 
 <img data-src="images/tin_details_5.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="триангуляционное-покрытие-5" class="slide level2">
 <h2>Триангуляционное покрытие</h2>
-<p>Диаграмма Вороного дает альтернативную функцию покрытия, в которой поле считается <em>постоянным</em> в пределах областей.</p>
+<p>Диаграмма Вороного дает альтернативную функцию покрытия, в которой поле считается <em>постоянным</em> в пределах ячеек.</p>
 
 <img data-src="images/tin_details_6.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="диаграмма-вороного" class="slide level2">
@@ -1239,12 +1222,12 @@
 <img data-src="images/raster_details_3.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="растровое-покрытие-3" class="slide level2">
 <h2>Растровое покрытие</h2>
-<p>У каждого узла растра есть ассоциированная с ним зона влияния —&nbsp;<strong>пиксель</strong>.</p>
+<p>У каждого узла растра есть ассоциированная с ним зона влияния —&nbsp;<strong>ячейка (пиксель)</strong>.</p>
 
 <img data-src="images/raster_details_4.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="растровое-покрытие-4" class="slide level2">
 <h2>Растровое покрытие</h2>
-<p>Пиксельное представление даёт альтернативную функцию покрытия, в которой поле считается <em>постоянным</em> в пикселе.</p>
+<p>Пиксельное представление даёт альтернативную функцию покрытия, в которой поле считается <em>постоянным</em> в ячейке.</p>
 
 <img data-src="images/raster_details_5.svg" style="width:100.0%" class="r-stretch"></section>
 <section id="растровое-покрытие-5" class="slide level2">
@@ -1305,8 +1288,8 @@
 <div class="column" style="width:65%;">
 <p><img data-src="images/raster_tin.svg" style="width:100.0%"></p>
 </div><div class="column" style="width:35%;">
-<p>Модели покрытий имеют схожие элементы, но их названия различны.</p>
-<p>Однако точки данных всегда называются <strong>узлами</strong>.</p>
+<p>Модели покрытий имеют схожие элементы с одинаковыми названиями.</p>
+<p>Ячейки имеют альтернативные имена (области и пиксели)</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1354,6 +1337,11 @@
 <p>Векторные данные</p>
 <p>Растровые данные</p>
 <p>Покрытие</p>
+<p>Узел</p>
+<p>Ребро</p>
+<p>Грань</p>
+<p>Ячейка</p>
+<p>Пиксель</p>
 </div><div class="column" style="color: red">
 <p>Geographical information science</p>
 <p>Spatial reference</p>
@@ -1362,6 +1350,11 @@
 <p>Vector data</p>
 <p>Raster data</p>
 <p>Coverage</p>
+<p>Node</p>
+<p>Edge</p>
+<p>Face</p>
+<p>Cell</p>
+<p>Pixel</p>
 </div>
 </div>
 </section>
