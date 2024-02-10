@@ -36,7 +36,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/_01_Basics.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/01_Basics.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная привязка и создание объектов
 
