@@ -42,11 +42,11 @@ engine: knitr
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/_02_Georeferencing.html" title="Лекция №2. Пространственная привязка и создание объектов"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/02_Georeferencing.html" title="Лекция №2. Пространственная привязка и создание объектов"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/_02_Georeferencing.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/02_Georeferencing.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Базы пространственных данных
 

@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru" xml:lang="ru"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Самсонов Тимофей Евгеньевич">
+
+<title>Основы геоинформатики - Векторный анализ</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Поиск не дал результатов",
+    "search-matching-documents-text": "Результаты поиска",
+    "search-copy-link-title": "Скопировать ссылку",
+    "search-hide-matches-text": "Скрыть дополнительные результаты",
+    "search-more-match-text": "дополнительный результат в этом документе",
+    "search-more-matches-text": "дополнительных результата(-ов) в этом документе",
+    "search-clear-button-title": "Очистить",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Отменить",
+    "search-submit-button-title": "Найти",
+    "search-label": "Поиск"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Основы геоинформатики</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Поиск"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Переключить навигацию" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Лекции</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./translations.html"> 
+<span class="menu-text">Словарь</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./exam.html"> 
+<span class="menu-text">Зачёт</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://aentin.github.io/qgis-course/"> 
+<span class="menu-text">Практикум в QGIS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://tsamsonov.github.io/arcgis-course/"> 
+<span class="menu-text">Практикум в ArcGIS</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/gis_in_pictures?igshid=NDk5N2NlZjQ="> <i class="bi bi-instagram" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/tsamsonov/gis-course"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Содержание</h2>
+   
+  <ul>
+  <li><a href="#пространственные-отношения" id="toc-пространственные-отношения" class="nav-link active" data-scroll-target="#пространственные-отношения">Пространственные отношения</a></li>
+  <li><a href="#пространственные-отношения-1" id="toc-пространственные-отношения-1" class="nav-link" data-scroll-target="#пространственные-отношения-1">Пространственные отношения</a></li>
+  <li><a href="#расстояния" id="toc-расстояния" class="nav-link" data-scroll-target="#расстояния">Расстояния</a></li>
+  <li><a href="#расстояния-1" id="toc-расстояния-1" class="nav-link" data-scroll-target="#расстояния-1">Расстояния</a></li>
+  <li><a href="#расстояния-2" id="toc-расстояния-2" class="nav-link" data-scroll-target="#расстояния-2">Расстояния</a></li>
+  <li><a href="#метрические-отношения" id="toc-метрические-отношения" class="nav-link" data-scroll-target="#метрические-отношения">Метрические отношения</a></li>
+  <li><a href="#топологические-отношения" id="toc-топологические-отношения" class="nav-link" data-scroll-target="#топологические-отношения">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-1" id="toc-топологические-отношения-1" class="nav-link" data-scroll-target="#топологические-отношения-1">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-2" id="toc-топологические-отношения-2" class="nav-link" data-scroll-target="#топологические-отношения-2">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-3" id="toc-топологические-отношения-3" class="nav-link" data-scroll-target="#топологические-отношения-3">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-4" id="toc-топологические-отношения-4" class="nav-link" data-scroll-target="#топологические-отношения-4">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-5" id="toc-топологические-отношения-5" class="nav-link" data-scroll-target="#топологические-отношения-5">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-6" id="toc-топологические-отношения-6" class="nav-link" data-scroll-target="#топологические-отношения-6">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-7" id="toc-топологические-отношения-7" class="nav-link" data-scroll-target="#топологические-отношения-7">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-8" id="toc-топологические-отношения-8" class="nav-link" data-scroll-target="#топологические-отношения-8">Топологические отношения</a></li>
+  <li><a href="#топологические-отношения-9" id="toc-топологические-отношения-9" class="nav-link" data-scroll-target="#топологические-отношения-9">Топологические отношения</a></li>
+  <li><a href="#дирекционные-отношения" id="toc-дирекционные-отношения" class="nav-link" data-scroll-target="#дирекционные-отношения">Дирекционные отношения</a></li>
+  <li><a href="#дирекционные-отношения-1" id="toc-дирекционные-отношения-1" class="nav-link" data-scroll-target="#дирекционные-отношения-1">Дирекционные отношения</a></li>
+  <li><a href="#дирекционные-отношения-2" id="toc-дирекционные-отношения-2" class="nav-link" data-scroll-target="#дирекционные-отношения-2">Дирекционные отношения</a></li>
+  <li><a href="#пространственные-запросы" id="toc-пространственные-запросы" class="nav-link" data-scroll-target="#пространственные-запросы">Пространственные запросы</a></li>
+  <li><a href="#пространственные-запросы-1" id="toc-пространственные-запросы-1" class="nav-link" data-scroll-target="#пространственные-запросы-1">Пространственные запросы</a></li>
+  <li><a href="#длина-периметр" id="toc-длина-периметр" class="nav-link" data-scroll-target="#длина-периметр">Длина / периметр</a></li>
+  <li><a href="#площадь" id="toc-площадь" class="nav-link" data-scroll-target="#площадь">Площадь</a></li>
+  <li><a href="#принадлежность-точки-полигону" id="toc-принадлежность-точки-полигону" class="nav-link" data-scroll-target="#принадлежность-точки-полигону">Принадлежность точки полигону</a></li>
+  <li><a href="#ограничивающий-прямоугольник" id="toc-ограничивающий-прямоугольник" class="nav-link" data-scroll-target="#ограничивающий-прямоугольник">Ограничивающий прямоугольник</a></li>
+  <li><a href="#выпуклая-оболочка" id="toc-выпуклая-оболочка" class="nav-link" data-scroll-target="#выпуклая-оболочка">Выпуклая оболочка</a></li>
+  <li><a href="#выпуклая-оболочка-1" id="toc-выпуклая-оболочка-1" class="nav-link" data-scroll-target="#выпуклая-оболочка-1">Выпуклая оболочка</a></li>
+  <li><a href="#диаграмма-вороного" id="toc-диаграмма-вороного" class="nav-link" data-scroll-target="#диаграмма-вороного">Диаграмма Вороного</a></li>
+  <li><a href="#триангуляционное-покрытие" id="toc-триангуляционное-покрытие" class="nav-link" data-scroll-target="#триангуляционное-покрытие">Триангуляционное покрытие</a></li>
+  <li><a href="#центроид-и-срединная-ось" id="toc-центроид-и-срединная-ось" class="nav-link" data-scroll-target="#центроид-и-срединная-ось">Центроид и срединная ось</a></li>
+  <li><a href="#буферные-зоны" id="toc-буферные-зоны" class="nav-link" data-scroll-target="#буферные-зоны">Буферные зоны</a></li>
+  <li><a href="#преобразование-моделей-объектов" id="toc-преобразование-моделей-объектов" class="nav-link" data-scroll-target="#преобразование-моделей-объектов">Преобразование моделей объектов</a></li>
+  <li><a href="#преобразования-мультиобъектов" id="toc-преобразования-мультиобъектов" class="nav-link" data-scroll-target="#преобразования-мультиобъектов">Преобразования мультиобъектов</a></li>
+  <li><a href="#слияние-объединение-по-признаку" id="toc-слияние-объединение-по-признаку" class="nav-link" data-scroll-target="#слияние-объединение-по-признаку">Слияние (объединение по признаку)</a></li>
+  <li><a href="#оверлей" id="toc-оверлей" class="nav-link" data-scroll-target="#оверлей">Оверлей</a></li>
+  <li><a href="#оверлей-1" id="toc-оверлей-1" class="nav-link" data-scroll-target="#оверлей-1">Оверлей</a></li>
+  <li><a href="#оверлей-2" id="toc-оверлей-2" class="nav-link" data-scroll-target="#оверлей-2">Оверлей</a></li>
+  <li><a href="#оверлей-3" id="toc-оверлей-3" class="nav-link" data-scroll-target="#оверлей-3">Оверлей</a></li>
+  <li><a href="#отношение-геометрии-и-атрибутов" id="toc-отношение-геометрии-и-атрибутов" class="nav-link" data-scroll-target="#отношение-геометрии-и-атрибутов">Отношение геометрии и атрибутов</a></li>
+  <li><a href="#оверлей-4" id="toc-оверлей-4" class="nav-link" data-scroll-target="#оверлей-4">Оверлей</a></li>
+  <li><a href="#словарик" id="toc-словарик" class="nav-link" data-scroll-target="#словарик">Словарик</a></li>
+  <li><a href="#библиография" id="toc-библиография" class="nav-link" data-scroll-target="#библиография">Библиография</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Другие форматы</h2><ul><li><a href="04_Vector.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Векторный анализ</h1>
+<p class="subtitle lead">Основы геоинформатики. Лекция 4</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Автор</div>
+    <div class="quarto-title-meta-contents">
+             <p>Самсонов Тимофей Евгеньевич </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Дата публикации</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">10 марта 2023 г.</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="пространственные-отношения" class="level2">
+<h2 class="anchored" data-anchor-id="пространственные-отношения">Пространственные отношения</h2>
+<dl>
+<dt>Отношение</dt>
+<dd>
+<p>Свойство двух или более объектов, выраженное в наличии или отсутствии определенной связи между ними.</p>
+</dd>
+<dt>Пространственное отношение</dt>
+<dd>
+<p>Отношение пространственных объектов, которое зависит от их местоположения.</p>
+</dd>
+</dl>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Предикат
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Формальным представлением отношения является <strong>предикат</strong> — функция, определенная на множестве объектов и принимающая для их упорядоченного набора значение <strong>1</strong> (<code>ИСТИНА</code>) или <strong>0</strong> (<code>ЛОЖЬ</code>). Предикаты пространственных отношений называются пространственными.</p>
+</div>
+</div>
+</section>
+<section id="пространственные-отношения-1" class="level2">
+<h2 class="anchored" data-anchor-id="пространственные-отношения-1">Пространственные отношения</h2>
+<p>К основным видам пространственных отношений относятся:</p>
+<ol type="1">
+<li><p><strong>Метрические</strong> — определяются расстояниями между объектами.</p></li>
+<li><p><strong>Топологические</strong> — определяются пересечениями объектов.</p></li>
+<li><p><strong>Дирекционные</strong> — определяются направлениями между объектами</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Пространственные предикаты
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Функции, которые устанавливают наличие метрических, топологических и дирекционных отношений, являются пространственными предикатами.</p>
+</div>
+</div>
+</section>
+<section id="расстояния" class="level2">
+<h2 class="anchored" data-anchor-id="расстояния">Расстояния</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="евклидово-расстояние" class="level4">
+<h4 class="anchored" data-anchor-id="евклидово-расстояние">Евклидово расстояние</h4>
+<p>Используется в плоских прямоугольных системах координат</p>
+<p><span class="math display">\[
+d(A,B) = \sqrt{(x_A - x_B)^2 + (y_A - y_B)^2}
+\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ограничения
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Евклидово расстояние наследует искажения проекции, а также предполагает, что объекты доступны напрямую.</p>
+</div>
+</div>
+</section>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/dist_euc.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="расстояния-1" class="level2">
+<h2 class="anchored" data-anchor-id="расстояния-1">Расстояния</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="манхэттенское-расстояние" class="level4">
+<h4 class="anchored" data-anchor-id="манхэттенское-расстояние">Манхэттенское расстояние</h4>
+<p>Аппроксимирует реальное расстояние между точками в транспортных сетях с ортогональной планировкой.</p>
+<p><span class="math display">\[
+d(A,B) = |x_A - x_B| + |y_A - y_B|
+\]</span></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ограничения
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Даёт преимущества только в том случае когда дорожная сеть ориентирована по направлениям осей <span class="math inline">\(X\)</span> и <span class="math inline">\(Y\)</span>.</p>
+</div>
+</div>
+</section>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/dist_manh.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="расстояния-2" class="level2">
+<h2 class="anchored" data-anchor-id="расстояния-2">Расстояния</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<section id="геодезические-расстояние" class="level4">
+<h4 class="anchored" data-anchor-id="геодезические-расстояние">Геодезические расстояние</h4>
+<p>Кратчайшее расстояние между точками на поверхности эллипсоида. Для сферы:</p>
+<p><span class="math display">\[
+d(A,B) = \\ \arccos (
+\sin \phi_A \sin \phi_B + \\
+\cos \phi_A \cos \phi_B \cos(\lambda_A - \lambda_B))
+\]</span></p>
+</section>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/dist_geo.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Геодезическая линия и ортодромия
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Линия кратчайшего расстояния <em>на эллипсоиде</em> — <strong>геодезическая</strong>.<br>
+Линия кратчайшего расстояния <em>на сфере</em> — <strong>ортодромия.</strong></p>
+</div>
+</div>
+</section>
+<section id="метрические-отношения" class="level2">
+<h2 class="anchored" data-anchor-id="метрические-отношения">Метрические отношения</h2>
+<p><strong>Метрические отношения</strong> устанавливают расстояния между объектами с использованием выбранной метрики.</p>
+<p><img src="images/dist_all.svg" class="img-fluid" style="width:100.0%"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Метрики
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Для оценки расстояний может использоваться множество других метрик. Они не исчерпываются приведенными примерами.</p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения">Топологические отношения</h2>
+<p>Топологические отношения можно описать в терминах пересечения трех областей каждого объекта <span class="citation" data-cites="egenhofer1991">(<a href="#ref-egenhofer1991" role="doc-biblioref">Egenhofer и Franzosa 1991</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>Внутренняя область (<span class="math inline">\(A^o\)</span>)</p></li>
+<li><p>Граница (<span class="math inline">\(\partial A\)</span>)</p></li>
+<li><p>Внешняя область (<span class="math inline">\(A^-\)</span>)</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/egenhofer.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Матрица Эгенхофера <strong>9-IM</strong> содержит 0 или 1 в зависимости от наличия или отсутствия пересечения:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+A^o  \cap B^o \ne \emptyset   &amp;   A^o \cap \partial{B} \ne \emptyset &amp; A^o \cap B^- \ne \emptyset \\
+\partial{A} \cap B^o \ne \emptyset   &amp;    \partial{A} \cap \partial{B} \ne \emptyset  &amp;  \partial{A} \cap B^- \ne \emptyset \\
+A^- \cap B^o \ne \emptyset    &amp;    A^- \cap \partial{B} \ne \emptyset   &amp;   A^-  \cap B^- \ne \emptyset
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="топологические-отношения-1" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-1">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Не пересекает</dt>
+<dd>
+<p>Внутренняя область и граница <strong>A</strong> не имеют пересечений с внутренней областью и границей <strong>B</strong></p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    0 &amp; 0 &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что объекты никак не соприкасаются в пространстве.</p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img src="images/topo_disjoint.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-2" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-2">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Равен</dt>
+<dd>
+<p>Границы, внутренние и внешние области <strong>A</strong> пересекаются с <em>аналогичными</em> элементами <strong>B</strong></p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; 0 &amp; 0 \\
+    0 &amp; \bf{1} &amp; 0 \\
+    0 &amp; 0 &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что объекты совпадают.</p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img src="images/topo_equals.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-3" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-3">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Перекрывает</dt>
+<dd>
+<p>Все компоненты <strong>A</strong> пересекаются со всеми компонентами <strong>B</strong></p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что объекты имеют частичное перекрытие.</p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img src="images/topo_overlaps.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-4" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-4">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<dl>
+<dt>Касается</dt>
+<dd>
+<p>Внутренняя область и граница <strong>A</strong> не пересекатся с внутренней областью <strong>B</strong> и наоборот.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    0 &amp; 0 &amp; \bf{1} \\
+    0 &amp; \bf{1} &amp; \bf{1} \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что объекты касаются друг друга снаружи.</p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img src="images/topo_touches.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-5" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-5">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Покрывает</dt>
+<dd>
+<p>Внешняя область <strong>A</strong> не пересекается с границей и внутренней областью <strong>B</strong>, а граница <strong>A</strong> не пересекается с внутренней областью <strong>B</strong>.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    0 &amp; \bf{1} &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что один объект содержит внутри себя другой объект, который касается его границы.</p>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img src="images/topo_covers.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-6" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-6">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Покрыт</dt>
+<dd>
+<p>Внешняя область <strong>B</strong> не пересекается с границей и внутренней областью <strong>A</strong>, а граница <strong>B</strong> не пересекается с внутренней областью <strong>A</strong>.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; 0 &amp; 0 \\
+    \bf{1} &amp; \bf{1} &amp; 0 \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что один объект содержится внутри другого объекта и касается его границы.</p>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img src="images/topo_covered.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-7" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-7">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Содержит</dt>
+<dd>
+<p>Внешняя область и граница <strong>A</strong> не пересекается с границей и внутренней областью <strong>B</strong>, остальные пересечения присутствуют.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+    0 &amp; 0 &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что один объект содержит внутри себя другой объект.</p>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img src="images/topo_contains.svg" class="img-fluid" style="width:80.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-8" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-8">Топологические отношения</h2>
+<div class="columns">
+<div class="column" style="width:65%;">
+<dl>
+<dt>Внутри</dt>
+<dd>
+<p>Внешняя область и граница <strong>B</strong> не пересекается с границей и внутренней областью <strong>A</strong>, остальные пересечения присутствуют.</p>
+</dd>
+</dl>
+<p><span class="math display">\[
+\begin{bmatrix}
+    \bf{1} &amp; 0 &amp; 0 \\
+    \bf{1} &amp; 0 &amp; 0 \\
+    \bf{1} &amp; \bf{1} &amp; \bf{1} \\
+\end{bmatrix}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используется чтобы установить, что один объект содержится внутри другого объекта.</p>
+</div>
+</div>
+</div><div class="column" style="width:35%;">
+<p><img src="images/topo_within.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="топологические-отношения-9" class="level2">
+<h2 class="anchored" data-anchor-id="топологические-отношения-9">Топологические отношения</h2>
+<dl>
+<dt>Пересекает</dt>
+<dd>
+<p>Внутренняя область или граница <strong>A</strong> пересекается с внутренней областью или границей <strong>B</strong>.</p>
+</dd>
+</dl>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/topo_all.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</section>
+<section id="дирекционные-отношения" class="level2">
+<h2 class="anchored" data-anchor-id="дирекционные-отношения">Дирекционные отношения</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Угловая модель</strong> базируется на вычислении угла направления с точки <strong>A</strong> в точку <strong>B</strong>.</p>
+<ul>
+<li>Как правило используется дирекционный угол или азимут.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ограничения
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Применима только для точечных объектов</p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/dir_ang.svg" class="img-fluid" style="width:70.0%"></p>
+</div>
+</div>
+</section>
+<section id="дирекционные-отношения-1" class="level2">
+<h2 class="anchored" data-anchor-id="дирекционные-отношения-1">Дирекционные отношения</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><strong>Прямоугольная модель</strong> разделяет плоскость на 9 секторов относительно прямоугольника, ограничивающего объект.</p>
+<ul>
+<li>Используется минимальный ограничивающий прямоугольник со сторонами, параллельными осям координат.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ограничения
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Дает качественную оценку направления по сторонам света</p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><img src="images/dir_mbr.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="дирекционные-отношения-2" class="level2">
+<h2 class="anchored" data-anchor-id="дирекционные-отношения-2">Дирекционные отношения</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Проективная модель</strong> используется для оценки направления на третий объект <strong>C</strong> относительно двух других объектов <strong>A</strong> и <strong>B</strong>.</p>
+<ul>
+<li>Плоскость делится на 4 “конуса”, а также область между объектами.</li>
+</ul>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ограничения
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Дает качественную оценку направления и применяется для <em>движущихся</em> объектов</p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/dir_proj.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="пространственные-запросы" class="level2">
+<h2 class="anchored" data-anchor-id="пространственные-запросы">Пространственные запросы</h2>
+<p>Пространственные запросы аналогичны атрибутивным, но в качестве условия используют пространственные отношения.</p>
+<p><img src="images/sp_relations.svg" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="пространственные-запросы-1" class="level2">
+<h2 class="anchored" data-anchor-id="пространственные-запросы-1">Пространственные запросы</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/dist_bld.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%"></p>
+<figcaption>Дома на расстоянии 100 м от реки</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/within_pts.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%"></p>
+<figcaption>Почвенные разрезы в пределах леса</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/touch_rds.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:60.0%"></p>
+<figcaption>Дороги, примыкающие к границе</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/dir_meteo.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:55.0%"></p>
+<figcaption>Метеостанции к северо-западу от гидропоста</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="длина-периметр" class="level2">
+<h2 class="anchored" data-anchor-id="длина-периметр">Длина / периметр</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Рассчитываются как сумма длин отрезков, составляющих контур объекта:</p>
+<p><span class="math display">\[
+L =\\ \sum_{i=0}^{n-2}\sqrt{(x_{i+1}-x_i)^2 + (y_{i+1}-y_i)^2}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Полигон
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>У полигона последняя точка должна иметь такие же координаты, как и первая.</p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/perimeter.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="площадь" class="level2">
+<h2 class="anchored" data-anchor-id="площадь">Площадь</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Рассчитывается как сумма площадей трапеций, ограниченных сверху отрезками, составляющими контур объекта:</p>
+<p><span class="math display">\[
+A = \frac{1}{2}\sum_{i=0}^{n-2} \underbrace{(y_{i+1}+y_{i})}_{\texttt{основания}}\underbrace{(x_{i+1}-x_{i})}_{\texttt{высота}}
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Отрицательная площадь
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Трапеции, у которых <span class="math inline">\(i+1\)</span>-я точка имеет меньший X, чем <span class="math inline">\(i\)</span>-я, имеют отрицательную площадь.</p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/area.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="принадлежность-точки-полигону" class="level2">
+<h2 class="anchored" data-anchor-id="принадлежность-точки-полигону">Принадлежность точки полигону</h2>
+<p>Луч, выпущенный из точки в направлении оси <span class="math inline">\(X\)</span>, пересекает границу полигона <strong>нечетное</strong> количество раз.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img src="images/point_polygon.svg" class="img-fluid" style="width:90.0%"></p>
+</div><div class="column" style="width:40%;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Обратите внимание
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Если луч пересекает одну из <em>вершин</em> полигона, и оба примыкающих к ней отрезка находятся по одну сторону от луча, это засчитывается как два пересечения.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Данная операция активно используется при оценке топологических отношений — например, для выполнения пространственных запросов.</p>
+</div>
+</div>
+</section>
+<section id="ограничивающий-прямоугольник" class="level2">
+<h2 class="anchored" data-anchor-id="ограничивающий-прямоугольник">Ограничивающий прямоугольник</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Ограничивающий прямоугольник</strong> определяет охват данных по осям координат.</p>
+<p>Задаётся координатами углов:</p>
+<ul>
+<li><p>левого нижнего <span class="math inline">\((x_{min}, y_{min})\)</span></p></li>
+<li><p>правого верхнего <span class="math inline">\((x_{max}, y_{max})\)</span></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="images/bbox.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ограничивающий прямоугольник является важным элементом <em>метаданных</em> — описания пространственных данных, но также используется и в аналитических задачах.</p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка" class="level2">
+<h2 class="anchored" data-anchor-id="выпуклая-оболочка">Выпуклая оболочка</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Выпуклая оболочка</strong> — наименьший по площади выпуклый многоугольник, <em>покрывающий</em> заданное множество точек.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Выпуклое множество
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Множество, в котором отрезок, соединяющий любые две точки также находится внутри этого множества.</p>
+<p><img src="images/non_convex.svg" class="img-fluid" style="width:65.0%"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/convex_hull.svg" class="img-fluid" style="width:75.0%"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Выпуклые оболочки используются для восстановления ареалов по точечным измерениям. Также выпуклая оболочка является границей <em>триангуляционного покрытия</em>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-1" class="level2">
+<h2 class="anchored" data-anchor-id="выпуклая-оболочка-1">Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#ref-jarvis1973" role="doc-biblioref">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>находим <em>нулевую</em> точку с минимальной координатой <span class="math inline">\(X\)</span>;</p></li>
+<li><p>ищем <em>первую</em> точку с минимальным дирекционным углом;</p></li>
+<li><p>получаем отрезок <span class="math inline">\(p_0 p_1\)</span>;</p></li>
+<li><p>продолжаем поиск, находя следующий отрезок, образующий минимальный угол поворота относительно предыдущего.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="images/jarvis.gif" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="диаграмма-вороного" class="level2">
+<h2 class="anchored" data-anchor-id="диаграмма-вороного">Диаграмма Вороного</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img src="images/voronoy_outline.svg" class="img-fluid" style="width:100.0%"></p>
+</div><div class="column" style="width:60%;">
+<dl>
+<dt>Диаграмма Вороного</dt>
+<dd>
+<p>Диаграмма Вороного конечного множества точек <span class="math inline">\(S\)</span> на плоскости представляет такое разбиение плоскости, при котором каждая область этого разбиения образует множество точек, более близких к одному из элементов множества <span class="math inline">\(S\)</span>, чем к любому другому элементу множества.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Диаграмма Вороного используется при моделировании зон влияния объектов.</p>
+</div>
+</div>
+</section>
+<section id="триангуляционное-покрытие" class="level2">
+<h2 class="anchored" data-anchor-id="триангуляционное-покрытие">Триангуляционное покрытие</h2>
+<p>Элементы триангуляционной модели имеют свои названия.</p>
+<p><img src="images/tin_details_7.svg" class="img-fluid" style="width:100.0%"></p>
+</section>
+<section id="центроид-и-срединная-ось" class="level2">
+<h2 class="anchored" data-anchor-id="центроид-и-срединная-ось">Центроид и срединная ось</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Центроид</strong> — точка, представляющая среднее значение координат полигона без учета последней точки (которая совпадает с первой):</p>
+<p><span class="math display">\[
+C = \Bigg(\frac{1}{n-1}\sum_{i=0}^{n-2} x_i, \frac{1}{n-1}\sum_{i=0}^{n-2} y_i \Bigg)
+\]</span></p>
+<p><strong>Срединная ось</strong> — линия равноудаленная от границ полигона.</p>
+</div><div class="column" style="width:50%;">
+<p><img src="images/centroid_axis.svg" class="img-fluid" style="width:100.0%"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используются для картографической генерализации.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="буферные-зоны" class="level2">
+<h2 class="anchored" data-anchor-id="буферные-зоны">Буферные зоны</h2>
+<p><strong>Буферная зона</strong> — это множество точек, располагающихся в пределах заданного расстояния относительно объекта.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>буфер точки представляет собой круг;</p></li>
+<li><p>буфер полигона может быть положительным и отрицательным;</p></li>
+<li><p>буфер точки или линии всегда положительный.</p></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img src="images/buffering.svg" class="img-fluid" style="width:65.0%"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Используются при анализе влияния. Например, определения водоохранных зон.</p>
+</div>
+</div>
+</section>
+<section id="преобразование-моделей-объектов" class="level2">
+<h2 class="anchored" data-anchor-id="преобразование-моделей-объектов">Преобразование моделей объектов</h2>
+<p>Между любыми моделями пространственных объектов возможны взаимные преобразования.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img src="images/conversions.svg" class="img-fluid" style="width:100.0%"></p>
+</div><div class="column" style="width:40%;">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Например, можно получить из полигона заповедника поворотные точки его границы. Или восстановить линию почвенного профиля по точкам разрезов.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Мультигеометрия
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>При конвертации полигона или линии в точки обычно получается мультиточечный объект.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="преобразования-мультиобъектов" class="level2">
+<h2 class="anchored" data-anchor-id="преобразования-мультиобъектов">Преобразования мультиобъектов</h2>
+<p>В некоторых случаях требуется преобразовать мультиобъект в множество отдельных объектов и наоборот.</p>
+<p><img src="images/multi_conv.svg" class="img-fluid" style="width:100.0%"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Например, требуется провести анализ в пределах отдельных островов архипелага.</p>
+</div>
+</div>
+</section>
+<section id="слияние-объединение-по-признаку" class="level2">
+<h2 class="anchored" data-anchor-id="слияние-объединение-по-признаку">Слияние (объединение по признаку)</h2>
+<p><strong>Слияние</strong> (объединение по признаку) — это объединение геометрий пересекающихся объектов с одинаковым значением атрибута.</p>
+<p><img src="images/dissolve.svg" class="img-fluid" style="width:85.0%"></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Применение
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Слияние всегда сопровождает агрегирование атрибутов и используется при укрупнении единиц картографирования. Также может применяться при векторизации, когда объект создается по фрагментам, которые далее необходимо объединить.</p>
+</div>
+</div>
+</section>
+<section id="оверлей" class="level2">
+<h2 class="anchored" data-anchor-id="оверлей">Оверлей</h2>
+<p><strong>Оверлей</strong> — пространственное наложение двух или более пространственных объектов, при котором образуется их геометрическая и атрибутивная композиция.</p>
+<p><img src="images/overlay.svg" class="img-fluid" style="width:100.0%"></p>
+<p><strong>Оверлей</strong> — одна из самых полезных геометрических операций.</p>
+</section>
+<section id="оверлей-1" class="level2">
+<h2 class="anchored" data-anchor-id="оверлей-1">Оверлей</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><em>Пересечение</em> используется для <strong>обрезки данных</strong> по указанной области.</p>
+<p>Область обрезки может быть произвольной, но чаще всего используется ограничивающий прямоугольник</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Clip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Обрезка данных <em>(clip)</em> является частным случаем пересечения с полигональным объектом, при котором наследуются только атрибуты обрезаемых объектов.</p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img src="images/clip.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="оверлей-2" class="level2">
+<h2 class="anchored" data-anchor-id="оверлей-2">Оверлей</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Пространственная ассоциация</strong> — взаимосвязь местоположения объектов — также может быть исследована путем оверлея.</p>
+<p>Для двух классов <span class="math inline">\(A\)</span> и <span class="math inline">\(B\)</span>:</p>
+<ul>
+<li><p>односторонняя ассоциация:<br>
+<span class="math inline">\(|A \cap B|/ |A|\)</span></p></li>
+<li><p>двусторонняя ассоциация:<br>
+<span class="math inline">\(|A \cap B| / |A \cup B|\)</span></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="images/assoc.svg" class="img-fluid" style="width:80.0%"></p>
+</div>
+</div>
+<p>Для анализа ассоциации двух явлений — например <em>типов почв и рельефа</em> — состоящих из множества классов, используются специальные индексы. Например, индекс <a href="https://en.wikipedia.org/wiki/Cramér%27s_V"><strong>Крамера V</strong></a>.</p>
+</section>
+<section id="оверлей-3" class="level2">
+<h2 class="anchored" data-anchor-id="оверлей-3">Оверлей</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Пространственные соотношения</strong> различных типов объектов в пределах заданных участков также определяются методом оверлея.</p>
+<p>Доля класса <span class="math inline">\(A\)</span> в пределах участка <span class="math inline">\(C\)</span>:</p>
+<p><span class="math display">\[
+|A \cap C|/ |C|
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><img src="images/ratio.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Пример
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Модели формирования речного стока работают на растровой сетке и требуют задания соотношения типов подстилающей поверхности для каждой ячейки.</p>
+</div>
+</div>
+</section>
+<section id="отношение-геометрии-и-атрибутов" class="level2">
+<h2 class="anchored" data-anchor-id="отношение-геометрии-и-атрибутов">Отношение геометрии и атрибутов</h2>
+<p>В геореляционных базах данных допустимое множество операций над атрибутом также зависит от того как он получен относительно пространства.</p>
+<p><strong>Опора измерений</strong> — физический объем, подвергнутый измерению.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Экстенсивные атрибуты
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Пропорциональны опоре измерений. Суммируются при объединении территорий и делятся при разделении.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/extensive.svg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Численность населения</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Интенсивные атрибуты
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Не пропорциональны опоре измерений. Осредняются при объединении территорий и остаются прежними при разделении.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/intensive.svg" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Плотность населения</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="оверлей-4" class="level2">
+<h2 class="anchored" data-anchor-id="оверлей-4">Оверлей</h2>
+<p><strong>Интерполяция, взвешенная на площадь</strong> — способ пересчета количественного показателя между сетками учетных единиц.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Для каждой из <span class="math inline">\(q\)</span> выходных единиц <span class="math inline">\(T_j\)</span>, средневзвешенное значение <span class="math inline">\(Y_i\)</span> извлеченное из <span class="math inline">\(p\)</span> исходных единиц <span class="math inline">\(S_i\)</span>, равно:</p>
+<p><span class="math display">\[
+\hat{Y_j}(T_j) = \sum_{i=1}^p w_{ij} Y_i(S_i)
+\]</span></p>
+<ul>
+<li><p>экстенсивная: <span class="math inline">\(w_{ij} = \frac{|T_j \cap S_i|}{|S_i|}\)</span></p></li>
+<li><p>интенсивная: <span class="math inline">\(w_{ij} = \frac{|T_j \cap S_i|}{|T_j|}\)</span></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="images/areaweighted.svg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="словарик" class="level2">
+<h2 class="anchored" data-anchor-id="словарик">Словарик</h2>
+<div class="columns">
+<div class="column" style="color: blue; text-align: end;">
+<p>Пространственное отношение</p>
+<p>Евклидово расстояние</p>
+<p>Геодезическое расстояние</p>
+<p>Метрическое отношение</p>
+<p>Топологическое отношение</p>
+<p>Дирекционное отношение</p>
+<p>Пространственный запрос</p>
+<p>Огранич. прямоугольник</p>
+<p>Выпуклая оболочка</p>
+<p>Диаграмма Вороного</p>
+<p>Центроид</p>
+<p>Срединная ось</p>
+<p>Буферная зона</p>
+<p>Слияние</p>
+<p>Оверлей</p>
+<p>Обрезка</p>
+<p>Интерполяция, взвешенная на площадь</p>
+</div><div class="column" style="color: red">
+<p>Spatial relation</p>
+<p>Euclidean distance</p>
+<p>Geodesic distance</p>
+<p>Metric relation</p>
+<p>Topological relation</p>
+<p>Directional relation</p>
+<p>Spatial query</p>
+<p>Bounding box</p>
+<p>Convex hull</p>
+<p>Voronoy diagram</p>
+<p>Centroid</p>
+<p>Medial axis</p>
+<p>Buffer</p>
+<p>Dissolve</p>
+<p>Overlay</p>
+<p>Clip</p>
+<p>Area-weighted interpolation</p>
+</div>
+</div>
+</section>
+<section id="библиография" class="level2">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Библиография</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-egenhofer1991" class="csl-entry" role="listitem">
+Egenhofer, Max J., и Robert D. Franzosa. 1991. <span>«Point-set topological spatial relations»</span>. <em>International Journal of Geographical Information Systems</em> 5 (2): 161–74. <a href="https://doi.org/10.1080/02693799108927841">https://doi.org/10.1080/02693799108927841</a>.
+</div>
+<div id="ref-jarvis1973" class="csl-entry" role="listitem">
+Jarvis, R.A. 1973. <span>«On the Identification of the Convex Hull of a Finite Set of Points in the Plane»</span>. <em>Information Processing Letters</em> 2 (1): 18–21. <a href="https://doi.org/10.1016/0020-0190(73)90020-3">https://doi.org/10.1016/0020-0190(73)90020-3</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+
+<script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
+
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
+
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+      });
+    }
+
+  })();
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Скопировано");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Скопировано");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2023, Тимофей Самсонов, Географический факультет МГУ имени М. В. Ломоносова</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
