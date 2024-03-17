@@ -839,11 +839,40 @@ A^- \cap B^o \ne \emptyset    &amp;    A^- \cap \partial{B} \ne \emptyset   &amp
 </dl>
 
 <img data-src="images/topo_all.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+<section id="пересдача-контрольной-работы-1" class="slide level2">
+<h2>Пересдача контрольной работы №1</h2>
+<table>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 42%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Группа</th>
+<th>Преподаватели</th>
+<th>Пересдача</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>206, 207, 209, 213, 214, 217</td>
+<td>Грищенко, Карпачевский, Ушакова, Энтин</td>
+<td><strong>Четверг 21 марта, 17:00, ауд. 1903</strong></td>
+</tr>
+<tr class="even">
+<td>201, 202, 204, 210, 212, 218, 221, 222</td>
+<td>Аляутдинов, Титов</td>
+<td><strong>Вторник 26 марта, 17:30, ауд. 1903</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="дирекционные-отношения" class="slide level2">
 <h2>Дирекционные отношения</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Угловая модель</strong> базируется на вычислении угла направления с точки <strong>A</strong> в точку <strong>B</strong>.</p>
+<p><strong>Угловая (коническая) модель</strong> базируется на вычислении угла направления с точки <strong>A</strong> в точку <strong>B</strong>.</p>
 <ul>
 <li>Как правило используется дирекционный угол или азимут.</li>
 </ul>
@@ -1111,15 +1140,146 @@ A = \frac{1}{2}\sum_{i=0}^{n-2} \underbrace{(y_{i+1}+y_{i})}_{\texttt{основ
 <h2>Выпуклая оболочка</h2>
 <p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_1.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-2" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Найти точку <span class="math inline">\(q_1\)</span> с минимальным дир. углом относительно <span class="math inline">\(q_0\)</span>.</p></li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_2.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-3" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Найти точку <span class="math inline">\(q_1\)</span> с минимальным дир. углом относительно <span class="math inline">\(q_0\)</span>.</p></li>
+<li><p>Пока <span class="math inline">\(q_k \neq q_0\)</span> начиная с <span class="math inline">\(k=1\)</span></p>
 <ul>
-<li><p>находим <em>нулевую</em> точку с минимальной координатой <span class="math inline">\(X\)</span>;</p></li>
-<li><p>ищем <em>первую</em> точку с минимальным дирекционным углом;</p></li>
-<li><p>получаем отрезок <span class="math inline">\(p_0 p_1\)</span>;</p></li>
-<li><p>продолжаем поиск, находя следующий отрезок, образующий минимальный угол поворота относительно предыдущего.</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="images/jarvis.gif"></p>
+<li><p>найти точку <span class="math inline">\(q_{k+1}\)</span> с минимальным углом поворота относительно прямой, проходящей через <span class="math inline">\(\overline{q_{k-1}q_k}\)</span>;</p></li>
+<li><p><span class="math inline">\(k = k + 1\)</span>.</p></li>
+</ul></li>
+</ol>
+<p><span class="math inline">\(k = 2,~q_2 \neq q_0\)</span></p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_3.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-4" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Найти точку <span class="math inline">\(q_1\)</span> с минимальным дир. углом относительно <span class="math inline">\(q_0\)</span>.</p></li>
+<li><p>Пока <span class="math inline">\(q_k \neq q_0\)</span> начиная с <span class="math inline">\(k=1\)</span></p>
+<ul>
+<li><p>найти точку <span class="math inline">\(q_{k+1}\)</span> с минимальным углом поворота относительно прямой, проходящей через <span class="math inline">\(\overline{q_{k-1}q_k}\)</span>;</p></li>
+<li><p><span class="math inline">\(k = k + 1\)</span>.</p></li>
+</ul></li>
+</ol>
+<p><span class="math inline">\(k=3,~q_3 \neq q_0\)</span></p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_4.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-5" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Найти точку <span class="math inline">\(q_1\)</span> с минимальным дир. углом относительно <span class="math inline">\(q_0\)</span>.</p></li>
+<li><p>Пока <span class="math inline">\(q_k \neq q_0\)</span> начиная с <span class="math inline">\(k=1\)</span></p>
+<ul>
+<li><p>найти точку <span class="math inline">\(q_{k+1}\)</span> с минимальным углом поворота относительно прямой, проходящей через <span class="math inline">\(\overline{q_{k-1}q_k}\)</span>;</p></li>
+<li><p><span class="math inline">\(k = k + 1\)</span>.</p></li>
+</ul></li>
+</ol>
+<p><span class="math inline">\(k=4,~q_4 \neq q_0\)</span></p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_5.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-6" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Найти точку <span class="math inline">\(q_1\)</span> с минимальным дир. углом относительно <span class="math inline">\(q_0\)</span>.</p></li>
+<li><p>Пока <span class="math inline">\(q_k \neq q_0\)</span> начиная с <span class="math inline">\(k=1\)</span></p>
+<ul>
+<li><p>найти точку <span class="math inline">\(q_{k+1}\)</span> с минимальным углом поворота относительно прямой, проходящей через <span class="math inline">\(\overline{q_{k-1}q_k}\)</span>;</p></li>
+<li><p><span class="math inline">\(k = k + 1\)</span>.</p></li>
+</ul></li>
+</ol>
+<p><span class="math inline">\(k=5,~q_5 \neq q_0\)</span></p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_6.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-7" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Найти точку <span class="math inline">\(q_1\)</span> с минимальным дир. углом относительно <span class="math inline">\(q_0\)</span>.</p></li>
+<li><p>Пока <span class="math inline">\(q_k \neq q_0\)</span> начиная с <span class="math inline">\(k=1\)</span></p>
+<ul>
+<li><p>найти точку <span class="math inline">\(q_{k+1}\)</span> с минимальным углом поворота относительно прямой, проходящей через <span class="math inline">\(\overline{q_{k-1}q_k}\)</span>;</p></li>
+<li><p><span class="math inline">\(k = k + 1\)</span>.</p></li>
+</ul></li>
+</ol>
+<p><span class="math inline">\(k=6,~q_6 = q_0\)</span></p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_7.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="выпуклая-оболочка-8" class="slide level2">
+<h2>Выпуклая оболочка</h2>
+<p>Известный метод построения — <strong>алгоритм Джарвиса</strong> <span class="citation" data-cites="jarvis1973">(<a href="#/библиография" role="doc-biblioref" onclick="">Jarvis 1973</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Найти точку <span class="math inline">\(q_0\)</span> с минимальной координатой <span class="math inline">\(X\)</span>.</p></li>
+<li><p>Найти точку <span class="math inline">\(q_1\)</span> с минимальным дир. углом относительно <span class="math inline">\(q_0\)</span>.</p></li>
+<li><p>Пока <span class="math inline">\(q_k \neq q_0\)</span> начиная с <span class="math inline">\(k=1\)</span></p>
+<ul>
+<li><p>найти точку <span class="math inline">\(q_{k+1}\)</span> с минимальным углом поворота относительно прямой, проходящей через <span class="math inline">\(\overline{q_{k-1}q_k}\)</span>;</p></li>
+<li><p><span class="math inline">\(k = k + 1\)</span>.</p></li>
+</ul></li>
+<li><p>Восстановить полигон по точкам <span class="math inline">\(q_0, q_1, … q_k\)</span>, где <span class="math inline">\(k &gt; 2\)</span> и <span class="math inline">\(q_0 = q_k\)</span>.</p></li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/convex_hull_8.svg" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -1151,11 +1311,11 @@ A = \frac{1}{2}\sum_{i=0}^{n-2} \underbrace{(y_{i+1}+y_{i})}_{\texttt{основ
 </div>
 </div>
 </section>
-<section id="триангуляционное-покрытие" class="slide level2">
-<h2>Триангуляционное покрытие</h2>
-<p>Элементы триангуляционной модели имеют свои названия.</p>
+<section id="диаграмма-вороного-1" class="slide level2">
+<h2>Диаграмма Вороного</h2>
+<p><strong>Пример</strong>: количество заведений общественного питания в окрестностях станций метро</p>
 
-<img data-src="images/tin_details_7.svg" style="width:100.0%" class="r-stretch"></section>
+<img data-src="04_Vector_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-left r-stretch" width="624"></section>
 <section id="центроид-и-срединная-ось" class="slide level2">
 <h2>Центроид и срединная ось</h2>
 <div class="columns">
@@ -1211,6 +1371,16 @@ C = \Bigg(\frac{1}{n-1}\sum_{i=0}^{n-2} x_i, \frac{1}{n-1}\sum_{i=0}^{n-2} y_i \
 </div>
 </div>
 </section>
+<section id="буферные-зоны-1" class="slide level2">
+<h2>Буферные зоны</h2>
+<p><strong>Пример:</strong> кафе в 100-метровой буферной зоне р. Москвы</p>
+
+<img data-src="04_Vector_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-left r-stretch" width="480"></section>
+<section id="буферные-зоны-2" class="slide level2">
+<h2>Буферные зоны</h2>
+<p><strong>Пример</strong>: изменение количества кафе на <span class="math inline">\(1~км^2\)</span> при удалении от станции метро (расширение буферной зоны).</p>
+
+<img data-src="04_Vector_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
 <section id="преобразование-моделей-объектов" class="slide level2">
 <h2>Преобразование моделей объектов</h2>
 <p>Между любыми моделями пространственных объектов возможны взаимные преобразования.</p>
