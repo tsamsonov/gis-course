@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru"><head>
-<script src="_05_Raster_files/libs/clipboard/clipboard.min.js"></script>
-<script src="_05_Raster_files/libs/quarto-html/tabby.min.js"></script>
-<script src="_05_Raster_files/libs/quarto-html/popper.min.js"></script>
-<script src="_05_Raster_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="_05_Raster_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="_05_Raster_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="_05_Raster_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="_05_Raster_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.549">
 
-  <title>COMING SOON</title>
+  <meta name="author" content="Самсонов Тимофей Евгеньевич">
+  <title>Основы геоинформатики - Сетевой анализ</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="_05_Raster_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="_05_Raster_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -28,12 +29,32 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="_05_Raster_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="_05_Raster_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="_05_Raster_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="_05_Raster_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="_05_Raster_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -326,17 +347,532 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">COMING SOON</h1>
+  <h1 class="title">Сетевой анализ</h1>
+  <p class="subtitle">Основы геоинформатики: лекция 6</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Самсонов Тимофей Евгеньевич 
+</div>
+</div>
 </div>
 
+  <p class="date">22 марта 2024 г.</p>
 </section>
-<section class="slide level2">
+<section id="географические-сети" class="slide level2">
+<h2>Географические сети</h2>
+<p>Сетевые формы структурной организации явлений играют большую роль в географическое среде</p>
+
+<img data-src="images/net_examples.svg" style="width:100.0%" class="r-stretch"><p>Для моделирования таких структур используется <em>теория графов</em>.</p>
+</section>
+<section id="граф" class="slide level2">
+<h2>Граф</h2>
+<p>Простой граф <span class="math inline">\(G(V,E)\)</span> — совокупность множества вершин <span class="math inline">\(V = \{v_1, v_2, ...\}\)</span> и множества ребер <span class="math inline">\(E\)</span> <span class="citation" data-cites="newman2018">(<a href="#/библиография" role="doc-biblioref" onclick="">Newman 2018</a>)</span>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p><span class="math inline">\(E\)</span> состоит из упорядоченных пар элементов множества вершин:</p>
+<p><span class="math display">\[
+e_{ij} = \{v_i, v_j \},~ i \neq j
+\]</span></p></li>
+<li><p><span class="math inline">\(V\)</span> не пусто;</p></li>
+<li><p><span class="math inline">\(E\)</span> может быть пустым;</p></li>
+<li><p>не все комбинации <span class="math inline">\(\{v_i, v_j \}\)</span> могут входить в <span class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/graph.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="матрица-смежности" class="slide level2">
+<h2>Матрица смежности</h2>
+<p>Представление ребер в виде матрицы <span class="math inline">\(A = \{a_{ij}\}\)</span>, где <span class="math inline">\(a_{ij} = 1\)</span>, если существует ребро <span class="math inline">\(e_{ij}\)</span>, и <span class="math inline">\(a_{ij} = 0\)</span>, если такого ребра нет.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="images/adj_1.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><span class="math display">\[
+\begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{blue}{\mathbf 1} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{blue}{\mathbf 1} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{blue}{\mathbf 1} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{blue}{\mathbf 1} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{blue}{\mathbf 1} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{blue}{\mathbf 1} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{blue}{\mathbf 1} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="матрица-смежности-1" class="slide level2">
+<h2>Матрица смежности</h2>
+<p>Представление ребер в виде матрицы <span class="math inline">\(A = \{a_{ij}\}\)</span>, где <span class="math inline">\(a_{ij} = 1\)</span>, если существует ребро <span class="math inline">\(e_{ij}\)</span>, и <span class="math inline">\(a_{ij} = 0\)</span>, если такого ребра нет.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img data-src="images/adj_2.svg" style="width:100.0%"></p>
+</div><div class="column" style="width:55%;">
+<p><span class="math display">\[
+\begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; \color{red}{\mathbf 1} &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; 0 \\
+\color{red}{\mathbf 1} &amp; \color{red}{\mathbf 1} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; \color{red}{\mathbf 1} &amp; 0 &amp; \color{red}{\mathbf 1} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \color{red}{\mathbf 1} &amp; 0 \\
+\end{bmatrix}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="топологическая-эквивалентность" class="slide level2">
+<h2>Топологическая эквивалентность</h2>
+<p><strong>Топологически эквивалентными</strong> являются графы, у которых совпадают матрицы смежности <span class="citation" data-cites="barthelemy:2022">(<a href="#/библиография" role="doc-biblioref" onclick="">Barthelemy 2022</a>)</span>.</p>
+
+<img data-src="images/two_graphs_raw.svg" style="width:100.0%" class="r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Географические сети</strong></p>
+</div>
+<div class="callout-content">
+<p>Географические сети отличаются тем, что для них важную роль играет не только топологическая эквивалентность, но также местоположение (координаты) вершин.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="топологическая-эквивалентность-1" class="slide level2">
+<h2>Топологическая эквивалентность</h2>
+<p><strong>Топологически эквивалентными</strong> являются графы, у которых совпадают матрицы смежности <span class="citation" data-cites="barthelemy:2022">(<a href="#/библиография" role="doc-biblioref" onclick="">Barthelemy 2022</a>)</span>.</p>
+
+<img data-src="images/two_graphs.svg" style="width:100.0%" class="r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Географические сети</strong></p>
+</div>
+<div class="callout-content">
+<p>Географические сети отличаются тем, что для них важную роль играет не только топологическая эквивалентность, но также местоположение (координаты) вершин.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="задачи" class="slide level2">
+<h2>Задачи</h2>
+<p><strong>Основные направления</strong> сетевого анализа:</p>
+<ol type="1">
+<li><strong>Решение задач на графах</strong> — построение маршрутов, изохрон, матриц корреспонденций, определение ближайших пунктов обслуживания и оптимизация их расстановки.</li>
+<li><strong>Структурный анализ</strong> — вычисление показателей, характеризующих топологию сети, значимость ее отдельных элементов</li>
+<li><strong>Динамика</strong> <strong>и</strong> <strong>эволюция</strong> географических сетей</li>
+<li><strong>Надежность, устойчивость и уязвимость</strong> географических сетей.</li>
+</ol>
+</section>
+<section id="решение-задач-на-графах" class="slide level2">
+<h2>Решение задач на графах</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Необходимо на основе векторных данных создать графовую (сетевую) модель, состоящую из вершин и ребер</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Важно</strong></p>
+</div>
+<div class="callout-content">
+<p>Для того чтобы граф построился корректно, линии должны быть аккуратно пристыкованы друг к другу в местах сочленений. В противном случае в местах их стыковки не будут созданы вершины графа.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-left" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="кратчайший-маршрут" class="slide level2">
+<h2>Кратчайший маршрут</h2>
+<p>Выполняется поиск последовательности ребер графа, которая дает минимальную стоимость передвижения между точками.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Особенности</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><p>стоимость одного ребра графа обычно выражается в времени передвижения по нему, либо его длине;</p></li>
+<li><p>стоимость может быть масштабирована на коэффициент значимости ребра;</p></li>
+<li><p>дополнительные задержки могут быть заложены в вершинах графа;</p></li>
+<li><p>может учитываться трафик движения.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-left" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="задача-коммивояжёра" class="slide level2">
+<h2>Задача коммивояжёра</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Задача коммивояжера</strong> — определение оптимального маршрута объезда заданного множества точек</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Использование</strong></p>
+</div>
+<div class="callout-content">
+<p>Одна из самых распространенных задач в логистике. Решается в целях оптимизации объезда клиентов, складов и т.д. Вычислительно является сложной задачей.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ближайший-пункт-обслуживания" class="slide level2">
+<h2>Ближайший пункт обслуживания</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Задача данного класса позволяет находить для каждой точки клиента ближайший к ней пункт обслуживания</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Пример</strong></p>
+</div>
+<div class="callout-content">
+<p>Для каждого заведения общепита найти ближайшее по времени отделение Сбербанка <strong>для пешехода</strong></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ближайший-пункт-обслуживания-1" class="slide level2">
+<h2>Ближайший пункт обслуживания</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Задача данного класса позволяет находить для каждой точки клиента ближайший к ней пункт обслуживания</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Пример</strong></p>
+</div>
+<div class="callout-content">
+<p>Для каждого заведения общепита найти ближайшее по времени отделение Сбербанка <strong>для автомобилиста</strong></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="изохроны" class="slide level2">
+<h2>Изохроны</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Изохрона</strong> — это линия постоянного времени движения от или до заданной точки.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Алгоритм построения</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>В каждой вершине графа вычислить время движения от/до указанной точки.</li>
+<li>Собрать из вершин триангуляционное покрытие — поверхность времени движения.</li>
+<li>Извлечь из покрытия изолинии для заданных значений.</li>
+</ol>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="анализ-структуры" class="slide level2">
+<h2>Анализ структуры</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Анализ структуры</strong> географической сети охарактеризовать ее устройство в виде формальных показателей, определить топологические отношения и центральность отдельных элементов.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Центральность</strong></p>
+</div>
+<div class="callout-content">
+<p>Центральность — это важность элемента сети. Существует множество показателей центральности</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="центральность-1" class="slide level2">
+<h2>Центральность</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Центральность по промежуточности</strong> показывает количество маршрутов, проходящих через узел/ребро.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Расчет и интерпретация</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Строятся маршруты между всеми возможными парами вершин в графе.</li>
+<li>В каждой вершине суммируется число прошедших через нее маршрутов.</li>
+</ol>
+<p>Результат показывает основные магистрали в сети.</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="центральность-2" class="slide level2">
+<h2>Центральность</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Центральность по близости</strong> обратно пропорциональна сумме расстояний от вершины до остальных вершин.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Интерпретация</strong></p>
+</div>
+<div class="callout-content">
+<p>Центральность по близости позволяет выделить условный “центр” сети — множество вершин, равноудаленных от всех остальных</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="центральность-3" class="slide level2">
+<h2>Центральность</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Центральность по степени</strong> показывает количество ребер, с которыми связана вершина.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Интерпретация</strong></p>
+</div>
+<div class="callout-content">
+<p>Центральность по степени является локальной характеристикой, она показывается важность вершины в ее собственной окрестности</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="центральность-4" class="slide level2">
+<h2>Центральность</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><strong>Центральность по влиятельности</strong> показывает сумму степеней вершин, с которыми связана текущая вершина.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Интерпретация</strong></p>
+</div>
+<div class="callout-content">
+<p>Центральность по влиятельности позволяет выделить области графа, в которых наблюдается сложная топология сети</p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="left">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="06_Networks_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-left" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="словарик" class="slide level2">
+<h2>Словарик</h2>
+<div class="columns">
+<div class="column" style="color: blue; text-align: end;">
+<p>Сеть</p>
+<p>Граф</p>
+<p>Матрица смежности</p>
+<p>Маршрут</p>
+<p>Задача коммивояжёра</p>
+<p>Ближайший пункт обслуживания</p>
+<p>Изохрона</p>
+<p>Центральность</p>
+<p>Прмежуточность</p>
+<p>Близость</p>
+<p>Степень</p>
+</div><div class="column" style="color: red">
+<p>Network</p>
+<p>Graph</p>
+<p>Adjacency matrix</p>
+<p>Route</p>
+<p>Traveling salesman problem</p>
+<p>Closest facility</p>
+<p>Isochrone</p>
+<p>Centrality</p>
+<p>Betweenness</p>
+<p>Closeness</p>
+<p>Degree</p>
+</div>
+</div>
+</section>
+<section id="библиография" class="slide level2 smaller scrollable">
+<h2>Библиография</h2>
 
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 <p>Самсонов Т. Е. Основы геоинформатики: курс лекций для студентов географического факультета МГУ</p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-barthelemy:2022" class="csl-entry" role="listitem">
+Barthelemy, Marc. 2022. <em>Spatial Networks: A Complete Introduction: From Graph Theory and Statistical Physics to Real-World Applications</em>. Cham: Springer International Publishing. <a href="https://doi.org/10.1007/978-3-030-94106-2">https://doi.org/10.1007/978-3-030-94106-2</a>.
+</div>
+<div id="ref-newman2018" class="csl-entry" role="listitem">
+Newman, M. E. J. 2018. <em>Networks</em>. Second edition. Oxford, United Kingdom ; New York, NY, United States of America: Oxford University Press.
 </div>
 </div>
 </section>
@@ -344,19 +880,19 @@
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="_05_Raster_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="_05_Raster_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="_05_Raster_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="_05_Raster_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="_05_Raster_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="_05_Raster_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="_05_Raster_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="_05_Raster_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="_05_Raster_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="_05_Raster_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
