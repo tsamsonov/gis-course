@@ -566,7 +566,7 @@ K_{p} = \frac{Z_{xx} \color{red}{Z_x^2 +} 2Z_{xy} Z_x Z_y + Z_{yy} \color{red}{Z
 <p><strong>Интерпретация</strong></p>
 </div>
 <div class="callout-content">
-<p>Кривизна изолинии поверхности в точке. Положительные значения соответствуют областям конвергенции (тальвеги), отрицательные — дивергенции (хребты).</p>
+<p>Кривизна изолинии поверхности в точке. Положительные значения соответствуют областям дивергенции (хребты), отрицательные — конвергенции (тальвеги).</p>
 </div>
 </div>
 </div>
@@ -584,7 +584,7 @@ K_{c} = \frac{Z_{xx} \color{blue}{Z_y^2 -} 2Z_{xy} Z_x Z_y + Z_{yy} \color{blue}
 <p><strong>Интерпретация</strong></p>
 </div>
 <div class="callout-content">
-<p>Кривизна склона в направлении максимального уклона. Положительные значению соответствуют увеличению уклона, отрицательные — уменьшению.</p>
+<p>Кривизна склона в направлении максимального уклона. Положительные значению соответствуют вогнутым склонам, отрицательные — выпуклым.</p>
 </div>
 </div>
 </div>
@@ -611,13 +611,13 @@ K_{c} = \frac{Z_{xx} \color{blue}{Z_y^2 -} 2Z_{xy} Z_x Z_y + Z_{yy} \color{blue}
 <img data-src="07_Dem_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-left r-stretch" width="672"></section>
 <section id="интенсивность-отражения-света" class="slide level2">
 <h2>Интенсивность отражения света</h2>
-<p>В <strong>модели</strong> <strong>Ламберта</strong> зависит от угла между вектором <strong>нормали</strong> к поверхности <span class="math inline">\(\textbf N\)</span> и вектором направления на источник света <span class="math inline">\(\textbf L\)</span>:</p>
+<p>В <strong>модели</strong> <strong>Ламберта</strong> зависит от угла <span class="math inline">\(\alpha\)</span> между вектором <strong>нормали</strong> к поверхности <span class="math inline">\(\textbf N\)</span> и вектором направления на источник света <span class="math inline">\(\textbf L\)</span>:</p>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><span class="math display">\[
-I = \cos \alpha = \frac{(\textbf L, \textbf N)}{||\textbf N||}
+I = \cos \alpha = (\textbf L, \textbf N)
 \]</span></p>
-<p><span class="math inline">\(\textbf N = \big\{-Z_x, -Z_y, 1 \big\}\)</span></p>
+<p><span class="math inline">\(\textbf N = \big\{-Z_x, -Z_y, 1 \big\} / \sqrt{Z_x^2 + Z_y^2 + 1}\)</span></p>
 <p><span class="math inline">\(\textbf L = \begin{cases} \cos(h) \cos(A),\\ \cos(h) \sin(A),\\ \sin(h) \end{cases}\)</span></p>
 <p><span class="math inline">\((\textbf L, \textbf N)\)</span> — скалярное произведение;</p>
 <p><span class="math inline">\(A, \ h\)</span> — азимут и высота источника света (Солнца).</p>
@@ -636,12 +636,12 @@ I = \cos \alpha = \frac{(\textbf L, \textbf N)}{||\textbf N||}
 <p>Визуализация интенсивности отраженного света.</p>
 
 <img data-src="07_Dem_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-left r-stretch" width="576"></section>
-<section id="отвесная-отмывка-крупно" class="slide level2">
-<h2>Отвесная отмывка — крупно</h2>
+<section id="отвесная-отмывка" class="slide level2">
+<h2>Отвесная отмывка</h2>
 <p><em>Отвесная</em> отмывка подчеркивает линии хребтов.</p>
 
 <img data-src="07_Dem_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-left r-stretch" width="576"></section>
-<section id="отвесная-отмывка-крупно-1" class="slide level2">
+<section id="отвесная-отмывка-крупно" class="slide level2">
 <h2>Отвесная отмывка — крупно</h2>
 <p><em>Отвесная</em> отмывка подчеркивает линии хребтов.</p>
 
