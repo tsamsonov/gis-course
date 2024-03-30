@@ -698,6 +698,87 @@ I = \cos \alpha = (\textbf L, \textbf N)
 </section>
 <section id="направление-стока-1" class="slide level2">
 <h2>Направление стока</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Алгоритм вычисления</strong></p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/d8_process0.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="направление-стока-2" class="slide level2">
+<h2>Направление стока</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Алгоритм вычисления</strong></p>
+<ol type="1">
+<li>Получить разности высот соседних ячеек и центральной ячейки</li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/d8_process1.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="направление-стока-3" class="slide level2">
+<h2>Направление стока</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Алгоритм вычисления</strong></p>
+<ol type="1">
+<li><p>Получить разности высот соседних ячеек и центральной ячейки</p></li>
+<li><p>Разности диагональных соседей поделить на <span class="math inline">\(\sqrt{2}\)</span>, т.к. их центры соответственно дальше.</p></li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/d8_process2.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="направление-стока-4" class="slide level2">
+<h2>Направление стока</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Алгоритм вычисления</strong></p>
+<ol type="1">
+<li><p>Получить разности высот соседних ячеек и центральной ячейки</p></li>
+<li><p>Разности диагональных соседей поделить на <span class="math inline">\(\sqrt{2}\)</span>, т.к. их центры соответственно дальше.</p></li>
+<li><p>Среди полученных разностей найти минимальную.</p></li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/d8_process3.svg" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+<section id="направление-стока-5" class="slide level2">
+<h2>Направление стока</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p><strong>Алгоритм вычисления</strong></p>
+<ol type="1">
+<li><p>Получить разности высот соседних ячеек и центральной ячейки</p></li>
+<li><p>Разности диагональных соседей поделить на <span class="math inline">\(\sqrt{2}\)</span>, т.к. их центры соответственно дальше.</p></li>
+<li><p>Среди полученных разностей найти минимальную.</p></li>
+<li><p>Если она отрицательная, то присвоить соответствующий код направления.</p></li>
+</ol>
+</div><div class="column" style="width:45%;">
+<p><img data-src="images/d8_final.svg" style="width:100.0%"></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Бессточная ячейка</strong></p>
+</div>
+<div class="callout-content">
+<p>Если все разности <span class="math inline">\(\geq 0\)</span>, то стока из ячейки нет. Будет присвоен код <span class="math inline">\(0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="направление-стока-6" class="slide level2">
+<h2>Направление стока</h2>
 <p><strong>Направление стока</strong> указывает распределение стока по одному или множеству направлений.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -717,7 +798,7 @@ I = \cos \alpha = (\textbf L, \textbf N)
 </div>
 </div>
 </section>
-<section id="направление-стока-2" class="slide level2">
+<section id="направление-стока-7" class="slide level2">
 <h2>Направление стока</h2>
 
 <img data-src="07_Dem_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-left r-stretch" width="672"></section>
