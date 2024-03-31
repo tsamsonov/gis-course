@@ -340,6 +340,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pt-sans" type="text/css">
 </head>
 <body class="quarto-light">
@@ -617,7 +620,7 @@ K_{c} = \frac{Z_{xx} \color{blue}{Z_y^2 -} 2Z_{xy} Z_x Z_y + Z_{yy} \color{blue}
 <p><span class="math display">\[
 I = \cos \alpha = (\textbf L, \textbf N)
 \]</span></p>
-<p><span class="math inline">\(\textbf N = \big\{-Z_x, -Z_y, 1 \big\} / \sqrt{Z_x^2 + Z_y^2 + 1}\)</span></p>
+<p><span class="math inline">\(\textbf N = \big\{-Z_x, -Z_y, 1 \big\} \bigg/ \sqrt{Z_x^2 + Z_y^2 + 1}\)</span></p>
 <p><span class="math inline">\(\textbf L = \begin{cases} \cos(h) \cos(A),\\ \cos(h) \sin(A),\\ \sin(h) \end{cases}\)</span></p>
 <p><span class="math inline">\((\textbf L, \textbf N)\)</span> — скалярное произведение;</p>
 <p><span class="math inline">\(A, \ h\)</span> — азимут и высота источника света (Солнца).</p>
@@ -675,7 +678,7 @@ I = \cos \alpha = (\textbf L, \textbf N)
 <p><strong>Предварительная подготовка ЦМР</strong></p>
 </div>
 <div class="callout-content">
-<p>Для гидрологического анализа играют очень важную роль процедуры предварительной подготовки ЦМР, такие как <em>заполнение замкнутых понижений</em>.</p>
+<p>Для гидрологического анализа играют очень важную роль процедуры предварительной подготовки ЦМР, такие как <em>устранение ошибочных замкнутых понижений</em>.</p>
 </div>
 </div>
 </div>
@@ -696,18 +699,23 @@ I = \cos \alpha = (\textbf L, \textbf N)
 </div>
 </div>
 </section>
-<section id="направление-стока-1" class="slide level2">
-<h2>Направление стока</h2>
+<section id="метод-d8" class="slide level2">
+<h2>Метод D8</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Алгоритм вычисления</strong></p>
 </div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/d8_process0.svg" style="width:100.0%"></p>
+<figcaption>Цифровая модель высот</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="направление-стока-2" class="slide level2">
-<h2>Направление стока</h2>
+<section id="метод-d8-1" class="slide level2">
+<h2>Метод D8</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Алгоритм вычисления</strong></p>
@@ -715,12 +723,17 @@ I = \cos \alpha = (\textbf L, \textbf N)
 <li>Получить разности высот соседних ячеек и центральной ячейки</li>
 </ol>
 </div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/d8_process1.svg" style="width:100.0%"></p>
+<figcaption>Разности высот</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="направление-стока-3" class="slide level2">
-<h2>Направление стока</h2>
+<section id="метод-d8-2" class="slide level2">
+<h2>Метод D8</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Алгоритм вычисления</strong></p>
@@ -729,12 +742,17 @@ I = \cos \alpha = (\textbf L, \textbf N)
 <li><p>Разности диагональных соседей поделить на <span class="math inline">\(\sqrt{2}\)</span>, т.к. их центры соответственно дальше.</p></li>
 </ol>
 </div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/d8_process2.svg" style="width:100.0%"></p>
+<figcaption>Скорректированные разности высот</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="направление-стока-4" class="slide level2">
-<h2>Направление стока</h2>
+<section id="метод-d8-3" class="slide level2">
+<h2>Метод D8</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Алгоритм вычисления</strong></p>
@@ -744,12 +762,17 @@ I = \cos \alpha = (\textbf L, \textbf N)
 <li><p>Среди полученных разностей найти минимальную.</p></li>
 </ol>
 </div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
 <p><img data-src="images/d8_process3.svg" style="width:100.0%"></p>
+<figcaption>Ячейка с минимальной разностью</figcaption>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="направление-стока-5" class="slide level2">
-<h2>Направление стока</h2>
+<section id="метод-d8-4" class="slide level2">
+<h2>Метод D8</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Алгоритм вычисления</strong></p>
@@ -759,6 +782,7 @@ I = \cos \alpha = (\textbf L, \textbf N)
 <li><p>Среди полученных разностей найти минимальную.</p></li>
 <li><p>Если она отрицательная, то присвоить соответствующий код направления.</p></li>
 </ol>
+<p>Выполнить для всех ячеек ЦМР.</p>
 </div><div class="column" style="width:45%;">
 <p><img data-src="images/d8_final.svg" style="width:100.0%"></p>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -767,7 +791,7 @@ I = \cos \alpha = (\textbf L, \textbf N)
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Бессточная ячейка</strong></p>
+<p><strong>А если нет отрицательных?</strong></p>
 </div>
 <div class="callout-content">
 <p>Если все разности <span class="math inline">\(\geq 0\)</span>, то стока из ячейки нет. Будет присвоен код <span class="math inline">\(0\)</span>.</p>
@@ -777,28 +801,30 @@ I = \cos \alpha = (\textbf L, \textbf N)
 </div>
 </div>
 </section>
-<section id="направление-стока-6" class="slide level2">
-<h2>Направление стока</h2>
-<p><strong>Направление стока</strong> указывает распределение стока по одному или множеству направлений.</p>
+<section id="метод-d8-5" class="slide level2">
+<h2>Метод D8</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>В методе <strong>D8</strong> <span class="citation" data-cites="OCallaghan:1984bu">(<a href="#/библиография" role="doc-biblioref" onclick="">O’Callaghan и Mark 1984</a>)</span> весь сток направляется в направлении ячейки с максимальным уклоном.</p>
+<p><strong>Особенности растра D8</strong></p>
 <ul>
-<li><p>Направления кодируются числами вида <span class="math inline">\(2^n\)</span>.</p></li>
-<li><p>Код <code>0</code> используется для бессточных ячеек.</p></li>
-<li><p>Направление стока строго однозначно.</p></li>
+<li><p>В каждой ячейке записан код направления стока.</p></li>
+<li><p>Код указывает <em>куда</em> из ячейки пойдет сток.</p>
+<blockquote>
+<p>Например, <span class="math inline">\(16\)</span> означает “в <em>юго-западном</em> направлении” (если растр ориентирован по сторонам света).</p>
+</blockquote></li>
+<li><p>Коды не имеют количественной интерпретации, это условные обозначения направлений.</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/d8_ex.svg" style="width:100.0%"></p>
-<figcaption>Пример растра направлений стока</figcaption>
+<figcaption>Пример растра направлений стока <strong>D8</strong></figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="направление-стока-7" class="slide level2">
+<section id="направление-стока-1" class="slide level2">
 <h2>Направление стока</h2>
 
 <img data-src="07_Dem_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-left r-stretch" width="672"></section>
@@ -1108,6 +1134,29 @@ A_j = k + \sum_{i=1}^k A_i,
 <h2>Бассейны — крупно</h2>
 
 <img data-src="07_Dem_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-left r-stretch" width="672"></section>
+<section id="гидрологический-анализ-цмр-1" class="slide level2">
+<h2>Гидрологический анализ ЦМР</h2>
+<p>Общая схема анализа выглядит следующим образом</p>
+<div class="cell" data-reveal="true" data-fig-width="15" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+  A(ЦМР) --&gt; B(Предварительная подготовка)
+  B --&gt; C(Направления стока)
+  C --&gt; D(Аккумуляция стока)
+  C --&gt; E(Потенциальные водотоки)
+  D --&gt; E
+  C --&gt; F(Бассейны)
+  D -.-&gt; F
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
 <section id="словарик" class="slide level2">
 <h2>Словарик</h2>
 <div class="columns">
