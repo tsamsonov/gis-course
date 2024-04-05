@@ -1,7 +1,7 @@
 ---
 title: "Пространственная интерполяция и вариография"
 subtitle: "Основы геоинформатики: лекция 8"
-date: 03/31/2023
+date: 04/05/2024
 date-format: long
 author: "Самсонов Тимофей Евгеньевич"
 execute:
@@ -274,7 +274,7 @@ library(stars)
 library(gstat)
 library(tidyverse)
 
-cities = read_sf("../r-geo-course/data/Italy_Cities.gpkg")
+cities = read_sf("../r-geo-course/data/italy.gpkg", 'cities')
 
 rainfall = read_table("../r-geo-course/data/Rainfall.dat") |> 
   st_as_sf(coords = c('x', 'y'), 
