@@ -668,7 +668,7 @@ ggplot() +
 :::
 
 ::: {.column width="45%"}
-![](images/d8_final.svg){width="100%"}
+![Код направления D8](images/d8_final.svg){width="100%"}
 
 ::: callout-note
 ## А если нет отрицательных?
