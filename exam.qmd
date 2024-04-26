@@ -80,7 +80,7 @@ render_sheet = function(sheets, i) {
 render_sheet(sheets, 1)
 ```
 
-### Создание объектов и пространственные отношения {.unnumbered}
+### Пространственная привязка и создание объектов {.unnumbered}
 
 ```{r}
 render_sheet(sheets, 2)
@@ -104,31 +104,31 @@ render_sheet(sheets, 4)
 render_sheet(sheets, 5)
 ```
 
-### Цифровое моделирование рельефа {.unnumbered}
+### Сетевой анализ {.unnumbered}
 
 ```{r}
 render_sheet(sheets, 6)
 ```
 
-### Пространственная интерполяция и вариография {.unnumbered}
+### Цифровое моделирование рельефа {.unnumbered}
 
 ```{r}
 render_sheet(sheets, 7)
 ```
 
-### Пространственная зависимость и гетерогенность {.unnumbered}
+### Пространственная интерполяция и вариография {.unnumbered}
 
 ```{r}
 render_sheet(sheets, 8)
 ```
 
-### Модели размещения объектов {.unnumbered}
+### Пространственная и географически взвешенная регрессия {.unnumbered}
 
 ```{r}
 render_sheet(sheets, 9)
 ```
 
-### Сетевой анализ {.unnumbered}
+### Точечные процессы {.unnumbered}
 
 ```{r}
 render_sheet(sheets, 10)
