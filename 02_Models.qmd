@@ -21,6 +21,14 @@ mainfont: PT Sans
 
 ## Три уровня моделирования
 
+```{css}
+.white-text, 
+.white-text h2 {
+ color: white;
+ text-shadow: 2px 2px 2px black;
+}
+```
+
 ::: columns
 ::: {.column width="10%"}
 ![](images/123.png){width="65%"}
