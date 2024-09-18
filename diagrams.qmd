@@ -1,0 +1,18 @@
+```{mermaid}
+%%| fig-width: 15
+flowchart TB
+  A(Файловые) --> B(Сетевые)
+  A --> C(Иерархические)
+  C --> D(Реляционные / РСУБД)
+  B --> D
+  E(Объектно-ориентированные / ООСУБД) --> F(Объектно-Реляционные / ОРСУБД)
+  D --> F
+```
+
+```{mermaid}
+%%| fig-width: 2
+flowchart TB
+  A(Parcels) --> B(Polygons)
+  B --> C(Edges)
+  C --> D(Points)
+```

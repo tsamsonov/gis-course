@@ -8,10 +8,10 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.549">
+  <meta name="generator" content="quarto-1.5.56">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
-  <title>Основы геоинформатики - Введение</title>
+  <title>Основы геоинформатики – Введение</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -70,7 +70,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -84,7 +84,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -405,9 +405,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-  <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-  <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/pt-sans" type="text/css">
 </head>
 <body class="quarto-light">
@@ -416,7 +413,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Введение</h1>
-  <p class="subtitle">Геоинформатика I. Базы пространственных данных</p>
+  <p class="subtitle">Геоинформатика I</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -426,7 +423,7 @@
 </div>
 </div>
 
-  <p class="date">13 мая 2024 г.</p>
+  <p class="date">4 сентября 2024 г.</p>
 </section>
 <section id="геоинформатика" class="slide level2">
 <h2>Геоинформатика</h2>
@@ -466,25 +463,8 @@
 <img data-src="images/feature.svg" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
 <section id="эволюция-моделей-субд" class="slide level2">
 <h2>Эволюция моделей СУБД</h2>
-<div class="cell" data-reveal="true" data-fig-width="11" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-  A(Файловые) --&gt; B(Сетевые)
-  A --&gt; C(Иерархические)
-  C --&gt; D(Реляционные / РСУБД)
-  B --&gt; D
-  E(Объектно-ориентированные / ООСУБД) --&gt; F(Объектно-Реляционные / ОРСУБД)
-  D --&gt; F
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
+
+<img data-src="images/clipboard-2164512870.png" class="r-stretch"></section>
 <section id="пространственные-данные-в-рсубд" class="slide level2">
 <h2>Пространственные данные в РСУБД</h2>
 <div class="columns">
@@ -493,14 +473,14 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-3-1.png" width="400" height="400"></p>
+<p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-2-1.png" width="400" height="400"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
 </div><div class="column" style="width:60%;">
-<table>
+<table class="caption-top">
 <caption>Parcels</caption>
 <thead>
 <tr class="header">
@@ -519,7 +499,7 @@
 </tr>
 </tbody>
 </table>
-<table>
+<table class="caption-top">
 <caption>Polygons</caption>
 <thead>
 <tr class="header">
@@ -550,8 +530,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</div></div>
 </section>
 <section id="пространственные-данные-в-рсубд-1" class="slide level2">
 <h2>Пространственные данные в РСУБД</h2>
@@ -561,14 +540,14 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-4-3.png" width="400" height="400"></p>
+<p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-3-3.png" width="400" height="400"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
 </div><div class="column" style="width:25%;">
-<table>
+<table class="caption-top">
 <caption>Edges</caption>
 <thead>
 <tr class="header">
@@ -620,7 +599,7 @@
 </tbody>
 </table>
 </div><div class="column" style="width:25%;">
-<table>
+<table class="caption-top">
 <caption>Points</caption>
 <thead>
 <tr class="header">
@@ -657,8 +636,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</div></div>
 </section>
 <section id="пространственные-данные-в-рсубд-2" class="slide level2">
 <h2>Пространственные данные в РСУБД</h2>
@@ -668,30 +646,15 @@
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-5-5.png" width="400" height="400"></p>
+<p><img data-src="adv_01_Intro_files/figure-revealjs/unnamed-chunk-4-5.png" width="400" height="400"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Представление в обычной РСУБД достаточно громоздко</p>
 </div><div class="column" style="width:50%;">
-<div class="cell" data-reveal="true" data-fig-width="2" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class=""><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TB
-  A(Parcels) --&gt; B(Polygons)
-  B --&gt; C(Edges)
-  C --&gt; D(Points)
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p><img data-src="images/clipboard-2578085758.png" style="width:30.0%"></p>
+</div></div>
 </section>
 <section id="абстрактные-типы-данных" class="slide level2">
 <h2>Абстрактные типы данных</h2>
@@ -701,8 +664,7 @@
 <p><em>Примитивные типы данных</em> составляют основу реляционных БД. <img data-src="images/elementary_types.svg" style="width:90.0%"></p>
 </div><div class="column" style="width:55%;">
 <p><em>Абстрактные типы данных (АТД)</em> обеспечивают хранение коллекций и объектов со свойствами. <img data-src="images/abstract_types.svg" style="width:100.0%"></p>
-</div>
-</div>
+</div></div>
 <p>Большинство ОРСУБД предлагают модульный подход к АТД, позволяя добавлять и удалять их.</p>
 </section>
 <section id="пространственная-субд" class="slide level2">
@@ -1154,18 +1116,7 @@
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1197,7 +1148,47 @@
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
       function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
@@ -1234,7 +1225,11 @@
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {

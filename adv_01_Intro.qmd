@@ -1,6 +1,6 @@
 ---
 title: "Введение"
-subtitle: "Геоинформатика I. Базы пространственных данных"
+subtitle: "Геоинформатика I"
 date: today
 date-format: long
 author: "Самсонов Тимофей Евгеньевич"
@@ -47,16 +47,7 @@ mainfont: PT Sans
 
 ## Эволюция моделей СУБД
 
-```{mermaid}
-%%| fig-width: 11
-flowchart TB
-  A(Файловые) --> B(Сетевые)
-  A --> C(Иерархические)
-  C --> D(Реляционные / РСУБД)
-  B --> D
-  E(Объектно-ориентированные / ООСУБД) --> F(Объектно-Реляционные / ОРСУБД)
-  D --> F
-```
+![](images/clipboard-2164512870.png)
 
 ## Пространственные данные в РСУБД
 
@@ -179,13 +170,7 @@ plt.show()
 :::
 
 ::: {.column width="50%"}
-```{mermaid}
-%%| fig-width: 2
-flowchart TB
-  A(Parcels) --> B(Polygons)
-  B --> C(Edges)
-  C --> D(Points)
-```
+![](images/clipboard-2578085758.png){width="30%"}
 :::
 :::
 
