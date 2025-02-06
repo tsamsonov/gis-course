@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Практикум – Основы геоинформатики</title>
+<title>diagrams – Основы геоинформатики</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,6 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Поиск"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -135,28 +138,44 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Практикум</h1>
+
+
+
+<div class="cell" data-fig-width="15" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+  A(Файловые) --&gt; B(Сетевые)
+  A --&gt; C(Иерархические)
+  C --&gt; D(Реляционные / РСУБД)
+  B --&gt; D
+  E(Объектно-ориентированные / ООСУБД) --&gt; F(Объектно-Реляционные / ОРСУБД)
+  D --&gt; F
+</pre>
 </div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Практикум</p>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="cell" data-fig-width="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+  A(Parcels) --&gt; B(Polygons)
+  B --&gt; C(Edges)
+  C --&gt; D(Points)
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
 

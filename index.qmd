@@ -25,125 +25,125 @@ engine: knitr
 
 Если вы использовали материалы лекций (например, иллюстрации) в своей работе, то необходимо оформить библиографическую ссылку в соответствии с [ГОСТ 7.0.108---2022](https://protect.gost.ru/document1.aspx?control=31&baseC=6&page=250&month=3&year=2014&search=ГОСТ&id=244975) следующим образом:
 
-*Самсонов Т.Е.* **Основы геоинформатики: курс лекций** : сайт. 2024. --- URL: https://tsamsonov.github.io/gis-course/. Дата публикации: `r format(Sys.Date(), "%d.%m.%Y")`. DOI: 10.5281/zenodo.7902351
+*Самсонов Т.Е.* **Основы геоинформатики: курс лекций** : сайт. 2025. --- URL: https://tsamsonov.github.io/gis-course/. Дата публикации: `r format(Sys.Date(), "%d.%m.%Y")`. DOI: 10.5281/zenodo.7902351
 :::
 
 ## Географическая информация
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/01_Geoinformation.html" title="Лекция №1. Географическая информация и пространственные данные"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №1. Географическая информация и пространственные данные"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/01_Geoinformation.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Модели пространственных данных
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/02_Models.html" title="Лекция №1. Географическая информация и пространственные данные"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №1. Географическая информация и пространственные данные"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/02_Models.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная привязка и создание объектов
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/03_Georeferencing.html" title="Лекция №2. Пространственная привязка и создание объектов"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №2. Пространственная привязка и создание объектов"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/03_Georeferencing.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Базы пространственных данных
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/04_Databases.html" title="Лекция №3. Базы пространственных данных"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №3. Базы пространственных данных"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/04_Databases.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Векторный анализ
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/05_Vector.html" title="Лекция №4. Векторный анализ"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №4. Векторный анализ"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/05_Vector.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Растровый анализ
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/06_Raster.html" title="Лекция №5. Растровый анализ"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №5. Растровый анализ"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/06_Raster.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Сетевой анализ
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/07_Networks.html" title="Лекция №6. Сетевой анализ"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №6. Сетевой анализ"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/07_Networks.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Цифровое моделирование рельефа и геоморфометрия
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/08_Dem.html" title="Лекция №7. Цифровое моделирование рельефа и геоморфометрия"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №7. Цифровое моделирование рельефа и геоморфометрия"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/08_Dem.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная интерполяция и вариография
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/09_Interpolation.html" title="Лекция №8. Пространственная интерполяция и вариография"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №8. Пространственная интерполяция и вариография"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/09_Interpolation.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная и географически взвешенная регрессия
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/10_Regression.html" title="Лекция №9. Пространственная и географически взвешенная регрессия"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №9. Пространственная и географически взвешенная регрессия"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/10_Regression.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Точечные процессы
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/11_PointPatterns.html" title="Лекция №10. Точечные процессы"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №10. Точечные процессы"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/11_PointPatterns.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Геоинформационные технологии
 
 ::: {style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;"}
 ```{=html}
-<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/12_Technologies.html" title="Лекция №11. Геоинформационные технологии"></iframe>
+<iframe style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%;" src="https://tsamsonov.github.io/gis-course/coming-soon.html" title="Лекция №11. Геоинформационные технологии"></iframe>
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/12_Technologies.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
