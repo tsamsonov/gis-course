@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 614 466" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,-75,-1369)">
+        <g id="Georeferencing" transform="matrix(1,0,0,1.20354,0,-276.469)">
+            <rect x="0" y="754" width="1501" height="1017" style="fill:none;"/>
+            <g transform="matrix(0.381619,0.317081,-0.381619,0.317081,542.134,1269.16)">
+                <path d="M245.229,834L90.771,834L25.458,1043L310.542,1043L245.229,834Z" style="fill:rgb(248,194,255);stroke:black;stroke-width:7.41px;"/>
+            </g>
+            <g transform="matrix(0.718741,-0.0922876,0.111072,0.597189,295.036,959.329)">
+                <rect x="69" y="834" width="198" height="209" style="fill:rgb(133,239,255);stroke:black;stroke-width:5.5px;"/>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,0,254.64)">
+                <g transform="matrix(1,-0,-0,1,75,1339)">
+                    <path d="M29.387,63L23.387,51L17.387,63L29.387,63Z"/>
+                    <path d="M568,445L580,451L568,457L568,445Z"/>
+                    <path d="M23.387,60.6L23.387,451L570.4,451" style="fill:none;stroke:black;stroke-width:4px;stroke-linecap:butt;"/>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,49.4245,229.474)">
+                <text x="35.448px" y="1409.09px" style="font-family:'PTSans-Bold', 'PT Sans', sans-serif;font-weight:700;font-size:36px;">Y</text>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,623.474,579.275)">
+                <text x="33.972px" y="1409.09px" style="font-family:'PTSans-Bold', 'PT Sans', sans-serif;font-weight:700;font-size:36px;">X</text>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,651.072,232.544)">
+                <circle cx="235.212" cy="1610" r="10" style="stroke:white;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,0,221.404)">
+                <path d="M260.747,1615.73L429.965,1486.88" style="fill:none;"/>
+                <g transform="matrix(1,-0,-0,1,75,1379)">
+                    <path d="M336.394,110.048L353.53,108.971L347.934,125.203L336.394,110.048Z" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;"/>
+                    <path d="M185.747,236.732C185.747,236.732 302.731,147.653 342.164,117.626" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;"/>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,0,221.404)">
+                <g transform="matrix(1,-0,-0,1,75,1379)">
+                    <path d="M416.055,171.027L433.097,173.116L424.615,188.044L416.055,171.027Z" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;"/>
+                    <path d="M171.697,304.612C171.697,304.612 365.389,207.176 420.335,179.536" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;"/>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,0,221.404)">
+                <g transform="matrix(1,-0,-0,1,75,1379)">
+                    <path d="M477.921,87.223L495.004,85.502L490.023,101.933L477.921,87.223Z" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;"/>
+                    <path d="M242.19,293.489C242.19,293.489 432.947,136.555 483.972,94.578" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;"/>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,0,221.404)">
+                <g transform="matrix(1,-0,-0,1,75,1379)">
+                    <path d="M499.42,235.14L516.424,237.515L507.692,252.298L499.42,235.14Z" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;"/>
+                    <path d="M186.76,396.443C186.76,396.443 439.719,274.494 503.556,243.719" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;"/>
+                </g>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,450.248,221.167)">
+                <circle cx="235.212" cy="1610" r="10" style="fill:white;stroke:black;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,626.364,108.089)">
+                <circle cx="235.212" cy="1610" r="10" style="stroke:white;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,767.773,88.527)">
+                <circle cx="235.212" cy="1610" r="10" style="stroke:white;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,792.551,216.052)">
+                <circle cx="235.212" cy="1610" r="10" style="stroke:white;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,709.21,162.686)">
+                <circle cx="235.212" cy="1610" r="10" style="stroke:white;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,451.261,353.868)">
+                <circle cx="235.212" cy="1610" r="10" style="fill:white;stroke:black;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,506.691,268.325)">
+                <circle cx="235.212" cy="1610" r="10" style="fill:white;stroke:black;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,436.198,277.567)">
+                <circle cx="235.212" cy="1610" r="10" style="fill:white;stroke:black;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,0,221.404)">
+                <g transform="matrix(1,-0,-0,1,75,1379)">
+                    <path d="M360.413,243.678L375.782,251.331L362.806,262.575L360.413,243.678Z" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;"/>
+                    <path d="M75.978,289.306C75.978,289.306 299.316,261.017 361.609,253.126" style="fill:none;stroke:black;stroke-width:2px;stroke-linecap:butt;"/>
+                </g>
+            </g>
+            <g transform="matrix(0.965926,0.215048,-0.258819,0.802571,340.479,264.85)">
+                <circle cx="235.212" cy="1610" r="10" style="fill:white;stroke:black;stroke-width:4px;stroke-linecap:butt;"/>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,-57.1554,236.973)">
+                <text x="334.572px" y="1781.32px" style="font-family:'PTSans-Bold', 'PT Sans', sans-serif;font-weight:700;font-size:36px;">p</text>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,273.81,106.152)">
+                <text x="334.716px" y="1781.32px" style="font-family:'PTSans-Bold', 'PT Sans', sans-serif;font-weight:700;font-size:36px;">q</text>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,-1107.97,949.154)">
+                <text x="1535.78px" y="537.012px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:28px;">Истинная</text>
+                <text x="1535.78px" y="568.344px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:28px;">геометрия</text>
+            </g>
+            <g transform="matrix(1,0,0,0.830882,-1399.05,1070.77)">
+                <text x="1535.78px" y="537.012px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:28px;">Искажённая</text>
+                <text x="1535.78px" y="568.344px" style="font-family:'PTSans-Regular', 'PT Sans', sans-serif;font-size:28px;">геометрия</text>
+            </g>
+        </g>
+    </g>
+</svg>

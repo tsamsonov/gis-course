@@ -33,7 +33,7 @@ mainfont: PT Sans
 
 ## Пространственные распределения
 
-::: columns
+::::: columns
 ::: {.column width="65%"}
 Моделирование пространственных распределений включает такие этапы как
 
@@ -46,7 +46,7 @@ mainfont: PT Sans
 ::: {.column width="35%"}
 ![](images/interpolation.svg){width="100%"}
 :::
-:::
+:::::
 
 ## Пространственная интерполяция
 
@@ -91,7 +91,7 @@ mainfont: PT Sans
 
 ## На основе триангуляции
 
-::: columns
+::::: columns
 ::: {.column width="60%"}
 Для каждого треугольника находят уравнение плоскости:
 
@@ -109,7 +109,7 @@ x_3 - x_1 & y_3 - y_1 & z_3 - z_1
 ::: {.column width="40%"}
 ![](images/tin_interp.svg){width="100%"}
 :::
-:::
+:::::
 
 ## На основе триангуляции
 
@@ -536,7 +536,7 @@ ggplot() +
 
 ## Словарик
 
-::: columns
+::::: columns
 ::: {.column width="50%" style="color: blue; text-align: end;"}
 Пространственная статистика
 
@@ -584,6 +584,6 @@ Variogram
 
 Kriging
 :::
-:::
+:::::
 
 ## Библиография
