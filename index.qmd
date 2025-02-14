@@ -36,7 +36,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/01_Geoinformation.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Модели пространственных данных
 
@@ -46,7 +46,7 @@ engine: knitr
 ```
 :::
 
-[**Открыть**](https://tsamsonov.github.io/gis-course/coming-soon.html){target="_blank"} в отдельной вкладке браузера.
+[**Открыть**](https://tsamsonov.github.io/gis-course/02_Models.html){target="_blank"} в отдельной вкладке браузера.
 
 ## Пространственная привязка и создание объектов
 
