@@ -1,7 +1,7 @@
 ---
 title: "Растровый анализ"
 subtitle: "Основы геоинформатики. Лекция 6"
-date: 03/22/2024
+date: 03/07/2025
 date-format: long
 author: "Самсонов Тимофей Евгеньевич"
 execute:
@@ -63,6 +63,7 @@ mainfont: PT Sans
 library(stars)
 library(dplyr)
 library(tidyr)
+sf_use_s2(FALSE)
 dem = read_stars('../r-geo-course/data/world/gebco.tif') |> 
   st_warp(crs = 4326, cellsize = 5)
 plot(dem, main = NULL)
@@ -110,7 +111,7 @@ attr(dem_prj, 'dimensions')
 **Деформация** обычно осуществляется на *регулярный* растр.
 
 ```{r}
-dem_warp = st_warp(dem, crs = '+proj=eck4')
+dem_warp = st_warp(dem, crs='+proj=eck4', use_gdal = TRUE)
 plot(dem_warp, main = NULL)
 attr(dem_warp, 'dimensions')
 ```
@@ -539,6 +540,109 @@ $$
 Пример **взвешенного оверлея** --- выбор территорий, обладающей оптимальной совокупностью признаков:
 
 ![](images/image-46018781.png)
+
+## Взвешенный оверлей
+
+Сатино: углы наклона
+
+```{r}
+dem = rast('../r-geo-course/data/Satino_DEM.tif')
+slope = terrain(dem, 'slope', 
+                unit = 'degrees')
+plot(slope)
+```
+
+## Взвешенный оверлей
+
+Углы не более 3 градусов
+
+```{r}
+plot(slope <= 3)
+```
+
+## Взвешенный оверлей
+
+Расстояния до рек
+
+```{r}
+db = '../r-geo-course/data/Satino.gpkg'
+
+hydro = read_sf(db, 'WaterPolygon')
+roads = read_sf(db, 'Roads')
+forest = read_sf(db, 'ForestBorders')
+
+dist_hydro = 
+  rast(resolution = res(dem),
+       extent = dem) |> 
+  rasterize(hydro, y = _) |> 
+  gridDist(NA)
+
+plot(dist_hydro)
+plot(hydro, col='cyan', add = TRUE)
+```
+
+## Взвешенный оверлей
+
+Расстояния до рек \< 300 м
+
+```{r}
+plot(dist_hydro < 300)
+plot(hydro, col='cyan', add = TRUE)
+```
+
+## Взвешенный оверлей
+
+Расстояния до дорог
+
+```{r}
+dist_roads = 
+  rast(resolution = res(dem),
+       extent = dem) |> 
+  rasterize(roads, y = _) |> 
+  gridDist(NA)
+
+plot(dist_roads)
+plot(roads, col='red', add = TRUE)
+```
+
+## Взвешенный оверлей
+
+Расстояния до дорог \< 100 м
+
+```{r}
+plot(dist_roads < 100)
+plot(roads, col='red', add = TRUE)
+```
+
+## Взвешенный оверлей
+
+Лес
+
+```{r}
+mask_forest = 
+  rast(resolution = res(dem),
+       extent = dem) |> 
+  rasterize(forest, y = _,
+            background = 0)
+  
+plot(mask_forest)
+```
+
+## Взвешенный оверлей
+
+Сочетание факторов
+
+```{r}
+opt = slope <= 2 &
+  dist_hydro <= 200 &
+  dist_roads <= 100 &
+  mask_forest == 0
+
+plot(opt)
+plot(hydro, col='cyan', add = TRUE)
+plot(roads, col='red', add = TRUE)
+plot(forest, col='black', add=TRUE)
+```
 
 ## Извлечение данных
 
