@@ -1,0 +1,17 @@
+{
+  "hash": "6e55fe0e6b1b7ee714241a869f615bcc",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nformat: html \n---\n\n## First slide\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(gganimate)\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: ggplot2\n```\n\n\n:::\n\n```{.r .cell-code}\nlibrary(spatstat)\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: spatstat.data\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: spatstat.univar\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nspatstat.univar 3.1-2\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: spatstat.geom\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nspatstat.geom 3.3-6\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: spatstat.random\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nspatstat.random 3.3-3\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: spatstat.explore\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: nlme\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nspatstat.explore 3.4-2\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: spatstat.model\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: rpart\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nspatstat.model 3.3-5\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: spatstat.linnet\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\nspatstat.linnet 3.2-5\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\n\nspatstat 3.3-2 \nFor an introduction to spatstat, type 'beginner' \n```\n\n\n:::\n\n```{.r .cell-code}\nlibrary(ggplot2)\nlibrary(gifski)\n\nlambda = 300 # Poisson process intensity\nnframes = 20\n\npois = lapply(1:nframes, \\(iter) { \n  p = rpoispp(lambda)\n  tibble::tibble(\n    x = p$x,\n    y = p$y,\n    iter = iter\n  )\n}) |> dplyr::bind_rows()\n\ngp = ggplot(pois, aes(x,y)) +\n  geom_point(size = 3, color = 'steelblue4') +\n  coord_equal() +\n  theme_void() +\n  transition_states(iter)\n\nanimate(gp, fps = 1, nframes = nframes, rewind = TRUE,\n        detail = 0,  width = 480, height = 480,  units = 'px')\n```\n\n::: {.cell-output-display}\n![](ppp_files/figure-html/unnamed-chunk-1-1.gif)\n:::\n:::\n\n",
+    "supporting": [
+      "ppp_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "hash": "2ccd1e941909e2eddf5c0f3b88ab326a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: gganimate\nformat: html\nexecute:\n  echo: false\n---\n\n\n::: {.cell}\n\n:::\n\n\n::: {layout-ncol=2}\n\n## No `animate()`\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](test_files/figure-html/unnamed-chunk-2-1.gif)\n:::\n:::\n\n\n## `animate()`\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](test_files/figure-html/unnamed-chunk-3-1.gif)\n:::\n:::\n\n\n:::\n",
+    "supporting": [
+      "test_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

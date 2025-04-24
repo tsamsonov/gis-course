@@ -1,0 +1,33 @@
+---
+format: html 
+---
+
+## First slide
+
+```{r}
+library(gganimate)
+library(spatstat)
+library(ggplot2)
+library(gifski)
+
+lambda = 300 # Poisson process intensity
+nframes = 20
+
+pois = lapply(1:nframes, \(iter) { 
+  p = rpoispp(lambda)
+  tibble::tibble(
+    x = p$x,
+    y = p$y,
+    iter = iter
+  )
+}) |> dplyr::bind_rows()
+
+gp = ggplot(pois, aes(x,y)) +
+  geom_point(size = 3, color = 'steelblue4') +
+  coord_equal() +
+  theme_void() +
+  transition_states(iter)
+
+animate(gp, fps = 1, nframes = nframes, rewind = TRUE,
+        detail = 0,  width = 480, height = 480,  units = 'px')
+```

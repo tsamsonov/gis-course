@@ -1,0 +1,33 @@
+---
+title: gganimate
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+library(ggplot2)
+library(gganimate)
+library(gifski)
+
+anim <- ggplot(mtcars) +
+  aes(mpg, disp) +
+  geom_point(aes(colour = gear)) +
+  transition_states(gear, transition_length = 2, state_length = 1) +
+  enter_fade() +
+  exit_fade()
+```
+
+::: {layout-ncol="2"}
+## No `animate()`
+
+```{r}
+anim
+```
+
+## `animate()`
+
+```{r}
+animate(anim)
+```
+:::
