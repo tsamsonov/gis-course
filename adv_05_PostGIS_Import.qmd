@@ -25,9 +25,9 @@ mainfont: PT Sans
 
 Функциональность **PostGIS** опирается на 4 библиотеки:
 
-::: columns
-::: {.column width="50%"}
-::: columns
+:::::::: columns
+:::::: {.column width="50%"}
+::::: columns
 ::: {.column width="30%"}
 ![](images/gdalicon.png){width="100%"}
 :::
@@ -35,12 +35,12 @@ mainfont: PT Sans
 ::: {.column width="70%"}
 **GDAL** выполняет конвертацию между форматами данных и растровые операции
 :::
-:::
+:::::
 
 **PROJ** выполняет преобразования систем координат
 
 ![](images/projicon.png){width="70%"}
-:::
+::::::
 
 ::: {.column width="50%"}
 **GEOS** выполняет геометрические операции в *2D*
@@ -51,7 +51,7 @@ mainfont: PT Sans
 
 ![](images/CGAL.png){width="70%"}
 :::
-:::
+::::::::
 
 ## Структура базы данных
 
@@ -120,8 +120,8 @@ PostGIS позволяет хранить несколько пространс�
 
 ## Каталог систем координат
 
-::: columns
-::: {.column width="30%"}
+::::::: columns
+::::: {.column width="30%"}
 Системы координат хранятся в таблице `spatial_ref_sys`
 
 ::: callout-note
@@ -135,12 +135,12 @@ PostGIS позволяет хранить несколько пространс�
 
 Терминология WKT при описании CRS может не полностью соответствовать стандартами ISO / OGC
 :::
-:::
+:::::
 
 ::: {.column width="70%"}
 ![](images/srs_postgis.png)
 :::
-:::
+:::::::
 
 ## Создание пространственных таблиц
 
@@ -218,7 +218,7 @@ COPY postgis.geo_points
 
 ## Активация пространственных точек
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 Если данные точечные и содержат координаты в столбцах, то можно на их основе создать геометрию
 
@@ -237,7 +237,7 @@ UPDATE postgis.geo_points
 
 ![](images/st_point.png)
 :::
-:::
+:::::
 
 ## Импорт из шейп-файла
 
@@ -316,8 +316,8 @@ tsamsonov@Butterfly satino_base %
 shp2pgsql -s 32637 -g geom border.shp postgis.border > border.sql
 ```
 
-::: columns
-::: {.column width="30%"}
+:::::: columns
+:::: {.column width="30%"}
 Полученный файл можно открыть средствами СУБД и запустить.
 
 ::: callout-tip
@@ -325,12 +325,12 @@ shp2pgsql -s 32637 -g geom border.shp postgis.border > border.sql
 
 При импорте больших файлов рекомендуется использовать параметр `-D`, при котором будет создаваться не SQL-запрос, а бинарный файл *дампа* базы данных.
 :::
-:::
+::::
 
 ::: {.column width="70%"}
 ![](images/importsql.png)
 :::
-:::
+::::::
 
 ## Импорт через `psql`
 
@@ -426,7 +426,7 @@ ogr2ogr
 
 PostGIS при активации создает два *представления* (*View*), в которых систематизированы все геометрические и географические атрибуты в БД:
 
-::: columns
+::::: columns
 ::: {.column width="30%"}
 `geometry_columns`
 
@@ -436,7 +436,7 @@ PostGIS при активации создает два *представлен�
 ::: {.column width="70%"}
 ![](images/geometry_catalog.png)
 :::
-:::
+:::::
 
 ## Каталог геометрий
 
@@ -446,7 +446,7 @@ PostGIS при активации создает два *представлен�
 
 ## Подключение к PostGIS из QGIS
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 *PostgreSQL \> New Connection*
 
@@ -458,7 +458,7 @@ PostGIS при активации создает два *представлен�
 
 ![](images/pg_connect2.png){width="83%"}
 :::
-:::
+:::::
 
 ## Подключение к PostGIS из QGIS
 

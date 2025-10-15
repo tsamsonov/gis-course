@@ -720,4 +720,24 @@ references:
   title: "Computational geometry: algorithms and applications"
   title-short: Computational geometry
   type: book
+- id: lott
+  accessDate: 2025-09-24
+  author:
+  - family: Lott
+    given: Roger
+  date: 2023-00-00 2023
+  issued: 2023
+  key: VXSTX3XQ
+  language: en
+  libraryCatalog: Zotero
+  libraryID: 2
+  number: 18-010r11
+  numPages: 132
+  organization: OGC
+  providerKey: Zotero
+  publisher: OGC
+  title: Geographic information --- Well-known text representation of
+    coordinate reference systems
+  type: book
+  url: "https://docs.ogc.org/is/18-010r11/18-010r11.pdf"
 ...

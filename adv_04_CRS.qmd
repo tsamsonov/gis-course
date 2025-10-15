@@ -41,7 +41,7 @@ flowchart LR
 
 ## Определение CRS на языке WKT
 
-**WKT** представляет одну систему координат или объект координатной операции.
+**WKT** представляет согласно стандарту @lott одну систему координат или объект координатной операции.
 
 -   Каждый объект представляется в виде токена, состоящего из ключевого слова, за которым следует множество атрибутов объекта.
 
@@ -141,10 +141,10 @@ USAGE[
 
 **Идентификатор** --- опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).
 
-|                   |       |                                                                                                                                                                                                                              |
-|-------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `<wkt separator>` | `::=` | `<comma>`                                                                                                                                                                                                                    |
-| `<identifier>`    | `::=` | `<identifier keyword> <left delimiter> <authority name> <wkt separator> <authority unique identifier> { <wkt separator> <version> } { <wkt separator> <authority citation> } { <wkt separator> <id uri> } <right delimiter>` |
+|  |  |  |
+|----|----|----|
+| `<wkt separator>` | `::=` | `<comma>` |
+| `<identifier>` | `::=` | `<identifier keyword> <left delimiter> <authority name> <wkt separator> <authority unique identifier> { <wkt separator> <version> } { <wkt separator> <authority citation> } { <wkt separator> <id uri> } <right delimiter>` |
 
 ``` code
 ID["Росреестр", "СК-ХХХ", 666]
@@ -177,10 +177,10 @@ GEOGCRS["S-95",
 
 **Единицы измерения** указываются для некоторых параметров осей координат, а также параметров координатных операций.
 
-|                  |       |                                                                   |
-|------------------|-------|-------------------------------------------------------------------|
+|  |  |  |
+|----|----|----|
 | `<spatial unit>` | `::=` | `<angle unit> | <length unit> | <parametric unit> | <scale unit>` |
-| `<unit>`         | `::=` | `<spatial unit> | <time unit>`                                    |
+| `<unit>` | `::=` | `<spatial unit> | <time unit>` |
 
 После единицы измерения указывается *коэффициент пересчета:*
 
@@ -524,10 +524,10 @@ ELLIPSOID["Sphere",6371000,0,LENGTHUNIT["metre",1.0]]
 
 -   Задается для геодезических и географических СК в случае если не совпадает с Гринвичским (*irm* --- international reference meridian)
 
-|                            |       |                                                                                                                                                       |
-|----------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `<prime meridian>`         | `::=` | `<prime meridian keyword> <left delimiter> <prime meridian name> <wkt separator> <irm longitude> {(<wkt separator> <identifier>)}* <right delimiter>` |
-| `<prime meridian keyword>` | `::=` | `PRIMEM | PRIMEMERIDIAN`                                                                                                                              |
+|  |  |  |
+|----|----|----|
+| `<prime meridian>` | `::=` | `<prime meridian keyword> <left delimiter> <prime meridian name> <wkt separator> <irm longitude> {(<wkt separator> <identifier>)}* <right delimiter>` |
+| `<prime meridian keyword>` | `::=` | `PRIMEM | PRIMEMERIDIAN` |
 
 ``` code
 PRIMEM["Ferro",-17.6666667]

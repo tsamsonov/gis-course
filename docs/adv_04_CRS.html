@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.22">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики – Координатные системы отсчета</title>
@@ -94,8 +94,28 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-434147949b2797efd83c142b4be443f6.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-4ce18041df2c27ca16057e62b67cb604.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -208,7 +228,7 @@
 </div>
 </div>
 
-  <p class="date">24 апреля 2025 г.</p>
+  <p class="date">24 сентября 2025 г.</p>
 </section>
 <section id="координатная-система-отсчета" class="slide level2">
 <h2>Координатная система отсчета</h2>
@@ -238,9 +258,9 @@
 </section>
 <section id="определение-crs-на-языке-wkt" class="slide level2">
 <h2>Определение CRS на языке WKT</h2>
-<p><strong>WKT</strong> представляет одну систему координат или объект координатной операции.</p>
+<p><strong>WKT</strong> представляет согласно стандарту <span class="citation" data-cites="lott">Lott (<a href="#/библиография" role="doc-biblioref" onclick="">2023</a>)</span> одну систему координат или объект координатной операции.</p>
 <ul>
-<li><p>Каждый объект представляется в виде токена, состоящего из ключевого слова, за которым следует множесто атрибутов объекта.</p></li>
+<li><p>Каждый объект представляется в виде токена, состоящего из ключевого слова, за которым следует множество атрибутов объекта.</p></li>
 <li><p>Некоторые объекты состоят из других объектов, поэтому результат может состоять из нескольких уровней вложенности (глубина не ограничена).</p></li>
 </ul>
 <p>Пример для трёх уровней:</p>
@@ -322,11 +342,11 @@
 <section id="идентификатор" class="slide level2">
 <h2>Идентификатор</h2>
 <p><strong>Идентификатор</strong> — опциональный (необязательный) атрибут, который представляет ссылку на внешнее описание объекта (координатной системы, операции и т.д.).</p>
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
 <col style="width: 7%">
-<col style="width: 2%">
-<col style="width: 89%">
+<col style="width: 3%">
+<col style="width: 88%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -366,11 +386,11 @@
 <section id="единицы-измерения" class="slide level2">
 <h2>Единицы измерения</h2>
 <p><strong>Единицы измерения</strong> указываются для некоторых параметров осей координат, а также параметров координатных операций.</p>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
 <col style="width: 19%">
-<col style="width: 7%">
-<col style="width: 72%">
+<col style="width: 12%">
+<col style="width: 68%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -410,9 +430,9 @@
 <p>Определяется рядом параметров:</p>
 <table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 7%">
-<col style="width: 67%">
+<col style="width: 22%">
+<col style="width: 12%">
+<col style="width: 64%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -438,9 +458,9 @@
 <p>Определяется рядом параметров:</p>
 <table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 5%">
-<col style="width: 77%">
+<col style="width: 15%">
+<col style="width: 7%">
+<col style="width: 75%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -797,8 +817,8 @@ temporalMeasure</td>
 <table class="caption-top" style="width:99%;">
 <colgroup>
 <col style="width: 14%">
-<col style="width: 4%">
-<col style="width: 79%">
+<col style="width: 6%">
+<col style="width: 78%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -826,11 +846,11 @@ temporalMeasure</td>
 <li><p>Относится к датуму, но не входит в его состав</p></li>
 <li><p>Задается для геодезических и географических СК в случае если не совпадает с Гринвичским (<em>irm</em> — international reference meridian)</p></li>
 </ul>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
 <col style="width: 15%">
-<col style="width: 3%">
-<col style="width: 81%">
+<col style="width: 5%">
+<col style="width: 79%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -856,11 +876,11 @@ temporalMeasure</td>
 <li><p>Может быть <em>статическим</em> и <em>динамическим</em></p></li>
 <li><p>Динамический датум в обязательном порядке включает эпоху (<code>ANCHOREPOCH</code>)</p></li>
 </ul>
-<table class="caption-top">
+<table class="caption-top" style="width:99%;">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 9%">
-<col style="width: 40%">
+<col style="width: 45%">
+<col style="width: 16%">
+<col style="width: 37%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -992,10 +1012,15 @@ temporalMeasure</td>
 <span id="cb20-20"><a></a>    USAGE[SCOPE["Not known."],AREA["World."], BBOX[-90,-180,90,180]],</span>
 <span id="cb20-21"><a></a>    ID["ESRI",54009]]</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="библиография" class="slide level2">
+<section id="библиография" class="slide level2 smaller scrollable">
 <h2>Библиография</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-lott" class="csl-entry" role="listitem">
+Lott, Roger. 2023. <em>Geographic Information — Well-Known Text Representation of Coordinate Reference Systems</em>. OGC. <a href="https://docs.ogc.org/is/18-010r11/18-010r11.pdf">https://docs.ogc.org/is/18-010r11/18-010r11.pdf</a>.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
