@@ -23,7 +23,7 @@ mainfont: PT Sans
 
 ## Основные операции
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 1.  Расстояния между объектами
 2.  Периметр линии
@@ -49,11 +49,11 @@ mainfont: PT Sans
 9.  Центроид и точка на поверхности
 10. Вогнутая оболочка
 :::
-:::
+:::::
 
 ## Особенности пересечения отрезков
 
-::: columns
+::::: columns
 ::: {.column width="50%"}
 Если проекции отрезков на любую ось не пересекаются, то и сами отрезки также не пересекаются
 
@@ -65,7 +65,7 @@ mainfont: PT Sans
 
 ![](images/segment_sequence.svg){width="100%"}
 :::
-:::
+:::::
 
 ## Сканирующая линия (sweeping line)
 
@@ -117,6 +117,13 @@ $n$ отрезков $s_i = \overline{q_i r_i},~i = 0...n-1$
 
 -   $R = \varnothing$.
 
+```{r, results='asis'}
+for (i in 1:79) {
+  cat('\n\n## Алгоритм Бентли-Оттмана (симуляция)\n\n')
+  cat('![](images/bentley-ottman/bentley-ottman_', i,'.svg){width="100%"}', sep = '')
+}
+```
+
 ## Алгоритм Бентли-Оттмана [@sacristán2022]
 
 Пока $E \neq \varnothing$, выполнять в цикле:
@@ -132,13 +139,6 @@ $n$ отрезков $s_i = \overline{q_i r_i},~i = 0...n-1$
     -   $r = s_1^- \cap s_2$. Если $r \neq \varnothing \land r >_x p$ то $E = E \cup r$, $R = R \cup r$. Тоже для $s_2^+$ и $s_1$
     -   Поменять местами $s_1$ и $s_2$ в $L$
 5.  $E = E~\backslash~p$.
-
-```{r, results='asis'}
-for (i in 1:79) {
-  cat('\n\n## Алгоритм Бентли-Оттмана (симуляция)\n\n')
-  cat('![](images/bentley-ottman/bentley-ottman_', i,'.svg){width="100%"}', sep = '')
-}
-```
 
 ## Алгоритм Бентли-Оттмана (свойства)
 

@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.22">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики – Геометрические операции — II</title>
@@ -49,7 +49,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-434147949b2797efd83c142b4be443f6.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-4ce18041df2c27ca16057e62b67cb604.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -159,7 +159,7 @@
 </div>
 </div>
 
-  <p class="date">24 апреля 2025 г.</p>
+  <p class="date">12 ноября 2025 г.</p>
 </section>
 <section id="основные-операции" class="slide level2">
 <h2>Основные операции</h2>
@@ -243,29 +243,6 @@
 <li><p><span class="math inline">\(L = \varnothing\)</span>;</p></li>
 <li><p><span class="math inline">\(R = \varnothing\)</span>.</p></li>
 </ul>
-</section>
-<section id="алгоритм-бентли-оттмана-sacristán2022" class="slide level2">
-<h2>Алгоритм Бентли-Оттмана <span class="citation" data-cites="sacristán2022">(<a href="#/библиография" role="doc-biblioref" onclick="">Sacristán 2022</a>)</span></h2>
-<p>Пока <span class="math inline">\(E \neq \varnothing\)</span>, выполнять в цикле:</p>
-<ol type="1">
-<li><span class="math inline">\(p = \min E\)</span></li>
-<li>Если <span class="math inline">\(p = \textrm{start}(s)\)</span>:
-<ul>
-<li><span class="math inline">\(L = L \cup s\)</span></li>
-<li><span class="math inline">\(r = s^- \cap s\)</span>. Если <span class="math inline">\(r \neq \varnothing \land r &gt;_x p\)</span>, то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Тоже для <span class="math inline">\(s^+\)</span> и <span class="math inline">\(s\)</span></li>
-</ul></li>
-<li>Если <span class="math inline">\(p = \textrm{end}(s)\)</span>:
-<ul>
-<li><span class="math inline">\(r = s^- \cap s^+\)</span>. Если <span class="math inline">\(r\neq \varnothing \land r &gt;_x p\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>.</li>
-<li><span class="math inline">\(L = L~\backslash~s\)</span></li>
-</ul></li>
-<li>Если <span class="math inline">\(p = s_1 \cap s_2\)</span> при <span class="math inline">\(s_1 &lt;_L s_2\)</span>:
-<ul>
-<li><span class="math inline">\(r = s_1^- \cap s_2\)</span>. Если <span class="math inline">\(r \neq \varnothing \land r &gt;_x p\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Тоже для <span class="math inline">\(s_2^+\)</span> и <span class="math inline">\(s_1\)</span></li>
-<li>Поменять местами <span class="math inline">\(s_1\)</span> и <span class="math inline">\(s_2\)</span> в <span class="math inline">\(L\)</span></li>
-</ul></li>
-<li><span class="math inline">\(E = E~\backslash~p\)</span>.</li>
-</ol>
 </section>
 <section id="алгоритм-бентли-оттмана-симуляция" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
@@ -583,6 +560,29 @@
 <h2>Алгоритм Бентли-Оттмана (симуляция)</h2>
 
 <img data-src="images/bentley-ottman/bentley-ottman_79.svg" style="width:100.0%" class="r-stretch"></section>
+<section id="алгоритм-бентли-оттмана-sacristán2022" class="slide level2">
+<h2>Алгоритм Бентли-Оттмана <span class="citation" data-cites="sacristán2022">(<a href="#/библиография" role="doc-biblioref" onclick="">Sacristán 2022</a>)</span></h2>
+<p>Пока <span class="math inline">\(E \neq \varnothing\)</span>, выполнять в цикле:</p>
+<ol type="1">
+<li><span class="math inline">\(p = \min E\)</span></li>
+<li>Если <span class="math inline">\(p = \textrm{start}(s)\)</span>:
+<ul>
+<li><span class="math inline">\(L = L \cup s\)</span></li>
+<li><span class="math inline">\(r = s^- \cap s\)</span>. Если <span class="math inline">\(r \neq \varnothing \land r &gt;_x p\)</span>, то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Тоже для <span class="math inline">\(s^+\)</span> и <span class="math inline">\(s\)</span></li>
+</ul></li>
+<li>Если <span class="math inline">\(p = \textrm{end}(s)\)</span>:
+<ul>
+<li><span class="math inline">\(r = s^- \cap s^+\)</span>. Если <span class="math inline">\(r\neq \varnothing \land r &gt;_x p\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>.</li>
+<li><span class="math inline">\(L = L~\backslash~s\)</span></li>
+</ul></li>
+<li>Если <span class="math inline">\(p = s_1 \cap s_2\)</span> при <span class="math inline">\(s_1 &lt;_L s_2\)</span>:
+<ul>
+<li><span class="math inline">\(r = s_1^- \cap s_2\)</span>. Если <span class="math inline">\(r \neq \varnothing \land r &gt;_x p\)</span> то <span class="math inline">\(E = E \cup r\)</span>, <span class="math inline">\(R = R \cup r\)</span>. Тоже для <span class="math inline">\(s_2^+\)</span> и <span class="math inline">\(s_1\)</span></li>
+<li>Поменять местами <span class="math inline">\(s_1\)</span> и <span class="math inline">\(s_2\)</span> в <span class="math inline">\(L\)</span></li>
+</ul></li>
+<li><span class="math inline">\(E = E~\backslash~p\)</span>.</li>
+</ol>
+</section>
 <section id="алгоритм-бентли-оттмана-свойства" class="slide level2">
 <h2>Алгоритм Бентли-Оттмана (свойства)</h2>
 <p>Гарантируется, что алгоритм находит все существующие пересечения, и не находит несуществующих пересечений.</p>
