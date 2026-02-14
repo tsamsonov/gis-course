@@ -3651,7 +3651,7 @@
     "href": "01_Geoinformation.html#словарик",
     "title": "Географическая информация",
     "section": "Словарик",
-    "text": "Словарик\n\n\nГеоинформатика\nПространственная привязка\nПространственный объект\nПространственные данные\nГеографическая информационная система (ГИС)\n\nGeographical information science\nSpatial reference\nFeature\nSpatial data\nGeographical Information System (GIS)"
+    "text": "Словарик\n\n\nГеографическая информация\nГеографический идентификатор\nГеоинформатика\nПространственная привязка\nПространственный объект\nПространственные данные\nГеографическая информационная система (ГИС)\n\nGeographic(al) Information\nGeographic identifier\nGeographical information science\nSpatial reference\nFeature\nSpatial data\nGeographical Information System (GIS)"
   },
   {
     "objectID": "01_Geoinformation.html#библиография",
@@ -7110,5 +7110,19 @@
     "title": "Топологические отношения",
     "section": "",
     "text": "Модели топологических отношений разработаны в первой половине 90-х гг. ХХ в.:\n\nМодель 4 пересечений 4IM (Max J. Egenhofer и Franzosa 1991).\nМодель 9 пересечений 9IM (Max J. Egenhofer 1991; Max J. Egenhofer и Herring 1991).\nМодель 4 пересечений с размерностью DE-4IM (Clementini, Di Felice, и van Oosterom 1993).\nАналитическая модель CBM (Clementini, Di Felice, и van Oosterom 1993).\nМодель 9 пересечений с размерностью DE-9IM (Clementini и Di Felice 1995).\n\nНаибольший вклад внесли два ученых:\n\nMax Egenhofer (University of Maine, USA)\nEliseo Clementini (University of L’Aquila, Italy)"
+  },
+  {
+    "objectID": "01_Geoinformation.html#государственные-стандарты",
+    "href": "01_Geoinformation.html#государственные-стандарты",
+    "title": "Географическая информация",
+    "section": "Государственные стандарты",
+    "text": "Государственные стандарты"
+  },
+  {
+    "objectID": "01_Geoinformation.html#технический-комитет-394",
+    "href": "01_Geoinformation.html#технический-комитет-394",
+    "title": "Географическая информация",
+    "section": "Технический комитет 394",
+    "text": "Технический комитет 394\nЗанимается разработкой отечественных, а также адаптацией международных стандартов в области геоинформатики"
   }
 ]
