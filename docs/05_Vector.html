@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.22">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Самсонов Тимофей Евгеньевич">
   <title>Основы геоинформатики – Векторный анализ</title>
@@ -49,7 +49,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-434147949b2797efd83c142b4be443f6.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-4ce18041df2c27ca16057e62b67cb604.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -159,7 +159,7 @@
 </div>
 </div>
 
-  <p class="date">28 февраля 2025 г.</p>
+  <p class="date">27 февраля 2026 г.</p>
 </section>
 <section id="пространственные-отношения" class="slide level2">
 <h2>Пространственные отношения</h2>
@@ -789,6 +789,11 @@ A = \frac{1}{2}\sum_{i=0}^{n-2} \underbrace{(y_{i+1}+y_{i})}_{\texttt{основ
 <p><img data-src="images/area.svg" style="width:100.0%"></p>
 </div></div>
 </section>
+<section id="пример-запроса-длины-и-площади" class="slide level2">
+<h2>Пример запроса длины и площади</h2>
+<p>При щелчке инструментом идентификации <img data-src="images/clipboard-2808282449.png" width="27"> на объекте в QGIS площадь и периметр выводятся автоматически в разделе <em>Derived</em></p>
+<p><img data-src="images/qgis_area_perimeter.png"></p>
+</section>
 <section id="принадлежность-точки-полигону" class="slide level2">
 <h2>Принадлежность точки полигону</h2>
 <p>Луч, выпущенный из точки в направлении оси <span class="math inline">\(X\)</span>, пересекает границу полигона <strong>нечетное</strong> количество раз.</p>
@@ -1026,6 +1031,11 @@ A = \frac{1}{2}\sum_{i=0}^{n-2} \underbrace{(y_{i+1}+y_{i})}_{\texttt{основ
 <p><img data-src="images/convex_hull_8.svg" style="width:100.0%"></p>
 </div></div>
 </section>
+<section id="пример-использования" class="slide level2">
+<h2>Пример использования</h2>
+<p>Выпуклая оболочка может быть использована для построения приблизительных ареалов распространения</p>
+
+<img data-src="images/erinaceus.png" style="width:100.0%" class="r-stretch"></section>
 <section id="диаграмма-вороного" class="slide level2">
 <h2>Диаграмма Вороного</h2>
 <div class="columns">
