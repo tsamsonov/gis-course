@@ -1697,8 +1697,8 @@
     "objectID": "adv_03_WKT_WKB.html#well-known-text-wkt",
     "href": "adv_03_WKT_WKB.html#well-known-text-wkt",
     "title": "WKT и WKB",
-    "section": "",
-    "text": "Well-Known Text (WKT) — формальный язык описания геометрий, который используется для\n\nсоздания новых экземпляров геометрии;\nконвертации экземпляров в алфавитно-цифровую текстовую форму для отображения и сериализации.\n\n\n\n\n\n\n\nСериализация\n\n\n\nПреобразование состояния объекта в форму, пригодную для сохранения или передачи. Обратный процесс называется десериализацией.\n\n\nWKT используется для описания не только геометрий, но также пространственных систем отсчета.\nWKT является регистронезависимым: POINT, Point и point — это одно и то же."
+    "section": "Well-Known Text (WKT)",
+    "text": "Well-Known Text (WKT)\nWell-Known Text (WKT) — формальный язык описания геометрий, который используется для\n\nсоздания новых экземпляров геометрии;\nконвертации экземпляров в алфавитно-цифровую текстовую форму для отображения и сериализации.\n\n\n\n\n\n\n\nСериализация\n\n\nПреобразование состояния объекта в форму, пригодную для сохранения или передачи. Обратный процесс называется десериализацией.\n\n\n\nWKT используется для описания не только геометрий, но также пространственных систем отсчета.\nWKT является регистронезависимым: POINT, Point и point — это одно и то же."
   },
   {
     "objectID": "adv_03_WKT_WKB.html#формальная-грамматика",
@@ -1719,7 +1719,7 @@
     "href": "adv_03_WKT_WKB.html#форма-бэкуса-наура-бнф",
     "title": "WKT и WKB",
     "section": "Форма Бэкуса-Наура (БНФ)",
-    "text": "Форма Бэкуса-Наура (БНФ)\nФорма Бэкуса-Наура (БНФ) — формальная грамматика с последовательным определением синаксических категорий через производящие правила вида:\n&lt;symbol&gt; ::= expression\n\n&lt;symbol&gt; — нетерминальный символ (переменная)\n::= — оператор замены символа слева (&lt;symbol&gt;) на выражение справа (expression).\nexpression — выражение, которое состоит из одной и более альтернативных последовательностей терминальных или нетерминальных символов (токенов)\n| — символ, используемый для разделения альтернативных последовательностей в выражении expression\n\n\n\n\n\n\n\nУгловые скобки (&lt;&gt;)\n\n\n\nВ нотации Бэкуса-Наура нетерминальные символы всегда заключаются в угловые скобки (&lt;&gt;)."
+    "text": "Форма Бэкуса-Наура (БНФ)\nФорма Бэкуса-Наура (БНФ) — формальная грамматика с последовательным определением синаксических категорий через производящие правила вида:\n&lt;symbol&gt; ::= expression\n\n&lt;symbol&gt; — нетерминальный символ (переменная)\n::= — оператор замены символа слева (&lt;symbol&gt;) на выражение справа (expression).\nexpression — выражение, которое состоит из одной и более альтернативных последовательностей терминальных или нетерминальных символов (токенов)\n| — символ, используемый для разделения альтернативных последовательностей в выражении expression\n\n\n\n\n\n\n\nУгловые скобки (&lt;&gt;)\n\n\nВ нотации Бэкуса-Наура нетерминальные символы всегда заключаются в угловые скобки (&lt;&gt;)."
   },
   {
     "objectID": "adv_03_WKT_WKB.html#форма-бэкуса-наура-бнф-1",
@@ -1922,7 +1922,7 @@
     "href": "adv_03_WKT_WKB.html#что-это",
     "title": "WKT и WKB",
     "section": "Что это?",
-    "text": "Что это?\n\n\n0105000000020000000102000000\n03000000000000000000E0BF9A99\n9999999905406666666666662240\n9A99999999992140000000000000\n2840CDCCCCCCCCCC08C001020000\n00020000000000000000000C4000\n0000000000044066666666666622\n400000000000000000\n\n\n\n\n\nОпределите тип и координаты данного объекта.\nПредставьте результат в формате WKT.\n\n\n\n\n\n\n\nПодсказка\n\n\n\nДанные представлены в шестнадцатеричной системе в формате Little Endian"
+    "text": "Что это?\n\n\n0105000000020000000102000000\n03000000000000000000E0BF9A99\n9999999905406666666666662240\n9A99999999992140000000000000\n2840CDCCCCCCCCCC08C001020000\n00020000000000000000000C4000\n0000000000044066666666666622\n400000000000000000\n\n\n\n\nОпределите тип и координаты данного объекта.\nПредставьте результат в формате WKT.\n\n\n\n\n\n\n\nПодсказка\n\n\nДанные представлены в шестнадцатеричной системе в формате Little Endian"
   },
   {
     "objectID": "adv_03_WKT_WKB.html#библиография",
@@ -3010,6 +3010,13 @@
     "text": "Площадь\n\n\nРассчитывается как сумма площадей трапеций, ограниченных сверху отрезками, составляющими контур объекта:\n\\[\nA = \\frac{1}{2}\\sum_{i=0}^{n-2} \\underbrace{(y_{i+1}+y_{i})}_{\\texttt{основания}}\\underbrace{(x_{i+1}-x_{i})}_{\\texttt{высота}}\n\\]\n\n\n\n\n\n\nОтрицательная площадь\n\n\nТрапеции, у которых \\(i+1\\)-я точка имеет меньший X, чем \\(i\\)-я, имеют отрицательную площадь."
   },
   {
+    "objectID": "05_Vector.html#пример-запроса-длины-и-площади",
+    "href": "05_Vector.html#пример-запроса-длины-и-площади",
+    "title": "Векторный анализ",
+    "section": "Пример запроса длины и площади",
+    "text": "Пример запроса длины и площади\nПри щелчке инструментом идентификации  на объекте в QGIS площадь и периметр выводятся автоматически в разделе Derived"
+  },
+  {
     "objectID": "05_Vector.html#принадлежность-точки-полигону",
     "href": "05_Vector.html#принадлежность-точки-полигону",
     "title": "Векторный анализ",
@@ -3085,6 +3092,13 @@
     "title": "Векторный анализ",
     "section": "Выпуклая оболочка",
     "text": "Выпуклая оболочка\nИзвестный метод построения — алгоритм Джарвиса (Jarvis 1973):\n\n\n\nНайти точку \\(q_0\\) с минимальной координатой \\(X\\).\nНайти точку \\(q_1\\) с минимальным дир. углом относительно \\(q_0\\).\nПока \\(q_k \\neq q_0\\) начиная с \\(k=1\\)\n\nнайти точку \\(q_{k+1}\\) с минимальным углом поворота относительно прямой, проходящей через \\(\\overline{q_{k-1}q_k}\\);\n\\(k = k + 1\\).\n\nВосстановить полигон по точкам \\(q_0, q_1, … q_k\\), где \\(k &gt; 2\\) и \\(q_0 = q_k\\)."
+  },
+  {
+    "objectID": "05_Vector.html#пример-использования",
+    "href": "05_Vector.html#пример-использования",
+    "title": "Векторный анализ",
+    "section": "Пример использования",
+    "text": "Пример использования\nВыпуклая оболочка может быть использована для построения приблизительных ареалов распространения"
   },
   {
     "objectID": "05_Vector.html#диаграмма-вороного",
@@ -3645,6 +3659,20 @@
     "title": "Географическая информация",
     "section": "Геоинформатика",
     "text": "Геоинформатика\n\nГеоинформатика (отрасль) (ГОСТ Р 52438-2005 2018)\n\nНаучно-техническое направление, объединяющее:\n\nтеорию цифрового моделирования предметной области с использованием пространственных данных;\nтехнологии создания и использования геоинформационных систем;\nпроизводство геоинформационной продукции и оказание геоинформационных услуг.\n\n\n\n\n\n\n\n\n\nБудьте осторожны\n\n\nВ других сферах деятельности под аббревиатурой ГИС может подразумеваться геофизическое исследование скважин, государственная информационная система и т.д."
+  },
+  {
+    "objectID": "01_Geoinformation.html#государственные-стандарты",
+    "href": "01_Geoinformation.html#государственные-стандарты",
+    "title": "Географическая информация",
+    "section": "Государственные стандарты",
+    "text": "Государственные стандарты"
+  },
+  {
+    "objectID": "01_Geoinformation.html#технический-комитет-394",
+    "href": "01_Geoinformation.html#технический-комитет-394",
+    "title": "Географическая информация",
+    "section": "Технический комитет 394",
+    "text": "Технический комитет 394\nЗанимается разработкой отечественных, а также адаптацией международных стандартов в области геоинформатики"
   },
   {
     "objectID": "01_Geoinformation.html#словарик",
@@ -4344,7 +4372,7 @@
     "href": "06_Raster.html#растровая-алгебра-15",
     "title": "Растровый анализ",
     "section": "Растровая алгебра",
-    "text": "Растровая алгебра\n\n\nРастровый оверлей — частный случай локальной операции, при котором вычисляется линейная комбинация (сумма, среднее и т.д.) значений из нескольких растров.\n\\[\nR = w_1 r_1 + w_2 r_2 + ...w_n r_n = \\sum_{i=1}^n w_i r_i\n\\]\n\n\n\n\n\n\nВзвешенный оверлей\n\n\nРастровый оверлей называют взвешенным, если коэффициенты в линейной комбинации представляют собой веса значений"
+    "text": "Растровая алгебра\n\n\nРастровый оверлей — локальная операция, при которой вычисляется комбинация (сумма, среднее, произведение и т.д.) значений из нескольких растров. Например, линейная комбинация (сумма):\n\\[\nR = w_1 r_1 + w_2 r_2 + ...w_n r_n = \\sum_{i=1}^n w_i r_i\n\\]\n\n\n\n\n\n\nВзвешенный оверлей\n\n\nРастровый оверлей называют взвешенным, если коэффициенты в линейной комбинации представляют собой веса значений"
   },
   {
     "objectID": "06_Raster.html#взвешенный-оверлей-1",
@@ -4863,6 +4891,13 @@
     "title": "Цифровое моделирование рельефа и геоморфометрия",
     "section": "Гидрологический анализ ЦМР",
     "text": "Гидрологический анализ ЦМР\nОбщая схема анализа выглядит следующим образом\n\n\n\n\n\nflowchart TB\n  A(ЦМР) --&gt; B(Устранение ошибочных понижений)\n  B --&gt; C(Направления стока)\n  C --&gt; D(Аккумуляция стока)\n  C --&gt; E(Потенциальные водотоки)\n  D --&gt; E\n  C --&gt; F(Бассейны)\n  D -.-&gt; F"
+  },
+  {
+    "objectID": "08_Dem.html#гидрологический-анализ-цмр-2",
+    "href": "08_Dem.html#гидрологический-анализ-цмр-2",
+    "title": "Цифровое моделирование рельефа и геоморфометрия",
+    "section": "Гидрологический анализ ЦМР",
+    "text": "Гидрологический анализ ЦМР\nПрактическое применение:\n\nУниверсально: определение границ водосборных бассейнов\nКартография: выделение потенциальных водотоков в местах, надостаточно охваченных картографическими данными\nГидрология: моделирование поверхностного стока на водосборах\nГеоморфология: моделирование эрозионных процессов (интенсивность выше в местах значительной аккумуляции стока)\nПочвоведение и с/х: более увлажненные почвы в ложбинах с высокой аккумуляцией стока (топографический индекс влажности)\n…"
   },
   {
     "objectID": "08_Dem.html#словарик",
@@ -5547,8 +5582,8 @@
     "objectID": "adv_02_Features.html#simple-features",
     "href": "adv_02_Features.html#simple-features",
     "title": "Модель OGC Simple Features",
-    "section": "",
-    "text": "Simple Features — стандарт OGC (2010), который определяет общую модель хранения и доступа к простым (векторным) объектам.\n\nвсе геометрии состоят из точек;\nвсе точки в геометрии имеют одинаковую размерность;\nразмерность точек может быть 2, 3 или 4.\n\nВ дополнение к обязательным измерениям \\(X\\) и \\(Y\\) возможны:\n\n\\(Z\\), обозначающее высоту\n\\(M\\), обозначающее некоторую меру — например, время\n\nСуществует 4 варианта координат: \\(XY\\), \\(XYZ\\), \\(XYM\\) и \\(XYZM\\).\nВ географических координатах \\(X\\) — долгота, \\(Y\\) — широта."
+    "section": "Simple Features",
+    "text": "Simple Features\nSimple Features — стандарт OGC (2010), который определяет общую модель хранения и доступа к простым (векторным) объектам.\n\nвсе геометрии состоят из точек;\nвсе точки в геометрии имеют одинаковую размерность;\nразмерность точек может быть 2, 3 или 4.\n\nВ дополнение к обязательным измерениям \\(X\\) и \\(Y\\) возможны:\n\n\\(Z\\), обозначающее высоту\n\\(M\\), обозначающее некоторую меру — например, время\n\nСуществует 4 варианта координат: \\(XY\\), \\(XYZ\\), \\(XYM\\) и \\(XYZM\\).\nВ географических координатах \\(X\\) — долгота, \\(Y\\) — широта."
   },
   {
     "objectID": "adv_02_Features.html#иерархия-классов",
@@ -5590,7 +5625,7 @@
     "href": "adv_02_Features.html#интерфейс-класса-geometry-3",
     "title": "Модель OGC Simple Features",
     "section": "Интерфейс класса GEOMETRY",
-    "text": "Интерфейс класса GEOMETRY\n\n\n\n\n\n\n\nМетод\nОписание\n\n\n\n\nIs3D()\nВозвращает TRUE (\\(1\\)), если данный объект имеет координаты \\(Z\\).\n\n\nIsMeasured()\nВозвращает TRUE (\\(1\\)), если данный объект имеет координаты \\(M\\).\n\n\nBoundary()\nВозвращает замыкание комбинаторной границы данного объекта\n\n\n\n\n\n\n\n\n\nВажно\n\n\n\nНазвания методов в программных реализациях Simple Features могут отличаться от предлагаемых в стандарте. Однако наличие соответствующих методов является условием реализации стандарта."
+    "text": "Интерфейс класса GEOMETRY\n\n\n\n\n\n\n\nМетод\nОписание\n\n\n\n\nIs3D()\nВозвращает TRUE (\\(1\\)), если данный объект имеет координаты \\(Z\\).\n\n\nIsMeasured()\nВозвращает TRUE (\\(1\\)), если данный объект имеет координаты \\(M\\).\n\n\nBoundary()\nВозвращает замыкание комбинаторной границы данного объекта\n\n\n\n\n\n\n\n\n\nВажно\n\n\nНазвания методов в программных реализациях Simple Features могут отличаться от предлагаемых в стандарте. Однако наличие соответствующих методов является условием реализации стандарта."
   },
   {
     "objectID": "adv_02_Features.html#граница-и-замыкание",
@@ -5646,14 +5681,14 @@
     "href": "adv_02_Features.html#точка-point",
     "title": "Модель OGC Simple Features",
     "section": "Точка (POINT)",
-    "text": "Точка (POINT)\n\n\nPOINT — \\(0\\)-мерный геометрический объект, единичное местоположение\nГраница POINT — пустое множество: \\(\\partial A = \\varnothing\\)\nИнтерфейс точки должен поддерживать возвращение ее координат:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nX()\nКоордината \\(x\\) данного объекта POINT\n\n\nY()\nКоордината \\(y\\) данного объекта POINT\n\n\nZ()\nКоордината \\(z\\) данного объекта POINT, или NULL если не задано.\n\n\nM()\nКоордината \\(m\\) данного объекта POINT, или NULL если не задано."
+    "text": "Точка (POINT)\n\n\nPOINT — \\(0\\)-мерный геометрический объект, единичное местоположение\nГраница POINT — пустое множество: \\(\\partial A = \\varnothing\\)\nИнтерфейс точки должен поддерживать возвращение ее координат:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nМетод\nНазначение\n\n\n\n\nX()\nКоордината \\(x\\) данного объекта POINT\n\n\nY()\nКоордината \\(y\\) данного объекта POINT\n\n\nZ()\nКоордината \\(z\\) данного объекта POINT, или NULL если не задано.\n\n\nM()\nКоордината \\(m\\) данного объекта POINT, или NULL если не задано."
   },
   {
     "objectID": "adv_02_Features.html#мультиточка-multipoint",
     "href": "adv_02_Features.html#мультиточка-multipoint",
     "title": "Модель OGC Simple Features",
     "section": "Мультиточка (MULTIPOINT)",
-    "text": "Мультиточка (MULTIPOINT)\nMULTIPOINT — \\(0\\)-мерная геометрическая коллекция объектов класса POINT.\n\n\n\nЭлементы коллекции не связаны и не имеют какого-либо смыслового упорядочения (наследуется свойство GEOMETRYCOLLECTION ).\nГраница MULTIPOINT — пустое множество: \\(\\partial A = \\varnothing\\).\nОбъект MULTIPOINT является простым, если ни одна пара POINT в его коллекции не совпадает.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nflowchart LR\n  A(MULTIPOINT) --&gt;|\"GeometryN( 0 )\"| B(POINT)\n  B --&gt;|\"X( )\"| C(X)\n  B --&gt;|\"Y( )\"| D(Y)"
+    "text": "Мультиточка (MULTIPOINT)\nMULTIPOINT — \\(0\\)-мерная геометрическая коллекция объектов класса POINT.\n\n\n\nЭлементы коллекции не связаны и не имеют какого-либо смыслового упорядочения (наследуется свойство GEOMETRYCOLLECTION ).\nГраница MULTIPOINT — пустое множество: \\(\\partial A = \\varnothing\\).\nОбъект MULTIPOINT является простым, если ни одна пара POINT в его коллекции не совпадает.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nflowchart LR\n  A(MULTIPOINT) --&gt;|\"GeometryN( 0 )\"| B(POINT)\n  B --&gt;|\"X( )\"| C(X)\n  B --&gt;|\"Y( )\"| D(Y)"
   },
   {
     "objectID": "adv_02_Features.html#кривая-curve",
@@ -5778,8 +5813,8 @@
     "objectID": "adv_04_CRS.html#координатная-система-отсчета",
     "href": "adv_04_CRS.html#координатная-система-отсчета",
     "title": "Координатные системы отсчета",
-    "section": "",
-    "text": "flowchart LR\n  A(Система отсчета) --&gt; B(Пространственная)\n  A --&gt; C(Временная)\n  B --&gt; D(Географические идентификаторы)\n  B --&gt; E(Координатная)\n  B --&gt; F(Параметрическая координатная)\n  C --&gt; G(Координатная)\n  C --&gt; H(Порядковая)\n  C --&gt; I(Календари)\n  E --&gt; J(Координатная)\n  F --&gt; J\n  G --&gt; J"
+    "section": "Координатная система отсчета",
+    "text": "Координатная система отсчета\n\n\n\n\n\nflowchart LR\n  A(Система отсчета) --&gt; B(Пространственная)\n  A --&gt; C(Временная)\n  B --&gt; D(Географические идентификаторы)\n  B --&gt; E(Координатная)\n  B --&gt; F(Параметрическая координатная)\n  C --&gt; G(Координатная)\n  C --&gt; H(Порядковая)\n  C --&gt; I(Календари)\n  E --&gt; J(Координатная)\n  F --&gt; J\n  G --&gt; J"
   },
   {
     "objectID": "adv_04_CRS.html#определение-crs-на-языке-wkt",
@@ -5793,7 +5828,7 @@
     "href": "adv_04_CRS.html#общие-атрибуты",
     "title": "Координатные системы отсчета",
     "section": "Общие атрибуты",
-    "text": "Общие атрибуты\nВне зависимости от типа описываемого объекта ему всегда могут быть заданы:\n\nИмя (name).\nИспользование (usage)\n\nОбласть применения (scope).\nПространственный охват (extent).\n\nИдентификатор (identifier).\nРемарка (remark).\n\n\n\n\n\n\n\nИмя\n\n\n\nИмя является обязательным атрибутом при описании координатной системы отсчета, а также для некоторых компонент структуры ее описания"
+    "text": "Общие атрибуты\nВне зависимости от типа описываемого объекта ему всегда могут быть заданы:\n\nИмя (name).\nИспользование (usage)\n\nОбласть применения (scope).\nПространственный охват (extent).\n\nИдентификатор (identifier).\nРемарка (remark).\n\n\n\n\n\n\n\nИмя\n\n\nИмя является обязательным атрибутом при описании координатной системы отсчета, а также для некоторых компонент структуры ее описания"
   },
   {
     "objectID": "adv_04_CRS.html#использование",
@@ -5828,7 +5863,7 @@
     "href": "adv_04_CRS.html#единицы-измерения",
     "title": "Координатные системы отсчета",
     "section": "Единицы измерения",
-    "text": "Единицы измерения\nЕдиницы измерения указываются для некоторых параметров осей координат, а также параметров координатных операций.\n\n\n\n\n\n\n\n\n&lt;spatial unit&gt;\n::=\n&lt;angle unit&gt; | &lt;length unit&gt; | &lt;parametric unit&gt; | &lt;scale unit&gt;\n\n\n&lt;unit&gt;\n::=\n&lt;spatial unit&gt; | &lt;time unit&gt;\n\n\n\nПосле единицы измерения указывается коэффициент пересчета:\nLENGTHUNIT[\"metre\",1] \nLENGTHUNIT[\"German legal metre\",1.0000135965] \nANGLEUNIT[\"degree\",0.0174532925199433] \nSCALEUNIT[\"parts per million\",1E-06] \nPARAMETRICUNIT[\"hectopascal\",100]\n\n\n\n\n\n\nЭталоны\n\n\n\nКоэффициенты пересчета указываются к эталонным единицам СИ: метрам, радианам и т.д."
+    "text": "Единицы измерения\nЕдиницы измерения указываются для некоторых параметров осей координат, а также параметров координатных операций.\n\n\n\n\n\n\n\n\n&lt;spatial unit&gt;\n::=\n&lt;angle unit&gt; | &lt;length unit&gt; | &lt;parametric unit&gt; | &lt;scale unit&gt;\n\n\n&lt;unit&gt;\n::=\n&lt;spatial unit&gt; | &lt;time unit&gt;\n\n\n\nПосле единицы измерения указывается коэффициент пересчета:\nLENGTHUNIT[\"metre\",1] \nLENGTHUNIT[\"German legal metre\",1.0000135965] \nANGLEUNIT[\"degree\",0.0174532925199433] \nSCALEUNIT[\"parts per million\",1E-06] \nPARAMETRICUNIT[\"hectopascal\",100]\n\n\n\n\n\n\nЭталоны\n\n\nКоэффициенты пересчета указываются к эталонным единицам СИ: метрам, радианам и т.д."
   },
   {
     "objectID": "adv_04_CRS.html#система-координат",
@@ -5905,7 +5940,7 @@
     "href": "adv_04_CRS.html#единицы-измерения-осей",
     "title": "Координатные системы отсчета",
     "section": "Единицы измерения осей",
-    "text": "Единицы измерения осей\nМогут быть указаны как на уровне системы координат (&lt;cs unit&gt;), так и на уровне каждой оси по отдельности (&lt;axis unit&gt;).\n\n\n\n\n\n\nВнимание\n\n\n\nНе следует использовать &lt;cs unit&gt; когда единицы измерения осей разные (например, в полярной СК).\n\n\nCS[Cartesian,3],\n  AXIS[\"(X)\",geocentricX], \n  AXIS[\"(Y)\",geocentricY], \n  AXIS[\"(Z)\",geocentricZ], \n  LENGTHUNIT[\"metre\",1.0] — &lt;cs unit&gt;\n  \nCS[polar,2],\n  AXIS[\"distance (r)\", awayFrom, ORDER[1],\n       LENGTHUNIT[\"metre\",1.0]],                     — &lt;axis unit&gt;\n  AXIS[\"bearing (U)\", clockwise, BEARING[234], ORDER[2], \n       ANGLEUNIT[\"degree\",0.0174532925199433]]       — &lt;axis unit&gt;"
+    "text": "Единицы измерения осей\nМогут быть указаны как на уровне системы координат (&lt;cs unit&gt;), так и на уровне каждой оси по отдельности (&lt;axis unit&gt;).\n\n\n\n\n\n\nВнимание\n\n\nНе следует использовать &lt;cs unit&gt; когда единицы измерения осей разные (например, в полярной СК).\n\n\n\nCS[Cartesian,3],\n  AXIS[\"(X)\",geocentricX], \n  AXIS[\"(Y)\",geocentricY], \n  AXIS[\"(Z)\",geocentricZ], \n  LENGTHUNIT[\"metre\",1.0] — &lt;cs unit&gt;\n  \nCS[polar,2],\n  AXIS[\"distance (r)\", awayFrom, ORDER[1],\n       LENGTHUNIT[\"metre\",1.0]],                     — &lt;axis unit&gt;\n  AXIS[\"bearing (U)\", clockwise, BEARING[234], ORDER[2], \n       ANGLEUNIT[\"degree\",0.0174532925199433]]       — &lt;axis unit&gt;"
   },
   {
     "objectID": "adv_04_CRS.html#геодезические-ск",
@@ -5968,7 +6003,7 @@
     "href": "adv_04_CRS.html#геодезическаягеографическая-со-2",
     "title": "Координатные системы отсчета",
     "section": "Геодезическая/географическая СО",
-    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеографическая статическая 2-мерная эллипсоидальная\nGEOGCRS[\"NTF (Paris)\",\n  DATUM[\"Nouvelle Triangulation Francaise\", \n    ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.4660213]\n  ], \n  PRIMEM[\"Paris\",2.5969213],\n  CS[ellipsoidal,2],\n    AXIS[\"latitude\",north,ORDER[1]],\n    AXIS[\"longitude\",east,ORDER[2]],\n    ANGLEUNIT[\"grad\",0.015707963267949],\n  REMARK[\"Nouvelle Triangulation Française\"]\n]\n\n\n\n\n\n\nОбратите внимание\n\n\n\nДанная система отсчета использует нестандартный меридиан (Парижский) и угловые единицы (грады)."
+    "text": "Геодезическая/географическая СО\nОпирается на 3-мерную декартову СК или 2/3-мерную сферическую\nГеографическая статическая 2-мерная эллипсоидальная\nGEOGCRS[\"NTF (Paris)\",\n  DATUM[\"Nouvelle Triangulation Francaise\", \n    ELLIPSOID[\"Clarke 1880 (IGN)\",6378249.2,293.4660213]\n  ], \n  PRIMEM[\"Paris\",2.5969213],\n  CS[ellipsoidal,2],\n    AXIS[\"latitude\",north,ORDER[1]],\n    AXIS[\"longitude\",east,ORDER[2]],\n    ANGLEUNIT[\"grad\",0.015707963267949],\n  REMARK[\"Nouvelle Triangulation Française\"]\n]\n\n\n\n\n\n\nОбратите внимание\n\n\nДанная система отсчета использует нестандартный меридиан (Парижский) и угловые единицы (грады)."
   },
   {
     "objectID": "adv_04_CRS.html#проецированная-со",
@@ -5995,8 +6030,8 @@
     "objectID": "adv_06_Topology.html#история-развития",
     "href": "adv_06_Topology.html#история-развития",
     "title": "Топологические отношения",
-    "section": "",
-    "text": "Модели топологических отношений разработаны в первой половине 90-х гг. ХХ в.:\n\nМодель 4 пересечений 4IM (Max J. Egenhofer и Franzosa 1991).\nМодель 9 пересечений 9IM (Max J. Egenhofer 1991; Max J. Egenhofer и Herring 1991).\nМодель 4 пересечений с размерностью DE-4IM (Clementini, Di Felice, и van Oosterom 1993).\nАналитическая модель CBM (Clementini, Di Felice, и van Oosterom 1993).\nМодель 9 пересечений с размерностью DE-9IM (Clementini и Di Felice 1995).\n\nНаибольший вклад внесли два ученых:\n\nMax Egenhofer (University of Maine, USA)\nEliseo Clementini (University of L’Aquila, Italy)"
+    "section": "История развития",
+    "text": "История развития\nМодели топологических отношений разработаны в первой половине 90-х гг. ХХ в.:\n\nМодель 4 пересечений 4IM (Max J. Egenhofer и Franzosa 1991).\nМодель 9 пересечений 9IM (Max J. Egenhofer 1991; Max J. Egenhofer и Herring 1991).\nМодель 4 пересечений с размерностью DE-4IM (Clementini, Di Felice, и van Oosterom 1993).\nАналитическая модель CBM (Clementini, Di Felice, и van Oosterom 1993).\nМодель 9 пересечений с размерностью DE-9IM (Clementini и Di Felice 1995).\n\nНаибольший вклад внесли два ученых:\n\nMax Egenhofer (University of Maine, USA)\nEliseo Clementini (University of L’Aquila, Italy)"
   },
   {
     "objectID": "adv_06_Topology.html#обозначения",
@@ -6017,21 +6052,21 @@
     "href": "adv_06_Topology.html#модель-4-пересечений-4im",
     "title": "Топологические отношения",
     "section": "Модель 4-пересечений 4IM",
-    "text": "Модель 4-пересечений 4IM\n\nАнализ пересечений внутренней области и границы двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nКаждое пересечение может быть пустым (\\(\\varnothing\\)) или не пустым (\\(\\neg \\varnothing\\)), что дает \\(2^4 = 16\\) комбинаций.\n\n\n\nКаждая комбинация представляется в виде матрицы пересечений\n\\[\nM=\\begin{pmatrix}\n\\lambda_1^\\circ  \\cap \\lambda_2^\\circ   &   \\lambda_1^\\circ \\cap \\partial \\lambda_2 \\\\\n\\partial \\lambda_1 \\cap \\lambda_2^\\circ   &    \\partial \\lambda_1 \\cap \\partial \\lambda_2\n\\end{pmatrix}\n\\]\n\n\n\n\n\n\nОбратные отношения\n\n\n\nСоответствуют матрицам \\(M_1\\) и \\(M_2\\), для которых справедливо \\(M_1 = M_2^T\\)\n\n\n\n\n\n\n\\(\\lambda_1 \\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n8\n6\n\n\n\\(LA\\)\n11\n11\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n16\n12\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n37"
+    "text": "Модель 4-пересечений 4IM\n\nАнализ пересечений внутренней области и границы двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nКаждое пересечение может быть пустым (\\(\\varnothing\\)) или не пустым (\\(\\neg \\varnothing\\)), что дает \\(2^4 = 16\\) комбинаций.\n\n\n\nКаждая комбинация представляется в виде матрицы пересечений\n\\[\nM=\\begin{pmatrix}\n\\lambda_1^\\circ  \\cap \\lambda_2^\\circ   &   \\lambda_1^\\circ \\cap \\partial \\lambda_2 \\\\\n\\partial \\lambda_1 \\cap \\lambda_2^\\circ   &    \\partial \\lambda_1 \\cap \\partial \\lambda_2\n\\end{pmatrix}\n\\]\n\n\n\n\n\n\nОбратные отношения\n\n\nСоответствуют матрицам \\(M_1\\) и \\(M_2\\), для которых справедливо \\(M_1 = M_2^T\\)\n\n\n\n\n\n\n\n\\(\\lambda_1 \\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n8\n6\n\n\n\\(LA\\)\n11\n11\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n16\n12\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n37"
   },
   {
     "objectID": "adv_06_Topology.html#модель-9-пересечений-9im",
     "href": "adv_06_Topology.html#модель-9-пересечений-9im",
     "title": "Топологические отношения",
     "section": "Модель 9-пересечений 9IM",
-    "text": "Модель 9-пересечений 9IM\n\nАнализ пересечений внутренней области, границы и внешней области двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nCочетания пустых (\\(\\varnothing\\)) и не пустых (\\(\\neg \\varnothing\\)) дают \\(2^9 = 512\\) комбинаций.\n\n\n\nКаждая комбинация представляется в виде матрицы пересечений\n\\[\nM=\\begin{pmatrix}\n\\lambda_1^\\circ  \\cap \\lambda_2^\\circ & \\lambda_1^\\circ \\cap \\partial \\lambda_2 & \\lambda_1^\\circ \\cap \\lambda_2^- \\\\\n\\partial \\lambda_1 \\cap \\lambda_2^\\circ & \\partial \\lambda_1 \\cap \\partial \\lambda_2 & \\partial \\lambda_1 \\cap \\lambda_2^- \\\\\n\\lambda_1^-  \\cap \\lambda_2^\\circ & \\lambda_1^- \\cap \\partial \\lambda_2 & \\lambda_1^- \\cap \\lambda_2^-\n\\end{pmatrix}\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\n\nЧисло комбинаций меняется только между линиями (\\(LL\\)) и между линиями и полигонами (\\(LA\\)).\n\n\n\n\n\n\n\\(\\lambda_1\\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n8\n6\n\n\n\\(LA\\)\n19\n19\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n33\n23\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n56"
+    "text": "Модель 9-пересечений 9IM\n\nАнализ пересечений внутренней области, границы и внешней области двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nCочетания пустых (\\(\\varnothing\\)) и не пустых (\\(\\neg \\varnothing\\)) дают \\(2^9 = 512\\) комбинаций.\n\n\n\nКаждая комбинация представляется в виде матрицы пересечений\n\\[\nM=\\begin{pmatrix}\n\\lambda_1^\\circ  \\cap \\lambda_2^\\circ & \\lambda_1^\\circ \\cap \\partial \\lambda_2 & \\lambda_1^\\circ \\cap \\lambda_2^- \\\\\n\\partial \\lambda_1 \\cap \\lambda_2^\\circ & \\partial \\lambda_1 \\cap \\partial \\lambda_2 & \\partial \\lambda_1 \\cap \\lambda_2^- \\\\\n\\lambda_1^-  \\cap \\lambda_2^\\circ & \\lambda_1^- \\cap \\partial \\lambda_2 & \\lambda_1^- \\cap \\lambda_2^-\n\\end{pmatrix}\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nЧисло комбинаций меняется только между линиями (\\(LL\\)) и между линиями и полигонами (\\(LA\\)).\n\n\n\n\n\n\n\n\\(\\lambda_1\\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n8\n6\n\n\n\\(LA\\)\n19\n19\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n33\n23\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n56"
   },
   {
     "objectID": "adv_06_Topology.html#модель-4-п.-с-размерностью-de-4im",
     "href": "adv_06_Topology.html#модель-4-п.-с-размерностью-de-4im",
     "title": "Топологические отношения",
     "section": "Модель 4-п. с размерностью DE-4IM",
-    "text": "Модель 4-п. с размерностью DE-4IM\n\nАнализ пересечений внутренней области и границы двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nРазмерность пересечения может быть \\(-, 0, 1, 2\\), что дает \\(4^4 =256\\) комбинаций.\n\n\n\nКаждая комбинация представляется в виде матрицы пересечений\n\\[\nM=\\begin{pmatrix}\n\\dim(\\lambda_1^\\circ  \\cap \\lambda_2^\\circ)   &   \\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) \\\\\n\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ)   & \\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2)\n\\end{pmatrix}\n\\]\n\n\n\n\n\n\nМаксимальная размерность пересечения\n\n\n\nМеньше или равна минимальной размерности объектов, участвующих в пересечении\n\n\n\n\n\n\n\\(\\lambda_1 \\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n12\n9\n\n\n\\(LA\\)\n17\n17\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n24\n18\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n52"
+    "text": "Модель 4-п. с размерностью DE-4IM\n\nАнализ пересечений внутренней области и границы двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nРазмерность пересечения может быть \\(-, 0, 1, 2\\), что дает \\(4^4 =256\\) комбинаций.\n\n\n\nКаждая комбинация представляется в виде матрицы пересечений\n\\[\nM=\\begin{pmatrix}\n\\dim(\\lambda_1^\\circ  \\cap \\lambda_2^\\circ)   &   \\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) \\\\\n\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ)   & \\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2)\n\\end{pmatrix}\n\\]\n\n\n\n\n\n\nМаксимальная размерность пересечения\n\n\nМеньше или равна минимальной размерности объектов, участвующих в пересечении\n\n\n\n\n\n\n\n\\(\\lambda_1 \\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n12\n9\n\n\n\\(LA\\)\n17\n17\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n24\n18\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n52"
   },
   {
     "objectID": "adv_06_Topology.html#подсчет-реальных-комбинаций",
@@ -6052,7 +6087,7 @@
     "href": "adv_06_Topology.html#модель-9-пересечений-с-размерностью",
     "title": "Топологические отношения",
     "section": "Модель 9-пересечений с размерностью",
-    "text": "Модель 9-пересечений с размерностью\n\n\n\nАнализ пересечений внутренней области, границы и внешней области двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nРазмерность пересечения может быть \\(-, 0, 1, 2\\), что дает \\(4^9 =262144\\) комбинаций.\n\n\n\n\n\n\n\nDE-9IM\n\n\n\nМодель DE-9IM описывает наиболее полный спектр топологических отношений и поддерживается в большинстве систем управления базами пространственных данных.\n\n\n\n\n\n\n\\(\\lambda_1 \\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n12\n9\n\n\n\\(LA\\)\n31\n31\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n36\n33\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n81"
+    "text": "Модель 9-пересечений с размерностью\n\n\n\nАнализ пересечений внутренней области, границы и внешней области двух объектов \\(\\lambda_1\\) и \\(\\lambda_2\\).\nРазмерность пересечения может быть \\(-, 0, 1, 2\\), что дает \\(4^9 =262144\\) комбинаций.\n\n\n\n\n\n\n\nDE-9IM\n\n\nМодель DE-9IM описывает наиболее полный спектр топологических отношений и поддерживается в большинстве систем управления базами пространственных данных.\n\n\n\n\n\n\n\n\\(\\lambda_1 \\lambda_2\\)\nВозможно\nБез обратных\n\n\n\n\n\\(AA\\)\n12\n9\n\n\n\\(LA\\)\n31\n31\n\n\n\\(PA\\)\n3\n3\n\n\n\\(LL\\)\n36\n33\n\n\n\\(PL\\)\n3\n3\n\n\n\\(PP\\)\n2\n2\n\n\n\nИтого\n81"
   },
   {
     "objectID": "adv_06_Topology.html#de-49im-01-08-точки",
@@ -6136,14 +6171,14 @@
     "href": "adv_06_Topology.html#cbm-и-de-9im-touch-in",
     "title": "Топологические отношения",
     "section": "CBM и DE-9IM (touch, in)",
-    "text": "CBM и DE-9IM (touch, in)\nМожно доказать эквивалентность моделей CBM и DE-9IM, расписав каждое отношение в прямую и обратную сторону.\n\\[\n\\color{red}{\\langle\\lambda_1, touch, \\lambda_2\\rangle} \\Leftrightarrow \\Big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = -\\Big) \\\\ \\land \\Big(\\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ) \\neq -\\big) \\lor \\big(\\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) \\neq - \\big) \\lor \\big(\\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2) \\neq -\\big)\\Big)\n\\]\n\\[\n\\color{red}{\\langle\\lambda_1, in, \\lambda_2\\rangle} \\Leftrightarrow \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) \\neq -\\big) \\\\ \\land \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^-) = -\\big) \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^-) = - \\big)\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\n\nДля определения отношений touch и in не требуется уточнять топологическую размерность геометрии"
+    "text": "CBM и DE-9IM (touch, in)\nМожно доказать эквивалентность моделей CBM и DE-9IM, расписав каждое отношение в прямую и обратную сторону.\n\\[\n\\color{red}{\\langle\\lambda_1, touch, \\lambda_2\\rangle} \\Leftrightarrow \\Big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) = -\\Big) \\\\ \\land \\Big(\\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^\\circ) \\neq -\\big) \\lor \\big(\\dim(\\lambda_1^\\circ \\cap \\partial \\lambda_2) \\neq - \\big) \\lor \\big(\\dim(\\partial \\lambda_1 \\cap \\partial \\lambda_2) \\neq -\\big)\\Big)\n\\]\n\\[\n\\color{red}{\\langle\\lambda_1, in, \\lambda_2\\rangle} \\Leftrightarrow \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^\\circ) \\neq -\\big) \\\\ \\land \\big(\\dim(\\lambda_1^\\circ \\cap \\lambda_2^-) = -\\big) \\land \\big(\\dim(\\partial \\lambda_1 \\cap \\lambda_2^-) = - \\big)\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nДля определения отношений touch и in не требуется уточнять топологическую размерность геометрии"
   },
   {
     "objectID": "adv_06_Topology.html#cbm-и-de-9im-cross-overlap",
     "href": "adv_06_Topology.html#cbm-и-de-9im-cross-overlap",
     "title": "Топологические отношения",
     "section": "CBM и DE-9IM (cross, overlap)",
-    "text": "CBM и DE-9IM (cross, overlap)\n\\[\n\\color{red}{\\langle L, cross, A\\rangle} \\Leftrightarrow \\big(\\dim(L^\\circ \\cap A^\\circ) \\neq -\\big) \\land \\big(\\dim(L^\\circ \\cap A^-) \\neq -\\big)\n\\]\n\\[\n\\color{red}{\\langle L_1, cross, L_2\\rangle} \\Leftrightarrow \\dim(L_1^\\circ \\cap L_2^\\circ) = 0\n\\]\n\\[\n\\color{red}{\\langle A_1, overlap, A_2\\rangle} \\Leftrightarrow \\big(\\dim(A_1^\\circ \\cap A_2^\\circ) \\neq -\\big) \\\\ \\land \\big(\\dim(A_1^\\circ \\cap A_2^-) \\neq -\\big) \\land \\big(\\dim(A_1^- \\cap A_2^\\circ) \\neq - \\big)\n\\]\n\\[\n\\color{red}{\\langle L_1, overlap, L_2\\rangle} \\Leftrightarrow \\big(\\dim(L_1^\\circ \\cap L_2^\\circ) = 1 \\big) \\\\ \\land \\big(\\dim(L_1^\\circ \\cap L_2^-) \\neq -\\big) \\land \\big(\\dim(L_1^- \\cap L_2^\\circ) \\neq - \\big)\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\n\nОтношение cross определено только для линий. Отношение overlap определено для геометрий одинаковой топологической размерности (но не точек)."
+    "text": "CBM и DE-9IM (cross, overlap)\n\\[\n\\color{red}{\\langle L, cross, A\\rangle} \\Leftrightarrow \\big(\\dim(L^\\circ \\cap A^\\circ) \\neq -\\big) \\land \\big(\\dim(L^\\circ \\cap A^-) \\neq -\\big)\n\\]\n\\[\n\\color{red}{\\langle L_1, cross, L_2\\rangle} \\Leftrightarrow \\dim(L_1^\\circ \\cap L_2^\\circ) = 0\n\\]\n\\[\n\\color{red}{\\langle A_1, overlap, A_2\\rangle} \\Leftrightarrow \\big(\\dim(A_1^\\circ \\cap A_2^\\circ) \\neq -\\big) \\\\ \\land \\big(\\dim(A_1^\\circ \\cap A_2^-) \\neq -\\big) \\land \\big(\\dim(A_1^- \\cap A_2^\\circ) \\neq - \\big)\n\\]\n\\[\n\\color{red}{\\langle L_1, overlap, L_2\\rangle} \\Leftrightarrow \\big(\\dim(L_1^\\circ \\cap L_2^\\circ) = 1 \\big) \\\\ \\land \\big(\\dim(L_1^\\circ \\cap L_2^-) \\neq -\\big) \\land \\big(\\dim(L_1^- \\cap L_2^\\circ) \\neq - \\big)\n\\]\n\n\n\n\n\n\nОбратите внимание\n\n\nОтношение cross определено только для линий. Отношение overlap определено для геометрий одинаковой топологической размерности (но не точек)."
   },
   {
     "objectID": "adv_06_Topology.html#cbm-и-de-9im-disjoint-equals",
@@ -6157,7 +6192,7 @@
     "href": "adv_06_Topology.html#cbm-и-de-9im-частные-случаи",
     "title": "Топологические отношения",
     "section": "CBM и DE-9IM (частные случаи)",
-    "text": "CBM и DE-9IM (частные случаи)\nГраница полигона внутри другого объекта (без уточнения размерности)\n\\[\n\\color{blue}{\\langle (A, b), in, \\lambda\\rangle} \\Leftrightarrow \\big( \\dim(\\partial A \\cap \\lambda^\\circ) \\neq - \\big) \\land \\big(\\dim(\\partial A \\cap \\lambda^-) = - \\big) \\\\ \\Leftrightarrow \\Big(\\dim\\big((\\partial A)^\\circ \\cap \\lambda^\\circ \\big) \\neq - \\Big) \\land \\Big(\\dim\\big((\\partial A)^\\circ \\cap \\lambda^- \\big) = - \\Big) \\land \\Big(\\dim\\big(\\partial(\\partial A) \\cap \\lambda^- \\big) = - \\Big)\n\\]\nОдна граничная точка линии касается полигона, а вторая нет\n\\[\n\\color{blue}{\\langle (L, f), touch, A \\rangle \\land \\langle (L, t), disjoint, A \\rangle} \\\\ \\Leftrightarrow \\big( \\dim(\\partial L \\cap \\partial A) = 0 \\big) \\land \\big( \\dim (\\partial L \\cap A^-) = 0 \\big)\n\\]\n\n\n\n\n\n\nА остальные?\n\n\n\nАналогичным образом можно определить эквивалентность моделей для каждого из 81 случая модели DE-8IM, а также их генерализаций DE-4IM."
+    "text": "CBM и DE-9IM (частные случаи)\nГраница полигона внутри другого объекта (без уточнения размерности)\n\\[\n\\color{blue}{\\langle (A, b), in, \\lambda\\rangle} \\Leftrightarrow \\big( \\dim(\\partial A \\cap \\lambda^\\circ) \\neq - \\big) \\land \\big(\\dim(\\partial A \\cap \\lambda^-) = - \\big) \\\\ \\Leftrightarrow \\Big(\\dim\\big((\\partial A)^\\circ \\cap \\lambda^\\circ \\big) \\neq - \\Big) \\land \\Big(\\dim\\big((\\partial A)^\\circ \\cap \\lambda^- \\big) = - \\Big) \\land \\Big(\\dim\\big(\\partial(\\partial A) \\cap \\lambda^- \\big) = - \\Big)\n\\]\nОдна граничная точка линии касается полигона, а вторая нет\n\\[\n\\color{blue}{\\langle (L, f), touch, A \\rangle \\land \\langle (L, t), disjoint, A \\rangle} \\\\ \\Leftrightarrow \\big( \\dim(\\partial L \\cap \\partial A) = 0 \\big) \\land \\big( \\dim (\\partial L \\cap A^-) = 0 \\big)\n\\]\n\n\n\n\n\n\nА остальные?\n\n\nАналогичным образом можно определить эквивалентность моделей для каждого из 81 случая модели DE-8IM, а также их генерализаций DE-4IM."
   },
   {
     "objectID": "adv_06_Topology.html#isoiec-132492016-sqlmm-part-3-spatial",
@@ -6185,7 +6220,7 @@
     "href": "adv_06_Topology.html#contains-containsproperly-covers",
     "title": "Топологические отношения",
     "section": "Contains, ContainsProperly, Covers",
-    "text": "Contains, ContainsProperly, Covers\nДанные топологические отношения различаются следующим образом:\n\n\n\n\n\n\n\n\nФункция\nМножества\nПояснение\n\n\n\n\nST_Contains\n\\(\\lambda_2^\\circ \\subset \\lambda_1^\\circ\\)\nвнутренность второго объекта располагается во внутренности первого\n\n\nST_ContainsProperly\n\\(\\lambda_2 \\subset \\lambda_1^\\circ\\)\nвторой объект располагается во внутренности первого\n\n\nST_Covers\n\\(\\lambda_2 \\subset \\lambda_1\\)\nвторой объект располагается в первом\n\n\n\n\n\n\n\n\n\nНо разница проявляется в области границы\n\n\n\n\n\n\n\nЧтобы найти линию, целиком совпадающую с границей полигона, нужно использовать сочетание ST_Covers и ST_Touches. Такая линия не располагается внутри полигона (ST_Contains и ST_ContainsProperly дадут ложь), но при этом покрывается им (ST_Covers даст истину) и касается его (ST_Touches так же даст истину)."
+    "text": "Contains, ContainsProperly, Covers\nДанные топологические отношения различаются следующим образом:\n\n\n\n\n\n\n\n\nФункция\nМножества\nПояснение\n\n\n\n\nST_Contains\n\\(\\lambda_2^\\circ \\subset \\lambda_1^\\circ\\)\nвнутренность второго объекта располагается во внутренности первого\n\n\nST_ContainsProperly\n\\(\\lambda_2 \\subset \\lambda_1^\\circ\\)\nвторой объект располагается во внутренности первого\n\n\nST_Covers\n\\(\\lambda_2 \\subset \\lambda_1\\)\nвторой объект располагается в первом\n\n\n\n\n\n\n\n\n\nНо разница проявляется в области границы\n\n\n\n\n\n\nЧтобы найти линию, целиком совпадающую с границей полигона, нужно использовать сочетание ST_Covers и ST_Touches. Такая линия не располагается внутри полигона (ST_Contains и ST_ContainsProperly дадут ложь), но при этом покрывается им (ST_Covers даст истину) и касается его (ST_Touches так же даст истину)."
   },
   {
     "objectID": "adv_06_Topology.html#свойства-бинарных-отношений",
@@ -6270,13 +6305,6 @@
     "title": "Геометрические операции — II",
     "section": "Алгоритм Бентли-Оттмана",
     "text": "Алгоритм Бентли-Оттмана\nОпределяет пересечения для множества отрезков методом сканирующей линии (Bentley и Ottmann 1979).\nВходные данные\n\\(n\\) отрезков \\(s_i = \\overline{q_i r_i},~i = 0...n-1\\)\nВыходные данные\nМножество \\(R = \\{(x, y, i, j)\\}\\) кортежей пересечений между парами отрезков, где \\(x,y\\) — координаты точки пересечения, \\(i, j\\) — номера (идентификаторы) отрезков\nНачальная инициализация\n\nотсортировать \\(2n\\) конечных точек по возрастанию координаты \\(X\\) и наполнить ими \\(E\\);\n\\(L = \\varnothing\\);\n\\(R = \\varnothing\\)."
-  },
-  {
-    "objectID": "adv_08_Geometry-2.html#алгоритм-бентли-оттмана-sacristán2022",
-    "href": "adv_08_Geometry-2.html#алгоритм-бентли-оттмана-sacristán2022",
-    "title": "Геометрические операции — II",
-    "section": "Алгоритм Бентли-Оттмана (Sacristán 2022)",
-    "text": "Алгоритм Бентли-Оттмана (Sacristán 2022)\nПока \\(E \\neq \\varnothing\\), выполнять в цикле:\n\n\\(p = \\min E\\)\nЕсли \\(p = \\textrm{start}(s)\\):\n\n\\(L = L \\cup s\\)\n\\(r = s^- \\cap s\\). Если \\(r \\neq \\varnothing \\land r &gt;_x p\\), то \\(E = E \\cup r\\), \\(R = R \\cup r\\). Тоже для \\(s^+\\) и \\(s\\)\n\nЕсли \\(p = \\textrm{end}(s)\\):\n\n\\(r = s^- \\cap s^+\\). Если \\(r\\neq \\varnothing \\land r &gt;_x p\\) то \\(E = E \\cup r\\), \\(R = R \\cup r\\).\n\\(L = L~\\backslash~s\\)\n\nЕсли \\(p = s_1 \\cap s_2\\) при \\(s_1 &lt;_L s_2\\):\n\n\\(r = s_1^- \\cap s_2\\). Если \\(r \\neq \\varnothing \\land r &gt;_x p\\) то \\(E = E \\cup r\\), \\(R = R \\cup r\\). Тоже для \\(s_2^+\\) и \\(s_1\\)\nПоменять местами \\(s_1\\) и \\(s_2\\) в \\(L\\)\n\n\\(E = E~\\backslash~p\\)."
   },
   {
     "objectID": "adv_08_Geometry-2.html#алгоритм-бентли-оттмана-симуляция",
@@ -6832,6 +6860,13 @@
     "text": "Алгоритм Бентли-Оттмана (симуляция)"
   },
   {
+    "objectID": "adv_08_Geometry-2.html#алгоритм-бентли-оттмана-sacristán2022",
+    "href": "adv_08_Geometry-2.html#алгоритм-бентли-оттмана-sacristán2022",
+    "title": "Геометрические операции — II",
+    "section": "Алгоритм Бентли-Оттмана (Sacristán 2022)",
+    "text": "Алгоритм Бентли-Оттмана (Sacristán 2022)\nПока \\(E \\neq \\varnothing\\), выполнять в цикле:\n\n\\(p = \\min E\\)\nЕсли \\(p = \\textrm{start}(s)\\):\n\n\\(L = L \\cup s\\)\n\\(r = s^- \\cap s\\). Если \\(r \\neq \\varnothing \\land r &gt;_x p\\), то \\(E = E \\cup r\\), \\(R = R \\cup r\\). Тоже для \\(s^+\\) и \\(s\\)\n\nЕсли \\(p = \\textrm{end}(s)\\):\n\n\\(r = s^- \\cap s^+\\). Если \\(r\\neq \\varnothing \\land r &gt;_x p\\) то \\(E = E \\cup r\\), \\(R = R \\cup r\\).\n\\(L = L~\\backslash~s\\)\n\nЕсли \\(p = s_1 \\cap s_2\\) при \\(s_1 &lt;_L s_2\\):\n\n\\(r = s_1^- \\cap s_2\\). Если \\(r \\neq \\varnothing \\land r &gt;_x p\\) то \\(E = E \\cup r\\), \\(R = R \\cup r\\). Тоже для \\(s_2^+\\) и \\(s_1\\)\nПоменять местами \\(s_1\\) и \\(s_2\\) в \\(L\\)\n\n\\(E = E~\\backslash~p\\)."
+  },
+  {
     "objectID": "adv_08_Geometry-2.html#алгоритм-бентли-оттмана-свойства",
     "href": "adv_08_Geometry-2.html#алгоритм-бентли-оттмана-свойства",
     "title": "Геометрические операции — II",
@@ -7082,75 +7117,5 @@
     "title": "Лекции",
     "section": "12 Геоинформационные технологии",
     "text": "12 Геоинформационные технологии\n\n\n\nОткрыть в отдельной вкладке браузера."
-  },
-  {
-    "objectID": "adv_04_CRS.html",
-    "href": "adv_04_CRS.html",
-    "title": "Координатные системы отсчета",
-    "section": "",
-    "text": "flowchart LR\n  A(Система отсчета) --&gt; B(Пространственная)\n  A --&gt; C(Временная)\n  B --&gt; D(Географические идентификаторы)\n  B --&gt; E(Координатная)\n  B --&gt; F(Параметрическая координатная)\n  C --&gt; G(Координатная)\n  C --&gt; H(Порядковая)\n  C --&gt; I(Календари)\n  E --&gt; J(Координатная)\n  F --&gt; J\n  G --&gt; J"
-  },
-  {
-    "objectID": "adv_02_Features.html",
-    "href": "adv_02_Features.html",
-    "title": "Модель OGC Simple Features",
-    "section": "",
-    "text": "Simple Features — стандарт OGC (2010), который определяет общую модель хранения и доступа к простым (векторным) объектам.\n\nвсе геометрии состоят из точек;\nвсе точки в геометрии имеют одинаковую размерность;\nразмерность точек может быть 2, 3 или 4.\n\nВ дополнение к обязательным измерениям \\(X\\) и \\(Y\\) возможны:\n\n\\(Z\\), обозначающее высоту\n\\(M\\), обозначающее некоторую меру — например, время\n\nСуществует 4 варианта координат: \\(XY\\), \\(XYZ\\), \\(XYM\\) и \\(XYZM\\).\nВ географических координатах \\(X\\) — долгота, \\(Y\\) — широта."
-  },
-  {
-    "objectID": "adv_03_WKT_WKB.html",
-    "href": "adv_03_WKT_WKB.html",
-    "title": "WKT и WKB",
-    "section": "",
-    "text": "Well-Known Text (WKT) — формальный язык описания геометрий, который используется для\n\nсоздания новых экземпляров геометрии;\nконвертации экземпляров в алфавитно-цифровую текстовую форму для отображения и сериализации.\n\n\n\n\n\n\n\nСериализация\n\n\n\nПреобразование состояния объекта в форму, пригодную для сохранения или передачи. Обратный процесс называется десериализацией.\n\n\nWKT используется для описания не только геометрий, но также пространственных систем отсчета.\nWKT является регистронезависимым: POINT, Point и point — это одно и то же."
-  },
-  {
-    "objectID": "adv_06_Topology.html",
-    "href": "adv_06_Topology.html",
-    "title": "Топологические отношения",
-    "section": "",
-    "text": "Модели топологических отношений разработаны в первой половине 90-х гг. ХХ в.:\n\nМодель 4 пересечений 4IM (Max J. Egenhofer и Franzosa 1991).\nМодель 9 пересечений 9IM (Max J. Egenhofer 1991; Max J. Egenhofer и Herring 1991).\nМодель 4 пересечений с размерностью DE-4IM (Clementini, Di Felice, и van Oosterom 1993).\nАналитическая модель CBM (Clementini, Di Felice, и van Oosterom 1993).\nМодель 9 пересечений с размерностью DE-9IM (Clementini и Di Felice 1995).\n\nНаибольший вклад внесли два ученых:\n\nMax Egenhofer (University of Maine, USA)\nEliseo Clementini (University of L’Aquila, Italy)"
-  },
-  {
-    "objectID": "01_Geoinformation.html#государственные-стандарты",
-    "href": "01_Geoinformation.html#государственные-стандарты",
-    "title": "Географическая информация",
-    "section": "Государственные стандарты",
-    "text": "Государственные стандарты"
-  },
-  {
-    "objectID": "01_Geoinformation.html#технический-комитет-394",
-    "href": "01_Geoinformation.html#технический-комитет-394",
-    "title": "Географическая информация",
-    "section": "Технический комитет 394",
-    "text": "Технический комитет 394\nЗанимается разработкой отечественных, а также адаптацией международных стандартов в области геоинформатики"
-  },
-  {
-    "objectID": "03_Georeferencing.html",
-    "href": "03_Georeferencing.html",
-    "title": "Пространственная привязка и создание объектов",
-    "section": "",
-    "text": "Пространственная привязка (ГОСТ Р 70316-2022 (ИСО 19112:2019) 2022)\n\nОписание позиции в реальном мире.\n\n\nПространственная привязка может быть осуществлена двумя основными способами:\n\nс использованием координат;\nпосредством географических идентификаторов.\n\n\n\n\n\n\n\nКоординатная система отсчета\n\n\n\nПри использовании привязки по координатам необходимо описание координатно системы отсчета."
-  },
-  {
-    "objectID": "04_Databases.html",
-    "href": "04_Databases.html",
-    "title": "Базы пространственных данных",
-    "section": "",
-    "text": "Пространственный объект (ГОСТ Р 52438-2005 2018)\n\nЦифровая модель материального или абстрактного объекта реального или виртуального мира с указанием его идентификатора, координатных и атрибутивных данных.\n\n\n\n\n\n\n\n\n\n\n\n\n\nБаза пространственных данных\n\n\n\nЗадача базы пространственных данных — организовать хранение пространственных объектов так чтобы их можно было использовать для решения задач."
-  },
-  {
-    "objectID": "05_Vector.html#пример-запроса-длины-и-площади",
-    "href": "05_Vector.html#пример-запроса-длины-и-площади",
-    "title": "Векторный анализ",
-    "section": "Пример запроса длины и площади",
-    "text": "Пример запроса длины и площади\nПри щелчке инструментом идентификации  на объекте в QGIS площадь и периметр выводятся автоматически в разделе Derived"
-  },
-  {
-    "objectID": "05_Vector.html#пример-использования",
-    "href": "05_Vector.html#пример-использования",
-    "title": "Векторный анализ",
-    "section": "Пример использования",
-    "text": "Пример использования\nВыпуклая оболочка может быть использована для построения приблизительных ареалов распространения"
   }
 ]
