@@ -78,6 +78,47 @@ mainfont: PT Sans
 
 ![](images/qgis.png){width="100%"}
 
+## Популярные векторные форматы
+
+| № | Название | Расширение | Разработчики | Появление |
+|----|----|----|----|----|
+| 1 | ArcInfo Interchange | `.e00` | ESRI | 1982 |
+| 2 | MIF/MID | `.mif`, `.mid` | MapInfo Corp | 1987 |
+| 3 | Shapefile | `.shp`, `.shx`, `.dbf`, `.prj` | ESRI | 1994 |
+| 4 | Geodatabase | `.gdb` | ESRI | 1999 |
+| 5 | GeoPackage | `.gpkg` | OGC | 2014 |
+| 6 | FlatGeobuf | `.fgb` | Björn Harrtell | 2018 |
+| 7 | GeoParquet | `.parquet` | Cloud Native Geospatial | 2023 |
+
+## Популярные растровые форматы
+
+| №   | Название    | Расширение     | Разработчики            | Появление |
+|-----|-------------|----------------|-------------------------|-----------|
+| 1   | Esri Grid   | `.adf`, `.asc` | ESRI                    | 1982      |
+| 2   | Surfer Grid | `.grd`         | Golden Software         | 1985      |
+| 3   | netCDF      | `.nc`          | Unidata / UCAR          | 1988      |
+| 4   | IMG         | `.img`         | Erdas Inc.              | 1990      |
+| 5   | MrSID       | `.sid`         | Jonathan Bradley / LANL | 1992      |
+| 6   | GeoTIFF     | `.tif`         | Niles Ritter / NASA JPL | 1994      |
+| 7   | ECW         | `.ecw`         | ER Mapper               | 1998      |
+| 8   | JPEG2000    | `.jp2`         | JPEG                    | 2001      |
+
+## Настольные ГИС
+
+![QGIS](images/clipboard-1681084200.png){fig-align="left"}
+
+## Облачные ГИС
+
+[![NextGIS Web](images/clipboard-1807472129.png){fig-alt="https://docs.nextgis.ru/_images/webgis_flood_ru.png" fig-align="left"}](https://nextgis.ru/nextgis-web/)
+
+## Мобильные ГИС
+
+[![NextGIS Mobile](images/clipboard-3389621579.png){fig-alt="https://nextgis.ru/wp-content/uploads/2025/04/mobile-hero.png" fig-align="left" width="80%"}](https://nextgis.ru/nextgis-mobile/)
+
+## Вычислительные ГИС
+
+![RStudio](images/clipboard-3765514635.png){fig-align="left"}
+
 ## Применение
 
 Геоинформационные технологии применяются в отраслях и организациях, которые связаны с *управлением территориально рассредоточенными ресурсами*.
@@ -167,10 +208,6 @@ mainfont: PT Sans
 ## Геомаркетинг
 
 ![](images/geomarketing_1.png){width="100%"}
-
-## Геомаркетинг
-
-![](images/geomarketing_2.png){width="100%"}
 
 ## Геомаркетинг
 
