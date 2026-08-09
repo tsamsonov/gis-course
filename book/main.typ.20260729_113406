@@ -1,0 +1,11 @@
+#import "template.typ": project
+
+// Apply custom template layout metadata
+#show: project.with(
+  title: "Основы геоинформатики",
+  author: "Т. Е. Самсонов"
+)
+
+// Include individual chapter files sequentially
+#include "01_Geoinformation.typ"
+#pagebreak()
